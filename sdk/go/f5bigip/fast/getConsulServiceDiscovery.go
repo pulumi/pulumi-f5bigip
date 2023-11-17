@@ -51,28 +51,28 @@ func GetConsulServiceDiscovery(ctx *pulumi.Context, args *GetConsulServiceDiscov
 
 // A collection of arguments for invoking getConsulServiceDiscovery.
 type GetConsulServiceDiscoveryArgs struct {
-	// Specifies whether to look for public or private IP addresses,default `private`.
+	// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
 	AddressRealm *string `pulumi:"addressRealm"`
-	// Specifies whether you are updating your credentials,default `false`.
+	// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
 	CredentialUpdate *bool `pulumi:"credentialUpdate"`
-	// Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+	// (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
 	EncodedToken *string `pulumi:"encodedToken"`
-	// Custom JMESPath Query.
+	// (`optional`,type `string`)Custom JMESPath Query.
 	JmesPathQuery *string `pulumi:"jmesPathQuery"`
-	// Member is down when fewer than minimum monitors report it healthy.
+	// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
 	MinimumMonitors *string `pulumi:"minimumMonitors"`
-	// Port to be used for AWS service discovery,default `80`.
+	// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
 	Port int `pulumi:"port"`
-	// If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+	// (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
 	RejectUnauthorized *bool `pulumi:"rejectUnauthorized"`
-	// CA Bundle to validate server certificates.
+	// (`optional`,type `string`)CA Bundle to validate server certificates.
 	TrustCa *string `pulumi:"trustCa"`
 	Type    *string `pulumi:"type"`
-	// Action to take when node cannot be detected,default `remove`.
+	// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
 	UndetectableAction *string `pulumi:"undetectableAction"`
-	// Update interval for service discovery.
+	// (`optional`,type `string`)Update interval for service discovery.
 	UpdateInterval *string `pulumi:"updateInterval"`
-	// The location of the node data.
+	// (`Required`,type `string`) The location of the node data.
 	Uri string `pulumi:"uri"`
 }
 
@@ -111,28 +111,28 @@ func GetConsulServiceDiscoveryOutput(ctx *pulumi.Context, args GetConsulServiceD
 
 // A collection of arguments for invoking getConsulServiceDiscovery.
 type GetConsulServiceDiscoveryOutputArgs struct {
-	// Specifies whether to look for public or private IP addresses,default `private`.
+	// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
 	AddressRealm pulumi.StringPtrInput `pulumi:"addressRealm"`
-	// Specifies whether you are updating your credentials,default `false`.
+	// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
 	CredentialUpdate pulumi.BoolPtrInput `pulumi:"credentialUpdate"`
-	// Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+	// (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
 	EncodedToken pulumi.StringPtrInput `pulumi:"encodedToken"`
-	// Custom JMESPath Query.
+	// (`optional`,type `string`)Custom JMESPath Query.
 	JmesPathQuery pulumi.StringPtrInput `pulumi:"jmesPathQuery"`
-	// Member is down when fewer than minimum monitors report it healthy.
+	// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
 	MinimumMonitors pulumi.StringPtrInput `pulumi:"minimumMonitors"`
-	// Port to be used for AWS service discovery,default `80`.
+	// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
 	Port pulumi.IntInput `pulumi:"port"`
-	// If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+	// (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
 	RejectUnauthorized pulumi.BoolPtrInput `pulumi:"rejectUnauthorized"`
-	// CA Bundle to validate server certificates.
+	// (`optional`,type `string`)CA Bundle to validate server certificates.
 	TrustCa pulumi.StringPtrInput `pulumi:"trustCa"`
 	Type    pulumi.StringPtrInput `pulumi:"type"`
-	// Action to take when node cannot be detected,default `remove`.
+	// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
 	UndetectableAction pulumi.StringPtrInput `pulumi:"undetectableAction"`
-	// Update interval for service discovery.
+	// (`optional`,type `string`)Update interval for service discovery.
 	UpdateInterval pulumi.StringPtrInput `pulumi:"updateInterval"`
-	// The location of the node data.
+	// (`Required`,type `string`) The location of the node data.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 

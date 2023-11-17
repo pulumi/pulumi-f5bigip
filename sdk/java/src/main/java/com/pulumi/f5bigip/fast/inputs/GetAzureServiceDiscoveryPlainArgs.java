@@ -17,14 +17,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     public static final GetAzureServiceDiscoveryPlainArgs Empty = new GetAzureServiceDiscoveryPlainArgs();
 
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     @Import(name="addressRealm")
     private @Nullable String addressRealm;
 
     /**
-     * @return Specifies whether to look for public or private IP addresses,default `private`.
+     * @return (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     public Optional<String> addressRealm() {
@@ -32,14 +32,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     @Import(name="credentialUpdate")
     private @Nullable Boolean credentialUpdate;
 
     /**
-     * @return Specifies whether you are updating your credentials,default `false`.
+     * @return (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     public Optional<Boolean> credentialUpdate() {
@@ -47,14 +47,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     @Import(name="minimumMonitors")
     private @Nullable String minimumMonitors;
 
     /**
-     * @return Member is down when fewer than minimum monitors report it healthy.
+     * @return (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     public Optional<String> minimumMonitors() {
@@ -62,14 +62,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Port to be used for Azure service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
      * 
      */
     @Import(name="port")
     private @Nullable Integer port;
 
     /**
-     * @return Port to be used for Azure service discovery,default `80`.
+     * @return (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
      * 
      */
     public Optional<Integer> port() {
@@ -77,14 +77,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Azure Resource Group name.
+     * (`Required`,type `string`) Azure Resource Group name.
      * 
      */
     @Import(name="resourceGroup", required=true)
     private String resourceGroup;
 
     /**
-     * @return Azure Resource Group name.
+     * @return (`Required`,type `string`) Azure Resource Group name.
      * 
      */
     public String resourceGroup() {
@@ -92,14 +92,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Azure subscription ID.
+     * (`Required`,type `string`) Azure subscription ID.
      * 
      */
     @Import(name="subscriptionId", required=true)
     private String subscriptionId;
 
     /**
-     * @return Azure subscription ID.
+     * @return (`Required`,type `string`) Azure subscription ID.
      * 
      */
     public String subscriptionId() {
@@ -107,14 +107,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     @Import(name="tagKey")
     private @Nullable String tagKey;
 
     /**
-     * @return The tag key associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     public Optional<String> tagKey() {
@@ -122,14 +122,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     @Import(name="tagValue")
     private @Nullable String tagValue;
 
     /**
-     * @return The tag value associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     public Optional<String> tagValue() {
@@ -144,14 +144,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     @Import(name="undetectableAction")
     private @Nullable String undetectableAction;
 
     /**
-     * @return Action to take when node cannot be detected,default `remove`.
+     * @return (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     public Optional<String> undetectableAction() {
@@ -159,14 +159,14 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
     }
 
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     @Import(name="updateInterval")
     private @Nullable String updateInterval;
 
     /**
-     * @return Update interval for service discovery.
+     * @return (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     public Optional<String> updateInterval() {
@@ -208,7 +208,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param addressRealm Specifies whether to look for public or private IP addresses,default `private`.
+         * @param addressRealm (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param credentialUpdate Specifies whether you are updating your credentials,default `false`.
+         * @param credentialUpdate (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param minimumMonitors Member is down when fewer than minimum monitors report it healthy.
+         * @param minimumMonitors (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param port Port to be used for Azure service discovery,default `80`.
+         * @param port (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param resourceGroup Azure Resource Group name.
+         * @param resourceGroup (`Required`,type `string`) Azure Resource Group name.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param subscriptionId Azure subscription ID.
+         * @param subscriptionId (`Required`,type `string`) Azure subscription ID.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tagKey The tag key associated with the node to add to this pool.
+         * @param tagKey (`Required`,type `string`) The tag key associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tagValue The tag value associated with the node to add to this pool.
+         * @param tagValue (`Required`,type `string`) The tag value associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param undetectableAction Action to take when node cannot be detected,default `remove`.
+         * @param undetectableAction (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class GetAzureServiceDiscoveryPlainArgs extends com.pulumi.resource
         }
 
         /**
-         * @param updateInterval Update interval for service discovery.
+         * @param updateInterval (`optional`,type `string`)Update interval for service discovery.
          * 
          * @return builder
          * 

@@ -191,17 +191,17 @@ def get_consul_service_discovery(address_realm: Optional[str] = None,
     ```
 
 
-    :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
-    :param bool credential_update: Specifies whether you are updating your credentials,default `false`.
-    :param str encoded_token: Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
-    :param str jmes_path_query: Custom JMESPath Query.
-    :param str minimum_monitors: Member is down when fewer than minimum monitors report it healthy.
-    :param int port: Port to be used for AWS service discovery,default `80`.
-    :param bool reject_unauthorized: If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
-    :param str trust_ca: CA Bundle to validate server certificates.
-    :param str undetectable_action: Action to take when node cannot be detected,default `remove`.
-    :param str update_interval: Update interval for service discovery.
-    :param str uri: The location of the node data.
+    :param str address_realm: (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
+    :param bool credential_update: (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
+    :param str encoded_token: (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+    :param str jmes_path_query: (`optional`,type `string`)Custom JMESPath Query.
+    :param str minimum_monitors: (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
+    :param int port: (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
+    :param bool reject_unauthorized: (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+    :param str trust_ca: (`optional`,type `string`)CA Bundle to validate server certificates.
+    :param str undetectable_action: (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
+    :param str update_interval: (`optional`,type `string`)Update interval for service discovery.
+    :param str uri: (`Required`,type `string`) The location of the node data.
     """
     __args__ = dict()
     __args__['addressRealm'] = address_realm
@@ -264,16 +264,16 @@ def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Opt
     ```
 
 
-    :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
-    :param bool credential_update: Specifies whether you are updating your credentials,default `false`.
-    :param str encoded_token: Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
-    :param str jmes_path_query: Custom JMESPath Query.
-    :param str minimum_monitors: Member is down when fewer than minimum monitors report it healthy.
-    :param int port: Port to be used for AWS service discovery,default `80`.
-    :param bool reject_unauthorized: If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
-    :param str trust_ca: CA Bundle to validate server certificates.
-    :param str undetectable_action: Action to take when node cannot be detected,default `remove`.
-    :param str update_interval: Update interval for service discovery.
-    :param str uri: The location of the node data.
+    :param str address_realm: (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
+    :param bool credential_update: (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
+    :param str encoded_token: (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+    :param str jmes_path_query: (`optional`,type `string`)Custom JMESPath Query.
+    :param str minimum_monitors: (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
+    :param int port: (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
+    :param bool reject_unauthorized: (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+    :param str trust_ca: (`optional`,type `string`)CA Bundle to validate server certificates.
+    :param str undetectable_action: (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
+    :param str update_interval: (`optional`,type `string`)Update interval for service discovery.
+    :param str uri: (`Required`,type `string`) The location of the node data.
     """
     ...

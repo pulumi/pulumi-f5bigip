@@ -54,8 +54,6 @@ type FastApplication struct {
 	pulumi.CustomResourceState
 
 	// A FAST application name.
-	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
 	Application pulumi.StringOutput `pulumi:"application"`
 	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
 	FastJson pulumi.StringOutput `pulumi:"fastJson"`
@@ -99,8 +97,6 @@ func GetFastApplication(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FastApplication resources.
 type fastApplicationState struct {
 	// A FAST application name.
-	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
 	Application *string `pulumi:"application"`
 	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
 	FastJson *string `pulumi:"fastJson"`
@@ -112,8 +108,6 @@ type fastApplicationState struct {
 
 type FastApplicationState struct {
 	// A FAST application name.
-	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
 	Application pulumi.StringPtrInput
 	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
 	FastJson pulumi.StringPtrInput
@@ -230,8 +224,6 @@ func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Co
 }
 
 // A FAST application name.
-//
-// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
 func (o FastApplicationOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }

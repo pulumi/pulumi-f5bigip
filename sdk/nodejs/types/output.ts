@@ -261,7 +261,7 @@ export interface FastUdpAppVirtualServer {
 
 export interface WafPolicyFileType {
     /**
-     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
      * * No allowed file type matched the file type of the request.
      * * The file type of the request matched a disallowed file type.
      */
@@ -282,7 +282,7 @@ export interface WafPolicyGraphqlProfile {
      */
     attackSignaturesCheck?: boolean;
     /**
-     * `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * block settings for GraphQl policy.See defense attributes below for more details.
      */
     defenseAttributes?: outputs.WafPolicyGraphqlProfileDefenseAttribute[];
     /**
@@ -685,6 +685,9 @@ export namespace ltm {
         clonePool: string;
         code: number;
         compress: boolean;
+        /**
+         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+         */
         connection?: boolean;
         content: string;
         cookieHash: boolean;
@@ -702,6 +705,9 @@ export namespace ltm {
         expression: string;
         extension: string;
         facility: string;
+        /**
+         * This action will affect forwarding.
+         */
         forward?: boolean;
         fromProfile: string;
         hash: boolean;
@@ -736,6 +742,9 @@ export namespace ltm {
         persist: boolean;
         pin: boolean;
         policy: string;
+        /**
+         * This action will direct the stream to this pool.
+         */
         pool: string;
         port: number;
         priority: string;

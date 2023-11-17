@@ -107,7 +107,7 @@ type Monitor struct {
 	ManualResume pulumi.StringOutput `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringOutput `pulumi:"mode"`
-	// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+	// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parent monitor for the system to use for setting initial values for the new monitor.
 	Parent pulumi.StringOutput `pulumi:"parent"`
@@ -200,7 +200,7 @@ type monitorState struct {
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode *string `pulumi:"mode"`
-	// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+	// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 	Name *string `pulumi:"name"`
 	// Parent monitor for the system to use for setting initial values for the new monitor.
 	Parent *string `pulumi:"parent"`
@@ -251,7 +251,7 @@ type MonitorState struct {
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringPtrInput
-	// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+	// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 	Name pulumi.StringPtrInput
 	// Parent monitor for the system to use for setting initial values for the new monitor.
 	Parent pulumi.StringPtrInput
@@ -306,7 +306,7 @@ type monitorArgs struct {
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode *string `pulumi:"mode"`
-	// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+	// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 	Name string `pulumi:"name"`
 	// Parent monitor for the system to use for setting initial values for the new monitor.
 	Parent string `pulumi:"parent"`
@@ -358,7 +358,7 @@ type MonitorArgs struct {
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringPtrInput
-	// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+	// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 	Name pulumi.StringInput
 	// Parent monitor for the system to use for setting initial values for the new monitor.
 	Parent pulumi.StringInput
@@ -528,7 +528,7 @@ func (o MonitorOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
 func (o MonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

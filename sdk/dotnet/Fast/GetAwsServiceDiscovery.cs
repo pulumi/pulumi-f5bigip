@@ -74,7 +74,7 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetAwsServiceDiscoveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
         /// </summary>
         [Input("addressRealm")]
         public string? AddressRealm { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.F5BigIP.Fast
         private string? _awsAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
         /// </summary>
         public string? AwsAccessKey
         {
@@ -92,7 +92,7 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// AWS region in which ADC is running,default Empty string.
+        /// (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
         /// </summary>
         [Input("awsRegion")]
         public string? AwsRegion { get; set; }
@@ -101,7 +101,7 @@ namespace Pulumi.F5BigIP.Fast
         private string? _awsSecretAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
         /// </summary>
         public string? AwsSecretAccessKey
         {
@@ -110,43 +110,43 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
         /// </summary>
         [Input("credentialUpdate")]
         public bool? CredentialUpdate { get; set; }
 
         /// <summary>
-        /// AWS externalID field.
+        /// (`optional`,type `string`)AWS externalID field.
         /// </summary>
         [Input("externalId")]
         public string? ExternalId { get; set; }
 
         /// <summary>
-        /// Member is down when fewer than minimum monitors report it healthy.
+        /// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
         /// </summary>
         [Input("minimumMonitors")]
         public string? MinimumMonitors { get; set; }
 
         /// <summary>
-        /// Port to be used for AWS service discovery,default `80`.
+        /// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
         /// </summary>
         [Input("port")]
         public int? Port { get; set; }
 
         /// <summary>
-        /// Assume a role (also requires the `external_id` field)
+        /// (`optional`,type `string`) Assume a role (also requires the `external_id` field)
         /// </summary>
         [Input("roleArn")]
         public string? RoleArn { get; set; }
 
         /// <summary>
-        /// The tag key associated with the node to add to this pool.
+        /// (`Required`,type `string`) The tag key associated with the node to add to this pool.
         /// </summary>
         [Input("tagKey", required: true)]
         public string TagKey { get; set; } = null!;
 
         /// <summary>
-        /// The tag value associated with the node to add to this pool.
+        /// (`Required`,type `string`) The tag value associated with the node to add to this pool.
         /// </summary>
         [Input("tagValue", required: true)]
         public string TagValue { get; set; } = null!;
@@ -155,13 +155,13 @@ namespace Pulumi.F5BigIP.Fast
         public string? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
         /// </summary>
         [Input("undetectableAction")]
         public string? UndetectableAction { get; set; }
 
         /// <summary>
-        /// Update interval for service discovery.
+        /// (`optional`,type `string`)Update interval for service discovery.
         /// </summary>
         [Input("updateInterval")]
         public string? UpdateInterval { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetAwsServiceDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
         /// </summary>
         [Input("addressRealm")]
         public Input<string>? AddressRealm { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.F5BigIP.Fast
         private Input<string>? _awsAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
         /// </summary>
         public Input<string>? AwsAccessKey
         {
@@ -197,7 +197,7 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// AWS region in which ADC is running,default Empty string.
+        /// (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
         /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.F5BigIP.Fast
         private Input<string>? _awsSecretAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
         /// </summary>
         public Input<string>? AwsSecretAccessKey
         {
@@ -219,43 +219,43 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
         /// </summary>
         [Input("credentialUpdate")]
         public Input<bool>? CredentialUpdate { get; set; }
 
         /// <summary>
-        /// AWS externalID field.
+        /// (`optional`,type `string`)AWS externalID field.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// Member is down when fewer than minimum monitors report it healthy.
+        /// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
         /// </summary>
         [Input("minimumMonitors")]
         public Input<string>? MinimumMonitors { get; set; }
 
         /// <summary>
-        /// Port to be used for AWS service discovery,default `80`.
+        /// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Assume a role (also requires the `external_id` field)
+        /// (`optional`,type `string`) Assume a role (also requires the `external_id` field)
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The tag key associated with the node to add to this pool.
+        /// (`Required`,type `string`) The tag key associated with the node to add to this pool.
         /// </summary>
         [Input("tagKey", required: true)]
         public Input<string> TagKey { get; set; } = null!;
 
         /// <summary>
-        /// The tag value associated with the node to add to this pool.
+        /// (`Required`,type `string`) The tag value associated with the node to add to this pool.
         /// </summary>
         [Input("tagValue", required: true)]
         public Input<string> TagValue { get; set; } = null!;
@@ -264,13 +264,13 @@ namespace Pulumi.F5BigIP.Fast
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
         /// </summary>
         [Input("undetectableAction")]
         public Input<string>? UndetectableAction { get; set; }
 
         /// <summary>
-        /// Update interval for service discovery.
+        /// (`optional`,type `string`)Update interval for service discovery.
         /// </summary>
         [Input("updateInterval")]
         public Input<string>? UpdateInterval { get; set; }

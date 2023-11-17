@@ -118,12 +118,12 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly enforcementMode!: pulumi.Output<string | undefined>;
     /**
-     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
     public readonly fileTypes!: pulumi.Output<outputs.WafPolicyFileType[] | undefined>;
     /**
-     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
     public readonly graphqlProfiles!: pulumi.Output<outputs.WafPolicyGraphqlProfile[] | undefined>;
@@ -132,7 +132,7 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly hostNames!: pulumi.Output<outputs.WafPolicyHostName[] | undefined>;
     /**
-     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
     public readonly ipExceptions!: pulumi.Output<outputs.WafPolicyIpException[] | undefined>;
@@ -159,7 +159,7 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly partition!: pulumi.Output<string | undefined>;
     /**
-     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
     public readonly policyBuilders!: pulumi.Output<outputs.WafPolicyPolicyBuilder[] | undefined>;
@@ -318,12 +318,12 @@ export interface WafPolicyState {
      */
     enforcementMode?: pulumi.Input<string>;
     /**
-     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
     fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
     /**
-     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
     graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
@@ -332,7 +332,7 @@ export interface WafPolicyState {
      */
     hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
     /**
-     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
     ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
@@ -359,7 +359,7 @@ export interface WafPolicyState {
      */
     partition?: pulumi.Input<string>;
     /**
-     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
     policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
@@ -438,12 +438,12 @@ export interface WafPolicyArgs {
      */
     enforcementMode?: pulumi.Input<string>;
     /**
-     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
     fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
     /**
-     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
     graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
@@ -452,7 +452,7 @@ export interface WafPolicyArgs {
      */
     hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
     /**
-     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
     ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
@@ -479,7 +479,7 @@ export interface WafPolicyArgs {
      */
     partition?: pulumi.Input<string>;
     /**
-     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
     policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;

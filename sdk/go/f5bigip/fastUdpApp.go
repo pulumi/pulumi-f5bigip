@@ -79,14 +79,14 @@ type FastUdpApp struct {
 	Irules pulumi.StringArrayOutput `pulumi:"irules"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrOutput `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastUdpAppMonitorPtrOutput `pulumi:"monitor"`
 	// Name of an existing BIG-IP persistence profile to be used.
 	PersistenceProfile pulumi.StringPtrOutput `pulumi:"persistenceProfile"`
 	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
 	PersistenceType pulumi.StringPtrOutput `pulumi:"persistenceType"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastUdpAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// Existing security log profiles to enable.
@@ -97,7 +97,7 @@ type FastUdpApp struct {
 	SnatPoolAddresses pulumi.StringArrayOutput `pulumi:"snatPoolAddresses"`
 	// Name of the FAST UDP application tenant.
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastUdpAppVirtualServerPtrOutput `pulumi:"virtualServer"`
 	// Names of existing VLANs to allow.
@@ -162,14 +162,14 @@ type fastUdpAppState struct {
 	Irules []string `pulumi:"irules"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastUdpAppMonitor `pulumi:"monitor"`
 	// Name of an existing BIG-IP persistence profile to be used.
 	PersistenceProfile *string `pulumi:"persistenceProfile"`
 	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
 	PersistenceType *string `pulumi:"persistenceType"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastUdpAppPoolMember `pulumi:"poolMembers"`
 	// Existing security log profiles to enable.
@@ -180,7 +180,7 @@ type fastUdpAppState struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST UDP application tenant.
 	Tenant *string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastUdpAppVirtualServer `pulumi:"virtualServer"`
 	// Names of existing VLANs to allow.
@@ -210,14 +210,14 @@ type FastUdpAppState struct {
 	Irules pulumi.StringArrayInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastUdpAppMonitorPtrInput
 	// Name of an existing BIG-IP persistence profile to be used.
 	PersistenceProfile pulumi.StringPtrInput
 	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
 	PersistenceType pulumi.StringPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastUdpAppPoolMemberArrayInput
 	// Existing security log profiles to enable.
@@ -228,7 +228,7 @@ type FastUdpAppState struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST UDP application tenant.
 	Tenant pulumi.StringPtrInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastUdpAppVirtualServerPtrInput
 	// Names of existing VLANs to allow.
@@ -260,14 +260,14 @@ type fastUdpAppArgs struct {
 	Irules []string `pulumi:"irules"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastUdpAppMonitor `pulumi:"monitor"`
 	// Name of an existing BIG-IP persistence profile to be used.
 	PersistenceProfile *string `pulumi:"persistenceProfile"`
 	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
 	PersistenceType *string `pulumi:"persistenceType"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastUdpAppPoolMember `pulumi:"poolMembers"`
 	// Existing security log profiles to enable.
@@ -278,7 +278,7 @@ type fastUdpAppArgs struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST UDP application tenant.
 	Tenant string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastUdpAppVirtualServer `pulumi:"virtualServer"`
 	// Names of existing VLANs to allow.
@@ -307,14 +307,14 @@ type FastUdpAppArgs struct {
 	Irules pulumi.StringArrayInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastUdpAppMonitorPtrInput
 	// Name of an existing BIG-IP persistence profile to be used.
 	PersistenceProfile pulumi.StringPtrInput
 	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
 	PersistenceType pulumi.StringPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastUdpAppPoolMemberArrayInput
 	// Existing security log profiles to enable.
@@ -325,7 +325,7 @@ type FastUdpAppArgs struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST UDP application tenant.
 	Tenant pulumi.StringInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastUdpAppVirtualServerPtrInput
 	// Names of existing VLANs to allow.
@@ -471,7 +471,7 @@ func (o FastUdpAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastUdpApp) pulumi.StringPtrOutput { return v.LoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
-// `monitor` block takes input for FAST-Generated Pool Monitor.
+// block takes input for FAST-Generated Pool Monitor.
 // See Pool Monitor below for more details.
 func (o FastUdpAppOutput) Monitor() FastUdpAppMonitorPtrOutput {
 	return o.ApplyT(func(v *FastUdpApp) FastUdpAppMonitorPtrOutput { return v.Monitor }).(FastUdpAppMonitorPtrOutput)
@@ -487,7 +487,7 @@ func (o FastUdpAppOutput) PersistenceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastUdpApp) pulumi.StringPtrOutput { return v.PersistenceType }).(pulumi.StringPtrOutput)
 }
 
-// `poolMembers` block takes input for FAST-Generated Pool.
+// block takes input for FAST-Generated Pool.
 // See Pool Members below for more details.
 func (o FastUdpAppOutput) PoolMembers() FastUdpAppPoolMemberArrayOutput {
 	return o.ApplyT(func(v *FastUdpApp) FastUdpAppPoolMemberArrayOutput { return v.PoolMembers }).(FastUdpAppPoolMemberArrayOutput)
@@ -513,7 +513,7 @@ func (o FastUdpAppOutput) Tenant() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastUdpApp) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
 }
 
-// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+// block will provide `ip` and `port` options to be used for virtual server.
 // See virtual server below for more details.
 func (o FastUdpAppOutput) VirtualServer() FastUdpAppVirtualServerPtrOutput {
 	return o.ApplyT(func(v *FastUdpApp) FastUdpAppVirtualServerPtrOutput { return v.VirtualServer }).(FastUdpAppVirtualServerPtrOutput)

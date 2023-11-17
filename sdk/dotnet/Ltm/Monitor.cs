@@ -144,7 +144,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        /// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        /// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -500,7 +500,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        /// ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

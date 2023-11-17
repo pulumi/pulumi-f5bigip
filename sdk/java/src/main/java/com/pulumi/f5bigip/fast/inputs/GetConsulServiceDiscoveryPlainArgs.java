@@ -17,14 +17,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     public static final GetConsulServiceDiscoveryPlainArgs Empty = new GetConsulServiceDiscoveryPlainArgs();
 
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     @Import(name="addressRealm")
     private @Nullable String addressRealm;
 
     /**
-     * @return Specifies whether to look for public or private IP addresses,default `private`.
+     * @return (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     public Optional<String> addressRealm() {
@@ -32,14 +32,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     @Import(name="credentialUpdate")
     private @Nullable Boolean credentialUpdate;
 
     /**
-     * @return Specifies whether you are updating your credentials,default `false`.
+     * @return (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     public Optional<Boolean> credentialUpdate() {
@@ -47,14 +47,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+     * (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
      * 
      */
     @Import(name="encodedToken")
     private @Nullable String encodedToken;
 
     /**
-     * @return Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+     * @return (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
      * 
      */
     public Optional<String> encodedToken() {
@@ -62,14 +62,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Custom JMESPath Query.
+     * (`optional`,type `string`)Custom JMESPath Query.
      * 
      */
     @Import(name="jmesPathQuery")
     private @Nullable String jmesPathQuery;
 
     /**
-     * @return Custom JMESPath Query.
+     * @return (`optional`,type `string`)Custom JMESPath Query.
      * 
      */
     public Optional<String> jmesPathQuery() {
@@ -77,14 +77,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     @Import(name="minimumMonitors")
     private @Nullable String minimumMonitors;
 
     /**
-     * @return Member is down when fewer than minimum monitors report it healthy.
+     * @return (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     public Optional<String> minimumMonitors() {
@@ -92,14 +92,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     @Import(name="port", required=true)
     private Integer port;
 
     /**
-     * @return Port to be used for AWS service discovery,default `80`.
+     * @return (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     public Integer port() {
@@ -107,14 +107,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+     * (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
      * 
      */
     @Import(name="rejectUnauthorized")
     private @Nullable Boolean rejectUnauthorized;
 
     /**
-     * @return If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+     * @return (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
      * 
      */
     public Optional<Boolean> rejectUnauthorized() {
@@ -122,14 +122,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * CA Bundle to validate server certificates.
+     * (`optional`,type `string`)CA Bundle to validate server certificates.
      * 
      */
     @Import(name="trustCa")
     private @Nullable String trustCa;
 
     /**
-     * @return CA Bundle to validate server certificates.
+     * @return (`optional`,type `string`)CA Bundle to validate server certificates.
      * 
      */
     public Optional<String> trustCa() {
@@ -144,14 +144,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     @Import(name="undetectableAction")
     private @Nullable String undetectableAction;
 
     /**
-     * @return Action to take when node cannot be detected,default `remove`.
+     * @return (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     public Optional<String> undetectableAction() {
@@ -159,14 +159,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     @Import(name="updateInterval")
     private @Nullable String updateInterval;
 
     /**
-     * @return Update interval for service discovery.
+     * @return (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     public Optional<String> updateInterval() {
@@ -174,14 +174,14 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * The location of the node data.
+     * (`Required`,type `string`) The location of the node data.
      * 
      */
     @Import(name="uri", required=true)
     private String uri;
 
     /**
-     * @return The location of the node data.
+     * @return (`Required`,type `string`) The location of the node data.
      * 
      */
     public String uri() {
@@ -224,7 +224,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param addressRealm Specifies whether to look for public or private IP addresses,default `private`.
+         * @param addressRealm (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param credentialUpdate Specifies whether you are updating your credentials,default `false`.
+         * @param credentialUpdate (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param encodedToken Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+         * @param encodedToken (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param jmesPathQuery Custom JMESPath Query.
+         * @param jmesPathQuery (`optional`,type `string`)Custom JMESPath Query.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param minimumMonitors Member is down when fewer than minimum monitors report it healthy.
+         * @param minimumMonitors (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port Port to be used for AWS service discovery,default `80`.
+         * @param port (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param rejectUnauthorized If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+         * @param rejectUnauthorized (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param trustCa CA Bundle to validate server certificates.
+         * @param trustCa (`optional`,type `string`)CA Bundle to validate server certificates.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param undetectableAction Action to take when node cannot be detected,default `remove`.
+         * @param undetectableAction (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param updateInterval Update interval for service discovery.
+         * @param updateInterval (`optional`,type `string`)Update interval for service discovery.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param uri The location of the node data.
+         * @param uri (`Required`,type `string`) The location of the node data.
          * 
          * @return builder
          * 

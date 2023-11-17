@@ -182,14 +182,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+     * ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+     * @return ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      * 
      */
     public Output<String> name() {
@@ -655,7 +655,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+         * @param name ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+         * @param name ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
          * 
          * @return builder
          * 

@@ -34,14 +34,14 @@ public final class GetWafEntityUrlPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Specifies an HTTP method.
+     * Select a Method for the URL to create an API endpoint. Default is : *.
      * 
      */
     @Import(name="method")
     private @Nullable String method;
 
     /**
-     * @return Specifies an HTTP method.
+     * @return Select a Method for the URL to create an API endpoint. Default is : *.
      * 
      */
     public Optional<String> method() {
@@ -181,7 +181,7 @@ public final class GetWafEntityUrlPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param method Specifies an HTTP method.
+         * @param method Select a Method for the URL to create an API endpoint. Default is : *.
          * 
          * @return builder
          * 

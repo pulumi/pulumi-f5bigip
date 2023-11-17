@@ -71,10 +71,10 @@ type FastTcpApp struct {
 	FastTcpJson pulumi.StringOutput `pulumi:"fastTcpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrOutput `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastTcpAppMonitorPtrOutput `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastTcpAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -83,7 +83,7 @@ type FastTcpApp struct {
 	SnatPoolAddresses pulumi.StringArrayOutput `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastTcpAppVirtualServerPtrOutput `pulumi:"virtualServer"`
 }
@@ -136,10 +136,10 @@ type fastTcpAppState struct {
 	FastTcpJson *string `pulumi:"fastTcpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastTcpAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastTcpAppPoolMember `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -148,7 +148,7 @@ type fastTcpAppState struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant *string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastTcpAppVirtualServer `pulumi:"virtualServer"`
 }
@@ -166,10 +166,10 @@ type FastTcpAppState struct {
 	FastTcpJson pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastTcpAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastTcpAppPoolMemberArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -178,7 +178,7 @@ type FastTcpAppState struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringPtrInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastTcpAppVirtualServerPtrInput
 }
@@ -198,10 +198,10 @@ type fastTcpAppArgs struct {
 	ExistingSnatPool *string `pulumi:"existingSnatPool"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastTcpAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastTcpAppPoolMember `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -210,7 +210,7 @@ type fastTcpAppArgs struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastTcpAppVirtualServer `pulumi:"virtualServer"`
 }
@@ -227,10 +227,10 @@ type FastTcpAppArgs struct {
 	ExistingSnatPool pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastTcpAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastTcpAppPoolMemberArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -239,7 +239,7 @@ type FastTcpAppArgs struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastTcpAppVirtualServerPtrInput
 }
@@ -361,13 +361,13 @@ func (o FastTcpAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.LoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
-// `monitor` block takes input for FAST-Generated Pool Monitor.
+// block takes input for FAST-Generated Pool Monitor.
 // See Pool Monitor below for more details.
 func (o FastTcpAppOutput) Monitor() FastTcpAppMonitorPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) FastTcpAppMonitorPtrOutput { return v.Monitor }).(FastTcpAppMonitorPtrOutput)
 }
 
-// `poolMembers` block takes input for FAST-Generated Pool.
+// block takes input for FAST-Generated Pool.
 // See Pool Members below for more details.
 func (o FastTcpAppOutput) PoolMembers() FastTcpAppPoolMemberArrayOutput {
 	return o.ApplyT(func(v *FastTcpApp) FastTcpAppPoolMemberArrayOutput { return v.PoolMembers }).(FastTcpAppPoolMemberArrayOutput)
@@ -388,7 +388,7 @@ func (o FastTcpAppOutput) Tenant() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
 }
 
-// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+// block will provide `ip` and `port` options to be used for virtual server.
 // See virtual server below for more details.
 func (o FastTcpAppOutput) VirtualServer() FastTcpAppVirtualServerPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) FastTcpAppVirtualServerPtrOutput { return v.VirtualServer }).(FastTcpAppVirtualServerPtrOutput)

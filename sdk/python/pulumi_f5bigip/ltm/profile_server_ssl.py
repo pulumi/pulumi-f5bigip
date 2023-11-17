@@ -74,34 +74,9 @@ class ProfileServerSslArgs:
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-               
-               * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-               
-               * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-               
-               basic-constraints
-               Basic constraints are used to indicate whether the certificate belongs
-               to a CA.
-               
-               extended-key-usage
-               Extended Key Usage is used, typically on a leaf certificate, to
-               indicate the purpose of the public key contained in the certificate.
-               
-               key-usage
-               Key Usage provides a bitmap specifying the cryptographic operations
-               which may be performed using the public key contained in the
-               certificate; for example, it could indicate that the key should be
-               used for signature but not for encipherment.
-               
-               subject-alternative-name
-               Subject Alternative Name allows identities to be bound to the subject
-               of the certificate. These identities may be included in addition to
-               or in place of the identity in the subject field of the certificate.
-               
-               * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
         :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
@@ -319,10 +294,6 @@ class ProfileServerSslArgs:
     def c3d_ca_key(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-
-        * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-
-        * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         """
         return pulumi.get(self, "c3d_ca_key")
 
@@ -359,27 +330,6 @@ class ProfileServerSslArgs:
     def c3d_cert_extension_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-
-        basic-constraints
-        Basic constraints are used to indicate whether the certificate belongs
-        to a CA.
-
-        extended-key-usage
-        Extended Key Usage is used, typically on a leaf certificate, to
-        indicate the purpose of the public key contained in the certificate.
-
-        key-usage
-        Key Usage provides a bitmap specifying the cryptographic operations
-        which may be performed using the public key contained in the
-        certificate; for example, it could indicate that the key should be
-        used for signature but not for encipherment.
-
-        subject-alternative-name
-        Subject Alternative Name allows identities to be bound to the subject
-        of the certificate. These identities may be included in addition to
-        or in place of the identity in the subject field of the certificate.
-
-        * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         """
         return pulumi.get(self, "c3d_cert_extension_includes")
 
@@ -960,34 +910,9 @@ class _ProfileServerSslState:
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-               
-               * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-               
-               * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-               
-               basic-constraints
-               Basic constraints are used to indicate whether the certificate belongs
-               to a CA.
-               
-               extended-key-usage
-               Extended Key Usage is used, typically on a leaf certificate, to
-               indicate the purpose of the public key contained in the certificate.
-               
-               key-usage
-               Key Usage provides a bitmap specifying the cryptographic operations
-               which may be performed using the public key contained in the
-               certificate; for example, it could indicate that the key should be
-               used for signature but not for encipherment.
-               
-               subject-alternative-name
-               Subject Alternative Name allows identities to be bound to the subject
-               of the certificate. These identities may be included in addition to
-               or in place of the identity in the subject field of the certificate.
-               
-               * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
         :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
@@ -1195,10 +1120,6 @@ class _ProfileServerSslState:
     def c3d_ca_key(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-
-        * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-
-        * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         """
         return pulumi.get(self, "c3d_ca_key")
 
@@ -1235,27 +1156,6 @@ class _ProfileServerSslState:
     def c3d_cert_extension_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-
-        basic-constraints
-        Basic constraints are used to indicate whether the certificate belongs
-        to a CA.
-
-        extended-key-usage
-        Extended Key Usage is used, typically on a leaf certificate, to
-        indicate the purpose of the public key contained in the certificate.
-
-        key-usage
-        Key Usage provides a bitmap specifying the cryptographic operations
-        which may be performed using the public key contained in the
-        certificate; for example, it could indicate that the key should be
-        used for signature but not for encipherment.
-
-        subject-alternative-name
-        Subject Alternative Name allows identities to be bound to the subject
-        of the certificate. These identities may be included in addition to
-        or in place of the identity in the subject field of the certificate.
-
-        * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         """
         return pulumi.get(self, "c3d_cert_extension_includes")
 
@@ -1869,34 +1769,9 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-               
-               * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-               
-               * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-               
-               basic-constraints
-               Basic constraints are used to indicate whether the certificate belongs
-               to a CA.
-               
-               extended-key-usage
-               Extended Key Usage is used, typically on a leaf certificate, to
-               indicate the purpose of the public key contained in the certificate.
-               
-               key-usage
-               Key Usage provides a bitmap specifying the cryptographic operations
-               which may be performed using the public key contained in the
-               certificate; for example, it could indicate that the key should be
-               used for signature but not for encipherment.
-               
-               subject-alternative-name
-               Subject Alternative Name allows identities to be bound to the subject
-               of the certificate. These identities may be included in addition to
-               or in place of the identity in the subject field of the certificate.
-               
-               * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
         :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
@@ -2175,34 +2050,9 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-               
-               * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-               
-               * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
         :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-               
-               basic-constraints
-               Basic constraints are used to indicate whether the certificate belongs
-               to a CA.
-               
-               extended-key-usage
-               Extended Key Usage is used, typically on a leaf certificate, to
-               indicate the purpose of the public key contained in the certificate.
-               
-               key-usage
-               Key Usage provides a bitmap specifying the cryptographic operations
-               which may be performed using the public key contained in the
-               certificate; for example, it could indicate that the key should be
-               used for signature but not for encipherment.
-               
-               subject-alternative-name
-               Subject Alternative Name allows identities to be bound to the subject
-               of the certificate. These identities may be included in addition to
-               or in place of the identity in the subject field of the certificate.
-               
-               * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
         :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
@@ -2348,10 +2198,6 @@ class ProfileServerSsl(pulumi.CustomResource):
     def c3d_ca_key(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
-
-        * `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.
-
-        * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         """
         return pulumi.get(self, "c3d_ca_key")
 
@@ -2376,27 +2222,6 @@ class ProfileServerSsl(pulumi.CustomResource):
     def c3d_cert_extension_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
-
-        basic-constraints
-        Basic constraints are used to indicate whether the certificate belongs
-        to a CA.
-
-        extended-key-usage
-        Extended Key Usage is used, typically on a leaf certificate, to
-        indicate the purpose of the public key contained in the certificate.
-
-        key-usage
-        Key Usage provides a bitmap specifying the cryptographic operations
-        which may be performed using the public key contained in the
-        certificate; for example, it could indicate that the key should be
-        used for signature but not for encipherment.
-
-        subject-alternative-name
-        Subject Alternative Name allows identities to be bound to the subject
-        of the certificate. These identities may be included in addition to
-        or in place of the identity in the subject field of the certificate.
-
-        * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
         """
         return pulumi.get(self, "c3d_cert_extension_includes")
 

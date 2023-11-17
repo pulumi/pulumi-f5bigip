@@ -18,7 +18,8 @@ type Do struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrOutput `pulumi:"bigipAddress"`
-	// Password of BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipPassword pulumi.StringPtrOutput `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -85,7 +86,8 @@ type doState struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress *string `pulumi:"bigipAddress"`
-	// Password of BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipPassword *string `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -109,7 +111,8 @@ type DoState struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrInput
-	// Password of BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipPassword pulumi.StringPtrInput
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -137,7 +140,8 @@ type doArgs struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress *string `pulumi:"bigipAddress"`
-	// Password of BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipPassword *string `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -162,7 +166,8 @@ type DoArgs struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrInput
-	// Password of BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipPassword pulumi.StringPtrInput
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -275,7 +280,8 @@ func (o DoOutput) BigipAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipAddress }).(pulumi.StringPtrOutput)
 }
 
-// Password of BIGIP host to be used for this resource
+// Password of  BIGIP host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
 func (o DoOutput) BigipPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipPassword }).(pulumi.StringPtrOutput)
 }

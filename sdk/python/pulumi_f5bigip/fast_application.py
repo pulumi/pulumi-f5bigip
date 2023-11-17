@@ -60,10 +60,6 @@ class _FastApplicationState:
         """
         Input properties used for looking up and filtering FastApplication resources.
         :param pulumi.Input[str] application: A FAST application name.
-               
-               
-               
-               * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         :param pulumi.Input[str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         :param pulumi.Input[str] tenant: A FAST tenant name on which you want to manage application.
@@ -82,10 +78,6 @@ class _FastApplicationState:
     def application(self) -> Optional[pulumi.Input[str]]:
         """
         A FAST application name.
-
-
-
-        * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         """
         return pulumi.get(self, "application")
 
@@ -231,10 +223,6 @@ class FastApplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: A FAST application name.
-               
-               
-               
-               * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         :param pulumi.Input[str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         :param pulumi.Input[str] tenant: A FAST tenant name on which you want to manage application.
@@ -254,10 +242,6 @@ class FastApplication(pulumi.CustomResource):
     def application(self) -> pulumi.Output[str]:
         """
         A FAST application name.
-
-
-
-        * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         """
         return pulumi.get(self, "application")
 

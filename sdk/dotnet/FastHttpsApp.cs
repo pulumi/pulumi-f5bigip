@@ -158,14 +158,14 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.FastHttpsAppMonitor?> Monitor { get; private set; } = null!;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         [Output("poolMembers")]
@@ -202,7 +202,7 @@ namespace Pulumi.F5BigIP
         public Output<string> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -211,7 +211,7 @@ namespace Pulumi.F5BigIP
         public Output<Outputs.FastHttpsAppTlsClientProfile?> TlsClientProfile { get; private set; } = null!;
 
         /// <summary>
-        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -220,14 +220,14 @@ namespace Pulumi.F5BigIP
         public Output<Outputs.FastHttpsAppTlsServerProfile?> TlsServerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Output("virtualServer")]
         public Output<Outputs.FastHttpsAppVirtualServer?> VirtualServer { get; private set; } = null!;
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Output("wafSecurityPolicy")]
@@ -340,7 +340,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -350,7 +350,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastHttpsAppPoolMemberArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastHttpsAppPoolMemberArgs> PoolMembers
@@ -408,7 +408,7 @@ namespace Pulumi.F5BigIP
         public Input<string> Tenant { get; set; } = null!;
 
         /// <summary>
-        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -417,7 +417,7 @@ namespace Pulumi.F5BigIP
         public Input<Inputs.FastHttpsAppTlsClientProfileArgs>? TlsClientProfile { get; set; }
 
         /// <summary>
-        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -426,14 +426,14 @@ namespace Pulumi.F5BigIP
         public Input<Inputs.FastHttpsAppTlsServerProfileArgs>? TlsServerProfile { get; set; }
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpsAppVirtualServerArgs>? VirtualServer { get; set; }
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Input("wafSecurityPolicy")]
@@ -514,7 +514,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -524,7 +524,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastHttpsAppPoolMemberGetArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastHttpsAppPoolMemberGetArgs> PoolMembers
@@ -582,7 +582,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -591,7 +591,7 @@ namespace Pulumi.F5BigIP
         public Input<Inputs.FastHttpsAppTlsClientProfileGetArgs>? TlsClientProfile { get; set; }
 
         /// <summary>
-        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
         /// 
         /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -600,14 +600,14 @@ namespace Pulumi.F5BigIP
         public Input<Inputs.FastHttpsAppTlsServerProfileGetArgs>? TlsServerProfile { get; set; }
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpsAppVirtualServerGetArgs>? VirtualServer { get; set; }
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Input("wafSecurityPolicy")]

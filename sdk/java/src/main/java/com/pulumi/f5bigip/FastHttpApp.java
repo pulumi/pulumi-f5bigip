@@ -239,7 +239,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancingMode);
     }
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -247,7 +247,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpAppMonitor> monitor;
 
     /**
-     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * @return block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -255,7 +255,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitor);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -263,7 +263,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output<List<FastHttpAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -341,7 +341,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -349,7 +349,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -357,7 +357,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualServer);
     }
     /**
-     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -365,7 +365,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpAppWafSecurityPolicy> wafSecurityPolicy;
 
     /**
-     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * @return block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */

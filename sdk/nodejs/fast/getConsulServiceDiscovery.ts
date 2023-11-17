@@ -43,48 +43,48 @@ export function getConsulServiceDiscovery(args: GetConsulServiceDiscoveryArgs, o
  */
 export interface GetConsulServiceDiscoveryArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: string;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: boolean;
     /**
-     * Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+     * (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
      */
     encodedToken?: string;
     /**
-     * Custom JMESPath Query.
+     * (`optional`,type `string`)Custom JMESPath Query.
      */
     jmesPathQuery?: string;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: string;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port: number;
     /**
-     * If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+     * (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
      */
     rejectUnauthorized?: boolean;
     /**
-     * CA Bundle to validate server certificates.
+     * (`optional`,type `string`)CA Bundle to validate server certificates.
      */
     trustCa?: string;
     type?: string;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: string;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: string;
     /**
-     * The location of the node data.
+     * (`Required`,type `string`) The location of the node data.
      */
     uri: string;
 }
@@ -138,48 +138,48 @@ export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryO
  */
 export interface GetConsulServiceDiscoveryOutputArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: pulumi.Input<string>;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: pulumi.Input<boolean>;
     /**
-     * Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+     * (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
      */
     encodedToken?: pulumi.Input<string>;
     /**
-     * Custom JMESPath Query.
+     * (`optional`,type `string`)Custom JMESPath Query.
      */
     jmesPathQuery?: pulumi.Input<string>;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: pulumi.Input<string>;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port: pulumi.Input<number>;
     /**
-     * If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+     * (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
      */
     rejectUnauthorized?: pulumi.Input<boolean>;
     /**
-     * CA Bundle to validate server certificates.
+     * (`optional`,type `string`)CA Bundle to validate server certificates.
      */
     trustCa?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: pulumi.Input<string>;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: pulumi.Input<string>;
     /**
-     * The location of the node data.
+     * (`Required`,type `string`) The location of the node data.
      */
     uri: pulumi.Input<string>;
 }

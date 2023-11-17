@@ -93,35 +93,35 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * @return Specifies descriptive text that identifies the ltm policy.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of Rule to be applied in policy.
+     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
      * @deprecated
      * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
@@ -132,7 +132,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> publishedCopy;
 
     /**
-     * @return If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * @return (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
      */
     public Output<Optional<String>> publishedCopy() {

@@ -33,16 +33,6 @@ class BigIqAs3Args:
         :param pulumi.Input[str] bigiq_port: type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
-               
-               * `bigiq_example.json` - Example  AS3 Declarative JSON file
-               
-               ```python
-               import pulumi
-               ```
-               
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-               
-               >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         pulumi.set(__self__, "as3_json", as3_json)
@@ -149,16 +139,6 @@ class BigIqAs3Args:
     def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to `true`
-
-        * `bigiq_example.json` - Example  AS3 Declarative JSON file
-
-        ```python
-        import pulumi
-        ```
-
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-
-        >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -201,16 +181,6 @@ class _BigIqAs3State:
         :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
-               
-               * `bigiq_example.json` - Example  AS3 Declarative JSON file
-               
-               ```python
-               import pulumi
-               ```
-               
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-               
-               >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         if as3_json is not None:
@@ -321,16 +291,6 @@ class _BigIqAs3State:
     def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to `true`
-
-        * `bigiq_example.json` - Example  AS3 Declarative JSON file
-
-        ```python
-        import pulumi
-        ```
-
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-
-        >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -395,16 +355,6 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
-               
-               * `bigiq_example.json` - Example  AS3 Declarative JSON file
-               
-               ```python
-               import pulumi
-               ```
-               
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-               
-               >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         ...
@@ -518,16 +468,6 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
-               
-               * `bigiq_example.json` - Example  AS3 Declarative JSON file
-               
-               ```python
-               import pulumi
-               ```
-               
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-               
-               >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -606,16 +546,6 @@ class BigIqAs3(pulumi.CustomResource):
     def ignore_metadata(self) -> pulumi.Output[Optional[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to `true`
-
-        * `bigiq_example.json` - Example  AS3 Declarative JSON file
-
-        ```python
-        import pulumi
-        ```
-
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-
-        >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """
         return pulumi.get(self, "ignore_metadata")
 

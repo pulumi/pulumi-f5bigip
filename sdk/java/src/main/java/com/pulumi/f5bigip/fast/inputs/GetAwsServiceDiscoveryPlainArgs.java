@@ -17,14 +17,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     public static final GetAwsServiceDiscoveryPlainArgs Empty = new GetAwsServiceDiscoveryPlainArgs();
 
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     @Import(name="addressRealm")
     private @Nullable String addressRealm;
 
     /**
-     * @return Specifies whether to look for public or private IP addresses,default `private`.
+     * @return (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     public Optional<String> addressRealm() {
@@ -32,14 +32,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
      * 
      */
     @Import(name="awsAccessKey")
     private @Nullable String awsAccessKey;
 
     /**
-     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * @return (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
      * 
      */
     public Optional<String> awsAccessKey() {
@@ -47,14 +47,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * AWS region in which ADC is running,default Empty string.
+     * (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
      * 
      */
     @Import(name="awsRegion")
     private @Nullable String awsRegion;
 
     /**
-     * @return AWS region in which ADC is running,default Empty string.
+     * @return (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
      * 
      */
     public Optional<String> awsRegion() {
@@ -62,14 +62,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
      * 
      */
     @Import(name="awsSecretAccessKey")
     private @Nullable String awsSecretAccessKey;
 
     /**
-     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * @return (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
      * 
      */
     public Optional<String> awsSecretAccessKey() {
@@ -77,14 +77,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     @Import(name="credentialUpdate")
     private @Nullable Boolean credentialUpdate;
 
     /**
-     * @return Specifies whether you are updating your credentials,default `false`.
+     * @return (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     public Optional<Boolean> credentialUpdate() {
@@ -92,14 +92,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * AWS externalID field.
+     * (`optional`,type `string`)AWS externalID field.
      * 
      */
     @Import(name="externalId")
     private @Nullable String externalId;
 
     /**
-     * @return AWS externalID field.
+     * @return (`optional`,type `string`)AWS externalID field.
      * 
      */
     public Optional<String> externalId() {
@@ -107,14 +107,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     @Import(name="minimumMonitors")
     private @Nullable String minimumMonitors;
 
     /**
-     * @return Member is down when fewer than minimum monitors report it healthy.
+     * @return (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     public Optional<String> minimumMonitors() {
@@ -122,14 +122,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     @Import(name="port")
     private @Nullable Integer port;
 
     /**
-     * @return Port to be used for AWS service discovery,default `80`.
+     * @return (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     public Optional<Integer> port() {
@@ -137,14 +137,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Assume a role (also requires the `external_id` field)
+     * (`optional`,type `string`) Assume a role (also requires the `external_id` field)
      * 
      */
     @Import(name="roleArn")
     private @Nullable String roleArn;
 
     /**
-     * @return Assume a role (also requires the `external_id` field)
+     * @return (`optional`,type `string`) Assume a role (also requires the `external_id` field)
      * 
      */
     public Optional<String> roleArn() {
@@ -152,14 +152,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     @Import(name="tagKey", required=true)
     private String tagKey;
 
     /**
-     * @return The tag key associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     public String tagKey() {
@@ -167,14 +167,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     @Import(name="tagValue", required=true)
     private String tagValue;
 
     /**
-     * @return The tag value associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     public String tagValue() {
@@ -189,14 +189,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     @Import(name="undetectableAction")
     private @Nullable String undetectableAction;
 
     /**
-     * @return Action to take when node cannot be detected,default `remove`.
+     * @return (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     public Optional<String> undetectableAction() {
@@ -204,14 +204,14 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     @Import(name="updateInterval")
     private @Nullable String updateInterval;
 
     /**
-     * @return Update interval for service discovery.
+     * @return (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     public Optional<String> updateInterval() {
@@ -256,7 +256,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param addressRealm Specifies whether to look for public or private IP addresses,default `private`.
+         * @param addressRealm (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param awsAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsAccessKey (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param awsRegion AWS region in which ADC is running,default Empty string.
+         * @param awsRegion (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param awsSecretAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsSecretAccessKey (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param credentialUpdate Specifies whether you are updating your credentials,default `false`.
+         * @param credentialUpdate (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param externalId AWS externalID field.
+         * @param externalId (`optional`,type `string`)AWS externalID field.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param minimumMonitors Member is down when fewer than minimum monitors report it healthy.
+         * @param minimumMonitors (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param port Port to be used for AWS service discovery,default `80`.
+         * @param port (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param roleArn Assume a role (also requires the `external_id` field)
+         * @param roleArn (`optional`,type `string`) Assume a role (also requires the `external_id` field)
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tagKey The tag key associated with the node to add to this pool.
+         * @param tagKey (`Required`,type `string`) The tag key associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tagValue The tag value associated with the node to add to this pool.
+         * @param tagValue (`Required`,type `string`) The tag value associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param undetectableAction Action to take when node cannot be detected,default `remove`.
+         * @param undetectableAction (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class GetAwsServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param updateInterval Update interval for service discovery.
+         * @param updateInterval (`optional`,type `string`)Update interval for service discovery.
          * 
          * @return builder
          * 

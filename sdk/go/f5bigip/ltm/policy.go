@@ -76,11 +76,11 @@ type Policy struct {
 
 	// Specifies the controls
 	Controls pulumi.StringArrayOutput `pulumi:"controls"`
-	// Specifies descriptive text that identifies the irule attached to policy.
+	// Specifies descriptive text that identifies the ltm policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Name of Rule to be applied in policy.
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 	//
 	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrOutput `pulumi:"publishedCopy"`
@@ -127,11 +127,11 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Specifies descriptive text that identifies the irule attached to policy.
+	// Specifies descriptive text that identifies the ltm policy.
 	Description *string `pulumi:"description"`
-	// Name of Rule to be applied in policy.
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name *string `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 	//
 	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy *string `pulumi:"publishedCopy"`
@@ -146,11 +146,11 @@ type policyState struct {
 type PolicyState struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Specifies descriptive text that identifies the irule attached to policy.
+	// Specifies descriptive text that identifies the ltm policy.
 	Description pulumi.StringPtrInput
-	// Name of Rule to be applied in policy.
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringPtrInput
-	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 	//
 	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrInput
@@ -169,11 +169,11 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Specifies descriptive text that identifies the irule attached to policy.
+	// Specifies descriptive text that identifies the ltm policy.
 	Description *string `pulumi:"description"`
-	// Name of Rule to be applied in policy.
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name string `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 	//
 	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy *string `pulumi:"publishedCopy"`
@@ -189,11 +189,11 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Specifies descriptive text that identifies the irule attached to policy.
+	// Specifies descriptive text that identifies the ltm policy.
 	Description pulumi.StringPtrInput
-	// Name of Rule to be applied in policy.
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringInput
-	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 	//
 	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrInput
@@ -297,17 +297,17 @@ func (o PolicyOutput) Controls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Controls }).(pulumi.StringArrayOutput)
 }
 
-// Specifies descriptive text that identifies the irule attached to policy.
+// Specifies descriptive text that identifies the ltm policy.
 func (o PolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Name of Rule to be applied in policy.
+// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
 //
 // Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 func (o PolicyOutput) PublishedCopy() pulumi.StringPtrOutput {

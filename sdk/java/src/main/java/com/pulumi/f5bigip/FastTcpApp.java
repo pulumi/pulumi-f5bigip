@@ -156,7 +156,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancingMode);
     }
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -164,7 +164,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastTcpAppMonitor> monitor;
 
     /**
-     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * @return block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -172,7 +172,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitor);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -180,7 +180,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<FastTcpAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -230,7 +230,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -238,7 +238,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastTcpAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */

@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP.Inputs
         private InputList<Inputs.WafPolicyGraphqlProfileDefenseAttributeArgs>? _defenseAttributes;
 
         /// <summary>
-        /// `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        /// block settings for GraphQl policy.See defense attributes below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyGraphqlProfileDefenseAttributeArgs> DefenseAttributes
         {

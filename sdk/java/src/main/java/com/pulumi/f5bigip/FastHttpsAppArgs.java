@@ -159,7 +159,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -167,7 +167,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpsAppMonitorArgs> monitor;
 
     /**
-     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * @return block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -176,7 +176,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -184,7 +184,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FastHttpsAppPoolMemberArgs>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -268,7 +268,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -278,7 +278,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpsAppTlsClientProfileArgs> tlsClientProfile;
 
     /**
-     * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * @return block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -289,7 +289,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -299,7 +299,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpsAppTlsServerProfileArgs> tlsServerProfile;
 
     /**
-     * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * @return block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -310,7 +310,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -318,7 +318,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpsAppVirtualServerArgs> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -327,7 +327,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -335,7 +335,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpsAppWafSecurityPolicyArgs> wafSecurityPolicy;
 
     /**
-     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * @return block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -586,7 +586,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * @param monitor block takes input for FAST-Generated Pool Monitor.
          * See Pool Monitor below for more details.
          * 
          * @return builder
@@ -598,7 +598,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * @param monitor block takes input for FAST-Generated Pool Monitor.
          * See Pool Monitor below for more details.
          * 
          * @return builder
@@ -609,7 +609,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -621,7 +621,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -632,7 +632,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -778,7 +778,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+         * @param tlsClientProfile block takes input for FAST-Generated TLS client Profile.
          * See TLS Client Profile below for more details.
          * 
          * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -792,7 +792,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+         * @param tlsClientProfile block takes input for FAST-Generated TLS client Profile.
          * See TLS Client Profile below for more details.
          * 
          * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -805,7 +805,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+         * @param tlsServerProfile block takes input for FAST-Generated TLS Server Profile.
          * See TLS Server Profile below for more details.
          * 
          * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -819,7 +819,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+         * @param tlsServerProfile block takes input for FAST-Generated TLS Server Profile.
          * See TLS Server Profile below for more details.
          * 
          * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -832,7 +832,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -844,7 +844,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -855,7 +855,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * @param wafSecurityPolicy block takes input for FAST-Generated WAF Security Policy.
          * See WAF Security Policy below for more details.
          * 
          * @return builder
@@ -867,7 +867,7 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * @param wafSecurityPolicy block takes input for FAST-Generated WAF Security Policy.
          * See WAF Security Policy below for more details.
          * 
          * @return builder

@@ -44,7 +44,7 @@ export class DataGroup extends pulumi.CustomResource {
      */
     public readonly internal!: pulumi.Output<boolean | undefined>;
     /**
-     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+     * Name of the datagroup
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -107,7 +107,7 @@ export interface DataGroupState {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+     * Name of the datagroup
      */
     name?: pulumi.Input<string>;
     /**
@@ -134,7 +134,7 @@ export interface DataGroupArgs {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+     * Name of the datagroup
      */
     name: pulumi.Input<string>;
     /**

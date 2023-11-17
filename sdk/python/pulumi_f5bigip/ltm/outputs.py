@@ -375,6 +375,11 @@ class PolicyRuleAction(dict):
                  vlan_id: Optional[int] = None,
                  wam: Optional[bool] = None,
                  write: Optional[bool] = None):
+        """
+        :param bool connection: This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        :param bool forward: This action will affect forwarding.
+        :param str pool: This action will direct the stream to this pool.
+        """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
         if application is not None:
@@ -642,6 +647,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def connection(self) -> Optional[bool]:
+        """
+        This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        """
         return pulumi.get(self, "connection")
 
     @property
@@ -727,6 +735,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def forward(self) -> Optional[bool]:
+        """
+        This action will affect forwarding.
+        """
         return pulumi.get(self, "forward")
 
     @property
@@ -897,6 +908,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def pool(self) -> Optional[str]:
+        """
+        This action will direct the stream to this pool.
+        """
         return pulumi.get(self, "pool")
 
     @property

@@ -18,14 +18,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     public static final GetGceServiceDiscoveryArgs Empty = new GetGceServiceDiscoveryArgs();
 
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     @Import(name="addressRealm")
     private @Nullable Output<String> addressRealm;
 
     /**
-     * @return Specifies whether to look for public or private IP addresses,default `private`.
+     * @return (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      * 
      */
     public Optional<Output<String>> addressRealm() {
@@ -33,14 +33,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     @Import(name="credentialUpdate")
     private @Nullable Output<Boolean> credentialUpdate;
 
     /**
-     * @return Specifies whether you are updating your credentials,default `false`.
+     * @return (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      * 
      */
     public Optional<Output<Boolean>> credentialUpdate() {
@@ -48,14 +48,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Base 64 encoded service account credentials JSON.
+     * (`optional`,type `string`)Base 64 encoded service account credentials JSON.
      * 
      */
     @Import(name="encodedCredentials")
     private @Nullable Output<String> encodedCredentials;
 
     /**
-     * @return Base 64 encoded service account credentials JSON.
+     * @return (`optional`,type `string`)Base 64 encoded service account credentials JSON.
      * 
      */
     public Optional<Output<String>> encodedCredentials() {
@@ -63,14 +63,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     @Import(name="minimumMonitors")
     private @Nullable Output<String> minimumMonitors;
 
     /**
-     * @return Member is down when fewer than minimum monitors report it healthy.
+     * @return (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      * 
      */
     public Optional<Output<String>> minimumMonitors() {
@@ -78,14 +78,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port to be used for AWS service discovery,default `80`.
+     * @return (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -93,14 +93,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+     * (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
      * 
      */
     @Import(name="projectId")
     private @Nullable Output<String> projectId;
 
     /**
-     * @return For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+     * @return (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
      * 
      */
     public Optional<Output<String>> projectId() {
@@ -108,14 +108,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * GCE region in which ADC is running.
+     * (`Required`,type `string`) GCE region in which ADC is running.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return GCE region in which ADC is running.
+     * @return (`Required`,type `string`) GCE region in which ADC is running.
      * 
      */
     public Output<String> region() {
@@ -123,14 +123,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     @Import(name="tagKey", required=true)
     private Output<String> tagKey;
 
     /**
-     * @return The tag key associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag key associated with the node to add to this pool.
      * 
      */
     public Output<String> tagKey() {
@@ -138,14 +138,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     @Import(name="tagValue", required=true)
     private Output<String> tagValue;
 
     /**
-     * @return The tag value associated with the node to add to this pool.
+     * @return (`Required`,type `string`) The tag value associated with the node to add to this pool.
      * 
      */
     public Output<String> tagValue() {
@@ -160,14 +160,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     @Import(name="undetectableAction")
     private @Nullable Output<String> undetectableAction;
 
     /**
-     * @return Action to take when node cannot be detected,default `remove`.
+     * @return (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      * 
      */
     public Optional<Output<String>> undetectableAction() {
@@ -175,14 +175,14 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     @Import(name="updateInterval")
     private @Nullable Output<String> updateInterval;
 
     /**
-     * @return Update interval for service discovery.
+     * @return (`optional`,type `string`)Update interval for service discovery.
      * 
      */
     public Optional<Output<String>> updateInterval() {
@@ -225,7 +225,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param addressRealm Specifies whether to look for public or private IP addresses,default `private`.
+         * @param addressRealm (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param addressRealm Specifies whether to look for public or private IP addresses,default `private`.
+         * @param addressRealm (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param credentialUpdate Specifies whether you are updating your credentials,default `false`.
+         * @param credentialUpdate (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param credentialUpdate Specifies whether you are updating your credentials,default `false`.
+         * @param credentialUpdate (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param encodedCredentials Base 64 encoded service account credentials JSON.
+         * @param encodedCredentials (`optional`,type `string`)Base 64 encoded service account credentials JSON.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param encodedCredentials Base 64 encoded service account credentials JSON.
+         * @param encodedCredentials (`optional`,type `string`)Base 64 encoded service account credentials JSON.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param minimumMonitors Member is down when fewer than minimum monitors report it healthy.
+         * @param minimumMonitors (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param minimumMonitors Member is down when fewer than minimum monitors report it healthy.
+         * @param minimumMonitors (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param port Port to be used for AWS service discovery,default `80`.
+         * @param port (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param port Port to be used for AWS service discovery,default `80`.
+         * @param port (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param projectId For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+         * @param projectId (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param projectId For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+         * @param projectId (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param region GCE region in which ADC is running.
+         * @param region (`Required`,type `string`) GCE region in which ADC is running.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param region GCE region in which ADC is running.
+         * @param region (`Required`,type `string`) GCE region in which ADC is running.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tagKey The tag key associated with the node to add to this pool.
+         * @param tagKey (`Required`,type `string`) The tag key associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tagKey The tag key associated with the node to add to this pool.
+         * @param tagKey (`Required`,type `string`) The tag key associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tagValue The tag value associated with the node to add to this pool.
+         * @param tagValue (`Required`,type `string`) The tag value associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tagValue The tag value associated with the node to add to this pool.
+         * @param tagValue (`Required`,type `string`) The tag value associated with the node to add to this pool.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param undetectableAction Action to take when node cannot be detected,default `remove`.
+         * @param undetectableAction (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param undetectableAction Action to take when node cannot be detected,default `remove`.
+         * @param undetectableAction (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param updateInterval Update interval for service discovery.
+         * @param updateInterval (`optional`,type `string`)Update interval for service discovery.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class GetGceServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param updateInterval Update interval for service discovery.
+         * @param updateInterval (`optional`,type `string`)Update interval for service discovery.
          * 
          * @return builder
          * 

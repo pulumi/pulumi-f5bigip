@@ -37,10 +37,6 @@ namespace Pulumi.F5BigIP
     {
         /// <summary>
         /// A FAST application name.
-        /// 
-        /// 
-        /// 
-        /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
@@ -131,10 +127,6 @@ namespace Pulumi.F5BigIP
     {
         /// <summary>
         /// A FAST application name.
-        /// 
-        /// 
-        /// 
-        /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         /// </summary>
         [Input("application")]
         public Input<string>? Application { get; set; }

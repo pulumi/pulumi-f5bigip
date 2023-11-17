@@ -45,56 +45,56 @@ export function getAwsServiceDiscovery(args: GetAwsServiceDiscoveryArgs, opts?: 
  */
 export interface GetAwsServiceDiscoveryArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: string;
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
     awsAccessKey?: string;
     /**
-     * AWS region in which ADC is running,default Empty string.
+     * (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
      */
     awsRegion?: string;
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
     awsSecretAccessKey?: string;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: boolean;
     /**
-     * AWS externalID field.
+     * (`optional`,type `string`)AWS externalID field.
      */
     externalId?: string;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: string;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port?: number;
     /**
-     * Assume a role (also requires the `externalId` field)
+     * (`optional`,type `string`) Assume a role (also requires the `externalId` field)
      */
     roleArn?: string;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey: string;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue: string;
     type?: string;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: string;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: string;
 }
@@ -150,56 +150,56 @@ export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputA
  */
 export interface GetAwsServiceDiscoveryOutputArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: pulumi.Input<string>;
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
     awsAccessKey?: pulumi.Input<string>;
     /**
-     * AWS region in which ADC is running,default Empty string.
+     * (`optional`,type `string`) AWS region in which ADC is running,default Empty string.
      */
     awsRegion?: pulumi.Input<string>;
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
+     * (`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
     awsSecretAccessKey?: pulumi.Input<string>;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: pulumi.Input<boolean>;
     /**
-     * AWS externalID field.
+     * (`optional`,type `string`)AWS externalID field.
      */
     externalId?: pulumi.Input<string>;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: pulumi.Input<string>;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port?: pulumi.Input<number>;
     /**
-     * Assume a role (also requires the `externalId` field)
+     * (`optional`,type `string`) Assume a role (also requires the `externalId` field)
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey: pulumi.Input<string>;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: pulumi.Input<string>;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: pulumi.Input<string>;
 }

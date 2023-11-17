@@ -34,14 +34,14 @@ public final class DataGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+     * Name of the datagroup
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+     * @return Name of the datagroup
      * 
      */
     public Output<String> name() {
@@ -145,7 +145,7 @@ public final class DataGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+         * @param name Name of the datagroup
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class DataGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+         * @param name Name of the datagroup
          * 
          * @return builder
          * 

@@ -74,15 +74,15 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly controls!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      *
      * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
@@ -147,15 +147,15 @@ export interface PolicyState {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     name?: pulumi.Input<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      *
      * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
@@ -183,15 +183,15 @@ export interface PolicyArgs {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     name: pulumi.Input<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      *
      * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */

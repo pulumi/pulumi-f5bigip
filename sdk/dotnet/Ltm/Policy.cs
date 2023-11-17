@@ -81,19 +81,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        /// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Output("publishedCopy")]
         public Output<string?> PublishedCopy { get; private set; } = null!;
@@ -175,19 +175,19 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        /// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Input("publishedCopy")]
         public Input<string>? PublishedCopy { get; set; }
@@ -243,19 +243,19 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        /// (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Input("publishedCopy")]
         public Input<string>? PublishedCopy { get; set; }

@@ -83,16 +83,6 @@ export class BigIqAs3 extends pulumi.CustomResource {
     public readonly bigiqUser!: pulumi.Output<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to `true`
-     *
-     * * `bigiq_example.json` - Example  AS3 Declarative JSON file
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-     *
-     * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
     /**
@@ -187,16 +177,6 @@ export interface BigIqAs3State {
     bigiqUser?: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to `true`
-     *
-     * * `bigiq_example.json` - Example  AS3 Declarative JSON file
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-     *
-     * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**
@@ -239,16 +219,6 @@ export interface BigIqAs3Args {
     bigiqUser: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to `true`
-     *
-     * * `bigiq_example.json` - Example  AS3 Declarative JSON file
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
-     *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-     *
-     * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**

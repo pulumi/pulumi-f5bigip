@@ -25,10 +25,10 @@ class PolicyArgs:
                  strategy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
-        :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the ltm policy.
+        :param pulumi.Input[str] published_copy: (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
@@ -54,7 +54,7 @@ class PolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of Rule to be applied in policy.
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +78,7 @@ class PolicyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies descriptive text that identifies the irule attached to policy.
+        Specifies descriptive text that identifies the ltm policy.
         """
         return pulumi.get(self, "description")
 
@@ -90,7 +90,7 @@ class PolicyArgs:
     @pulumi.getter(name="publishedCopy")
     def published_copy(self) -> Optional[pulumi.Input[str]]:
         """
-        If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
         warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
         pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
@@ -151,9 +151,9 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
-        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
-        :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the ltm policy.
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] published_copy: (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
@@ -192,7 +192,7 @@ class _PolicyState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies descriptive text that identifies the irule attached to policy.
+        Specifies descriptive text that identifies the ltm policy.
         """
         return pulumi.get(self, "description")
 
@@ -204,7 +204,7 @@ class _PolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Rule to be applied in policy.
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 
@@ -216,7 +216,7 @@ class _PolicyState:
     @pulumi.getter(name="publishedCopy")
     def published_copy(self) -> Optional[pulumi.Input[str]]:
         """
-        If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
         warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
         pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
@@ -312,9 +312,9 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
-        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
-        :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the ltm policy.
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] published_copy: (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
@@ -422,9 +422,9 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
-        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
-        :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the ltm policy.
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] published_copy: (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
@@ -454,7 +454,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies descriptive text that identifies the irule attached to policy.
+        Specifies descriptive text that identifies the ltm policy.
         """
         return pulumi.get(self, "description")
 
@@ -462,7 +462,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of Rule to be applied in policy.
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 
@@ -470,7 +470,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="publishedCopy")
     def published_copy(self) -> pulumi.Output[Optional[str]]:
         """
-        If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+        (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
         warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
         pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")

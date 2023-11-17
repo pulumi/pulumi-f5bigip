@@ -44,44 +44,44 @@ export function getAzureServiceDiscovery(args: GetAzureServiceDiscoveryArgs, opt
  */
 export interface GetAzureServiceDiscoveryArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: string;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: boolean;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: string;
     /**
-     * Port to be used for Azure service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
      */
     port?: number;
     /**
-     * Azure Resource Group name.
+     * (`Required`,type `string`) Azure Resource Group name.
      */
     resourceGroup: string;
     /**
-     * Azure subscription ID.
+     * (`Required`,type `string`) Azure subscription ID.
      */
     subscriptionId: string;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey?: string;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue?: string;
     type?: string;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: string;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: string;
 }
@@ -136,44 +136,44 @@ export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOut
  */
 export interface GetAzureServiceDiscoveryOutputArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: pulumi.Input<string>;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: pulumi.Input<boolean>;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: pulumi.Input<string>;
     /**
-     * Port to be used for Azure service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
      */
     port?: pulumi.Input<number>;
     /**
-     * Azure Resource Group name.
+     * (`Required`,type `string`) Azure Resource Group name.
      */
     resourceGroup: pulumi.Input<string>;
     /**
-     * Azure subscription ID.
+     * (`Required`,type `string`) Azure subscription ID.
      */
     subscriptionId: pulumi.Input<string>;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey?: pulumi.Input<string>;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: pulumi.Input<string>;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: pulumi.Input<string>;
 }

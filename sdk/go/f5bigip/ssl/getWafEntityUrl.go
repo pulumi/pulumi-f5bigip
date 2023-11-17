@@ -68,7 +68,7 @@ func GetWafEntityUrl(ctx *pulumi.Context, args *GetWafEntityUrlArgs, opts ...pul
 type GetWafEntityUrlArgs struct {
 	// A description of the URL.
 	Description *string `pulumi:"description"`
-	// Specifies an HTTP method.
+	// Select a Method for the URL to create an API endpoint. Default is : *.
 	Method *string `pulumi:"method"`
 	// A list of methods that are allowed or disallowed for a specific URL.
 	MethodOverrides []GetWafEntityUrlMethodOverride `pulumi:"methodOverrides"`
@@ -117,7 +117,7 @@ func GetWafEntityUrlOutput(ctx *pulumi.Context, args GetWafEntityUrlOutputArgs, 
 type GetWafEntityUrlOutputArgs struct {
 	// A description of the URL.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies an HTTP method.
+	// Select a Method for the URL to create an API endpoint. Default is : *.
 	Method pulumi.StringPtrInput `pulumi:"method"`
 	// A list of methods that are allowed or disallowed for a specific URL.
 	MethodOverrides GetWafEntityUrlMethodOverrideArrayInput `pulumi:"methodOverrides"`

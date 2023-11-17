@@ -127,10 +127,10 @@ type FastHttpApp struct {
 	FastHttpJson pulumi.StringOutput `pulumi:"fastHttpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrOutput `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrOutput `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -143,10 +143,10 @@ type FastHttpApp struct {
 	SnatPoolAddresses pulumi.StringArrayOutput `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpAppVirtualServerPtrOutput `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpAppWafSecurityPolicyPtrOutput `pulumi:"wafSecurityPolicy"`
 }
@@ -203,10 +203,10 @@ type fastHttpAppState struct {
 	FastHttpJson *string `pulumi:"fastHttpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -219,10 +219,10 @@ type fastHttpAppState struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant *string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastHttpAppVirtualServer `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy *FastHttpAppWafSecurityPolicy `pulumi:"wafSecurityPolicy"`
 }
@@ -244,10 +244,10 @@ type FastHttpAppState struct {
 	FastHttpJson pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
@@ -260,10 +260,10 @@ type FastHttpAppState struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringPtrInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpAppVirtualServerPtrInput
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpAppWafSecurityPolicyPtrInput
 }
@@ -287,10 +287,10 @@ type fastHttpAppArgs struct {
 	ExistingWafSecurityPolicy *string `pulumi:"existingWafSecurityPolicy"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -303,10 +303,10 @@ type fastHttpAppArgs struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant string `pulumi:"tenant"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastHttpAppVirtualServer `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy *FastHttpAppWafSecurityPolicy `pulumi:"wafSecurityPolicy"`
 }
@@ -327,10 +327,10 @@ type FastHttpAppArgs struct {
 	ExistingWafSecurityPolicy pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
@@ -343,10 +343,10 @@ type FastHttpAppArgs struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpAppVirtualServerPtrInput
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpAppWafSecurityPolicyPtrInput
 }
@@ -478,13 +478,13 @@ func (o FastHttpAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) pulumi.StringPtrOutput { return v.LoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
-// `monitor` block takes input for FAST-Generated Pool Monitor.
+// block takes input for FAST-Generated Pool Monitor.
 // See Pool Monitor below for more details.
 func (o FastHttpAppOutput) Monitor() FastHttpAppMonitorPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) FastHttpAppMonitorPtrOutput { return v.Monitor }).(FastHttpAppMonitorPtrOutput)
 }
 
-// `poolMembers` block takes input for FAST-Generated Pool.
+// block takes input for FAST-Generated Pool.
 // See Pool Members below for more details.
 func (o FastHttpAppOutput) PoolMembers() FastHttpAppPoolMemberArrayOutput {
 	return o.ApplyT(func(v *FastHttpApp) FastHttpAppPoolMemberArrayOutput { return v.PoolMembers }).(FastHttpAppPoolMemberArrayOutput)
@@ -515,13 +515,13 @@ func (o FastHttpAppOutput) Tenant() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastHttpApp) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
 }
 
-// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+// block will provide `ip` and `port` options to be used for virtual server.
 // See virtual server below for more details.
 func (o FastHttpAppOutput) VirtualServer() FastHttpAppVirtualServerPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) FastHttpAppVirtualServerPtrOutput { return v.VirtualServer }).(FastHttpAppVirtualServerPtrOutput)
 }
 
-// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+// block takes input for FAST-Generated WAF Security Policy.
 // See WAF Security Policy below for more details.
 func (o FastHttpAppOutput) WafSecurityPolicy() FastHttpAppWafSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) FastHttpAppWafSecurityPolicyPtrOutput { return v.WafSecurityPolicy }).(FastHttpAppWafSecurityPolicyPtrOutput)

@@ -171,7 +171,7 @@ def get_waf_entity_url(description: Optional[str] = None,
 
 
     :param str description: A description of the URL.
-    :param str method: Specifies an HTTP method.
+    :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.
@@ -246,7 +246,7 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
 
 
     :param str description: A description of the URL.
-    :param str method: Specifies an HTTP method.
+    :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.

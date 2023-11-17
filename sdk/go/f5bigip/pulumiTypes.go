@@ -2761,7 +2761,7 @@ func (o WafPolicyFileTypeArrayOutput) Index(i pulumi.IntInput) WafPolicyFileType
 type WafPolicyGraphqlProfile struct {
 	// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
 	AttackSignaturesCheck *bool `pulumi:"attackSignaturesCheck"`
-	// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+	// block settings for GraphQl policy.See defense attributes below for more details.
 	DefenseAttributes []WafPolicyGraphqlProfileDefenseAttribute `pulumi:"defenseAttributes"`
 	// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
 	MetacharElementcheck *bool `pulumi:"metacharElementcheck"`
@@ -2783,7 +2783,7 @@ type WafPolicyGraphqlProfileInput interface {
 type WafPolicyGraphqlProfileArgs struct {
 	// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
 	AttackSignaturesCheck pulumi.BoolPtrInput `pulumi:"attackSignaturesCheck"`
-	// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+	// block settings for GraphQl policy.See defense attributes below for more details.
 	DefenseAttributes WafPolicyGraphqlProfileDefenseAttributeArrayInput `pulumi:"defenseAttributes"`
 	// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
 	MetacharElementcheck pulumi.BoolPtrInput `pulumi:"metacharElementcheck"`
@@ -2847,7 +2847,7 @@ func (o WafPolicyGraphqlProfileOutput) AttackSignaturesCheck() pulumi.BoolPtrOut
 	return o.ApplyT(func(v WafPolicyGraphqlProfile) *bool { return v.AttackSignaturesCheck }).(pulumi.BoolPtrOutput)
 }
 
-// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+// block settings for GraphQl policy.See defense attributes below for more details.
 func (o WafPolicyGraphqlProfileOutput) DefenseAttributes() WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
 	return o.ApplyT(func(v WafPolicyGraphqlProfile) []WafPolicyGraphqlProfileDefenseAttribute { return v.DefenseAttributes }).(WafPolicyGraphqlProfileDefenseAttributeArrayOutput)
 }

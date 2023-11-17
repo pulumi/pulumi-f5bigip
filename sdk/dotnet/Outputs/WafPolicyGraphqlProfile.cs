@@ -18,7 +18,7 @@ namespace Pulumi.F5BigIP.Outputs
         /// </summary>
         public readonly bool? AttackSignaturesCheck;
         /// <summary>
-        /// `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        /// block settings for GraphQl policy.See defense attributes below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.WafPolicyGraphqlProfileDefenseAttribute> DefenseAttributes;
         /// <summary>

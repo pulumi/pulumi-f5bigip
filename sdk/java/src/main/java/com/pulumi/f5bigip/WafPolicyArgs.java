@@ -99,7 +99,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `file_types` takes list of file-types options to be used for policy builder.
+     * takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      * 
      */
@@ -107,7 +107,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<WafPolicyFileTypeArgs>> fileTypes;
 
     /**
-     * @return `file_types` takes list of file-types options to be used for policy builder.
+     * @return takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      * 
      */
@@ -116,7 +116,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+     * takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      * 
      */
@@ -124,7 +124,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<WafPolicyGraphqlProfileArgs>> graphqlProfiles;
 
     /**
-     * @return `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+     * @return takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      * 
      */
@@ -148,7 +148,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      * 
      */
@@ -156,7 +156,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<WafPolicyIpExceptionArgs>> ipExceptions;
 
     /**
-     * @return `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * @return takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      * 
      */
@@ -244,7 +244,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+     * block will provide `learning_mode` options to be used for policy builder.
      * See policy builder below for more details.
      * 
      */
@@ -252,7 +252,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<WafPolicyPolicyBuilderArgs>> policyBuilders;
 
     /**
-     * @return `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+     * @return block will provide `learning_mode` options to be used for policy builder.
      * See policy builder below for more details.
      * 
      */
@@ -580,7 +580,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileTypes `file_types` takes list of file-types options to be used for policy builder.
+         * @param fileTypes takes list of file-types options to be used for policy builder.
          * See file types below for more details.
          * 
          * @return builder
@@ -592,7 +592,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileTypes `file_types` takes list of file-types options to be used for policy builder.
+         * @param fileTypes takes list of file-types options to be used for policy builder.
          * See file types below for more details.
          * 
          * @return builder
@@ -603,7 +603,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileTypes `file_types` takes list of file-types options to be used for policy builder.
+         * @param fileTypes takes list of file-types options to be used for policy builder.
          * See file types below for more details.
          * 
          * @return builder
@@ -614,7 +614,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param graphqlProfiles `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+         * @param graphqlProfiles takes list of graphql profile options to be used for policy builder.
          * See graphql profiles below for more details.
          * 
          * @return builder
@@ -626,7 +626,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param graphqlProfiles `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+         * @param graphqlProfiles takes list of graphql profile options to be used for policy builder.
          * See graphql profiles below for more details.
          * 
          * @return builder
@@ -637,7 +637,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param graphqlProfiles `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+         * @param graphqlProfiles takes list of graphql profile options to be used for policy builder.
          * See graphql profiles below for more details.
          * 
          * @return builder
@@ -679,7 +679,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * @param ipExceptions takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
          * See IP Exceptions below for more details.
          * 
          * @return builder
@@ -691,7 +691,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * @param ipExceptions takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
          * See IP Exceptions below for more details.
          * 
          * @return builder
@@ -702,7 +702,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * @param ipExceptions takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
          * See IP Exceptions below for more details.
          * 
          * @return builder
@@ -854,7 +854,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyBuilders `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+         * @param policyBuilders block will provide `learning_mode` options to be used for policy builder.
          * See policy builder below for more details.
          * 
          * @return builder
@@ -866,7 +866,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyBuilders `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+         * @param policyBuilders block will provide `learning_mode` options to be used for policy builder.
          * See policy builder below for more details.
          * 
          * @return builder
@@ -877,7 +877,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyBuilders `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+         * @param policyBuilders block will provide `learning_mode` options to be used for policy builder.
          * See policy builder below for more details.
          * 
          * @return builder

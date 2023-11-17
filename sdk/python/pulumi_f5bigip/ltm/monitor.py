@@ -40,7 +40,7 @@ class MonitorArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] name: ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
@@ -116,7 +116,7 @@ class MonitorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
@@ -441,7 +441,7 @@ class _MonitorState:
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] name: ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
@@ -640,7 +640,7 @@ class _MonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
@@ -884,7 +884,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] name: ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
@@ -1082,7 +1082,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] name: ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
@@ -1218,7 +1218,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 

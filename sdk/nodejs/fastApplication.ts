@@ -50,10 +50,6 @@ export class FastApplication extends pulumi.CustomResource {
 
     /**
      * A FAST application name.
-     *
-     *
-     *
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      */
     public /*out*/ readonly application!: pulumi.Output<string>;
     /**
@@ -107,10 +103,6 @@ export class FastApplication extends pulumi.CustomResource {
 export interface FastApplicationState {
     /**
      * A FAST application name.
-     *
-     *
-     *
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      */
     application?: pulumi.Input<string>;
     /**

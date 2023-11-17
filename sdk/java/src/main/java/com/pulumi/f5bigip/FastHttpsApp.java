@@ -269,7 +269,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancingMode);
     }
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -277,7 +277,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpsAppMonitor> monitor;
 
     /**
-     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * @return block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -285,7 +285,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitor);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -293,7 +293,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output<List<FastHttpsAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -371,7 +371,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -381,7 +381,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpsAppTlsClientProfile> tlsClientProfile;
 
     /**
-     * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * @return block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -391,7 +391,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tlsClientProfile);
     }
     /**
-     * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -401,7 +401,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpsAppTlsServerProfile> tlsServerProfile;
 
     /**
-     * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * @return block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
      * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -411,7 +411,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tlsServerProfile);
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -419,7 +419,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpsAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -427,7 +427,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualServer);
     }
     /**
-     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -435,7 +435,7 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpsAppWafSecurityPolicy> wafSecurityPolicy;
 
     /**
-     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * @return block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */

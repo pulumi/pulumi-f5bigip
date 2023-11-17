@@ -33,14 +33,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * @return Specifies descriptive text that identifies the ltm policy.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of Rule to be applied in policy.
+     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,7 +63,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
      * @deprecated
      * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
@@ -74,7 +74,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> publishedCopy;
 
     /**
-     * @return If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * @return (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
      * @deprecated
      * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
@@ -192,7 +192,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * @param description Specifies descriptive text that identifies the ltm policy.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * @param description Specifies descriptive text that identifies the ltm policy.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of Rule to be applied in policy.
+         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of Rule to be applied in policy.
+         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publishedCopy If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+         * @param publishedCopy (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publishedCopy If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+         * @param publishedCopy (Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
          * 
          * @return builder
          * 

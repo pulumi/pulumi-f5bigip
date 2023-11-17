@@ -53,26 +53,26 @@ func GetAzureServiceDiscovery(ctx *pulumi.Context, args *GetAzureServiceDiscover
 
 // A collection of arguments for invoking getAzureServiceDiscovery.
 type GetAzureServiceDiscoveryArgs struct {
-	// Specifies whether to look for public or private IP addresses,default `private`.
+	// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
 	AddressRealm *string `pulumi:"addressRealm"`
-	// Specifies whether you are updating your credentials,default `false`.
+	// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
 	CredentialUpdate *bool `pulumi:"credentialUpdate"`
-	// Member is down when fewer than minimum monitors report it healthy.
+	// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
 	MinimumMonitors *string `pulumi:"minimumMonitors"`
-	// Port to be used for Azure service discovery,default `80`.
+	// (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
 	Port *int `pulumi:"port"`
-	// Azure Resource Group name.
+	// (`Required`,type `string`) Azure Resource Group name.
 	ResourceGroup string `pulumi:"resourceGroup"`
-	// Azure subscription ID.
+	// (`Required`,type `string`) Azure subscription ID.
 	SubscriptionId string `pulumi:"subscriptionId"`
-	// The tag key associated with the node to add to this pool.
+	// (`Required`,type `string`) The tag key associated with the node to add to this pool.
 	TagKey *string `pulumi:"tagKey"`
-	// The tag value associated with the node to add to this pool.
+	// (`Required`,type `string`) The tag value associated with the node to add to this pool.
 	TagValue *string `pulumi:"tagValue"`
 	Type     *string `pulumi:"type"`
-	// Action to take when node cannot be detected,default `remove`.
+	// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
 	UndetectableAction *string `pulumi:"undetectableAction"`
-	// Update interval for service discovery.
+	// (`optional`,type `string`)Update interval for service discovery.
 	UpdateInterval *string `pulumi:"updateInterval"`
 }
 
@@ -110,26 +110,26 @@ func GetAzureServiceDiscoveryOutput(ctx *pulumi.Context, args GetAzureServiceDis
 
 // A collection of arguments for invoking getAzureServiceDiscovery.
 type GetAzureServiceDiscoveryOutputArgs struct {
-	// Specifies whether to look for public or private IP addresses,default `private`.
+	// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
 	AddressRealm pulumi.StringPtrInput `pulumi:"addressRealm"`
-	// Specifies whether you are updating your credentials,default `false`.
+	// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
 	CredentialUpdate pulumi.BoolPtrInput `pulumi:"credentialUpdate"`
-	// Member is down when fewer than minimum monitors report it healthy.
+	// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
 	MinimumMonitors pulumi.StringPtrInput `pulumi:"minimumMonitors"`
-	// Port to be used for Azure service discovery,default `80`.
+	// (`optional`,type `int`)Port to be used for Azure service discovery,default `80`.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// Azure Resource Group name.
+	// (`Required`,type `string`) Azure Resource Group name.
 	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
-	// Azure subscription ID.
+	// (`Required`,type `string`) Azure subscription ID.
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
-	// The tag key associated with the node to add to this pool.
+	// (`Required`,type `string`) The tag key associated with the node to add to this pool.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// The tag value associated with the node to add to this pool.
+	// (`Required`,type `string`) The tag value associated with the node to add to this pool.
 	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 	Type     pulumi.StringPtrInput `pulumi:"type"`
-	// Action to take when node cannot be detected,default `remove`.
+	// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
 	UndetectableAction pulumi.StringPtrInput `pulumi:"undetectableAction"`
-	// Update interval for service discovery.
+	// (`optional`,type `string`)Update interval for service discovery.
 	UpdateInterval pulumi.StringPtrInput `pulumi:"updateInterval"`
 }
 

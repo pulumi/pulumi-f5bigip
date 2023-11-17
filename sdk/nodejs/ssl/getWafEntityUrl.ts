@@ -62,7 +62,7 @@ export interface GetWafEntityUrlArgs {
      */
     description?: string;
     /**
-     * Specifies an HTTP method.
+     * Select a Method for the URL to create an API endpoint. Default is : *.
      */
     method?: string;
     /**
@@ -157,7 +157,7 @@ export interface GetWafEntityUrlOutputArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies an HTTP method.
+     * Select a Method for the URL to create an API endpoint. Default is : *.
      */
     method?: pulumi.Input<string>;
     /**

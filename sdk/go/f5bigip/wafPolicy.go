@@ -116,15 +116,15 @@ type WafPolicy struct {
 	EnablePassivemode pulumi.BoolPtrOutput `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrOutput `pulumi:"enforcementMode"`
-	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// takes list of file-types options to be used for policy builder.
 	// See file types below for more details.
 	FileTypes WafPolicyFileTypeArrayOutput `pulumi:"fileTypes"`
-	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayOutput `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayOutput `pulumi:"hostNames"`
-	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayOutput `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -139,7 +139,7 @@ type WafPolicy struct {
 	Parameters pulumi.StringArrayOutput `pulumi:"parameters"`
 	// Specifies the partition of the policy. Default is `Common`
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
-	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders WafPolicyPolicyBuilderArrayOutput `pulumi:"policyBuilders"`
 	// Exported WAF policy deployed on BIGIP.
@@ -214,15 +214,15 @@ type wafPolicyState struct {
 	EnablePassivemode *bool `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode *string `pulumi:"enforcementMode"`
-	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// takes list of file-types options to be used for policy builder.
 	// See file types below for more details.
 	FileTypes []WafPolicyFileType `pulumi:"fileTypes"`
-	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames []WafPolicyHostName `pulumi:"hostNames"`
-	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -237,7 +237,7 @@ type wafPolicyState struct {
 	Parameters []string `pulumi:"parameters"`
 	// Specifies the partition of the policy. Default is `Common`
 	Partition *string `pulumi:"partition"`
-	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders []WafPolicyPolicyBuilder `pulumi:"policyBuilders"`
 	// Exported WAF policy deployed on BIGIP.
@@ -277,15 +277,15 @@ type WafPolicyState struct {
 	EnablePassivemode pulumi.BoolPtrInput
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrInput
-	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// takes list of file-types options to be used for policy builder.
 	// See file types below for more details.
 	FileTypes WafPolicyFileTypeArrayInput
-	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayInput
-	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -300,7 +300,7 @@ type WafPolicyState struct {
 	Parameters pulumi.StringArrayInput
 	// Specifies the partition of the policy. Default is `Common`
 	Partition pulumi.StringPtrInput
-	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders WafPolicyPolicyBuilderArrayInput
 	// Exported WAF policy deployed on BIGIP.
@@ -344,15 +344,15 @@ type wafPolicyArgs struct {
 	EnablePassivemode *bool `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode *string `pulumi:"enforcementMode"`
-	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// takes list of file-types options to be used for policy builder.
 	// See file types below for more details.
 	FileTypes []WafPolicyFileType `pulumi:"fileTypes"`
-	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames []WafPolicyHostName `pulumi:"hostNames"`
-	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -367,7 +367,7 @@ type wafPolicyArgs struct {
 	Parameters []string `pulumi:"parameters"`
 	// Specifies the partition of the policy. Default is `Common`
 	Partition *string `pulumi:"partition"`
-	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders []WafPolicyPolicyBuilder `pulumi:"policyBuilders"`
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
@@ -406,15 +406,15 @@ type WafPolicyArgs struct {
 	EnablePassivemode pulumi.BoolPtrInput
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrInput
-	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// takes list of file-types options to be used for policy builder.
 	// See file types below for more details.
 	FileTypes WafPolicyFileTypeArrayInput
-	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayInput
-	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -429,7 +429,7 @@ type WafPolicyArgs struct {
 	Parameters pulumi.StringArrayInput
 	// Specifies the partition of the policy. Default is `Common`
 	Partition pulumi.StringPtrInput
-	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders WafPolicyPolicyBuilderArrayInput
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
@@ -568,13 +568,13 @@ func (o WafPolicyOutput) EnforcementMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.EnforcementMode }).(pulumi.StringPtrOutput)
 }
 
-// `fileTypes` takes list of file-types options to be used for policy builder.
+// takes list of file-types options to be used for policy builder.
 // See file types below for more details.
 func (o WafPolicyOutput) FileTypes() WafPolicyFileTypeArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyFileTypeArrayOutput { return v.FileTypes }).(WafPolicyFileTypeArrayOutput)
 }
 
-// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+// takes list of graphql profile options to be used for policy builder.
 // See graphql profiles below for more details.
 func (o WafPolicyOutput) GraphqlProfiles() WafPolicyGraphqlProfileArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyGraphqlProfileArrayOutput { return v.GraphqlProfiles }).(WafPolicyGraphqlProfileArrayOutput)
@@ -585,7 +585,7 @@ func (o WafPolicyOutput) HostNames() WafPolicyHostNameArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyHostNameArrayOutput { return v.HostNames }).(WafPolicyHostNameArrayOutput)
 }
 
-// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+// takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 // See IP Exceptions below for more details.
 func (o WafPolicyOutput) IpExceptions() WafPolicyIpExceptionArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyIpExceptionArrayOutput { return v.IpExceptions }).(WafPolicyIpExceptionArrayOutput)
@@ -618,7 +618,7 @@ func (o WafPolicyOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
-// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+// block will provide `learningMode` options to be used for policy builder.
 // See policy builder below for more details.
 func (o WafPolicyOutput) PolicyBuilders() WafPolicyPolicyBuilderArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyPolicyBuilderArrayOutput { return v.PolicyBuilders }).(WafPolicyPolicyBuilderArrayOutput)

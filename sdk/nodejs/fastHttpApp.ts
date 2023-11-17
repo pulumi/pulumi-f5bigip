@@ -126,12 +126,12 @@ export class FastHttpApp extends pulumi.CustomResource {
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     public readonly monitor!: pulumi.Output<outputs.FastHttpAppMonitor | undefined>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     public readonly poolMembers!: pulumi.Output<outputs.FastHttpAppPoolMember[]>;
@@ -156,12 +156,12 @@ export class FastHttpApp extends pulumi.CustomResource {
      */
     public readonly tenant!: pulumi.Output<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     public readonly virtualServer!: pulumi.Output<outputs.FastHttpAppVirtualServer | undefined>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     public readonly wafSecurityPolicy!: pulumi.Output<outputs.FastHttpAppWafSecurityPolicy | undefined>;
@@ -264,12 +264,12 @@ export interface FastHttpAppState {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
@@ -294,12 +294,12 @@ export interface FastHttpAppState {
      */
     tenant?: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;
@@ -338,12 +338,12 @@ export interface FastHttpAppArgs {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
@@ -368,12 +368,12 @@ export interface FastHttpAppArgs {
      */
     tenant: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;

@@ -20,7 +20,7 @@ public final class WafPolicyGraphqlProfile {
      */
     private @Nullable Boolean attackSignaturesCheck;
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return block settings for GraphQl policy.See defense attributes below for more details.
      * 
      */
     private @Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes;
@@ -44,7 +44,7 @@ public final class WafPolicyGraphqlProfile {
         return Optional.ofNullable(this.attackSignaturesCheck);
     }
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return block settings for GraphQl policy.See defense attributes below for more details.
      * 
      */
     public List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes() {

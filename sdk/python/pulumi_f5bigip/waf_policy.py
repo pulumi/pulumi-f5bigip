@@ -51,12 +51,12 @@ class WafPolicyArgs:
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]] file_types: takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -64,7 +64,7 @@ class WafPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]] policy_builders: block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         :param pulumi.Input[str] policy_import_json: The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
@@ -216,7 +216,7 @@ class WafPolicyArgs:
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
         """
-        `file_types` takes list of file-types options to be used for policy builder.
+        takes list of file-types options to be used for policy builder.
         See file types below for more details.
         """
         return pulumi.get(self, "file_types")
@@ -229,7 +229,7 @@ class WafPolicyArgs:
     @pulumi.getter(name="graphqlProfiles")
     def graphql_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
         """
-        `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        takes list of graphql profile options to be used for policy builder.
         See graphql profiles below for more details.
         """
         return pulumi.get(self, "graphql_profiles")
@@ -254,7 +254,7 @@ class WafPolicyArgs:
     @pulumi.getter(name="ipExceptions")
     def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
         """
-        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         See IP Exceptions below for more details.
         """
         return pulumi.get(self, "ip_exceptions")
@@ -317,7 +317,7 @@ class WafPolicyArgs:
     @pulumi.getter(name="policyBuilders")
     def policy_builders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
         """
-        `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        block will provide `learning_mode` options to be used for policy builder.
         See policy builder below for more details.
         """
         return pulumi.get(self, "policy_builders")
@@ -484,12 +484,12 @@ class _WafPolicyState:
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]] file_types: takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -498,7 +498,7 @@ class _WafPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]] policy_builders: block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_export_json: Exported WAF policy deployed on BIGIP.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
@@ -632,7 +632,7 @@ class _WafPolicyState:
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
         """
-        `file_types` takes list of file-types options to be used for policy builder.
+        takes list of file-types options to be used for policy builder.
         See file types below for more details.
         """
         return pulumi.get(self, "file_types")
@@ -645,7 +645,7 @@ class _WafPolicyState:
     @pulumi.getter(name="graphqlProfiles")
     def graphql_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
         """
-        `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        takes list of graphql profile options to be used for policy builder.
         See graphql profiles below for more details.
         """
         return pulumi.get(self, "graphql_profiles")
@@ -670,7 +670,7 @@ class _WafPolicyState:
     @pulumi.getter(name="ipExceptions")
     def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
         """
-        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         See IP Exceptions below for more details.
         """
         return pulumi.get(self, "ip_exceptions")
@@ -745,7 +745,7 @@ class _WafPolicyState:
     @pulumi.getter(name="policyBuilders")
     def policy_builders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
         """
-        `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        block will provide `learning_mode` options to be used for policy builder.
         See policy builder below for more details.
         """
         return pulumi.get(self, "policy_builders")
@@ -992,12 +992,12 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -1006,7 +1006,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         :param pulumi.Input[str] policy_import_json: The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
@@ -1210,12 +1210,12 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -1224,7 +1224,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_export_json: Exported WAF policy deployed on BIGIP.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
@@ -1316,7 +1316,7 @@ class WafPolicy(pulumi.CustomResource):
     @pulumi.getter(name="fileTypes")
     def file_types(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyFileType']]]:
         """
-        `file_types` takes list of file-types options to be used for policy builder.
+        takes list of file-types options to be used for policy builder.
         See file types below for more details.
         """
         return pulumi.get(self, "file_types")
@@ -1325,7 +1325,7 @@ class WafPolicy(pulumi.CustomResource):
     @pulumi.getter(name="graphqlProfiles")
     def graphql_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyGraphqlProfile']]]:
         """
-        `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        takes list of graphql profile options to be used for policy builder.
         See graphql profiles below for more details.
         """
         return pulumi.get(self, "graphql_profiles")
@@ -1342,7 +1342,7 @@ class WafPolicy(pulumi.CustomResource):
     @pulumi.getter(name="ipExceptions")
     def ip_exceptions(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyIpException']]]:
         """
-        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         See IP Exceptions below for more details.
         """
         return pulumi.get(self, "ip_exceptions")
@@ -1393,7 +1393,7 @@ class WafPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyBuilders")
     def policy_builders(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyPolicyBuilder']]]:
         """
-        `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        block will provide `learning_mode` options to be used for policy builder.
         See policy builder below for more details.
         """
         return pulumi.get(self, "policy_builders")

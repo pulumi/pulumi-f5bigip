@@ -48,25 +48,25 @@ class FastHttpsAppArgs:
         :param pulumi.Input[str] existing_tls_server_profile: Name of an existing TLS server profile.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastHttpsAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastHttpsAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
-        :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         pulumi.set(__self__, "application", application)
@@ -232,7 +232,7 @@ class FastHttpsAppArgs:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastHttpsAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -245,7 +245,7 @@ class FastHttpsAppArgs:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -306,7 +306,7 @@ class FastHttpsAppArgs:
     @pulumi.getter(name="tlsClientProfile")
     def tls_client_profile(self) -> Optional[pulumi.Input['FastHttpsAppTlsClientProfileArgs']]:
         """
-        `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -321,7 +321,7 @@ class FastHttpsAppArgs:
     @pulumi.getter(name="tlsServerProfile")
     def tls_server_profile(self) -> Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']]:
         """
-        `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -336,7 +336,7 @@ class FastHttpsAppArgs:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -349,7 +349,7 @@ class FastHttpsAppArgs:
     @pulumi.getter(name="wafSecurityPolicy")
     def waf_security_policy(self) -> Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']]:
         """
-        `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        block takes input for FAST-Generated WAF Security Policy.
         See WAF Security Policy below for more details.
         """
         return pulumi.get(self, "waf_security_policy")
@@ -395,26 +395,26 @@ class _FastHttpsAppState:
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
         :param pulumi.Input[str] fast_https_json: Json payload for FAST HTTPS application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastHttpsAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastHttpsAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
-        :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         if application is not None:
@@ -584,7 +584,7 @@ class _FastHttpsAppState:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastHttpsAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -597,7 +597,7 @@ class _FastHttpsAppState:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -670,7 +670,7 @@ class _FastHttpsAppState:
     @pulumi.getter(name="tlsClientProfile")
     def tls_client_profile(self) -> Optional[pulumi.Input['FastHttpsAppTlsClientProfileArgs']]:
         """
-        `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -685,7 +685,7 @@ class _FastHttpsAppState:
     @pulumi.getter(name="tlsServerProfile")
     def tls_server_profile(self) -> Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']]:
         """
-        `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -700,7 +700,7 @@ class _FastHttpsAppState:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -713,7 +713,7 @@ class _FastHttpsAppState:
     @pulumi.getter(name="wafSecurityPolicy")
     def waf_security_policy(self) -> Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']]:
         """
-        `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        block takes input for FAST-Generated WAF Security Policy.
         See WAF Security Policy below for more details.
         """
         return pulumi.get(self, "waf_security_policy")
@@ -813,26 +813,26 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_tls_server_profile: Name of an existing TLS server profile.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpsAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpsAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         ...
@@ -1011,26 +1011,26 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
         :param pulumi.Input[str] fast_https_json: Json payload for FAST HTTPS application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpsAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpsAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1144,7 +1144,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter
     def monitor(self) -> pulumi.Output[Optional['outputs.FastHttpsAppMonitor']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -1153,7 +1153,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> pulumi.Output[Sequence['outputs.FastHttpsAppPoolMember']]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -1202,7 +1202,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter(name="tlsClientProfile")
     def tls_client_profile(self) -> pulumi.Output[Optional['outputs.FastHttpsAppTlsClientProfile']]:
         """
-        `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
@@ -1213,7 +1213,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter(name="tlsServerProfile")
     def tls_server_profile(self) -> pulumi.Output[Optional['outputs.FastHttpsAppTlsServerProfile']]:
         """
-        `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
 
         > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
@@ -1224,7 +1224,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> pulumi.Output[Optional['outputs.FastHttpsAppVirtualServer']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -1233,7 +1233,7 @@ class FastHttpsApp(pulumi.CustomResource):
     @pulumi.getter(name="wafSecurityPolicy")
     def waf_security_policy(self) -> pulumi.Output[Optional['outputs.FastHttpsAppWafSecurityPolicy']]:
         """
-        `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        block takes input for FAST-Generated WAF Security Policy.
         See WAF Security Policy below for more details.
         """
         return pulumi.get(self, "waf_security_policy")

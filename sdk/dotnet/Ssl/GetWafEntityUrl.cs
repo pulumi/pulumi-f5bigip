@@ -124,7 +124,7 @@ namespace Pulumi.F5BigIP.Ssl
         public string? Description { get; set; }
 
         /// <summary>
-        /// Specifies an HTTP method.
+        /// Select a Method for the URL to create an API endpoint. Default is : *.
         /// </summary>
         [Input("method")]
         public string? Method { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies an HTTP method.
+        /// Select a Method for the URL to create an API endpoint. Default is : *.
         /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }

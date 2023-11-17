@@ -513,37 +513,6 @@ type As3 struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
-	//
-	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringOutput `pulumi:"taskId"`
@@ -592,37 +561,6 @@ type as3State struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
-	//
-	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -642,37 +580,6 @@ type As3State struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
-	//
-	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -696,37 +603,6 @@ type as3Args struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
-	//
-	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -747,37 +623,6 @@ type As3Args struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
-	//
-	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -889,43 +734,6 @@ func (o As3Output) As3Json() pulumi.StringPtrOutput {
 }
 
 // Set True if you want to ignore metadata changes during update. By default it is set to false
-//
-// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

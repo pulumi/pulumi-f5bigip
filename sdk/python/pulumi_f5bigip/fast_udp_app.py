@@ -48,16 +48,16 @@ class FastUdpAppArgs:
         :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastUdpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastUdpAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
-        :param pulumi.Input['FastUdpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastUdpAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
@@ -225,7 +225,7 @@ class FastUdpAppArgs:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastUdpAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -262,7 +262,7 @@ class FastUdpAppArgs:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -311,7 +311,7 @@ class FastUdpAppArgs:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastUdpAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -381,17 +381,17 @@ class _FastUdpAppState:
         :param pulumi.Input[str] fast_udp_json: Json payload for FAST UDP application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastUdpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastUdpAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST UDP application tenant.
-        :param pulumi.Input['FastUdpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastUdpAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
@@ -563,7 +563,7 @@ class _FastUdpAppState:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastUdpAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -600,7 +600,7 @@ class _FastUdpAppState:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -661,7 +661,7 @@ class _FastUdpAppState:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastUdpAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -760,17 +760,17 @@ class FastUdpApp(pulumi.CustomResource):
         :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastUdpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastUdpAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastUdpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastUdpAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST UDP application tenant.
-        :param pulumi.Input[pulumi.InputType['FastUdpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastUdpAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
@@ -926,17 +926,17 @@ class FastUdpApp(pulumi.CustomResource):
         :param pulumi.Input[str] fast_udp_json: Json payload for FAST UDP application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastUdpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastUdpAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastUdpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastUdpAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST UDP application tenant.
-        :param pulumi.Input[pulumi.InputType['FastUdpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastUdpAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
@@ -1052,7 +1052,7 @@ class FastUdpApp(pulumi.CustomResource):
     @pulumi.getter
     def monitor(self) -> pulumi.Output[Optional['outputs.FastUdpAppMonitor']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -1077,7 +1077,7 @@ class FastUdpApp(pulumi.CustomResource):
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> pulumi.Output[Optional[Sequence['outputs.FastUdpAppPoolMember']]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -1118,7 +1118,7 @@ class FastUdpApp(pulumi.CustomResource):
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> pulumi.Output[Optional['outputs.FastUdpAppVirtualServer']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")

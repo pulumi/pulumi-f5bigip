@@ -129,7 +129,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
-     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+     * ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -307,7 +307,7 @@ export interface MonitorState {
      */
     mode?: pulumi.Input<string>;
     /**
-     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+     * ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -409,7 +409,7 @@ export interface MonitorArgs {
      */
     mode?: pulumi.Input<string>;
     /**
-     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+     * ((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     name: pulumi.Input<string>;
     /**

@@ -146,14 +146,14 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.FastHttpAppMonitor?> Monitor { get; private set; } = null!;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         [Output("poolMembers")]
@@ -190,14 +190,14 @@ namespace Pulumi.F5BigIP
         public Output<string> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Output("virtualServer")]
         public Output<Outputs.FastHttpAppVirtualServer?> VirtualServer { get; private set; } = null!;
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Output("wafSecurityPolicy")]
@@ -298,7 +298,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -308,7 +308,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastHttpAppPoolMemberArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastHttpAppPoolMemberArgs> PoolMembers
@@ -366,14 +366,14 @@ namespace Pulumi.F5BigIP
         public Input<string> Tenant { get; set; } = null!;
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpAppVirtualServerArgs>? VirtualServer { get; set; }
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Input("wafSecurityPolicy")]
@@ -442,7 +442,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -452,7 +452,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastHttpAppPoolMemberGetArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastHttpAppPoolMemberGetArgs> PoolMembers
@@ -510,14 +510,14 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// block will provide `ip` and `port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpAppVirtualServerGetArgs>? VirtualServer { get; set; }
 
         /// <summary>
-        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// block takes input for FAST-Generated WAF Security Policy.
         /// See WAF Security Policy below for more details.
         /// </summary>
         [Input("wafSecurityPolicy")]

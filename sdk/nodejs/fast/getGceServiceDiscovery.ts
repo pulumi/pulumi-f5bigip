@@ -44,48 +44,48 @@ export function getGceServiceDiscovery(args: GetGceServiceDiscoveryArgs, opts?: 
  */
 export interface GetGceServiceDiscoveryArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: string;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: boolean;
     /**
-     * Base 64 encoded service account credentials JSON.
+     * (`optional`,type `string`)Base 64 encoded service account credentials JSON.
      */
     encodedCredentials?: string;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: string;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port?: number;
     /**
-     * For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+     * (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
      */
     projectId?: string;
     /**
-     * GCE region in which ADC is running.
+     * (`Required`,type `string`) GCE region in which ADC is running.
      */
     region: string;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey: string;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue: string;
     type?: string;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: string;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: string;
 }
@@ -140,48 +140,48 @@ export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputA
  */
 export interface GetGceServiceDiscoveryOutputArgs {
     /**
-     * Specifies whether to look for public or private IP addresses,default `private`.
+     * (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
      */
     addressRealm?: pulumi.Input<string>;
     /**
-     * Specifies whether you are updating your credentials,default `false`.
+     * (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
      */
     credentialUpdate?: pulumi.Input<boolean>;
     /**
-     * Base 64 encoded service account credentials JSON.
+     * (`optional`,type `string`)Base 64 encoded service account credentials JSON.
      */
     encodedCredentials?: pulumi.Input<string>;
     /**
-     * Member is down when fewer than minimum monitors report it healthy.
+     * (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
      */
     minimumMonitors?: pulumi.Input<string>;
     /**
-     * Port to be used for AWS service discovery,default `80`.
+     * (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
      */
     port?: pulumi.Input<number>;
     /**
-     * For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
+     * (`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.
      */
     projectId?: pulumi.Input<string>;
     /**
-     * GCE region in which ADC is running.
+     * (`Required`,type `string`) GCE region in which ADC is running.
      */
     region: pulumi.Input<string>;
     /**
-     * The tag key associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag key associated with the node to add to this pool.
      */
     tagKey: pulumi.Input<string>;
     /**
-     * The tag value associated with the node to add to this pool.
+     * (`Required`,type `string`) The tag value associated with the node to add to this pool.
      */
     tagValue: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     /**
-     * Action to take when node cannot be detected,default `remove`.
+     * (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
      */
     undetectableAction?: pulumi.Input<string>;
     /**
-     * Update interval for service discovery.
+     * (`optional`,type `string`)Update interval for service discovery.
      */
     updateInterval?: pulumi.Input<string>;
 }

@@ -72,26 +72,6 @@ type BigIqAs3 struct {
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringOutput `pulumi:"bigiqUser"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
-	//
-	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-	//
-	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList pulumi.StringOutput `pulumi:"tenantList"`
@@ -177,26 +157,6 @@ type bigIqAs3State struct {
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser *string `pulumi:"bigiqUser"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
-	//
-	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-	//
-	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
@@ -218,26 +178,6 @@ type BigIqAs3State struct {
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
-	//
-	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-	//
-	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
@@ -263,26 +203,6 @@ type bigIqAs3Args struct {
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser string `pulumi:"bigiqUser"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
-	//
-	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-	//
-	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
@@ -305,26 +225,6 @@ type BigIqAs3Args struct {
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
-	//
-	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-	//
-	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
@@ -453,29 +353,6 @@ func (o BigIqAs3Output) BigiqUser() pulumi.StringOutput {
 }
 
 // Set True if you want to ignore metadata changes during update. By default it is set to `true`
-//
-// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
-//
-// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 func (o BigIqAs3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BigIqAs3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

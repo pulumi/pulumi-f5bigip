@@ -88,12 +88,12 @@ export class FastTcpApp extends pulumi.CustomResource {
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     public readonly monitor!: pulumi.Output<outputs.FastTcpAppMonitor | undefined>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     public readonly poolMembers!: pulumi.Output<outputs.FastTcpAppPoolMember[] | undefined>;
@@ -110,7 +110,7 @@ export class FastTcpApp extends pulumi.CustomResource {
      */
     public readonly tenant!: pulumi.Output<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     public readonly virtualServer!: pulumi.Output<outputs.FastTcpAppVirtualServer | undefined>;
@@ -195,12 +195,12 @@ export interface FastTcpAppState {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppPoolMember>[]>;
@@ -217,7 +217,7 @@ export interface FastTcpAppState {
      */
     tenant?: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastTcpAppVirtualServer>;
@@ -248,12 +248,12 @@ export interface FastTcpAppArgs {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppPoolMember>[]>;
@@ -270,7 +270,7 @@ export interface FastTcpAppArgs {
      */
     tenant: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastTcpAppVirtualServer>;

@@ -261,7 +261,7 @@ export interface FastUdpAppVirtualServer {
 
 export interface WafPolicyFileType {
     /**
-     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
      * * No allowed file type matched the file type of the request.
      * * The file type of the request matched a disallowed file type.
      */
@@ -282,7 +282,7 @@ export interface WafPolicyGraphqlProfile {
      */
     attackSignaturesCheck?: pulumi.Input<boolean>;
     /**
-     * `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * block settings for GraphQl policy.See defense attributes below for more details.
      */
     defenseAttributes?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfileDefenseAttribute>[]>;
     /**
@@ -924,6 +924,9 @@ export namespace ltm {
         clonePool?: pulumi.Input<string>;
         code?: pulumi.Input<number>;
         compress?: pulumi.Input<boolean>;
+        /**
+         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+         */
         connection?: pulumi.Input<boolean>;
         content?: pulumi.Input<string>;
         cookieHash?: pulumi.Input<boolean>;
@@ -941,6 +944,9 @@ export namespace ltm {
         expression?: pulumi.Input<string>;
         extension?: pulumi.Input<string>;
         facility?: pulumi.Input<string>;
+        /**
+         * This action will affect forwarding.
+         */
         forward?: pulumi.Input<boolean>;
         fromProfile?: pulumi.Input<string>;
         hash?: pulumi.Input<boolean>;
@@ -975,6 +981,9 @@ export namespace ltm {
         persist?: pulumi.Input<boolean>;
         pin?: pulumi.Input<boolean>;
         policy?: pulumi.Input<string>;
+        /**
+         * This action will direct the stream to this pool.
+         */
         pool?: pulumi.Input<string>;
         port?: pulumi.Input<number>;
         priority?: pulumi.Input<string>;

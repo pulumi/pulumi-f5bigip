@@ -54,16 +54,12 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
     /**
      * A FAST application name.
      * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
-     * 
      */
     @Export(name="application", type=String.class, parameters={})
     private Output<String> application;
 
     /**
      * @return A FAST application name.
-     * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      * 
      */
     public Output<String> application() {

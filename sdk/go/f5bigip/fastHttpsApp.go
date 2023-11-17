@@ -131,10 +131,10 @@ type FastHttpsApp struct {
 	FastHttpsJson pulumi.StringOutput `pulumi:"fastHttpsJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrOutput `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpsAppMonitorPtrOutput `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpsAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -147,20 +147,20 @@ type FastHttpsApp struct {
 	SnatPoolAddresses pulumi.StringArrayOutput `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
-	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+	// block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrOutput `pulumi:"tlsClientProfile"`
-	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+	// block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrOutput `pulumi:"tlsServerProfile"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpsAppVirtualServerPtrOutput `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpsAppWafSecurityPolicyPtrOutput `pulumi:"wafSecurityPolicy"`
 }
@@ -221,10 +221,10 @@ type fastHttpsAppState struct {
 	FastHttpsJson *string `pulumi:"fastHttpsJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpsAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -237,20 +237,20 @@ type fastHttpsAppState struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant *string `pulumi:"tenant"`
-	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+	// block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile *FastHttpsAppTlsClientProfile `pulumi:"tlsClientProfile"`
-	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+	// block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile *FastHttpsAppTlsServerProfile `pulumi:"tlsServerProfile"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastHttpsAppVirtualServer `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy *FastHttpsAppWafSecurityPolicy `pulumi:"wafSecurityPolicy"`
 }
@@ -276,10 +276,10 @@ type FastHttpsAppState struct {
 	FastHttpsJson pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpsAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
@@ -292,20 +292,20 @@ type FastHttpsAppState struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringPtrInput
-	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+	// block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrInput
-	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+	// block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpsAppVirtualServerPtrInput
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpsAppWafSecurityPolicyPtrInput
 }
@@ -333,10 +333,10 @@ type fastHttpsAppArgs struct {
 	ExistingWafSecurityPolicy *string `pulumi:"existingWafSecurityPolicy"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpsAppMonitor `pulumi:"monitor"`
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
@@ -349,20 +349,20 @@ type fastHttpsAppArgs struct {
 	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST HTTPS application tenant.
 	Tenant string `pulumi:"tenant"`
-	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+	// block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile *FastHttpsAppTlsClientProfile `pulumi:"tlsClientProfile"`
-	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+	// block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile *FastHttpsAppTlsServerProfile `pulumi:"tlsServerProfile"`
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer *FastHttpsAppVirtualServer `pulumi:"virtualServer"`
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy *FastHttpsAppWafSecurityPolicy `pulumi:"wafSecurityPolicy"`
 }
@@ -387,10 +387,10 @@ type FastHttpsAppArgs struct {
 	ExistingWafSecurityPolicy pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
-	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpsAppMonitorPtrInput
-	// `poolMembers` block takes input for FAST-Generated Pool.
+	// block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
@@ -403,20 +403,20 @@ type FastHttpsAppArgs struct {
 	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST HTTPS application tenant.
 	Tenant pulumi.StringInput
-	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+	// block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrInput
-	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+	// block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
 	//
 	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrInput
-	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+	// block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
 	VirtualServer FastHttpsAppVirtualServerPtrInput
-	// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+	// block takes input for FAST-Generated WAF Security Policy.
 	// See WAF Security Policy below for more details.
 	WafSecurityPolicy FastHttpsAppWafSecurityPolicyPtrInput
 }
@@ -558,13 +558,13 @@ func (o FastHttpsAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) pulumi.StringPtrOutput { return v.LoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
-// `monitor` block takes input for FAST-Generated Pool Monitor.
+// block takes input for FAST-Generated Pool Monitor.
 // See Pool Monitor below for more details.
 func (o FastHttpsAppOutput) Monitor() FastHttpsAppMonitorPtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppMonitorPtrOutput { return v.Monitor }).(FastHttpsAppMonitorPtrOutput)
 }
 
-// `poolMembers` block takes input for FAST-Generated Pool.
+// block takes input for FAST-Generated Pool.
 // See Pool Members below for more details.
 func (o FastHttpsAppOutput) PoolMembers() FastHttpsAppPoolMemberArrayOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppPoolMemberArrayOutput { return v.PoolMembers }).(FastHttpsAppPoolMemberArrayOutput)
@@ -595,7 +595,7 @@ func (o FastHttpsAppOutput) Tenant() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastHttpsApp) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
 }
 
-// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+// block takes input for FAST-Generated TLS client Profile.
 // See TLS Client Profile below for more details.
 //
 // > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
@@ -603,7 +603,7 @@ func (o FastHttpsAppOutput) TlsClientProfile() FastHttpsAppTlsClientProfilePtrOu
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppTlsClientProfilePtrOutput { return v.TlsClientProfile }).(FastHttpsAppTlsClientProfilePtrOutput)
 }
 
-// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+// block takes input for FAST-Generated TLS Server Profile.
 // See TLS Server Profile below for more details.
 //
 // > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
@@ -611,13 +611,13 @@ func (o FastHttpsAppOutput) TlsServerProfile() FastHttpsAppTlsServerProfilePtrOu
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppTlsServerProfilePtrOutput { return v.TlsServerProfile }).(FastHttpsAppTlsServerProfilePtrOutput)
 }
 
-// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+// block will provide `ip` and `port` options to be used for virtual server.
 // See virtual server below for more details.
 func (o FastHttpsAppOutput) VirtualServer() FastHttpsAppVirtualServerPtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppVirtualServerPtrOutput { return v.VirtualServer }).(FastHttpsAppVirtualServerPtrOutput)
 }
 
-// `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+// block takes input for FAST-Generated WAF Security Policy.
 // See WAF Security Policy below for more details.
 func (o FastHttpsAppOutput) WafSecurityPolicy() FastHttpsAppWafSecurityPolicyPtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppWafSecurityPolicyPtrOutput { return v.WafSecurityPolicy }).(FastHttpsAppWafSecurityPolicyPtrOutput)

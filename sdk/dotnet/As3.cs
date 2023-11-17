@@ -498,29 +498,6 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
-        /// 
-        /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
@@ -609,29 +586,6 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
-        /// 
-        /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
@@ -682,29 +636,6 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
-        /// 
-        /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
-        /// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }

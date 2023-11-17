@@ -172,7 +172,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -180,7 +180,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastUdpAppMonitorArgs> monitor;
 
     /**
-     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * @return block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      * 
      */
@@ -219,7 +219,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -227,7 +227,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FastUdpAppPoolMemberArgs>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -296,7 +296,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -304,7 +304,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastUdpAppVirtualServerArgs> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -607,7 +607,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * @param monitor block takes input for FAST-Generated Pool Monitor.
          * See Pool Monitor below for more details.
          * 
          * @return builder
@@ -619,7 +619,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * @param monitor block takes input for FAST-Generated Pool Monitor.
          * See Pool Monitor below for more details.
          * 
          * @return builder
@@ -672,7 +672,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -684,7 +684,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -695,7 +695,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -810,7 +810,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -822,7 +822,7 @@ public final class FastUdpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder

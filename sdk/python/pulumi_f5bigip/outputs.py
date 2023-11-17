@@ -946,7 +946,7 @@ class WafPolicyFileType(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None):
         """
-        :param bool allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        :param bool allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
                * No allowed file type matched the file type of the request.
                * The file type of the request matched a disallowed file type.
         :param str name: Specifies the file type name as appearing in the URL extension.
@@ -963,7 +963,7 @@ class WafPolicyFileType(dict):
     @pulumi.getter
     def allowed(self) -> Optional[bool]:
         """
-        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
         * No allowed file type matched the file type of the request.
         * The file type of the request matched a disallowed file type.
         """
@@ -1017,7 +1017,7 @@ class WafPolicyGraphqlProfile(dict):
         """
         :param str name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param bool attack_signatures_check: Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
-        :param Sequence['WafPolicyGraphqlProfileDefenseAttributeArgs'] defense_attributes: `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        :param Sequence['WafPolicyGraphqlProfileDefenseAttributeArgs'] defense_attributes: block settings for GraphQl policy.See defense attributes below for more details.
         :param bool metachar_elementcheck: Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
         """
         pulumi.set(__self__, "name", name)
@@ -1048,7 +1048,7 @@ class WafPolicyGraphqlProfile(dict):
     @pulumi.getter(name="defenseAttributes")
     def defense_attributes(self) -> Optional[Sequence['outputs.WafPolicyGraphqlProfileDefenseAttribute']]:
         """
-        `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        block settings for GraphQl policy.See defense attributes below for more details.
         """
         return pulumi.get(self, "defense_attributes")
 

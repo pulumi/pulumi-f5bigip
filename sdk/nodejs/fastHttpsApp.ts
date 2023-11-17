@@ -134,12 +134,12 @@ export class FastHttpsApp extends pulumi.CustomResource {
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     public readonly monitor!: pulumi.Output<outputs.FastHttpsAppMonitor | undefined>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     public readonly poolMembers!: pulumi.Output<outputs.FastHttpsAppPoolMember[]>;
@@ -164,26 +164,26 @@ export class FastHttpsApp extends pulumi.CustomResource {
      */
     public readonly tenant!: pulumi.Output<string>;
     /**
-     * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+     * block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     public readonly tlsClientProfile!: pulumi.Output<outputs.FastHttpsAppTlsClientProfile | undefined>;
     /**
-     * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+     * block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     public readonly tlsServerProfile!: pulumi.Output<outputs.FastHttpsAppTlsServerProfile | undefined>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     public readonly virtualServer!: pulumi.Output<outputs.FastHttpsAppVirtualServer | undefined>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     public readonly wafSecurityPolicy!: pulumi.Output<outputs.FastHttpsAppWafSecurityPolicy | undefined>;
@@ -302,12 +302,12 @@ export interface FastHttpsAppState {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpsAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpsAppPoolMember>[]>;
@@ -332,26 +332,26 @@ export interface FastHttpsAppState {
      */
     tenant?: pulumi.Input<string>;
     /**
-     * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+     * block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     tlsClientProfile?: pulumi.Input<inputs.FastHttpsAppTlsClientProfile>;
     /**
-     * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+     * block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     tlsServerProfile?: pulumi.Input<inputs.FastHttpsAppTlsServerProfile>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpsAppVirtualServer>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     wafSecurityPolicy?: pulumi.Input<inputs.FastHttpsAppWafSecurityPolicy>;
@@ -398,12 +398,12 @@ export interface FastHttpsAppArgs {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpsAppMonitor>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpsAppPoolMember>[]>;
@@ -428,26 +428,26 @@ export interface FastHttpsAppArgs {
      */
     tenant: pulumi.Input<string>;
     /**
-     * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
+     * block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     tlsClientProfile?: pulumi.Input<inputs.FastHttpsAppTlsClientProfile>;
     /**
-     * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
+     * block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     tlsServerProfile?: pulumi.Input<inputs.FastHttpsAppTlsServerProfile>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpsAppVirtualServer>;
     /**
-     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
     wafSecurityPolicy?: pulumi.Input<inputs.FastHttpsAppWafSecurityPolicy>;

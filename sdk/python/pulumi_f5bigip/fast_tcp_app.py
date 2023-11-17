@@ -35,13 +35,13 @@ class FastTcpAppArgs:
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
-        :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         pulumi.set(__self__, "application", application)
@@ -141,7 +141,7 @@ class FastTcpAppArgs:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -154,7 +154,7 @@ class FastTcpAppArgs:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -191,7 +191,7 @@ class FastTcpAppArgs:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -224,14 +224,14 @@ class _FastTcpAppState:
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
-        :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         if application is not None:
@@ -335,7 +335,7 @@ class _FastTcpAppState:
     @pulumi.getter
     def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -348,7 +348,7 @@ class _FastTcpAppState:
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -397,7 +397,7 @@ class _FastTcpAppState:
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")
@@ -459,14 +459,14 @@ class FastTcpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
-        :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         ...
@@ -589,14 +589,14 @@ class FastTcpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
-        :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -669,7 +669,7 @@ class FastTcpApp(pulumi.CustomResource):
     @pulumi.getter
     def monitor(self) -> pulumi.Output[Optional['outputs.FastTcpAppMonitor']]:
         """
-        `monitor` block takes input for FAST-Generated Pool Monitor.
+        block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
@@ -678,7 +678,7 @@ class FastTcpApp(pulumi.CustomResource):
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> pulumi.Output[Optional[Sequence['outputs.FastTcpAppPoolMember']]]:
         """
-        `pool_members` block takes input for FAST-Generated Pool.
+        block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
         """
         return pulumi.get(self, "pool_members")
@@ -711,7 +711,7 @@ class FastTcpApp(pulumi.CustomResource):
     @pulumi.getter(name="virtualServer")
     def virtual_server(self) -> pulumi.Output[Optional['outputs.FastTcpAppVirtualServer']]:
         """
-        `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
         """
         return pulumi.get(self, "virtual_server")

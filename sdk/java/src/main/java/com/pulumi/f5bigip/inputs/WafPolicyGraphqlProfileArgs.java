@@ -34,14 +34,14 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * block settings for GraphQl policy.See defense attributes below for more details.
      * 
      */
     @Import(name="defenseAttributes")
     private @Nullable Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>> defenseAttributes;
 
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return block settings for GraphQl policy.See defense attributes below for more details.
      * 
      */
     public Optional<Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>>> defenseAttributes() {
@@ -127,7 +127,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes block settings for GraphQl policy.See defense attributes below for more details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes block settings for GraphQl policy.See defense attributes below for more details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes block settings for GraphQl policy.See defense attributes below for more details.
          * 
          * @return builder
          * 

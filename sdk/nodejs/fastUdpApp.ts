@@ -104,7 +104,7 @@ export class FastUdpApp extends pulumi.CustomResource {
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     public readonly monitor!: pulumi.Output<outputs.FastUdpAppMonitor | undefined>;
@@ -117,7 +117,7 @@ export class FastUdpApp extends pulumi.CustomResource {
      */
     public readonly persistenceType!: pulumi.Output<string | undefined>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     public readonly poolMembers!: pulumi.Output<outputs.FastUdpAppPoolMember[] | undefined>;
@@ -138,7 +138,7 @@ export class FastUdpApp extends pulumi.CustomResource {
      */
     public readonly tenant!: pulumi.Output<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     public readonly virtualServer!: pulumi.Output<outputs.FastUdpAppVirtualServer | undefined>;
@@ -265,7 +265,7 @@ export interface FastUdpAppState {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastUdpAppMonitor>;
@@ -278,7 +278,7 @@ export interface FastUdpAppState {
      */
     persistenceType?: pulumi.Input<string>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastUdpAppPoolMember>[]>;
@@ -299,7 +299,7 @@ export interface FastUdpAppState {
      */
     tenant?: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastUdpAppVirtualServer>;
@@ -354,7 +354,7 @@ export interface FastUdpAppArgs {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
-     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastUdpAppMonitor>;
@@ -367,7 +367,7 @@ export interface FastUdpAppArgs {
      */
     persistenceType?: pulumi.Input<string>;
     /**
-     * `poolMembers` block takes input for FAST-Generated Pool.
+     * block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
     poolMembers?: pulumi.Input<pulumi.Input<inputs.FastUdpAppPoolMember>[]>;
@@ -388,7 +388,7 @@ export interface FastUdpAppArgs {
      */
     tenant: pulumi.Input<string>;
     /**
-     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
+     * block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastUdpAppVirtualServer>;

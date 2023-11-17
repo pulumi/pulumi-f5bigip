@@ -103,7 +103,6 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
      * }
      * }
      *
-     *
      * Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
      */
     public readonly nodes!: pulumi.Output<outputs.EventServiceDiscoveryNode[] | undefined>;
@@ -189,7 +188,6 @@ export interface EventServiceDiscoveryState {
      * }
      * }
      *
-     *
      * Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
      */
     nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
@@ -247,7 +245,6 @@ export interface EventServiceDiscoveryArgs {
      * }
      * }
      * }
-     *
      *
      * Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
      */

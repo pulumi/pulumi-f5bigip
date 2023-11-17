@@ -449,17 +449,18 @@ func (o PolicyRuleArrayOutput) Index(i pulumi.IntInput) PolicyRuleOutput {
 }
 
 type PolicyRuleAction struct {
-	AppService         *string `pulumi:"appService"`
-	Application        *string `pulumi:"application"`
-	Asm                *bool   `pulumi:"asm"`
-	Avr                *bool   `pulumi:"avr"`
-	Cache              *bool   `pulumi:"cache"`
-	Carp               *bool   `pulumi:"carp"`
-	Category           *string `pulumi:"category"`
-	Classify           *bool   `pulumi:"classify"`
-	ClonePool          *string `pulumi:"clonePool"`
-	Code               *int    `pulumi:"code"`
-	Compress           *bool   `pulumi:"compress"`
+	AppService  *string `pulumi:"appService"`
+	Application *string `pulumi:"application"`
+	Asm         *bool   `pulumi:"asm"`
+	Avr         *bool   `pulumi:"avr"`
+	Cache       *bool   `pulumi:"cache"`
+	Carp        *bool   `pulumi:"carp"`
+	Category    *string `pulumi:"category"`
+	Classify    *bool   `pulumi:"classify"`
+	ClonePool   *string `pulumi:"clonePool"`
+	Code        *int    `pulumi:"code"`
+	Compress    *bool   `pulumi:"compress"`
+	// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
 	Connection         *bool   `pulumi:"connection"`
 	Content            *string `pulumi:"content"`
 	CookieHash         *bool   `pulumi:"cookieHash"`
@@ -477,40 +478,42 @@ type PolicyRuleAction struct {
 	Expression         *string `pulumi:"expression"`
 	Extension          *string `pulumi:"extension"`
 	Facility           *string `pulumi:"facility"`
-	Forward            *bool   `pulumi:"forward"`
-	FromProfile        *string `pulumi:"fromProfile"`
-	Hash               *bool   `pulumi:"hash"`
-	Host               *string `pulumi:"host"`
-	Http               *bool   `pulumi:"http"`
-	HttpBasicAuth      *bool   `pulumi:"httpBasicAuth"`
-	HttpCookie         *bool   `pulumi:"httpCookie"`
-	HttpHeader         *bool   `pulumi:"httpHeader"`
-	HttpHost           *bool   `pulumi:"httpHost"`
-	HttpReferer        *bool   `pulumi:"httpReferer"`
-	HttpReply          *bool   `pulumi:"httpReply"`
-	HttpSetCookie      *bool   `pulumi:"httpSetCookie"`
-	HttpUri            *bool   `pulumi:"httpUri"`
-	Ifile              *string `pulumi:"ifile"`
-	Insert             *bool   `pulumi:"insert"`
-	InternalVirtual    *string `pulumi:"internalVirtual"`
-	IpAddress          *string `pulumi:"ipAddress"`
-	Key                *string `pulumi:"key"`
-	L7dos              *bool   `pulumi:"l7dos"`
-	Length             *int    `pulumi:"length"`
-	Location           *string `pulumi:"location"`
-	Log                *bool   `pulumi:"log"`
-	LtmPolicy          *bool   `pulumi:"ltmPolicy"`
-	Member             *string `pulumi:"member"`
-	Message            *string `pulumi:"message"`
-	Netmask            *string `pulumi:"netmask"`
-	Nexthop            *string `pulumi:"nexthop"`
-	Node               *string `pulumi:"node"`
-	Offset             *int    `pulumi:"offset"`
-	Path               *string `pulumi:"path"`
-	Pem                *bool   `pulumi:"pem"`
-	Persist            *bool   `pulumi:"persist"`
-	Pin                *bool   `pulumi:"pin"`
-	Policy             *string `pulumi:"policy"`
+	// This action will affect forwarding.
+	Forward         *bool   `pulumi:"forward"`
+	FromProfile     *string `pulumi:"fromProfile"`
+	Hash            *bool   `pulumi:"hash"`
+	Host            *string `pulumi:"host"`
+	Http            *bool   `pulumi:"http"`
+	HttpBasicAuth   *bool   `pulumi:"httpBasicAuth"`
+	HttpCookie      *bool   `pulumi:"httpCookie"`
+	HttpHeader      *bool   `pulumi:"httpHeader"`
+	HttpHost        *bool   `pulumi:"httpHost"`
+	HttpReferer     *bool   `pulumi:"httpReferer"`
+	HttpReply       *bool   `pulumi:"httpReply"`
+	HttpSetCookie   *bool   `pulumi:"httpSetCookie"`
+	HttpUri         *bool   `pulumi:"httpUri"`
+	Ifile           *string `pulumi:"ifile"`
+	Insert          *bool   `pulumi:"insert"`
+	InternalVirtual *string `pulumi:"internalVirtual"`
+	IpAddress       *string `pulumi:"ipAddress"`
+	Key             *string `pulumi:"key"`
+	L7dos           *bool   `pulumi:"l7dos"`
+	Length          *int    `pulumi:"length"`
+	Location        *string `pulumi:"location"`
+	Log             *bool   `pulumi:"log"`
+	LtmPolicy       *bool   `pulumi:"ltmPolicy"`
+	Member          *string `pulumi:"member"`
+	Message         *string `pulumi:"message"`
+	Netmask         *string `pulumi:"netmask"`
+	Nexthop         *string `pulumi:"nexthop"`
+	Node            *string `pulumi:"node"`
+	Offset          *int    `pulumi:"offset"`
+	Path            *string `pulumi:"path"`
+	Pem             *bool   `pulumi:"pem"`
+	Persist         *bool   `pulumi:"persist"`
+	Pin             *bool   `pulumi:"pin"`
+	Policy          *string `pulumi:"policy"`
+	// This action will direct the stream to this pool.
 	Pool               *string `pulumi:"pool"`
 	Port               *int    `pulumi:"port"`
 	Priority           *string `pulumi:"priority"`
@@ -567,17 +570,18 @@ type PolicyRuleActionInput interface {
 }
 
 type PolicyRuleActionArgs struct {
-	AppService         pulumi.StringPtrInput `pulumi:"appService"`
-	Application        pulumi.StringPtrInput `pulumi:"application"`
-	Asm                pulumi.BoolPtrInput   `pulumi:"asm"`
-	Avr                pulumi.BoolPtrInput   `pulumi:"avr"`
-	Cache              pulumi.BoolPtrInput   `pulumi:"cache"`
-	Carp               pulumi.BoolPtrInput   `pulumi:"carp"`
-	Category           pulumi.StringPtrInput `pulumi:"category"`
-	Classify           pulumi.BoolPtrInput   `pulumi:"classify"`
-	ClonePool          pulumi.StringPtrInput `pulumi:"clonePool"`
-	Code               pulumi.IntPtrInput    `pulumi:"code"`
-	Compress           pulumi.BoolPtrInput   `pulumi:"compress"`
+	AppService  pulumi.StringPtrInput `pulumi:"appService"`
+	Application pulumi.StringPtrInput `pulumi:"application"`
+	Asm         pulumi.BoolPtrInput   `pulumi:"asm"`
+	Avr         pulumi.BoolPtrInput   `pulumi:"avr"`
+	Cache       pulumi.BoolPtrInput   `pulumi:"cache"`
+	Carp        pulumi.BoolPtrInput   `pulumi:"carp"`
+	Category    pulumi.StringPtrInput `pulumi:"category"`
+	Classify    pulumi.BoolPtrInput   `pulumi:"classify"`
+	ClonePool   pulumi.StringPtrInput `pulumi:"clonePool"`
+	Code        pulumi.IntPtrInput    `pulumi:"code"`
+	Compress    pulumi.BoolPtrInput   `pulumi:"compress"`
+	// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
 	Connection         pulumi.BoolPtrInput   `pulumi:"connection"`
 	Content            pulumi.StringPtrInput `pulumi:"content"`
 	CookieHash         pulumi.BoolPtrInput   `pulumi:"cookieHash"`
@@ -595,40 +599,42 @@ type PolicyRuleActionArgs struct {
 	Expression         pulumi.StringPtrInput `pulumi:"expression"`
 	Extension          pulumi.StringPtrInput `pulumi:"extension"`
 	Facility           pulumi.StringPtrInput `pulumi:"facility"`
-	Forward            pulumi.BoolPtrInput   `pulumi:"forward"`
-	FromProfile        pulumi.StringPtrInput `pulumi:"fromProfile"`
-	Hash               pulumi.BoolPtrInput   `pulumi:"hash"`
-	Host               pulumi.StringPtrInput `pulumi:"host"`
-	Http               pulumi.BoolPtrInput   `pulumi:"http"`
-	HttpBasicAuth      pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
-	HttpCookie         pulumi.BoolPtrInput   `pulumi:"httpCookie"`
-	HttpHeader         pulumi.BoolPtrInput   `pulumi:"httpHeader"`
-	HttpHost           pulumi.BoolPtrInput   `pulumi:"httpHost"`
-	HttpReferer        pulumi.BoolPtrInput   `pulumi:"httpReferer"`
-	HttpReply          pulumi.BoolPtrInput   `pulumi:"httpReply"`
-	HttpSetCookie      pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
-	HttpUri            pulumi.BoolPtrInput   `pulumi:"httpUri"`
-	Ifile              pulumi.StringPtrInput `pulumi:"ifile"`
-	Insert             pulumi.BoolPtrInput   `pulumi:"insert"`
-	InternalVirtual    pulumi.StringPtrInput `pulumi:"internalVirtual"`
-	IpAddress          pulumi.StringPtrInput `pulumi:"ipAddress"`
-	Key                pulumi.StringPtrInput `pulumi:"key"`
-	L7dos              pulumi.BoolPtrInput   `pulumi:"l7dos"`
-	Length             pulumi.IntPtrInput    `pulumi:"length"`
-	Location           pulumi.StringPtrInput `pulumi:"location"`
-	Log                pulumi.BoolPtrInput   `pulumi:"log"`
-	LtmPolicy          pulumi.BoolPtrInput   `pulumi:"ltmPolicy"`
-	Member             pulumi.StringPtrInput `pulumi:"member"`
-	Message            pulumi.StringPtrInput `pulumi:"message"`
-	Netmask            pulumi.StringPtrInput `pulumi:"netmask"`
-	Nexthop            pulumi.StringPtrInput `pulumi:"nexthop"`
-	Node               pulumi.StringPtrInput `pulumi:"node"`
-	Offset             pulumi.IntPtrInput    `pulumi:"offset"`
-	Path               pulumi.StringPtrInput `pulumi:"path"`
-	Pem                pulumi.BoolPtrInput   `pulumi:"pem"`
-	Persist            pulumi.BoolPtrInput   `pulumi:"persist"`
-	Pin                pulumi.BoolPtrInput   `pulumi:"pin"`
-	Policy             pulumi.StringPtrInput `pulumi:"policy"`
+	// This action will affect forwarding.
+	Forward         pulumi.BoolPtrInput   `pulumi:"forward"`
+	FromProfile     pulumi.StringPtrInput `pulumi:"fromProfile"`
+	Hash            pulumi.BoolPtrInput   `pulumi:"hash"`
+	Host            pulumi.StringPtrInput `pulumi:"host"`
+	Http            pulumi.BoolPtrInput   `pulumi:"http"`
+	HttpBasicAuth   pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
+	HttpCookie      pulumi.BoolPtrInput   `pulumi:"httpCookie"`
+	HttpHeader      pulumi.BoolPtrInput   `pulumi:"httpHeader"`
+	HttpHost        pulumi.BoolPtrInput   `pulumi:"httpHost"`
+	HttpReferer     pulumi.BoolPtrInput   `pulumi:"httpReferer"`
+	HttpReply       pulumi.BoolPtrInput   `pulumi:"httpReply"`
+	HttpSetCookie   pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
+	HttpUri         pulumi.BoolPtrInput   `pulumi:"httpUri"`
+	Ifile           pulumi.StringPtrInput `pulumi:"ifile"`
+	Insert          pulumi.BoolPtrInput   `pulumi:"insert"`
+	InternalVirtual pulumi.StringPtrInput `pulumi:"internalVirtual"`
+	IpAddress       pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Key             pulumi.StringPtrInput `pulumi:"key"`
+	L7dos           pulumi.BoolPtrInput   `pulumi:"l7dos"`
+	Length          pulumi.IntPtrInput    `pulumi:"length"`
+	Location        pulumi.StringPtrInput `pulumi:"location"`
+	Log             pulumi.BoolPtrInput   `pulumi:"log"`
+	LtmPolicy       pulumi.BoolPtrInput   `pulumi:"ltmPolicy"`
+	Member          pulumi.StringPtrInput `pulumi:"member"`
+	Message         pulumi.StringPtrInput `pulumi:"message"`
+	Netmask         pulumi.StringPtrInput `pulumi:"netmask"`
+	Nexthop         pulumi.StringPtrInput `pulumi:"nexthop"`
+	Node            pulumi.StringPtrInput `pulumi:"node"`
+	Offset          pulumi.IntPtrInput    `pulumi:"offset"`
+	Path            pulumi.StringPtrInput `pulumi:"path"`
+	Pem             pulumi.BoolPtrInput   `pulumi:"pem"`
+	Persist         pulumi.BoolPtrInput   `pulumi:"persist"`
+	Pin             pulumi.BoolPtrInput   `pulumi:"pin"`
+	Policy          pulumi.StringPtrInput `pulumi:"policy"`
+	// This action will direct the stream to this pool.
 	Pool               pulumi.StringPtrInput `pulumi:"pool"`
 	Port               pulumi.IntPtrInput    `pulumi:"port"`
 	Priority           pulumi.StringPtrInput `pulumi:"priority"`
@@ -768,6 +774,7 @@ func (o PolicyRuleActionOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
+// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
 func (o PolicyRuleActionOutput) Connection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Connection }).(pulumi.BoolPtrOutput)
 }
@@ -836,6 +843,7 @@ func (o PolicyRuleActionOutput) Facility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Facility }).(pulumi.StringPtrOutput)
 }
 
+// This action will affect forwarding.
 func (o PolicyRuleActionOutput) Forward() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Forward }).(pulumi.BoolPtrOutput)
 }
@@ -972,6 +980,7 @@ func (o PolicyRuleActionOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
+// This action will direct the stream to this pool.
 func (o PolicyRuleActionOutput) Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Pool }).(pulumi.StringPtrOutput)
 }

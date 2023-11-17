@@ -74,49 +74,49 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetConsulServiceDiscoveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
         /// </summary>
         [Input("addressRealm")]
         public string? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
         /// </summary>
         [Input("credentialUpdate")]
         public bool? CredentialUpdate { get; set; }
 
         /// <summary>
-        /// Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+        /// (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
         /// </summary>
         [Input("encodedToken")]
         public string? EncodedToken { get; set; }
 
         /// <summary>
-        /// Custom JMESPath Query.
+        /// (`optional`,type `string`)Custom JMESPath Query.
         /// </summary>
         [Input("jmesPathQuery")]
         public string? JmesPathQuery { get; set; }
 
         /// <summary>
-        /// Member is down when fewer than minimum monitors report it healthy.
+        /// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
         /// </summary>
         [Input("minimumMonitors")]
         public string? MinimumMonitors { get; set; }
 
         /// <summary>
-        /// Port to be used for AWS service discovery,default `80`.
+        /// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
         /// </summary>
         [Input("port", required: true)]
         public int Port { get; set; }
 
         /// <summary>
-        /// If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+        /// (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
         /// </summary>
         [Input("rejectUnauthorized")]
         public bool? RejectUnauthorized { get; set; }
 
         /// <summary>
-        /// CA Bundle to validate server certificates.
+        /// (`optional`,type `string`)CA Bundle to validate server certificates.
         /// </summary>
         [Input("trustCa")]
         public string? TrustCa { get; set; }
@@ -125,19 +125,19 @@ namespace Pulumi.F5BigIP.Fast
         public string? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
         /// </summary>
         [Input("undetectableAction")]
         public string? UndetectableAction { get; set; }
 
         /// <summary>
-        /// Update interval for service discovery.
+        /// (`optional`,type `string`)Update interval for service discovery.
         /// </summary>
         [Input("updateInterval")]
         public string? UpdateInterval { get; set; }
 
         /// <summary>
-        /// The location of the node data.
+        /// (`Required`,type `string`) The location of the node data.
         /// </summary>
         [Input("uri", required: true)]
         public string Uri { get; set; } = null!;
@@ -151,49 +151,49 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetConsulServiceDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// (`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.
         /// </summary>
         [Input("addressRealm")]
         public Input<string>? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// (`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.
         /// </summary>
         [Input("credentialUpdate")]
         public Input<bool>? CredentialUpdate { get; set; }
 
         /// <summary>
-        /// Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
+        /// (`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
         /// </summary>
         [Input("encodedToken")]
         public Input<string>? EncodedToken { get; set; }
 
         /// <summary>
-        /// Custom JMESPath Query.
+        /// (`optional`,type `string`)Custom JMESPath Query.
         /// </summary>
         [Input("jmesPathQuery")]
         public Input<string>? JmesPathQuery { get; set; }
 
         /// <summary>
-        /// Member is down when fewer than minimum monitors report it healthy.
+        /// (`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.
         /// </summary>
         [Input("minimumMonitors")]
         public Input<string>? MinimumMonitors { get; set; }
 
         /// <summary>
-        /// Port to be used for AWS service discovery,default `80`.
+        /// (`optional`,type `int`)Port to be used for AWS service discovery,default `80`.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
+        /// (`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
         /// </summary>
         [Input("rejectUnauthorized")]
         public Input<bool>? RejectUnauthorized { get; set; }
 
         /// <summary>
-        /// CA Bundle to validate server certificates.
+        /// (`optional`,type `string`)CA Bundle to validate server certificates.
         /// </summary>
         [Input("trustCa")]
         public Input<string>? TrustCa { get; set; }
@@ -202,19 +202,19 @@ namespace Pulumi.F5BigIP.Fast
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// (`optional`,type `string`)Action to take when node cannot be detected,default `remove`.
         /// </summary>
         [Input("undetectableAction")]
         public Input<string>? UndetectableAction { get; set; }
 
         /// <summary>
-        /// Update interval for service discovery.
+        /// (`optional`,type `string`)Update interval for service discovery.
         /// </summary>
         [Input("updateInterval")]
         public Input<string>? UpdateInterval { get; set; }
 
         /// <summary>
-        /// The location of the node data.
+        /// (`Required`,type `string`) The location of the node data.
         /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
