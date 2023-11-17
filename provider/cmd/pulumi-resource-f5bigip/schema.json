@@ -489,7 +489,7 @@
             "properties": {
                 "allowed": {
                     "type": "boolean",
-                    "description": "Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- \n* No allowed file type matched the file type of the request.\n* The file type of the request matched a disallowed file type.\n"
+                    "description": "Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-\n* No allowed file type matched the file type of the request.\n* The file type of the request matched a disallowed file type.\n"
                 },
                 "name": {
                     "type": "string",
@@ -513,7 +513,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyGraphqlProfileDefenseAttribute:WafPolicyGraphqlProfileDefenseAttribute"
                     },
-                    "description": "`defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.\n"
+                    "description": "block settings for GraphQl policy.See defense attributes below for more details.\n"
                 },
                 "metacharElementcheck": {
                     "type": "boolean",
@@ -739,7 +739,8 @@
                     "type": "boolean"
                 },
                 "connection": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.\n"
                 },
                 "content": {
                     "type": "string"
@@ -790,7 +791,8 @@
                     "type": "string"
                 },
                 "forward": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "This action will affect forwarding.\n"
                 },
                 "fromProfile": {
                     "type": "string"
@@ -892,7 +894,8 @@
                     "type": "string"
                 },
                 "pool": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "This action will direct the stream to this pool.\n"
                 },
                 "port": {
                     "type": "integer"
@@ -2924,7 +2927,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -2960,7 +2963,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -2993,7 +2996,7 @@
                     },
                     "ignoreMetadata": {
                         "type": "boolean",
-                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                     },
                     "taskId": {
                         "type": "string",
@@ -3054,7 +3057,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -3104,7 +3107,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -3155,7 +3158,7 @@
                     },
                     "ignoreMetadata": {
                         "type": "boolean",
-                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -3479,7 +3482,7 @@
                 },
                 "bigipPassword": {
                     "type": "string",
-                    "description": "Password of BIGIP host to be used for this resource\n",
+                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
                     "secret": true
                 },
                 "bigipPort": {
@@ -3519,7 +3522,7 @@
                 },
                 "bigipPassword": {
                     "type": "string",
-                    "description": "Password of BIGIP host to be used for this resource\n",
+                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
                     "secret": true
                 },
                 "bigipPort": {
@@ -3561,7 +3564,7 @@
                     },
                     "bigipPassword": {
                         "type": "string",
-                        "description": "Password of BIGIP host to be used for this resource\n",
+                        "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
                         "secret": true
                     },
                     "bigipPort": {
@@ -3602,7 +3605,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                     },
-                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                 },
                 "taskid": {
                     "type": "string",
@@ -3618,7 +3621,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                     },
-                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                 },
                 "taskid": {
                     "type": "string",
@@ -3637,7 +3640,7 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                         },
-                        "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
+                        "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                     },
                     "taskid": {
                         "type": "string",
@@ -3653,7 +3656,7 @@
             "properties": {
                 "application": {
                     "type": "string",
-                    "description": "A FAST application name.\n\n\n\n* `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/\n"
+                    "description": "A FAST application name.\n"
                 },
                 "fastJson": {
                     "type": "string",
@@ -3691,7 +3694,7 @@
                 "properties": {
                     "application": {
                         "type": "string",
-                        "description": "A FAST application name.\n\n\n\n* `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/\n"
+                        "description": "A FAST application name.\n"
                     },
                     "fastJson": {
                         "type": "string",
@@ -3749,14 +3752,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppPoolMember:FastHttpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -3789,11 +3792,11 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppVirtualServer:FastHttpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "wafSecurityPolicy": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppWafSecurityPolicy:FastHttpAppWafSecurityPolicy",
-                    "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                    "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                 }
             },
             "required": [
@@ -3838,14 +3841,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppPoolMember:FastHttpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -3879,11 +3882,11 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppVirtualServer:FastHttpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "wafSecurityPolicy": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppWafSecurityPolicy:FastHttpAppWafSecurityPolicy",
-                    "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                    "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                 }
             },
             "requiredInputs": [
@@ -3931,14 +3934,14 @@
                     },
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
-                        "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                     },
                     "poolMembers": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:index/FastHttpAppPoolMember:FastHttpAppPoolMember"
                         },
-                        "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                     },
                     "securityLogProfiles": {
                         "type": "array",
@@ -3972,11 +3975,11 @@
                     },
                     "virtualServer": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppVirtualServer:FastHttpAppVirtualServer",
-                        "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                        "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                     },
                     "wafSecurityPolicy": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppWafSecurityPolicy:FastHttpAppWafSecurityPolicy",
-                        "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                        "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                     }
                 },
                 "type": "object"
@@ -4030,14 +4033,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppPoolMember:FastHttpsAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -4070,19 +4073,19 @@
                 },
                 "tlsClientProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
+                    "description": "block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                 },
                 "tlsServerProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
+                    "description": "block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "wafSecurityPolicy": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppWafSecurityPolicy:FastHttpsAppWafSecurityPolicy",
-                    "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                    "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                 }
             },
             "required": [
@@ -4135,14 +4138,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppPoolMember:FastHttpsAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -4176,19 +4179,19 @@
                 },
                 "tlsClientProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
+                    "description": "block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                 },
                 "tlsServerProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
+                    "description": "block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "wafSecurityPolicy": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppWafSecurityPolicy:FastHttpsAppWafSecurityPolicy",
-                    "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                    "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                 }
             },
             "requiredInputs": [
@@ -4244,14 +4247,14 @@
                     },
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
-                        "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                     },
                     "poolMembers": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:index/FastHttpsAppPoolMember:FastHttpsAppPoolMember"
                         },
-                        "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                     },
                     "securityLogProfiles": {
                         "type": "array",
@@ -4285,19 +4288,19 @@
                     },
                     "tlsClientProfile": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                        "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
+                        "description": "block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                     },
                     "tlsServerProfile": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                        "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
+                        "description": "block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                     },
                     "virtualServer": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
-                        "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                        "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                     },
                     "wafSecurityPolicy": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppWafSecurityPolicy:FastHttpsAppWafSecurityPolicy",
-                        "description": "`waf_security_policy` block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
+                        "description": "block takes input for FAST-Generated WAF Security Policy.\nSee WAF Security Policy below for more details.\n"
                     }
                 },
                 "type": "object"
@@ -4332,14 +4335,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastTcpAppPoolMember:FastTcpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
@@ -4358,7 +4361,7 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppVirtualServer:FastTcpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 }
             },
             "required": [
@@ -4390,14 +4393,14 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "poolMembers": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastTcpAppPoolMember:FastTcpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
@@ -4417,7 +4420,7 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppVirtualServer:FastTcpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 }
             },
             "requiredInputs": [
@@ -4454,14 +4457,14 @@
                     },
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
-                        "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                     },
                     "poolMembers": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:index/FastTcpAppPoolMember:FastTcpAppPoolMember"
                         },
-                        "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                     },
                     "slowRampTime": {
                         "type": "integer",
@@ -4481,7 +4484,7 @@
                     },
                     "virtualServer": {
                         "$ref": "#/types/f5bigip:index/FastTcpAppVirtualServer:FastTcpAppVirtualServer",
-                        "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                        "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                     }
                 },
                 "type": "object"
@@ -4596,7 +4599,7 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastUdpAppMonitor:FastUdpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "persistenceProfile": {
                     "type": "string",
@@ -4611,7 +4614,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastUdpAppPoolMember:FastUdpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -4637,7 +4640,7 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastUdpAppVirtualServer:FastUdpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "vlansAlloweds": {
                     "type": "array",
@@ -4702,7 +4705,7 @@
                 },
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastUdpAppMonitor:FastUdpAppMonitor",
-                    "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                 },
                 "persistenceProfile": {
                     "type": "string",
@@ -4717,7 +4720,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/FastUdpAppPoolMember:FastUdpAppPoolMember"
                     },
-                    "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                    "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                 },
                 "securityLogProfiles": {
                     "type": "array",
@@ -4744,7 +4747,7 @@
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastUdpAppVirtualServer:FastUdpAppVirtualServer",
-                    "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                    "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                 },
                 "vlansAlloweds": {
                     "type": "array",
@@ -4814,7 +4817,7 @@
                     },
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastUdpAppMonitor:FastUdpAppMonitor",
-                        "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
                     },
                     "persistenceProfile": {
                         "type": "string",
@@ -4829,7 +4832,7 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/FastUdpAppPoolMember:FastUdpAppPoolMember"
                         },
-                        "description": "`pool_members` block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
+                        "description": "block takes input for FAST-Generated Pool.\nSee Pool Members below for more details.\n"
                     },
                     "securityLogProfiles": {
                         "type": "array",
@@ -4856,7 +4859,7 @@
                     },
                     "virtualServer": {
                         "$ref": "#/types/f5bigip:index/FastUdpAppVirtualServer:FastUdpAppVirtualServer",
-                        "description": "`virtual_server` block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
+                        "description": "block will provide `ip` and `port` options to be used for virtual server.\nSee virtual server below for more details.\n"
                     },
                     "vlansAlloweds": {
                         "type": "array",
@@ -6181,14 +6184,14 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyFileType:WafPolicyFileType"
                     },
-                    "description": "`file_types` takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
+                    "description": "takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
                 },
                 "graphqlProfiles": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyGraphqlProfile:WafPolicyGraphqlProfile"
                     },
-                    "description": "`graphql_profiles` takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
+                    "description": "takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
                 },
                 "hostNames": {
                     "type": "array",
@@ -6202,7 +6205,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
                     },
-                    "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
+                    "description": "takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
                 },
                 "modifications": {
                     "type": "array",
@@ -6238,7 +6241,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyPolicyBuilder:WafPolicyPolicyBuilder"
                     },
-                    "description": "`policy_builder` block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
+                    "description": "block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
                 },
                 "policyExportJson": {
                     "type": "string",
@@ -6337,14 +6340,14 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyFileType:WafPolicyFileType"
                     },
-                    "description": "`file_types` takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
+                    "description": "takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
                 },
                 "graphqlProfiles": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyGraphqlProfile:WafPolicyGraphqlProfile"
                     },
-                    "description": "`graphql_profiles` takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
+                    "description": "takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
                 },
                 "hostNames": {
                     "type": "array",
@@ -6358,7 +6361,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
                     },
-                    "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
+                    "description": "takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
                 },
                 "modifications": {
                     "type": "array",
@@ -6396,7 +6399,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/WafPolicyPolicyBuilder:WafPolicyPolicyBuilder"
                     },
-                    "description": "`policy_builder` block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
+                    "description": "block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
                 },
                 "policyId": {
                     "type": "string",
@@ -6491,14 +6494,14 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/WafPolicyFileType:WafPolicyFileType"
                         },
-                        "description": "`file_types` takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
+                        "description": "takes list of file-types options to be used for policy builder.\nSee file types below for more details.\n"
                     },
                     "graphqlProfiles": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:index/WafPolicyGraphqlProfile:WafPolicyGraphqlProfile"
                         },
-                        "description": "`graphql_profiles` takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
+                        "description": "takes list of graphql profile options to be used for policy builder.\nSee graphql profiles below for more details.\n"
                     },
                     "hostNames": {
                         "type": "array",
@@ -6512,7 +6515,7 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
                         },
-                        "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
+                        "description": "takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
                     },
                     "modifications": {
                         "type": "array",
@@ -6550,7 +6553,7 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/WafPolicyPolicyBuilder:WafPolicyPolicyBuilder"
                         },
-                        "description": "`policy_builder` block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
+                        "description": "block will provide `learning_mode` options to be used for policy builder.\nSee policy builder below for more details.\n"
                     },
                     "policyExportJson": {
                         "type": "string",
@@ -6814,7 +6817,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n"
+                    "description": "Name of the datagroup\n"
                 },
                 "records": {
                     "type": "array",
@@ -6843,7 +6846,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n",
+                    "description": "Name of the datagroup\n",
                     "willReplaceOnChanges": true
                 },
                 "records": {
@@ -6876,7 +6879,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n",
+                        "description": "Name of the datagroup\n",
                         "willReplaceOnChanges": true
                     },
                     "records": {
@@ -6995,7 +6998,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n"
+                    "description": "((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n"
                 },
                 "parent": {
                     "type": "string",
@@ -7111,7 +7114,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n",
+                    "description": "((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n",
                     "willReplaceOnChanges": true
                 },
                 "parent": {
@@ -7218,7 +7221,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n",
+                        "description": "((Required,type `string`) Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n",
                         "willReplaceOnChanges": true
                     },
                     "parent": {
@@ -8159,15 +8162,15 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "Specifies descriptive text that identifies the irule attached to policy.\n"
+                    "description": "Specifies descriptive text that identifies the ltm policy.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of Rule to be applied in policy.\n"
+                    "description": "Name of the Policy ( policy name should be in full path which is combination of partition and policy name )\n"
                 },
                 "publishedCopy": {
                     "type": "string",
-                    "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                    "description": "(Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
                     "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release."
                 },
                 "requires": {
@@ -8202,16 +8205,16 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "Specifies descriptive text that identifies the irule attached to policy.\n"
+                    "description": "Specifies descriptive text that identifies the ltm policy.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of Rule to be applied in policy.\n",
+                    "description": "Name of the Policy ( policy name should be in full path which is combination of partition and policy name )\n",
                     "willReplaceOnChanges": true
                 },
                 "publishedCopy": {
                     "type": "string",
-                    "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                    "description": "(Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
                     "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.",
                     "willReplaceOnChanges": true
                 },
@@ -8249,16 +8252,16 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "Specifies descriptive text that identifies the irule attached to policy.\n"
+                        "description": "Specifies descriptive text that identifies the ltm policy.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of Rule to be applied in policy.\n",
+                        "description": "Name of the Policy ( policy name should be in full path which is combination of partition and policy name )\n",
                         "willReplaceOnChanges": true
                     },
                     "publishedCopy": {
                         "type": "string",
-                        "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                        "description": "(Deprecated) If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
                         "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.",
                         "willReplaceOnChanges": true
                     },
@@ -11009,7 +11012,7 @@
                 },
                 "c3dCaKey": {
                     "type": "string",
-                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
                 },
                 "c3dCaPassphrase": {
                     "type": "string",
@@ -11027,7 +11030,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
                 },
                 "c3dCertLifespan": {
                     "type": "integer",
@@ -11268,7 +11271,7 @@
                 },
                 "c3dCaKey": {
                     "type": "string",
-                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
                 },
                 "c3dCaPassphrase": {
                     "type": "string",
@@ -11286,7 +11289,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
                 },
                 "c3dCertLifespan": {
                     "type": "integer",
@@ -11490,7 +11493,7 @@
                     },
                     "c3dCaKey": {
                         "type": "string",
-                        "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
+                        "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
                     },
                     "c3dCaPassphrase": {
                         "type": "string",
@@ -11508,7 +11511,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
+                        "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
                     },
                     "c3dCertLifespan": {
                         "type": "integer",
@@ -14472,60 +14475,60 @@
                 "properties": {
                     "addressRealm": {
                         "type": "string",
-                        "description": "Specifies whether to look for public or private IP addresses,default `private`.\n"
+                        "description": "(`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.\n"
                     },
                     "awsAccessKey": {
                         "type": "string",
-                        "description": "Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)\n",
+                        "description": "(`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)\n",
                         "secret": true
                     },
                     "awsRegion": {
                         "type": "string",
-                        "description": "AWS region in which ADC is running,default Empty string.\n"
+                        "description": "(`optional`,type `string`) AWS region in which ADC is running,default Empty string.\n"
                     },
                     "awsSecretAccessKey": {
                         "type": "string",
-                        "description": "Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)\n",
+                        "description": "(`optional`,type `string`)Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)\n",
                         "secret": true
                     },
                     "credentialUpdate": {
                         "type": "boolean",
-                        "description": "Specifies whether you are updating your credentials,default `false`.\n"
+                        "description": "(`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.\n"
                     },
                     "externalId": {
                         "type": "string",
-                        "description": "AWS externalID field.\n"
+                        "description": "(`optional`,type `string`)AWS externalID field.\n"
                     },
                     "minimumMonitors": {
                         "type": "string",
-                        "description": "Member is down when fewer than minimum monitors report it healthy.\n"
+                        "description": "(`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.\n"
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Port to be used for AWS service discovery,default `80`.\n"
+                        "description": "(`optional`,type `int`)Port to be used for AWS service discovery,default `80`.\n"
                     },
                     "roleArn": {
                         "type": "string",
-                        "description": "Assume a role (also requires the `external_id` field)\n"
+                        "description": "(`optional`,type `string`) Assume a role (also requires the `external_id` field)\n"
                     },
                     "tagKey": {
                         "type": "string",
-                        "description": "The tag key associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag key associated with the node to add to this pool.\n"
                     },
                     "tagValue": {
                         "type": "string",
-                        "description": "The tag value associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag value associated with the node to add to this pool.\n"
                     },
                     "type": {
                         "type": "string"
                     },
                     "undetectableAction": {
                         "type": "string",
-                        "description": "Action to take when node cannot be detected,default `remove`.\n"
+                        "description": "(`optional`,type `string`)Action to take when node cannot be detected,default `remove`.\n"
                     },
                     "updateInterval": {
                         "type": "string",
-                        "description": "Update interval for service discovery.\n"
+                        "description": "(`optional`,type `string`)Update interval for service discovery.\n"
                     }
                 },
                 "type": "object",
@@ -14609,46 +14612,46 @@
                 "properties": {
                     "addressRealm": {
                         "type": "string",
-                        "description": "Specifies whether to look for public or private IP addresses,default `private`.\n"
+                        "description": "(`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.\n"
                     },
                     "credentialUpdate": {
                         "type": "boolean",
-                        "description": "Specifies whether you are updating your credentials,default `false`.\n"
+                        "description": "(`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.\n"
                     },
                     "minimumMonitors": {
                         "type": "string",
-                        "description": "Member is down when fewer than minimum monitors report it healthy.\n"
+                        "description": "(`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.\n"
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Port to be used for Azure service discovery,default `80`.\n"
+                        "description": "(`optional`,type `int`)Port to be used for Azure service discovery,default `80`.\n"
                     },
                     "resourceGroup": {
                         "type": "string",
-                        "description": "Azure Resource Group name.\n"
+                        "description": "(`Required`,type `string`) Azure Resource Group name.\n"
                     },
                     "subscriptionId": {
                         "type": "string",
-                        "description": "Azure subscription ID.\n"
+                        "description": "(`Required`,type `string`) Azure subscription ID.\n"
                     },
                     "tagKey": {
                         "type": "string",
-                        "description": "The tag key associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag key associated with the node to add to this pool.\n"
                     },
                     "tagValue": {
                         "type": "string",
-                        "description": "The tag value associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag value associated with the node to add to this pool.\n"
                     },
                     "type": {
                         "type": "string"
                     },
                     "undetectableAction": {
                         "type": "string",
-                        "description": "Action to take when node cannot be detected,default `remove`.\n"
+                        "description": "(`optional`,type `string`)Action to take when node cannot be detected,default `remove`.\n"
                     },
                     "updateInterval": {
                         "type": "string",
-                        "description": "Update interval for service discovery.\n"
+                        "description": "(`optional`,type `string`)Update interval for service discovery.\n"
                     }
                 },
                 "type": "object",
@@ -14718,50 +14721,50 @@
                 "properties": {
                     "addressRealm": {
                         "type": "string",
-                        "description": "Specifies whether to look for public or private IP addresses,default `private`.\n"
+                        "description": "(`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.\n"
                     },
                     "credentialUpdate": {
                         "type": "boolean",
-                        "description": "Specifies whether you are updating your credentials,default `false`.\n"
+                        "description": "(`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.\n"
                     },
                     "encodedToken": {
                         "type": "string",
-                        "description": "Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.\n"
+                        "description": "(`optional`,type `string`) Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.\n"
                     },
                     "jmesPathQuery": {
                         "type": "string",
-                        "description": "Custom JMESPath Query.\n"
+                        "description": "(`optional`,type `string`)Custom JMESPath Query.\n"
                     },
                     "minimumMonitors": {
                         "type": "string",
-                        "description": "Member is down when fewer than minimum monitors report it healthy.\n"
+                        "description": "(`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.\n"
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Port to be used for AWS service discovery,default `80`.\n"
+                        "description": "(`optional`,type `int`)Port to be used for AWS service discovery,default `80`.\n"
                     },
                     "rejectUnauthorized": {
                         "type": "boolean",
-                        "description": "If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.\n"
+                        "description": "(`optional`,type `bool`)If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.\n"
                     },
                     "trustCa": {
                         "type": "string",
-                        "description": "CA Bundle to validate server certificates.\n"
+                        "description": "(`optional`,type `string`)CA Bundle to validate server certificates.\n"
                     },
                     "type": {
                         "type": "string"
                     },
                     "undetectableAction": {
                         "type": "string",
-                        "description": "Action to take when node cannot be detected,default `remove`.\n"
+                        "description": "(`optional`,type `string`)Action to take when node cannot be detected,default `remove`.\n"
                     },
                     "updateInterval": {
                         "type": "string",
-                        "description": "Update interval for service discovery.\n"
+                        "description": "(`optional`,type `string`)Update interval for service discovery.\n"
                     },
                     "uri": {
                         "type": "string",
-                        "description": "The location of the node data.\n"
+                        "description": "(`Required`,type `string`) The location of the node data.\n"
                     }
                 },
                 "type": "object",
@@ -14834,50 +14837,50 @@
                 "properties": {
                     "addressRealm": {
                         "type": "string",
-                        "description": "Specifies whether to look for public or private IP addresses,default `private`.\n"
+                        "description": "(`optional`,type `string`)Specifies whether to look for public or private IP addresses,default `private`.\n"
                     },
                     "credentialUpdate": {
                         "type": "boolean",
-                        "description": "Specifies whether you are updating your credentials,default `false`.\n"
+                        "description": "(`optional`,type `bool`) Specifies whether you are updating your credentials,default `false`.\n"
                     },
                     "encodedCredentials": {
                         "type": "string",
-                        "description": "Base 64 encoded service account credentials JSON.\n"
+                        "description": "(`optional`,type `string`)Base 64 encoded service account credentials JSON.\n"
                     },
                     "minimumMonitors": {
                         "type": "string",
-                        "description": "Member is down when fewer than minimum monitors report it healthy.\n"
+                        "description": "(`optional`,type `string`)Member is down when fewer than minimum monitors report it healthy.\n"
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Port to be used for AWS service discovery,default `80`.\n"
+                        "description": "(`optional`,type `int`)Port to be used for AWS service discovery,default `80`.\n"
                     },
                     "projectId": {
                         "type": "string",
-                        "description": "For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.\n"
+                        "description": "(`optional`,type `string`)For Google Cloud Engine (GCE) only: The ID of the project in which the members are located.\n"
                     },
                     "region": {
                         "type": "string",
-                        "description": "GCE region in which ADC is running.\n"
+                        "description": "(`Required`,type `string`) GCE region in which ADC is running.\n"
                     },
                     "tagKey": {
                         "type": "string",
-                        "description": "The tag key associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag key associated with the node to add to this pool.\n"
                     },
                     "tagValue": {
                         "type": "string",
-                        "description": "The tag value associated with the node to add to this pool.\n"
+                        "description": "(`Required`,type `string`) The tag value associated with the node to add to this pool.\n"
                     },
                     "type": {
                         "type": "string"
                     },
                     "undetectableAction": {
                         "type": "string",
-                        "description": "Action to take when node cannot be detected,default `remove`.\n"
+                        "description": "(`optional`,type `string`)Action to take when node cannot be detected,default `remove`.\n"
                     },
                     "updateInterval": {
                         "type": "string",
-                        "description": "Update interval for service discovery.\n"
+                        "description": "(`optional`,type `string`)Update interval for service discovery.\n"
                     }
                 },
                 "type": "object",
@@ -15735,7 +15738,7 @@
                     },
                     "method": {
                         "type": "string",
-                        "description": "Specifies an HTTP method.\n"
+                        "description": "Select a Method for the URL to create an API endpoint. Default is : *.\n"
                     },
                     "methodOverrides": {
                         "type": "array",
