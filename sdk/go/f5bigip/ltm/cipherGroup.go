@@ -49,15 +49,15 @@ import (
 type CipherGroup struct {
 	pulumi.CustomResourceState
 
-	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows pulumi.StringArrayOutput `pulumi:"allows"`
 	// Specifies descriptive text that identifies the cipher rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-	Ordering pulumi.StringOutput `pulumi:"ordering"`
-	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+	Ordering pulumi.StringPtrOutput `pulumi:"ordering"`
+	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Requires pulumi.StringArrayOutput `pulumi:"requires"`
 }
 
@@ -94,28 +94,28 @@ func GetCipherGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CipherGroup resources.
 type cipherGroupState struct {
-	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows []string `pulumi:"allows"`
 	// Specifies descriptive text that identifies the cipher rule
 	Description *string `pulumi:"description"`
 	// Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
 	Name *string `pulumi:"name"`
-	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
 	Ordering *string `pulumi:"ordering"`
-	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Requires []string `pulumi:"requires"`
 }
 
 type CipherGroupState struct {
-	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows pulumi.StringArrayInput
 	// Specifies descriptive text that identifies the cipher rule
 	Description pulumi.StringPtrInput
 	// Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
 	Name pulumi.StringPtrInput
-	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
 	Ordering pulumi.StringPtrInput
-	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Requires pulumi.StringArrayInput
 }
 
@@ -124,29 +124,29 @@ func (CipherGroupState) ElementType() reflect.Type {
 }
 
 type cipherGroupArgs struct {
-	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows []string `pulumi:"allows"`
 	// Specifies descriptive text that identifies the cipher rule
 	Description *string `pulumi:"description"`
 	// Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
 	Name string `pulumi:"name"`
-	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
 	Ordering *string `pulumi:"ordering"`
-	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Requires []string `pulumi:"requires"`
 }
 
 // The set of arguments for constructing a CipherGroup resource.
 type CipherGroupArgs struct {
-	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows pulumi.StringArrayInput
 	// Specifies descriptive text that identifies the cipher rule
 	Description pulumi.StringPtrInput
 	// Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
 	Name pulumi.StringInput
-	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+	// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
 	Ordering pulumi.StringPtrInput
-	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+	// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Requires pulumi.StringArrayInput
 }
 
@@ -237,7 +237,7 @@ func (o CipherGroupOutput) ToCipherGroupOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 func (o CipherGroupOutput) Allows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CipherGroup) pulumi.StringArrayOutput { return v.Allows }).(pulumi.StringArrayOutput)
 }
@@ -252,12 +252,12 @@ func (o CipherGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CipherGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-func (o CipherGroupOutput) Ordering() pulumi.StringOutput {
-	return o.ApplyT(func(v *CipherGroup) pulumi.StringOutput { return v.Ordering }).(pulumi.StringOutput)
+// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+func (o CipherGroupOutput) Ordering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CipherGroup) pulumi.StringPtrOutput { return v.Ordering }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 func (o CipherGroupOutput) Requires() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CipherGroup) pulumi.StringArrayOutput { return v.Requires }).(pulumi.StringArrayOutput)
 }

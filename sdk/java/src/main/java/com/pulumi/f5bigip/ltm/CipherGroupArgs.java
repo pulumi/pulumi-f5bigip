@@ -17,14 +17,14 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final CipherGroupArgs Empty = new CipherGroupArgs();
 
     /**
-     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     @Import(name="allows")
     private @Nullable Output<List<String>> allows;
 
     /**
-     * @return Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * @return Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     public Optional<Output<List<String>>> allows() {
@@ -62,14 +62,14 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      * 
      */
     @Import(name="ordering")
     private @Nullable Output<String> ordering;
 
     /**
-     * @return Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * @return Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      * 
      */
     public Optional<Output<String>> ordering() {
@@ -77,14 +77,14 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     @Import(name="requires")
     private @Nullable Output<List<String>> requires;
 
     /**
-     * @return Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * @return Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     public Optional<Output<List<String>>> requires() {
@@ -120,7 +120,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param allows Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+         * @param ordering Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+         * @param ordering Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+         * @param requires Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
          * 
          * @return builder
          * 

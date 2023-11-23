@@ -211,6 +211,20 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.existingWafSecurityPolicy);
     }
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    @Export(name="fallbackPersistence", type=String.class, parameters={})
+    private Output</* @Nullable */ String> fallbackPersistence;
+
+    /**
+     * @return Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    public Output<Optional<String>> fallbackPersistence() {
+        return Codegen.optional(this.fallbackPersistence);
+    }
+    /**
      * Json payload for FAST HTTP application.
      * 
      */
@@ -255,6 +269,34 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monitor);
     }
     /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    @Export(name="persistenceProfile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> persistenceProfile;
+
+    /**
+     * @return Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    public Output<Optional<String>> persistenceProfile() {
+        return Codegen.optional(this.persistenceProfile);
+    }
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    @Export(name="persistenceType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> persistenceType;
+
+    /**
+     * @return Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    public Output<Optional<String>> persistenceType() {
+        return Codegen.optional(this.persistenceType);
+    }
+    /**
      * `pool_members` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
@@ -289,14 +331,14 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="serviceDiscoveries", type=List.class, parameters={String.class})
-    private Output<List<String>> serviceDiscoveries;
+    private Output</* @Nullable */ List<String>> serviceDiscoveries;
 
     /**
      * @return List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
-    public Output<List<String>> serviceDiscoveries() {
-        return this.serviceDiscoveries;
+    public Output<Optional<List<String>>> serviceDiscoveries() {
+        return Codegen.optional(this.serviceDiscoveries);
     }
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds

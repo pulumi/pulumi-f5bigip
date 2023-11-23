@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> C3dOcsp { get; private set; } = null!;
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         /// </summary>
         [Output("caFile")]
         public Output<string> CaFile { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Ciphers { get; private set; } = null!;
 
         /// <summary>
-        /// client certificate name
+        /// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         /// </summary>
         [Output("clientCertCa")]
         public Output<string> ClientCertCa { get; private set; } = null!;
@@ -477,7 +477,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? C3dOcsp { get; set; }
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
@@ -546,7 +546,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Ciphers { get; set; }
 
         /// <summary>
-        /// client certificate name
+        /// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         /// </summary>
         [Input("clientCertCa")]
         public Input<string>? ClientCertCa { get; set; }
@@ -852,7 +852,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? C3dOcsp { get; set; }
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
@@ -921,7 +921,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Ciphers { get; set; }
 
         /// <summary>
-        /// client certificate name
+        /// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         /// </summary>
         [Input("clientCertCa")]
         public Input<string>? ClientCertCa { get; set; }

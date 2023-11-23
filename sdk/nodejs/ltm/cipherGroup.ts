@@ -50,7 +50,7 @@ export class CipherGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     public readonly allows!: pulumi.Output<string[] | undefined>;
     /**
@@ -62,11 +62,11 @@ export class CipherGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      */
-    public readonly ordering!: pulumi.Output<string>;
+    public readonly ordering!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     public readonly requires!: pulumi.Output<string[] | undefined>;
 
@@ -109,7 +109,7 @@ export class CipherGroup extends pulumi.CustomResource {
  */
 export interface CipherGroupState {
     /**
-     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     allows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -121,11 +121,11 @@ export interface CipherGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      */
     ordering?: pulumi.Input<string>;
     /**
-     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     requires?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -135,7 +135,7 @@ export interface CipherGroupState {
  */
 export interface CipherGroupArgs {
     /**
-     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     allows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -147,11 +147,11 @@ export interface CipherGroupArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      */
     ordering?: pulumi.Input<string>;
     /**
-     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
     requires?: pulumi.Input<pulumi.Input<string>[]>;
 }

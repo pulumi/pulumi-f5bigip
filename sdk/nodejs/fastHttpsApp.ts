@@ -126,6 +126,10 @@ export class FastHttpsApp extends pulumi.CustomResource {
      */
     public readonly existingWafSecurityPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    public readonly fallbackPersistence!: pulumi.Output<string | undefined>;
+    /**
      * Json payload for FAST HTTPS application.
      */
     public /*out*/ readonly fastHttpsJson!: pulumi.Output<string>;
@@ -139,6 +143,14 @@ export class FastHttpsApp extends pulumi.CustomResource {
      */
     public readonly monitor!: pulumi.Output<outputs.FastHttpsAppMonitor | undefined>;
     /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    public readonly persistenceProfile!: pulumi.Output<string | undefined>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    public readonly persistenceType!: pulumi.Output<string | undefined>;
+    /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
@@ -150,7 +162,7 @@ export class FastHttpsApp extends pulumi.CustomResource {
     /**
      * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    public readonly serviceDiscoveries!: pulumi.Output<string[]>;
+    public readonly serviceDiscoveries!: pulumi.Output<string[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
@@ -209,9 +221,12 @@ export class FastHttpsApp extends pulumi.CustomResource {
             resourceInputs["existingTlsClientProfile"] = state ? state.existingTlsClientProfile : undefined;
             resourceInputs["existingTlsServerProfile"] = state ? state.existingTlsServerProfile : undefined;
             resourceInputs["existingWafSecurityPolicy"] = state ? state.existingWafSecurityPolicy : undefined;
+            resourceInputs["fallbackPersistence"] = state ? state.fallbackPersistence : undefined;
             resourceInputs["fastHttpsJson"] = state ? state.fastHttpsJson : undefined;
             resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
             resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["persistenceProfile"] = state ? state.persistenceProfile : undefined;
+            resourceInputs["persistenceType"] = state ? state.persistenceType : undefined;
             resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
             resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
             resourceInputs["serviceDiscoveries"] = state ? state.serviceDiscoveries : undefined;
@@ -238,8 +253,11 @@ export class FastHttpsApp extends pulumi.CustomResource {
             resourceInputs["existingTlsClientProfile"] = args ? args.existingTlsClientProfile : undefined;
             resourceInputs["existingTlsServerProfile"] = args ? args.existingTlsServerProfile : undefined;
             resourceInputs["existingWafSecurityPolicy"] = args ? args.existingWafSecurityPolicy : undefined;
+            resourceInputs["fallbackPersistence"] = args ? args.fallbackPersistence : undefined;
             resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
             resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["persistenceProfile"] = args ? args.persistenceProfile : undefined;
+            resourceInputs["persistenceType"] = args ? args.persistenceType : undefined;
             resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
             resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
             resourceInputs["serviceDiscoveries"] = args ? args.serviceDiscoveries : undefined;
@@ -294,6 +312,10 @@ export interface FastHttpsAppState {
      */
     existingWafSecurityPolicy?: pulumi.Input<string>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    fallbackPersistence?: pulumi.Input<string>;
+    /**
      * Json payload for FAST HTTPS application.
      */
     fastHttpsJson?: pulumi.Input<string>;
@@ -306,6 +328,14 @@ export interface FastHttpsAppState {
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpsAppMonitor>;
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    persistenceProfile?: pulumi.Input<string>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    persistenceType?: pulumi.Input<string>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
@@ -394,6 +424,10 @@ export interface FastHttpsAppArgs {
      */
     existingWafSecurityPolicy?: pulumi.Input<string>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    fallbackPersistence?: pulumi.Input<string>;
+    /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     loadBalancingMode?: pulumi.Input<string>;
@@ -402,6 +436,14 @@ export interface FastHttpsAppArgs {
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastHttpsAppMonitor>;
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    persistenceProfile?: pulumi.Input<string>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    persistenceType?: pulumi.Input<string>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.

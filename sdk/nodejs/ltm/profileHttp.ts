@@ -116,7 +116,7 @@ export class ProfileHttp extends pulumi.CustomResource {
     /**
      * See Http_Strict_Transport_Security below for more details.
      */
-    public readonly httpStrictTransportSecurities!: pulumi.Output<outputs.ltm.ProfileHttpHttpStrictTransportSecurity[] | undefined>;
+    public readonly httpStrictTransportSecurities!: pulumi.Output<outputs.ltm.ProfileHttpHttpStrictTransportSecurity[]>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
@@ -159,7 +159,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly responseHeadersPermitteds!: pulumi.Output<string[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
     public readonly serverAgentName!: pulumi.Output<string>;
     /**
@@ -363,7 +363,7 @@ export interface ProfileHttpState {
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
     serverAgentName?: pulumi.Input<string>;
     /**
@@ -486,7 +486,7 @@ export interface ProfileHttpArgs {
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
     serverAgentName?: pulumi.Input<string>;
     /**

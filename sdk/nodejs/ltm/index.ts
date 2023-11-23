@@ -150,6 +150,11 @@ export type ProfileTcp = import("./profileTcp").ProfileTcp;
 export const ProfileTcp: typeof import("./profileTcp").ProfileTcp = null as any;
 utilities.lazyLoad(exports, ["ProfileTcp"], () => require("./profileTcp"));
 
+export { ProfileWebAccelerationArgs, ProfileWebAccelerationState } from "./profileWebAcceleration";
+export type ProfileWebAcceleration = import("./profileWebAcceleration").ProfileWebAcceleration;
+export const ProfileWebAcceleration: typeof import("./profileWebAcceleration").ProfileWebAcceleration = null as any;
+utilities.lazyLoad(exports, ["ProfileWebAcceleration"], () => require("./profileWebAcceleration"));
+
 export { SnatArgs, SnatState } from "./snat";
 export type Snat = import("./snat").Snat;
 export const Snat: typeof import("./snat").Snat = null as any;
@@ -221,6 +226,8 @@ const _module = {
                 return new ProfileServerSsl(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileTcp:ProfileTcp":
                 return new ProfileTcp(name, <any>undefined, { urn })
+            case "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration":
+                return new ProfileWebAcceleration(name, <any>undefined, { urn })
             case "f5bigip:ltm/snat:Snat":
                 return new Snat(name, <any>undefined, { urn })
             case "f5bigip:ltm/snatPool:SnatPool":
@@ -257,6 +264,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttpCompress", _mod
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileOneConnect", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileServerSsl", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileTcp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileWebAcceleration", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/snat", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/snatPool", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/virtualAddress", _module)
