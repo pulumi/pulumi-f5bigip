@@ -21,8 +21,11 @@ class FastTcpAppArgs:
                  existing_monitor: Optional[pulumi.Input[str]] = None,
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,9 +37,12 @@ class FastTcpAppArgs:
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -52,10 +58,16 @@ class FastTcpAppArgs:
             pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
+        if fallback_persistence is not None:
+            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
             pulumi.set(__self__, "monitor", monitor)
+        if persistence_profile is not None:
+            pulumi.set(__self__, "persistence_profile", persistence_profile)
+        if persistence_type is not None:
+            pulumi.set(__self__, "persistence_type", persistence_type)
         if pool_members is not None:
             pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
@@ -126,6 +138,18 @@ class FastTcpAppArgs:
         pulumi.set(self, "existing_snat_pool", value)
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @fallback_persistence.setter
+    def fallback_persistence(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_persistence", value)
+
+    @property
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -149,6 +173,30 @@ class FastTcpAppArgs:
     @monitor.setter
     def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @persistence_profile.setter
+    def persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
+
+    @persistence_type.setter
+    def persistence_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_type", value)
 
     @property
     @pulumi.getter(name="poolMembers")
@@ -208,9 +256,12 @@ class _FastTcpAppState:
                  existing_monitor: Optional[pulumi.Input[str]] = None,
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  fast_tcp_json: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -222,10 +273,13 @@ class _FastTcpAppState:
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -242,12 +296,18 @@ class _FastTcpAppState:
             pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
+        if fallback_persistence is not None:
+            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
         if fast_tcp_json is not None:
             pulumi.set(__self__, "fast_tcp_json", fast_tcp_json)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
             pulumi.set(__self__, "monitor", monitor)
+        if persistence_profile is not None:
+            pulumi.set(__self__, "persistence_profile", persistence_profile)
+        if persistence_type is not None:
+            pulumi.set(__self__, "persistence_type", persistence_type)
         if pool_members is not None:
             pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
@@ -308,6 +368,18 @@ class _FastTcpAppState:
         pulumi.set(self, "existing_snat_pool", value)
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @fallback_persistence.setter
+    def fallback_persistence(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_persistence", value)
+
+    @property
     @pulumi.getter(name="fastTcpJson")
     def fast_tcp_json(self) -> Optional[pulumi.Input[str]]:
         """
@@ -343,6 +415,30 @@ class _FastTcpAppState:
     @monitor.setter
     def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @persistence_profile.setter
+    def persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
+
+    @persistence_type.setter
+    def persistence_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_type", value)
 
     @property
     @pulumi.getter(name="poolMembers")
@@ -416,8 +512,11 @@ class FastTcpApp(pulumi.CustomResource):
                  existing_monitor: Optional[pulumi.Input[str]] = None,
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -458,9 +557,12 @@ class FastTcpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -522,8 +624,11 @@ class FastTcpApp(pulumi.CustomResource):
                  existing_monitor: Optional[pulumi.Input[str]] = None,
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -544,8 +649,11 @@ class FastTcpApp(pulumi.CustomResource):
             __props__.__dict__["existing_monitor"] = existing_monitor
             __props__.__dict__["existing_pool"] = existing_pool
             __props__.__dict__["existing_snat_pool"] = existing_snat_pool
+            __props__.__dict__["fallback_persistence"] = fallback_persistence
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
             __props__.__dict__["monitor"] = monitor
+            __props__.__dict__["persistence_profile"] = persistence_profile
+            __props__.__dict__["persistence_type"] = persistence_type
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["slow_ramp_time"] = slow_ramp_time
             __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
@@ -568,9 +676,12 @@ class FastTcpApp(pulumi.CustomResource):
             existing_monitor: Optional[pulumi.Input[str]] = None,
             existing_pool: Optional[pulumi.Input[str]] = None,
             existing_snat_pool: Optional[pulumi.Input[str]] = None,
+            fallback_persistence: Optional[pulumi.Input[str]] = None,
             fast_tcp_json: Optional[pulumi.Input[str]] = None,
             load_balancing_mode: Optional[pulumi.Input[str]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+            persistence_profile: Optional[pulumi.Input[str]] = None,
+            persistence_type: Optional[pulumi.Input[str]] = None,
             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
             slow_ramp_time: Optional[pulumi.Input[int]] = None,
             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -587,10 +698,13 @@ class FastTcpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -607,9 +721,12 @@ class FastTcpApp(pulumi.CustomResource):
         __props__.__dict__["existing_monitor"] = existing_monitor
         __props__.__dict__["existing_pool"] = existing_pool
         __props__.__dict__["existing_snat_pool"] = existing_snat_pool
+        __props__.__dict__["fallback_persistence"] = fallback_persistence
         __props__.__dict__["fast_tcp_json"] = fast_tcp_json
         __props__.__dict__["load_balancing_mode"] = load_balancing_mode
         __props__.__dict__["monitor"] = monitor
+        __props__.__dict__["persistence_profile"] = persistence_profile
+        __props__.__dict__["persistence_type"] = persistence_type
         __props__.__dict__["pool_members"] = pool_members
         __props__.__dict__["slow_ramp_time"] = slow_ramp_time
         __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
@@ -650,6 +767,14 @@ class FastTcpApp(pulumi.CustomResource):
         return pulumi.get(self, "existing_snat_pool")
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @property
     @pulumi.getter(name="fastTcpJson")
     def fast_tcp_json(self) -> pulumi.Output[str]:
         """
@@ -673,6 +798,22 @@ class FastTcpApp(pulumi.CustomResource):
         See Pool Monitor below for more details.
         """
         return pulumi.get(self, "monitor")
+
+    @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
 
     @property
     @pulumi.getter(name="poolMembers")

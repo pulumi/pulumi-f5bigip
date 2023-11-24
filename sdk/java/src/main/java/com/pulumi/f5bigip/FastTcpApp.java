@@ -128,6 +128,20 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.existingSnatPool);
     }
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    @Export(name="fallbackPersistence", type=String.class, parameters={})
+    private Output</* @Nullable */ String> fallbackPersistence;
+
+    /**
+     * @return Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    public Output<Optional<String>> fallbackPersistence() {
+        return Codegen.optional(this.fallbackPersistence);
+    }
+    /**
      * Json payload for FAST TCP application.
      * 
      */
@@ -170,6 +184,34 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FastTcpAppMonitor>> monitor() {
         return Codegen.optional(this.monitor);
+    }
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    @Export(name="persistenceProfile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> persistenceProfile;
+
+    /**
+     * @return Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    public Output<Optional<String>> persistenceProfile() {
+        return Codegen.optional(this.persistenceProfile);
+    }
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    @Export(name="persistenceType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> persistenceType;
+
+    /**
+     * @return Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    public Output<Optional<String>> persistenceType() {
+        return Codegen.optional(this.persistenceType);
     }
     /**
      * `pool_members` block takes input for FAST-Generated Pool.

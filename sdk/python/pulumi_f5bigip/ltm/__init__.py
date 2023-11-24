@@ -34,6 +34,7 @@ from .profile_http_compress import *
 from .profile_one_connect import *
 from .profile_server_ssl import *
 from .profile_tcp import *
+from .profile_web_acceleration import *
 from .snat import *
 from .snat_pool import *
 from .virtual_address import *

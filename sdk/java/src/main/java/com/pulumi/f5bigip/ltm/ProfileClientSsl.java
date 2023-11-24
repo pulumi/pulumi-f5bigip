@@ -159,14 +159,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.c3dOcsp;
     }
     /**
-     * Client certificate file path. Default None.
+     * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      * 
      */
     @Export(name="caFile", type=String.class, parameters={})
     private Output<String> caFile;
 
     /**
-     * @return Client certificate file path. Default None.
+     * @return (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      * 
      */
     public Output<String> caFile() {
@@ -311,14 +311,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.ciphers;
     }
     /**
-     * client certificate name
+     * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      * 
      */
     @Export(name="clientCertCa", type=String.class, parameters={})
     private Output<String> clientCertCa;
 
     /**
-     * @return client certificate name
+     * @return (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      * 
      */
     public Output<String> clientCertCa() {

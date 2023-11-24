@@ -84,7 +84,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
         :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
         :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
-        :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
@@ -94,7 +94,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
-        :param pulumi.Input[str] client_cert_ca: client certificate name
+        :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Certificate revocation file name
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
@@ -356,7 +356,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="caFile")
     def ca_file(self) -> Optional[pulumi.Input[str]]:
         """
-        Client certificate file path. Default None.
+        (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         """
         return pulumi.get(self, "ca_file")
 
@@ -488,7 +488,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="clientCertCa")
     def client_cert_ca(self) -> Optional[pulumi.Input[str]]:
         """
-        client certificate name
+        (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         """
         return pulumi.get(self, "client_cert_ca")
 
@@ -1016,7 +1016,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
         :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
         :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
-        :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
@@ -1026,7 +1026,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
-        :param pulumi.Input[str] client_cert_ca: client certificate name
+        :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Certificate revocation file name
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
@@ -1278,7 +1278,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="caFile")
     def ca_file(self) -> Optional[pulumi.Input[str]]:
         """
-        Client certificate file path. Default None.
+        (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         """
         return pulumi.get(self, "ca_file")
 
@@ -1410,7 +1410,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="clientCertCa")
     def client_cert_ca(self) -> Optional[pulumi.Input[str]]:
         """
-        client certificate name
+        (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         """
         return pulumi.get(self, "client_cert_ca")
 
@@ -1971,7 +1971,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
         :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
         :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
-        :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
@@ -1981,7 +1981,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
-        :param pulumi.Input[str] client_cert_ca: client certificate name
+        :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Certificate revocation file name
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
@@ -2274,7 +2274,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
         :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
         :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
-        :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
@@ -2284,7 +2284,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
-        :param pulumi.Input[str] client_cert_ca: client certificate name
+        :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Certificate revocation file name
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
@@ -2453,7 +2453,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="caFile")
     def ca_file(self) -> pulumi.Output[str]:
         """
-        Client certificate file path. Default None.
+        (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         """
         return pulumi.get(self, "ca_file")
 
@@ -2541,7 +2541,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="clientCertCa")
     def client_cert_ca(self) -> pulumi.Output[str]:
         """
-        client certificate name
+        (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         """
         return pulumi.get(self, "client_cert_ca")
 

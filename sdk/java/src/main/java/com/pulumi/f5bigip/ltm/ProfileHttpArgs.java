@@ -367,14 +367,14 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     @Import(name="serverAgentName")
     private @Nullable Output<String> serverAgentName;
 
     /**
-     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     public Optional<Output<String>> serverAgentName() {
@@ -1044,7 +1044,7 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
          * 
          * @return builder
          * 
@@ -1055,7 +1055,7 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
          * 
          * @return builder
          * 

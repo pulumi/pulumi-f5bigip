@@ -108,7 +108,7 @@ type ProfileHttp struct {
 	ResponseChunking pulumi.StringOutput `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayOutput `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 	ServerAgentName pulumi.StringOutput `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrOutput `pulumi:"tmPartition"`
@@ -202,7 +202,7 @@ type profileHttpState struct {
 	ResponseChunking *string `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds []string `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 	ServerAgentName *string `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition *string `pulumi:"tmPartition"`
@@ -264,7 +264,7 @@ type ProfileHttpState struct {
 	ResponseChunking pulumi.StringPtrInput
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayInput
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 	ServerAgentName pulumi.StringPtrInput
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrInput
@@ -330,7 +330,7 @@ type profileHttpArgs struct {
 	ResponseChunking *string `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds []string `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 	ServerAgentName *string `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition *string `pulumi:"tmPartition"`
@@ -393,7 +393,7 @@ type ProfileHttpArgs struct {
 	ResponseChunking pulumi.StringPtrInput
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayInput
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 	ServerAgentName pulumi.StringPtrInput
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrInput
@@ -612,7 +612,7 @@ func (o ProfileHttpOutput) ResponseHeadersPermitteds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.ResponseHeadersPermitteds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
 func (o ProfileHttpOutput) ServerAgentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ServerAgentName }).(pulumi.StringOutput)
 }

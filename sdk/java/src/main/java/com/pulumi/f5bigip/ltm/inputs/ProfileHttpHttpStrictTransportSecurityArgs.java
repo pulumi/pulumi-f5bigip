@@ -17,14 +17,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     public static final ProfileHttpHttpStrictTransportSecurityArgs Empty = new ProfileHttpHttpStrictTransportSecurityArgs();
 
     /**
-     * Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+     * The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     @Import(name="includeSubdomains")
     private @Nullable Output<String> includeSubdomains;
 
     /**
-     * @return Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     public Optional<Output<String>> includeSubdomains() {
@@ -32,14 +32,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     }
 
     /**
-     * Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+     * The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     @Import(name="maximumAge")
     private @Nullable Output<Integer> maximumAge;
 
     /**
-     * @return Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     public Optional<Output<Integer>> maximumAge() {
@@ -47,14 +47,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     }
 
     /**
-     * Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+     * The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+     * @return The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -62,14 +62,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     }
 
     /**
-     * Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+     * An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser&#39;s preload list. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
      * 
      */
     @Import(name="preload")
     private @Nullable Output<String> preload;
 
     /**
-     * @return Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+     * @return An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser&#39;s preload list. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
      * 
      */
     public Optional<Output<String>> preload() {
@@ -104,7 +104,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param includeSubdomains Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param includeSubdomains Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param maximumAge Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param maximumAge Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param mode Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+         * @param mode The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param mode Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+         * @param mode The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param preload Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+         * @param preload An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser&#39;s preload list. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param preload Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+         * @param preload An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser&#39;s preload list. The default is &#34;disabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;disabled&#34; explicitly.
          * 
          * @return builder
          * 

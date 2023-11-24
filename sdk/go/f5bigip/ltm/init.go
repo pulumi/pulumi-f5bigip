@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProfileServerSsl{}
 	case "f5bigip:ltm/profileTcp:ProfileTcp":
 		r = &ProfileTcp{}
+	case "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration":
+		r = &ProfileWebAcceleration{}
 	case "f5bigip:ltm/snat:Snat":
 		r = &Snat{}
 	case "f5bigip:ltm/snatPool:SnatPool":
@@ -201,6 +203,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"ltm/profileTcp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/profileWebAcceleration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

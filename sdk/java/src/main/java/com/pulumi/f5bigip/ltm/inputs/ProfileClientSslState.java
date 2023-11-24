@@ -126,14 +126,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Client certificate file path. Default None.
+     * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      * 
      */
     @Import(name="caFile")
     private @Nullable Output<String> caFile;
 
     /**
-     * @return Client certificate file path. Default None.
+     * @return (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      * 
      */
     public Optional<Output<String>> caFile() {
@@ -295,14 +295,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * client certificate name
+     * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      * 
      */
     @Import(name="clientCertCa")
     private @Nullable Output<String> clientCertCa;
 
     /**
-     * @return client certificate name
+     * @return (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      * 
      */
     public Optional<Output<String>> clientCertCa() {
@@ -1119,7 +1119,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param caFile Client certificate file path. Default None.
+         * @param caFile (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
          * 
          * @return builder
          * 
@@ -1130,7 +1130,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param caFile Client certificate file path. Default None.
+         * @param caFile (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
          * 
          * @return builder
          * 
@@ -1364,7 +1364,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param clientCertCa client certificate name
+         * @param clientCertCa (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
          * 
          * @return builder
          * 
@@ -1375,7 +1375,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param clientCertCa client certificate name
+         * @param clientCertCa (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
          * 
          * @return builder
          * 

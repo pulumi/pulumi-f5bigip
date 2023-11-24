@@ -2016,13 +2016,13 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Passphrase() pulumi.StringPtrOutp
 }
 
 type ProfileHttpEnforcement struct {
-	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If knownMethods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
 	KnownMethods []string `pulumi:"knownMethods"`
-	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If maxHeaderCount is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
 	MaxHeaderCount *int `pulumi:"maxHeaderCount"`
-	// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+	// Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If maxHeaderSize is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
 	MaxHeaderSize *int `pulumi:"maxHeaderSize"`
-	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknownMethod is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
 	UnknownMethod *string `pulumi:"unknownMethod"`
 }
 
@@ -2038,13 +2038,13 @@ type ProfileHttpEnforcementInput interface {
 }
 
 type ProfileHttpEnforcementArgs struct {
-	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If knownMethods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
 	KnownMethods pulumi.StringArrayInput `pulumi:"knownMethods"`
-	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If maxHeaderCount is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
 	MaxHeaderCount pulumi.IntPtrInput `pulumi:"maxHeaderCount"`
-	// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+	// Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If maxHeaderSize is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
 	MaxHeaderSize pulumi.IntPtrInput `pulumi:"maxHeaderSize"`
-	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknownMethod is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
 	UnknownMethod pulumi.StringPtrInput `pulumi:"unknownMethod"`
 }
 
@@ -2099,22 +2099,22 @@ func (o ProfileHttpEnforcementOutput) ToProfileHttpEnforcementOutputWithContext(
 	return o
 }
 
-// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If knownMethods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
 func (o ProfileHttpEnforcementOutput) KnownMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProfileHttpEnforcement) []string { return v.KnownMethods }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If maxHeaderCount is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
 func (o ProfileHttpEnforcementOutput) MaxHeaderCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileHttpEnforcement) *int { return v.MaxHeaderCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+// Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If maxHeaderSize is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
 func (o ProfileHttpEnforcementOutput) MaxHeaderSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileHttpEnforcement) *int { return v.MaxHeaderSize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknownMethod is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
 func (o ProfileHttpEnforcementOutput) UnknownMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileHttpEnforcement) *string { return v.UnknownMethod }).(pulumi.StringPtrOutput)
 }
@@ -2140,13 +2140,13 @@ func (o ProfileHttpEnforcementArrayOutput) Index(i pulumi.IntInput) ProfileHttpE
 }
 
 type ProfileHttpHttpStrictTransportSecurity struct {
-	// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+	// The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
 	IncludeSubdomains *string `pulumi:"includeSubdomains"`
-	// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+	// The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
 	MaximumAge *int `pulumi:"maximumAge"`
-	// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+	// The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 	Mode *string `pulumi:"mode"`
-	// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+	// An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 	Preload *string `pulumi:"preload"`
 }
 
@@ -2162,13 +2162,13 @@ type ProfileHttpHttpStrictTransportSecurityInput interface {
 }
 
 type ProfileHttpHttpStrictTransportSecurityArgs struct {
-	// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+	// The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
 	IncludeSubdomains pulumi.StringPtrInput `pulumi:"includeSubdomains"`
-	// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+	// The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
 	MaximumAge pulumi.IntPtrInput `pulumi:"maximumAge"`
-	// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+	// The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+	// An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 	Preload pulumi.StringPtrInput `pulumi:"preload"`
 }
 
@@ -2223,22 +2223,22 @@ func (o ProfileHttpHttpStrictTransportSecurityOutput) ToProfileHttpHttpStrictTra
 	return o
 }
 
-// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+// The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
 func (o ProfileHttpHttpStrictTransportSecurityOutput) IncludeSubdomains() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.IncludeSubdomains }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+// The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
 func (o ProfileHttpHttpStrictTransportSecurityOutput) MaximumAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *int { return v.MaximumAge }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+// The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 func (o ProfileHttpHttpStrictTransportSecurityOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+// An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
 func (o ProfileHttpHttpStrictTransportSecurityOutput) Preload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.Preload }).(pulumi.StringPtrOutput)
 }
