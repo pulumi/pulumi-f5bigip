@@ -43,7 +43,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class CipherGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         [Output("allows")]
         public Output<ImmutableArray<string>> Allows { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         /// </summary>
         [Output("ordering")]
-        public Output<string> Ordering { get; private set; } = null!;
+        public Output<string?> Ordering { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         [Output("requires")]
         public Output<ImmutableArray<string>> Requires { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _allows;
 
         /// <summary>
-        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         public InputList<string> Allows
         {
@@ -143,7 +143,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _requires;
 
         /// <summary>
-        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         public InputList<string> Requires
         {
@@ -172,7 +172,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _allows;
 
         /// <summary>
-        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         public InputList<string> Allows
         {
@@ -193,7 +193,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _requires;
 
         /// <summary>
-        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        /// Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         /// </summary>
         public InputList<string> Requires
         {

@@ -71,7 +71,7 @@ class ProfileHttpArgs:
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -417,7 +417,7 @@ class ProfileHttpArgs:
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         """
         return pulumi.get(self, "server_agent_name")
 
@@ -544,7 +544,7 @@ class _ProfileHttpState:
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -891,7 +891,7 @@ class _ProfileHttpState:
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         """
         return pulumi.get(self, "server_agent_name")
 
@@ -1051,7 +1051,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -1248,7 +1248,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -1388,7 +1388,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpStrictTransportSecurities")
-    def http_strict_transport_securities(self) -> pulumi.Output[Optional[Sequence['outputs.ProfileHttpHttpStrictTransportSecurity']]]:
+    def http_strict_transport_securities(self) -> pulumi.Output[Sequence['outputs.ProfileHttpHttpStrictTransportSecurity']]:
         """
         See Http_Strict_Transport_Security below for more details.
         """
@@ -1479,7 +1479,7 @@ class ProfileHttp(pulumi.CustomResource):
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> pulumi.Output[str]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         """
         return pulumi.get(self, "server_agent_name")
 

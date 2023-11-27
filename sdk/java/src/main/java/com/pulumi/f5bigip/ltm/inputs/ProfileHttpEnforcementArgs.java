@@ -18,14 +18,14 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
     public static final ProfileHttpEnforcementArgs Empty = new ProfileHttpEnforcementArgs();
 
     /**
-     * Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [&#34;&#34;]  list is to be passed.
+     * Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [&#34;&#34;] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
      * 
      */
     @Import(name="knownMethods")
     private @Nullable Output<List<String>> knownMethods;
 
     /**
-     * @return Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [&#34;&#34;]  list is to be passed.
+     * @return Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [&#34;&#34;] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
      * 
      */
     public Optional<Output<List<String>>> knownMethods() {
@@ -33,14 +33,14 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+     * Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;64&#34; explicitly.
      * 
      */
     @Import(name="maxHeaderCount")
     private @Nullable Output<Integer> maxHeaderCount;
 
     /**
-     * @return Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+     * @return Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;64&#34; explicitly.
      * 
      */
     public Optional<Output<Integer>> maxHeaderCount() {
@@ -48,14 +48,14 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+     * Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;32768&#34; explicitly.
      * 
      */
     @Import(name="maxHeaderSize")
     private @Nullable Output<Integer> maxHeaderSize;
 
     /**
-     * @return Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+     * @return Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;32768&#34; explicitly.
      * 
      */
     public Optional<Output<Integer>> maxHeaderSize() {
@@ -63,14 +63,14 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+     * Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is &#34;allow&#34;. If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;allow&#34; explicitly.
      * 
      */
     @Import(name="unknownMethod")
     private @Nullable Output<String> unknownMethod;
 
     /**
-     * @return Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+     * @return Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is &#34;allow&#34;. If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;allow&#34; explicitly.
      * 
      */
     public Optional<Output<String>> unknownMethod() {
@@ -105,7 +105,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [&#34;&#34;]  list is to be passed.
+         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [&#34;&#34;] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [&#34;&#34;]  list is to be passed.
+         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [&#34;&#34;] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [&#34;&#34;]  list is to be passed.
+         * @param knownMethods Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [&#34;&#34;] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxHeaderCount Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+         * @param maxHeaderCount Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;64&#34; explicitly.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxHeaderCount Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+         * @param maxHeaderCount Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;64&#34; explicitly.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxHeaderSize Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+         * @param maxHeaderSize Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;32768&#34; explicitly.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maxHeaderSize Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+         * @param maxHeaderSize Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;32768&#34; explicitly.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unknownMethod Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+         * @param unknownMethod Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is &#34;allow&#34;. If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;allow&#34; explicitly.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ProfileHttpEnforcementArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param unknownMethod Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+         * @param unknownMethod Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is &#34;allow&#34;. If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;allow&#34; explicitly.
          * 
          * @return builder
          * 

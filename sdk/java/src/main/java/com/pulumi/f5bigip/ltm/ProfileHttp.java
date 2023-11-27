@@ -243,14 +243,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="httpStrictTransportSecurities", type=List.class, parameters={ProfileHttpHttpStrictTransportSecurity.class})
-    private Output</* @Nullable */ List<ProfileHttpHttpStrictTransportSecurity>> httpStrictTransportSecurities;
+    private Output<List<ProfileHttpHttpStrictTransportSecurity>> httpStrictTransportSecurities;
 
     /**
      * @return See Http_Strict_Transport_Security below for more details.
      * 
      */
-    public Output<Optional<List<ProfileHttpHttpStrictTransportSecurity>>> httpStrictTransportSecurities() {
-        return Codegen.optional(this.httpStrictTransportSecurities);
+    public Output<List<ProfileHttpHttpStrictTransportSecurity>> httpStrictTransportSecurities() {
+        return this.httpStrictTransportSecurities;
     }
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -395,14 +395,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return this.responseHeadersPermitteds;
     }
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     @Export(name="serverAgentName", type=String.class, parameters={})
     private Output<String> serverAgentName;
 
     /**
-     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
+     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     public Output<String> serverAgentName() {

@@ -22,10 +22,10 @@ class CipherGroupArgs:
         """
         The set of arguments for constructing a CipherGroup resource.
         :param pulumi.Input[str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the cipher rule
-        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         pulumi.set(__self__, "name", name)
         if allows is not None:
@@ -53,7 +53,7 @@ class CipherGroupArgs:
     @pulumi.getter
     def allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "allows")
 
@@ -77,7 +77,7 @@ class CipherGroupArgs:
     @pulumi.getter
     def ordering(self) -> Optional[pulumi.Input[str]]:
         """
-        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         """
         return pulumi.get(self, "ordering")
 
@@ -89,7 +89,7 @@ class CipherGroupArgs:
     @pulumi.getter
     def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "requires")
 
@@ -108,11 +108,11 @@ class _CipherGroupState:
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CipherGroup resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the cipher rule
         :param pulumi.Input[str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
-        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         if allows is not None:
             pulumi.set(__self__, "allows", allows)
@@ -129,7 +129,7 @@ class _CipherGroupState:
     @pulumi.getter
     def allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "allows")
 
@@ -165,7 +165,7 @@ class _CipherGroupState:
     @pulumi.getter
     def ordering(self) -> Optional[pulumi.Input[str]]:
         """
-        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         """
         return pulumi.get(self, "ordering")
 
@@ -177,7 +177,7 @@ class _CipherGroupState:
     @pulumi.getter
     def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "requires")
 
@@ -215,11 +215,11 @@ class CipherGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the cipher rule
         :param pulumi.Input[str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
-        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         ...
     @overload
@@ -301,11 +301,11 @@ class CipherGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the cipher rule
         :param pulumi.Input[str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
-        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -322,7 +322,7 @@ class CipherGroup(pulumi.CustomResource):
     @pulumi.getter
     def allows(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "allows")
 
@@ -344,9 +344,9 @@ class CipherGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ordering(self) -> pulumi.Output[str]:
+    def ordering(self) -> pulumi.Output[Optional[str]]:
         """
-        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+        Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         """
         return pulumi.get(self, "ordering")
 
@@ -354,7 +354,7 @@ class CipherGroup(pulumi.CustomResource):
     @pulumi.getter
     def requires(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+        Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "requires")
 

@@ -80,6 +80,10 @@ export class FastTcpApp extends pulumi.CustomResource {
      */
     public readonly existingSnatPool!: pulumi.Output<string | undefined>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    public readonly fallbackPersistence!: pulumi.Output<string | undefined>;
+    /**
      * Json payload for FAST TCP application.
      */
     public /*out*/ readonly fastTcpJson!: pulumi.Output<string>;
@@ -92,6 +96,14 @@ export class FastTcpApp extends pulumi.CustomResource {
      * See Pool Monitor below for more details.
      */
     public readonly monitor!: pulumi.Output<outputs.FastTcpAppMonitor | undefined>;
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    public readonly persistenceProfile!: pulumi.Output<string | undefined>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    public readonly persistenceType!: pulumi.Output<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
@@ -132,9 +144,12 @@ export class FastTcpApp extends pulumi.CustomResource {
             resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
             resourceInputs["existingPool"] = state ? state.existingPool : undefined;
             resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
+            resourceInputs["fallbackPersistence"] = state ? state.fallbackPersistence : undefined;
             resourceInputs["fastTcpJson"] = state ? state.fastTcpJson : undefined;
             resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
             resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["persistenceProfile"] = state ? state.persistenceProfile : undefined;
+            resourceInputs["persistenceType"] = state ? state.persistenceType : undefined;
             resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
             resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
             resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
@@ -152,8 +167,11 @@ export class FastTcpApp extends pulumi.CustomResource {
             resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
             resourceInputs["existingPool"] = args ? args.existingPool : undefined;
             resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
+            resourceInputs["fallbackPersistence"] = args ? args.fallbackPersistence : undefined;
             resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
             resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["persistenceProfile"] = args ? args.persistenceProfile : undefined;
+            resourceInputs["persistenceType"] = args ? args.persistenceType : undefined;
             resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
             resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
             resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
@@ -187,6 +205,10 @@ export interface FastTcpAppState {
      */
     existingSnatPool?: pulumi.Input<string>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    fallbackPersistence?: pulumi.Input<string>;
+    /**
      * Json payload for FAST TCP application.
      */
     fastTcpJson?: pulumi.Input<string>;
@@ -199,6 +221,14 @@ export interface FastTcpAppState {
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    persistenceProfile?: pulumi.Input<string>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    persistenceType?: pulumi.Input<string>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
@@ -244,6 +274,10 @@ export interface FastTcpAppArgs {
      */
     existingSnatPool?: pulumi.Input<string>;
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     */
+    fallbackPersistence?: pulumi.Input<string>;
+    /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     loadBalancingMode?: pulumi.Input<string>;
@@ -252,6 +286,14 @@ export interface FastTcpAppArgs {
      * See Pool Monitor below for more details.
      */
     monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     */
+    persistenceProfile?: pulumi.Input<string>;
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     */
+    persistenceType?: pulumi.Input<string>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.

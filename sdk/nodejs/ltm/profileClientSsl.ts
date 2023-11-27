@@ -83,7 +83,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly c3dOcsp!: pulumi.Output<string>;
     /**
-     * Client certificate file path. Default None.
+     * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      */
     public readonly caFile!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly ciphers!: pulumi.Output<string>;
     /**
-     * client certificate name
+     * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      */
     public readonly clientCertCa!: pulumi.Output<string>;
     /**
@@ -462,7 +462,7 @@ export interface ProfileClientSslState {
      */
     c3dOcsp?: pulumi.Input<string>;
     /**
-     * Client certificate file path. Default None.
+     * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -506,7 +506,7 @@ export interface ProfileClientSslState {
      */
     ciphers?: pulumi.Input<string>;
     /**
-     * client certificate name
+     * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      */
     clientCertCa?: pulumi.Input<string>;
     /**
@@ -702,7 +702,7 @@ export interface ProfileClientSslArgs {
      */
     c3dOcsp?: pulumi.Input<string>;
     /**
-     * Client certificate file path. Default None.
+     * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -746,7 +746,7 @@ export interface ProfileClientSslArgs {
      */
     ciphers?: pulumi.Input<string>;
     /**
-     * client certificate name
+     * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      */
     clientCertCa?: pulumi.Input<string>;
     /**

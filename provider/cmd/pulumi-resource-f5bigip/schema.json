@@ -1550,26 +1550,29 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [\"\"]  list is to be passed.\n"
+                    "description": "Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [\"\"] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.\n"
                 },
                 "maxHeaderCount": {
                     "type": "integer",
-                    "description": "Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.\n"
+                    "description": "Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"64\" explicitly.\n"
                 },
                 "maxHeaderSize": {
                     "type": "integer",
-                    "description": "Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.\n"
+                    "description": "Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"32768\" explicitly.\n"
                 },
                 "unknownMethod": {
                     "type": "string",
-                    "description": "Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.\n"
+                    "description": "Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is \"allow\". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"allow\" explicitly.\n"
                 }
             },
             "type": "object",
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
-                        "knownMethods"
+                        "knownMethods",
+                        "maxHeaderCount",
+                        "maxHeaderSize",
+                        "unknownMethod"
                     ]
                 }
             }
@@ -1578,22 +1581,32 @@
             "properties": {
                 "includeSubdomains": {
                     "type": "string",
-                    "description": "Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.\n"
+                    "description": "The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is \"enabled\". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"enabled\" explicitly.\n"
                 },
                 "maximumAge": {
                     "type": "integer",
-                    "description": "Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.\n"
+                    "description": "The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.\n"
+                    "description": "The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is \"disabled\". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"disabled\" explicitly.\n"
                 },
                 "preload": {
                     "type": "string",
-                    "description": "Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.\n"
+                    "description": "An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is \"disabled\". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"disabled\" explicitly.\n"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "includeSubdomains",
+                        "maximumAge",
+                        "mode",
+                        "preload"
+                    ]
+                }
+            }
         },
         "f5bigip:ltm/SnatOrigin:SnatOrigin": {
             "properties": {
@@ -3739,6 +3752,10 @@
                     "type": "string",
                     "description": "Name of an existing WAF Security policy.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "fastHttpJson": {
                     "type": "string",
                     "description": "Json payload for FAST HTTP application.\n"
@@ -3750,6 +3767,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -3800,7 +3825,6 @@
                 "application",
                 "fastHttpJson",
                 "poolMembers",
-                "serviceDiscoveries",
                 "tenant"
             ],
             "inputProperties": {
@@ -3832,6 +3856,10 @@
                     "type": "string",
                     "description": "Name of an existing WAF Security policy.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "loadBalancingMode": {
                     "type": "string",
                     "description": "A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method\n"
@@ -3839,6 +3867,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -3921,6 +3957,10 @@
                         "type": "string",
                         "description": "Name of an existing WAF Security policy.\n"
                     },
+                    "fallbackPersistence": {
+                        "type": "string",
+                        "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                    },
                     "fastHttpJson": {
                         "type": "string",
                         "description": "Json payload for FAST HTTP application.\n"
@@ -3932,6 +3972,14 @@
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastHttpAppMonitor:FastHttpAppMonitor",
                         "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    },
+                    "persistenceProfile": {
+                        "type": "string",
+                        "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                    },
+                    "persistenceType": {
+                        "type": "string",
+                        "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                     },
                     "poolMembers": {
                         "type": "array",
@@ -4020,6 +4068,10 @@
                     "type": "string",
                     "description": "Name of an existing WAF Security policy.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "fastHttpsJson": {
                     "type": "string",
                     "description": "Json payload for FAST HTTPS application.\n"
@@ -4031,6 +4083,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -4089,7 +4149,6 @@
                 "application",
                 "fastHttpsJson",
                 "poolMembers",
-                "serviceDiscoveries",
                 "tenant"
             ],
             "inputProperties": {
@@ -4129,6 +4188,10 @@
                     "type": "string",
                     "description": "Name of an existing WAF Security policy.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "loadBalancingMode": {
                     "type": "string",
                     "description": "A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method\n"
@@ -4136,6 +4199,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -4234,6 +4305,10 @@
                         "type": "string",
                         "description": "Name of an existing WAF Security policy.\n"
                     },
+                    "fallbackPersistence": {
+                        "type": "string",
+                        "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                    },
                     "fastHttpsJson": {
                         "type": "string",
                         "description": "Json payload for FAST HTTPS application.\n"
@@ -4245,6 +4320,14 @@
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppMonitor:FastHttpsAppMonitor",
                         "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    },
+                    "persistenceProfile": {
+                        "type": "string",
+                        "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                    },
+                    "persistenceType": {
+                        "type": "string",
+                        "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                     },
                     "poolMembers": {
                         "type": "array",
@@ -4322,6 +4405,10 @@
                     "type": "string",
                     "description": "Name of an existing BIG-IP SNAT pool.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "fastTcpJson": {
                     "type": "string",
                     "description": "Json payload for FAST TCP application.\n"
@@ -4333,6 +4420,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -4384,6 +4479,10 @@
                     "type": "string",
                     "description": "Name of an existing BIG-IP SNAT pool.\n"
                 },
+                "fallbackPersistence": {
+                    "type": "string",
+                    "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                },
                 "loadBalancingMode": {
                     "type": "string",
                     "description": "A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method\n"
@@ -4391,6 +4490,14 @@
                 "monitor": {
                     "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
                     "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                },
+                "persistenceProfile": {
+                    "type": "string",
+                    "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                },
+                "persistenceType": {
+                    "type": "string",
+                    "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                 },
                 "poolMembers": {
                     "type": "array",
@@ -4444,6 +4551,10 @@
                         "type": "string",
                         "description": "Name of an existing BIG-IP SNAT pool.\n"
                     },
+                    "fallbackPersistence": {
+                        "type": "string",
+                        "description": "Type of fallback persistence record to be created for each new client connection.\n"
+                    },
                     "fastTcpJson": {
                         "type": "string",
                         "description": "Json payload for FAST TCP application.\n"
@@ -4455,6 +4566,14 @@
                     "monitor": {
                         "$ref": "#/types/f5bigip:index/FastTcpAppMonitor:FastTcpAppMonitor",
                         "description": "`monitor` block takes input for FAST-Generated Pool Monitor.\nSee Pool Monitor below for more details.\n"
+                    },
+                    "persistenceProfile": {
+                        "type": "string",
+                        "description": "Name of an existing BIG-IP persistence profile to be used.\n"
+                    },
+                    "persistenceType": {
+                        "type": "string",
+                        "description": "Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.\n"
                     },
                     "poolMembers": {
                         "type": "array",
@@ -5831,6 +5950,63 @@
                 "type": "object"
             }
         },
+        "f5bigip:index/partition:Partition": {
+            "description": "`f5bigip.Partition` Manages F5 BIG-IP partitions\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_partition = new f5bigip.Partition(\"test-partition\", {\n    description: \"created by terraform\",\n    name: \"test-partition\",\n    routeDomainId: 2,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_partition = f5bigip.Partition(\"test-partition\",\n    description=\"created by terraform\",\n    name=\"test-partition\",\n    route_domain_id=2)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_partition = new F5BigIP.Partition(\"test-partition\", new()\n    {\n        Description = \"created by terraform\",\n        Name = \"test-partition\",\n        RouteDomainId = 2,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewPartition(ctx, \"test-partition\", \u0026f5bigip.PartitionArgs{\n\t\t\tDescription:   pulumi.String(\"created by terraform\"),\n\t\t\tName:          pulumi.String(\"test-partition\"),\n\t\t\tRouteDomainId: pulumi.Int(2),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.Partition;\nimport com.pulumi.f5bigip.PartitionArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_partition = new Partition(\"test-partition\", PartitionArgs.builder()        \n            .description(\"created by terraform\")\n            .name(\"test-partition\")\n            .routeDomainId(2)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-partition:\n    type: f5bigip:Partition\n    properties:\n      description: created by terraform\n      name: test-partition\n      routeDomainId: 2\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the partition.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the partition.\n"
+                },
+                "routeDomainId": {
+                    "type": "integer",
+                    "description": "Route domain id of the partition.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the partition.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the partition.\n",
+                    "willReplaceOnChanges": true
+                },
+                "routeDomainId": {
+                    "type": "integer",
+                    "description": "Route domain id of the partition.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Partition resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the partition.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the partition.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "routeDomainId": {
+                        "type": "integer",
+                        "description": "Route domain id of the partition.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:index/sslKeyCert:SslKeyCert": {
             "description": "`f5bigip.SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM. \nThe certificate and the key can be imported from files on the local disk, in PEM format\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst testkeycert = new f5bigip.SslKeyCert(\"testkeycert\", {\n    partition: \"Common\",\n    keyName: \"ssl-test-key\",\n    keyContent: fs.readFileSync(\"key.pem\"),\n    certName: \"ssl-test-cert\",\n    certContent: fs.readFileSync(\"certificate.pem\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntestkeycert = f5bigip.SslKeyCert(\"testkeycert\",\n    partition=\"Common\",\n    key_name=\"ssl-test-key\",\n    key_content=(lambda path: open(path).read())(\"key.pem\"),\n    cert_name=\"ssl-test-cert\",\n    cert_content=(lambda path: open(path).read())(\"certificate.pem\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testkeycert = new F5BigIP.SslKeyCert(\"testkeycert\", new()\n    {\n        Partition = \"Common\",\n        KeyName = \"ssl-test-key\",\n        KeyContent = File.ReadAllText(\"key.pem\"),\n        CertName = \"ssl-test-cert\",\n        CertContent = File.ReadAllText(\"certificate.pem\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewSslKeyCert(ctx, \"testkeycert\", \u0026f5bigip.SslKeyCertArgs{\n\t\t\tPartition:   pulumi.String(\"Common\"),\n\t\t\tKeyName:     pulumi.String(\"ssl-test-key\"),\n\t\t\tKeyContent:  readFileOrPanic(\"key.pem\"),\n\t\t\tCertName:    pulumi.String(\"ssl-test-cert\"),\n\t\t\tCertContent: readFileOrPanic(\"certificate.pem\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.SslKeyCert;\nimport com.pulumi.f5bigip.SslKeyCertArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testkeycert = new SslKeyCert(\"testkeycert\", SslKeyCertArgs.builder()        \n            .partition(\"Common\")\n            .keyName(\"ssl-test-key\")\n            .keyContent(Files.readString(Paths.get(\"key.pem\")))\n            .certName(\"ssl-test-cert\")\n            .certContent(Files.readString(Paths.get(\"certificate.pem\")))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testkeycert:\n    type: f5bigip:SslKeyCert\n    properties:\n      partition: Common\n      keyName: ssl-test-key\n      keyContent:\n        fn::readFile: key.pem\n      certName: ssl-test-cert\n      certContent:\n        fn::readFile: certificate.pem\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -6628,7 +6804,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -6640,19 +6816,18 @@
                 },
                 "ordering": {
                     "type": "string",
-                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.\n"
                 },
                 "requires": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                 }
             },
             "required": [
-                "name",
-                "ordering"
+                "name"
             ],
             "inputProperties": {
                 "allows": {
@@ -6660,7 +6835,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                 },
                 "description": {
                     "type": "string",
@@ -6673,14 +6848,14 @@
                 },
                 "ordering": {
                     "type": "string",
-                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.\n"
                 },
                 "requires": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                 }
             },
             "requiredInputs": [
@@ -6694,7 +6869,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                        "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                     },
                     "description": {
                         "type": "string",
@@ -6707,14 +6882,14 @@
                     },
                     "ordering": {
                         "type": "string",
-                        "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                        "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.\n"
                     },
                     "requires": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                        "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.\n"
                     }
                 },
                 "type": "object"
@@ -8628,7 +8803,7 @@
                 },
                 "caFile": {
                     "type": "string",
-                    "description": "Client certificate file path. Default None.\n"
+                    "description": "(Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.\n"
                 },
                 "cacheSize": {
                     "type": "integer",
@@ -8675,7 +8850,7 @@
                 },
                 "clientCertCa": {
                     "type": "string",
-                    "description": "client certificate name\n"
+                    "description": "(Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.\n"
                 },
                 "crlFile": {
                     "type": "string",
@@ -8920,7 +9095,7 @@
                 },
                 "caFile": {
                     "type": "string",
-                    "description": "Client certificate file path. Default None.\n"
+                    "description": "(Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.\n"
                 },
                 "cacheSize": {
                     "type": "integer",
@@ -8967,7 +9142,7 @@
                 },
                 "clientCertCa": {
                     "type": "string",
-                    "description": "client certificate name\n"
+                    "description": "(Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.\n"
                 },
                 "crlFile": {
                     "type": "string",
@@ -9163,7 +9338,7 @@
                     },
                     "caFile": {
                         "type": "string",
-                        "description": "Client certificate file path. Default None.\n"
+                        "description": "(Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.\n"
                     },
                     "cacheSize": {
                         "type": "integer",
@@ -9210,7 +9385,7 @@
                     },
                     "clientCertCa": {
                         "type": "string",
-                        "description": "client certificate name\n"
+                        "description": "(Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.\n"
                     },
                     "crlFile": {
                         "type": "string",
@@ -10278,7 +10453,7 @@
                 },
                 "serverAgentName": {
                     "type": "string",
-                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
+                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, \"none\" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"BigIP\" explicitly.\n"
                 },
                 "tmPartition": {
                     "type": "string",
@@ -10313,6 +10488,7 @@
                 "fallbackHost",
                 "headErase",
                 "headInsert",
+                "httpStrictTransportSecurities",
                 "insertXforwardedFor",
                 "lwsSeparator",
                 "lwsWidth",
@@ -10441,7 +10617,7 @@
                 },
                 "serverAgentName": {
                     "type": "string",
-                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
+                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, \"none\" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"BigIP\" explicitly.\n"
                 },
                 "tmPartition": {
                     "type": "string",
@@ -10584,7 +10760,7 @@
                     },
                     "serverAgentName": {
                         "type": "string",
-                        "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
+                        "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, \"none\" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass \"BigIP\" explicitly.\n"
                     },
                     "tmPartition": {
                         "type": "string",
@@ -11979,6 +12155,244 @@
                     "zerowindowTimeout": {
                         "type": "integer",
                         "description": "Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration": {
+            "description": "`f5bigip.ltm.ProfileWebAcceleration` Configures a custom web-acceleration profile for use.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/sample-resource.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sample_resource = new f5bigip.ltm.ProfileWebAcceleration(\"sample-resource\", {\n    cacheMaxEntries: 201,\n    cacheSize: 101,\n    defaultsFrom: \"/Common/test2\",\n    name: \"/Common/sample-resource\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsample_resource = f5bigip.ltm.ProfileWebAcceleration(\"sample-resource\",\n    cache_max_entries=201,\n    cache_size=101,\n    defaults_from=\"/Common/test2\",\n    name=\"/Common/sample-resource\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sample_resource = new F5BigIP.Ltm.ProfileWebAcceleration(\"sample-resource\", new()\n    {\n        CacheMaxEntries = 201,\n        CacheSize = 101,\n        DefaultsFrom = \"/Common/test2\",\n        Name = \"/Common/sample-resource\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileWebAcceleration(ctx, \"sample-resource\", \u0026ltm.ProfileWebAccelerationArgs{\n\t\t\tCacheMaxEntries: pulumi.Int(201),\n\t\t\tCacheSize:       pulumi.Int(101),\n\t\t\tDefaultsFrom:    pulumi.String(\"/Common/test2\"),\n\t\t\tName:            pulumi.String(\"/Common/sample-resource\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.ProfileWebAcceleration;\nimport com.pulumi.f5bigip.ltm.ProfileWebAccelerationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var sample_resource = new ProfileWebAcceleration(\"sample-resource\", ProfileWebAccelerationArgs.builder()        \n            .cacheMaxEntries(201)\n            .cacheSize(101)\n            .defaultsFrom(\"/Common/test2\")\n            .name(\"/Common/sample-resource\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  sample-resource:\n    type: f5bigip:ltm:ProfileWebAcceleration\n    properties:\n      cacheMaxEntries: 201\n      cacheSize: 101\n      defaultsFrom: /Common/test2\n      name: /Common/sample-resource\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "cacheAgingRate": {
+                    "type": "integer",
+                    "description": "Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.\n"
+                },
+                "cacheClientCacheControlMode": {
+                    "type": "string",
+                    "description": "Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.\n"
+                },
+                "cacheInsertAgeHeader": {
+                    "type": "string",
+                    "description": "Inserts Age and Date headers in the response. The default value is `enabled`.\n"
+                },
+                "cacheMaxAge": {
+                    "type": "integer",
+                    "description": "Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.\n"
+                },
+                "cacheMaxEntries": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.\n"
+                },
+                "cacheObjectMaxSize": {
+                    "type": "integer",
+                    "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                },
+                "cacheObjectMinSize": {
+                    "type": "integer",
+                    "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                },
+                "cacheSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.\n"
+                },
+                "cacheUriExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.\n"
+                },
+                "cacheUriIncludeOverrides": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.\n"
+                },
+                "cacheUriIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.\n"
+                },
+                "cacheUriPinneds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.\n"
+                }
+            },
+            "required": [
+                "cacheAgingRate",
+                "cacheClientCacheControlMode",
+                "cacheInsertAgeHeader",
+                "cacheMaxAge",
+                "cacheMaxEntries",
+                "cacheObjectMaxSize",
+                "cacheObjectMinSize",
+                "cacheSize",
+                "cacheUriExcludes",
+                "cacheUriIncludes",
+                "cacheUriIncludeOverrides",
+                "cacheUriPinneds",
+                "defaultsFrom",
+                "name"
+            ],
+            "inputProperties": {
+                "cacheAgingRate": {
+                    "type": "integer",
+                    "description": "Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.\n"
+                },
+                "cacheClientCacheControlMode": {
+                    "type": "string",
+                    "description": "Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.\n"
+                },
+                "cacheInsertAgeHeader": {
+                    "type": "string",
+                    "description": "Inserts Age and Date headers in the response. The default value is `enabled`.\n"
+                },
+                "cacheMaxAge": {
+                    "type": "integer",
+                    "description": "Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.\n"
+                },
+                "cacheMaxEntries": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.\n"
+                },
+                "cacheObjectMaxSize": {
+                    "type": "integer",
+                    "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                },
+                "cacheObjectMinSize": {
+                    "type": "integer",
+                    "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                },
+                "cacheSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.\n"
+                },
+                "cacheUriExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.\n"
+                },
+                "cacheUriIncludeOverrides": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.\n"
+                },
+                "cacheUriIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.\n"
+                },
+                "cacheUriPinneds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProfileWebAcceleration resources.\n",
+                "properties": {
+                    "cacheAgingRate": {
+                        "type": "integer",
+                        "description": "Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.\n"
+                    },
+                    "cacheClientCacheControlMode": {
+                        "type": "string",
+                        "description": "Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.\n"
+                    },
+                    "cacheInsertAgeHeader": {
+                        "type": "string",
+                        "description": "Inserts Age and Date headers in the response. The default value is `enabled`.\n"
+                    },
+                    "cacheMaxAge": {
+                        "type": "integer",
+                        "description": "Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.\n"
+                    },
+                    "cacheMaxEntries": {
+                        "type": "integer",
+                        "description": "Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.\n"
+                    },
+                    "cacheObjectMaxSize": {
+                        "type": "integer",
+                        "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                    },
+                    "cacheObjectMinSize": {
+                        "type": "integer",
+                        "description": "Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.\n"
+                    },
+                    "cacheSize": {
+                        "type": "integer",
+                        "description": "Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.\n"
+                    },
+                    "cacheUriExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.\n"
+                    },
+                    "cacheUriIncludeOverrides": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.\n"
+                    },
+                    "cacheUriIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.\n"
+                    },
+                    "cacheUriPinneds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.\n"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.\n",
+                        "willReplaceOnChanges": true
                     }
                 },
                 "type": "object"

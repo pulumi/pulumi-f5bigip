@@ -23,8 +23,11 @@ class FastHttpAppArgs:
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
                  existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input['FastHttpAppMonitorArgs']] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -41,9 +44,12 @@ class FastHttpAppArgs:
         :param pulumi.Input[str] existing_pool: Select an existing BIG-IP Pool
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input['FastHttpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
@@ -67,10 +73,16 @@ class FastHttpAppArgs:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if existing_waf_security_policy is not None:
             pulumi.set(__self__, "existing_waf_security_policy", existing_waf_security_policy)
+        if fallback_persistence is not None:
+            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
             pulumi.set(__self__, "monitor", monitor)
+        if persistence_profile is not None:
+            pulumi.set(__self__, "persistence_profile", persistence_profile)
+        if persistence_type is not None:
+            pulumi.set(__self__, "persistence_type", persistence_type)
         if pool_members is not None:
             pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
@@ -171,6 +183,18 @@ class FastHttpAppArgs:
         pulumi.set(self, "existing_waf_security_policy", value)
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @fallback_persistence.setter
+    def fallback_persistence(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_persistence", value)
+
+    @property
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -194,6 +218,30 @@ class FastHttpAppArgs:
     @monitor.setter
     def monitor(self, value: Optional[pulumi.Input['FastHttpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @persistence_profile.setter
+    def persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
+
+    @persistence_type.setter
+    def persistence_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_type", value)
 
     @property
     @pulumi.getter(name="poolMembers")
@@ -292,9 +340,12 @@ class _FastHttpAppState:
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
                  existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  fast_http_json: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input['FastHttpAppMonitorArgs']] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -311,10 +362,13 @@ class _FastHttpAppState:
         :param pulumi.Input[str] existing_pool: Select an existing BIG-IP Pool
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] fast_http_json: Json payload for FAST HTTP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input['FastHttpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
@@ -339,12 +393,18 @@ class _FastHttpAppState:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if existing_waf_security_policy is not None:
             pulumi.set(__self__, "existing_waf_security_policy", existing_waf_security_policy)
+        if fallback_persistence is not None:
+            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
         if fast_http_json is not None:
             pulumi.set(__self__, "fast_http_json", fast_http_json)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
             pulumi.set(__self__, "monitor", monitor)
+        if persistence_profile is not None:
+            pulumi.set(__self__, "persistence_profile", persistence_profile)
+        if persistence_type is not None:
+            pulumi.set(__self__, "persistence_type", persistence_type)
         if pool_members is not None:
             pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
@@ -435,6 +495,18 @@ class _FastHttpAppState:
         pulumi.set(self, "existing_waf_security_policy", value)
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @fallback_persistence.setter
+    def fallback_persistence(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_persistence", value)
+
+    @property
     @pulumi.getter(name="fastHttpJson")
     def fast_http_json(self) -> Optional[pulumi.Input[str]]:
         """
@@ -470,6 +542,30 @@ class _FastHttpAppState:
     @monitor.setter
     def monitor(self, value: Optional[pulumi.Input['FastHttpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @persistence_profile.setter
+    def persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
+
+    @persistence_type.setter
+    def persistence_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "persistence_type", value)
 
     @property
     @pulumi.getter(name="poolMembers")
@@ -582,8 +678,11 @@ class FastHttpApp(pulumi.CustomResource):
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
                  existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -654,9 +753,12 @@ class FastHttpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_pool: Select an existing BIG-IP Pool
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
@@ -749,8 +851,11 @@ class FastHttpApp(pulumi.CustomResource):
                  existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
                  existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
+                 persistence_profile: Optional[pulumi.Input[str]] = None,
+                 persistence_type: Optional[pulumi.Input[str]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -776,8 +881,11 @@ class FastHttpApp(pulumi.CustomResource):
             __props__.__dict__["existing_pool"] = existing_pool
             __props__.__dict__["existing_snat_pool"] = existing_snat_pool
             __props__.__dict__["existing_waf_security_policy"] = existing_waf_security_policy
+            __props__.__dict__["fallback_persistence"] = fallback_persistence
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
             __props__.__dict__["monitor"] = monitor
+            __props__.__dict__["persistence_profile"] = persistence_profile
+            __props__.__dict__["persistence_type"] = persistence_type
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["security_log_profiles"] = security_log_profiles
             __props__.__dict__["service_discoveries"] = service_discoveries
@@ -805,9 +913,12 @@ class FastHttpApp(pulumi.CustomResource):
             existing_pool: Optional[pulumi.Input[str]] = None,
             existing_snat_pool: Optional[pulumi.Input[str]] = None,
             existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
+            fallback_persistence: Optional[pulumi.Input[str]] = None,
             fast_http_json: Optional[pulumi.Input[str]] = None,
             load_balancing_mode: Optional[pulumi.Input[str]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
+            persistence_profile: Optional[pulumi.Input[str]] = None,
+            persistence_type: Optional[pulumi.Input[str]] = None,
             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -829,10 +940,13 @@ class FastHttpApp(pulumi.CustomResource):
         :param pulumi.Input[str] existing_pool: Select an existing BIG-IP Pool
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
         :param pulumi.Input[str] existing_waf_security_policy: Name of an existing WAF Security policy.
+        :param pulumi.Input[str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[str] fast_http_json: Json payload for FAST HTTP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         :param pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
+        :param pulumi.Input[str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
+        :param pulumi.Input[str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
@@ -855,9 +969,12 @@ class FastHttpApp(pulumi.CustomResource):
         __props__.__dict__["existing_pool"] = existing_pool
         __props__.__dict__["existing_snat_pool"] = existing_snat_pool
         __props__.__dict__["existing_waf_security_policy"] = existing_waf_security_policy
+        __props__.__dict__["fallback_persistence"] = fallback_persistence
         __props__.__dict__["fast_http_json"] = fast_http_json
         __props__.__dict__["load_balancing_mode"] = load_balancing_mode
         __props__.__dict__["monitor"] = monitor
+        __props__.__dict__["persistence_profile"] = persistence_profile
+        __props__.__dict__["persistence_type"] = persistence_type
         __props__.__dict__["pool_members"] = pool_members
         __props__.__dict__["security_log_profiles"] = security_log_profiles
         __props__.__dict__["service_discoveries"] = service_discoveries
@@ -917,6 +1034,14 @@ class FastHttpApp(pulumi.CustomResource):
         return pulumi.get(self, "existing_waf_security_policy")
 
     @property
+    @pulumi.getter(name="fallbackPersistence")
+    def fallback_persistence(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of fallback persistence record to be created for each new client connection.
+        """
+        return pulumi.get(self, "fallback_persistence")
+
+    @property
     @pulumi.getter(name="fastHttpJson")
     def fast_http_json(self) -> pulumi.Output[str]:
         """
@@ -942,6 +1067,22 @@ class FastHttpApp(pulumi.CustomResource):
         return pulumi.get(self, "monitor")
 
     @property
+    @pulumi.getter(name="persistenceProfile")
+    def persistence_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of an existing BIG-IP persistence profile to be used.
+        """
+        return pulumi.get(self, "persistence_profile")
+
+    @property
+    @pulumi.getter(name="persistenceType")
+    def persistence_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        """
+        return pulumi.get(self, "persistence_type")
+
+    @property
     @pulumi.getter(name="poolMembers")
     def pool_members(self) -> pulumi.Output[Sequence['outputs.FastHttpAppPoolMember']]:
         """
@@ -960,7 +1101,7 @@ class FastHttpApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceDiscoveries")
-    def service_discoveries(self) -> pulumi.Output[Sequence[str]]:
+    def service_discoveries(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         """

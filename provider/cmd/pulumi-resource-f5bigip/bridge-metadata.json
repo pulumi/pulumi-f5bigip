@@ -1240,6 +1240,23 @@
                     "zerowindow_timeout": {}
                 }
             },
+            "bigip_ltm_profile_web_acceleration": {
+                "current": "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration",
+                "fields": {
+                    "cache_uri_exclude": {
+                        "maxItemsOne": false
+                    },
+                    "cache_uri_include": {
+                        "maxItemsOne": false
+                    },
+                    "cache_uri_include_override": {
+                        "maxItemsOne": false
+                    },
+                    "cache_uri_pinned": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "bigip_ltm_snat": {
                 "current": "f5bigip:ltm/snat:Snat",
                 "fields": {
@@ -1453,6 +1470,9 @@
                     "name": {},
                     "tag": {}
                 }
+            },
+            "bigip_partition": {
+                "current": "f5bigip:index/partition:Partition"
             },
             "bigip_ssl_certificate": {
                 "current": "f5bigip:ssl/certificate:Certificate",
@@ -1896,6 +1916,7 @@
             "f5bigip:index/ipsecProfile:IpsecProfile": "bigip_ipsec_profile",
             "f5bigip:index/netIkePeer:NetIkePeer": "bigip_net_ike_peer",
             "f5bigip:index/netTunnel:NetTunnel": "bigip_net_tunnel",
+            "f5bigip:index/partition:Partition": "bigip_partition",
             "f5bigip:index/sslKeyCert:SslKeyCert": "bigip_ssl_key_cert",
             "f5bigip:index/trafficSelector:TrafficSelector": "bigip_traffic_selector",
             "f5bigip:index/wafPolicy:WafPolicy": "bigip_waf_policy",
@@ -1922,6 +1943,7 @@
             "f5bigip:ltm/profileOneConnect:ProfileOneConnect": "bigip_ltm_profile_oneconnect",
             "f5bigip:ltm/profileServerSsl:ProfileServerSsl": "bigip_ltm_profile_server_ssl",
             "f5bigip:ltm/profileTcp:ProfileTcp": "bigip_ltm_profile_tcp",
+            "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration": "bigip_ltm_profile_web_acceleration",
             "f5bigip:ltm/snat:Snat": "bigip_ltm_snat",
             "f5bigip:ltm/snatPool:SnatPool": "bigip_ltm_snatpool",
             "f5bigip:ltm/virtualAddress:VirtualAddress": "bigip_ltm_virtual_address",
@@ -2153,8 +2175,11 @@
                 "existingPool": "existing_pool",
                 "existingSnatPool": "existing_snat_pool",
                 "existingWafSecurityPolicy": "existing_waf_security_policy",
+                "fallbackPersistence": "fallback_persistence",
                 "fastHttpJson": "fast_http_json",
                 "loadBalancingMode": "load_balancing_mode",
+                "persistenceProfile": "persistence_profile",
+                "persistenceType": "persistence_type",
                 "poolMembers": "pool_members",
                 "securityLogProfiles": "security_log_profiles",
                 "serviceDiscoveries": "service_discovery",
@@ -2171,8 +2196,11 @@
                 "existingTlsClientProfile": "existing_tls_client_profile",
                 "existingTlsServerProfile": "existing_tls_server_profile",
                 "existingWafSecurityPolicy": "existing_waf_security_policy",
+                "fallbackPersistence": "fallback_persistence",
                 "fastHttpsJson": "fast_https_json",
                 "loadBalancingMode": "load_balancing_mode",
+                "persistenceProfile": "persistence_profile",
+                "persistenceType": "persistence_type",
                 "poolMembers": "pool_members",
                 "securityLogProfiles": "security_log_profiles",
                 "serviceDiscoveries": "service_discovery",
@@ -2187,8 +2215,11 @@
                 "existingMonitor": "existing_monitor",
                 "existingPool": "existing_pool",
                 "existingSnatPool": "existing_snat_pool",
+                "fallbackPersistence": "fallback_persistence",
                 "fastTcpJson": "fast_tcp_json",
                 "loadBalancingMode": "load_balancing_mode",
+                "persistenceProfile": "persistence_profile",
+                "persistenceType": "persistence_type",
                 "poolMembers": "pool_members",
                 "slowRampTime": "slow_ramp_time",
                 "snatPoolAddresses": "snat_pool_address",
@@ -2266,6 +2297,9 @@
                 "secondaryAddress": "secondary_address",
                 "trafficGroup": "traffic_group",
                 "usePmtu": "use_pmtu"
+            },
+            "f5bigip:index/partition:Partition": {
+                "routeDomainId": "route_domain_id"
             },
             "f5bigip:index/sslKeyCert:SslKeyCert": {
                 "certContent": "cert_content",
@@ -2840,6 +2874,21 @@
                 "timewaitRecycle": "timewait_recycle",
                 "verifiedAccept": "verified_accept",
                 "zerowindowTimeout": "zerowindow_timeout"
+            },
+            "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration": {
+                "cacheAgingRate": "cache_aging_rate",
+                "cacheClientCacheControlMode": "cache_client_cache_control_mode",
+                "cacheInsertAgeHeader": "cache_insert_age_header",
+                "cacheMaxAge": "cache_max_age",
+                "cacheMaxEntries": "cache_max_entries",
+                "cacheObjectMaxSize": "cache_object_max_size",
+                "cacheObjectMinSize": "cache_object_min_size",
+                "cacheSize": "cache_size",
+                "cacheUriExcludes": "cache_uri_exclude",
+                "cacheUriIncludeOverrides": "cache_uri_include_override",
+                "cacheUriIncludes": "cache_uri_include",
+                "cacheUriPinneds": "cache_uri_pinned",
+                "defaultsFrom": "defaults_from"
             },
             "f5bigip:ltm/snat:Snat": {
                 "fullPath": "full_path"

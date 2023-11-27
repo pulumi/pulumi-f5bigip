@@ -62,7 +62,7 @@ type ProfileClientSsl struct {
 	C3dDropUnknownOcspStatus pulumi.StringOutput `pulumi:"c3dDropUnknownOcspStatus"`
 	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
 	C3dOcsp pulumi.StringOutput `pulumi:"c3dOcsp"`
-	// Client certificate file path. Default None.
+	// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 	CaFile pulumi.StringOutput `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize pulumi.IntOutput `pulumi:"cacheSize"`
@@ -84,7 +84,7 @@ type ProfileClientSsl struct {
 	CipherGroup pulumi.StringPtrOutput `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringOutput `pulumi:"ciphers"`
-	// client certificate name
+	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringOutput `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile pulumi.StringOutput `pulumi:"crlFile"`
@@ -224,7 +224,7 @@ type profileClientSslState struct {
 	C3dDropUnknownOcspStatus *string `pulumi:"c3dDropUnknownOcspStatus"`
 	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
 	C3dOcsp *string `pulumi:"c3dOcsp"`
-	// Client certificate file path. Default None.
+	// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize *int `pulumi:"cacheSize"`
@@ -246,7 +246,7 @@ type profileClientSslState struct {
 	CipherGroup *string `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers *string `pulumi:"ciphers"`
-	// client certificate name
+	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile *string `pulumi:"crlFile"`
@@ -347,7 +347,7 @@ type ProfileClientSslState struct {
 	C3dDropUnknownOcspStatus pulumi.StringPtrInput
 	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
 	C3dOcsp pulumi.StringPtrInput
-	// Client certificate file path. Default None.
+	// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
 	CacheSize pulumi.IntPtrInput
@@ -369,7 +369,7 @@ type ProfileClientSslState struct {
 	CipherGroup pulumi.StringPtrInput
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringPtrInput
-	// client certificate name
+	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
 	// Certificate revocation file name
 	CrlFile pulumi.StringPtrInput
@@ -474,7 +474,7 @@ type profileClientSslArgs struct {
 	C3dDropUnknownOcspStatus *string `pulumi:"c3dDropUnknownOcspStatus"`
 	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
 	C3dOcsp *string `pulumi:"c3dOcsp"`
-	// Client certificate file path. Default None.
+	// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize *int `pulumi:"cacheSize"`
@@ -496,7 +496,7 @@ type profileClientSslArgs struct {
 	CipherGroup *string `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers *string `pulumi:"ciphers"`
-	// client certificate name
+	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile *string `pulumi:"crlFile"`
@@ -598,7 +598,7 @@ type ProfileClientSslArgs struct {
 	C3dDropUnknownOcspStatus pulumi.StringPtrInput
 	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
 	C3dOcsp pulumi.StringPtrInput
-	// Client certificate file path. Default None.
+	// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
 	CacheSize pulumi.IntPtrInput
@@ -620,7 +620,7 @@ type ProfileClientSslArgs struct {
 	CipherGroup pulumi.StringPtrInput
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringPtrInput
-	// client certificate name
+	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
 	// Certificate revocation file name
 	CrlFile pulumi.StringPtrInput
@@ -828,7 +828,7 @@ func (o ProfileClientSslOutput) C3dOcsp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.C3dOcsp }).(pulumi.StringOutput)
 }
 
-// Client certificate file path. Default None.
+// (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
 func (o ProfileClientSslOutput) CaFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CaFile }).(pulumi.StringOutput)
 }
@@ -883,7 +883,7 @@ func (o ProfileClientSslOutput) Ciphers() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Ciphers }).(pulumi.StringOutput)
 }
 
-// client certificate name
+// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 func (o ProfileClientSslOutput) ClientCertCa() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ClientCertCa }).(pulumi.StringOutput)
 }

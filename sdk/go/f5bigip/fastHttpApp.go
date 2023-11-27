@@ -123,6 +123,8 @@ type FastHttpApp struct {
 	ExistingSnatPool pulumi.StringPtrOutput `pulumi:"existingSnatPool"`
 	// Name of an existing WAF Security policy.
 	ExistingWafSecurityPolicy pulumi.StringPtrOutput `pulumi:"existingWafSecurityPolicy"`
+	// Type of fallback persistence record to be created for each new client connection.
+	FallbackPersistence pulumi.StringPtrOutput `pulumi:"fallbackPersistence"`
 	// Json payload for FAST HTTP application.
 	FastHttpJson pulumi.StringOutput `pulumi:"fastHttpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -130,6 +132,10 @@ type FastHttpApp struct {
 	// `monitor` block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrOutput `pulumi:"monitor"`
+	// Name of an existing BIG-IP persistence profile to be used.
+	PersistenceProfile pulumi.StringPtrOutput `pulumi:"persistenceProfile"`
+	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+	PersistenceType pulumi.StringPtrOutput `pulumi:"persistenceType"`
 	// `poolMembers` block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayOutput `pulumi:"poolMembers"`
@@ -199,6 +205,8 @@ type fastHttpAppState struct {
 	ExistingSnatPool *string `pulumi:"existingSnatPool"`
 	// Name of an existing WAF Security policy.
 	ExistingWafSecurityPolicy *string `pulumi:"existingWafSecurityPolicy"`
+	// Type of fallback persistence record to be created for each new client connection.
+	FallbackPersistence *string `pulumi:"fallbackPersistence"`
 	// Json payload for FAST HTTP application.
 	FastHttpJson *string `pulumi:"fastHttpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -206,6 +214,10 @@ type fastHttpAppState struct {
 	// `monitor` block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpAppMonitor `pulumi:"monitor"`
+	// Name of an existing BIG-IP persistence profile to be used.
+	PersistenceProfile *string `pulumi:"persistenceProfile"`
+	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+	PersistenceType *string `pulumi:"persistenceType"`
 	// `poolMembers` block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpAppPoolMember `pulumi:"poolMembers"`
@@ -240,6 +252,8 @@ type FastHttpAppState struct {
 	ExistingSnatPool pulumi.StringPtrInput
 	// Name of an existing WAF Security policy.
 	ExistingWafSecurityPolicy pulumi.StringPtrInput
+	// Type of fallback persistence record to be created for each new client connection.
+	FallbackPersistence pulumi.StringPtrInput
 	// Json payload for FAST HTTP application.
 	FastHttpJson pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -247,6 +261,10 @@ type FastHttpAppState struct {
 	// `monitor` block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrInput
+	// Name of an existing BIG-IP persistence profile to be used.
+	PersistenceProfile pulumi.StringPtrInput
+	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+	PersistenceType pulumi.StringPtrInput
 	// `poolMembers` block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayInput
@@ -285,11 +303,17 @@ type fastHttpAppArgs struct {
 	ExistingSnatPool *string `pulumi:"existingSnatPool"`
 	// Name of an existing WAF Security policy.
 	ExistingWafSecurityPolicy *string `pulumi:"existingWafSecurityPolicy"`
+	// Type of fallback persistence record to be created for each new client connection.
+	FallbackPersistence *string `pulumi:"fallbackPersistence"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
 	// `monitor` block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor *FastHttpAppMonitor `pulumi:"monitor"`
+	// Name of an existing BIG-IP persistence profile to be used.
+	PersistenceProfile *string `pulumi:"persistenceProfile"`
+	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+	PersistenceType *string `pulumi:"persistenceType"`
 	// `poolMembers` block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers []FastHttpAppPoolMember `pulumi:"poolMembers"`
@@ -325,11 +349,17 @@ type FastHttpAppArgs struct {
 	ExistingSnatPool pulumi.StringPtrInput
 	// Name of an existing WAF Security policy.
 	ExistingWafSecurityPolicy pulumi.StringPtrInput
+	// Type of fallback persistence record to be created for each new client connection.
+	FallbackPersistence pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
 	// `monitor` block takes input for FAST-Generated Pool Monitor.
 	// See Pool Monitor below for more details.
 	Monitor FastHttpAppMonitorPtrInput
+	// Name of an existing BIG-IP persistence profile to be used.
+	PersistenceProfile pulumi.StringPtrInput
+	// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+	PersistenceType pulumi.StringPtrInput
 	// `poolMembers` block takes input for FAST-Generated Pool.
 	// See Pool Members below for more details.
 	PoolMembers FastHttpAppPoolMemberArrayInput
@@ -468,6 +498,11 @@ func (o FastHttpAppOutput) ExistingWafSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) pulumi.StringPtrOutput { return v.ExistingWafSecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Type of fallback persistence record to be created for each new client connection.
+func (o FastHttpAppOutput) FallbackPersistence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpApp) pulumi.StringPtrOutput { return v.FallbackPersistence }).(pulumi.StringPtrOutput)
+}
+
 // Json payload for FAST HTTP application.
 func (o FastHttpAppOutput) FastHttpJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastHttpApp) pulumi.StringOutput { return v.FastHttpJson }).(pulumi.StringOutput)
@@ -482,6 +517,16 @@ func (o FastHttpAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 // See Pool Monitor below for more details.
 func (o FastHttpAppOutput) Monitor() FastHttpAppMonitorPtrOutput {
 	return o.ApplyT(func(v *FastHttpApp) FastHttpAppMonitorPtrOutput { return v.Monitor }).(FastHttpAppMonitorPtrOutput)
+}
+
+// Name of an existing BIG-IP persistence profile to be used.
+func (o FastHttpAppOutput) PersistenceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpApp) pulumi.StringPtrOutput { return v.PersistenceProfile }).(pulumi.StringPtrOutput)
+}
+
+// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+func (o FastHttpAppOutput) PersistenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpApp) pulumi.StringPtrOutput { return v.PersistenceType }).(pulumi.StringPtrOutput)
 }
 
 // `poolMembers` block takes input for FAST-Generated Pool.

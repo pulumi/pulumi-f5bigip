@@ -134,6 +134,12 @@ namespace Pulumi.F5BigIP
         public Output<string?> ExistingWafSecurityPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Type of fallback persistence record to be created for each new client connection.
+        /// </summary>
+        [Output("fallbackPersistence")]
+        public Output<string?> FallbackPersistence { get; private set; } = null!;
+
+        /// <summary>
         /// Json payload for FAST HTTP application.
         /// </summary>
         [Output("fastHttpJson")]
@@ -151,6 +157,18 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.FastHttpAppMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of an existing BIG-IP persistence profile to be used.
+        /// </summary>
+        [Output("persistenceProfile")]
+        public Output<string?> PersistenceProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        /// </summary>
+        [Output("persistenceType")]
+        public Output<string?> PersistenceType { get; private set; } = null!;
 
         /// <summary>
         /// `pool_members` block takes input for FAST-Generated Pool.
@@ -292,6 +310,12 @@ namespace Pulumi.F5BigIP
         public Input<string>? ExistingWafSecurityPolicy { get; set; }
 
         /// <summary>
+        /// Type of fallback persistence record to be created for each new client connection.
+        /// </summary>
+        [Input("fallbackPersistence")]
+        public Input<string>? FallbackPersistence { get; set; }
+
+        /// <summary>
         /// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         /// </summary>
         [Input("loadBalancingMode")]
@@ -303,6 +327,18 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.FastHttpAppMonitorArgs>? Monitor { get; set; }
+
+        /// <summary>
+        /// Name of an existing BIG-IP persistence profile to be used.
+        /// </summary>
+        [Input("persistenceProfile")]
+        public Input<string>? PersistenceProfile { get; set; }
+
+        /// <summary>
+        /// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        /// </summary>
+        [Input("persistenceType")]
+        public Input<string>? PersistenceType { get; set; }
 
         [Input("poolMembers")]
         private InputList<Inputs.FastHttpAppPoolMemberArgs>? _poolMembers;
@@ -430,6 +466,12 @@ namespace Pulumi.F5BigIP
         public Input<string>? ExistingWafSecurityPolicy { get; set; }
 
         /// <summary>
+        /// Type of fallback persistence record to be created for each new client connection.
+        /// </summary>
+        [Input("fallbackPersistence")]
+        public Input<string>? FallbackPersistence { get; set; }
+
+        /// <summary>
         /// Json payload for FAST HTTP application.
         /// </summary>
         [Input("fastHttpJson")]
@@ -447,6 +489,18 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.FastHttpAppMonitorGetArgs>? Monitor { get; set; }
+
+        /// <summary>
+        /// Name of an existing BIG-IP persistence profile to be used.
+        /// </summary>
+        [Input("persistenceProfile")]
+        public Input<string>? PersistenceProfile { get; set; }
+
+        /// <summary>
+        /// Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+        /// </summary>
+        [Input("persistenceType")]
+        public Input<string>? PersistenceType { get; set; }
 
         [Input("poolMembers")]
         private InputList<Inputs.FastHttpAppPoolMemberGetArgs>? _poolMembers;

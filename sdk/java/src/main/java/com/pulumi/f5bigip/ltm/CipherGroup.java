@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:ltm/cipherGroup:CipherGroup")
 public class CipherGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     @Export(name="allows", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allows;
 
     /**
-     * @return Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * @return Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     public Output<Optional<List<String>>> allows() {
@@ -97,28 +97,28 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      * 
      */
     @Export(name="ordering", type=String.class, parameters={})
-    private Output<String> ordering;
+    private Output</* @Nullable */ String> ordering;
 
     /**
-     * @return Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
+     * @return Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      * 
      */
-    public Output<String> ordering() {
-        return this.ordering;
+    public Output<Optional<String>> ordering() {
+        return Codegen.optional(this.ordering);
     }
     /**
-     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     @Export(name="requires", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> requires;
 
     /**
-     * @return Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
+     * @return Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
     public Output<Optional<List<String>>> requires() {

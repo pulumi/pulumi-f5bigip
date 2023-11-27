@@ -81,6 +81,21 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    @Import(name="fallbackPersistence")
+    private @Nullable Output<String> fallbackPersistence;
+
+    /**
+     * @return Type of fallback persistence record to be created for each new client connection.
+     * 
+     */
+    public Optional<Output<String>> fallbackPersistence() {
+        return Optional.ofNullable(this.fallbackPersistence);
+    }
+
+    /**
      * Json payload for FAST TCP application.
      * 
      */
@@ -125,6 +140,36 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<FastTcpAppMonitorArgs>> monitor() {
         return Optional.ofNullable(this.monitor);
+    }
+
+    /**
+     * Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    @Import(name="persistenceProfile")
+    private @Nullable Output<String> persistenceProfile;
+
+    /**
+     * @return Name of an existing BIG-IP persistence profile to be used.
+     * 
+     */
+    public Optional<Output<String>> persistenceProfile() {
+        return Optional.ofNullable(this.persistenceProfile);
+    }
+
+    /**
+     * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    @Import(name="persistenceType")
+    private @Nullable Output<String> persistenceType;
+
+    /**
+     * @return Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+     * 
+     */
+    public Optional<Output<String>> persistenceType() {
+        return Optional.ofNullable(this.persistenceType);
     }
 
     /**
@@ -213,9 +258,12 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         this.existingMonitor = $.existingMonitor;
         this.existingPool = $.existingPool;
         this.existingSnatPool = $.existingSnatPool;
+        this.fallbackPersistence = $.fallbackPersistence;
         this.fastTcpJson = $.fastTcpJson;
         this.loadBalancingMode = $.loadBalancingMode;
         this.monitor = $.monitor;
+        this.persistenceProfile = $.persistenceProfile;
+        this.persistenceType = $.persistenceType;
         this.poolMembers = $.poolMembers;
         this.slowRampTime = $.slowRampTime;
         this.snatPoolAddresses = $.snatPoolAddresses;
@@ -326,6 +374,27 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param fallbackPersistence Type of fallback persistence record to be created for each new client connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fallbackPersistence(@Nullable Output<String> fallbackPersistence) {
+            $.fallbackPersistence = fallbackPersistence;
+            return this;
+        }
+
+        /**
+         * @param fallbackPersistence Type of fallback persistence record to be created for each new client connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fallbackPersistence(String fallbackPersistence) {
+            return fallbackPersistence(Output.of(fallbackPersistence));
+        }
+
+        /**
          * @param fastTcpJson Json payload for FAST TCP application.
          * 
          * @return builder
@@ -388,6 +457,48 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder monitor(FastTcpAppMonitorArgs monitor) {
             return monitor(Output.of(monitor));
+        }
+
+        /**
+         * @param persistenceProfile Name of an existing BIG-IP persistence profile to be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceProfile(@Nullable Output<String> persistenceProfile) {
+            $.persistenceProfile = persistenceProfile;
+            return this;
+        }
+
+        /**
+         * @param persistenceProfile Name of an existing BIG-IP persistence profile to be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceProfile(String persistenceProfile) {
+            return persistenceProfile(Output.of(persistenceProfile));
+        }
+
+        /**
+         * @param persistenceType Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceType(@Nullable Output<String> persistenceType) {
+            $.persistenceType = persistenceType;
+            return this;
+        }
+
+        /**
+         * @param persistenceType Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistenceType(String persistenceType) {
+            return persistenceType(Output.of(persistenceType));
         }
 
         /**
