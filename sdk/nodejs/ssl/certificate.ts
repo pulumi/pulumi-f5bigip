@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const test_cert = new f5bigip.ssl.Certificate("test-cert", {
  *     name: "servercert.crt",
- *     content: fs.readFileSync("servercert.crt"),
+ *     content: fs.readFileSync("servercert.crt", "utf8"),
  *     partition: "Common",
  * });
  * ```

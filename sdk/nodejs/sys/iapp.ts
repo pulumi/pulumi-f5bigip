@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const simplehttp = new f5bigip.sys.IApp("simplehttp", {
  *     name: "simplehttp",
- *     jsonfile: fs.readFileSync("simplehttp.json"),
+ *     jsonfile: fs.readFileSync("simplehttp.json", "utf8"),
  * });
  * ```
  * ### Json File
