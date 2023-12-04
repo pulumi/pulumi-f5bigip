@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * // Example Usage for json file
  * const exampletask = new f5bigip.BigIqAs3("exampletask", {
- *     as3Json: fs.readFileSync("bigiq_example.json"),
+ *     as3Json: fs.readFileSync("bigiq_example.json", "utf8"),
  *     bigiqAddress: "xx.xx.xxx.xx",
  *     bigiqPassword: "xxxxxxxxx",
  *     bigiqUser: "xxxxx",
