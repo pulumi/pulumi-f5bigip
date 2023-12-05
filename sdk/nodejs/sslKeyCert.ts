@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  * const testkeycert = new f5bigip.SslKeyCert("testkeycert", {
  *     partition: "Common",
  *     keyName: "ssl-test-key",
- *     keyContent: fs.readFileSync("key.pem"),
+ *     keyContent: fs.readFileSync("key.pem", "utf8"),
  *     certName: "ssl-test-cert",
- *     certContent: fs.readFileSync("certificate.pem"),
+ *     certContent: fs.readFileSync("certificate.pem", "utf8"),
  * });
  * ```
  */
