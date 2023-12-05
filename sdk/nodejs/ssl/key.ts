@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const test_key = new f5bigip.ssl.Key("test-key", {
  *     name: "serverkey.key",
- *     content: fs.readFileSync("serverkey.key"),
+ *     content: fs.readFileSync("serverkey.key", "utf8"),
  *     partition: "Common",
  * });
  * ```
