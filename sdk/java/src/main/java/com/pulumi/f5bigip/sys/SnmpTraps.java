@@ -58,7 +58,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Encrypted password
      * 
      */
-    @Export(name="authPasswordencrypted", type=String.class, parameters={})
+    @Export(name="authPasswordencrypted", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authPasswordencrypted;
 
     /**
@@ -72,7 +72,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the protocol used to authenticate the user.
      * 
      */
-    @Export(name="authProtocol", type=String.class, parameters={})
+    @Export(name="authProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authProtocol;
 
     /**
@@ -86,7 +86,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the community string used for this trap.
      * 
      */
-    @Export(name="community", type=String.class, parameters={})
+    @Export(name="community", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> community;
 
     /**
@@ -100,7 +100,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * The port that the trap will be sent to.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the authoritative security engine for SNMPv3.
      * 
      */
-    @Export(name="engineId", type=String.class, parameters={})
+    @Export(name="engineId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engineId;
 
     /**
@@ -128,7 +128,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * The host the trap will be sent to.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> host;
 
     /**
@@ -142,7 +142,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Name of the snmp trap.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
     /**
@@ -156,7 +156,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * User defined description.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -170,7 +170,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the clear text password used to encrypt traffic. This field will not be displayed.
      * 
      */
-    @Export(name="privacyPassword", type=String.class, parameters={})
+    @Export(name="privacyPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacyPassword;
 
     /**
@@ -184,7 +184,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the encrypted password used to encrypt traffic.
      * 
      */
-    @Export(name="privacyPasswordEncrypted", type=String.class, parameters={})
+    @Export(name="privacyPasswordEncrypted", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacyPasswordEncrypted;
 
     /**
@@ -198,7 +198,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies the protocol used to encrypt traffic.
      * 
      */
-    @Export(name="privacyProtocol", type=String.class, parameters={})
+    @Export(name="privacyProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privacyProtocol;
 
     /**
@@ -212,7 +212,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      * 
      */
-    @Export(name="securityLevel", type=String.class, parameters={})
+    @Export(name="securityLevel", refs={String.class}, tree="[0]")
     private Output<String> securityLevel;
 
     /**
@@ -226,7 +226,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * Security name used in conjunction with SNMPv3.
      * 
      */
-    @Export(name="securityName", type=String.class, parameters={})
+    @Export(name="securityName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityName;
 
     /**
@@ -240,7 +240,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * SNMP version used for sending the trap.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

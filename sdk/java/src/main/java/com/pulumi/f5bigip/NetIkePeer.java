@@ -59,7 +59,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * The application service that the object belongs to
      * 
      */
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appService;
 
     /**
@@ -73,7 +73,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * the trusted root and intermediate certificate authorities
      * 
      */
-    @Export(name="caCertFile", type=String.class, parameters={})
+    @Export(name="caCertFile", refs={String.class}, tree="[0]")
     private Output<String> caCertFile;
 
     /**
@@ -87,7 +87,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
      * 
      */
-    @Export(name="crlFile", type=String.class, parameters={})
+    @Export(name="crlFile", refs={String.class}, tree="[0]")
     private Output<String> crlFile;
 
     /**
@@ -101,7 +101,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * User defined description
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -115,7 +115,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds between Dead Peer Detection messages
      * 
      */
-    @Export(name="dpdDelay", type=Integer.class, parameters={})
+    @Export(name="dpdDelay", refs={Integer.class}, tree="[0]")
     private Output<Integer> dpdDelay;
 
     /**
@@ -129,7 +129,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
      * 
      */
-    @Export(name="generatePolicy", type=String.class, parameters={})
+    @Export(name="generatePolicy", refs={String.class}, tree="[0]")
     private Output<String> generatePolicy;
 
     /**
@@ -143,7 +143,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
      * 
      */
-    @Export(name="lifetime", type=Integer.class, parameters={})
+    @Export(name="lifetime", refs={Integer.class}, tree="[0]")
     private Output<Integer> lifetime;
 
     /**
@@ -157,7 +157,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -171,7 +171,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate file object
      * 
      */
-    @Export(name="myCertFile", type=String.class, parameters={})
+    @Export(name="myCertFile", refs={String.class}, tree="[0]")
     private Output<String> myCertFile;
 
     /**
@@ -185,7 +185,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate key file object
      * 
      */
-    @Export(name="myCertKeyFile", type=String.class, parameters={})
+    @Export(name="myCertKeyFile", refs={String.class}, tree="[0]")
     private Output<String> myCertKeyFile;
 
     /**
@@ -199,7 +199,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the passphrase of the key used for my-cert-key-file
      * 
      */
-    @Export(name="myCertKeyPassphrase", type=String.class, parameters={})
+    @Export(name="myCertKeyPassphrase", refs={String.class}, tree="[0]")
     private Output<String> myCertKeyPassphrase;
 
     /**
@@ -213,7 +213,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
      * 
      */
-    @Export(name="myIdType", type=String.class, parameters={})
+    @Export(name="myIdType", refs={String.class}, tree="[0]")
     private Output<String> myIdType;
 
     /**
@@ -227,7 +227,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the identifier value sent to the remote host in the phase 1 negotiation
      * 
      */
-    @Export(name="myIdValue", type=String.class, parameters={})
+    @Export(name="myIdValue", refs={String.class}, tree="[0]")
     private Output<String> myIdValue;
 
     /**
@@ -241,7 +241,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Name of the ike_peer
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -255,7 +255,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Enables use of the NAT-Traversal IPsec extension
      * 
      */
-    @Export(name="natTraversal", type=String.class, parameters={})
+    @Export(name="natTraversal", refs={String.class}, tree="[0]")
     private Output<String> natTraversal;
 
     /**
@@ -269,7 +269,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
      * 
      */
-    @Export(name="passive", type=String.class, parameters={})
+    @Export(name="passive", refs={String.class}, tree="[0]")
     private Output<String> passive;
 
     /**
@@ -283,7 +283,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the peer’s certificate for authentication
      * 
      */
-    @Export(name="peersCertFile", type=String.class, parameters={})
+    @Export(name="peersCertFile", refs={String.class}, tree="[0]")
     private Output<String> peersCertFile;
 
     /**
@@ -297,7 +297,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies that the only peers-cert-type supported is certfile
      * 
      */
-    @Export(name="peersCertType", type=String.class, parameters={})
+    @Export(name="peersCertType", refs={String.class}, tree="[0]")
     private Output<String> peersCertType;
 
     /**
@@ -311,7 +311,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
      * 
      */
-    @Export(name="peersIdType", type=String.class, parameters={})
+    @Export(name="peersIdType", refs={String.class}, tree="[0]")
     private Output<String> peersIdType;
 
     /**
@@ -325,7 +325,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the peer’s identifier to be received
      * 
      */
-    @Export(name="peersIdValue", type=String.class, parameters={})
+    @Export(name="peersIdValue", refs={String.class}, tree="[0]")
     private Output<String> peersIdValue;
 
     /**
@@ -339,7 +339,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the authentication method used for phase 1 negotiation
      * 
      */
-    @Export(name="phase1AuthMethod", type=String.class, parameters={})
+    @Export(name="phase1AuthMethod", refs={String.class}, tree="[0]")
     private Output<String> phase1AuthMethod;
 
     /**
@@ -353,7 +353,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the encryption algorithm used for the isakmp phase 1 negotiation
      * 
      */
-    @Export(name="phase1EncryptAlgorithm", type=String.class, parameters={})
+    @Export(name="phase1EncryptAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> phase1EncryptAlgorithm;
 
     /**
@@ -367,7 +367,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Defines the hash algorithm used for the isakmp phase 1 negotiation
      * 
      */
-    @Export(name="phase1HashAlgorithm", type=String.class, parameters={})
+    @Export(name="phase1HashAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> phase1HashAlgorithm;
 
     /**
@@ -381,7 +381,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
      * 
      */
-    @Export(name="phase1PerfectForwardSecrecy", type=String.class, parameters={})
+    @Export(name="phase1PerfectForwardSecrecy", refs={String.class}, tree="[0]")
     private Output<String> phase1PerfectForwardSecrecy;
 
     /**
@@ -395,7 +395,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the preshared key for ISAKMP SAs
      * 
      */
-    @Export(name="presharedKey", type=String.class, parameters={})
+    @Export(name="presharedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> presharedKey;
 
     /**
@@ -409,7 +409,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Display the encrypted preshared-key for the IKE remote node
      * 
      */
-    @Export(name="presharedKeyEncrypted", type=String.class, parameters={})
+    @Export(name="presharedKeyEncrypted", refs={String.class}, tree="[0]")
     private Output<String> presharedKeyEncrypted;
 
     /**
@@ -423,7 +423,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the pseudo-random function used to derive keying material for all cryptographic operations
      * 
      */
-    @Export(name="prf", type=String.class, parameters={})
+    @Export(name="prf", refs={String.class}, tree="[0]")
     private Output<String> prf;
 
     /**
@@ -437,7 +437,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
      * 
      */
-    @Export(name="proxySupport", type=String.class, parameters={})
+    @Export(name="proxySupport", refs={String.class}, tree="[0]")
     private Output<String> proxySupport;
 
     /**
@@ -451,7 +451,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the IP address of the IKE remote node
      * 
      */
-    @Export(name="remoteAddress", type=String.class, parameters={})
+    @Export(name="remoteAddress", refs={String.class}, tree="[0]")
     private Output<String> remoteAddress;
 
     /**
@@ -465,7 +465,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
      * 
      */
-    @Export(name="replayWindowSize", type=Integer.class, parameters={})
+    @Export(name="replayWindowSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> replayWindowSize;
 
     /**
@@ -479,7 +479,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Enables or disables this IKE remote node
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -493,7 +493,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies the names of the traffic-selector objects associated with this ike-peer
      * 
      */
-    @Export(name="trafficSelectors", type=List.class, parameters={String.class})
+    @Export(name="trafficSelectors", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trafficSelectors;
 
     /**
@@ -507,7 +507,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
      * 
      */
-    @Export(name="verifyCert", type=String.class, parameters={})
+    @Export(name="verifyCert", refs={String.class}, tree="[0]")
     private Output<String> verifyCert;
 
     /**
@@ -521,7 +521,7 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * Specifies which version of IKE to be used
      * 
      */
-    @Export(name="versions", type=List.class, parameters={String.class})
+    @Export(name="versions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> versions;
 
     /**

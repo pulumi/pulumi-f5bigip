@@ -65,10 +65,10 @@ public final class FastHttpsAppTlsServerProfile {
             return this;
         }
         public FastHttpsAppTlsServerProfile build() {
-            final var o = new FastHttpsAppTlsServerProfile();
-            o.tlsCertName = tlsCertName;
-            o.tlsKeyName = tlsKeyName;
-            return o;
+            final var _resultValue = new FastHttpsAppTlsServerProfile();
+            _resultValue.tlsCertName = tlsCertName;
+            _resultValue.tlsKeyName = tlsKeyName;
+            return _resultValue;
         }
     }
 }

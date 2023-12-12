@@ -58,7 +58,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Content of certificate on Disk
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -72,7 +72,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Full Path Name of ssl certificate
      * 
      */
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output<String> fullPath;
 
     /**
@@ -86,7 +86,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the issuer certificate.
      * 
      */
-    @Export(name="issuerCert", type=String.class, parameters={})
+    @Export(name="issuerCert", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerCert;
 
     /**
@@ -100,7 +100,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the type of monitoring used.
      * 
      */
-    @Export(name="monitoringType", type=String.class, parameters={})
+    @Export(name="monitoringType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitoringType;
 
     /**
@@ -114,7 +114,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Name of the SSL Certificate to be Imported on to BIGIP
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the OCSP responder.
      * 
      */
-    @Export(name="ocsp", type=String.class, parameters={})
+    @Export(name="ocsp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ocsp;
 
     /**
@@ -142,7 +142,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Partition of ssl certificate
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**

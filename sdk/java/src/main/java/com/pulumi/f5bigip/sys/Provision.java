@@ -59,7 +59,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      * 
      */
-    @Export(name="cpuRatio", type=Integer.class, parameters={})
+    @Export(name="cpuRatio", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cpuRatio;
 
     /**
@@ -73,7 +73,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      * 
      */
-    @Export(name="diskRatio", type=Integer.class, parameters={})
+    @Export(name="diskRatio", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> diskRatio;
 
     /**
@@ -83,7 +83,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> diskRatio() {
         return Codegen.optional(this.diskRatio);
     }
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output<String> fullPath;
 
     public Output<String> fullPath() {
@@ -99,7 +99,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * * dedicated
      * 
      */
-    @Export(name="level", type=String.class, parameters={})
+    @Export(name="level", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> level;
 
     /**
@@ -119,7 +119,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      * 
      */
-    @Export(name="memoryRatio", type=Integer.class, parameters={})
+    @Export(name="memoryRatio", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> memoryRatio;
 
     /**
@@ -150,7 +150,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * * urldb
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

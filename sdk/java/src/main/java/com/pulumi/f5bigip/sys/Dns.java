@@ -58,7 +58,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * Provide description for your DNS server
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -72,7 +72,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
-    @Export(name="nameServers", type=List.class, parameters={String.class})
+    @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
     /**
@@ -86,7 +86,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      * 
      */
-    @Export(name="numberOfDots", type=Integer.class, parameters={})
+    @Export(name="numberOfDots", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfDots;
 
     /**
@@ -100,7 +100,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
-    @Export(name="searches", type=List.class, parameters={String.class})
+    @Export(name="searches", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> searches;
 
     /**

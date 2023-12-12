@@ -57,7 +57,7 @@ public class Command extends com.pulumi.resources.CustomResource {
      * The resulting output from the `commands` executed
      * 
      */
-    @Export(name="commandResults", type=List.class, parameters={String.class})
+    @Export(name="commandResults", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> commandResults;
 
     /**
@@ -71,7 +71,7 @@ public class Command extends com.pulumi.resources.CustomResource {
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
      * 
      */
-    @Export(name="commands", type=List.class, parameters={String.class})
+    @Export(name="commands", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> commands;
 
     /**
@@ -81,7 +81,7 @@ public class Command extends com.pulumi.resources.CustomResource {
     public Output<List<String>> commands() {
         return this.commands;
     }
-    @Export(name="when", type=String.class, parameters={})
+    @Export(name="when", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> when;
 
     public Output<Optional<String>> when() {

@@ -59,7 +59,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      * 
      */
-    @Export(name="advertizeRoute", type=String.class, parameters={})
+    @Export(name="advertizeRoute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> advertizeRoute;
 
     /**
@@ -73,7 +73,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Enable or disable ARP for the virtual address
      * 
      */
-    @Export(name="arp", type=Boolean.class, parameters={})
+    @Export(name="arp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> arp;
 
     /**
@@ -87,7 +87,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Automatically delete the virtual address with the virtual server
      * 
      */
-    @Export(name="autoDelete", type=Boolean.class, parameters={})
+    @Export(name="autoDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoDelete;
 
     /**
@@ -101,7 +101,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Max number of connections for virtual address
      * 
      */
-    @Export(name="connLimit", type=Integer.class, parameters={})
+    @Export(name="connLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> connLimit;
 
     /**
@@ -115,7 +115,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Enable or disable the virtual address
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -129,7 +129,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      * 
      */
-    @Export(name="icmpEcho", type=String.class, parameters={})
+    @Export(name="icmpEcho", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> icmpEcho;
 
     /**
@@ -143,7 +143,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Name of the virtual address
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * Specify the partition and traffic group
      * 
      */
-    @Export(name="trafficGroup", type=String.class, parameters={})
+    @Export(name="trafficGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficGroup;
 
     /**

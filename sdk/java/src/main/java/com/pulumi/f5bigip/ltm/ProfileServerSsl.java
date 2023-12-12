@@ -61,7 +61,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Alert time out
      * 
      */
-    @Export(name="alertTimeout", type=String.class, parameters={})
+    @Export(name="alertTimeout", refs={String.class}, tree="[0]")
     private Output<String> alertTimeout;
 
     /**
@@ -76,7 +76,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      * 
      */
-    @Export(name="authenticate", type=String.class, parameters={})
+    @Export(name="authenticate", refs={String.class}, tree="[0]")
     private Output<String> authenticate;
 
     /**
@@ -91,7 +91,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Client certificate chain traversal depth. Default 9.
      * 
      */
-    @Export(name="authenticateDepth", type=Integer.class, parameters={})
+    @Export(name="authenticateDepth", refs={Integer.class}, tree="[0]")
     private Output<Integer> authenticateDepth;
 
     /**
@@ -105,7 +105,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
      * 
      */
-    @Export(name="c3dCaCert", type=String.class, parameters={})
+    @Export(name="c3dCaCert", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> c3dCaCert;
 
     /**
@@ -123,7 +123,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
      * 
      */
-    @Export(name="c3dCaKey", type=String.class, parameters={})
+    @Export(name="c3dCaKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> c3dCaKey;
 
     /**
@@ -141,7 +141,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * CA Passphrase. Default
      * 
      */
-    @Export(name="c3dCaPassphrase", type=String.class, parameters={})
+    @Export(name="c3dCaPassphrase", refs={String.class}, tree="[0]")
     private Output<String> c3dCaPassphrase;
 
     /**
@@ -155,7 +155,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Certificate Extensions List. Default
      * 
      */
-    @Export(name="c3dCertExtensionCustomOids", type=List.class, parameters={String.class})
+    @Export(name="c3dCertExtensionCustomOids", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> c3dCertExtensionCustomOids;
 
     /**
@@ -190,7 +190,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
      * 
      */
-    @Export(name="c3dCertExtensionIncludes", type=List.class, parameters={String.class})
+    @Export(name="c3dCertExtensionIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> c3dCertExtensionIncludes;
 
     /**
@@ -225,7 +225,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Certificate Lifespan. Default
      * 
      */
-    @Export(name="c3dCertLifespan", type=Integer.class, parameters={})
+    @Export(name="c3dCertLifespan", refs={Integer.class}, tree="[0]")
     private Output<Integer> c3dCertLifespan;
 
     /**
@@ -239,7 +239,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * CA Passphrase. Default enabled
      * 
      */
-    @Export(name="c3dCertificateExtensions", type=String.class, parameters={})
+    @Export(name="c3dCertificateExtensions", refs={String.class}, tree="[0]")
     private Output<String> c3dCertificateExtensions;
 
     /**
@@ -253,7 +253,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Client certificate file path. Default None.
      * 
      */
-    @Export(name="caFile", type=String.class, parameters={})
+    @Export(name="caFile", refs={String.class}, tree="[0]")
     private Output<String> caFile;
 
     /**
@@ -267,7 +267,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Cache size (sessions).
      * 
      */
-    @Export(name="cacheSize", type=Integer.class, parameters={})
+    @Export(name="cacheSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheSize;
 
     /**
@@ -281,7 +281,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Cache time out
      * 
      */
-    @Export(name="cacheTimeout", type=Integer.class, parameters={})
+    @Export(name="cacheTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheTimeout;
 
     /**
@@ -295,7 +295,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate that the system uses for server-side SSL processing.
      * 
      */
-    @Export(name="cert", type=String.class, parameters={})
+    @Export(name="cert", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cert;
 
     /**
@@ -309,7 +309,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the certificates-key chain to associate with the SSL profile
      * 
      */
-    @Export(name="chain", type=String.class, parameters={})
+    @Export(name="chain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> chain;
 
     /**
@@ -323,7 +323,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      * 
      */
-    @Export(name="cipherGroup", type=String.class, parameters={})
+    @Export(name="cipherGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cipherGroup;
 
     /**
@@ -337,7 +337,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      * 
      */
-    @Export(name="ciphers", type=String.class, parameters={})
+    @Export(name="ciphers", refs={String.class}, tree="[0]")
     private Output<String> ciphers;
 
     /**
@@ -351,7 +351,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultsFrom;
 
     /**
@@ -365,7 +365,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Response if the cert is expired (drop / ignore).
      * 
      */
-    @Export(name="expireCertResponseControl", type=String.class, parameters={})
+    @Export(name="expireCertResponseControl", refs={String.class}, tree="[0]")
     private Output<String> expireCertResponseControl;
 
     /**
@@ -379,7 +379,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * full path of the profile
      * 
      */
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output<String> fullPath;
 
     /**
@@ -393,7 +393,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * generation
      * 
      */
-    @Export(name="generation", type=Integer.class, parameters={})
+    @Export(name="generation", refs={Integer.class}, tree="[0]")
     private Output<Integer> generation;
 
     /**
@@ -407,7 +407,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Generic alerts enabled / disabled.
      * 
      */
-    @Export(name="genericAlert", type=String.class, parameters={})
+    @Export(name="genericAlert", refs={String.class}, tree="[0]")
     private Output<String> genericAlert;
 
     /**
@@ -421,7 +421,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Handshake time out (seconds)
      * 
      */
-    @Export(name="handshakeTimeout", type=String.class, parameters={})
+    @Export(name="handshakeTimeout", refs={String.class}, tree="[0]")
     private Output<String> handshakeTimeout;
 
     /**
@@ -435,7 +435,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the file name of the SSL key.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> key;
 
     /**
@@ -449,7 +449,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * ModSSL Methods enabled / disabled. Default is disabled.
      * 
      */
-    @Export(name="modSslMethods", type=String.class, parameters={})
+    @Export(name="modSslMethods", refs={String.class}, tree="[0]")
     private Output<String> modSslMethods;
 
     /**
@@ -463,7 +463,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * ModSSL Methods enabled / disabled. Default is disabled.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -477,7 +477,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -491,7 +491,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * name of partition
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output<String> partition;
 
     /**
@@ -505,7 +505,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Client Certificate Constrained Delegation CA passphrase
      * 
      */
-    @Export(name="passphrase", type=String.class, parameters={})
+    @Export(name="passphrase", refs={String.class}, tree="[0]")
     private Output<String> passphrase;
 
     /**
@@ -519,7 +519,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      * 
      */
-    @Export(name="peerCertMode", type=String.class, parameters={})
+    @Export(name="peerCertMode", refs={String.class}, tree="[0]")
     private Output<String> peerCertMode;
 
     /**
@@ -533,7 +533,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Proxy CA Cert
      * 
      */
-    @Export(name="proxyCaCert", type=String.class, parameters={})
+    @Export(name="proxyCaCert", refs={String.class}, tree="[0]")
     private Output<String> proxyCaCert;
 
     /**
@@ -547,7 +547,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Proxy CA Key
      * 
      */
-    @Export(name="proxyCaKey", type=String.class, parameters={})
+    @Export(name="proxyCaKey", refs={String.class}, tree="[0]")
     private Output<String> proxyCaKey;
 
     /**
@@ -561,7 +561,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Proxy SSL enabled / disabled. Default is disabled.
      * 
      */
-    @Export(name="proxySsl", type=String.class, parameters={})
+    @Export(name="proxySsl", refs={String.class}, tree="[0]")
     private Output<String> proxySsl;
 
     /**
@@ -575,7 +575,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Renogotiate Period (seconds)
      * 
      */
-    @Export(name="renegotiatePeriod", type=String.class, parameters={})
+    @Export(name="renegotiatePeriod", refs={String.class}, tree="[0]")
     private Output<String> renegotiatePeriod;
 
     /**
@@ -589,7 +589,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Renogotiate Size
      * 
      */
-    @Export(name="renegotiateSize", type=String.class, parameters={})
+    @Export(name="renegotiateSize", refs={String.class}, tree="[0]")
     private Output<String> renegotiateSize;
 
     /**
@@ -603,7 +603,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      * 
      */
-    @Export(name="renegotiation", type=String.class, parameters={})
+    @Export(name="renegotiation", refs={String.class}, tree="[0]")
     private Output<String> renegotiation;
 
     /**
@@ -617,7 +617,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * When `true`, client certificate is retained in SSL session.
      * 
      */
-    @Export(name="retainCertificate", type=String.class, parameters={})
+    @Export(name="retainCertificate", refs={String.class}, tree="[0]")
     private Output<String> retainCertificate;
 
     /**
@@ -634,7 +634,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      * 
      */
-    @Export(name="secureRenegotiation", type=String.class, parameters={})
+    @Export(name="secureRenegotiation", refs={String.class}, tree="[0]")
     private Output<String> secureRenegotiation;
 
     /**
@@ -651,7 +651,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -665,7 +665,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Session Mirroring (enabled / disabled)
      * 
      */
-    @Export(name="sessionMirroring", type=String.class, parameters={})
+    @Export(name="sessionMirroring", refs={String.class}, tree="[0]")
     private Output<String> sessionMirroring;
 
     /**
@@ -679,7 +679,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Session Ticket (enabled / disabled)
      * 
      */
-    @Export(name="sessionTicket", type=String.class, parameters={})
+    @Export(name="sessionTicket", refs={String.class}, tree="[0]")
     private Output<String> sessionTicket;
 
     /**
@@ -694,7 +694,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * There can be only one SSL profile with this setting enabled.
      * 
      */
-    @Export(name="sniDefault", type=String.class, parameters={})
+    @Export(name="sniDefault", refs={String.class}, tree="[0]")
     private Output<String> sniDefault;
 
     /**
@@ -709,7 +709,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
-    @Export(name="sniRequire", type=String.class, parameters={})
+    @Export(name="sniRequire", refs={String.class}, tree="[0]")
     private Output<String> sniRequire;
 
     /**
@@ -724,7 +724,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      * 
      */
-    @Export(name="sslC3d", type=String.class, parameters={})
+    @Export(name="sslC3d", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sslC3d;
 
     /**
@@ -739,7 +739,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      * 
      */
-    @Export(name="sslForwardProxy", type=String.class, parameters={})
+    @Export(name="sslForwardProxy", refs={String.class}, tree="[0]")
     private Output<String> sslForwardProxy;
 
     /**
@@ -753,7 +753,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      * 
      */
-    @Export(name="sslForwardProxyBypass", type=String.class, parameters={})
+    @Export(name="sslForwardProxyBypass", refs={String.class}, tree="[0]")
     private Output<String> sslForwardProxyBypass;
 
     /**
@@ -767,7 +767,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * SSL sign hash (any, sha1, sha256, sha384)
      * 
      */
-    @Export(name="sslSignHash", type=String.class, parameters={})
+    @Export(name="sslSignHash", refs={String.class}, tree="[0]")
     private Output<String> sslSignHash;
 
     /**
@@ -781,7 +781,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      * 
      */
-    @Export(name="strictResume", type=String.class, parameters={})
+    @Export(name="strictResume", refs={String.class}, tree="[0]")
     private Output<String> strictResume;
 
     /**
@@ -796,7 +796,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
-    @Export(name="tmOptions", type=List.class, parameters={String.class})
+    @Export(name="tmOptions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tmOptions;
 
     /**
@@ -811,7 +811,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Unclean Shutdown (enabled / disabled)
      * 
      */
-    @Export(name="uncleanShutdown", type=String.class, parameters={})
+    @Export(name="uncleanShutdown", refs={String.class}, tree="[0]")
     private Output<String> uncleanShutdown;
 
     /**
@@ -825,7 +825,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * Unclean Shutdown (drop / ignore)
      * 
      */
-    @Export(name="untrustedCertResponseControl", type=String.class, parameters={})
+    @Export(name="untrustedCertResponseControl", refs={String.class}, tree="[0]")
     private Output<String> untrustedCertResponseControl;
 
     /**

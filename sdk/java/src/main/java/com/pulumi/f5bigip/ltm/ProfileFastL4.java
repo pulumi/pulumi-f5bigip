@@ -72,7 +72,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      * 
      */
-    @Export(name="clientTimeout", type=Integer.class, parameters={})
+    @Export(name="clientTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> clientTimeout;
 
     /**
@@ -86,7 +86,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -100,7 +100,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      * 
      */
-    @Export(name="explicitflowMigration", type=String.class, parameters={})
+    @Export(name="explicitflowMigration", refs={String.class}, tree="[0]")
     private Output<String> explicitflowMigration;
 
     /**
@@ -114,7 +114,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the &#34;/sys modify db&#34; command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      * 
      */
-    @Export(name="hardwareSyncookie", type=String.class, parameters={})
+    @Export(name="hardwareSyncookie", refs={String.class}, tree="[0]")
     private Output<String> hardwareSyncookie;
 
     /**
@@ -128,7 +128,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      * 
      */
-    @Export(name="idleTimeout", type=String.class, parameters={})
+    @Export(name="idleTimeout", refs={String.class}, tree="[0]")
     private Output<String> idleTimeout;
 
     /**
@@ -142,7 +142,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      * 
      */
-    @Export(name="iptosToclient", type=String.class, parameters={})
+    @Export(name="iptosToclient", refs={String.class}, tree="[0]")
     private Output<String> iptosToclient;
 
     /**
@@ -156,7 +156,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      * 
      */
-    @Export(name="iptosToserver", type=String.class, parameters={})
+    @Export(name="iptosToserver", refs={String.class}, tree="[0]")
     private Output<String> iptosToserver;
 
     /**
@@ -170,7 +170,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      * 
      */
-    @Export(name="keepaliveInterval", type=String.class, parameters={})
+    @Export(name="keepaliveInterval", refs={String.class}, tree="[0]")
     private Output<String> keepaliveInterval;
 
     /**
@@ -184,7 +184,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
      * 
      */
-    @Export(name="lateBinding", type=String.class, parameters={})
+    @Export(name="lateBinding", refs={String.class}, tree="[0]")
     private Output<String> lateBinding;
 
     /**
@@ -198,7 +198,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
      * 
      */
-    @Export(name="looseClose", type=String.class, parameters={})
+    @Export(name="looseClose", refs={String.class}, tree="[0]")
     private Output<String> looseClose;
 
     /**
@@ -212,7 +212,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
      * 
      */
-    @Export(name="looseInitiation", type=String.class, parameters={})
+    @Export(name="looseInitiation", refs={String.class}, tree="[0]")
     private Output<String> looseInitiation;
 
     /**
@@ -226,7 +226,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -240,7 +240,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * name of partition
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output<String> partition;
 
     /**
@@ -254,7 +254,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
      * 
      */
-    @Export(name="receiveWindowsize", type=Integer.class, parameters={})
+    @Export(name="receiveWindowsize", refs={Integer.class}, tree="[0]")
     private Output<Integer> receiveWindowsize;
 
     /**
@@ -268,7 +268,7 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
      * 
      */
-    @Export(name="tcpHandshakeTimeout", type=String.class, parameters={})
+    @Export(name="tcpHandshakeTimeout", refs={String.class}, tree="[0]")
     private Output<String> tcpHandshakeTimeout;
 
     /**

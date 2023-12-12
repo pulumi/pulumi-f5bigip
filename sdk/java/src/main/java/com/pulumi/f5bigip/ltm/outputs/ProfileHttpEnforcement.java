@@ -110,12 +110,12 @@ public final class ProfileHttpEnforcement {
             return this;
         }
         public ProfileHttpEnforcement build() {
-            final var o = new ProfileHttpEnforcement();
-            o.knownMethods = knownMethods;
-            o.maxHeaderCount = maxHeaderCount;
-            o.maxHeaderSize = maxHeaderSize;
-            o.unknownMethod = unknownMethod;
-            return o;
+            final var _resultValue = new ProfileHttpEnforcement();
+            _resultValue.knownMethods = knownMethods;
+            _resultValue.maxHeaderCount = maxHeaderCount;
+            _resultValue.maxHeaderSize = maxHeaderSize;
+            _resultValue.unknownMethod = unknownMethod;
+            return _resultValue;
         }
     }
 }

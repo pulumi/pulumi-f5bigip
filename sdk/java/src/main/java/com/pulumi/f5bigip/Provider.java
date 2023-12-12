@@ -26,7 +26,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Domain name/IP of the BigIP
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> address;
 
     /**
@@ -40,7 +40,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Login reference for token authentication (see BIG-IP REST docs for details)
      * 
      */
-    @Export(name="loginRef", type=String.class, parameters={})
+    @Export(name="loginRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loginRef;
 
     /**
@@ -54,7 +54,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The user&#39;s password. Leave empty if using token_value
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -68,7 +68,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Management Port to connect to Bigip
      * 
      */
-    @Export(name="port", type=String.class, parameters={})
+    @Export(name="port", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> port;
 
     /**
@@ -82,7 +82,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * A token generated outside the provider, in place of password
      * 
      */
-    @Export(name="tokenValue", type=String.class, parameters={})
+    @Export(name="tokenValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenValue;
 
     /**
@@ -96,7 +96,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Valid Trusted Certificate path
      * 
      */
-    @Export(name="trustedCertPath", type=String.class, parameters={})
+    @Export(name="trustedCertPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trustedCertPath;
 
     /**
@@ -110,7 +110,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * Username with API access to the BigIP
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

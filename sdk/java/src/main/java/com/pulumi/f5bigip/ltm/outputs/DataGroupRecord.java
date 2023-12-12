@@ -67,10 +67,10 @@ public final class DataGroupRecord {
             return this;
         }
         public DataGroupRecord build() {
-            final var o = new DataGroupRecord();
-            o.data = data;
-            o.name = name;
-            return o;
+            final var _resultValue = new DataGroupRecord();
+            _resultValue.data = data;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

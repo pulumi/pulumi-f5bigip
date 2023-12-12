@@ -57,7 +57,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * The application service that the object belongs to
      * 
      */
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appService;
 
     /**
@@ -71,7 +71,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies whether auto lasthop is enabled or not
      * 
      */
-    @Export(name="autoLastHop", type=String.class, parameters={})
+    @Export(name="autoLastHop", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoLastHop;
 
     /**
@@ -85,7 +85,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * User defined description
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -99,7 +99,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies an idle timeout for wildcard tunnels in seconds
      * 
      */
-    @Export(name="idleTimeout", type=Integer.class, parameters={})
+    @Export(name="idleTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleTimeout;
 
     /**
@@ -113,7 +113,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * The key field may represent different values depending on the type of the tunnel
      * 
      */
-    @Export(name="key", type=Integer.class, parameters={})
+    @Export(name="key", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> key;
 
     /**
@@ -127,7 +127,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies a local IP address. This option is required
      * 
      */
-    @Export(name="localAddress", type=String.class, parameters={})
+    @Export(name="localAddress", refs={String.class}, tree="[0]")
     private Output<String> localAddress;
 
     /**
@@ -141,7 +141,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies how the tunnel carries traffic
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -155,7 +155,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies the maximum transmission unit (MTU) of the tunnel
      * 
      */
-    @Export(name="mtu", type=Integer.class, parameters={})
+    @Export(name="mtu", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> mtu;
 
     /**
@@ -169,7 +169,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Name of the tunnel
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Displays the admin-partition within which this component resides
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -197,7 +197,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to associate with the tunnel
      * 
      */
-    @Export(name="profile", type=String.class, parameters={})
+    @Export(name="profile", refs={String.class}, tree="[0]")
     private Output<String> profile;
 
     /**
@@ -211,7 +211,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies a remote IP address
      * 
      */
-    @Export(name="remoteAddress", type=String.class, parameters={})
+    @Export(name="remoteAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> remoteAddress;
 
     /**
@@ -225,7 +225,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies a secondary non-floating IP address when the local-address is set to a floating address
      * 
      */
-    @Export(name="secondaryAddress", type=String.class, parameters={})
+    @Export(name="secondaryAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryAddress;
 
     /**
@@ -239,7 +239,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
      * 
      */
-    @Export(name="tos", type=String.class, parameters={})
+    @Export(name="tos", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tos;
 
     /**
@@ -253,7 +253,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Specifies a traffic-group for use with the tunnel
      * 
      */
-    @Export(name="trafficGroup", type=String.class, parameters={})
+    @Export(name="trafficGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficGroup;
 
     /**
@@ -267,7 +267,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Enables or disables the tunnel to be transparent
      * 
      */
-    @Export(name="transparent", type=String.class, parameters={})
+    @Export(name="transparent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transparent;
 
     /**
@@ -281,7 +281,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
      * 
      */
-    @Export(name="usePmtu", type=String.class, parameters={})
+    @Export(name="usePmtu", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> usePmtu;
 
     /**

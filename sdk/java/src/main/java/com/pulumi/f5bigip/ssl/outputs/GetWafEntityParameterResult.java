@@ -308,32 +308,32 @@ public final class GetWafEntityParameterResult {
             return this;
         }
         public GetWafEntityParameterResult build() {
-            final var o = new GetWafEntityParameterResult();
-            o.allowEmptyType = allowEmptyType;
-            o.allowRepeatedParameterName = allowRepeatedParameterName;
-            o.attackSignaturesCheck = attackSignaturesCheck;
-            o.checkMaxValueLength = checkMaxValueLength;
-            o.checkMinValueLength = checkMinValueLength;
-            o.dataType = dataType;
-            o.description = description;
-            o.enableRegularExpression = enableRegularExpression;
-            o.id = id;
-            o.isBase64 = isBase64;
-            o.isCookie = isCookie;
-            o.isHeader = isHeader;
-            o.json = json;
-            o.level = level;
-            o.mandatory = mandatory;
-            o.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
-            o.name = name;
-            o.parameterLocation = parameterLocation;
-            o.performStaging = performStaging;
-            o.sensitiveParameter = sensitiveParameter;
-            o.signatureOverridesDisables = signatureOverridesDisables;
-            o.type = type;
-            o.url = url;
-            o.valueType = valueType;
-            return o;
+            final var _resultValue = new GetWafEntityParameterResult();
+            _resultValue.allowEmptyType = allowEmptyType;
+            _resultValue.allowRepeatedParameterName = allowRepeatedParameterName;
+            _resultValue.attackSignaturesCheck = attackSignaturesCheck;
+            _resultValue.checkMaxValueLength = checkMaxValueLength;
+            _resultValue.checkMinValueLength = checkMinValueLength;
+            _resultValue.dataType = dataType;
+            _resultValue.description = description;
+            _resultValue.enableRegularExpression = enableRegularExpression;
+            _resultValue.id = id;
+            _resultValue.isBase64 = isBase64;
+            _resultValue.isCookie = isCookie;
+            _resultValue.isHeader = isHeader;
+            _resultValue.json = json;
+            _resultValue.level = level;
+            _resultValue.mandatory = mandatory;
+            _resultValue.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
+            _resultValue.name = name;
+            _resultValue.parameterLocation = parameterLocation;
+            _resultValue.performStaging = performStaging;
+            _resultValue.sensitiveParameter = sensitiveParameter;
+            _resultValue.signatureOverridesDisables = signatureOverridesDisables;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            _resultValue.valueType = valueType;
+            return _resultValue;
         }
     }
 }

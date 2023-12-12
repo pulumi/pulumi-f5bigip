@@ -66,10 +66,10 @@ public final class GetWafEntityUrlMethodOverride {
             return this;
         }
         public GetWafEntityUrlMethodOverride build() {
-            final var o = new GetWafEntityUrlMethodOverride();
-            o.allow = allow;
-            o.method = method;
-            return o;
+            final var _resultValue = new GetWafEntityUrlMethodOverride();
+            _resultValue.allow = allow;
+            _resultValue.method = method;
+            return _resultValue;
         }
     }
 }

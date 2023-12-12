@@ -66,10 +66,10 @@ public final class FastUdpAppVirtualServer {
             return this;
         }
         public FastUdpAppVirtualServer build() {
-            final var o = new FastUdpAppVirtualServer();
-            o.ip = ip;
-            o.port = port;
-            return o;
+            final var _resultValue = new FastUdpAppVirtualServer();
+            _resultValue.ip = ip;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

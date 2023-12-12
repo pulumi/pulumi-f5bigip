@@ -265,22 +265,22 @@ public final class GetNodeResult {
             return this;
         }
         public GetNodeResult build() {
-            final var o = new GetNodeResult();
-            o.address = address;
-            o.connectionLimit = connectionLimit;
-            o.description = description;
-            o.dynamicRatio = dynamicRatio;
-            o.fqdn = fqdn;
-            o.fullPath = fullPath;
-            o.id = id;
-            o.monitor = monitor;
-            o.name = name;
-            o.partition = partition;
-            o.rateLimit = rateLimit;
-            o.ratio = ratio;
-            o.session = session;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetNodeResult();
+            _resultValue.address = address;
+            _resultValue.connectionLimit = connectionLimit;
+            _resultValue.description = description;
+            _resultValue.dynamicRatio = dynamicRatio;
+            _resultValue.fqdn = fqdn;
+            _resultValue.fullPath = fullPath;
+            _resultValue.id = id;
+            _resultValue.monitor = monitor;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            _resultValue.rateLimit = rateLimit;
+            _resultValue.ratio = ratio;
+            _resultValue.session = session;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

@@ -59,7 +59,7 @@ public class SnatPool extends com.pulumi.resources.CustomResource {
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
@@ -73,7 +73,7 @@ public class SnatPool extends com.pulumi.resources.CustomResource {
      * Name of the snatpool
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

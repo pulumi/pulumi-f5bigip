@@ -69,7 +69,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      * 
      */
-    @Export(name="allowNat", type=String.class, parameters={})
+    @Export(name="allowNat", refs={String.class}, tree="[0]")
     private Output<String> allowNat;
 
     /**
@@ -83,7 +83,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      * 
      */
-    @Export(name="allowSnat", type=String.class, parameters={})
+    @Export(name="allowSnat", refs={String.class}, tree="[0]")
     private Output<String> allowSnat;
 
     /**
@@ -97,7 +97,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies descriptive text that identifies the pool.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -111,7 +111,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the load balancing method. The default is Round Robin.
      * 
      */
-    @Export(name="loadBalancingMode", type=String.class, parameters={})
+    @Export(name="loadBalancingMode", refs={String.class}, tree="[0]")
     private Output<String> loadBalancingMode;
 
     /**
@@ -125,7 +125,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
      * 
      */
-    @Export(name="minimumActiveMembers", type=Integer.class, parameters={})
+    @Export(name="minimumActiveMembers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minimumActiveMembers;
 
     /**
@@ -139,7 +139,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * List of monitor names to associate with the pool
      * 
      */
-    @Export(name="monitors", type=List.class, parameters={String.class})
+    @Export(name="monitors", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> monitors;
 
     /**
@@ -153,7 +153,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      * 
      */
-    @Export(name="reselectTries", type=Integer.class, parameters={})
+    @Export(name="reselectTries", refs={Integer.class}, tree="[0]")
     private Output<Integer> reselectTries;
 
     /**
@@ -181,7 +181,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      * 
      */
-    @Export(name="serviceDownAction", type=String.class, parameters={})
+    @Export(name="serviceDownAction", refs={String.class}, tree="[0]")
     private Output<String> serviceDownAction;
 
     /**
@@ -195,7 +195,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      * 
      */
-    @Export(name="slowRampTime", type=Integer.class, parameters={})
+    @Export(name="slowRampTime", refs={Integer.class}, tree="[0]")
     private Output<Integer> slowRampTime;
 
     /**

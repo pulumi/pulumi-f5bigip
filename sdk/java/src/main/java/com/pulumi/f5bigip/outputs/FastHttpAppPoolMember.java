@@ -130,13 +130,13 @@ public final class FastHttpAppPoolMember {
             return this;
         }
         public FastHttpAppPoolMember build() {
-            final var o = new FastHttpAppPoolMember();
-            o.addresses = addresses;
-            o.connectionLimit = connectionLimit;
-            o.port = port;
-            o.priorityGroup = priorityGroup;
-            o.shareNodes = shareNodes;
-            return o;
+            final var _resultValue = new FastHttpAppPoolMember();
+            _resultValue.addresses = addresses;
+            _resultValue.connectionLimit = connectionLimit;
+            _resultValue.port = port;
+            _resultValue.priorityGroup = priorityGroup;
+            _resultValue.shareNodes = shareNodes;
+            return _resultValue;
         }
     }
 }

@@ -29,7 +29,7 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
      * 
      */
-    @Export(name="internal", type=Boolean.class, parameters={})
+    @Export(name="internal", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internal;
 
     /**
@@ -43,7 +43,7 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -57,7 +57,7 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      * 
      */
-    @Export(name="records", type=List.class, parameters={DataGroupRecord.class})
+    @Export(name="records", refs={List.class,DataGroupRecord.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataGroupRecord>> records;
 
     /**
@@ -72,7 +72,7 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * This should be used in conjunction with `internal` attribute set `false`
      * 
      */
-    @Export(name="recordsSrc", type=String.class, parameters={})
+    @Export(name="recordsSrc", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recordsSrc;
 
     /**
@@ -87,7 +87,7 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

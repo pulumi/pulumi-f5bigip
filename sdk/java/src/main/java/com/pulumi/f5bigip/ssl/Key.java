@@ -58,7 +58,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Content of SSL certificate key present on local Disk
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -72,7 +72,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Full Path Name of ssl key
      * 
      */
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output<String> fullPath;
 
     /**
@@ -86,7 +86,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Name of the SSL Certificate key to be Imported on to BIGIP
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Partition of ssl certificate key
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -114,7 +114,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * Passphrase on key.
      * 
      */
-    @Export(name="passphrase", type=String.class, parameters={})
+    @Export(name="passphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passphrase;
 
     /**

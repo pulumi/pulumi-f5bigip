@@ -64,7 +64,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      * 
      */
-    @Export(name="closeWaitTimeout", type=Integer.class, parameters={})
+    @Export(name="closeWaitTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> closeWaitTimeout;
 
     /**
@@ -78,7 +78,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
      * 
      */
-    @Export(name="congestionControl", type=String.class, parameters={})
+    @Export(name="congestionControl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> congestionControl;
 
     /**
@@ -92,7 +92,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -106,7 +106,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
      * 
      */
-    @Export(name="deferredAccept", type=String.class, parameters={})
+    @Export(name="deferredAccept", refs={String.class}, tree="[0]")
     private Output<String> deferredAccept;
 
     /**
@@ -120,7 +120,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
      * 
      */
-    @Export(name="delayedAcks", type=String.class, parameters={})
+    @Export(name="delayedAcks", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delayedAcks;
 
     /**
@@ -134,7 +134,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
      * 
      */
-    @Export(name="earlyRetransmit", type=String.class, parameters={})
+    @Export(name="earlyRetransmit", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> earlyRetransmit;
 
     /**
@@ -148,7 +148,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
      * 
      */
-    @Export(name="fastOpen", type=String.class, parameters={})
+    @Export(name="fastOpen", refs={String.class}, tree="[0]")
     private Output<String> fastOpen;
 
     /**
@@ -162,7 +162,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
      * 
      */
-    @Export(name="finwait2timeout", type=Integer.class, parameters={})
+    @Export(name="finwait2timeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> finwait2timeout;
 
     /**
@@ -176,7 +176,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
      * 
      */
-    @Export(name="finwaitTimeout", type=Integer.class, parameters={})
+    @Export(name="finwaitTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> finwaitTimeout;
 
     /**
@@ -190,7 +190,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
      * 
      */
-    @Export(name="idleTimeout", type=Integer.class, parameters={})
+    @Export(name="idleTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleTimeout;
 
     /**
@@ -204,7 +204,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
      * 
      */
-    @Export(name="initialCongestionWindowsize", type=Integer.class, parameters={})
+    @Export(name="initialCongestionWindowsize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> initialCongestionWindowsize;
 
     /**
@@ -218,7 +218,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      * 
      */
-    @Export(name="keepaliveInterval", type=Integer.class, parameters={})
+    @Export(name="keepaliveInterval", refs={Integer.class}, tree="[0]")
     private Output<Integer> keepaliveInterval;
 
     /**
@@ -232,7 +232,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
      * 
      */
-    @Export(name="nagle", type=String.class, parameters={})
+    @Export(name="nagle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nagle;
 
     /**
@@ -246,7 +246,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -260,7 +260,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * name of partition
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -274,7 +274,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the proxy buffer level, in bytes, at which the receive window is closed.
      * 
      */
-    @Export(name="proxybufferHigh", type=Integer.class, parameters={})
+    @Export(name="proxybufferHigh", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> proxybufferHigh;
 
     /**
@@ -288,7 +288,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
      * 
      */
-    @Export(name="receiveWindowsize", type=Integer.class, parameters={})
+    @Export(name="receiveWindowsize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> receiveWindowsize;
 
     /**
@@ -302,7 +302,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the SEND window size. The default is 131072 bytes.
      * 
      */
-    @Export(name="sendBuffersize", type=Integer.class, parameters={})
+    @Export(name="sendBuffersize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sendBuffersize;
 
     /**
@@ -316,7 +316,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
      * 
      */
-    @Export(name="taillossProbe", type=String.class, parameters={})
+    @Export(name="taillossProbe", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> taillossProbe;
 
     /**
@@ -330,7 +330,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
      * 
      */
-    @Export(name="timewaitRecycle", type=String.class, parameters={})
+    @Export(name="timewaitRecycle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timewaitRecycle;
 
     /**
@@ -344,7 +344,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
      * 
      */
-    @Export(name="verifiedAccept", type=String.class, parameters={})
+    @Export(name="verifiedAccept", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> verifiedAccept;
 
     /**
@@ -358,7 +358,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
      * 
      */
-    @Export(name="zerowindowTimeout", type=Integer.class, parameters={})
+    @Export(name="zerowindowTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> zerowindowTimeout;
 
     /**

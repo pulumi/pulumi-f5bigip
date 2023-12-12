@@ -60,10 +60,10 @@ public final class DeviceGroupDevice {
             return this;
         }
         public DeviceGroupDevice build() {
-            final var o = new DeviceGroupDevice();
-            o.name = name;
-            o.setSyncLeader = setSyncLeader;
-            return o;
+            final var _resultValue = new DeviceGroupDevice();
+            _resultValue.name = name;
+            _resultValue.setSyncLeader = setSyncLeader;
+            return _resultValue;
         }
     }
 }

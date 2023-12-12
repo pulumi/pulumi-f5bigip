@@ -67,7 +67,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Contains those slots to which the guest is allowed to be assigned.
      * 
      */
-    @Export(name="allowedSlots", type=List.class, parameters={Integer.class})
+    @Export(name="allowedSlots", refs={List.class,Integer.class}, tree="[0,1]")
     private Output<List<Integer>> allowedSlots;
 
     /**
@@ -81,7 +81,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the number of cores the system allocates to the guest.
      * 
      */
-    @Export(name="coresPerSlot", type=Integer.class, parameters={})
+    @Export(name="coresPerSlot", refs={Integer.class}, tree="[0]")
     private Output<Integer> coresPerSlot;
 
     /**
@@ -95,7 +95,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
      * 
      */
-    @Export(name="deleteVirtualDisk", type=Boolean.class, parameters={})
+    @Export(name="deleteVirtualDisk", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteVirtualDisk;
 
     /**
@@ -109,7 +109,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Resource name including prepended partition path.
      * 
      */
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output<String> fullPath;
 
     /**
@@ -123,7 +123,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the hotfix ISO image file which is applied on top of the base image.
      * 
      */
-    @Export(name="initialHotfix", type=String.class, parameters={})
+    @Export(name="initialHotfix", refs={String.class}, tree="[0]")
     private Output<String> initialHotfix;
 
     /**
@@ -137,7 +137,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
      * 
      */
-    @Export(name="initialImage", type=String.class, parameters={})
+    @Export(name="initialImage", refs={String.class}, tree="[0]")
     private Output<String> initialImage;
 
     /**
@@ -151,7 +151,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
      * 
      */
-    @Export(name="mgmtAddress", type=String.class, parameters={})
+    @Export(name="mgmtAddress", refs={String.class}, tree="[0]")
     private Output<String> mgmtAddress;
 
     /**
@@ -165,7 +165,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
      * 
      */
-    @Export(name="mgmtNetwork", type=String.class, parameters={})
+    @Export(name="mgmtNetwork", refs={String.class}, tree="[0]")
     private Output<String> mgmtNetwork;
 
     /**
@@ -179,7 +179,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
      * 
      */
-    @Export(name="mgmtRoute", type=String.class, parameters={})
+    @Export(name="mgmtRoute", refs={String.class}, tree="[0]")
     private Output<String> mgmtRoute;
 
     /**
@@ -193,7 +193,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of slots the guest must be assigned to in order to deploy.
      * 
      */
-    @Export(name="minNumberOfSlots", type=Integer.class, parameters={})
+    @Export(name="minNumberOfSlots", refs={Integer.class}, tree="[0]")
     private Output<Integer> minNumberOfSlots;
 
     /**
@@ -207,7 +207,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Name of the vCMP guest
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -221,7 +221,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the number of slots for the system to use when creating the guest.
      * 
      */
-    @Export(name="numberOfSlots", type=Integer.class, parameters={})
+    @Export(name="numberOfSlots", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfSlots;
 
     /**
@@ -235,7 +235,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -249,7 +249,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Virtual disk associated with vCMP guest.
      * 
      */
-    @Export(name="virtualDisk", type=String.class, parameters={})
+    @Export(name="virtualDisk", refs={String.class}, tree="[0]")
     private Output<String> virtualDisk;
 
     /**
@@ -263,7 +263,7 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
      * 
      */
-    @Export(name="vlans", type=List.class, parameters={String.class})
+    @Export(name="vlans", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vlans;
 
     /**

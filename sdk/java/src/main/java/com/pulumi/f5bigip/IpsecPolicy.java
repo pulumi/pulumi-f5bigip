@@ -66,7 +66,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
      * 
      */
-    @Export(name="authAlgorithm", type=String.class, parameters={})
+    @Export(name="authAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> authAlgorithm;
 
     /**
@@ -81,7 +81,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Description of the IPSec policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -96,7 +96,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
      * 
      */
-    @Export(name="encryptAlgorithm", type=String.class, parameters={})
+    @Export(name="encryptAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> encryptAlgorithm;
 
     /**
@@ -111,7 +111,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies whether to use IPComp encapsulation. Valid choices are: `none&#34;, null&#34;, deflate`
      * 
      */
-    @Export(name="ipcomp", type=String.class, parameters={})
+    @Export(name="ipcomp", refs={String.class}, tree="[0]")
     private Output<String> ipcomp;
 
     /**
@@ -125,7 +125,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the length of time before the IKE security association expires, in kilobytes.
      * 
      */
-    @Export(name="kbLifetime", type=Integer.class, parameters={})
+    @Export(name="kbLifetime", refs={Integer.class}, tree="[0]")
     private Output<Integer> kbLifetime;
 
     /**
@@ -139,7 +139,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the length of time before the IKE security association expires, in minutes.
      * 
      */
-    @Export(name="lifetime", type=Integer.class, parameters={})
+    @Export(name="lifetime", refs={Integer.class}, tree="[0]")
     private Output<Integer> lifetime;
 
     /**
@@ -153,7 +153,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -167,7 +167,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Name of the IPSec policy,it should be &#34;full path&#34;.The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * modp4096, modp6144, modp8192`
      * 
      */
-    @Export(name="perfectForwardSecrecy", type=String.class, parameters={})
+    @Export(name="perfectForwardSecrecy", refs={String.class}, tree="[0]")
     private Output<String> perfectForwardSecrecy;
 
     /**
@@ -197,7 +197,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the IPsec protocol. Valid choices are: `ah, esp`
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -211,7 +211,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      * 
      */
-    @Export(name="tunnelLocalAddress", type=String.class, parameters={})
+    @Export(name="tunnelLocalAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnelLocalAddress;
 
     /**
@@ -225,7 +225,7 @@ public class IpsecPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      * 
      */
-    @Export(name="tunnelRemoteAddress", type=String.class, parameters={})
+    @Export(name="tunnelRemoteAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnelRemoteAddress;
 
     /**

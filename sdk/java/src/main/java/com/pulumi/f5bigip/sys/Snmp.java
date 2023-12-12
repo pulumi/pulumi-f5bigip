@@ -56,7 +56,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      * 
      */
-    @Export(name="allowedaddresses", type=List.class, parameters={String.class})
+    @Export(name="allowedaddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedaddresses;
 
     /**
@@ -70,7 +70,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * Specifies the contact information for the system administrator.
      * 
      */
-    @Export(name="sysContact", type=String.class, parameters={})
+    @Export(name="sysContact", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sysContact;
 
     /**
@@ -84,7 +84,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * Describes the system&#39;s physical location.
      * 
      */
-    @Export(name="sysLocation", type=String.class, parameters={})
+    @Export(name="sysLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sysLocation;
 
     /**

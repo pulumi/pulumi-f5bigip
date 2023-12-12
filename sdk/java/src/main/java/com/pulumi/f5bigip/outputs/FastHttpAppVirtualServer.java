@@ -66,10 +66,10 @@ public final class FastHttpAppVirtualServer {
             return this;
         }
         public FastHttpAppVirtualServer build() {
-            final var o = new FastHttpAppVirtualServer();
-            o.ip = ip;
-            o.port = port;
-            return o;
+            final var _resultValue = new FastHttpAppVirtualServer();
+            _resultValue.ip = ip;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

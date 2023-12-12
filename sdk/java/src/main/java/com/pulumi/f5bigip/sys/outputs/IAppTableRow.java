@@ -43,9 +43,9 @@ public final class IAppTableRow {
             return rows(List.of(rows));
         }
         public IAppTableRow build() {
-            final var o = new IAppTableRow();
-            o.rows = rows;
-            return o;
+            final var _resultValue = new IAppTableRow();
+            _resultValue.rows = rows;
+            return _resultValue;
         }
     }
 }

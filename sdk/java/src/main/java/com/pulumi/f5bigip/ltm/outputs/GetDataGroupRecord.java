@@ -59,10 +59,10 @@ public final class GetDataGroupRecord {
             return this;
         }
         public GetDataGroupRecord build() {
-            final var o = new GetDataGroupRecord();
-            o.data = data;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDataGroupRecord();
+            _resultValue.data = data;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

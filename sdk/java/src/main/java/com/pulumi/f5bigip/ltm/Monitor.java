@@ -99,7 +99,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      * 
      */
-    @Export(name="adaptive", type=String.class, parameters={})
+    @Export(name="adaptive", refs={String.class}, tree="[0]")
     private Output<String> adaptive;
 
     /**
@@ -113,7 +113,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      * 
      */
-    @Export(name="adaptiveLimit", type=Integer.class, parameters={})
+    @Export(name="adaptiveLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> adaptiveLimit;
 
     /**
@@ -127,7 +127,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts &#39;enabled&#39; or &#39;disabled&#39; values, the default value is &#39;enabled&#39;.
      * 
      */
-    @Export(name="compatibility", type=String.class, parameters={})
+    @Export(name="compatibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compatibility;
 
     /**
@@ -141,7 +141,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Custom parent monitor for the system to use for setting initial values for the new monitor.
      * 
      */
-    @Export(name="customParent", type=String.class, parameters={})
+    @Export(name="customParent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customParent;
 
     /**
@@ -155,7 +155,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the database in which the user is created
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> database;
 
     /**
@@ -169,7 +169,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specify an alias address for monitoring
      * 
      */
-    @Export(name="destination", type=String.class, parameters={})
+    @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
@@ -183,7 +183,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      * 
      */
-    @Export(name="filename", type=String.class, parameters={})
+    @Export(name="filename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filename;
 
     /**
@@ -197,7 +197,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      * 
      */
-    @Export(name="interval", type=Integer.class, parameters={})
+    @Export(name="interval", refs={Integer.class}, tree="[0]")
     private Output<Integer> interval;
 
     /**
@@ -211,7 +211,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      * 
      */
-    @Export(name="ipDscp", type=Integer.class, parameters={})
+    @Export(name="ipDscp", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipDscp;
 
     /**
@@ -225,7 +225,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      * 
      */
-    @Export(name="manualResume", type=String.class, parameters={})
+    @Export(name="manualResume", refs={String.class}, tree="[0]")
     private Output<String> manualResume;
 
     /**
@@ -239,7 +239,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
@@ -253,7 +253,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -267,7 +267,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Parent monitor for the system to use for setting initial values for the new monitor.
      * 
      */
-    @Export(name="parent", type=String.class, parameters={})
+    @Export(name="parent", refs={String.class}, tree="[0]")
     private Output<String> parent;
 
     /**
@@ -281,7 +281,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the password if the monitored target requires authentication
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -295,7 +295,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      * 
      */
-    @Export(name="receive", type=String.class, parameters={})
+    @Export(name="receive", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> receive;
 
     /**
@@ -309,7 +309,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      * 
      */
-    @Export(name="receiveDisable", type=String.class, parameters={})
+    @Export(name="receiveDisable", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> receiveDisable;
 
     /**
@@ -323,7 +323,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Instructs the system to mark the target resource down when the test is successful.
      * 
      */
-    @Export(name="reverse", type=String.class, parameters={})
+    @Export(name="reverse", refs={String.class}, tree="[0]")
     private Output<String> reverse;
 
     /**
@@ -337,7 +337,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the text string that the monitor sends to the target object.
      * 
      */
-    @Export(name="send", type=String.class, parameters={})
+    @Export(name="send", refs={String.class}, tree="[0]")
     private Output<String> send;
 
     /**
@@ -351,7 +351,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
      * 
      */
-    @Export(name="sslProfile", type=String.class, parameters={})
+    @Export(name="sslProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sslProfile;
 
     /**
@@ -365,7 +365,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      * 
      */
-    @Export(name="timeUntilUp", type=Integer.class, parameters={})
+    @Export(name="timeUntilUp", refs={Integer.class}, tree="[0]")
     private Output<Integer> timeUntilUp;
 
     /**
@@ -379,7 +379,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> timeout;
 
     /**
@@ -393,7 +393,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies whether the monitor operates in transparent mode.
      * 
      */
-    @Export(name="transparent", type=String.class, parameters={})
+    @Export(name="transparent", refs={String.class}, tree="[0]")
     private Output<String> transparent;
 
     /**
@@ -407,7 +407,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
      * 
      */
-    @Export(name="upInterval", type=Integer.class, parameters={})
+    @Export(name="upInterval", refs={Integer.class}, tree="[0]")
     private Output<Integer> upInterval;
 
     /**
@@ -421,7 +421,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * Specifies the user name if the monitored target requires authentication
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

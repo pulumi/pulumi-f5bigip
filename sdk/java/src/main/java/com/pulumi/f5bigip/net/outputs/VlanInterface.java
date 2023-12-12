@@ -68,10 +68,10 @@ public final class VlanInterface {
             return this;
         }
         public VlanInterface build() {
-            final var o = new VlanInterface();
-            o.tagged = tagged;
-            o.vlanport = vlanport;
-            return o;
+            final var _resultValue = new VlanInterface();
+            _resultValue.tagged = tagged;
+            _resultValue.vlanport = vlanport;
+            return _resultValue;
         }
     }
 }

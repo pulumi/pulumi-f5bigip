@@ -111,7 +111,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
      * 
      */
-    @Export(name="allowActiveMode", type=String.class, parameters={})
+    @Export(name="allowActiveMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowActiveMode;
 
     /**
@@ -125,7 +125,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
      * 
      */
-    @Export(name="allowFtps", type=String.class, parameters={})
+    @Export(name="allowFtps", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowFtps;
 
     /**
@@ -139,7 +139,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * The application service to which the object belongs.
      * 
      */
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appService;
 
     /**
@@ -153,7 +153,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -167,7 +167,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * User defined description
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -181,7 +181,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
      * 
      */
-    @Export(name="enforceTlssessionReuse", type=String.class, parameters={})
+    @Export(name="enforceTlssessionReuse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enforceTlssessionReuse;
 
     /**
@@ -195,7 +195,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
      * 
      */
-    @Export(name="ftpsMode", type=String.class, parameters={})
+    @Export(name="ftpsMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ftpsMode;
 
     /**
@@ -210,7 +210,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * FastL4 only.
      * 
      */
-    @Export(name="inheritParentProfile", type=String.class, parameters={})
+    @Export(name="inheritParentProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inheritParentProfile;
 
     /**
@@ -225,7 +225,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * inherent vlan list
      * 
      */
-    @Export(name="inheritVlanList", type=String.class, parameters={})
+    @Export(name="inheritVlanList", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inheritVlanList;
 
     /**
@@ -239,7 +239,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Configures the ALG log profile that controls logging
      * 
      */
-    @Export(name="logProfile", type=String.class, parameters={})
+    @Export(name="logProfile", refs={String.class}, tree="[0]")
     private Output<String> logProfile;
 
     /**
@@ -253,7 +253,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Configures the log publisher that handles events logging for this profile
      * 
      */
-    @Export(name="logPublisher", type=String.class, parameters={})
+    @Export(name="logPublisher", refs={String.class}, tree="[0]")
     private Output<String> logPublisher;
 
     /**
@@ -267,7 +267,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Name of the profile_ftp
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -281,7 +281,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Displays the administrative partition within which this profile resides
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output<String> partition;
 
     /**
@@ -295,7 +295,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -310,7 +310,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      * 
      */
-    @Export(name="security", type=String.class, parameters={})
+    @Export(name="security", refs={String.class}, tree="[0]")
     private Output<String> security;
 
     /**
@@ -325,7 +325,7 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
      * 
      */
-    @Export(name="translateExtended", type=String.class, parameters={})
+    @Export(name="translateExtended", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translateExtended;
 
     /**

@@ -51,10 +51,10 @@ public final class WafPolicySignaturesSetting {
             return this;
         }
         public WafPolicySignaturesSetting build() {
-            final var o = new WafPolicySignaturesSetting();
-            o.placesignaturesInStaging = placesignaturesInStaging;
-            o.signatureStaging = signatureStaging;
-            return o;
+            final var _resultValue = new WafPolicySignaturesSetting();
+            _resultValue.placesignaturesInStaging = placesignaturesInStaging;
+            _resultValue.signatureStaging = signatureStaging;
+            return _resultValue;
         }
     }
 }

@@ -89,12 +89,12 @@ public final class IAppTable {
             return rows(List.of(rows));
         }
         public IAppTable build() {
-            final var o = new IAppTable();
-            o.columnNames = columnNames;
-            o.encryptedColumns = encryptedColumns;
-            o.name = name;
-            o.rows = rows;
-            return o;
+            final var _resultValue = new IAppTable();
+            _resultValue.columnNames = columnNames;
+            _resultValue.encryptedColumns = encryptedColumns;
+            _resultValue.name = name;
+            _resultValue.rows = rows;
+            return _resultValue;
         }
     }
 }

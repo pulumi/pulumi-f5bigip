@@ -89,7 +89,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      * 
      */
-    @Export(name="clientProfiles", type=List.class, parameters={String.class})
+    @Export(name="clientProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> clientProfiles;
 
     /**
@@ -99,7 +99,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> clientProfiles() {
         return Codegen.optional(this.clientProfiles);
     }
-    @Export(name="defaultPersistenceProfile", type=String.class, parameters={})
+    @Export(name="defaultPersistenceProfile", refs={String.class}, tree="[0]")
     private Output<String> defaultPersistenceProfile;
 
     public Output<String> defaultPersistenceProfile() {
@@ -109,7 +109,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Description of Virtual server
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Destination IP
      * 
      */
-    @Export(name="destination", type=String.class, parameters={})
+    @Export(name="destination", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destination;
 
     /**
@@ -137,7 +137,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      * 
      */
-    @Export(name="fallbackPersistenceProfile", type=String.class, parameters={})
+    @Export(name="fallbackPersistenceProfile", refs={String.class}, tree="[0]")
     private Output<String> fallbackPersistenceProfile;
 
     /**
@@ -151,7 +151,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
      * 
      */
-    @Export(name="firewallEnforcedPolicy", type=String.class, parameters={})
+    @Export(name="firewallEnforcedPolicy", refs={String.class}, tree="[0]")
     private Output<String> firewallEnforcedPolicy;
 
     /**
@@ -165,7 +165,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      * 
      */
-    @Export(name="ipProtocol", type=String.class, parameters={})
+    @Export(name="ipProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipProtocol;
 
     /**
@@ -179,7 +179,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
      * 
      */
-    @Export(name="irules", type=List.class, parameters={String.class})
+    @Export(name="irules", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> irules;
 
     /**
@@ -193,7 +193,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      * 
      */
-    @Export(name="mask", type=String.class, parameters={})
+    @Export(name="mask", refs={String.class}, tree="[0]")
     private Output<String> mask;
 
     /**
@@ -207,7 +207,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Name of the virtual server
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -217,7 +217,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="perFlowRequestAccessPolicy", type=String.class, parameters={})
+    @Export(name="perFlowRequestAccessPolicy", refs={String.class}, tree="[0]")
     private Output<String> perFlowRequestAccessPolicy;
 
     public Output<String> perFlowRequestAccessPolicy() {
@@ -227,7 +227,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * List of persistence profiles associated with the Virtual Server.
      * 
      */
-    @Export(name="persistenceProfiles", type=List.class, parameters={String.class})
+    @Export(name="persistenceProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> persistenceProfiles;
 
     /**
@@ -241,7 +241,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies the policies for the virtual server.
      * 
      */
-    @Export(name="policies", type=List.class, parameters={String.class})
+    @Export(name="policies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> policies;
 
     /**
@@ -255,7 +255,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Default pool name
      * 
      */
-    @Export(name="pool", type=String.class, parameters={})
+    @Export(name="pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pool;
 
     /**
@@ -269,7 +269,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Listen port for the virtual server
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -283,7 +283,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      * 
      */
-    @Export(name="profiles", type=List.class, parameters={String.class})
+    @Export(name="profiles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> profiles;
 
     /**
@@ -297,7 +297,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies the log profile applied to the virtual server.
      * 
      */
-    @Export(name="securityLogProfiles", type=List.class, parameters={String.class})
+    @Export(name="securityLogProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityLogProfiles;
 
     /**
@@ -311,7 +311,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      * 
      */
-    @Export(name="serverProfiles", type=List.class, parameters={String.class})
+    @Export(name="serverProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serverProfiles;
 
     /**
@@ -325,7 +325,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      * 
      */
-    @Export(name="snatpool", type=String.class, parameters={})
+    @Export(name="snatpool", refs={String.class}, tree="[0]")
     private Output<String> snatpool;
 
     /**
@@ -339,7 +339,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies an IP address or network from which the virtual server will accept traffic.
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
@@ -353,7 +353,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
-    @Export(name="sourceAddressTranslation", type=String.class, parameters={})
+    @Export(name="sourceAddressTranslation", refs={String.class}, tree="[0]")
     private Output<String> sourceAddressTranslation;
 
     /**
@@ -367,7 +367,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
      * 
      */
-    @Export(name="sourcePort", type=String.class, parameters={})
+    @Export(name="sourcePort", refs={String.class}, tree="[0]")
     private Output<String> sourcePort;
 
     /**
@@ -381,7 +381,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
@@ -395,7 +395,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Specifies destination traffic matching information to which the virtual server sends traffic
      * 
      */
-    @Export(name="trafficmatchingCriteria", type=String.class, parameters={})
+    @Export(name="trafficmatchingCriteria", refs={String.class}, tree="[0]")
     private Output<String> trafficmatchingCriteria;
 
     /**
@@ -409,7 +409,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      * 
      */
-    @Export(name="translateAddress", type=String.class, parameters={})
+    @Export(name="translateAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translateAddress;
 
     /**
@@ -423,7 +423,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      * 
      */
-    @Export(name="translatePort", type=String.class, parameters={})
+    @Export(name="translatePort", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translatePort;
 
     /**
@@ -437,7 +437,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
      * 
      */
-    @Export(name="vlans", type=List.class, parameters={String.class})
+    @Export(name="vlans", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vlans;
 
     /**
@@ -452,7 +452,7 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
      * 
      */
-    @Export(name="vlansEnabled", type=Boolean.class, parameters={})
+    @Export(name="vlansEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> vlansEnabled;
 
     /**

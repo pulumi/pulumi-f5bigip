@@ -114,12 +114,12 @@ public final class PolicyRule {
             return this;
         }
         public PolicyRule build() {
-            final var o = new PolicyRule();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.description = description;
-            o.name = name;
-            return o;
+            final var _resultValue = new PolicyRule();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

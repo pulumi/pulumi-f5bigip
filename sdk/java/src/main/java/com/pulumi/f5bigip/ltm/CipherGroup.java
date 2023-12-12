@@ -58,7 +58,7 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
-    @Export(name="allows", type=List.class, parameters={String.class})
+    @Export(name="allows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allows;
 
     /**
@@ -72,7 +72,7 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * Specifies descriptive text that identifies the cipher rule
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -86,7 +86,7 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      * 
      */
-    @Export(name="ordering", type=String.class, parameters={})
+    @Export(name="ordering", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ordering;
 
     /**
@@ -114,7 +114,7 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      * 
      */
-    @Export(name="requires", type=List.class, parameters={String.class})
+    @Export(name="requires", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> requires;
 
     /**

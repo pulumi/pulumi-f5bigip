@@ -181,17 +181,17 @@ public final class GetVWanConfigResult {
             return vwanGwAddresses(List.of(vwanGwAddresses));
         }
         public GetVWanConfigResult build() {
-            final var o = new GetVWanConfigResult();
-            o.azureVwanName = azureVwanName;
-            o.azureVwanResourcegroup = azureVwanResourcegroup;
-            o.azureVwanVpnsite = azureVwanVpnsite;
-            o.bigipGwIp = bigipGwIp;
-            o.hubAddressSpace = hubAddressSpace;
-            o.hubConnectedSubnets = hubConnectedSubnets;
-            o.id = id;
-            o.presharedKey = presharedKey;
-            o.vwanGwAddresses = vwanGwAddresses;
-            return o;
+            final var _resultValue = new GetVWanConfigResult();
+            _resultValue.azureVwanName = azureVwanName;
+            _resultValue.azureVwanResourcegroup = azureVwanResourcegroup;
+            _resultValue.azureVwanVpnsite = azureVwanVpnsite;
+            _resultValue.bigipGwIp = bigipGwIp;
+            _resultValue.hubAddressSpace = hubAddressSpace;
+            _resultValue.hubConnectedSubnets = hubConnectedSubnets;
+            _resultValue.id = id;
+            _resultValue.presharedKey = presharedKey;
+            _resultValue.vwanGwAddresses = vwanGwAddresses;
+            return _resultValue;
         }
     }
 }

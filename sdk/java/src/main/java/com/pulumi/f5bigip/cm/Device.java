@@ -58,7 +58,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * IP address used for config sync
      * 
      */
-    @Export(name="configsyncIp", type=String.class, parameters={})
+    @Export(name="configsyncIp", refs={String.class}, tree="[0]")
     private Output<String> configsyncIp;
 
     /**
@@ -72,7 +72,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * IP address used for state mirroring
      * 
      */
-    @Export(name="mirrorIp", type=String.class, parameters={})
+    @Export(name="mirrorIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mirrorIp;
 
     /**
@@ -86,7 +86,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * Secondary IP address used for state mirroring
      * 
      */
-    @Export(name="mirrorSecondaryIp", type=String.class, parameters={})
+    @Export(name="mirrorSecondaryIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mirrorSecondaryIp;
 
     /**
@@ -100,7 +100,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * Address of the Device which needs to be Deviceensed
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

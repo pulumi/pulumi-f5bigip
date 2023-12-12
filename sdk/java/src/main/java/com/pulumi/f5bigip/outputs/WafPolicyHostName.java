@@ -48,9 +48,9 @@ public final class WafPolicyHostName {
             return this;
         }
         public WafPolicyHostName build() {
-            final var o = new WafPolicyHostName();
-            o.name = name;
-            return o;
+            final var _resultValue = new WafPolicyHostName();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

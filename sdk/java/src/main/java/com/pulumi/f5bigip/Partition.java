@@ -57,7 +57,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * Description of the partition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -71,7 +71,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * Name of the partition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -85,7 +85,7 @@ public class Partition extends com.pulumi.resources.CustomResource {
      * Route domain id of the partition.
      * 
      */
-    @Export(name="routeDomainId", type=Integer.class, parameters={})
+    @Export(name="routeDomainId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> routeDomainId;
 
     /**

@@ -19,7 +19,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      * Tmsh command to execute tmsh commands like install
      * 
      */
-    @Export(name="command", type=String.class, parameters={})
+    @Export(name="command", refs={String.class}, tree="[0]")
     private Output<String> command;
 
     /**
@@ -33,7 +33,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      * A unique Key F5 provides for Licensing BIG-IP
      * 
      */
-    @Export(name="registrationKey", type=String.class, parameters={})
+    @Export(name="registrationKey", refs={String.class}, tree="[0]")
     private Output<String> registrationKey;
 
     /**

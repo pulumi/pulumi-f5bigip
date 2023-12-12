@@ -72,7 +72,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
      * 
      */
-    @Export(name="compressionBuffersize", type=Integer.class, parameters={})
+    @Export(name="compressionBuffersize", refs={Integer.class}, tree="[0]")
     private Output<Integer> compressionBuffersize;
 
     /**
@@ -86,7 +86,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      * 
      */
-    @Export(name="contentTypeExcludes", type=List.class, parameters={String.class})
+    @Export(name="contentTypeExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> contentTypeExcludes;
 
     /**
@@ -100,7 +100,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      * 
      */
-    @Export(name="contentTypeIncludes", type=List.class, parameters={String.class})
+    @Export(name="contentTypeIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> contentTypeIncludes;
 
     /**
@@ -114,7 +114,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
      * 
      */
-    @Export(name="cpuSaver", type=String.class, parameters={})
+    @Export(name="cpuSaver", refs={String.class}, tree="[0]")
     private Output<String> cpuSaver;
 
     /**
@@ -128,7 +128,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -142,7 +142,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
      * 
      */
-    @Export(name="gzipCompressionLevel", type=Integer.class, parameters={})
+    @Export(name="gzipCompressionLevel", refs={Integer.class}, tree="[0]")
     private Output<Integer> gzipCompressionLevel;
 
     /**
@@ -156,7 +156,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
      * 
      */
-    @Export(name="gzipMemoryLevel", type=Integer.class, parameters={})
+    @Export(name="gzipMemoryLevel", refs={Integer.class}, tree="[0]")
     private Output<Integer> gzipMemoryLevel;
 
     /**
@@ -170,7 +170,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
      * 
      */
-    @Export(name="gzipWindowSize", type=Integer.class, parameters={})
+    @Export(name="gzipWindowSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> gzipWindowSize;
 
     /**
@@ -184,7 +184,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
      * 
      */
-    @Export(name="keepAcceptEncoding", type=String.class, parameters={})
+    @Export(name="keepAcceptEncoding", refs={String.class}, tree="[0]")
     private Output<String> keepAcceptEncoding;
 
     /**
@@ -198,7 +198,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -212,7 +212,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      * 
      */
-    @Export(name="uriExcludes", type=List.class, parameters={String.class})
+    @Export(name="uriExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> uriExcludes;
 
     /**
@@ -226,7 +226,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      * 
      */
-    @Export(name="uriIncludes", type=List.class, parameters={String.class})
+    @Export(name="uriIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> uriIncludes;
 
     /**
@@ -240,7 +240,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
      * 
      */
-    @Export(name="varyHeader", type=String.class, parameters={})
+    @Export(name="varyHeader", refs={String.class}, tree="[0]")
     private Output<String> varyHeader;
 
     /**
