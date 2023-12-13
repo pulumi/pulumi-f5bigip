@@ -51,10 +51,10 @@ public final class IAppMetadata {
             return this;
         }
         public IAppMetadata build() {
-            final var o = new IAppMetadata();
-            o.persists = persists;
-            o.value = value;
-            return o;
+            final var _resultValue = new IAppMetadata();
+            _resultValue.persists = persists;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

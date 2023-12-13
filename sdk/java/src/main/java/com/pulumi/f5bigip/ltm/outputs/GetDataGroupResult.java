@@ -111,13 +111,13 @@ public final class GetDataGroupResult {
             return this;
         }
         public GetDataGroupResult build() {
-            final var o = new GetDataGroupResult();
-            o.id = id;
-            o.name = name;
-            o.partition = partition;
-            o.records = records;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDataGroupResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            _resultValue.records = records;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

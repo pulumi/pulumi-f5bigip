@@ -68,7 +68,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies if the device-group will automatically sync configuration data to its members
      * 
      */
-    @Export(name="autoSync", type=String.class, parameters={})
+    @Export(name="autoSync", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoSync;
 
     /**
@@ -82,7 +82,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Description of Device group
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -96,7 +96,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      * 
      */
-    @Export(name="devices", type=List.class, parameters={DeviceGroupDevice.class})
+    @Export(name="devices", refs={List.class,DeviceGroupDevice.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeviceGroupDevice>> devices;
 
     /**
@@ -110,7 +110,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies if the device-group will perform a full-load upon sync
      * 
      */
-    @Export(name="fullLoadOnSync", type=String.class, parameters={})
+    @Export(name="fullLoadOnSync", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fullLoadOnSync;
 
     /**
@@ -124,7 +124,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
      * 
      */
-    @Export(name="incrementalConfig", type=Integer.class, parameters={})
+    @Export(name="incrementalConfig", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> incrementalConfig;
 
     /**
@@ -138,7 +138,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Is the name of the device Group
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
     /**
@@ -152,7 +152,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies if the device-group will use a network connection for failover
      * 
      */
-    @Export(name="networkFailover", type=String.class, parameters={})
+    @Export(name="networkFailover", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkFailover;
 
     /**
@@ -166,7 +166,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Device administrative partition
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -180,7 +180,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies whether the configuration should be saved upon auto-sync.
      * 
      */
-    @Export(name="saveOnAutoSync", type=String.class, parameters={})
+    @Export(name="saveOnAutoSync", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> saveOnAutoSync;
 
     /**
@@ -194,7 +194,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * Specifies if the device-group will be used for failover or resource syncing
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

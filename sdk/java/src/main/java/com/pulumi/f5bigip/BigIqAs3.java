@@ -61,7 +61,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      * 
      */
-    @Export(name="as3Json", type=String.class, parameters={})
+    @Export(name="as3Json", refs={String.class}, tree="[0]")
     private Output<String> as3Json;
 
     /**
@@ -75,7 +75,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * Address of the BIG-IQ to which your targer BIG-IP is attached
      * 
      */
-    @Export(name="bigiqAddress", type=String.class, parameters={})
+    @Export(name="bigiqAddress", refs={String.class}, tree="[0]")
     private Output<String> bigiqAddress;
 
     /**
@@ -89,7 +89,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * BIGIQ Login reference for token authentication
      * 
      */
-    @Export(name="bigiqLoginRef", type=String.class, parameters={})
+    @Export(name="bigiqLoginRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigiqLoginRef;
 
     /**
@@ -103,7 +103,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * Password of the BIG-IQ to which your targer BIG-IP is attached
      * 
      */
-    @Export(name="bigiqPassword", type=String.class, parameters={})
+    @Export(name="bigiqPassword", refs={String.class}, tree="[0]")
     private Output<String> bigiqPassword;
 
     /**
@@ -117,7 +117,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      * 
      */
-    @Export(name="bigiqPort", type=String.class, parameters={})
+    @Export(name="bigiqPort", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigiqPort;
 
     /**
@@ -131,7 +131,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      * 
      */
-    @Export(name="bigiqTokenAuth", type=Boolean.class, parameters={})
+    @Export(name="bigiqTokenAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bigiqTokenAuth;
 
     /**
@@ -145,7 +145,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * User name  of the BIG-IQ to which your targer BIG-IP is attached
      * 
      */
-    @Export(name="bigiqUser", type=String.class, parameters={})
+    @Export(name="bigiqUser", refs={String.class}, tree="[0]")
     private Output<String> bigiqUser;
 
     /**
@@ -187,7 +187,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
      * 
      */
-    @Export(name="ignoreMetadata", type=Boolean.class, parameters={})
+    @Export(name="ignoreMetadata", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMetadata;
 
     /**
@@ -229,7 +229,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * Name of Tenant
      * 
      */
-    @Export(name="tenantList", type=String.class, parameters={})
+    @Export(name="tenantList", refs={String.class}, tree="[0]")
     private Output<String> tenantList;
 
     /**

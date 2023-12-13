@@ -24,7 +24,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * whenever we specify this parameter it gets overwrite provider configuration
      * 
      */
-    @Export(name="bigipAddress", type=String.class, parameters={})
+    @Export(name="bigipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigipAddress;
 
     /**
@@ -39,7 +39,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * Password of BIGIP host to be used for this resource
      * 
      */
-    @Export(name="bigipPassword", type=String.class, parameters={})
+    @Export(name="bigipPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigipPassword;
 
     /**
@@ -54,7 +54,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * whenever we specify this parameter it gets overwrite provider configuration
      * 
      */
-    @Export(name="bigipPort", type=String.class, parameters={})
+    @Export(name="bigipPort", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigipPort;
 
     /**
@@ -69,7 +69,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      * 
      */
-    @Export(name="bigipTokenAuth", type=Boolean.class, parameters={})
+    @Export(name="bigipTokenAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bigipTokenAuth;
 
     /**
@@ -84,7 +84,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * whenever we specify this parameter it gets overwrite provider configuration
      * 
      */
-    @Export(name="bigipUser", type=String.class, parameters={})
+    @Export(name="bigipUser", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigipUser;
 
     /**
@@ -99,7 +99,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * Name of the of the Declarative DO JSON file
      * 
      */
-    @Export(name="doJson", type=String.class, parameters={})
+    @Export(name="doJson", refs={String.class}, tree="[0]")
     private Output<String> doJson;
 
     /**
@@ -117,7 +117,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* this attribute is no longer in use */
-    @Export(name="tenantName", type=String.class, parameters={})
+    @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantName;
 
     /**
@@ -131,7 +131,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * DO json
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**

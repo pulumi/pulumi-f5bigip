@@ -67,7 +67,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
      * 
      */
-    @Export(name="autolasthop", type=String.class, parameters={})
+    @Export(name="autolasthop", refs={String.class}, tree="[0]")
     private Output<String> autolasthop;
 
     /**
@@ -81,7 +81,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Fullpath
      * 
      */
-    @Export(name="fullPath", type=String.class, parameters={})
+    @Export(name="fullPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fullPath;
 
     /**
@@ -95,7 +95,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Enables or disables mirroring of SNAT connections.
      * 
      */
-    @Export(name="mirror", type=String.class, parameters={})
+    @Export(name="mirror", refs={String.class}, tree="[0]")
     private Output<String> mirror;
 
     /**
@@ -109,7 +109,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
      * 
      */
-    @Export(name="origins", type=List.class, parameters={SnatOrigin.class})
+    @Export(name="origins", refs={List.class,SnatOrigin.class}, tree="[0,1]")
     private Output<List<SnatOrigin>> origins;
 
     /**
@@ -137,7 +137,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Partition or path to which the SNAT belongs
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -151,7 +151,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
      * 
      */
-    @Export(name="snatpool", type=String.class, parameters={})
+    @Export(name="snatpool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snatpool;
 
     /**
@@ -165,7 +165,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies how the SNAT object handles the client&#39;s source port. The default is `preserve`.
      * 
      */
-    @Export(name="sourceport", type=String.class, parameters={})
+    @Export(name="sourceport", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceport;
 
     /**
@@ -179,7 +179,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
      * 
      */
-    @Export(name="translation", type=String.class, parameters={})
+    @Export(name="translation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translation;
 
     /**
@@ -193,7 +193,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
      * 
      */
-    @Export(name="vlans", type=List.class, parameters={String.class})
+    @Export(name="vlans", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vlans;
 
     /**
@@ -207,7 +207,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
      * 
      */
-    @Export(name="vlansdisabled", type=Boolean.class, parameters={})
+    @Export(name="vlansdisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> vlansdisabled;
 
     /**

@@ -71,12 +71,12 @@ public final class GetWafEntityParameterUrl {
             return this;
         }
         public GetWafEntityParameterUrl build() {
-            final var o = new GetWafEntityParameterUrl();
-            o.method = method;
-            o.name = name;
-            o.protocol = protocol;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetWafEntityParameterUrl();
+            _resultValue.method = method;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

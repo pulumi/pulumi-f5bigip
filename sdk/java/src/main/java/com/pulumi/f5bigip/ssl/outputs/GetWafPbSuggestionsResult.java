@@ -118,14 +118,14 @@ public final class GetWafPbSuggestionsResult {
             return this;
         }
         public GetWafPbSuggestionsResult build() {
-            final var o = new GetWafPbSuggestionsResult();
-            o.id = id;
-            o.json = json;
-            o.minimumLearningScore = minimumLearningScore;
-            o.partition = partition;
-            o.policyId = policyId;
-            o.policyName = policyName;
-            return o;
+            final var _resultValue = new GetWafPbSuggestionsResult();
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.minimumLearningScore = minimumLearningScore;
+            _resultValue.partition = partition;
+            _resultValue.policyId = policyId;
+            _resultValue.policyName = policyName;
+            return _resultValue;
         }
     }
 }

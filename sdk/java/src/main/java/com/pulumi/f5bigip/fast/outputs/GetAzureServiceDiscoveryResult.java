@@ -190,21 +190,21 @@ public final class GetAzureServiceDiscoveryResult {
             return this;
         }
         public GetAzureServiceDiscoveryResult build() {
-            final var o = new GetAzureServiceDiscoveryResult();
-            o.addressRealm = addressRealm;
-            o.azureSdJson = azureSdJson;
-            o.credentialUpdate = credentialUpdate;
-            o.id = id;
-            o.minimumMonitors = minimumMonitors;
-            o.port = port;
-            o.resourceGroup = resourceGroup;
-            o.subscriptionId = subscriptionId;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            o.type = type;
-            o.undetectableAction = undetectableAction;
-            o.updateInterval = updateInterval;
-            return o;
+            final var _resultValue = new GetAzureServiceDiscoveryResult();
+            _resultValue.addressRealm = addressRealm;
+            _resultValue.azureSdJson = azureSdJson;
+            _resultValue.credentialUpdate = credentialUpdate;
+            _resultValue.id = id;
+            _resultValue.minimumMonitors = minimumMonitors;
+            _resultValue.port = port;
+            _resultValue.resourceGroup = resourceGroup;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            _resultValue.type = type;
+            _resultValue.undetectableAction = undetectableAction;
+            _resultValue.updateInterval = updateInterval;
+            return _resultValue;
         }
     }
 }

@@ -83,7 +83,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * User defined description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * BIG-IP password
      * 
      */
-    @Export(name="devicegroup", type=String.class, parameters={})
+    @Export(name="devicegroup", refs={String.class}, tree="[0]")
     private Output<String> devicegroup;
 
     /**
@@ -111,7 +111,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
      * 
      */
-    @Export(name="executeAction", type=String.class, parameters={})
+    @Export(name="executeAction", refs={String.class}, tree="[0]")
     private Output<String> executeAction;
 
     /**
@@ -125,7 +125,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
      * 
      */
-    @Export(name="inheritedDevicegroup", type=String.class, parameters={})
+    @Export(name="inheritedDevicegroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inheritedDevicegroup;
 
     /**
@@ -139,7 +139,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
      * 
      */
-    @Export(name="inheritedTrafficGroup", type=String.class, parameters={})
+    @Export(name="inheritedTrafficGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inheritedTrafficGroup;
 
     /**
@@ -153,7 +153,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      * 
      */
-    @Export(name="jsonfile", type=String.class, parameters={})
+    @Export(name="jsonfile", refs={String.class}, tree="[0]")
     private Output<String> jsonfile;
 
     /**
@@ -167,7 +167,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * string values
      * 
      */
-    @Export(name="lists", type=List.class, parameters={IAppList.class})
+    @Export(name="lists", refs={List.class,IAppList.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IAppList>> lists;
 
     /**
@@ -181,7 +181,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * User defined generic data for the application service. It is a name and value pair.
      * 
      */
-    @Export(name="metadatas", type=List.class, parameters={IAppMetadata.class})
+    @Export(name="metadatas", refs={List.class,IAppMetadata.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IAppMetadata>> metadatas;
 
     /**
@@ -195,7 +195,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Name of the iApp.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Displays the administrative partition within which the application resides.
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -223,7 +223,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
      * 
      */
-    @Export(name="strictUpdates", type=String.class, parameters={})
+    @Export(name="strictUpdates", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> strictUpdates;
 
     /**
@@ -233,7 +233,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> strictUpdates() {
         return Codegen.optional(this.strictUpdates);
     }
-    @Export(name="tables", type=List.class, parameters={IAppTable.class})
+    @Export(name="tables", refs={List.class,IAppTable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IAppTable>> tables;
 
     public Output<Optional<List<IAppTable>>> tables() {
@@ -243,7 +243,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> template;
 
     /**
@@ -257,7 +257,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      * 
      */
-    @Export(name="templateModified", type=String.class, parameters={})
+    @Export(name="templateModified", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateModified;
 
     /**
@@ -271,7 +271,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * Indicates any missing prerequisites associated with the template that defines this application.
      * 
      */
-    @Export(name="templatePrerequisiteErrors", type=String.class, parameters={})
+    @Export(name="templatePrerequisiteErrors", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templatePrerequisiteErrors;
 
     /**
@@ -285,7 +285,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * The name of the traffic group that the application service is assigned to.
      * 
      */
-    @Export(name="trafficGroup", type=String.class, parameters={})
+    @Export(name="trafficGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficGroup;
 
     /**
@@ -295,7 +295,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> trafficGroup() {
         return Codegen.optional(this.trafficGroup);
     }
-    @Export(name="variables", type=List.class, parameters={IAppVariable.class})
+    @Export(name="variables", refs={List.class,IAppVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IAppVariable>> variables;
 
     public Output<Optional<List<IAppVariable>>> variables() {

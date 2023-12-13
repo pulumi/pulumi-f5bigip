@@ -46,9 +46,9 @@ public final class FastHttpsAppWafSecurityPolicy {
             return this;
         }
         public FastHttpsAppWafSecurityPolicy build() {
-            final var o = new FastHttpsAppWafSecurityPolicy();
-            o.enable = enable;
-            return o;
+            final var _resultValue = new FastHttpsAppWafSecurityPolicy();
+            _resultValue.enable = enable;
+            return _resultValue;
         }
     }
 }

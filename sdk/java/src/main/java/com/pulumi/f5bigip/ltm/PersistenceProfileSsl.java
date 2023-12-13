@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl")
 public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appService;
 
     public Output<Optional<String>> appService() {
@@ -86,7 +86,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * Inherit defaults from parent profile
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -100,7 +100,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * To enable _ disable match across pools with given persistence record
      * 
      */
-    @Export(name="matchAcrossPools", type=String.class, parameters={})
+    @Export(name="matchAcrossPools", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossPools;
 
     /**
@@ -114,7 +114,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * To enable _ disable match across services with given persistence record
      * 
      */
-    @Export(name="matchAcrossServices", type=String.class, parameters={})
+    @Export(name="matchAcrossServices", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossServices;
 
     /**
@@ -128,7 +128,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * To enable _ disable match across services with given persistence record
      * 
      */
-    @Export(name="matchAcrossVirtuals", type=String.class, parameters={})
+    @Export(name="matchAcrossVirtuals", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossVirtuals;
 
     /**
@@ -142,7 +142,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * To enable _ disable
      * 
      */
-    @Export(name="mirror", type=String.class, parameters={})
+    @Export(name="mirror", refs={String.class}, tree="[0]")
     private Output<String> mirror;
 
     /**
@@ -156,7 +156,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * Name of the persistence profile
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * limits remain hard limits and are not overridden.
      * 
      */
-    @Export(name="overrideConnLimit", type=String.class, parameters={})
+    @Export(name="overrideConnLimit", refs={String.class}, tree="[0]")
     private Output<String> overrideConnLimit;
 
     /**
@@ -186,7 +186,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * Timeout for persistence of the session
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**

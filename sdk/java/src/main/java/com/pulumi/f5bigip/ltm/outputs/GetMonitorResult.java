@@ -309,27 +309,27 @@ public final class GetMonitorResult {
             return this;
         }
         public GetMonitorResult build() {
-            final var o = new GetMonitorResult();
-            o.adaptive = adaptive;
-            o.adaptiveLimit = adaptiveLimit;
-            o.database = database;
-            o.defaultsFrom = defaultsFrom;
-            o.destination = destination;
-            o.filename = filename;
-            o.id = id;
-            o.interval = interval;
-            o.ipDscp = ipDscp;
-            o.manualResume = manualResume;
-            o.mode = mode;
-            o.name = name;
-            o.partition = partition;
-            o.receiveDisable = receiveDisable;
-            o.reverse = reverse;
-            o.timeUntilUp = timeUntilUp;
-            o.timeout = timeout;
-            o.transparent = transparent;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetMonitorResult();
+            _resultValue.adaptive = adaptive;
+            _resultValue.adaptiveLimit = adaptiveLimit;
+            _resultValue.database = database;
+            _resultValue.defaultsFrom = defaultsFrom;
+            _resultValue.destination = destination;
+            _resultValue.filename = filename;
+            _resultValue.id = id;
+            _resultValue.interval = interval;
+            _resultValue.ipDscp = ipDscp;
+            _resultValue.manualResume = manualResume;
+            _resultValue.mode = mode;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            _resultValue.receiveDisable = receiveDisable;
+            _resultValue.reverse = reverse;
+            _resultValue.timeUntilUp = timeUntilUp;
+            _resultValue.timeout = timeout;
+            _resultValue.transparent = transparent;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

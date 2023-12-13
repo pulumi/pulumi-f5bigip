@@ -223,24 +223,24 @@ public final class GetAwsServiceDiscoveryResult {
             return this;
         }
         public GetAwsServiceDiscoveryResult build() {
-            final var o = new GetAwsServiceDiscoveryResult();
-            o.addressRealm = addressRealm;
-            o.awsAccessKey = awsAccessKey;
-            o.awsRegion = awsRegion;
-            o.awsSdJson = awsSdJson;
-            o.awsSecretAccessKey = awsSecretAccessKey;
-            o.credentialUpdate = credentialUpdate;
-            o.externalId = externalId;
-            o.id = id;
-            o.minimumMonitors = minimumMonitors;
-            o.port = port;
-            o.roleArn = roleArn;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            o.type = type;
-            o.undetectableAction = undetectableAction;
-            o.updateInterval = updateInterval;
-            return o;
+            final var _resultValue = new GetAwsServiceDiscoveryResult();
+            _resultValue.addressRealm = addressRealm;
+            _resultValue.awsAccessKey = awsAccessKey;
+            _resultValue.awsRegion = awsRegion;
+            _resultValue.awsSdJson = awsSdJson;
+            _resultValue.awsSecretAccessKey = awsSecretAccessKey;
+            _resultValue.credentialUpdate = credentialUpdate;
+            _resultValue.externalId = externalId;
+            _resultValue.id = id;
+            _resultValue.minimumMonitors = minimumMonitors;
+            _resultValue.port = port;
+            _resultValue.roleArn = roleArn;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            _resultValue.type = type;
+            _resultValue.undetectableAction = undetectableAction;
+            _resultValue.updateInterval = updateInterval;
+            return _resultValue;
         }
     }
 }

@@ -78,11 +78,11 @@ public final class GetPolicyRule {
             return this;
         }
         public GetPolicyRule build() {
-            final var o = new GetPolicyRule();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPolicyRule();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

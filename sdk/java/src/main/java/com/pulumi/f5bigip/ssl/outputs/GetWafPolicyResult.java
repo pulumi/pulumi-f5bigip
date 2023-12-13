@@ -76,11 +76,11 @@ public final class GetWafPolicyResult {
             return this;
         }
         public GetWafPolicyResult build() {
-            final var o = new GetWafPolicyResult();
-            o.id = id;
-            o.policyId = policyId;
-            o.policyJson = policyJson;
-            return o;
+            final var _resultValue = new GetWafPolicyResult();
+            _resultValue.id = id;
+            _resultValue.policyId = policyId;
+            _resultValue.policyJson = policyJson;
+            return _resultValue;
         }
     }
 }

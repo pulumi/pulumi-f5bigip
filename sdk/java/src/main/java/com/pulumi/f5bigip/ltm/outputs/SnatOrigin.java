@@ -59,10 +59,10 @@ public final class SnatOrigin {
             return this;
         }
         public SnatOrigin build() {
-            final var o = new SnatOrigin();
-            o.appService = appService;
-            o.name = name;
-            return o;
+            final var _resultValue = new SnatOrigin();
+            _resultValue.appService = appService;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

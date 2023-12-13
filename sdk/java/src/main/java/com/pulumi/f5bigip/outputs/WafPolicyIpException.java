@@ -163,15 +163,15 @@ public final class WafPolicyIpException {
             return this;
         }
         public WafPolicyIpException build() {
-            final var o = new WafPolicyIpException();
-            o.blockRequests = blockRequests;
-            o.description = description;
-            o.ignoreAnomalies = ignoreAnomalies;
-            o.ignoreIpreputation = ignoreIpreputation;
-            o.ipAddress = ipAddress;
-            o.ipMask = ipMask;
-            o.trustedbyPolicybuilder = trustedbyPolicybuilder;
-            return o;
+            final var _resultValue = new WafPolicyIpException();
+            _resultValue.blockRequests = blockRequests;
+            _resultValue.description = description;
+            _resultValue.ignoreAnomalies = ignoreAnomalies;
+            _resultValue.ignoreIpreputation = ignoreIpreputation;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipMask = ipMask;
+            _resultValue.trustedbyPolicybuilder = trustedbyPolicybuilder;
+            return _resultValue;
         }
     }
 }

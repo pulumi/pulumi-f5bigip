@@ -95,12 +95,12 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.certificate = certificate;
-            o.id = id;
-            o.name = name;
-            o.partition = partition;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.certificate = certificate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            return _resultValue;
         }
     }
 }

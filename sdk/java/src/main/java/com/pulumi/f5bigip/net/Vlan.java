@@ -65,7 +65,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
      * 
      */
-    @Export(name="cmpHash", type=String.class, parameters={})
+    @Export(name="cmpHash", refs={String.class}, tree="[0]")
     private Output<String> cmpHash;
 
     /**
@@ -79,7 +79,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * Specifies which interfaces you want this VLAN to use for traffic management.
      * 
      */
-    @Export(name="interfaces", type=List.class, parameters={VlanInterface.class})
+    @Export(name="interfaces", refs={List.class,VlanInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VlanInterface>> interfaces;
 
     /**
@@ -93,7 +93,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * Name of the vlan
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      * 
      */
-    @Export(name="tag", type=Integer.class, parameters={})
+    @Export(name="tag", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tag;
 
     /**

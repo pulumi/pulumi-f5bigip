@@ -87,12 +87,12 @@ public final class GetPoolResult {
             return this;
         }
         public GetPoolResult build() {
-            final var o = new GetPoolResult();
-            o.fullPath = fullPath;
-            o.id = id;
-            o.name = name;
-            o.partition = partition;
-            return o;
+            final var _resultValue = new GetPoolResult();
+            _resultValue.fullPath = fullPath;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            return _resultValue;
         }
     }
 }

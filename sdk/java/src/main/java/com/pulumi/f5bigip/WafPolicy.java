@@ -115,7 +115,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
      * 
      */
-    @Export(name="applicationLanguage", type=String.class, parameters={})
+    @Export(name="applicationLanguage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationLanguage;
 
     /**
@@ -129,7 +129,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
      * 
      */
-    @Export(name="caseInsensitive", type=Boolean.class, parameters={})
+    @Export(name="caseInsensitive", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> caseInsensitive;
 
     /**
@@ -143,7 +143,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the description of the policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -157,7 +157,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
      * 
      */
-    @Export(name="enablePassivemode", type=Boolean.class, parameters={})
+    @Export(name="enablePassivemode", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePassivemode;
 
     /**
@@ -171,7 +171,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * How the system processes a request that triggers a security policy violation
      * 
      */
-    @Export(name="enforcementMode", type=String.class, parameters={})
+    @Export(name="enforcementMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enforcementMode;
 
     /**
@@ -186,7 +186,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * See file types below for more details.
      * 
      */
-    @Export(name="fileTypes", type=List.class, parameters={WafPolicyFileType.class})
+    @Export(name="fileTypes", refs={List.class,WafPolicyFileType.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicyFileType>> fileTypes;
 
     /**
@@ -202,7 +202,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * See graphql profiles below for more details.
      * 
      */
-    @Export(name="graphqlProfiles", type=List.class, parameters={WafPolicyGraphqlProfile.class})
+    @Export(name="graphqlProfiles", refs={List.class,WafPolicyGraphqlProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicyGraphqlProfile>> graphqlProfiles;
 
     /**
@@ -217,7 +217,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * specify the list of host name that is used to access the application
      * 
      */
-    @Export(name="hostNames", type=List.class, parameters={WafPolicyHostName.class})
+    @Export(name="hostNames", refs={List.class,WafPolicyHostName.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicyHostName>> hostNames;
 
     /**
@@ -232,7 +232,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * See IP Exceptions below for more details.
      * 
      */
-    @Export(name="ipExceptions", type=List.class, parameters={WafPolicyIpException.class})
+    @Export(name="ipExceptions", refs={List.class,WafPolicyIpException.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicyIpException>> ipExceptions;
 
     /**
@@ -249,7 +249,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * provided by the BIG-IP.
      * 
      */
-    @Export(name="modifications", type=List.class, parameters={String.class})
+    @Export(name="modifications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> modifications;
 
     /**
@@ -265,7 +265,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -279,7 +279,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * This section defines the Link for open api files on the policy.
      * 
      */
-    @Export(name="openApiFiles", type=List.class, parameters={String.class})
+    @Export(name="openApiFiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> openApiFiles;
 
     /**
@@ -293,7 +293,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * This section defines parameters that the security policy permits in requests.
      * 
      */
-    @Export(name="parameters", type=List.class, parameters={String.class})
+    @Export(name="parameters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> parameters;
 
     /**
@@ -307,7 +307,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the partition of the policy. Default is `Common`
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -322,7 +322,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * See policy builder below for more details.
      * 
      */
-    @Export(name="policyBuilders", type=List.class, parameters={WafPolicyPolicyBuilder.class})
+    @Export(name="policyBuilders", refs={List.class,WafPolicyPolicyBuilder.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicyPolicyBuilder>> policyBuilders;
 
     /**
@@ -337,7 +337,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Exported WAF policy deployed on BIGIP.
      * 
      */
-    @Export(name="policyExportJson", type=String.class, parameters={})
+    @Export(name="policyExportJson", refs={String.class}, tree="[0]")
     private Output<String> policyExportJson;
 
     /**
@@ -351,7 +351,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
@@ -365,7 +365,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      * 
      */
-    @Export(name="policyImportJson", type=String.class, parameters={})
+    @Export(name="policyImportJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyImportJson;
 
     /**
@@ -379,7 +379,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
      * 
      */
-    @Export(name="protocolIndependent", type=Boolean.class, parameters={})
+    @Export(name="protocolIndependent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> protocolIndependent;
 
     /**
@@ -393,7 +393,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
      * 
      */
-    @Export(name="serverTechnologies", type=List.class, parameters={String.class})
+    @Export(name="serverTechnologies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serverTechnologies;
 
     /**
@@ -407,7 +407,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
      * 
      */
-    @Export(name="signatureSets", type=List.class, parameters={String.class})
+    @Export(name="signatureSets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> signatureSets;
 
     /**
@@ -421,7 +421,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * This section defines the properties of a signature on the policy.
      * 
      */
-    @Export(name="signatures", type=List.class, parameters={String.class})
+    @Export(name="signatures", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> signatures;
 
     /**
@@ -435,7 +435,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * bulk signature setting
      * 
      */
-    @Export(name="signaturesSettings", type=List.class, parameters={WafPolicySignaturesSetting.class})
+    @Export(name="signaturesSettings", refs={List.class,WafPolicySignaturesSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WafPolicySignaturesSetting>> signaturesSettings;
 
     /**
@@ -449,7 +449,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the Link of the template used for the policy creation.
      * 
      */
-    @Export(name="templateLink", type=String.class, parameters={})
+    @Export(name="templateLink", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateLink;
 
     /**
@@ -463,7 +463,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the template used for the policy creation.
      * 
      */
-    @Export(name="templateName", type=String.class, parameters={})
+    @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
     /**
@@ -477,7 +477,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * The type of policy you want to create. The default policy type is `security`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -491,7 +491,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
      * 
      */
-    @Export(name="urls", type=List.class, parameters={String.class})
+    @Export(name="urls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> urls;
 
     /**

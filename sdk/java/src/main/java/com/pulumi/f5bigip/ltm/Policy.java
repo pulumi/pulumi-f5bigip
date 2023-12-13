@@ -82,7 +82,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the controls
      * 
      */
-    @Export(name="controls", type=List.class, parameters={String.class})
+    @Export(name="controls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> controls;
 
     /**
@@ -96,7 +96,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies descriptive text that identifies the irule attached to policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -110,7 +110,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Name of Rule to be applied in policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
-    @Export(name="publishedCopy", type=String.class, parameters={})
+    @Export(name="publishedCopy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publishedCopy;
 
     /**
@@ -142,7 +142,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the protocol
      * 
      */
-    @Export(name="requires", type=List.class, parameters={String.class})
+    @Export(name="requires", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> requires;
 
     /**
@@ -156,7 +156,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={PolicyRule.class})
+    @Export(name="rules", refs={List.class,PolicyRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyRule>> rules;
 
     /**
@@ -170,7 +170,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the match strategy
      * 
      */
-    @Export(name="strategy", type=String.class, parameters={})
+    @Export(name="strategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> strategy;
 
     /**

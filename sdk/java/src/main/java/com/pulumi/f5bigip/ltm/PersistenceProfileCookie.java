@@ -103,7 +103,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable always sending cookies
      * 
      */
-    @Export(name="alwaysSend", type=String.class, parameters={})
+    @Export(name="alwaysSend", refs={String.class}, tree="[0]")
     private Output<String> alwaysSend;
 
     /**
@@ -113,7 +113,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
     public Output<String> alwaysSend() {
         return this.alwaysSend;
     }
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output<String> appService;
 
     public Output<String> appService() {
@@ -123,7 +123,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To required, preferred, or disabled policy for cookie encryption
      * 
      */
-    @Export(name="cookieEncryption", type=String.class, parameters={})
+    @Export(name="cookieEncryption", refs={String.class}, tree="[0]")
     private Output<String> cookieEncryption;
 
     /**
@@ -137,7 +137,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Passphrase for encrypted cookies
      * 
      */
-    @Export(name="cookieEncryptionPassphrase", type=String.class, parameters={})
+    @Export(name="cookieEncryptionPassphrase", refs={String.class}, tree="[0]")
     private Output<String> cookieEncryptionPassphrase;
 
     /**
@@ -151,7 +151,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Name of the cookie to track persistence
      * 
      */
-    @Export(name="cookieName", type=String.class, parameters={})
+    @Export(name="cookieName", refs={String.class}, tree="[0]")
     private Output<String> cookieName;
 
     /**
@@ -165,7 +165,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Inherit defaults from parent profile
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -179,7 +179,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Expiration TTL for cookie specified in D:H:M:S or in seconds
      * 
      */
-    @Export(name="expiration", type=String.class, parameters={})
+    @Export(name="expiration", refs={String.class}, tree="[0]")
     private Output<String> expiration;
 
     /**
@@ -193,7 +193,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Length of hash to apply to cookie
      * 
      */
-    @Export(name="hashLength", type=Integer.class, parameters={})
+    @Export(name="hashLength", refs={Integer.class}, tree="[0]")
     private Output<Integer> hashLength;
 
     /**
@@ -207,7 +207,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Number of characters to skip in the cookie for the hash
      * 
      */
-    @Export(name="hashOffset", type=Integer.class, parameters={})
+    @Export(name="hashOffset", refs={Integer.class}, tree="[0]")
     private Output<Integer> hashOffset;
 
     /**
@@ -221,7 +221,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable sending only over http
      * 
      */
-    @Export(name="httponly", type=String.class, parameters={})
+    @Export(name="httponly", refs={String.class}, tree="[0]")
     private Output<String> httponly;
 
     /**
@@ -235,7 +235,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable match across pools with given persistence record
      * 
      */
-    @Export(name="matchAcrossPools", type=String.class, parameters={})
+    @Export(name="matchAcrossPools", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossPools;
 
     /**
@@ -249,7 +249,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable match across services with given persistence record
      * 
      */
-    @Export(name="matchAcrossServices", type=String.class, parameters={})
+    @Export(name="matchAcrossServices", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossServices;
 
     /**
@@ -263,7 +263,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable match across virtual servers with given persistence record
      * 
      */
-    @Export(name="matchAcrossVirtuals", type=String.class, parameters={})
+    @Export(name="matchAcrossVirtuals", refs={String.class}, tree="[0]")
     private Output<String> matchAcrossVirtuals;
 
     /**
@@ -277,7 +277,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Specifies the type of cookie processing that the system uses
      * 
      */
-    @Export(name="method", type=String.class, parameters={})
+    @Export(name="method", refs={String.class}, tree="[0]")
     private Output<String> method;
 
     /**
@@ -291,7 +291,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * To enable _ disable
      * 
      */
-    @Export(name="mirror", type=String.class, parameters={})
+    @Export(name="mirror", refs={String.class}, tree="[0]")
     private Output<String> mirror;
 
     /**
@@ -305,7 +305,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Name of the persistence profile
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -320,7 +320,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * limits remain hard limits and are not overridden.
      * 
      */
-    @Export(name="overrideConnLimit", type=String.class, parameters={})
+    @Export(name="overrideConnLimit", refs={String.class}, tree="[0]")
     private Output<String> overrideConnLimit;
 
     /**
@@ -335,7 +335,7 @@ public class PersistenceProfileCookie extends com.pulumi.resources.CustomResourc
      * Timeout for persistence of the session
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> timeout;
 
     /**

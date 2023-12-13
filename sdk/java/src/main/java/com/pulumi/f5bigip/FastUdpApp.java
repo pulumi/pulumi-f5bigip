@@ -76,7 +76,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of the FAST UDP application.
      * 
      */
-    @Export(name="application", type=String.class, parameters={})
+    @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
     /**
@@ -90,7 +90,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Enables use of FastL4 profiles.
      * 
      */
-    @Export(name="enableFastl4", type=Boolean.class, parameters={})
+    @Export(name="enableFastl4", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableFastl4;
 
     /**
@@ -104,7 +104,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP UDP pool monitor. Monitors are used to determine the health of the application on each server.
      * 
      */
-    @Export(name="existingMonitor", type=String.class, parameters={})
+    @Export(name="existingMonitor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingMonitor;
 
     /**
@@ -118,7 +118,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP pool.
      * 
      */
-    @Export(name="existingPool", type=String.class, parameters={})
+    @Export(name="existingPool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingPool;
 
     /**
@@ -132,7 +132,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP FastL4 or UDP profile.
      * 
      */
-    @Export(name="existingProfile", type=String.class, parameters={})
+    @Export(name="existingProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingProfile;
 
     /**
@@ -146,7 +146,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
-    @Export(name="existingSnatPool", type=String.class, parameters={})
+    @Export(name="existingSnatPool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingSnatPool;
 
     /**
@@ -160,7 +160,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Type of fallback persistence record to be created for each new client connection.
      * 
      */
-    @Export(name="fallbackPersistence", type=String.class, parameters={})
+    @Export(name="fallbackPersistence", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fallbackPersistence;
 
     /**
@@ -174,7 +174,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Json payload for FAST UDP application.
      * 
      */
-    @Export(name="fastUdpJson", type=String.class, parameters={})
+    @Export(name="fastUdpJson", refs={String.class}, tree="[0]")
     private Output<String> fastUdpJson;
 
     /**
@@ -188,7 +188,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Irules to attach to Virtual Server.
      * 
      */
-    @Export(name="irules", type=List.class, parameters={String.class})
+    @Export(name="irules", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> irules;
 
     /**
@@ -202,7 +202,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      * 
      */
-    @Export(name="loadBalancingMode", type=String.class, parameters={})
+    @Export(name="loadBalancingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadBalancingMode;
 
     /**
@@ -217,7 +217,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * See Pool Monitor below for more details.
      * 
      */
-    @Export(name="monitor", type=FastUdpAppMonitor.class, parameters={})
+    @Export(name="monitor", refs={FastUdpAppMonitor.class}, tree="[0]")
     private Output</* @Nullable */ FastUdpAppMonitor> monitor;
 
     /**
@@ -232,7 +232,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP persistence profile to be used.
      * 
      */
-    @Export(name="persistenceProfile", type=String.class, parameters={})
+    @Export(name="persistenceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> persistenceProfile;
 
     /**
@@ -246,7 +246,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      * 
      */
-    @Export(name="persistenceType", type=String.class, parameters={})
+    @Export(name="persistenceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> persistenceType;
 
     /**
@@ -261,7 +261,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * See Pool Members below for more details.
      * 
      */
-    @Export(name="poolMembers", type=List.class, parameters={FastUdpAppPoolMember.class})
+    @Export(name="poolMembers", refs={List.class,FastUdpAppPoolMember.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FastUdpAppPoolMember>> poolMembers;
 
     /**
@@ -276,7 +276,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Existing security log profiles to enable.
      * 
      */
-    @Export(name="securityLogProfiles", type=List.class, parameters={String.class})
+    @Export(name="securityLogProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityLogProfiles;
 
     /**
@@ -290,7 +290,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
-    @Export(name="slowRampTime", type=Integer.class, parameters={})
+    @Export(name="slowRampTime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> slowRampTime;
 
     /**
@@ -304,7 +304,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * List of address to be used for FAST-Generated SNAT Pool.
      * 
      */
-    @Export(name="snatPoolAddresses", type=List.class, parameters={String.class})
+    @Export(name="snatPoolAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> snatPoolAddresses;
 
     /**
@@ -318,7 +318,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Name of the FAST UDP application tenant.
      * 
      */
-    @Export(name="tenant", type=String.class, parameters={})
+    @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output<String> tenant;
 
     /**
@@ -333,7 +333,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * See virtual server below for more details.
      * 
      */
-    @Export(name="virtualServer", type=FastUdpAppVirtualServer.class, parameters={})
+    @Export(name="virtualServer", refs={FastUdpAppVirtualServer.class}, tree="[0]")
     private Output</* @Nullable */ FastUdpAppVirtualServer> virtualServer;
 
     /**
@@ -348,7 +348,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Names of existing VLANs to allow.
      * 
      */
-    @Export(name="vlansAlloweds", type=List.class, parameters={String.class})
+    @Export(name="vlansAlloweds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vlansAlloweds;
 
     /**
@@ -362,7 +362,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * Names of existing VLANs to reject.
      * 
      */
-    @Export(name="vlansRejecteds", type=List.class, parameters={String.class})
+    @Export(name="vlansRejecteds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vlansRejecteds;
 
     /**

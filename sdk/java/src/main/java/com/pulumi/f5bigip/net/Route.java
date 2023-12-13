@@ -59,7 +59,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Specifies a gateway address for the route.
      * 
      */
-    @Export(name="gw", type=String.class, parameters={})
+    @Export(name="gw", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gw;
 
     /**
@@ -73,7 +73,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -87,7 +87,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The destination subnet and netmask for the route.
      * 
      */
-    @Export(name="network", type=String.class, parameters={})
+    @Export(name="network", refs={String.class}, tree="[0]")
     private Output<String> network;
 
     /**
@@ -101,7 +101,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * reject route
      * 
      */
-    @Export(name="reject", type=Boolean.class, parameters={})
+    @Export(name="reject", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> reject;
 
     /**
@@ -115,7 +115,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * tunnel_ref to route traffic
      * 
      */
-    @Export(name="tunnelRef", type=String.class, parameters={})
+    @Export(name="tunnelRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnelRef;
 
     /**

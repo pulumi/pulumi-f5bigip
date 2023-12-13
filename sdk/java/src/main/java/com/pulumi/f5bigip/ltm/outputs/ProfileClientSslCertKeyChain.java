@@ -116,13 +116,13 @@ public final class ProfileClientSslCertKeyChain {
             return this;
         }
         public ProfileClientSslCertKeyChain build() {
-            final var o = new ProfileClientSslCertKeyChain();
-            o.cert = cert;
-            o.chain = chain;
-            o.key = key;
-            o.name = name;
-            o.passphrase = passphrase;
-            return o;
+            final var _resultValue = new ProfileClientSslCertKeyChain();
+            _resultValue.cert = cert;
+            _resultValue.chain = chain;
+            _resultValue.key = key;
+            _resultValue.name = name;
+            _resultValue.passphrase = passphrase;
+            return _resultValue;
         }
     }
 }

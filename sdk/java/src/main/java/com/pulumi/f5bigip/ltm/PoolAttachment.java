@@ -153,7 +153,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
      * 
      */
-    @Export(name="connectionLimit", type=Integer.class, parameters={})
+    @Export(name="connectionLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> connectionLimit;
 
     /**
@@ -167,7 +167,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
      * 
      */
-    @Export(name="connectionRateLimit", type=String.class, parameters={})
+    @Export(name="connectionRateLimit", refs={String.class}, tree="[0]")
     private Output<String> connectionRateLimit;
 
     /**
@@ -181,7 +181,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      * 
      */
-    @Export(name="dynamicRatio", type=Integer.class, parameters={})
+    @Export(name="dynamicRatio", refs={Integer.class}, tree="[0]")
     private Output<Integer> dynamicRatio;
 
     /**
@@ -195,7 +195,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
      * 
      */
-    @Export(name="fqdnAutopopulate", type=String.class, parameters={})
+    @Export(name="fqdnAutopopulate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fqdnAutopopulate;
 
     /**
@@ -209,7 +209,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
      * 
      */
-    @Export(name="monitor", type=String.class, parameters={})
+    @Export(name="monitor", refs={String.class}, tree="[0]")
     private Output<String> monitor;
 
     /**
@@ -223,7 +223,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      * 
      */
-    @Export(name="node", type=String.class, parameters={})
+    @Export(name="node", refs={String.class}, tree="[0]")
     private Output<String> node;
 
     /**
@@ -237,7 +237,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Name of the pool to which members should be attached,it should be &#34;full path&#34;.The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
      * 
      */
-    @Export(name="pool", type=String.class, parameters={})
+    @Export(name="pool", refs={String.class}, tree="[0]")
     private Output<String> pool;
 
     /**
@@ -251,7 +251,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
      * 
      */
-    @Export(name="priorityGroup", type=Integer.class, parameters={})
+    @Export(name="priorityGroup", refs={Integer.class}, tree="[0]")
     private Output<Integer> priorityGroup;
 
     /**
@@ -265,7 +265,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * &#34;Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.&#34;.
      * 
      */
-    @Export(name="ratio", type=Integer.class, parameters={})
+    @Export(name="ratio", refs={Integer.class}, tree="[0]")
     private Output<Integer> ratio;
 
     /**
@@ -279,7 +279,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**

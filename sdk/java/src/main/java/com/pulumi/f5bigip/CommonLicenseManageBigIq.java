@@ -104,7 +104,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
      * 
      */
-    @Export(name="assignmentType", type=String.class, parameters={})
+    @Export(name="assignmentType", refs={String.class}, tree="[0]")
     private Output<String> assignmentType;
 
     /**
@@ -118,7 +118,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * BIGIQ License Manager IP Address, variable type `string`
      * 
      */
-    @Export(name="bigiqAddress", type=String.class, parameters={})
+    @Export(name="bigiqAddress", refs={String.class}, tree="[0]")
     private Output<String> bigiqAddress;
 
     /**
@@ -132,7 +132,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * BIGIQ Login reference for token authentication
      * 
      */
-    @Export(name="bigiqLoginRef", type=String.class, parameters={})
+    @Export(name="bigiqLoginRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigiqLoginRef;
 
     /**
@@ -146,7 +146,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * BIGIQ License Manager password.  variable type `string`
      * 
      */
-    @Export(name="bigiqPassword", type=String.class, parameters={})
+    @Export(name="bigiqPassword", refs={String.class}, tree="[0]")
     private Output<String> bigiqPassword;
 
     /**
@@ -160,7 +160,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      * 
      */
-    @Export(name="bigiqPort", type=String.class, parameters={})
+    @Export(name="bigiqPort", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigiqPort;
 
     /**
@@ -174,7 +174,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      * 
      */
-    @Export(name="bigiqTokenAuth", type=Boolean.class, parameters={})
+    @Export(name="bigiqTokenAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bigiqTokenAuth;
 
     /**
@@ -188,7 +188,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * BIGIQ License Manager username, variable type `string`
      * 
      */
-    @Export(name="bigiqUser", type=String.class, parameters={})
+    @Export(name="bigiqUser", refs={String.class}, tree="[0]")
     private Output<String> bigiqUser;
 
     /**
@@ -202,7 +202,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * Status of Licence Assignment
      * 
      */
-    @Export(name="deviceLicenseStatus", type=String.class, parameters={})
+    @Export(name="deviceLicenseStatus", refs={String.class}, tree="[0]")
     private Output<String> deviceLicenseStatus;
 
     /**
@@ -216,7 +216,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
      * 
      */
-    @Export(name="hypervisor", type=String.class, parameters={})
+    @Export(name="hypervisor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hypervisor;
 
     /**
@@ -230,7 +230,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> key;
 
     /**
@@ -244,7 +244,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * A name given to the license pool. type `string`
      * 
      */
-    @Export(name="licensePoolname", type=String.class, parameters={})
+    @Export(name="licensePoolname", refs={String.class}, tree="[0]")
     private Output<String> licensePoolname;
 
     /**
@@ -258,7 +258,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * MAC address of the BIG-IP. type `string`
      * 
      */
-    @Export(name="macAddress", type=String.class, parameters={})
+    @Export(name="macAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> macAddress;
 
     /**
@@ -272,7 +272,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * An optional offering name. type `string`
      * 
      */
-    @Export(name="skukeyword1", type=String.class, parameters={})
+    @Export(name="skukeyword1", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skukeyword1;
 
     /**
@@ -286,7 +286,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * An optional offering name. type `string`
      * 
      */
-    @Export(name="skukeyword2", type=String.class, parameters={})
+    @Export(name="skukeyword2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skukeyword2;
 
     /**
@@ -300,7 +300,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
      * 
      */
-    @Export(name="tenant", type=String.class, parameters={})
+    @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenant;
 
     /**
@@ -314,7 +314,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * The units used to measure billing. For example, “hourly” or “daily”. Type `string`
      * 
      */
-    @Export(name="unitOfMeasure", type=String.class, parameters={})
+    @Export(name="unitOfMeasure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> unitOfMeasure;
 
     /**

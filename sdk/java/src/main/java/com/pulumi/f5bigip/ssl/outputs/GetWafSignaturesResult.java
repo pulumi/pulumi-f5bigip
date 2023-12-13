@@ -227,20 +227,20 @@ public final class GetWafSignaturesResult {
             return this;
         }
         public GetWafSignaturesResult build() {
-            final var o = new GetWafSignaturesResult();
-            o.accuracy = accuracy;
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.json = json;
-            o.name = name;
-            o.performStaging = performStaging;
-            o.risk = risk;
-            o.signatureId = signatureId;
-            o.systemSignatureId = systemSignatureId;
-            o.tag = tag;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetWafSignaturesResult();
+            _resultValue.accuracy = accuracy;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.name = name;
+            _resultValue.performStaging = performStaging;
+            _resultValue.risk = risk;
+            _resultValue.signatureId = signatureId;
+            _resultValue.systemSignatureId = systemSignatureId;
+            _resultValue.tag = tag;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

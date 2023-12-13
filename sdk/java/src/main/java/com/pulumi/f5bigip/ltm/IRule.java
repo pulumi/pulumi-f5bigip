@@ -25,7 +25,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
      * Body of the iRule
      * 
      */
-    @Export(name="irule", type=String.class, parameters={})
+    @Export(name="irule", refs={String.class}, tree="[0]")
     private Output<String> irule;
 
     /**
@@ -39,7 +39,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
      * Name of the iRule
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -63,11 +63,11 @@ public final class EventServiceDiscoveryNode {
             return this;
         }
         public EventServiceDiscoveryNode build() {
-            final var o = new EventServiceDiscoveryNode();
-            o.id = id;
-            o.ip = ip;
-            o.port = port;
-            return o;
+            final var _resultValue = new EventServiceDiscoveryNode();
+            _resultValue.id = id;
+            _resultValue.ip = ip;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

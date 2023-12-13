@@ -109,13 +109,13 @@ public final class NodeFqdn {
             return this;
         }
         public NodeFqdn build() {
-            final var o = new NodeFqdn();
-            o.addressFamily = addressFamily;
-            o.autopopulate = autopopulate;
-            o.downinterval = downinterval;
-            o.interval = interval;
-            o.name = name;
-            return o;
+            final var _resultValue = new NodeFqdn();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.autopopulate = autopopulate;
+            _resultValue.downinterval = downinterval;
+            _resultValue.interval = interval;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -72,7 +72,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
      * 
      */
-    @Export(name="activationModes", type=List.class, parameters={String.class})
+    @Export(name="activationModes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> activationModes;
 
     /**
@@ -86,7 +86,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      * 
      */
-    @Export(name="concurrentStreamsPerConnection", type=Integer.class, parameters={})
+    @Export(name="concurrentStreamsPerConnection", refs={Integer.class}, tree="[0]")
     private Output<Integer> concurrentStreamsPerConnection;
 
     /**
@@ -100,7 +100,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
      * 
      */
-    @Export(name="connectionIdleTimeout", type=Integer.class, parameters={})
+    @Export(name="connectionIdleTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> connectionIdleTimeout;
 
     /**
@@ -114,7 +114,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -128,7 +128,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Enable or disable enforcement of TLS requirements,Allowed Values : `&#34;enabled&#34;/&#34;disabled&#34;` [Default:`&#34;enabled&#34;`].
      * 
      */
-    @Export(name="enforceTlsRequirements", type=String.class, parameters={})
+    @Export(name="enforceTlsRequirements", refs={String.class}, tree="[0]")
     private Output<String> enforceTlsRequirements;
 
     /**
@@ -142,7 +142,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
      * 
      */
-    @Export(name="frameSize", type=Integer.class, parameters={})
+    @Export(name="frameSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> frameSize;
 
     /**
@@ -156,7 +156,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
      * 
      */
-    @Export(name="headerTableSize", type=Integer.class, parameters={})
+    @Export(name="headerTableSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> headerTableSize;
 
     /**
@@ -170,7 +170,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Enable to include content-length in HTTP/2 headers,Default : disabled
      * 
      */
-    @Export(name="includeContentLength", type=String.class, parameters={})
+    @Export(name="includeContentLength", refs={String.class}, tree="[0]")
     private Output<String> includeContentLength;
 
     /**
@@ -184,7 +184,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `&#34;enabled&#34;/&#34;disabled&#34;` [ Default: `&#34;disabled&#34;`].
      * 
      */
-    @Export(name="insertHeader", type=String.class, parameters={})
+    @Export(name="insertHeader", refs={String.class}, tree="[0]")
     private Output<String> insertHeader;
 
     /**
@@ -198,7 +198,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
      * 
      */
-    @Export(name="insertHeaderName", type=String.class, parameters={})
+    @Export(name="insertHeaderName", refs={String.class}, tree="[0]")
     private Output<String> insertHeaderName;
 
     /**
@@ -212,7 +212,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * The flow-control size for upload streams, in KB. `Default: 32`.
      * 
      */
-    @Export(name="receiveWindow", type=Integer.class, parameters={})
+    @Export(name="receiveWindow", refs={Integer.class}, tree="[0]")
     private Output<Integer> receiveWindow;
 
     /**
@@ -240,7 +240,7 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`&#34;.
      * 
      */
-    @Export(name="writeSize", type=Integer.class, parameters={})
+    @Export(name="writeSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> writeSize;
 
     /**

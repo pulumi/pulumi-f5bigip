@@ -25,7 +25,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * MD5 hash of the zip archive file containing FAST template
      * 
      */
-    @Export(name="md5Hash", type=String.class, parameters={})
+    @Export(name="md5Hash", refs={String.class}, tree="[0]")
     private Output<String> md5Hash;
 
     /**
@@ -39,7 +39,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * Name of the FAST template set to be created on to BIGIP
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> name;
 
     /**
@@ -53,7 +53,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * Path to the zip archive file containing FAST template set on Local Disk
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**

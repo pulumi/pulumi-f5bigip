@@ -110,7 +110,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool&#34; ) and node list for the resource to dynamically update the node list.
      * 
      */
-    @Export(name="nodes", type=List.class, parameters={EventServiceDiscoveryNode.class})
+    @Export(name="nodes", refs={List.class,EventServiceDiscoveryNode.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EventServiceDiscoveryNode>> nodes;
 
     /**
@@ -168,7 +168,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
      * 
      */
-    @Export(name="taskid", type=String.class, parameters={})
+    @Export(name="taskid", refs={String.class}, tree="[0]")
     private Output<String> taskid;
 
     /**

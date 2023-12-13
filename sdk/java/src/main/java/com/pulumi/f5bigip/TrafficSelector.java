@@ -58,7 +58,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Description of the traffic selector.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -72,7 +72,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
      * 
      */
-    @Export(name="destinationAddress", type=String.class, parameters={})
+    @Export(name="destinationAddress", refs={String.class}, tree="[0]")
     private Output<String> destinationAddress;
 
     /**
@@ -86,7 +86,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the IP port used by the application. The default value is `All Ports (0)`
      * 
      */
-    @Export(name="destinationPort", type=Integer.class, parameters={})
+    @Export(name="destinationPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> destinationPort;
 
     /**
@@ -100,7 +100,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
      * 
      */
-    @Export(name="direction", type=String.class, parameters={})
+    @Export(name="direction", refs={String.class}, tree="[0]")
     private Output<String> direction;
 
     /**
@@ -114,7 +114,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
      * 
      */
-    @Export(name="ipProtocol", type=Integer.class, parameters={})
+    @Export(name="ipProtocol", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipProtocol;
 
     /**
@@ -128,7 +128,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
      * 
      */
-    @Export(name="ipsecPolicy", type=String.class, parameters={})
+    @Export(name="ipsecPolicy", refs={String.class}, tree="[0]")
     private Output<String> ipsecPolicy;
 
     /**
@@ -142,7 +142,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Name of the IPSec traffic-selector,it should be &#34;full path&#34;.The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -157,7 +157,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * When creating a new traffic selector, if this parameter is not specified, the default is `last`
      * 
      */
-    @Export(name="order", type=Integer.class, parameters={})
+    @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
     /**
@@ -172,7 +172,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
      * 
      */
-    @Export(name="sourceAddress", type=String.class, parameters={})
+    @Export(name="sourceAddress", refs={String.class}, tree="[0]")
     private Output<String> sourceAddress;
 
     /**
@@ -186,7 +186,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * Specifies the IP port used by the application. The default value is `All Ports (0)`.
      * 
      */
-    @Export(name="sourcePort", type=Integer.class, parameters={})
+    @Export(name="sourcePort", refs={Integer.class}, tree="[0]")
     private Output<Integer> sourcePort;
 
     /**

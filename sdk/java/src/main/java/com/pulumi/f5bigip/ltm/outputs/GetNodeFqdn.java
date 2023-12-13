@@ -125,13 +125,13 @@ public final class GetNodeFqdn {
             return this;
         }
         public GetNodeFqdn build() {
-            final var o = new GetNodeFqdn();
-            o.addressFamily = addressFamily;
-            o.autopopulate = autopopulate;
-            o.downinterval = downinterval;
-            o.interval = interval;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNodeFqdn();
+            _resultValue.addressFamily = addressFamily;
+            _resultValue.autopopulate = autopopulate;
+            _resultValue.downinterval = downinterval;
+            _resultValue.interval = interval;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

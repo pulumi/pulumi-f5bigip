@@ -91,11 +91,11 @@ public final class WafPolicyFileType {
             return this;
         }
         public WafPolicyFileType build() {
-            final var o = new WafPolicyFileType();
-            o.allowed = allowed;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new WafPolicyFileType();
+            _resultValue.allowed = allowed;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

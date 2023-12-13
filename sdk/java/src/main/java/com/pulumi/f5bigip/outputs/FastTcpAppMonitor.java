@@ -48,9 +48,9 @@ public final class FastTcpAppMonitor {
             return this;
         }
         public FastTcpAppMonitor build() {
-            final var o = new FastTcpAppMonitor();
-            o.interval = interval;
-            return o;
+            final var _resultValue = new FastTcpAppMonitor();
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

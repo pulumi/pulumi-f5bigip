@@ -185,7 +185,7 @@ public class SelfIp extends com.pulumi.resources.CustomResource {
      * The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
@@ -199,7 +199,7 @@ public class SelfIp extends com.pulumi.resources.CustomResource {
      * Name of the selfip
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -213,7 +213,7 @@ public class SelfIp extends com.pulumi.resources.CustomResource {
      * Specifies the port lockdown, defaults to `Allow None` if not specified.
      * 
      */
-    @Export(name="portLockdowns", type=List.class, parameters={String.class})
+    @Export(name="portLockdowns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> portLockdowns;
 
     /**
@@ -227,7 +227,7 @@ public class SelfIp extends com.pulumi.resources.CustomResource {
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      * 
      */
-    @Export(name="trafficGroup", type=String.class, parameters={})
+    @Export(name="trafficGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficGroup;
 
     /**
@@ -241,7 +241,7 @@ public class SelfIp extends com.pulumi.resources.CustomResource {
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      * 
      */
-    @Export(name="vlan", type=String.class, parameters={})
+    @Export(name="vlan", refs={String.class}, tree="[0]")
     private Output<String> vlan;
 
     /**

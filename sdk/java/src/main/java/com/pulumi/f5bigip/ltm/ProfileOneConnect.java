@@ -64,7 +64,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -78,7 +78,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
      * 
      */
-    @Export(name="idleTimeoutOverride", type=String.class, parameters={})
+    @Export(name="idleTimeoutOverride", refs={String.class}, tree="[0]")
     private Output<String> idleTimeoutOverride;
 
     /**
@@ -92,7 +92,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
      * 
      */
-    @Export(name="limitType", type=String.class, parameters={})
+    @Export(name="limitType", refs={String.class}, tree="[0]")
     private Output<String> limitType;
 
     /**
@@ -106,7 +106,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
      * 
      */
-    @Export(name="maxAge", type=Integer.class, parameters={})
+    @Export(name="maxAge", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxAge;
 
     /**
@@ -120,7 +120,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
      * 
      */
-    @Export(name="maxReuse", type=Integer.class, parameters={})
+    @Export(name="maxReuse", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxReuse;
 
     /**
@@ -134,7 +134,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
      * 
      */
-    @Export(name="maxSize", type=Integer.class, parameters={})
+    @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSize;
 
     /**
@@ -148,7 +148,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Displays the administrative partition within which this profile resides
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output<String> partition;
 
     /**
@@ -176,7 +176,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specify if you want to share the pool, default value is `disabled`.
      * 
      */
-    @Export(name="sharePools", type=String.class, parameters={})
+    @Export(name="sharePools", refs={String.class}, tree="[0]")
     private Output<String> sharePools;
 
     /**
@@ -190,7 +190,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1&#39;s in binary), causes the system to share only those reused connections originating from the same client IP address.
      * 
      */
-    @Export(name="sourceMask", type=String.class, parameters={})
+    @Export(name="sourceMask", refs={String.class}, tree="[0]")
     private Output<String> sourceMask;
 
     /**

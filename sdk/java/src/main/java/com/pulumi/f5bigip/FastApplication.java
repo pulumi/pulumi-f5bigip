@@ -57,7 +57,7 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
      * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      * 
      */
-    @Export(name="application", type=String.class, parameters={})
+    @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
     /**
@@ -73,7 +73,7 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
      * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
      * 
      */
-    @Export(name="fastJson", type=String.class, parameters={})
+    @Export(name="fastJson", refs={String.class}, tree="[0]")
     private Output<String> fastJson;
 
     /**
@@ -87,7 +87,7 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> template;
 
     /**
@@ -101,7 +101,7 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
      * A FAST tenant name on which you want to manage application.
      * 
      */
-    @Export(name="tenant", type=String.class, parameters={})
+    @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output<String> tenant;
 
     /**

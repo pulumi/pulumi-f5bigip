@@ -60,7 +60,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * The content of the cert.
      * 
      */
-    @Export(name="certContent", type=String.class, parameters={})
+    @Export(name="certContent", refs={String.class}, tree="[0]")
     private Output<String> certContent;
 
     /**
@@ -74,7 +74,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * full path of the SSL certificate on the BIGIP.
      * 
      */
-    @Export(name="certFullPath", type=String.class, parameters={})
+    @Export(name="certFullPath", refs={String.class}, tree="[0]")
     private Output<String> certFullPath;
 
     /**
@@ -88,7 +88,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Specifies the type of monitoring used.
      * 
      */
-    @Export(name="certMonitoringType", type=String.class, parameters={})
+    @Export(name="certMonitoringType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certMonitoringType;
 
     /**
@@ -102,7 +102,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Name of the SSL certificate to be Imported on to BIGIP.
      * 
      */
-    @Export(name="certName", type=String.class, parameters={})
+    @Export(name="certName", refs={String.class}, tree="[0]")
     private Output<String> certName;
 
     /**
@@ -116,7 +116,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Specifies the OCSP responder.
      * 
      */
-    @Export(name="certOcsp", type=String.class, parameters={})
+    @Export(name="certOcsp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certOcsp;
 
     /**
@@ -130,7 +130,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Specifies the issuer certificate.
      * 
      */
-    @Export(name="issuerCert", type=String.class, parameters={})
+    @Export(name="issuerCert", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> issuerCert;
 
     /**
@@ -144,7 +144,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * The content of the key.
      * 
      */
-    @Export(name="keyContent", type=String.class, parameters={})
+    @Export(name="keyContent", refs={String.class}, tree="[0]")
     private Output<String> keyContent;
 
     /**
@@ -158,7 +158,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * full path of the SSL key on the BIGIP.
      * 
      */
-    @Export(name="keyFullPath", type=String.class, parameters={})
+    @Export(name="keyFullPath", refs={String.class}, tree="[0]")
     private Output<String> keyFullPath;
 
     /**
@@ -172,7 +172,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Name of the SSL key to be Imported on to BIGIP.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
@@ -186,7 +186,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Partition on to SSL certificate and key to be imported.
      * 
      */
-    @Export(name="partition", type=String.class, parameters={})
+    @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
@@ -200,7 +200,7 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      * Passphrase on the SSL key.
      * 
      */
-    @Export(name="passphrase", type=String.class, parameters={})
+    @Export(name="passphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passphrase;
 
     /**

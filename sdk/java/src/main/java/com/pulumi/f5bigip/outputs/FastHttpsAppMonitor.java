@@ -145,14 +145,14 @@ public final class FastHttpsAppMonitor {
             return this;
         }
         public FastHttpsAppMonitor build() {
-            final var o = new FastHttpsAppMonitor();
-            o.interval = interval;
-            o.monitorAuth = monitorAuth;
-            o.password = password;
-            o.response = response;
-            o.sendString = sendString;
-            o.username = username;
-            return o;
+            final var _resultValue = new FastHttpsAppMonitor();
+            _resultValue.interval = interval;
+            _resultValue.monitorAuth = monitorAuth;
+            _resultValue.password = password;
+            _resultValue.response = response;
+            _resultValue.sendString = sendString;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

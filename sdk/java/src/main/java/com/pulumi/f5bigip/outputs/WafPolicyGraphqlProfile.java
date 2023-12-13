@@ -111,12 +111,12 @@ public final class WafPolicyGraphqlProfile {
             return this;
         }
         public WafPolicyGraphqlProfile build() {
-            final var o = new WafPolicyGraphqlProfile();
-            o.attackSignaturesCheck = attackSignaturesCheck;
-            o.defenseAttributes = defenseAttributes;
-            o.metacharElementcheck = metacharElementcheck;
-            o.name = name;
-            return o;
+            final var _resultValue = new WafPolicyGraphqlProfile();
+            _resultValue.attackSignaturesCheck = attackSignaturesCheck;
+            _resultValue.defenseAttributes = defenseAttributes;
+            _resultValue.metacharElementcheck = metacharElementcheck;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

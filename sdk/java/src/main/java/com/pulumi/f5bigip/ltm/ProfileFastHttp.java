@@ -67,7 +67,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
      * 
      */
-    @Export(name="connpoolMaxreuse", type=Integer.class, parameters={})
+    @Export(name="connpoolMaxreuse", refs={Integer.class}, tree="[0]")
     private Output<Integer> connpoolMaxreuse;
 
     /**
@@ -81,7 +81,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
      * 
      */
-    @Export(name="connpoolMaxsize", type=Integer.class, parameters={})
+    @Export(name="connpoolMaxsize", refs={Integer.class}, tree="[0]")
     private Output<Integer> connpoolMaxsize;
 
     /**
@@ -95,7 +95,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
      * 
      */
-    @Export(name="connpoolMinsize", type=Integer.class, parameters={})
+    @Export(name="connpoolMinsize", refs={Integer.class}, tree="[0]")
     private Output<Integer> connpoolMinsize;
 
     /**
@@ -109,7 +109,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * The default value is enabled. When this option is enabled, the system replenishes the number of connections to a load balancing pool to the number of connections that existed when the server closed the connection to the pool. When disabled, the system replenishes the connection that was closed by the server, only when there are fewer connections to the pool than the number of connections set in the connpool-min-size connections option. Also see the connpool-min-size option..
      * 
      */
-    @Export(name="connpoolReplenish", type=String.class, parameters={})
+    @Export(name="connpoolReplenish", refs={String.class}, tree="[0]")
     private Output<String> connpoolReplenish;
 
     /**
@@ -123,7 +123,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the increment in which the system makes additional connections available, when all available connections are in use. The default value is 4.
      * 
      */
-    @Export(name="connpoolStep", type=Integer.class, parameters={})
+    @Export(name="connpoolStep", refs={Integer.class}, tree="[0]")
     private Output<Integer> connpoolStep;
 
     /**
@@ -137,7 +137,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the number of seconds after which a server-side connection in a OneConnect pool is eligible for deletion, when the connection has no traffic.The value of this option overrides the idle-timeout value that you specify. The default value is 0 (zero) seconds, which disables the override setting.
      * 
      */
-    @Export(name="connpoolidleTimeoutoverride", type=Integer.class, parameters={})
+    @Export(name="connpoolidleTimeoutoverride", refs={Integer.class}, tree="[0]")
     private Output<Integer> connpoolidleTimeoutoverride;
 
     /**
@@ -151,7 +151,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultsFrom;
 
     /**
@@ -165,7 +165,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies whether to rewrite the HTTP version in the status line of the server to HTTP 1.0 to discourage the client from pipelining or chunking data. The default value is disabled.
      * 
      */
-    @Export(name="forcehttp10response", type=String.class, parameters={})
+    @Export(name="forcehttp10response", refs={String.class}, tree="[0]")
     private Output<String> forcehttp10response;
 
     /**
@@ -179,7 +179,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      * 
      */
-    @Export(name="idleTimeout", type=Integer.class, parameters={})
+    @Export(name="idleTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleTimeout;
 
     /**
@@ -193,7 +193,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
      * 
      */
-    @Export(name="maxheaderSize", type=Integer.class, parameters={})
+    @Export(name="maxheaderSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxheaderSize;
 
     /**
@@ -207,7 +207,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * Name of the profile_fasthttp
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

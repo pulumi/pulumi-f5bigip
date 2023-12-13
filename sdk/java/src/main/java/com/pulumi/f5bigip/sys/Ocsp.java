@@ -60,7 +60,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
      * 
      */
-    @Export(name="cacheErrorTimeout", type=Integer.class, parameters={})
+    @Export(name="cacheErrorTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cacheErrorTimeout;
 
     /**
@@ -74,7 +74,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
      * 
      */
-    @Export(name="cacheTimeout", type=String.class, parameters={})
+    @Export(name="cacheTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cacheTimeout;
 
     /**
@@ -88,7 +88,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
      * 
      */
-    @Export(name="clockSkew", type=Integer.class, parameters={})
+    @Export(name="clockSkew", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> clockSkew;
 
     /**
@@ -102,7 +102,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
      * 
      */
-    @Export(name="concurrentConnectionsLimit", type=Integer.class, parameters={})
+    @Export(name="concurrentConnectionsLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> concurrentConnectionsLimit;
 
     /**
@@ -116,7 +116,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
      * 
      */
-    @Export(name="connectionTimeout", type=Integer.class, parameters={})
+    @Export(name="connectionTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> connectionTimeout;
 
     /**
@@ -130,7 +130,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
      * 
      */
-    @Export(name="dnsResolver", type=String.class, parameters={})
+    @Export(name="dnsResolver", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsResolver;
 
     /**
@@ -144,7 +144,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -158,7 +158,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies a passphrase used to sign an OCSP request.
      * 
      */
-    @Export(name="passphrase", type=String.class, parameters={})
+    @Export(name="passphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passphrase;
 
     /**
@@ -172,7 +172,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
      * 
      */
-    @Export(name="proxyServerPool", type=String.class, parameters={})
+    @Export(name="proxyServerPool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyServerPool;
 
     /**
@@ -186,7 +186,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the URL of the OCSP responder.
      * 
      */
-    @Export(name="responderUrl", type=String.class, parameters={})
+    @Export(name="responderUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> responderUrl;
 
     /**
@@ -200,7 +200,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the route domain for the OCSP responder.
      * 
      */
-    @Export(name="routeDomain", type=String.class, parameters={})
+    @Export(name="routeDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeDomain;
 
     /**
@@ -214,7 +214,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
      * 
      */
-    @Export(name="signHash", type=String.class, parameters={})
+    @Export(name="signHash", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signHash;
 
     /**
@@ -228,7 +228,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the certificate used to sign the OCSP request.
      * 
      */
-    @Export(name="signerCert", type=String.class, parameters={})
+    @Export(name="signerCert", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signerCert;
 
     /**
@@ -242,7 +242,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the key used to sign the OCSP request.
      * 
      */
-    @Export(name="signerKey", type=String.class, parameters={})
+    @Export(name="signerKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signerKey;
 
     /**
@@ -256,7 +256,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the maximum allowed lag time that the BIG-IP system accepts for the &#39;thisUpdate&#39; time in the OCSP response, in seconds. The default value is `0`.
      * 
      */
-    @Export(name="statusAge", type=Integer.class, parameters={})
+    @Export(name="statusAge", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> statusAge;
 
     /**
@@ -270,7 +270,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies whether the responder&#39;s certificate is checked for an OCSP signing extension. The default value is `enabled`.
      * 
      */
-    @Export(name="strictRespCertCheck", type=String.class, parameters={})
+    @Export(name="strictRespCertCheck", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> strictRespCertCheck;
 
     /**
@@ -284,7 +284,7 @@ public class Ocsp extends com.pulumi.resources.CustomResource {
      * Specifies the certificates used for validating the OCSP response.
      * 
      */
-    @Export(name="trustedResponders", type=String.class, parameters={})
+    @Export(name="trustedResponders", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trustedResponders;
 
     /**

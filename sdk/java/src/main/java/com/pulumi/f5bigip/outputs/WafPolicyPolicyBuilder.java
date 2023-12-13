@@ -48,9 +48,9 @@ public final class WafPolicyPolicyBuilder {
             return this;
         }
         public WafPolicyPolicyBuilder build() {
-            final var o = new WafPolicyPolicyBuilder();
-            o.learningMode = learningMode;
-            return o;
+            final var _resultValue = new WafPolicyPolicyBuilder();
+            _resultValue.learningMode = learningMode;
+            return _resultValue;
         }
     }
 }

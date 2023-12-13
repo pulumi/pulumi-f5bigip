@@ -165,18 +165,18 @@ public final class GetWafEntityUrlResult {
             return this;
         }
         public GetWafEntityUrlResult build() {
-            final var o = new GetWafEntityUrlResult();
-            o.description = description;
-            o.id = id;
-            o.json = json;
-            o.method = method;
-            o.methodOverrides = methodOverrides;
-            o.name = name;
-            o.performStaging = performStaging;
-            o.protocol = protocol;
-            o.signatureOverridesDisables = signatureOverridesDisables;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetWafEntityUrlResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.json = json;
+            _resultValue.method = method;
+            _resultValue.methodOverrides = methodOverrides;
+            _resultValue.name = name;
+            _resultValue.performStaging = performStaging;
+            _resultValue.protocol = protocol;
+            _resultValue.signatureOverridesDisables = signatureOverridesDisables;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

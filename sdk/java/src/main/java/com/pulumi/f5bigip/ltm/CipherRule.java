@@ -57,7 +57,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
      * 
      */
-    @Export(name="cipher", type=String.class, parameters={})
+    @Export(name="cipher", refs={String.class}, tree="[0]")
     private Output<String> cipher;
 
     /**
@@ -71,7 +71,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * The Partition in which the Cipher Rule will be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -85,7 +85,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * Specifies the DH Groups algorithms, separated by colons (:).
      * 
      */
-    @Export(name="dhGroups", type=String.class, parameters={})
+    @Export(name="dhGroups", refs={String.class}, tree="[0]")
     private Output<String> dhGroups;
 
     /**
@@ -99,7 +99,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * Specifies the Signature Algorithms, separated by colons (:).
      * 
      */
-    @Export(name="signatureAlgorithms", type=String.class, parameters={})
+    @Export(name="signatureAlgorithms", refs={String.class}, tree="[0]")
     private Output<String> signatureAlgorithms;
 
     /**

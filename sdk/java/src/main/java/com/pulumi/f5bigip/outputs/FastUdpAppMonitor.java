@@ -87,11 +87,11 @@ public final class FastUdpAppMonitor {
             return this;
         }
         public FastUdpAppMonitor build() {
-            final var o = new FastUdpAppMonitor();
-            o.expectedResponse = expectedResponse;
-            o.interval = interval;
-            o.sendString = sendString;
-            return o;
+            final var _resultValue = new FastUdpAppMonitor();
+            _resultValue.expectedResponse = expectedResponse;
+            _resultValue.interval = interval;
+            _resultValue.sendString = sendString;
+            return _resultValue;
         }
     }
 }

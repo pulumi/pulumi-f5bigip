@@ -70,7 +70,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * IP or hostname of the node
      * 
      */
-    @Export(name="address", type=String.class, parameters={})
+    @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
     /**
@@ -84,7 +84,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections allowed for the node or node address.
      * 
      */
-    @Export(name="connectionLimit", type=Integer.class, parameters={})
+    @Export(name="connectionLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> connectionLimit;
 
     /**
@@ -98,7 +98,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * User-defined description give ltm_node
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -112,7 +112,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      * 
      */
-    @Export(name="dynamicRatio", type=Integer.class, parameters={})
+    @Export(name="dynamicRatio", refs={Integer.class}, tree="[0]")
     private Output<Integer> dynamicRatio;
 
     /**
@@ -122,7 +122,7 @@ public class Node extends com.pulumi.resources.CustomResource {
     public Output<Integer> dynamicRatio() {
         return this.dynamicRatio;
     }
-    @Export(name="fqdn", type=NodeFqdn.class, parameters={})
+    @Export(name="fqdn", refs={NodeFqdn.class}, tree="[0]")
     private Output</* @Nullable */ NodeFqdn> fqdn;
 
     public Output<Optional<NodeFqdn>> fqdn() {
@@ -132,7 +132,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      * 
      */
-    @Export(name="monitor", type=String.class, parameters={})
+    @Export(name="monitor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitor;
 
     /**
@@ -146,7 +146,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Name of the node
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -160,7 +160,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is &#39;disabled&#39;.
      * 
      */
-    @Export(name="rateLimit", type=String.class, parameters={})
+    @Export(name="rateLimit", refs={String.class}, tree="[0]")
     private Output<String> rateLimit;
 
     /**
@@ -174,7 +174,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Sets the ratio number for the node.
      * 
      */
-    @Export(name="ratio", type=Integer.class, parameters={})
+    @Export(name="ratio", refs={Integer.class}, tree="[0]")
     private Output<Integer> ratio;
 
     /**
@@ -188,7 +188,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * Enables or disables the node for new sessions. The default value is user-enabled.
      * 
      */
-    @Export(name="session", type=String.class, parameters={})
+    @Export(name="session", refs={String.class}, tree="[0]")
     private Output<String> session;
 
     /**
@@ -204,7 +204,7 @@ public class Node extends com.pulumi.resources.CustomResource {
      * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**

@@ -74,7 +74,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request&#39;s XFF (X-forwarded-for) headers, if they exist.
      * 
      */
-    @Export(name="acceptXff", type=String.class, parameters={})
+    @Export(name="acceptXff", refs={String.class}, tree="[0]")
     private Output<String> acceptXff;
 
     /**
@@ -88,7 +88,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * The application service to which the object belongs.
      * 
      */
-    @Export(name="appService", type=String.class, parameters={})
+    @Export(name="appService", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appService;
 
     /**
@@ -102,7 +102,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      * 
      */
-    @Export(name="basicAuthRealm", type=String.class, parameters={})
+    @Export(name="basicAuthRealm", refs={String.class}, tree="[0]")
     private Output<String> basicAuthRealm;
 
     /**
@@ -116,7 +116,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -130,7 +130,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies user-defined description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -144,7 +144,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Type a passphrase for cookie encryption.
      * 
      */
-    @Export(name="encryptCookieSecret", type=String.class, parameters={})
+    @Export(name="encryptCookieSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptCookieSecret;
 
     /**
@@ -158,7 +158,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Type the cookie names for the system to encrypt.
      * 
      */
-    @Export(name="encryptCookies", type=List.class, parameters={String.class})
+    @Export(name="encryptCookies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> encryptCookies;
 
     /**
@@ -172,7 +172,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * See Enforcement below for more details.
      * 
      */
-    @Export(name="enforcements", type=List.class, parameters={ProfileHttpEnforcement.class})
+    @Export(name="enforcements", refs={List.class,ProfileHttpEnforcement.class}, tree="[0,1]")
     private Output<List<ProfileHttpEnforcement>> enforcements;
 
     /**
@@ -186,7 +186,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      * 
      */
-    @Export(name="fallbackHost", type=String.class, parameters={})
+    @Export(name="fallbackHost", refs={String.class}, tree="[0]")
     private Output<String> fallbackHost;
 
     /**
@@ -200,7 +200,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      * 
      */
-    @Export(name="fallbackStatusCodes", type=List.class, parameters={String.class})
+    @Export(name="fallbackStatusCodes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> fallbackStatusCodes;
 
     /**
@@ -214,7 +214,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      * 
      */
-    @Export(name="headErase", type=String.class, parameters={})
+    @Export(name="headErase", refs={String.class}, tree="[0]")
     private Output<String> headErase;
 
     /**
@@ -228,7 +228,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      * 
      */
-    @Export(name="headInsert", type=String.class, parameters={})
+    @Export(name="headInsert", refs={String.class}, tree="[0]")
     private Output<String> headInsert;
 
     /**
@@ -242,7 +242,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * See Http_Strict_Transport_Security below for more details.
      * 
      */
-    @Export(name="httpStrictTransportSecurities", type=List.class, parameters={ProfileHttpHttpStrictTransportSecurity.class})
+    @Export(name="httpStrictTransportSecurities", refs={List.class,ProfileHttpHttpStrictTransportSecurity.class}, tree="[0,1]")
     private Output<List<ProfileHttpHttpStrictTransportSecurity>> httpStrictTransportSecurities;
 
     /**
@@ -256,7 +256,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      * 
      */
-    @Export(name="insertXforwardedFor", type=String.class, parameters={})
+    @Export(name="insertXforwardedFor", refs={String.class}, tree="[0]")
     private Output<String> insertXforwardedFor;
 
     /**
@@ -271,7 +271,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * specify in the LWS Maximum Columns setting.
      * 
      */
-    @Export(name="lwsSeparator", type=String.class, parameters={})
+    @Export(name="lwsSeparator", refs={String.class}, tree="[0]")
     private Output<String> lwsSeparator;
 
     /**
@@ -286,7 +286,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      * 
      */
-    @Export(name="lwsWidth", type=Integer.class, parameters={})
+    @Export(name="lwsWidth", refs={Integer.class}, tree="[0]")
     private Output<Integer> lwsWidth;
 
     /**
@@ -300,7 +300,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -314,7 +314,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
      * 
      */
-    @Export(name="oneconnectTransformations", type=String.class, parameters={})
+    @Export(name="oneconnectTransformations", refs={String.class}, tree="[0]")
     private Output<String> oneconnectTransformations;
 
     /**
@@ -328,7 +328,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      * 
      */
-    @Export(name="proxyType", type=String.class, parameters={})
+    @Export(name="proxyType", refs={String.class}, tree="[0]")
     private Output<String> proxyType;
 
     /**
@@ -342,7 +342,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      * 
      */
-    @Export(name="redirectRewrite", type=String.class, parameters={})
+    @Export(name="redirectRewrite", refs={String.class}, tree="[0]")
     private Output<String> redirectRewrite;
 
     /**
@@ -356,7 +356,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      * 
      */
-    @Export(name="requestChunking", type=String.class, parameters={})
+    @Export(name="requestChunking", refs={String.class}, tree="[0]")
     private Output<String> requestChunking;
 
     /**
@@ -370,7 +370,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      * 
      */
-    @Export(name="responseChunking", type=String.class, parameters={})
+    @Export(name="responseChunking", refs={String.class}, tree="[0]")
     private Output<String> responseChunking;
 
     /**
@@ -384,7 +384,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      * 
      */
-    @Export(name="responseHeadersPermitteds", type=List.class, parameters={String.class})
+    @Export(name="responseHeadersPermitteds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> responseHeadersPermitteds;
 
     /**
@@ -398,7 +398,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
-    @Export(name="serverAgentName", type=String.class, parameters={})
+    @Export(name="serverAgentName", refs={String.class}, tree="[0]")
     private Output<String> serverAgentName;
 
     /**
@@ -412,7 +412,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Displays the administrative partition within which this profile resides.
      * 
      */
-    @Export(name="tmPartition", type=String.class, parameters={})
+    @Export(name="tmPartition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tmPartition;
 
     /**
@@ -426,7 +426,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies the hostname to include into Via header
      * 
      */
-    @Export(name="viaHostName", type=String.class, parameters={})
+    @Export(name="viaHostName", refs={String.class}, tree="[0]")
     private Output<String> viaHostName;
 
     /**
@@ -440,7 +440,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      * 
      */
-    @Export(name="viaRequest", type=String.class, parameters={})
+    @Export(name="viaRequest", refs={String.class}, tree="[0]")
     private Output<String> viaRequest;
 
     /**
@@ -454,7 +454,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      * 
      */
-    @Export(name="viaResponse", type=String.class, parameters={})
+    @Export(name="viaResponse", refs={String.class}, tree="[0]")
     private Output<String> viaResponse;
 
     /**
@@ -468,7 +468,7 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      * 
      */
-    @Export(name="xffAlternativeNames", type=List.class, parameters={String.class})
+    @Export(name="xffAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> xffAlternativeNames;
 
     /**

@@ -70,11 +70,11 @@ public final class IAppVariable {
             return this;
         }
         public IAppVariable build() {
-            final var o = new IAppVariable();
-            o.encrypted = encrypted;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new IAppVariable();
+            _resultValue.encrypted = encrypted;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

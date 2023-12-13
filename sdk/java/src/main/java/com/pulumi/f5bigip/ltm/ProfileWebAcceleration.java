@@ -60,7 +60,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
      * 
      */
-    @Export(name="cacheAgingRate", type=Integer.class, parameters={})
+    @Export(name="cacheAgingRate", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheAgingRate;
 
     /**
@@ -74,7 +74,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
      * 
      */
-    @Export(name="cacheClientCacheControlMode", type=String.class, parameters={})
+    @Export(name="cacheClientCacheControlMode", refs={String.class}, tree="[0]")
     private Output<String> cacheClientCacheControlMode;
 
     /**
@@ -88,7 +88,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Inserts Age and Date headers in the response. The default value is `enabled`.
      * 
      */
-    @Export(name="cacheInsertAgeHeader", type=String.class, parameters={})
+    @Export(name="cacheInsertAgeHeader", refs={String.class}, tree="[0]")
     private Output<String> cacheInsertAgeHeader;
 
     /**
@@ -102,7 +102,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
      * 
      */
-    @Export(name="cacheMaxAge", type=Integer.class, parameters={})
+    @Export(name="cacheMaxAge", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheMaxAge;
 
     /**
@@ -116,7 +116,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
      * 
      */
-    @Export(name="cacheMaxEntries", type=Integer.class, parameters={})
+    @Export(name="cacheMaxEntries", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheMaxEntries;
 
     /**
@@ -130,7 +130,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      * 
      */
-    @Export(name="cacheObjectMaxSize", type=Integer.class, parameters={})
+    @Export(name="cacheObjectMaxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheObjectMaxSize;
 
     /**
@@ -144,7 +144,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      * 
      */
-    @Export(name="cacheObjectMinSize", type=Integer.class, parameters={})
+    @Export(name="cacheObjectMinSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheObjectMinSize;
 
     /**
@@ -158,7 +158,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
      * 
      */
-    @Export(name="cacheSize", type=Integer.class, parameters={})
+    @Export(name="cacheSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> cacheSize;
 
     /**
@@ -172,7 +172,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
      * 
      */
-    @Export(name="cacheUriExcludes", type=List.class, parameters={String.class})
+    @Export(name="cacheUriExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cacheUriExcludes;
 
     /**
@@ -186,7 +186,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
      * 
      */
-    @Export(name="cacheUriIncludeOverrides", type=List.class, parameters={String.class})
+    @Export(name="cacheUriIncludeOverrides", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cacheUriIncludeOverrides;
 
     /**
@@ -200,7 +200,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
      * 
      */
-    @Export(name="cacheUriIncludes", type=List.class, parameters={String.class})
+    @Export(name="cacheUriIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cacheUriIncludes;
 
     /**
@@ -214,7 +214,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
      * 
      */
-    @Export(name="cacheUriPinneds", type=List.class, parameters={String.class})
+    @Export(name="cacheUriPinneds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cacheUriPinneds;
 
     /**
@@ -228,7 +228,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
-    @Export(name="defaultsFrom", type=String.class, parameters={})
+    @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output<String> defaultsFrom;
 
     /**
@@ -242,7 +242,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

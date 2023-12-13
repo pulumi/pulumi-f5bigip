@@ -105,12 +105,12 @@ public final class GetIruleResult {
             return this;
         }
         public GetIruleResult build() {
-            final var o = new GetIruleResult();
-            o.id = id;
-            o.irule = irule;
-            o.name = name;
-            o.partition = partition;
-            return o;
+            final var _resultValue = new GetIruleResult();
+            _resultValue.id = id;
+            _resultValue.irule = irule;
+            _resultValue.name = name;
+            _resultValue.partition = partition;
+            return _resultValue;
         }
     }
 }

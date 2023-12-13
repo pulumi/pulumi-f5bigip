@@ -130,7 +130,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of the FAST HTTPS application.
      * 
      */
-    @Export(name="application", type=String.class, parameters={})
+    @Export(name="application", refs={String.class}, tree="[0]")
     private Output<String> application;
 
     /**
@@ -144,7 +144,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * List of LTM Policies to be applied FAST HTTP Application.
      * 
      */
-    @Export(name="endpointLtmPolicies", type=List.class, parameters={String.class})
+    @Export(name="endpointLtmPolicies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> endpointLtmPolicies;
 
     /**
@@ -158,7 +158,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      * 
      */
-    @Export(name="existingMonitor", type=String.class, parameters={})
+    @Export(name="existingMonitor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingMonitor;
 
     /**
@@ -172,7 +172,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Select an existing BIG-IP Pool
      * 
      */
-    @Export(name="existingPool", type=String.class, parameters={})
+    @Export(name="existingPool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingPool;
 
     /**
@@ -186,7 +186,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
-    @Export(name="existingSnatPool", type=String.class, parameters={})
+    @Export(name="existingSnatPool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingSnatPool;
 
     /**
@@ -200,7 +200,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing WAF Security policy.
      * 
      */
-    @Export(name="existingWafSecurityPolicy", type=String.class, parameters={})
+    @Export(name="existingWafSecurityPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingWafSecurityPolicy;
 
     /**
@@ -214,7 +214,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Type of fallback persistence record to be created for each new client connection.
      * 
      */
-    @Export(name="fallbackPersistence", type=String.class, parameters={})
+    @Export(name="fallbackPersistence", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fallbackPersistence;
 
     /**
@@ -228,7 +228,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Json payload for FAST HTTP application.
      * 
      */
-    @Export(name="fastHttpJson", type=String.class, parameters={})
+    @Export(name="fastHttpJson", refs={String.class}, tree="[0]")
     private Output<String> fastHttpJson;
 
     /**
@@ -242,7 +242,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      * 
      */
-    @Export(name="loadBalancingMode", type=String.class, parameters={})
+    @Export(name="loadBalancingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadBalancingMode;
 
     /**
@@ -257,7 +257,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * See Pool Monitor below for more details.
      * 
      */
-    @Export(name="monitor", type=FastHttpAppMonitor.class, parameters={})
+    @Export(name="monitor", refs={FastHttpAppMonitor.class}, tree="[0]")
     private Output</* @Nullable */ FastHttpAppMonitor> monitor;
 
     /**
@@ -272,7 +272,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of an existing BIG-IP persistence profile to be used.
      * 
      */
-    @Export(name="persistenceProfile", type=String.class, parameters={})
+    @Export(name="persistenceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> persistenceProfile;
 
     /**
@@ -286,7 +286,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      * 
      */
-    @Export(name="persistenceType", type=String.class, parameters={})
+    @Export(name="persistenceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> persistenceType;
 
     /**
@@ -301,7 +301,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * See Pool Members below for more details.
      * 
      */
-    @Export(name="poolMembers", type=List.class, parameters={FastHttpAppPoolMember.class})
+    @Export(name="poolMembers", refs={List.class,FastHttpAppPoolMember.class}, tree="[0,1]")
     private Output<List<FastHttpAppPoolMember>> poolMembers;
 
     /**
@@ -316,7 +316,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * List of security log profiles to be used for FAST application
      * 
      */
-    @Export(name="securityLogProfiles", type=List.class, parameters={String.class})
+    @Export(name="securityLogProfiles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityLogProfiles;
 
     /**
@@ -330,7 +330,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
-    @Export(name="serviceDiscoveries", type=List.class, parameters={String.class})
+    @Export(name="serviceDiscoveries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serviceDiscoveries;
 
     /**
@@ -344,7 +344,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
-    @Export(name="slowRampTime", type=Integer.class, parameters={})
+    @Export(name="slowRampTime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> slowRampTime;
 
     /**
@@ -358,7 +358,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * List of address to be used for FAST-Generated SNAT Pool.
      * 
      */
-    @Export(name="snatPoolAddresses", type=List.class, parameters={String.class})
+    @Export(name="snatPoolAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> snatPoolAddresses;
 
     /**
@@ -372,7 +372,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * Name of the FAST HTTPS application tenant.
      * 
      */
-    @Export(name="tenant", type=String.class, parameters={})
+    @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output<String> tenant;
 
     /**
@@ -387,7 +387,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * See virtual server below for more details.
      * 
      */
-    @Export(name="virtualServer", type=FastHttpAppVirtualServer.class, parameters={})
+    @Export(name="virtualServer", refs={FastHttpAppVirtualServer.class}, tree="[0]")
     private Output</* @Nullable */ FastHttpAppVirtualServer> virtualServer;
 
     /**
@@ -403,7 +403,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * See WAF Security Policy below for more details.
      * 
      */
-    @Export(name="wafSecurityPolicy", type=FastHttpAppWafSecurityPolicy.class, parameters={})
+    @Export(name="wafSecurityPolicy", refs={FastHttpAppWafSecurityPolicy.class}, tree="[0]")
     private Output</* @Nullable */ FastHttpAppWafSecurityPolicy> wafSecurityPolicy;
 
     /**

@@ -57,7 +57,7 @@ public class Ntp extends com.pulumi.resources.CustomResource {
      * User defined description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -71,7 +71,7 @@ public class Ntp extends com.pulumi.resources.CustomResource {
      * Specifies the time servers that the system uses to update the system time.
      * 
      */
-    @Export(name="servers", type=List.class, parameters={String.class})
+    @Export(name="servers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> servers;
 
     /**
@@ -85,7 +85,7 @@ public class Ntp extends com.pulumi.resources.CustomResource {
      * Specifies the time zone that you want to use for the system time.
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**

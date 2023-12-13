@@ -201,22 +201,22 @@ public final class GetGceServiceDiscoveryResult {
             return this;
         }
         public GetGceServiceDiscoveryResult build() {
-            final var o = new GetGceServiceDiscoveryResult();
-            o.addressRealm = addressRealm;
-            o.credentialUpdate = credentialUpdate;
-            o.encodedCredentials = encodedCredentials;
-            o.gceSdJson = gceSdJson;
-            o.id = id;
-            o.minimumMonitors = minimumMonitors;
-            o.port = port;
-            o.projectId = projectId;
-            o.region = region;
-            o.tagKey = tagKey;
-            o.tagValue = tagValue;
-            o.type = type;
-            o.undetectableAction = undetectableAction;
-            o.updateInterval = updateInterval;
-            return o;
+            final var _resultValue = new GetGceServiceDiscoveryResult();
+            _resultValue.addressRealm = addressRealm;
+            _resultValue.credentialUpdate = credentialUpdate;
+            _resultValue.encodedCredentials = encodedCredentials;
+            _resultValue.gceSdJson = gceSdJson;
+            _resultValue.id = id;
+            _resultValue.minimumMonitors = minimumMonitors;
+            _resultValue.port = port;
+            _resultValue.projectId = projectId;
+            _resultValue.region = region;
+            _resultValue.tagKey = tagKey;
+            _resultValue.tagValue = tagValue;
+            _resultValue.type = type;
+            _resultValue.undetectableAction = undetectableAction;
+            _resultValue.updateInterval = updateInterval;
+            return _resultValue;
         }
     }
 }

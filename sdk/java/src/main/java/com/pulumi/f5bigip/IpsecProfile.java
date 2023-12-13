@@ -56,7 +56,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * Specifies descriptive text that identifies the IPsec interface tunnel profile.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -70,7 +70,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * Displays the name of the IPsec interface tunnel profile,it should be &#34;full path&#34;.The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -84,7 +84,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
      * 
      */
-    @Export(name="parentProfile", type=String.class, parameters={})
+    @Export(name="parentProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentProfile;
 
     /**
@@ -98,7 +98,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
      * 
      */
-    @Export(name="trafficSelector", type=String.class, parameters={})
+    @Export(name="trafficSelector", refs={String.class}, tree="[0]")
     private Output<String> trafficSelector;
 
     /**

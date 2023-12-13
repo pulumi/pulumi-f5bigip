@@ -502,7 +502,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * Name of Application
      * 
      */
-    @Export(name="applicationList", type=String.class, parameters={})
+    @Export(name="applicationList", refs={String.class}, tree="[0]")
     private Output<String> applicationList;
 
     /**
@@ -516,7 +516,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      * 
      */
-    @Export(name="as3Json", type=String.class, parameters={})
+    @Export(name="as3Json", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> as3Json;
 
     /**
@@ -577,7 +577,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * ```
      * 
      */
-    @Export(name="ignoreMetadata", type=Boolean.class, parameters={})
+    @Export(name="ignoreMetadata", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMetadata;
 
     /**
@@ -638,7 +638,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * ID of AS3 post declaration async task
      * 
      */
-    @Export(name="taskId", type=String.class, parameters={})
+    @Export(name="taskId", refs={String.class}, tree="[0]")
     private Output<String> taskId;
 
     /**
@@ -652,7 +652,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      * 
      */
-    @Export(name="tenantFilter", type=String.class, parameters={})
+    @Export(name="tenantFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantFilter;
 
     /**
@@ -666,7 +666,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * Name of Tenant
      * 
      */
-    @Export(name="tenantList", type=String.class, parameters={})
+    @Export(name="tenantList", refs={String.class}, tree="[0]")
     private Output<String> tenantList;
 
     /**
@@ -684,7 +684,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* this attribute is no longer in use */
-    @Export(name="tenantName", type=String.class, parameters={})
+    @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantName;
 
     /**

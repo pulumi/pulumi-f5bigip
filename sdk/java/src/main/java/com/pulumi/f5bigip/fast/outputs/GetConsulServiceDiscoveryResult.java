@@ -201,22 +201,22 @@ public final class GetConsulServiceDiscoveryResult {
             return this;
         }
         public GetConsulServiceDiscoveryResult build() {
-            final var o = new GetConsulServiceDiscoveryResult();
-            o.addressRealm = addressRealm;
-            o.consulSdJson = consulSdJson;
-            o.credentialUpdate = credentialUpdate;
-            o.encodedToken = encodedToken;
-            o.id = id;
-            o.jmesPathQuery = jmesPathQuery;
-            o.minimumMonitors = minimumMonitors;
-            o.port = port;
-            o.rejectUnauthorized = rejectUnauthorized;
-            o.trustCa = trustCa;
-            o.type = type;
-            o.undetectableAction = undetectableAction;
-            o.updateInterval = updateInterval;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new GetConsulServiceDiscoveryResult();
+            _resultValue.addressRealm = addressRealm;
+            _resultValue.consulSdJson = consulSdJson;
+            _resultValue.credentialUpdate = credentialUpdate;
+            _resultValue.encodedToken = encodedToken;
+            _resultValue.id = id;
+            _resultValue.jmesPathQuery = jmesPathQuery;
+            _resultValue.minimumMonitors = minimumMonitors;
+            _resultValue.port = port;
+            _resultValue.rejectUnauthorized = rejectUnauthorized;
+            _resultValue.trustCa = trustCa;
+            _resultValue.type = type;
+            _resultValue.undetectableAction = undetectableAction;
+            _resultValue.updateInterval = updateInterval;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

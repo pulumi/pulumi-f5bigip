@@ -165,15 +165,15 @@ public final class GetPolicyResult {
             return this;
         }
         public GetPolicyResult build() {
-            final var o = new GetPolicyResult();
-            o.controls = controls;
-            o.id = id;
-            o.name = name;
-            o.publishedCopy = publishedCopy;
-            o.requires = requires;
-            o.rules = rules;
-            o.strategy = strategy;
-            return o;
+            final var _resultValue = new GetPolicyResult();
+            _resultValue.controls = controls;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.publishedCopy = publishedCopy;
+            _resultValue.requires = requires;
+            _resultValue.rules = rules;
+            _resultValue.strategy = strategy;
+            return _resultValue;
         }
     }
 }

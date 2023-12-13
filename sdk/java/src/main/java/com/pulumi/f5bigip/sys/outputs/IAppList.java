@@ -51,10 +51,10 @@ public final class IAppList {
             return this;
         }
         public IAppList build() {
-            final var o = new IAppList();
-            o.encrypted = encrypted;
-            o.value = value;
-            return o;
+            final var _resultValue = new IAppList();
+            _resultValue.encrypted = encrypted;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

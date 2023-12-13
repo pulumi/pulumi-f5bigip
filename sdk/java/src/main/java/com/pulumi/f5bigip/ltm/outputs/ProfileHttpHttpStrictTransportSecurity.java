@@ -106,12 +106,12 @@ public final class ProfileHttpHttpStrictTransportSecurity {
             return this;
         }
         public ProfileHttpHttpStrictTransportSecurity build() {
-            final var o = new ProfileHttpHttpStrictTransportSecurity();
-            o.includeSubdomains = includeSubdomains;
-            o.maximumAge = maximumAge;
-            o.mode = mode;
-            o.preload = preload;
-            return o;
+            final var _resultValue = new ProfileHttpHttpStrictTransportSecurity();
+            _resultValue.includeSubdomains = includeSubdomains;
+            _resultValue.maximumAge = maximumAge;
+            _resultValue.mode = mode;
+            _resultValue.preload = preload;
+            return _resultValue;
         }
     }
 }

@@ -146,14 +146,14 @@ public final class WafPolicyGraphqlProfileDefenseAttribute {
             return this;
         }
         public WafPolicyGraphqlProfileDefenseAttribute build() {
-            final var o = new WafPolicyGraphqlProfileDefenseAttribute();
-            o.allowIntrospectionQueries = allowIntrospectionQueries;
-            o.maximumBatchedQueries = maximumBatchedQueries;
-            o.maximumStructureDepth = maximumStructureDepth;
-            o.maximumTotalLength = maximumTotalLength;
-            o.maximumValueLength = maximumValueLength;
-            o.tolerateParsingWarnings = tolerateParsingWarnings;
-            return o;
+            final var _resultValue = new WafPolicyGraphqlProfileDefenseAttribute();
+            _resultValue.allowIntrospectionQueries = allowIntrospectionQueries;
+            _resultValue.maximumBatchedQueries = maximumBatchedQueries;
+            _resultValue.maximumStructureDepth = maximumStructureDepth;
+            _resultValue.maximumTotalLength = maximumTotalLength;
+            _resultValue.maximumValueLength = maximumValueLength;
+            _resultValue.tolerateParsingWarnings = tolerateParsingWarnings;
+            return _resultValue;
         }
     }
 }
