@@ -2,460 +2,196 @@
     "auto-aliasing": {
         "resources": {
             "bigip_as3": {
-                "current": "f5bigip:index/as3:As3",
-                "fields": {
-                    "application_list": {},
-                    "as3_json": {},
-                    "ignore_metadata": {},
-                    "task_id": {},
-                    "tenant_filter": {},
-                    "tenant_list": {},
-                    "tenant_name": {}
-                }
+                "current": "f5bigip:index/as3:As3"
             },
             "bigip_bigiq_as3": {
-                "current": "f5bigip:index/bigIqAs3:BigIqAs3",
-                "fields": {
-                    "as3_json": {},
-                    "bigiq_address": {},
-                    "bigiq_login_ref": {},
-                    "bigiq_password": {},
-                    "bigiq_port": {},
-                    "bigiq_token_auth": {},
-                    "bigiq_user": {},
-                    "ignore_metadata": {},
-                    "tenant_list": {}
-                }
+                "current": "f5bigip:index/bigIqAs3:BigIqAs3"
             },
             "bigip_cm_device": {
-                "current": "f5bigip:cm/device:Device",
-                "fields": {
-                    "configsync_ip": {},
-                    "mirror_ip": {},
-                    "mirror_secondary_ip": {},
-                    "name": {}
-                }
+                "current": "f5bigip:cm/device:Device"
             },
             "bigip_cm_devicegroup": {
                 "current": "f5bigip:cm/deviceGroup:DeviceGroup",
                 "fields": {
-                    "auto_sync": {},
-                    "description": {},
                     "device": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "name": {},
-                                "set_sync_leader": {}
-                            }
-                        }
-                    },
-                    "full_load_on_sync": {},
-                    "incremental_config": {},
-                    "name": {},
-                    "network_failover": {},
-                    "partition": {},
-                    "save_on_auto_sync": {},
-                    "type": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_command": {
                 "current": "f5bigip:index/command:Command",
                 "fields": {
                     "command_result": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "commands": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "when": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_common_license_manage_bigiq": {
-                "current": "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq",
-                "fields": {
-                    "assignment_type": {},
-                    "bigiq_address": {},
-                    "bigiq_login_ref": {},
-                    "bigiq_password": {},
-                    "bigiq_port": {},
-                    "bigiq_token_auth": {},
-                    "bigiq_user": {},
-                    "device_license_status": {},
-                    "hypervisor": {},
-                    "key": {},
-                    "license_poolname": {},
-                    "mac_address": {},
-                    "skukeyword1": {},
-                    "skukeyword2": {},
-                    "tenant": {},
-                    "unit_of_measure": {}
-                }
+                "current": "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq"
             },
             "bigip_do": {
-                "current": "f5bigip:index/do:Do",
-                "fields": {
-                    "bigip_address": {},
-                    "bigip_password": {},
-                    "bigip_port": {},
-                    "bigip_token_auth": {},
-                    "bigip_user": {},
-                    "do_json": {},
-                    "tenant_name": {},
-                    "timeout": {}
-                }
+                "current": "f5bigip:index/do:Do"
             },
             "bigip_event_service_discovery": {
                 "current": "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery",
                 "fields": {
                     "node": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "id": {},
-                                "ip": {},
-                                "port": {}
-                            }
-                        }
-                    },
-                    "taskid": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_fast_application": {
-                "current": "f5bigip:index/fastApplication:FastApplication",
-                "fields": {
-                    "application": {},
-                    "fast_json": {},
-                    "template": {},
-                    "tenant": {}
-                }
+                "current": "f5bigip:index/fastApplication:FastApplication"
             },
             "bigip_fast_http_app": {
                 "current": "f5bigip:index/fastHttpApp:FastHttpApp",
                 "fields": {
-                    "application": {},
                     "endpoint_ltm_policy": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "existing_monitor": {},
-                    "existing_pool": {},
-                    "existing_snat_pool": {},
-                    "existing_waf_security_policy": {},
-                    "fast_http_json": {},
-                    "load_balancing_mode": {},
                     "monitor": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "interval": {},
-                                "monitor_auth": {},
-                                "password": {},
-                                "response": {},
-                                "send_string": {},
-                                "username": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "pool_members": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "addresses": {
-                                    "maxItemsOne": false,
-                                    "elem": {}
-                                },
-                                "connection_limit": {},
-                                "port": {},
-                                "priority_group": {},
-                                "share_nodes": {}
+                                    "maxItemsOne": false
+                                }
                             }
                         }
                     },
                     "security_log_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "service_discovery": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "slow_ramp_time": {},
                     "snat_pool_address": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "tenant": {},
                     "virtual_server": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "ip": {},
-                                "port": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "waf_security_policy": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "enable": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     }
                 }
             },
             "bigip_fast_https_app": {
                 "current": "f5bigip:index/fastHttpsApp:FastHttpsApp",
                 "fields": {
-                    "application": {},
                     "endpoint_ltm_policy": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "existing_monitor": {},
-                    "existing_pool": {},
-                    "existing_snat_pool": {},
-                    "existing_tls_client_profile": {},
-                    "existing_tls_server_profile": {},
-                    "existing_waf_security_policy": {},
-                    "fast_https_json": {},
-                    "load_balancing_mode": {},
                     "monitor": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "interval": {},
-                                "monitor_auth": {},
-                                "password": {},
-                                "response": {},
-                                "send_string": {},
-                                "username": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "pool_members": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "addresses": {
-                                    "maxItemsOne": false,
-                                    "elem": {}
-                                },
-                                "connection_limit": {},
-                                "port": {},
-                                "priority_group": {},
-                                "share_nodes": {}
+                                    "maxItemsOne": false
+                                }
                             }
                         }
                     },
                     "security_log_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "service_discovery": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "slow_ramp_time": {},
                     "snat_pool_address": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "tenant": {},
                     "tls_client_profile": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "tls_cert_name": {},
-                                "tls_key_name": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "tls_server_profile": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "tls_cert_name": {},
-                                "tls_key_name": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "virtual_server": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "ip": {},
-                                "port": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "waf_security_policy": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "enable": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     }
                 }
             },
             "bigip_fast_tcp_app": {
                 "current": "f5bigip:index/fastTcpApp:FastTcpApp",
                 "fields": {
-                    "application": {},
-                    "existing_monitor": {},
-                    "existing_pool": {},
-                    "existing_snat_pool": {},
-                    "fast_tcp_json": {},
-                    "load_balancing_mode": {},
                     "monitor": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "interval": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "pool_members": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "addresses": {
-                                    "maxItemsOne": false,
-                                    "elem": {}
-                                },
-                                "connection_limit": {},
-                                "port": {},
-                                "priority_group": {},
-                                "share_nodes": {}
+                                    "maxItemsOne": false
+                                }
                             }
                         }
                     },
-                    "slow_ramp_time": {},
                     "snat_pool_address": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "tenant": {},
                     "virtual_server": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "ip": {},
-                                "port": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     }
                 }
             },
             "bigip_fast_template": {
-                "current": "f5bigip:index/fastTemplate:FastTemplate",
-                "fields": {
-                    "md5_hash": {},
-                    "name": {},
-                    "source": {}
-                }
+                "current": "f5bigip:index/fastTemplate:FastTemplate"
             },
             "bigip_fast_udp_app": {
                 "current": "f5bigip:index/fastUdpApp:FastUdpApp",
                 "fields": {
-                    "application": {},
-                    "enable_fastl4": {},
-                    "existing_monitor": {},
-                    "existing_pool": {},
-                    "existing_profile": {},
-                    "existing_snat_pool": {},
-                    "fallback_persistence": {},
-                    "fast_udp_json": {},
                     "irules": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "load_balancing_mode": {},
                     "monitor": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "expected_response": {},
-                                "interval": {},
-                                "send_string": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
-                    "persistence_profile": {},
-                    "persistence_type": {},
                     "pool_members": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "addresses": {
-                                    "maxItemsOne": false,
-                                    "elem": {}
-                                },
-                                "connection_limit": {},
-                                "port": {},
-                                "priority_group": {},
-                                "share_nodes": {}
+                                    "maxItemsOne": false
+                                }
                             }
                         }
                     },
                     "security_log_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "slow_ramp_time": {},
                     "snat_pool_address": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "tenant": {},
                     "virtual_server": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "ip": {},
-                                "port": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
                     "vlans_allowed": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "vlans_rejected": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             },
             "bigip_ipsec_policy": {
-                "current": "f5bigip:index/ipsecPolicy:IpsecPolicy",
-                "fields": {
-                    "auth_algorithm": {},
-                    "description": {},
-                    "encrypt_algorithm": {},
-                    "ipcomp": {},
-                    "kb_lifetime": {},
-                    "lifetime": {},
-                    "mode": {},
-                    "name": {},
-                    "perfect_forward_secrecy": {},
-                    "protocol": {},
-                    "tunnel_local_address": {},
-                    "tunnel_remote_address": {}
-                }
+                "current": "f5bigip:index/ipsecPolicy:IpsecPolicy"
             },
             "bigip_ipsec_profile": {
-                "current": "f5bigip:index/ipsecProfile:IpsecProfile",
-                "fields": {
-                    "description": {},
-                    "name": {},
-                    "parent_profile": {},
-                    "traffic_selector": {}
-                }
+                "current": "f5bigip:index/ipsecProfile:IpsecProfile"
             },
             "bigip_ltm_cipher_group": {
                 "current": "f5bigip:ltm/cipherGroup:CipherGroup",
@@ -474,569 +210,107 @@
             "bigip_ltm_datagroup": {
                 "current": "f5bigip:ltm/dataGroup:DataGroup",
                 "fields": {
-                    "internal": {},
-                    "name": {},
                     "record": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "data": {},
-                                "name": {}
-                            }
-                        }
-                    },
-                    "records_src": {},
-                    "type": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_irule": {
-                "current": "f5bigip:ltm/iRule:IRule",
-                "fields": {
-                    "irule": {},
-                    "name": {}
-                }
+                "current": "f5bigip:ltm/iRule:IRule"
             },
             "bigip_ltm_monitor": {
-                "current": "f5bigip:ltm/monitor:Monitor",
-                "fields": {
-                    "adaptive": {},
-                    "adaptive_limit": {},
-                    "compatibility": {},
-                    "database": {},
-                    "destination": {},
-                    "filename": {},
-                    "interval": {},
-                    "ip_dscp": {},
-                    "manual_resume": {},
-                    "mode": {},
-                    "name": {},
-                    "parent": {},
-                    "password": {},
-                    "receive": {},
-                    "receive_disable": {},
-                    "reverse": {},
-                    "send": {},
-                    "ssl_profile": {},
-                    "time_until_up": {},
-                    "timeout": {},
-                    "transparent": {},
-                    "up_interval": {},
-                    "username": {}
-                }
+                "current": "f5bigip:ltm/monitor:Monitor"
             },
             "bigip_ltm_node": {
                 "current": "f5bigip:ltm/node:Node",
                 "fields": {
-                    "address": {},
-                    "connection_limit": {},
-                    "description": {},
-                    "dynamic_ratio": {},
                     "fqdn": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "address_family": {},
-                                "autopopulate": {},
-                                "downinterval": {},
-                                "interval": {},
-                                "name": {}
-                            }
-                        }
-                    },
-                    "monitor": {},
-                    "name": {},
-                    "rate_limit": {},
-                    "ratio": {},
-                    "session": {},
-                    "state": {}
+                        "maxItemsOne": true
+                    }
                 }
             },
             "bigip_ltm_persistence_profile_cookie": {
-                "current": "f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie",
-                "fields": {
-                    "always_send": {},
-                    "app_service": {},
-                    "cookie_encryption": {},
-                    "cookie_encryption_passphrase": {},
-                    "cookie_name": {},
-                    "defaults_from": {},
-                    "expiration": {},
-                    "hash_length": {},
-                    "hash_offset": {},
-                    "httponly": {},
-                    "match_across_pools": {},
-                    "match_across_services": {},
-                    "match_across_virtuals": {},
-                    "method": {},
-                    "mirror": {},
-                    "name": {},
-                    "override_conn_limit": {},
-                    "timeout": {}
-                }
+                "current": "f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie"
             },
             "bigip_ltm_persistence_profile_dstaddr": {
-                "current": "f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr",
-                "fields": {
-                    "app_service": {},
-                    "defaults_from": {},
-                    "hash_algorithm": {},
-                    "mask": {},
-                    "match_across_pools": {},
-                    "match_across_services": {},
-                    "match_across_virtuals": {},
-                    "mirror": {},
-                    "name": {},
-                    "override_conn_limit": {},
-                    "timeout": {}
-                }
+                "current": "f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr"
             },
             "bigip_ltm_persistence_profile_srcaddr": {
-                "current": "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr",
-                "fields": {
-                    "app_service": {},
-                    "defaults_from": {},
-                    "hash_algorithm": {},
-                    "map_proxies": {},
-                    "mask": {},
-                    "match_across_pools": {},
-                    "match_across_services": {},
-                    "match_across_virtuals": {},
-                    "mirror": {},
-                    "name": {},
-                    "override_conn_limit": {},
-                    "timeout": {}
-                }
+                "current": "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr"
             },
             "bigip_ltm_persistence_profile_ssl": {
-                "current": "f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl",
-                "fields": {
-                    "app_service": {},
-                    "defaults_from": {},
-                    "match_across_pools": {},
-                    "match_across_services": {},
-                    "match_across_virtuals": {},
-                    "mirror": {},
-                    "name": {},
-                    "override_conn_limit": {},
-                    "timeout": {}
-                }
+                "current": "f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl"
             },
             "bigip_ltm_policy": {
                 "current": "f5bigip:ltm/policy:Policy",
                 "fields": {
                     "controls": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "name": {},
-                    "published_copy": {},
                     "requires": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "rule": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "action": {
-                                    "maxItemsOne": false,
-                                    "elem": {
-                                        "fields": {
-                                            "app_service": {},
-                                            "application": {},
-                                            "asm": {},
-                                            "avr": {},
-                                            "cache": {},
-                                            "carp": {},
-                                            "category": {},
-                                            "classify": {},
-                                            "clone_pool": {},
-                                            "code": {},
-                                            "compress": {},
-                                            "connection": {},
-                                            "content": {},
-                                            "cookie_hash": {},
-                                            "cookie_insert": {},
-                                            "cookie_passive": {},
-                                            "cookie_rewrite": {},
-                                            "decompress": {},
-                                            "defer": {},
-                                            "destination_address": {},
-                                            "disable": {},
-                                            "domain": {},
-                                            "enable": {},
-                                            "expiry": {},
-                                            "expiry_secs": {},
-                                            "expression": {},
-                                            "extension": {},
-                                            "facility": {},
-                                            "forward": {},
-                                            "from_profile": {},
-                                            "hash": {},
-                                            "host": {},
-                                            "http": {},
-                                            "http_basic_auth": {},
-                                            "http_cookie": {},
-                                            "http_header": {},
-                                            "http_host": {},
-                                            "http_referer": {},
-                                            "http_reply": {},
-                                            "http_set_cookie": {},
-                                            "http_uri": {},
-                                            "ifile": {},
-                                            "insert": {},
-                                            "internal_virtual": {},
-                                            "ip_address": {},
-                                            "key": {},
-                                            "l7dos": {},
-                                            "length": {},
-                                            "location": {},
-                                            "log": {},
-                                            "ltm_policy": {},
-                                            "member": {},
-                                            "message": {},
-                                            "netmask": {},
-                                            "nexthop": {},
-                                            "node": {},
-                                            "offset": {},
-                                            "path": {},
-                                            "pem": {},
-                                            "persist": {},
-                                            "pin": {},
-                                            "policy": {},
-                                            "pool": {},
-                                            "port": {},
-                                            "priority": {},
-                                            "profile": {},
-                                            "protocol": {},
-                                            "query_string": {},
-                                            "rateclass": {},
-                                            "redirect": {},
-                                            "remove": {},
-                                            "replace": {},
-                                            "request": {},
-                                            "request_adapt": {},
-                                            "reset": {},
-                                            "response": {},
-                                            "response_adapt": {},
-                                            "scheme": {},
-                                            "script": {},
-                                            "select": {},
-                                            "server_ssl": {},
-                                            "set_variable": {},
-                                            "shutdown": {},
-                                            "snat": {},
-                                            "snatpool": {},
-                                            "source_address": {},
-                                            "ssl_client_hello": {},
-                                            "ssl_server_handshake": {},
-                                            "ssl_server_hello": {},
-                                            "ssl_session_id": {},
-                                            "status": {},
-                                            "tcl": {},
-                                            "tcp_nagle": {},
-                                            "text": {},
-                                            "timeout": {},
-                                            "tm_name": {},
-                                            "uie": {},
-                                            "universal": {},
-                                            "value": {},
-                                            "virtual": {},
-                                            "vlan": {},
-                                            "vlan_id": {},
-                                            "wam": {},
-                                            "write": {}
-                                        }
-                                    }
+                                    "maxItemsOne": false
                                 },
                                 "condition": {
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
-                                            "address": {},
-                                            "all": {},
-                                            "app_service": {},
-                                            "browser_type": {},
-                                            "browser_version": {},
-                                            "case_insensitive": {},
-                                            "case_sensitive": {},
-                                            "cipher": {},
-                                            "cipher_bits": {},
-                                            "client_accepted": {},
-                                            "client_ssl": {},
-                                            "code": {},
-                                            "common_name": {},
-                                            "contains": {},
-                                            "continent": {},
-                                            "country_code": {},
-                                            "country_name": {},
-                                            "cpu_usage": {},
-                                            "datagroup": {},
-                                            "device_make": {},
-                                            "device_model": {},
-                                            "domain": {},
-                                            "ends_with": {},
-                                            "equals": {},
-                                            "exists": {},
-                                            "expiry": {},
-                                            "extension": {},
-                                            "external": {},
-                                            "geoip": {},
-                                            "greater": {},
-                                            "greater_or_equal": {},
-                                            "host": {},
-                                            "http_basic_auth": {},
-                                            "http_cookie": {},
-                                            "http_header": {},
-                                            "http_host": {},
-                                            "http_method": {},
-                                            "http_referer": {},
-                                            "http_set_cookie": {},
-                                            "http_status": {},
-                                            "http_uri": {},
-                                            "http_user_agent": {},
-                                            "http_version": {},
-                                            "index": {},
-                                            "internal": {},
-                                            "isp": {},
-                                            "last_15secs": {},
-                                            "last_1min": {},
-                                            "last_5mins": {},
-                                            "less": {},
-                                            "less_or_equal": {},
-                                            "local": {},
-                                            "major": {},
-                                            "matches": {},
-                                            "minor": {},
-                                            "missing": {},
-                                            "mss": {},
-                                            "not": {},
-                                            "org": {},
-                                            "password": {},
-                                            "path": {},
-                                            "path_segment": {},
-                                            "port": {},
-                                            "present": {},
-                                            "protocol": {},
-                                            "query_parameter": {},
-                                            "query_string": {},
-                                            "region_code": {},
-                                            "region_name": {},
-                                            "remote": {},
-                                            "request": {},
-                                            "response": {},
-                                            "route_domain": {},
-                                            "rtt": {},
-                                            "scheme": {},
-                                            "server_name": {},
-                                            "ssl_cert": {},
-                                            "ssl_client_hello": {},
-                                            "ssl_extension": {},
-                                            "ssl_server_handshake": {},
-                                            "ssl_server_hello": {},
-                                            "starts_with": {},
-                                            "tcp": {},
-                                            "text": {},
-                                            "tm_name": {},
-                                            "unnamed_query_parameter": {},
-                                            "user_agent_token": {},
-                                            "username": {},
-                                            "value": {},
                                             "values": {
-                                                "maxItemsOne": false,
-                                                "elem": {}
-                                            },
-                                            "version": {},
-                                            "vlan": {},
-                                            "vlan_id": {}
+                                                "maxItemsOne": false
+                                            }
                                         }
                                     }
-                                },
-                                "name": {}
+                                }
                             }
                         }
-                    },
-                    "strategy": {}
+                    }
                 }
             },
             "bigip_ltm_pool": {
                 "current": "f5bigip:ltm/pool:Pool",
                 "fields": {
-                    "allow_nat": {},
-                    "allow_snat": {},
-                    "description": {},
-                    "load_balancing_mode": {},
-                    "minimum_active_members": {},
                     "monitors": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "name": {},
-                    "reselect_tries": {},
-                    "service_down_action": {},
-                    "slow_ramp_time": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_pool_attachment": {
-                "current": "f5bigip:ltm/poolAttachment:PoolAttachment",
-                "fields": {
-                    "connection_limit": {},
-                    "connection_rate_limit": {},
-                    "dynamic_ratio": {},
-                    "fqdn_autopopulate": {},
-                    "node": {},
-                    "pool": {},
-                    "priority_group": {},
-                    "ratio": {}
-                }
+                "current": "f5bigip:ltm/poolAttachment:PoolAttachment"
             },
             "bigip_ltm_profile_client_ssl": {
                 "current": "f5bigip:ltm/profileClientSsl:ProfileClientSsl",
                 "fields": {
-                    "alert_timeout": {},
-                    "allow_non_ssl": {},
-                    "authenticate": {},
-                    "authenticate_depth": {},
-                    "c3d_client_fallback_cert": {},
-                    "c3d_drop_unknown_ocsp_status": {},
-                    "c3d_ocsp": {},
-                    "ca_file": {},
-                    "cache_size": {},
-                    "cache_timeout": {},
-                    "cert": {},
                     "cert_extension_includes": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "cert_key_chain": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "cert": {},
-                                "chain": {},
-                                "key": {},
-                                "name": {},
-                                "passphrase": {}
-                            }
-                        }
+                        "maxItemsOne": true
                     },
-                    "cert_life_span": {},
-                    "cert_lookup_by_ipaddr_port": {},
-                    "chain": {},
-                    "cipher_group": {},
-                    "ciphers": {},
-                    "client_cert_ca": {},
-                    "crl_file": {},
-                    "defaults_from": {},
-                    "forward_proxy_bypass_default_action": {},
-                    "full_path": {},
-                    "generation": {},
-                    "generic_alert": {},
-                    "handshake_timeout": {},
-                    "inherit_cert_keychain": {},
-                    "key": {},
-                    "mod_ssl_methods": {},
-                    "mode": {},
-                    "name": {},
-                    "partition": {},
-                    "passphrase": {},
-                    "peer_cert_mode": {},
-                    "proxy_ca_cert": {},
-                    "proxy_ca_key": {},
-                    "proxy_ca_passphrase": {},
-                    "proxy_ssl": {},
-                    "proxy_ssl_passthrough": {},
-                    "renegotiate_period": {},
-                    "renegotiate_size": {},
-                    "renegotiation": {},
-                    "retain_certificate": {},
-                    "secure_renegotiation": {},
-                    "server_name": {},
-                    "session_mirroring": {},
-                    "session_ticket": {},
-                    "sni_default": {},
-                    "sni_require": {},
-                    "ssl_c3d": {},
-                    "ssl_forward_proxy": {},
-                    "ssl_forward_proxy_bypass": {},
-                    "ssl_sign_hash": {},
-                    "strict_resume": {},
                     "tm_options": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "unclean_shutdown": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_profile_fasthttp": {
-                "current": "f5bigip:ltm/profileFastHttp:ProfileFastHttp",
-                "fields": {
-                    "connpool_maxreuse": {},
-                    "connpool_maxsize": {},
-                    "connpool_minsize": {},
-                    "connpool_replenish": {},
-                    "connpool_step": {},
-                    "connpoolidle_timeoutoverride": {},
-                    "defaults_from": {},
-                    "forcehttp_10response": {},
-                    "idle_timeout": {},
-                    "maxheader_size": {},
-                    "name": {}
-                }
+                "current": "f5bigip:ltm/profileFastHttp:ProfileFastHttp"
             },
             "bigip_ltm_profile_fastl4": {
-                "current": "f5bigip:ltm/profileFastL4:ProfileFastL4",
-                "fields": {
-                    "client_timeout": {},
-                    "defaults_from": {},
-                    "explicitflow_migration": {},
-                    "hardware_syncookie": {},
-                    "idle_timeout": {},
-                    "iptos_toclient": {},
-                    "iptos_toserver": {},
-                    "keepalive_interval": {},
-                    "late_binding": {},
-                    "loose_close": {},
-                    "loose_initiation": {},
-                    "name": {},
-                    "partition": {},
-                    "receive_windowsize": {},
-                    "tcp_handshake_timeout": {}
-                }
+                "current": "f5bigip:ltm/profileFastL4:ProfileFastL4"
             },
             "bigip_ltm_profile_ftp": {
-                "current": "f5bigip:ltm/profileFtp:ProfileFtp",
-                "fields": {
-                    "allow_active_mode": {},
-                    "allow_ftps": {},
-                    "app_service": {},
-                    "defaults_from": {},
-                    "description": {},
-                    "enforce_tlssession_reuse": {},
-                    "ftps_mode": {},
-                    "inherit_parent_profile": {},
-                    "inherit_vlan_list": {},
-                    "log_profile": {},
-                    "log_publisher": {},
-                    "name": {},
-                    "partition": {},
-                    "port": {},
-                    "security": {},
-                    "translate_extended": {}
-                }
+                "current": "f5bigip:ltm/profileFtp:ProfileFtp"
             },
             "bigip_ltm_profile_http": {
                 "current": "f5bigip:ltm/profileHttp:ProfileHttp",
                 "fields": {
-                    "accept_xff": {},
-                    "app_service": {},
-                    "basic_auth_realm": {},
-                    "defaults_from": {},
-                    "description": {},
-                    "encrypt_cookie_secret": {},
                     "encrypt_cookies": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "enforcement": {
                         "maxItemsOne": false,
@@ -1048,37 +322,17 @@
                             }
                         }
                     },
-                    "fallback_host": {},
                     "fallback_status_codes": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "head_erase": {},
-                    "head_insert": {},
                     "http_strict_transport_security": {
                         "maxItemsOne": false
                     },
-                    "insert_xforwarded_for": {},
-                    "lws_separator": {},
-                    "lws_width": {},
-                    "name": {},
-                    "oneconnect_transformations": {},
-                    "proxy_type": {},
-                    "redirect_rewrite": {},
-                    "request_chunking": {},
-                    "response_chunking": {},
                     "response_headers_permitted": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "server_agent_name": {},
-                    "tm_partition": {},
-                    "via_host_name": {},
-                    "via_request": {},
-                    "via_response": {},
                     "xff_alternative_names": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1086,159 +340,46 @@
                 "current": "f5bigip:ltm/profileHttp2:ProfileHttp2",
                 "fields": {
                     "activation_modes": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "concurrent_streams_per_connection": {},
-                    "connection_idle_timeout": {},
-                    "defaults_from": {},
-                    "enforce_tls_requirements": {},
-                    "frame_size": {},
-                    "header_table_size": {},
-                    "include_content_length": {},
-                    "insert_header": {},
-                    "insert_header_name": {},
-                    "name": {},
-                    "receive_window": {},
-                    "write_size": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_profile_httpcompress": {
                 "current": "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress",
                 "fields": {
-                    "compression_buffersize": {},
                     "content_type_exclude": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "content_type_include": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "cpu_saver": {},
-                    "defaults_from": {},
-                    "gzip_compression_level": {},
-                    "gzip_memory_level": {},
-                    "gzip_window_size": {},
-                    "keep_accept_encoding": {},
-                    "name": {},
                     "uri_exclude": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "uri_include": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "vary_header": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_profile_oneconnect": {
-                "current": "f5bigip:ltm/profileOneConnect:ProfileOneConnect",
-                "fields": {
-                    "defaults_from": {},
-                    "idle_timeout_override": {},
-                    "limit_type": {},
-                    "max_age": {},
-                    "max_reuse": {},
-                    "max_size": {},
-                    "name": {},
-                    "partition": {},
-                    "share_pools": {},
-                    "source_mask": {}
-                }
+                "current": "f5bigip:ltm/profileOneConnect:ProfileOneConnect"
             },
             "bigip_ltm_profile_server_ssl": {
                 "current": "f5bigip:ltm/profileServerSsl:ProfileServerSsl",
                 "fields": {
-                    "alert_timeout": {},
-                    "authenticate": {},
-                    "authenticate_depth": {},
-                    "c3d_ca_cert": {},
-                    "c3d_ca_key": {},
-                    "c3d_ca_passphrase": {},
                     "c3d_cert_extension_custom_oids": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "c3d_cert_extension_includes": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "c3d_cert_lifespan": {},
-                    "c3d_certificate_extensions": {},
-                    "ca_file": {},
-                    "cache_size": {},
-                    "cache_timeout": {},
-                    "cert": {},
-                    "chain": {},
-                    "cipher_group": {},
-                    "ciphers": {},
-                    "defaults_from": {},
-                    "expire_cert_response_control": {},
-                    "full_path": {},
-                    "generation": {},
-                    "generic_alert": {},
-                    "handshake_timeout": {},
-                    "key": {},
-                    "mod_ssl_methods": {},
-                    "mode": {},
-                    "name": {},
-                    "partition": {},
-                    "passphrase": {},
-                    "peer_cert_mode": {},
-                    "proxy_ca_cert": {},
-                    "proxy_ca_key": {},
-                    "proxy_ssl": {},
-                    "renegotiate_period": {},
-                    "renegotiate_size": {},
-                    "renegotiation": {},
-                    "retain_certificate": {},
-                    "secure_renegotiation": {},
-                    "server_name": {},
-                    "session_mirroring": {},
-                    "session_ticket": {},
-                    "sni_default": {},
-                    "sni_require": {},
-                    "ssl_c3d": {},
-                    "ssl_forward_proxy": {},
-                    "ssl_forward_proxy_bypass": {},
-                    "ssl_sign_hash": {},
-                    "strict_resume": {},
                     "tm_options": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "unclean_shutdown": {},
-                    "untrusted_cert_response_control": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_profile_tcp": {
-                "current": "f5bigip:ltm/profileTcp:ProfileTcp",
-                "fields": {
-                    "close_wait_timeout": {},
-                    "congestion_control": {},
-                    "defaults_from": {},
-                    "deferred_accept": {},
-                    "delayed_acks": {},
-                    "early_retransmit": {},
-                    "fast_open": {},
-                    "finwait_2timeout": {},
-                    "finwait_timeout": {},
-                    "idle_timeout": {},
-                    "initial_congestion_windowsize": {},
-                    "keepalive_interval": {},
-                    "nagle": {},
-                    "name": {},
-                    "partition": {},
-                    "proxybuffer_high": {},
-                    "receive_windowsize": {},
-                    "send_buffersize": {},
-                    "tailloss_probe": {},
-                    "timewait_recycle": {},
-                    "verified_accept": {},
-                    "zerowindow_timeout": {}
-                }
+                "current": "f5bigip:ltm/profileTcp:ProfileTcp"
             },
             "bigip_ltm_profile_web_acceleration": {
                 "current": "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration",
@@ -1260,311 +401,135 @@
             "bigip_ltm_snat": {
                 "current": "f5bigip:ltm/snat:Snat",
                 "fields": {
-                    "autolasthop": {},
-                    "full_path": {},
-                    "mirror": {},
-                    "name": {},
                     "origins": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "app_service": {},
-                                "name": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
-                    "partition": {},
-                    "snatpool": {},
-                    "sourceport": {},
-                    "translation": {},
                     "vlans": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "vlansdisabled": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_snatpool": {
                 "current": "f5bigip:ltm/snatPool:SnatPool",
                 "fields": {
                     "members": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "name": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_ltm_virtual_address": {
-                "current": "f5bigip:ltm/virtualAddress:VirtualAddress",
-                "fields": {
-                    "advertize_route": {},
-                    "arp": {},
-                    "auto_delete": {},
-                    "conn_limit": {},
-                    "enabled": {},
-                    "icmp_echo": {},
-                    "name": {},
-                    "traffic_group": {}
-                }
+                "current": "f5bigip:ltm/virtualAddress:VirtualAddress"
             },
             "bigip_ltm_virtual_server": {
                 "current": "f5bigip:ltm/virtualServer:VirtualServer",
                 "fields": {
                     "client_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "default_persistence_profile": {},
-                    "description": {},
-                    "destination": {},
-                    "fallback_persistence_profile": {},
-                    "firewall_enforced_policy": {},
-                    "ip_protocol": {},
                     "irules": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "mask": {},
-                    "name": {},
-                    "per_flow_request_access_policy": {},
                     "persistence_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "policies": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "pool": {},
-                    "port": {},
                     "profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "security_log_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "server_profiles": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "snatpool": {},
-                    "source": {},
-                    "source_address_translation": {},
-                    "source_port": {},
-                    "state": {},
-                    "trafficmatching_criteria": {},
-                    "translate_address": {},
-                    "translate_port": {},
                     "vlans": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "vlans_enabled": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_net_ike_peer": {
                 "current": "f5bigip:index/netIkePeer:NetIkePeer",
                 "fields": {
-                    "app_service": {},
-                    "ca_cert_file": {},
-                    "crl_file": {},
-                    "description": {},
-                    "dpd_delay": {},
-                    "generate_policy": {},
-                    "lifetime": {},
-                    "mode": {},
-                    "my_cert_file": {},
-                    "my_cert_key_file": {},
-                    "my_cert_key_passphrase": {},
-                    "my_id_type": {},
-                    "my_id_value": {},
-                    "name": {},
-                    "nat_traversal": {},
-                    "passive": {},
-                    "peers_cert_file": {},
-                    "peers_cert_type": {},
-                    "peers_id_type": {},
-                    "peers_id_value": {},
-                    "phase1_auth_method": {},
-                    "phase1_encrypt_algorithm": {},
-                    "phase1_hash_algorithm": {},
-                    "phase1_perfect_forward_secrecy": {},
-                    "preshared_key": {},
-                    "preshared_key_encrypted": {},
-                    "prf": {},
-                    "proxy_support": {},
-                    "remote_address": {},
-                    "replay_window_size": {},
-                    "state": {},
                     "traffic_selector": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "verify_cert": {},
                     "version": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             },
             "bigip_net_route": {
-                "current": "f5bigip:net/route:Route",
-                "fields": {
-                    "gw": {},
-                    "name": {},
-                    "network": {},
-                    "reject": {},
-                    "tunnel_ref": {}
-                }
+                "current": "f5bigip:net/route:Route"
             },
             "bigip_net_selfip": {
                 "current": "f5bigip:net/selfIp:SelfIp",
                 "fields": {
-                    "ip": {},
-                    "name": {},
                     "port_lockdown": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "traffic_group": {},
-                    "vlan": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_net_tunnel": {
-                "current": "f5bigip:index/netTunnel:NetTunnel",
-                "fields": {
-                    "app_service": {},
-                    "auto_last_hop": {},
-                    "description": {},
-                    "idle_timeout": {},
-                    "key": {},
-                    "local_address": {},
-                    "mode": {},
-                    "mtu": {},
-                    "name": {},
-                    "partition": {},
-                    "profile": {},
-                    "remote_address": {},
-                    "secondary_address": {},
-                    "tos": {},
-                    "traffic_group": {},
-                    "transparent": {},
-                    "use_pmtu": {}
-                }
+                "current": "f5bigip:index/netTunnel:NetTunnel"
             },
             "bigip_net_vlan": {
                 "current": "f5bigip:net/vlan:Vlan",
                 "fields": {
-                    "cmp_hash": {},
                     "interfaces": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "tagged": {},
-                                "vlanport": {}
-                            }
-                        }
-                    },
-                    "name": {},
-                    "tag": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_partition": {
                 "current": "f5bigip:index/partition:Partition"
             },
             "bigip_ssl_certificate": {
-                "current": "f5bigip:ssl/certificate:Certificate",
-                "fields": {
-                    "content": {},
-                    "full_path": {},
-                    "name": {},
-                    "partition": {}
-                }
+                "current": "f5bigip:ssl/certificate:Certificate"
             },
             "bigip_ssl_key": {
-                "current": "f5bigip:ssl/key:Key",
-                "fields": {
-                    "content": {},
-                    "full_path": {},
-                    "name": {},
-                    "partition": {},
-                    "passphrase": {}
-                }
+                "current": "f5bigip:ssl/key:Key"
             },
             "bigip_ssl_key_cert": {
                 "current": "f5bigip:index/sslKeyCert:SslKeyCert"
             },
             "bigip_sys_bigiplicense": {
-                "current": "f5bigip:sys/bigIpLicense:BigIpLicense",
-                "fields": {
-                    "command": {},
-                    "registration_key": {}
-                }
+                "current": "f5bigip:sys/bigIpLicense:BigIpLicense"
             },
             "bigip_sys_dns": {
                 "current": "f5bigip:sys/dns:Dns",
                 "fields": {
-                    "description": {},
                     "name_servers": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "number_of_dots": {},
                     "search": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             },
             "bigip_sys_iapp": {
                 "current": "f5bigip:sys/iApp:IApp",
                 "fields": {
-                    "description": {},
-                    "devicegroup": {},
-                    "execute_action": {},
-                    "inherited_devicegroup": {},
-                    "inherited_traffic_group": {},
-                    "jsonfile": {},
                     "lists": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "encrypted": {},
-                                "value": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
                     "metadata": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "persists": {},
-                                "value": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
-                    "name": {},
-                    "partition": {},
-                    "strict_updates": {},
                     "tables": {
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
                                 "column_names": {
-                                    "maxItemsOne": false,
-                                    "elem": {}
+                                    "maxItemsOne": false
                                 },
-                                "encrypted_columns": {},
-                                "name": {},
                                 "rows": {
                                     "maxItemsOne": false,
                                     "elem": {
                                         "fields": {
                                             "row": {
-                                                "maxItemsOne": false,
-                                                "elem": {}
+                                                "maxItemsOne": false
                                             }
                                         }
                                     }
@@ -1572,134 +537,55 @@
                             }
                         }
                     },
-                    "template": {},
-                    "template_modified": {},
-                    "template_prerequisite_errors": {},
-                    "traffic_group": {},
                     "variables": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "encrypted": {},
-                                "name": {},
-                                "value": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     }
                 }
             },
             "bigip_sys_ntp": {
                 "current": "f5bigip:sys/ntp:Ntp",
                 "fields": {
-                    "description": {},
                     "servers": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "timezone": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_sys_ocsp": {
                 "current": "f5bigip:sys/ocsp:Ocsp"
             },
             "bigip_sys_provision": {
-                "current": "f5bigip:sys/provision:Provision",
-                "fields": {
-                    "cpu_ratio": {},
-                    "disk_ratio": {},
-                    "full_path": {},
-                    "level": {},
-                    "memory_ratio": {},
-                    "name": {}
-                }
+                "current": "f5bigip:sys/provision:Provision"
             },
             "bigip_sys_snmp": {
                 "current": "f5bigip:sys/snmp:Snmp",
                 "fields": {
                     "allowedaddresses": {
-                        "maxItemsOne": false,
-                        "elem": {}
-                    },
-                    "sys_contact": {},
-                    "sys_location": {}
+                        "maxItemsOne": false
+                    }
                 }
             },
             "bigip_sys_snmp_traps": {
-                "current": "f5bigip:sys/snmpTraps:SnmpTraps",
-                "fields": {
-                    "auth_passwordencrypted": {},
-                    "auth_protocol": {},
-                    "community": {},
-                    "description": {},
-                    "engine_id": {},
-                    "host": {},
-                    "name": {},
-                    "port": {},
-                    "privacy_password": {},
-                    "privacy_password_encrypted": {},
-                    "privacy_protocol": {},
-                    "security_level": {},
-                    "security_name": {},
-                    "version": {}
-                }
+                "current": "f5bigip:sys/snmpTraps:SnmpTraps"
             },
             "bigip_traffic_selector": {
-                "current": "f5bigip:index/trafficSelector:TrafficSelector",
-                "fields": {
-                    "description": {},
-                    "destination_address": {},
-                    "destination_port": {},
-                    "direction": {},
-                    "ip_protocol": {},
-                    "ipsec_policy": {},
-                    "name": {},
-                    "order": {},
-                    "source_address": {},
-                    "source_port": {}
-                }
+                "current": "f5bigip:index/trafficSelector:TrafficSelector"
             },
             "bigip_vcmp_guest": {
                 "current": "f5bigip:vcmp/guest:Guest",
                 "fields": {
                     "allowed_slots": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "cores_per_slot": {},
-                    "delete_virtual_disk": {},
-                    "full_path": {},
-                    "initial_hotfix": {},
-                    "initial_image": {},
-                    "mgmt_address": {},
-                    "mgmt_network": {},
-                    "mgmt_route": {},
-                    "min_number_of_slots": {},
-                    "name": {},
-                    "number_of_slots": {},
-                    "state": {},
-                    "virtual_disk": {},
                     "vlans": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             },
             "bigip_waf_policy": {
                 "current": "f5bigip:index/wafPolicy:WafPolicy",
                 "fields": {
-                    "application_language": {},
-                    "case_insensitive": {},
-                    "description": {},
-                    "enable_passivemode": {},
-                    "enforcement_mode": {},
                     "file_types": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "name": {},
-                                "type": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
                     "graphql_profiles": {
                         "maxItemsOne": false,
@@ -1707,75 +593,42 @@
                             "fields": {
                                 "defense_attributes": {
                                     "maxItemsOne": false
-                                },
-                                "name": {}
+                                }
                             }
                         }
                     },
                     "host_names": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "name": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
                     "ip_exceptions": {
                         "maxItemsOne": false
                     },
                     "modifications": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "name": {},
                     "open_api_files": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "parameters": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
-                    "partition": {},
                     "policy_builder": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "learning_mode": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
-                    "policy_export_json": {},
-                    "policy_id": {},
-                    "policy_import_json": {},
-                    "protocol_independent": {},
                     "server_technologies": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "signature_sets": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "signatures": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     },
                     "signatures_settings": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "placesignatures_in_staging": {},
-                                "signature_staging": {}
-                            }
-                        }
+                        "maxItemsOne": false
                     },
-                    "template_link": {},
-                    "template_name": {},
-                    "type": {},
                     "urls": {
-                        "maxItemsOne": false,
-                        "elem": {}
+                        "maxItemsOne": false
                     }
                 }
             }
@@ -1896,6 +749,7 @@
             }
         }
     },
+    "auto-settings": {},
     "renames": {
         "resources": {
             "f5bigip:cm/device:Device": "bigip_cm_device",
