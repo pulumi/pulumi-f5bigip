@@ -88,6 +88,7 @@ public final class ProfileHttpEnforcement {
 
         @CustomType.Setter
         public Builder knownMethods(@Nullable List<String> knownMethods) {
+
             this.knownMethods = knownMethods;
             return this;
         }
@@ -96,16 +97,19 @@ public final class ProfileHttpEnforcement {
         }
         @CustomType.Setter
         public Builder maxHeaderCount(@Nullable Integer maxHeaderCount) {
+
             this.maxHeaderCount = maxHeaderCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeaderSize(@Nullable Integer maxHeaderSize) {
+
             this.maxHeaderSize = maxHeaderSize;
             return this;
         }
         @CustomType.Setter
         public Builder unknownMethod(@Nullable String unknownMethod) {
+
             this.unknownMethod = unknownMethod;
             return this;
         }

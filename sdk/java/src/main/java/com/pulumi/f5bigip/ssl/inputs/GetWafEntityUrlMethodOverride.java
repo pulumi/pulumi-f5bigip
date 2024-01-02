@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -91,8 +92,12 @@ public final class GetWafEntityUrlMethodOverride extends com.pulumi.resources.In
         }
 
         public GetWafEntityUrlMethodOverride build() {
-            $.allow = Objects.requireNonNull($.allow, "expected parameter 'allow' to be non-null");
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
+            if ($.allow == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityUrlMethodOverride", "allow");
+            }
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityUrlMethodOverride", "method");
+            }
             return $;
         }
     }

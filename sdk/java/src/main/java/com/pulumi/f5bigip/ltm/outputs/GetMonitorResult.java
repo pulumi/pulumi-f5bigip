@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -215,97 +216,154 @@ public final class GetMonitorResult {
 
         @CustomType.Setter
         public Builder adaptive(String adaptive) {
-            this.adaptive = Objects.requireNonNull(adaptive);
+            if (adaptive == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "adaptive");
+            }
+            this.adaptive = adaptive;
             return this;
         }
         @CustomType.Setter
         public Builder adaptiveLimit(Integer adaptiveLimit) {
-            this.adaptiveLimit = Objects.requireNonNull(adaptiveLimit);
+            if (adaptiveLimit == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "adaptiveLimit");
+            }
+            this.adaptiveLimit = adaptiveLimit;
             return this;
         }
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder defaultsFrom(String defaultsFrom) {
-            this.defaultsFrom = Objects.requireNonNull(defaultsFrom);
+            if (defaultsFrom == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "defaultsFrom");
+            }
+            this.defaultsFrom = defaultsFrom;
             return this;
         }
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder filename(String filename) {
-            this.filename = Objects.requireNonNull(filename);
+            if (filename == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "filename");
+            }
+            this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder ipDscp(Integer ipDscp) {
-            this.ipDscp = Objects.requireNonNull(ipDscp);
+            if (ipDscp == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "ipDscp");
+            }
+            this.ipDscp = ipDscp;
             return this;
         }
         @CustomType.Setter
         public Builder manualResume(String manualResume) {
-            this.manualResume = Objects.requireNonNull(manualResume);
+            if (manualResume == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "manualResume");
+            }
+            this.manualResume = manualResume;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder receiveDisable(String receiveDisable) {
-            this.receiveDisable = Objects.requireNonNull(receiveDisable);
+            if (receiveDisable == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "receiveDisable");
+            }
+            this.receiveDisable = receiveDisable;
             return this;
         }
         @CustomType.Setter
         public Builder reverse(String reverse) {
-            this.reverse = Objects.requireNonNull(reverse);
+            if (reverse == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "reverse");
+            }
+            this.reverse = reverse;
             return this;
         }
         @CustomType.Setter
         public Builder timeUntilUp(Integer timeUntilUp) {
-            this.timeUntilUp = Objects.requireNonNull(timeUntilUp);
+            if (timeUntilUp == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "timeUntilUp");
+            }
+            this.timeUntilUp = timeUntilUp;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder transparent(String transparent) {
-            this.transparent = Objects.requireNonNull(transparent);
+            if (transparent == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "transparent");
+            }
+            this.transparent = transparent;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetMonitorResult build() {

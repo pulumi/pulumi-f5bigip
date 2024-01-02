@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.inputs.DataGroupRecordArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -241,8 +242,12 @@ public final class DataGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataGroupArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataGroupArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("DataGroupArgs", "type");
+            }
             return $;
         }
     }

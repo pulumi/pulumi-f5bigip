@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,37 @@ public final class GetNodeFqdn {
 
         @CustomType.Setter
         public Builder addressFamily(@Nullable String addressFamily) {
+
             this.addressFamily = addressFamily;
             return this;
         }
         @CustomType.Setter
         public Builder autopopulate(String autopopulate) {
-            this.autopopulate = Objects.requireNonNull(autopopulate);
+            if (autopopulate == null) {
+              throw new MissingRequiredPropertyException("GetNodeFqdn", "autopopulate");
+            }
+            this.autopopulate = autopopulate;
             return this;
         }
         @CustomType.Setter
         public Builder downinterval(Integer downinterval) {
-            this.downinterval = Objects.requireNonNull(downinterval);
+            if (downinterval == null) {
+              throw new MissingRequiredPropertyException("GetNodeFqdn", "downinterval");
+            }
+            this.downinterval = downinterval;
             return this;
         }
         @CustomType.Setter
         public Builder interval(String interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetNodeFqdn", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

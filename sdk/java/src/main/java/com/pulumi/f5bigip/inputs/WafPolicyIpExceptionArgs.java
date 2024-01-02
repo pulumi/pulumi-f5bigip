@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,8 +300,12 @@ public final class WafPolicyIpExceptionArgs extends com.pulumi.resources.Resourc
         }
 
         public WafPolicyIpExceptionArgs build() {
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
-            $.ipMask = Objects.requireNonNull($.ipMask, "expected parameter 'ipMask' to be non-null");
+            if ($.ipAddress == null) {
+                throw new MissingRequiredPropertyException("WafPolicyIpExceptionArgs", "ipAddress");
+            }
+            if ($.ipMask == null) {
+                throw new MissingRequiredPropertyException("WafPolicyIpExceptionArgs", "ipMask");
+            }
             return $;
         }
     }

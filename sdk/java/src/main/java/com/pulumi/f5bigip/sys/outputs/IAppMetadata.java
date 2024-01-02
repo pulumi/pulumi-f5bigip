@@ -42,11 +42,13 @@ public final class IAppMetadata {
 
         @CustomType.Setter
         public Builder persists(@Nullable String persists) {
+
             this.persists = persists;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

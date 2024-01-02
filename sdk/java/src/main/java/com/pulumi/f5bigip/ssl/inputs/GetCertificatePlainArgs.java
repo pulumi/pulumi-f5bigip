@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetCertificatePlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.partition = Objects.requireNonNull($.partition, "expected parameter 'partition' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetCertificatePlainArgs", "name");
+            }
+            if ($.partition == null) {
+                throw new MissingRequiredPropertyException("GetCertificatePlainArgs", "partition");
+            }
             return $;
         }
     }

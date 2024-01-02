@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.inputs.FastHttpsAppMonitorArgs;
 import com.pulumi.f5bigip.inputs.FastHttpsAppPoolMemberArgs;
 import com.pulumi.f5bigip.inputs.FastHttpsAppTlsClientProfileArgs;
@@ -989,8 +990,12 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FastHttpsAppArgs build() {
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
-            $.tenant = Objects.requireNonNull($.tenant, "expected parameter 'tenant' to be non-null");
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("FastHttpsAppArgs", "application");
+            }
+            if ($.tenant == null) {
+                throw new MissingRequiredPropertyException("FastHttpsAppArgs", "tenant");
+            }
             return $;
         }
     }

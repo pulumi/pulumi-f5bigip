@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.outputs.GetPolicyRuleAction;
 import com.pulumi.f5bigip.ltm.outputs.GetPolicyRuleCondition;
 import java.lang.String;
@@ -58,6 +59,7 @@ public final class GetPolicyRule {
 
         @CustomType.Setter
         public Builder actions(@Nullable List<GetPolicyRuleAction> actions) {
+
             this.actions = actions;
             return this;
         }
@@ -66,6 +68,7 @@ public final class GetPolicyRule {
         }
         @CustomType.Setter
         public Builder conditions(@Nullable List<GetPolicyRuleCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -74,7 +77,10 @@ public final class GetPolicyRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetPolicyRule build() {

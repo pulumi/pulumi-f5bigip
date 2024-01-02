@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.inputs.NodeFqdnArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -436,8 +437,12 @@ public final class NodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NodeArgs build() {
-            $.address = Objects.requireNonNull($.address, "expected parameter 'address' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.address == null) {
+                throw new MissingRequiredPropertyException("NodeArgs", "address");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NodeArgs", "name");
+            }
             return $;
         }
     }

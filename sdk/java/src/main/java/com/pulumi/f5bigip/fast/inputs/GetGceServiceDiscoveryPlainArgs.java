@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -350,9 +351,15 @@ public final class GetGceServiceDiscoveryPlainArgs extends com.pulumi.resources.
         }
 
         public GetGceServiceDiscoveryPlainArgs build() {
-            $.region = Objects.requireNonNull($.region, "expected parameter 'region' to be non-null");
-            $.tagKey = Objects.requireNonNull($.tagKey, "expected parameter 'tagKey' to be non-null");
-            $.tagValue = Objects.requireNonNull($.tagValue, "expected parameter 'tagValue' to be non-null");
+            if ($.region == null) {
+                throw new MissingRequiredPropertyException("GetGceServiceDiscoveryPlainArgs", "region");
+            }
+            if ($.tagKey == null) {
+                throw new MissingRequiredPropertyException("GetGceServiceDiscoveryPlainArgs", "tagKey");
+            }
+            if ($.tagValue == null) {
+                throw new MissingRequiredPropertyException("GetGceServiceDiscoveryPlainArgs", "tagValue");
+            }
             return $;
         }
     }

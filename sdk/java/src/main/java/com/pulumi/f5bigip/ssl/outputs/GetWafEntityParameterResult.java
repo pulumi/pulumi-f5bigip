@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ssl.outputs.GetWafEntityParameterUrl;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -186,106 +187,133 @@ public final class GetWafEntityParameterResult {
 
         @CustomType.Setter
         public Builder allowEmptyType(@Nullable Boolean allowEmptyType) {
+
             this.allowEmptyType = allowEmptyType;
             return this;
         }
         @CustomType.Setter
         public Builder allowRepeatedParameterName(@Nullable Boolean allowRepeatedParameterName) {
+
             this.allowRepeatedParameterName = allowRepeatedParameterName;
             return this;
         }
         @CustomType.Setter
         public Builder attackSignaturesCheck(@Nullable Boolean attackSignaturesCheck) {
+
             this.attackSignaturesCheck = attackSignaturesCheck;
             return this;
         }
         @CustomType.Setter
         public Builder checkMaxValueLength(@Nullable Boolean checkMaxValueLength) {
+
             this.checkMaxValueLength = checkMaxValueLength;
             return this;
         }
         @CustomType.Setter
         public Builder checkMinValueLength(@Nullable Boolean checkMinValueLength) {
+
             this.checkMinValueLength = checkMinValueLength;
             return this;
         }
         @CustomType.Setter
         public Builder dataType(@Nullable String dataType) {
+
             this.dataType = dataType;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enableRegularExpression(@Nullable Boolean enableRegularExpression) {
+
             this.enableRegularExpression = enableRegularExpression;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityParameterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isBase64(@Nullable Boolean isBase64) {
+
             this.isBase64 = isBase64;
             return this;
         }
         @CustomType.Setter
         public Builder isCookie(@Nullable Boolean isCookie) {
+
             this.isCookie = isCookie;
             return this;
         }
         @CustomType.Setter
         public Builder isHeader(@Nullable Boolean isHeader) {
+
             this.isHeader = isHeader;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityParameterResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder mandatory(@Nullable Boolean mandatory) {
+
             this.mandatory = mandatory;
             return this;
         }
         @CustomType.Setter
         public Builder metacharsOnParameterValueCheck(@Nullable Boolean metacharsOnParameterValueCheck) {
+
             this.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityParameterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameterLocation(@Nullable String parameterLocation) {
+
             this.parameterLocation = parameterLocation;
             return this;
         }
         @CustomType.Setter
         public Builder performStaging(@Nullable Boolean performStaging) {
+
             this.performStaging = performStaging;
             return this;
         }
         @CustomType.Setter
         public Builder sensitiveParameter(@Nullable Boolean sensitiveParameter) {
+
             this.sensitiveParameter = sensitiveParameter;
             return this;
         }
         @CustomType.Setter
         public Builder signatureOverridesDisables(@Nullable List<Integer> signatureOverridesDisables) {
+
             this.signatureOverridesDisables = signatureOverridesDisables;
             return this;
         }
@@ -294,16 +322,19 @@ public final class GetWafEntityParameterResult {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable GetWafEntityParameterUrl url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder valueType(@Nullable String valueType) {
+
             this.valueType = valueType;
             return this;
         }

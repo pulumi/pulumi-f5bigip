@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FastHttpsAppTlsClientProfileArgs extends com.pulumi.resources
         }
 
         public FastHttpsAppTlsClientProfileArgs build() {
-            $.tlsCertName = Objects.requireNonNull($.tlsCertName, "expected parameter 'tlsCertName' to be non-null");
-            $.tlsKeyName = Objects.requireNonNull($.tlsKeyName, "expected parameter 'tlsKeyName' to be non-null");
+            if ($.tlsCertName == null) {
+                throw new MissingRequiredPropertyException("FastHttpsAppTlsClientProfileArgs", "tlsCertName");
+            }
+            if ($.tlsKeyName == null) {
+                throw new MissingRequiredPropertyException("FastHttpsAppTlsClientProfileArgs", "tlsKeyName");
+            }
             return $;
         }
     }

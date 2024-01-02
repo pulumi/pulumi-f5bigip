@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class FastApplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FastApplicationArgs build() {
-            $.fastJson = Objects.requireNonNull($.fastJson, "expected parameter 'fastJson' to be non-null");
+            if ($.fastJson == null) {
+                throw new MissingRequiredPropertyException("FastApplicationArgs", "fastJson");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class FastHttpAppWafSecurityPolicyArgs extends com.pulumi.resources
         }
 
         public FastHttpAppWafSecurityPolicyArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("FastHttpAppWafSecurityPolicyArgs", "enable");
+            }
             return $;
         }
     }

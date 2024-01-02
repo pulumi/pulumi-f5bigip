@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class FastHttpsAppWafSecurityPolicy {
 
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("FastHttpsAppWafSecurityPolicy", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         public FastHttpsAppWafSecurityPolicy build() {

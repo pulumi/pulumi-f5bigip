@@ -92,26 +92,31 @@ public final class ProfileClientSslCertKeyChain {
 
         @CustomType.Setter
         public Builder cert(@Nullable String cert) {
+
             this.cert = cert;
             return this;
         }
         @CustomType.Setter
         public Builder chain(@Nullable String chain) {
+
             this.chain = chain;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder passphrase(@Nullable String passphrase) {
+
             this.passphrase = passphrase;
             return this;
         }

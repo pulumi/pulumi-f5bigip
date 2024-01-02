@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.net;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,9 +236,15 @@ public final class SelfIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SelfIpArgs build() {
-            $.ip = Objects.requireNonNull($.ip, "expected parameter 'ip' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.vlan = Objects.requireNonNull($.vlan, "expected parameter 'vlan' to be non-null");
+            if ($.ip == null) {
+                throw new MissingRequiredPropertyException("SelfIpArgs", "ip");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SelfIpArgs", "name");
+            }
+            if ($.vlan == null) {
+                throw new MissingRequiredPropertyException("SelfIpArgs", "vlan");
+            }
             return $;
         }
     }

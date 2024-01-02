@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.outputs.WafPolicyGraphqlProfileDefenseAttribute;
 import java.lang.Boolean;
 import java.lang.String;
@@ -89,11 +90,13 @@ public final class WafPolicyGraphqlProfile {
 
         @CustomType.Setter
         public Builder attackSignaturesCheck(@Nullable Boolean attackSignaturesCheck) {
+
             this.attackSignaturesCheck = attackSignaturesCheck;
             return this;
         }
         @CustomType.Setter
         public Builder defenseAttributes(@Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes) {
+
             this.defenseAttributes = defenseAttributes;
             return this;
         }
@@ -102,12 +105,16 @@ public final class WafPolicyGraphqlProfile {
         }
         @CustomType.Setter
         public Builder metacharElementcheck(@Nullable Boolean metacharElementcheck) {
+
             this.metacharElementcheck = metacharElementcheck;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WafPolicyGraphqlProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         public WafPolicyGraphqlProfile build() {

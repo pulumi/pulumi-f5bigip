@@ -117,31 +117,37 @@ public final class WafPolicyGraphqlProfileDefenseAttribute {
 
         @CustomType.Setter
         public Builder allowIntrospectionQueries(@Nullable Boolean allowIntrospectionQueries) {
+
             this.allowIntrospectionQueries = allowIntrospectionQueries;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBatchedQueries(@Nullable String maximumBatchedQueries) {
+
             this.maximumBatchedQueries = maximumBatchedQueries;
             return this;
         }
         @CustomType.Setter
         public Builder maximumStructureDepth(@Nullable String maximumStructureDepth) {
+
             this.maximumStructureDepth = maximumStructureDepth;
             return this;
         }
         @CustomType.Setter
         public Builder maximumTotalLength(@Nullable String maximumTotalLength) {
+
             this.maximumTotalLength = maximumTotalLength;
             return this;
         }
         @CustomType.Setter
         public Builder maximumValueLength(@Nullable String maximumValueLength) {
+
             this.maximumValueLength = maximumValueLength;
             return this;
         }
         @CustomType.Setter
         public Builder tolerateParsingWarnings(@Nullable Boolean tolerateParsingWarnings) {
+
             this.tolerateParsingWarnings = tolerateParsingWarnings;
             return this;
         }
