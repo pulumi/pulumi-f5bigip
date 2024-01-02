@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1392,108 +1393,312 @@ public final class GetPolicyRuleAction extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPolicyRuleAction build() {
-            $.appService = Objects.requireNonNull($.appService, "expected parameter 'appService' to be non-null");
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
-            $.asm = Objects.requireNonNull($.asm, "expected parameter 'asm' to be non-null");
-            $.avr = Objects.requireNonNull($.avr, "expected parameter 'avr' to be non-null");
-            $.cache = Objects.requireNonNull($.cache, "expected parameter 'cache' to be non-null");
-            $.carp = Objects.requireNonNull($.carp, "expected parameter 'carp' to be non-null");
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.classify = Objects.requireNonNull($.classify, "expected parameter 'classify' to be non-null");
-            $.clonePool = Objects.requireNonNull($.clonePool, "expected parameter 'clonePool' to be non-null");
-            $.code = Objects.requireNonNull($.code, "expected parameter 'code' to be non-null");
-            $.compress = Objects.requireNonNull($.compress, "expected parameter 'compress' to be non-null");
-            $.connection = Objects.requireNonNull($.connection, "expected parameter 'connection' to be non-null");
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.cookieHash = Objects.requireNonNull($.cookieHash, "expected parameter 'cookieHash' to be non-null");
-            $.cookieInsert = Objects.requireNonNull($.cookieInsert, "expected parameter 'cookieInsert' to be non-null");
-            $.cookiePassive = Objects.requireNonNull($.cookiePassive, "expected parameter 'cookiePassive' to be non-null");
-            $.cookieRewrite = Objects.requireNonNull($.cookieRewrite, "expected parameter 'cookieRewrite' to be non-null");
-            $.decompress = Objects.requireNonNull($.decompress, "expected parameter 'decompress' to be non-null");
-            $.defer = Objects.requireNonNull($.defer, "expected parameter 'defer' to be non-null");
-            $.destinationAddress = Objects.requireNonNull($.destinationAddress, "expected parameter 'destinationAddress' to be non-null");
-            $.disable = Objects.requireNonNull($.disable, "expected parameter 'disable' to be non-null");
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
-            $.expiry = Objects.requireNonNull($.expiry, "expected parameter 'expiry' to be non-null");
-            $.expirySecs = Objects.requireNonNull($.expirySecs, "expected parameter 'expirySecs' to be non-null");
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
-            $.extension = Objects.requireNonNull($.extension, "expected parameter 'extension' to be non-null");
-            $.facility = Objects.requireNonNull($.facility, "expected parameter 'facility' to be non-null");
-            $.fromProfile = Objects.requireNonNull($.fromProfile, "expected parameter 'fromProfile' to be non-null");
-            $.hash = Objects.requireNonNull($.hash, "expected parameter 'hash' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.http = Objects.requireNonNull($.http, "expected parameter 'http' to be non-null");
-            $.httpBasicAuth = Objects.requireNonNull($.httpBasicAuth, "expected parameter 'httpBasicAuth' to be non-null");
-            $.httpCookie = Objects.requireNonNull($.httpCookie, "expected parameter 'httpCookie' to be non-null");
-            $.httpHeader = Objects.requireNonNull($.httpHeader, "expected parameter 'httpHeader' to be non-null");
-            $.httpReferer = Objects.requireNonNull($.httpReferer, "expected parameter 'httpReferer' to be non-null");
-            $.httpReply = Objects.requireNonNull($.httpReply, "expected parameter 'httpReply' to be non-null");
-            $.httpSetCookie = Objects.requireNonNull($.httpSetCookie, "expected parameter 'httpSetCookie' to be non-null");
-            $.httpUri = Objects.requireNonNull($.httpUri, "expected parameter 'httpUri' to be non-null");
-            $.ifile = Objects.requireNonNull($.ifile, "expected parameter 'ifile' to be non-null");
-            $.insert = Objects.requireNonNull($.insert, "expected parameter 'insert' to be non-null");
-            $.internalVirtual = Objects.requireNonNull($.internalVirtual, "expected parameter 'internalVirtual' to be non-null");
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.l7dos = Objects.requireNonNull($.l7dos, "expected parameter 'l7dos' to be non-null");
-            $.length = Objects.requireNonNull($.length, "expected parameter 'length' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.log = Objects.requireNonNull($.log, "expected parameter 'log' to be non-null");
-            $.ltmPolicy = Objects.requireNonNull($.ltmPolicy, "expected parameter 'ltmPolicy' to be non-null");
-            $.member = Objects.requireNonNull($.member, "expected parameter 'member' to be non-null");
-            $.message = Objects.requireNonNull($.message, "expected parameter 'message' to be non-null");
-            $.netmask = Objects.requireNonNull($.netmask, "expected parameter 'netmask' to be non-null");
-            $.nexthop = Objects.requireNonNull($.nexthop, "expected parameter 'nexthop' to be non-null");
-            $.node = Objects.requireNonNull($.node, "expected parameter 'node' to be non-null");
-            $.offset = Objects.requireNonNull($.offset, "expected parameter 'offset' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.pem = Objects.requireNonNull($.pem, "expected parameter 'pem' to be non-null");
-            $.persist = Objects.requireNonNull($.persist, "expected parameter 'persist' to be non-null");
-            $.pin = Objects.requireNonNull($.pin, "expected parameter 'pin' to be non-null");
-            $.policy = Objects.requireNonNull($.policy, "expected parameter 'policy' to be non-null");
-            $.pool = Objects.requireNonNull($.pool, "expected parameter 'pool' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.profile = Objects.requireNonNull($.profile, "expected parameter 'profile' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.queryString = Objects.requireNonNull($.queryString, "expected parameter 'queryString' to be non-null");
-            $.rateclass = Objects.requireNonNull($.rateclass, "expected parameter 'rateclass' to be non-null");
-            $.redirect = Objects.requireNonNull($.redirect, "expected parameter 'redirect' to be non-null");
-            $.remove = Objects.requireNonNull($.remove, "expected parameter 'remove' to be non-null");
-            $.replace = Objects.requireNonNull($.replace, "expected parameter 'replace' to be non-null");
-            $.request = Objects.requireNonNull($.request, "expected parameter 'request' to be non-null");
-            $.requestAdapt = Objects.requireNonNull($.requestAdapt, "expected parameter 'requestAdapt' to be non-null");
-            $.reset = Objects.requireNonNull($.reset, "expected parameter 'reset' to be non-null");
-            $.response = Objects.requireNonNull($.response, "expected parameter 'response' to be non-null");
-            $.responseAdapt = Objects.requireNonNull($.responseAdapt, "expected parameter 'responseAdapt' to be non-null");
-            $.scheme = Objects.requireNonNull($.scheme, "expected parameter 'scheme' to be non-null");
-            $.script = Objects.requireNonNull($.script, "expected parameter 'script' to be non-null");
-            $.select = Objects.requireNonNull($.select, "expected parameter 'select' to be non-null");
-            $.serverSsl = Objects.requireNonNull($.serverSsl, "expected parameter 'serverSsl' to be non-null");
-            $.setVariable = Objects.requireNonNull($.setVariable, "expected parameter 'setVariable' to be non-null");
-            $.shutdown = Objects.requireNonNull($.shutdown, "expected parameter 'shutdown' to be non-null");
-            $.snat = Objects.requireNonNull($.snat, "expected parameter 'snat' to be non-null");
-            $.snatpool = Objects.requireNonNull($.snatpool, "expected parameter 'snatpool' to be non-null");
-            $.sourceAddress = Objects.requireNonNull($.sourceAddress, "expected parameter 'sourceAddress' to be non-null");
-            $.sslClientHello = Objects.requireNonNull($.sslClientHello, "expected parameter 'sslClientHello' to be non-null");
-            $.sslServerHandshake = Objects.requireNonNull($.sslServerHandshake, "expected parameter 'sslServerHandshake' to be non-null");
-            $.sslServerHello = Objects.requireNonNull($.sslServerHello, "expected parameter 'sslServerHello' to be non-null");
-            $.sslSessionId = Objects.requireNonNull($.sslSessionId, "expected parameter 'sslSessionId' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.tcl = Objects.requireNonNull($.tcl, "expected parameter 'tcl' to be non-null");
-            $.tcpNagle = Objects.requireNonNull($.tcpNagle, "expected parameter 'tcpNagle' to be non-null");
-            $.text = Objects.requireNonNull($.text, "expected parameter 'text' to be non-null");
-            $.timeout = Objects.requireNonNull($.timeout, "expected parameter 'timeout' to be non-null");
-            $.tmName = Objects.requireNonNull($.tmName, "expected parameter 'tmName' to be non-null");
-            $.uie = Objects.requireNonNull($.uie, "expected parameter 'uie' to be non-null");
-            $.universal = Objects.requireNonNull($.universal, "expected parameter 'universal' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
-            $.virtual = Objects.requireNonNull($.virtual, "expected parameter 'virtual' to be non-null");
-            $.vlan = Objects.requireNonNull($.vlan, "expected parameter 'vlan' to be non-null");
-            $.vlanId = Objects.requireNonNull($.vlanId, "expected parameter 'vlanId' to be non-null");
-            $.wam = Objects.requireNonNull($.wam, "expected parameter 'wam' to be non-null");
-            $.write = Objects.requireNonNull($.write, "expected parameter 'write' to be non-null");
+            if ($.appService == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "appService");
+            }
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "application");
+            }
+            if ($.asm == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "asm");
+            }
+            if ($.avr == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "avr");
+            }
+            if ($.cache == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "cache");
+            }
+            if ($.carp == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "carp");
+            }
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "category");
+            }
+            if ($.classify == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "classify");
+            }
+            if ($.clonePool == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "clonePool");
+            }
+            if ($.code == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "code");
+            }
+            if ($.compress == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "compress");
+            }
+            if ($.connection == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "connection");
+            }
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "content");
+            }
+            if ($.cookieHash == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "cookieHash");
+            }
+            if ($.cookieInsert == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "cookieInsert");
+            }
+            if ($.cookiePassive == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "cookiePassive");
+            }
+            if ($.cookieRewrite == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "cookieRewrite");
+            }
+            if ($.decompress == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "decompress");
+            }
+            if ($.defer == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "defer");
+            }
+            if ($.destinationAddress == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "destinationAddress");
+            }
+            if ($.disable == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "disable");
+            }
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "domain");
+            }
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "enable");
+            }
+            if ($.expiry == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "expiry");
+            }
+            if ($.expirySecs == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "expirySecs");
+            }
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "expression");
+            }
+            if ($.extension == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "extension");
+            }
+            if ($.facility == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "facility");
+            }
+            if ($.fromProfile == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "fromProfile");
+            }
+            if ($.hash == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "hash");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "host");
+            }
+            if ($.http == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "http");
+            }
+            if ($.httpBasicAuth == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpBasicAuth");
+            }
+            if ($.httpCookie == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpCookie");
+            }
+            if ($.httpHeader == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpHeader");
+            }
+            if ($.httpReferer == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpReferer");
+            }
+            if ($.httpReply == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpReply");
+            }
+            if ($.httpSetCookie == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpSetCookie");
+            }
+            if ($.httpUri == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "httpUri");
+            }
+            if ($.ifile == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "ifile");
+            }
+            if ($.insert == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "insert");
+            }
+            if ($.internalVirtual == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "internalVirtual");
+            }
+            if ($.ipAddress == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "ipAddress");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "key");
+            }
+            if ($.l7dos == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "l7dos");
+            }
+            if ($.length == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "length");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "location");
+            }
+            if ($.log == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "log");
+            }
+            if ($.ltmPolicy == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "ltmPolicy");
+            }
+            if ($.member == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "member");
+            }
+            if ($.message == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "message");
+            }
+            if ($.netmask == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "netmask");
+            }
+            if ($.nexthop == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "nexthop");
+            }
+            if ($.node == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "node");
+            }
+            if ($.offset == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "offset");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "path");
+            }
+            if ($.pem == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "pem");
+            }
+            if ($.persist == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "persist");
+            }
+            if ($.pin == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "pin");
+            }
+            if ($.policy == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "policy");
+            }
+            if ($.pool == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "pool");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "port");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "priority");
+            }
+            if ($.profile == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "profile");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "protocol");
+            }
+            if ($.queryString == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "queryString");
+            }
+            if ($.rateclass == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "rateclass");
+            }
+            if ($.redirect == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "redirect");
+            }
+            if ($.remove == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "remove");
+            }
+            if ($.replace == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "replace");
+            }
+            if ($.request == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "request");
+            }
+            if ($.requestAdapt == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "requestAdapt");
+            }
+            if ($.reset == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "reset");
+            }
+            if ($.response == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "response");
+            }
+            if ($.responseAdapt == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "responseAdapt");
+            }
+            if ($.scheme == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "scheme");
+            }
+            if ($.script == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "script");
+            }
+            if ($.select == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "select");
+            }
+            if ($.serverSsl == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "serverSsl");
+            }
+            if ($.setVariable == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "setVariable");
+            }
+            if ($.shutdown == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "shutdown");
+            }
+            if ($.snat == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "snat");
+            }
+            if ($.snatpool == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "snatpool");
+            }
+            if ($.sourceAddress == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "sourceAddress");
+            }
+            if ($.sslClientHello == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "sslClientHello");
+            }
+            if ($.sslServerHandshake == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "sslServerHandshake");
+            }
+            if ($.sslServerHello == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "sslServerHello");
+            }
+            if ($.sslSessionId == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "sslSessionId");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "status");
+            }
+            if ($.tcl == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "tcl");
+            }
+            if ($.tcpNagle == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "tcpNagle");
+            }
+            if ($.text == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "text");
+            }
+            if ($.timeout == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "timeout");
+            }
+            if ($.tmName == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "tmName");
+            }
+            if ($.uie == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "uie");
+            }
+            if ($.universal == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "universal");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "value");
+            }
+            if ($.virtual == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "virtual");
+            }
+            if ($.vlan == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "vlan");
+            }
+            if ($.vlanId == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "vlanId");
+            }
+            if ($.wam == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "wam");
+            }
+            if ($.write == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRuleAction", "write");
+            }
             return $;
         }
     }

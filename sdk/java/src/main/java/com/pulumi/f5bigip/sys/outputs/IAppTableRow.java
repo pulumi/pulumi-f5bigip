@@ -36,6 +36,7 @@ public final class IAppTableRow {
 
         @CustomType.Setter
         public Builder rows(@Nullable List<String> rows) {
+
             this.rows = rows;
             return this;
         }

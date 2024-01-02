@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -632,11 +633,21 @@ public final class CommonLicenseManageBigIqArgs extends com.pulumi.resources.Res
         }
 
         public CommonLicenseManageBigIqArgs build() {
-            $.assignmentType = Objects.requireNonNull($.assignmentType, "expected parameter 'assignmentType' to be non-null");
-            $.bigiqAddress = Objects.requireNonNull($.bigiqAddress, "expected parameter 'bigiqAddress' to be non-null");
-            $.bigiqPassword = Objects.requireNonNull($.bigiqPassword, "expected parameter 'bigiqPassword' to be non-null");
-            $.bigiqUser = Objects.requireNonNull($.bigiqUser, "expected parameter 'bigiqUser' to be non-null");
-            $.licensePoolname = Objects.requireNonNull($.licensePoolname, "expected parameter 'licensePoolname' to be non-null");
+            if ($.assignmentType == null) {
+                throw new MissingRequiredPropertyException("CommonLicenseManageBigIqArgs", "assignmentType");
+            }
+            if ($.bigiqAddress == null) {
+                throw new MissingRequiredPropertyException("CommonLicenseManageBigIqArgs", "bigiqAddress");
+            }
+            if ($.bigiqPassword == null) {
+                throw new MissingRequiredPropertyException("CommonLicenseManageBigIqArgs", "bigiqPassword");
+            }
+            if ($.bigiqUser == null) {
+                throw new MissingRequiredPropertyException("CommonLicenseManageBigIqArgs", "bigiqUser");
+            }
+            if ($.licensePoolname == null) {
+                throw new MissingRequiredPropertyException("CommonLicenseManageBigIqArgs", "licensePoolname");
+            }
             return $;
         }
     }

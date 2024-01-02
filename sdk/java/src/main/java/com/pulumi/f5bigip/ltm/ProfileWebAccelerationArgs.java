@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -599,7 +600,9 @@ public final class ProfileWebAccelerationArgs extends com.pulumi.resources.Resou
         }
 
         public ProfileWebAccelerationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ProfileWebAccelerationArgs", "name");
+            }
             return $;
         }
     }

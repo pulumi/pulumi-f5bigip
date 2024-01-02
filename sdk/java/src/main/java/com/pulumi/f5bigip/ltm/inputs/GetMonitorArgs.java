@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetMonitorArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetMonitorArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.partition = Objects.requireNonNull($.partition, "expected parameter 'partition' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetMonitorArgs", "name");
+            }
+            if ($.partition == null) {
+                throw new MissingRequiredPropertyException("GetMonitorArgs", "partition");
+            }
             return $;
         }
     }

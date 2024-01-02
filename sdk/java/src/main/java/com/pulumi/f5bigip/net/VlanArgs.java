@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.net;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.net.inputs.VlanInterfaceArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -200,7 +201,9 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VlanArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VlanArgs", "name");
+            }
             return $;
         }
     }

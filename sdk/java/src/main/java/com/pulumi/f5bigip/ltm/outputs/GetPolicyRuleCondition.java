@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -577,442 +578,706 @@ public final class GetPolicyRuleCondition {
 
         @CustomType.Setter
         public Builder address(Boolean address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder all(Boolean all) {
-            this.all = Objects.requireNonNull(all);
+            if (all == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "all");
+            }
+            this.all = all;
             return this;
         }
         @CustomType.Setter
         public Builder appService(String appService) {
-            this.appService = Objects.requireNonNull(appService);
+            if (appService == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "appService");
+            }
+            this.appService = appService;
             return this;
         }
         @CustomType.Setter
         public Builder browserType(Boolean browserType) {
-            this.browserType = Objects.requireNonNull(browserType);
+            if (browserType == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "browserType");
+            }
+            this.browserType = browserType;
             return this;
         }
         @CustomType.Setter
         public Builder browserVersion(Boolean browserVersion) {
-            this.browserVersion = Objects.requireNonNull(browserVersion);
+            if (browserVersion == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "browserVersion");
+            }
+            this.browserVersion = browserVersion;
             return this;
         }
         @CustomType.Setter
         public Builder caseInsensitive(Boolean caseInsensitive) {
-            this.caseInsensitive = Objects.requireNonNull(caseInsensitive);
+            if (caseInsensitive == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "caseInsensitive");
+            }
+            this.caseInsensitive = caseInsensitive;
             return this;
         }
         @CustomType.Setter
         public Builder caseSensitive(Boolean caseSensitive) {
-            this.caseSensitive = Objects.requireNonNull(caseSensitive);
+            if (caseSensitive == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "caseSensitive");
+            }
+            this.caseSensitive = caseSensitive;
             return this;
         }
         @CustomType.Setter
         public Builder cipher(Boolean cipher) {
-            this.cipher = Objects.requireNonNull(cipher);
+            if (cipher == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "cipher");
+            }
+            this.cipher = cipher;
             return this;
         }
         @CustomType.Setter
         public Builder cipherBits(Boolean cipherBits) {
-            this.cipherBits = Objects.requireNonNull(cipherBits);
+            if (cipherBits == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "cipherBits");
+            }
+            this.cipherBits = cipherBits;
             return this;
         }
         @CustomType.Setter
         public Builder clientSsl(Boolean clientSsl) {
-            this.clientSsl = Objects.requireNonNull(clientSsl);
+            if (clientSsl == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "clientSsl");
+            }
+            this.clientSsl = clientSsl;
             return this;
         }
         @CustomType.Setter
         public Builder code(Boolean code) {
-            this.code = Objects.requireNonNull(code);
+            if (code == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "code");
+            }
+            this.code = code;
             return this;
         }
         @CustomType.Setter
         public Builder commonName(Boolean commonName) {
-            this.commonName = Objects.requireNonNull(commonName);
+            if (commonName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "commonName");
+            }
+            this.commonName = commonName;
             return this;
         }
         @CustomType.Setter
         public Builder contains(Boolean contains) {
-            this.contains = Objects.requireNonNull(contains);
+            if (contains == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "contains");
+            }
+            this.contains = contains;
             return this;
         }
         @CustomType.Setter
         public Builder continent(Boolean continent) {
-            this.continent = Objects.requireNonNull(continent);
+            if (continent == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "continent");
+            }
+            this.continent = continent;
             return this;
         }
         @CustomType.Setter
         public Builder countryCode(Boolean countryCode) {
-            this.countryCode = Objects.requireNonNull(countryCode);
+            if (countryCode == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "countryCode");
+            }
+            this.countryCode = countryCode;
             return this;
         }
         @CustomType.Setter
         public Builder countryName(Boolean countryName) {
-            this.countryName = Objects.requireNonNull(countryName);
+            if (countryName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "countryName");
+            }
+            this.countryName = countryName;
             return this;
         }
         @CustomType.Setter
         public Builder cpuUsage(Boolean cpuUsage) {
-            this.cpuUsage = Objects.requireNonNull(cpuUsage);
+            if (cpuUsage == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "cpuUsage");
+            }
+            this.cpuUsage = cpuUsage;
             return this;
         }
         @CustomType.Setter
         public Builder datagroup(String datagroup) {
-            this.datagroup = Objects.requireNonNull(datagroup);
+            if (datagroup == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "datagroup");
+            }
+            this.datagroup = datagroup;
             return this;
         }
         @CustomType.Setter
         public Builder deviceMake(Boolean deviceMake) {
-            this.deviceMake = Objects.requireNonNull(deviceMake);
+            if (deviceMake == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "deviceMake");
+            }
+            this.deviceMake = deviceMake;
             return this;
         }
         @CustomType.Setter
         public Builder deviceModel(Boolean deviceModel) {
-            this.deviceModel = Objects.requireNonNull(deviceModel);
+            if (deviceModel == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "deviceModel");
+            }
+            this.deviceModel = deviceModel;
             return this;
         }
         @CustomType.Setter
         public Builder domain(Boolean domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder endsWith(Boolean endsWith) {
-            this.endsWith = Objects.requireNonNull(endsWith);
+            if (endsWith == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "endsWith");
+            }
+            this.endsWith = endsWith;
             return this;
         }
         @CustomType.Setter("equals")
         public Builder equals_(Boolean equals) {
-            this.equals = Objects.requireNonNull(equals);
+            if (equals == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "equals");
+            }
+            this.equals = equals;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(Boolean expiry) {
-            this.expiry = Objects.requireNonNull(expiry);
+            if (expiry == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "expiry");
+            }
+            this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder extension(Boolean extension) {
-            this.extension = Objects.requireNonNull(extension);
+            if (extension == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "extension");
+            }
+            this.extension = extension;
             return this;
         }
         @CustomType.Setter
         public Builder external(Boolean external) {
-            this.external = Objects.requireNonNull(external);
+            if (external == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "external");
+            }
+            this.external = external;
             return this;
         }
         @CustomType.Setter
         public Builder geoip(Boolean geoip) {
-            this.geoip = Objects.requireNonNull(geoip);
+            if (geoip == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "geoip");
+            }
+            this.geoip = geoip;
             return this;
         }
         @CustomType.Setter
         public Builder greater(Boolean greater) {
-            this.greater = Objects.requireNonNull(greater);
+            if (greater == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "greater");
+            }
+            this.greater = greater;
             return this;
         }
         @CustomType.Setter
         public Builder greaterOrEqual(Boolean greaterOrEqual) {
-            this.greaterOrEqual = Objects.requireNonNull(greaterOrEqual);
+            if (greaterOrEqual == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "greaterOrEqual");
+            }
+            this.greaterOrEqual = greaterOrEqual;
             return this;
         }
         @CustomType.Setter
         public Builder host(Boolean host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder httpBasicAuth(Boolean httpBasicAuth) {
-            this.httpBasicAuth = Objects.requireNonNull(httpBasicAuth);
+            if (httpBasicAuth == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpBasicAuth");
+            }
+            this.httpBasicAuth = httpBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder httpCookie(Boolean httpCookie) {
-            this.httpCookie = Objects.requireNonNull(httpCookie);
+            if (httpCookie == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpCookie");
+            }
+            this.httpCookie = httpCookie;
             return this;
         }
         @CustomType.Setter
         public Builder httpHeader(Boolean httpHeader) {
-            this.httpHeader = Objects.requireNonNull(httpHeader);
+            if (httpHeader == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpHeader");
+            }
+            this.httpHeader = httpHeader;
             return this;
         }
         @CustomType.Setter
         public Builder httpHost(Boolean httpHost) {
-            this.httpHost = Objects.requireNonNull(httpHost);
+            if (httpHost == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpHost");
+            }
+            this.httpHost = httpHost;
             return this;
         }
         @CustomType.Setter
         public Builder httpMethod(Boolean httpMethod) {
-            this.httpMethod = Objects.requireNonNull(httpMethod);
+            if (httpMethod == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpMethod");
+            }
+            this.httpMethod = httpMethod;
             return this;
         }
         @CustomType.Setter
         public Builder httpReferer(Boolean httpReferer) {
-            this.httpReferer = Objects.requireNonNull(httpReferer);
+            if (httpReferer == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpReferer");
+            }
+            this.httpReferer = httpReferer;
             return this;
         }
         @CustomType.Setter
         public Builder httpSetCookie(Boolean httpSetCookie) {
-            this.httpSetCookie = Objects.requireNonNull(httpSetCookie);
+            if (httpSetCookie == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpSetCookie");
+            }
+            this.httpSetCookie = httpSetCookie;
             return this;
         }
         @CustomType.Setter
         public Builder httpStatus(Boolean httpStatus) {
-            this.httpStatus = Objects.requireNonNull(httpStatus);
+            if (httpStatus == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpStatus");
+            }
+            this.httpStatus = httpStatus;
             return this;
         }
         @CustomType.Setter
         public Builder httpUri(Boolean httpUri) {
-            this.httpUri = Objects.requireNonNull(httpUri);
+            if (httpUri == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpUri");
+            }
+            this.httpUri = httpUri;
             return this;
         }
         @CustomType.Setter
         public Builder httpUserAgent(Boolean httpUserAgent) {
-            this.httpUserAgent = Objects.requireNonNull(httpUserAgent);
+            if (httpUserAgent == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpUserAgent");
+            }
+            this.httpUserAgent = httpUserAgent;
             return this;
         }
         @CustomType.Setter
         public Builder httpVersion(Boolean httpVersion) {
-            this.httpVersion = Objects.requireNonNull(httpVersion);
+            if (httpVersion == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "httpVersion");
+            }
+            this.httpVersion = httpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder index(Integer index) {
-            this.index = Objects.requireNonNull(index);
+            if (index == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "index");
+            }
+            this.index = index;
             return this;
         }
         @CustomType.Setter
         public Builder internal(Boolean internal) {
-            this.internal = Objects.requireNonNull(internal);
+            if (internal == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "internal");
+            }
+            this.internal = internal;
             return this;
         }
         @CustomType.Setter
         public Builder isp(Boolean isp) {
-            this.isp = Objects.requireNonNull(isp);
+            if (isp == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "isp");
+            }
+            this.isp = isp;
             return this;
         }
         @CustomType.Setter
         public Builder last15secs(Boolean last15secs) {
-            this.last15secs = Objects.requireNonNull(last15secs);
+            if (last15secs == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "last15secs");
+            }
+            this.last15secs = last15secs;
             return this;
         }
         @CustomType.Setter
         public Builder last1min(Boolean last1min) {
-            this.last1min = Objects.requireNonNull(last1min);
+            if (last1min == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "last1min");
+            }
+            this.last1min = last1min;
             return this;
         }
         @CustomType.Setter
         public Builder last5mins(Boolean last5mins) {
-            this.last5mins = Objects.requireNonNull(last5mins);
+            if (last5mins == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "last5mins");
+            }
+            this.last5mins = last5mins;
             return this;
         }
         @CustomType.Setter
         public Builder less(Boolean less) {
-            this.less = Objects.requireNonNull(less);
+            if (less == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "less");
+            }
+            this.less = less;
             return this;
         }
         @CustomType.Setter
         public Builder lessOrEqual(Boolean lessOrEqual) {
-            this.lessOrEqual = Objects.requireNonNull(lessOrEqual);
+            if (lessOrEqual == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "lessOrEqual");
+            }
+            this.lessOrEqual = lessOrEqual;
             return this;
         }
         @CustomType.Setter
         public Builder local(Boolean local) {
-            this.local = Objects.requireNonNull(local);
+            if (local == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "local");
+            }
+            this.local = local;
             return this;
         }
         @CustomType.Setter
         public Builder major(Boolean major) {
-            this.major = Objects.requireNonNull(major);
+            if (major == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "major");
+            }
+            this.major = major;
             return this;
         }
         @CustomType.Setter
         public Builder matches(Boolean matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         @CustomType.Setter
         public Builder minor(Boolean minor) {
-            this.minor = Objects.requireNonNull(minor);
+            if (minor == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "minor");
+            }
+            this.minor = minor;
             return this;
         }
         @CustomType.Setter
         public Builder missing(Boolean missing) {
-            this.missing = Objects.requireNonNull(missing);
+            if (missing == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "missing");
+            }
+            this.missing = missing;
             return this;
         }
         @CustomType.Setter
         public Builder mss(Boolean mss) {
-            this.mss = Objects.requireNonNull(mss);
+            if (mss == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "mss");
+            }
+            this.mss = mss;
             return this;
         }
         @CustomType.Setter
         public Builder not(Boolean not) {
-            this.not = Objects.requireNonNull(not);
+            if (not == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "not");
+            }
+            this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder org(Boolean org) {
-            this.org = Objects.requireNonNull(org);
+            if (org == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "org");
+            }
+            this.org = org;
             return this;
         }
         @CustomType.Setter
         public Builder password(Boolean password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder path(Boolean path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pathSegment(Boolean pathSegment) {
-            this.pathSegment = Objects.requireNonNull(pathSegment);
+            if (pathSegment == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "pathSegment");
+            }
+            this.pathSegment = pathSegment;
             return this;
         }
         @CustomType.Setter
         public Builder port(Boolean port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder present(Boolean present) {
-            this.present = Objects.requireNonNull(present);
+            if (present == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "present");
+            }
+            this.present = present;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(Boolean protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder queryParameter(Boolean queryParameter) {
-            this.queryParameter = Objects.requireNonNull(queryParameter);
+            if (queryParameter == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "queryParameter");
+            }
+            this.queryParameter = queryParameter;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(Boolean queryString) {
-            this.queryString = Objects.requireNonNull(queryString);
+            if (queryString == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "queryString");
+            }
+            this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder regionCode(Boolean regionCode) {
-            this.regionCode = Objects.requireNonNull(regionCode);
+            if (regionCode == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "regionCode");
+            }
+            this.regionCode = regionCode;
             return this;
         }
         @CustomType.Setter
         public Builder regionName(Boolean regionName) {
-            this.regionName = Objects.requireNonNull(regionName);
+            if (regionName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "regionName");
+            }
+            this.regionName = regionName;
             return this;
         }
         @CustomType.Setter
         public Builder remote(Boolean remote) {
-            this.remote = Objects.requireNonNull(remote);
+            if (remote == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "remote");
+            }
+            this.remote = remote;
             return this;
         }
         @CustomType.Setter
         public Builder request(Boolean request) {
-            this.request = Objects.requireNonNull(request);
+            if (request == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "request");
+            }
+            this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder response(Boolean response) {
-            this.response = Objects.requireNonNull(response);
+            if (response == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "response");
+            }
+            this.response = response;
             return this;
         }
         @CustomType.Setter
         public Builder routeDomain(Boolean routeDomain) {
-            this.routeDomain = Objects.requireNonNull(routeDomain);
+            if (routeDomain == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "routeDomain");
+            }
+            this.routeDomain = routeDomain;
             return this;
         }
         @CustomType.Setter
         public Builder rtt(Boolean rtt) {
-            this.rtt = Objects.requireNonNull(rtt);
+            if (rtt == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "rtt");
+            }
+            this.rtt = rtt;
             return this;
         }
         @CustomType.Setter
         public Builder scheme(Boolean scheme) {
-            this.scheme = Objects.requireNonNull(scheme);
+            if (scheme == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "scheme");
+            }
+            this.scheme = scheme;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(Boolean serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder sslCert(Boolean sslCert) {
-            this.sslCert = Objects.requireNonNull(sslCert);
+            if (sslCert == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "sslCert");
+            }
+            this.sslCert = sslCert;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientHello(Boolean sslClientHello) {
-            this.sslClientHello = Objects.requireNonNull(sslClientHello);
+            if (sslClientHello == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "sslClientHello");
+            }
+            this.sslClientHello = sslClientHello;
             return this;
         }
         @CustomType.Setter
         public Builder sslExtension(Boolean sslExtension) {
-            this.sslExtension = Objects.requireNonNull(sslExtension);
+            if (sslExtension == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "sslExtension");
+            }
+            this.sslExtension = sslExtension;
             return this;
         }
         @CustomType.Setter
         public Builder sslServerHandshake(Boolean sslServerHandshake) {
-            this.sslServerHandshake = Objects.requireNonNull(sslServerHandshake);
+            if (sslServerHandshake == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "sslServerHandshake");
+            }
+            this.sslServerHandshake = sslServerHandshake;
             return this;
         }
         @CustomType.Setter
         public Builder sslServerHello(Boolean sslServerHello) {
-            this.sslServerHello = Objects.requireNonNull(sslServerHello);
+            if (sslServerHello == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "sslServerHello");
+            }
+            this.sslServerHello = sslServerHello;
             return this;
         }
         @CustomType.Setter
         public Builder startsWith(Boolean startsWith) {
-            this.startsWith = Objects.requireNonNull(startsWith);
+            if (startsWith == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "startsWith");
+            }
+            this.startsWith = startsWith;
             return this;
         }
         @CustomType.Setter
         public Builder tcp(Boolean tcp) {
-            this.tcp = Objects.requireNonNull(tcp);
+            if (tcp == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "tcp");
+            }
+            this.tcp = tcp;
             return this;
         }
         @CustomType.Setter
         public Builder text(Boolean text) {
-            this.text = Objects.requireNonNull(text);
+            if (text == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "text");
+            }
+            this.text = text;
             return this;
         }
         @CustomType.Setter
         public Builder tmName(String tmName) {
-            this.tmName = Objects.requireNonNull(tmName);
+            if (tmName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "tmName");
+            }
+            this.tmName = tmName;
             return this;
         }
         @CustomType.Setter
         public Builder unnamedQueryParameter(Boolean unnamedQueryParameter) {
-            this.unnamedQueryParameter = Objects.requireNonNull(unnamedQueryParameter);
+            if (unnamedQueryParameter == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "unnamedQueryParameter");
+            }
+            this.unnamedQueryParameter = unnamedQueryParameter;
             return this;
         }
         @CustomType.Setter
         public Builder userAgentToken(Boolean userAgentToken) {
-            this.userAgentToken = Objects.requireNonNull(userAgentToken);
+            if (userAgentToken == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "userAgentToken");
+            }
+            this.userAgentToken = userAgentToken;
             return this;
         }
         @CustomType.Setter
         public Builder username(Boolean username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "username");
+            }
+            this.username = username;
             return this;
         }
         @CustomType.Setter
         public Builder value(Boolean value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {
@@ -1020,17 +1285,26 @@ public final class GetPolicyRuleCondition {
         }
         @CustomType.Setter
         public Builder version(Boolean version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder vlan(Boolean vlan) {
-            this.vlan = Objects.requireNonNull(vlan);
+            if (vlan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "vlan");
+            }
+            this.vlan = vlan;
             return this;
         }
         @CustomType.Setter
         public Builder vlanId(Boolean vlanId) {
-            this.vlanId = Objects.requireNonNull(vlanId);
+            if (vlanId == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleCondition", "vlanId");
+            }
+            this.vlanId = vlanId;
             return this;
         }
         public GetPolicyRuleCondition build() {

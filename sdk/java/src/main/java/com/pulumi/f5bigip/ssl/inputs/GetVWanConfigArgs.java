@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetVWanConfigArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetVWanConfigArgs build() {
-            $.azureVwanName = Objects.requireNonNull($.azureVwanName, "expected parameter 'azureVwanName' to be non-null");
-            $.azureVwanResourcegroup = Objects.requireNonNull($.azureVwanResourcegroup, "expected parameter 'azureVwanResourcegroup' to be non-null");
-            $.azureVwanVpnsite = Objects.requireNonNull($.azureVwanVpnsite, "expected parameter 'azureVwanVpnsite' to be non-null");
+            if ($.azureVwanName == null) {
+                throw new MissingRequiredPropertyException("GetVWanConfigArgs", "azureVwanName");
+            }
+            if ($.azureVwanResourcegroup == null) {
+                throw new MissingRequiredPropertyException("GetVWanConfigArgs", "azureVwanResourcegroup");
+            }
+            if ($.azureVwanVpnsite == null) {
+                throw new MissingRequiredPropertyException("GetVWanConfigArgs", "azureVwanVpnsite");
+            }
             return $;
         }
     }

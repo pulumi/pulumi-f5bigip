@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.cm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class DeviceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeviceArgs build() {
-            $.configsyncIp = Objects.requireNonNull($.configsyncIp, "expected parameter 'configsyncIp' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.configsyncIp == null) {
+                throw new MissingRequiredPropertyException("DeviceArgs", "configsyncIp");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DeviceArgs", "name");
+            }
             return $;
         }
     }

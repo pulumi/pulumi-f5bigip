@@ -85,26 +85,31 @@ public final class NodeFqdn {
 
         @CustomType.Setter
         public Builder addressFamily(@Nullable String addressFamily) {
+
             this.addressFamily = addressFamily;
             return this;
         }
         @CustomType.Setter
         public Builder autopopulate(@Nullable String autopopulate) {
+
             this.autopopulate = autopopulate;
             return this;
         }
         @CustomType.Setter
         public Builder downinterval(@Nullable Integer downinterval) {
+
             this.downinterval = downinterval;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable String interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

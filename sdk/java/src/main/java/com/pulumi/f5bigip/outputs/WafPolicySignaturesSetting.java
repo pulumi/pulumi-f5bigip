@@ -42,11 +42,13 @@ public final class WafPolicySignaturesSetting {
 
         @CustomType.Setter
         public Builder placesignaturesInStaging(@Nullable Boolean placesignaturesInStaging) {
+
             this.placesignaturesInStaging = placesignaturesInStaging;
             return this;
         }
         @CustomType.Setter
         public Builder signatureStaging(@Nullable Boolean signatureStaging) {
+
             this.signatureStaging = signatureStaging;
             return this;
         }

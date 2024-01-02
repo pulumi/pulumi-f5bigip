@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.fast.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -539,8 +540,12 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         public GetAwsServiceDiscoveryArgs build() {
-            $.tagKey = Objects.requireNonNull($.tagKey, "expected parameter 'tagKey' to be non-null");
-            $.tagValue = Objects.requireNonNull($.tagValue, "expected parameter 'tagValue' to be non-null");
+            if ($.tagKey == null) {
+                throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryArgs", "tagKey");
+            }
+            if ($.tagValue == null) {
+                throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryArgs", "tagValue");
+            }
             return $;
         }
     }

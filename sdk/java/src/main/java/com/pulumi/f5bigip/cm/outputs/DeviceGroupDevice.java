@@ -51,11 +51,13 @@ public final class DeviceGroupDevice {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder setSyncLeader(@Nullable Boolean setSyncLeader) {
+
             this.setSyncLeader = setSyncLeader;
             return this;
         }

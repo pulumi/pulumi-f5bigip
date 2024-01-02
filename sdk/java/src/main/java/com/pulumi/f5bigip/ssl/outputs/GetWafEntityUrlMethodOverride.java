@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetWafEntityUrlMethodOverride {
 
         @CustomType.Setter
         public Builder allow(Boolean allow) {
-            this.allow = Objects.requireNonNull(allow);
+            if (allow == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityUrlMethodOverride", "allow");
+            }
+            this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder method(String method) {
-            this.method = Objects.requireNonNull(method);
+            if (method == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityUrlMethodOverride", "method");
+            }
+            this.method = method;
             return this;
         }
         public GetWafEntityUrlMethodOverride build() {

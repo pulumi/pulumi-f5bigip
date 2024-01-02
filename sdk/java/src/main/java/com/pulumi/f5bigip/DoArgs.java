@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -365,7 +366,9 @@ public final class DoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DoArgs build() {
-            $.doJson = Objects.requireNonNull($.doJson, "expected parameter 'doJson' to be non-null");
+            if ($.doJson == null) {
+                throw new MissingRequiredPropertyException("DoArgs", "doJson");
+            }
             return $;
         }
     }

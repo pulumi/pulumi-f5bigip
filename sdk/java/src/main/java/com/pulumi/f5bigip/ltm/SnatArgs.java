@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.inputs.SnatOriginArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -469,8 +470,12 @@ public final class SnatArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnatArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.origins = Objects.requireNonNull($.origins, "expected parameter 'origins' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SnatArgs", "name");
+            }
+            if ($.origins == null) {
+                throw new MissingRequiredPropertyException("SnatArgs", "origins");
+            }
             return $;
         }
     }

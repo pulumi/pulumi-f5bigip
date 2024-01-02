@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.outputs.GetDataGroupRecord;
 import java.lang.String;
 import java.util.List;
@@ -84,22 +85,34 @@ public final class GetDataGroupResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetDataGroupResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder records(List<GetDataGroupRecord> records) {
-            this.records = Objects.requireNonNull(records);
+            if (records == null) {
+              throw new MissingRequiredPropertyException("GetDataGroupResult", "records");
+            }
+            this.records = records;
             return this;
         }
         public Builder records(GetDataGroupRecord... records) {
@@ -107,7 +120,10 @@ public final class GetDataGroupResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetDataGroupResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetDataGroupResult build() {

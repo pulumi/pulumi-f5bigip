@@ -50,11 +50,13 @@ public final class SnatOrigin {
 
         @CustomType.Setter
         public Builder appService(@Nullable String appService) {
+
             this.appService = appService;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

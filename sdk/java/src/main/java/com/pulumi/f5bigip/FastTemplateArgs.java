@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class FastTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FastTemplateArgs build() {
-            $.md5Hash = Objects.requireNonNull($.md5Hash, "expected parameter 'md5Hash' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.md5Hash == null) {
+                throw new MissingRequiredPropertyException("FastTemplateArgs", "md5Hash");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("FastTemplateArgs", "source");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.sys;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BigIpLicenseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BigIpLicenseArgs build() {
-            $.command = Objects.requireNonNull($.command, "expected parameter 'command' to be non-null");
-            $.registrationKey = Objects.requireNonNull($.registrationKey, "expected parameter 'registrationKey' to be non-null");
+            if ($.command == null) {
+                throw new MissingRequiredPropertyException("BigIpLicenseArgs", "command");
+            }
+            if ($.registrationKey == null) {
+                throw new MissingRequiredPropertyException("BigIpLicenseArgs", "registrationKey");
+            }
             return $;
         }
     }

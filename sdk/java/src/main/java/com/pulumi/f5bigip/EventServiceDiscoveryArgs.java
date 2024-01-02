@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.inputs.EventServiceDiscoveryNodeArgs;
 import java.lang.String;
 import java.util.List;
@@ -345,7 +346,9 @@ public final class EventServiceDiscoveryArgs extends com.pulumi.resources.Resour
         }
 
         public EventServiceDiscoveryArgs build() {
-            $.taskid = Objects.requireNonNull($.taskid, "expected parameter 'taskid' to be non-null");
+            if ($.taskid == null) {
+                throw new MissingRequiredPropertyException("EventServiceDiscoveryArgs", "taskid");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -351,7 +352,9 @@ public final class GetWafSignaturesArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetWafSignaturesArgs build() {
-            $.signatureId = Objects.requireNonNull($.signatureId, "expected parameter 'signatureId' to be non-null");
+            if ($.signatureId == null) {
+                throw new MissingRequiredPropertyException("GetWafSignaturesArgs", "signatureId");
+            }
             return $;
         }
     }

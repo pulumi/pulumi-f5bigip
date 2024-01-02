@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -144,81 +145,111 @@ public final class GetAwsServiceDiscoveryResult {
 
         @CustomType.Setter
         public Builder addressRealm(@Nullable String addressRealm) {
+
             this.addressRealm = addressRealm;
             return this;
         }
         @CustomType.Setter
         public Builder awsAccessKey(@Nullable String awsAccessKey) {
+
             this.awsAccessKey = awsAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder awsRegion(String awsRegion) {
-            this.awsRegion = Objects.requireNonNull(awsRegion);
+            if (awsRegion == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "awsRegion");
+            }
+            this.awsRegion = awsRegion;
             return this;
         }
         @CustomType.Setter
         public Builder awsSdJson(String awsSdJson) {
-            this.awsSdJson = Objects.requireNonNull(awsSdJson);
+            if (awsSdJson == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "awsSdJson");
+            }
+            this.awsSdJson = awsSdJson;
             return this;
         }
         @CustomType.Setter
         public Builder awsSecretAccessKey(@Nullable String awsSecretAccessKey) {
+
             this.awsSecretAccessKey = awsSecretAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder credentialUpdate(@Nullable Boolean credentialUpdate) {
+
             this.credentialUpdate = credentialUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(String externalId) {
-            this.externalId = Objects.requireNonNull(externalId);
+            if (externalId == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "externalId");
+            }
+            this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumMonitors(@Nullable String minimumMonitors) {
+
             this.minimumMonitors = minimumMonitors;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+            if (tagKey == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "tagKey");
+            }
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(String tagValue) {
-            this.tagValue = Objects.requireNonNull(tagValue);
+            if (tagValue == null) {
+              throw new MissingRequiredPropertyException("GetAwsServiceDiscoveryResult", "tagValue");
+            }
+            this.tagValue = tagValue;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder undetectableAction(@Nullable String undetectableAction) {
+
             this.undetectableAction = undetectableAction;
             return this;
         }
         @CustomType.Setter
         public Builder updateInterval(@Nullable String updateInterval) {
+
             this.updateInterval = updateInterval;
             return this;
         }

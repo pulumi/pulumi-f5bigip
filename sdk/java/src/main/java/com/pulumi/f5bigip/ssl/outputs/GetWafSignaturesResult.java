@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -168,62 +169,92 @@ public final class GetWafSignaturesResult {
 
         @CustomType.Setter
         public Builder accuracy(String accuracy) {
-            this.accuracy = Objects.requireNonNull(accuracy);
+            if (accuracy == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "accuracy");
+            }
+            this.accuracy = accuracy;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder performStaging(@Nullable Boolean performStaging) {
+
             this.performStaging = performStaging;
             return this;
         }
         @CustomType.Setter
         public Builder risk(String risk) {
-            this.risk = Objects.requireNonNull(risk);
+            if (risk == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "risk");
+            }
+            this.risk = risk;
             return this;
         }
         @CustomType.Setter
         public Builder signatureId(Integer signatureId) {
-            this.signatureId = Objects.requireNonNull(signatureId);
+            if (signatureId == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "signatureId");
+            }
+            this.signatureId = signatureId;
             return this;
         }
         @CustomType.Setter
         public Builder systemSignatureId(String systemSignatureId) {
-            this.systemSignatureId = Objects.requireNonNull(systemSignatureId);
+            if (systemSignatureId == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "systemSignatureId");
+            }
+            this.systemSignatureId = systemSignatureId;
             return this;
         }
         @CustomType.Setter
         public Builder tag(String tag) {
-            this.tag = Objects.requireNonNull(tag);
+            if (tag == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "tag");
+            }
+            this.tag = tag;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetWafSignaturesResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetWafSignaturesResult build() {

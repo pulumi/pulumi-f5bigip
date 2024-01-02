@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -89,32 +90,50 @@ public final class GetWafPbSuggestionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder minimumLearningScore(Integer minimumLearningScore) {
-            this.minimumLearningScore = Objects.requireNonNull(minimumLearningScore);
+            if (minimumLearningScore == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "minimumLearningScore");
+            }
+            this.minimumLearningScore = minimumLearningScore;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder policyId(String policyId) {
-            this.policyId = Objects.requireNonNull(policyId);
+            if (policyId == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "policyId");
+            }
+            this.policyId = policyId;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(String policyName) {
-            this.policyName = Objects.requireNonNull(policyName);
+            if (policyName == null) {
+              throw new MissingRequiredPropertyException("GetWafPbSuggestionsResult", "policyName");
+            }
+            this.policyName = policyName;
             return this;
         }
         public GetWafPbSuggestionsResult build() {

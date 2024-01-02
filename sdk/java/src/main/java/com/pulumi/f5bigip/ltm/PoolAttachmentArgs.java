@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -410,8 +411,12 @@ public final class PoolAttachmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PoolAttachmentArgs build() {
-            $.node = Objects.requireNonNull($.node, "expected parameter 'node' to be non-null");
-            $.pool = Objects.requireNonNull($.pool, "expected parameter 'pool' to be non-null");
+            if ($.node == null) {
+                throw new MissingRequiredPropertyException("PoolAttachmentArgs", "node");
+            }
+            if ($.pool == null) {
+                throw new MissingRequiredPropertyException("PoolAttachmentArgs", "pool");
+            }
             return $;
         }
     }

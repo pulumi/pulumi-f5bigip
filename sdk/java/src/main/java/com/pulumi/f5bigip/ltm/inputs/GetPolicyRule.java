@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.inputs.GetPolicyRuleAction;
 import com.pulumi.f5bigip.ltm.inputs.GetPolicyRuleCondition;
 import java.lang.String;
@@ -102,7 +103,9 @@ public final class GetPolicyRule extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPolicyRule build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetPolicyRule", "name");
+            }
             return $;
         }
     }

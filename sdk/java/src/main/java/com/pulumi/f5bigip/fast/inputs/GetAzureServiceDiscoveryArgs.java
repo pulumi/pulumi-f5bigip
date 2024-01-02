@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.fast.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -428,8 +429,12 @@ public final class GetAzureServiceDiscoveryArgs extends com.pulumi.resources.Inv
         }
 
         public GetAzureServiceDiscoveryArgs build() {
-            $.resourceGroup = Objects.requireNonNull($.resourceGroup, "expected parameter 'resourceGroup' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.resourceGroup == null) {
+                throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryArgs", "resourceGroup");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryArgs", "subscriptionId");
+            }
             return $;
         }
     }

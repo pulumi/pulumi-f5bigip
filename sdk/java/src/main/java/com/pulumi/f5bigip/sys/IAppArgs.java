@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.sys;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.sys.inputs.IAppListArgs;
 import com.pulumi.f5bigip.sys.inputs.IAppMetadataArgs;
 import com.pulumi.f5bigip.sys.inputs.IAppTableArgs;
@@ -661,8 +662,12 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IAppArgs build() {
-            $.jsonfile = Objects.requireNonNull($.jsonfile, "expected parameter 'jsonfile' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.jsonfile == null) {
+                throw new MissingRequiredPropertyException("IAppArgs", "jsonfile");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IAppArgs", "name");
+            }
             return $;
         }
     }

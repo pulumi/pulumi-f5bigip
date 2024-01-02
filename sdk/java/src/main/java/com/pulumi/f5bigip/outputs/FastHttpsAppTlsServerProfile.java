@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FastHttpsAppTlsServerProfile {
 
         @CustomType.Setter
         public Builder tlsCertName(String tlsCertName) {
-            this.tlsCertName = Objects.requireNonNull(tlsCertName);
+            if (tlsCertName == null) {
+              throw new MissingRequiredPropertyException("FastHttpsAppTlsServerProfile", "tlsCertName");
+            }
+            this.tlsCertName = tlsCertName;
             return this;
         }
         @CustomType.Setter
         public Builder tlsKeyName(String tlsKeyName) {
-            this.tlsKeyName = Objects.requireNonNull(tlsKeyName);
+            if (tlsKeyName == null) {
+              throw new MissingRequiredPropertyException("FastHttpsAppTlsServerProfile", "tlsKeyName");
+            }
+            this.tlsKeyName = tlsKeyName;
             return this;
         }
         public FastHttpsAppTlsServerProfile build() {

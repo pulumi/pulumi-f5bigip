@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,10 +89,18 @@ public final class GetWafEntityParameterUrl extends com.pulumi.resources.InvokeA
         }
 
         public GetWafEntityParameterUrl build() {
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityParameterUrl", "method");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityParameterUrl", "name");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityParameterUrl", "protocol");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityParameterUrl", "type");
+            }
             return $;
         }
     }

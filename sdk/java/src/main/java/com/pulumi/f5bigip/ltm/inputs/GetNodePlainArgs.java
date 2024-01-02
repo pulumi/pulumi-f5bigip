@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.inputs.GetNodeFqdn;
 import java.lang.String;
 import java.util.Objects;
@@ -187,8 +188,12 @@ public final class GetNodePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetNodePlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.partition = Objects.requireNonNull($.partition, "expected parameter 'partition' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetNodePlainArgs", "name");
+            }
+            if ($.partition == null) {
+                throw new MissingRequiredPropertyException("GetNodePlainArgs", "partition");
+            }
             return $;
         }
     }

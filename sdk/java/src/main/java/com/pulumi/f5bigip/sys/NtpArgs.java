@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.sys;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NtpArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.servers = Objects.requireNonNull($.servers, "expected parameter 'servers' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("NtpArgs", "description");
+            }
+            if ($.servers == null) {
+                throw new MissingRequiredPropertyException("NtpArgs", "servers");
+            }
             return $;
         }
     }

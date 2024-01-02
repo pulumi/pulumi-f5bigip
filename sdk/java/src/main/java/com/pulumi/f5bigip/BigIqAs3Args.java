@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -485,10 +486,18 @@ public final class BigIqAs3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         public BigIqAs3Args build() {
-            $.as3Json = Objects.requireNonNull($.as3Json, "expected parameter 'as3Json' to be non-null");
-            $.bigiqAddress = Objects.requireNonNull($.bigiqAddress, "expected parameter 'bigiqAddress' to be non-null");
-            $.bigiqPassword = Objects.requireNonNull($.bigiqPassword, "expected parameter 'bigiqPassword' to be non-null");
-            $.bigiqUser = Objects.requireNonNull($.bigiqUser, "expected parameter 'bigiqUser' to be non-null");
+            if ($.as3Json == null) {
+                throw new MissingRequiredPropertyException("BigIqAs3Args", "as3Json");
+            }
+            if ($.bigiqAddress == null) {
+                throw new MissingRequiredPropertyException("BigIqAs3Args", "bigiqAddress");
+            }
+            if ($.bigiqPassword == null) {
+                throw new MissingRequiredPropertyException("BigIqAs3Args", "bigiqPassword");
+            }
+            if ($.bigiqUser == null) {
+                throw new MissingRequiredPropertyException("BigIqAs3Args", "bigiqUser");
+            }
             return $;
         }
     }

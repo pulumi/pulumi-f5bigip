@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.outputs.GetNodeFqdn;
 import java.lang.Integer;
 import java.lang.String;
@@ -196,72 +197,108 @@ public final class GetNodeResult {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder connectionLimit(Integer connectionLimit) {
-            this.connectionLimit = Objects.requireNonNull(connectionLimit);
+            if (connectionLimit == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "connectionLimit");
+            }
+            this.connectionLimit = connectionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicRatio(Integer dynamicRatio) {
-            this.dynamicRatio = Objects.requireNonNull(dynamicRatio);
+            if (dynamicRatio == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "dynamicRatio");
+            }
+            this.dynamicRatio = dynamicRatio;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(GetNodeFqdn fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder fullPath(@Nullable String fullPath) {
+
             this.fullPath = fullPath;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder monitor(String monitor) {
-            this.monitor = Objects.requireNonNull(monitor);
+            if (monitor == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "monitor");
+            }
+            this.monitor = monitor;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder partition(String partition) {
-            this.partition = Objects.requireNonNull(partition);
+            if (partition == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "partition");
+            }
+            this.partition = partition;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimit(String rateLimit) {
-            this.rateLimit = Objects.requireNonNull(rateLimit);
+            if (rateLimit == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "rateLimit");
+            }
+            this.rateLimit = rateLimit;
             return this;
         }
         @CustomType.Setter
         public Builder ratio(Integer ratio) {
-            this.ratio = Objects.requireNonNull(ratio);
+            if (ratio == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "ratio");
+            }
+            this.ratio = ratio;
             return this;
         }
         @CustomType.Setter
         public Builder session(String session) {
-            this.session = Objects.requireNonNull(session);
+            if (session == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "session");
+            }
+            this.session = session;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetNodeResult", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetNodeResult build() {

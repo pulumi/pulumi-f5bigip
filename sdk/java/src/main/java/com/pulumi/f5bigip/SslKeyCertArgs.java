@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -446,10 +447,18 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SslKeyCertArgs build() {
-            $.certContent = Objects.requireNonNull($.certContent, "expected parameter 'certContent' to be non-null");
-            $.certName = Objects.requireNonNull($.certName, "expected parameter 'certName' to be non-null");
-            $.keyContent = Objects.requireNonNull($.keyContent, "expected parameter 'keyContent' to be non-null");
-            $.keyName = Objects.requireNonNull($.keyName, "expected parameter 'keyName' to be non-null");
+            if ($.certContent == null) {
+                throw new MissingRequiredPropertyException("SslKeyCertArgs", "certContent");
+            }
+            if ($.certName == null) {
+                throw new MissingRequiredPropertyException("SslKeyCertArgs", "certName");
+            }
+            if ($.keyContent == null) {
+                throw new MissingRequiredPropertyException("SslKeyCertArgs", "keyContent");
+            }
+            if ($.keyName == null) {
+                throw new MissingRequiredPropertyException("SslKeyCertArgs", "keyName");
+            }
             return $;
         }
     }
