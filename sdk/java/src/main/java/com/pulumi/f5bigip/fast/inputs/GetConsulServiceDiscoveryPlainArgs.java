@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -350,8 +351,12 @@ public final class GetConsulServiceDiscoveryPlainArgs extends com.pulumi.resourc
         }
 
         public GetConsulServiceDiscoveryPlainArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryPlainArgs", "port");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryPlainArgs", "uri");
+            }
             return $;
         }
     }

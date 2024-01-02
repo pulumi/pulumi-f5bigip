@@ -116,31 +116,37 @@ public final class FastHttpAppMonitor {
 
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder monitorAuth(@Nullable Boolean monitorAuth) {
+
             this.monitorAuth = monitorAuth;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder response(@Nullable String response) {
+
             this.response = response;
             return this;
         }
         @CustomType.Setter
         public Builder sendString(@Nullable String sendString) {
+
             this.sendString = sendString;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class GetWafPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetWafPolicyArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("GetWafPolicyArgs", "policyId");
+            }
             return $;
         }
     }

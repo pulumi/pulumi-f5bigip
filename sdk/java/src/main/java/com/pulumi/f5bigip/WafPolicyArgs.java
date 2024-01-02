@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.inputs.WafPolicyFileTypeArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyGraphqlProfileArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyHostNameArgs;
@@ -1169,8 +1170,12 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WafPolicyArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.templateName = Objects.requireNonNull($.templateName, "expected parameter 'templateName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WafPolicyArgs", "name");
+            }
+            if ($.templateName == null) {
+                throw new MissingRequiredPropertyException("WafPolicyArgs", "templateName");
+            }
             return $;
         }
     }

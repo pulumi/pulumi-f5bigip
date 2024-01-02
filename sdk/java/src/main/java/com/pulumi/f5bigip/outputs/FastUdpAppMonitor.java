@@ -73,16 +73,19 @@ public final class FastUdpAppMonitor {
 
         @CustomType.Setter
         public Builder expectedResponse(@Nullable String expectedResponse) {
+
             this.expectedResponse = expectedResponse;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder sendString(@Nullable String sendString) {
+
             this.sendString = sendString;
             return this;
         }

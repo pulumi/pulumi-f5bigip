@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -129,36 +130,47 @@ public final class WafPolicyIpException {
 
         @CustomType.Setter
         public Builder blockRequests(@Nullable String blockRequests) {
+
             this.blockRequests = blockRequests;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreAnomalies(@Nullable Boolean ignoreAnomalies) {
+
             this.ignoreAnomalies = ignoreAnomalies;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreIpreputation(@Nullable Boolean ignoreIpreputation) {
+
             this.ignoreIpreputation = ignoreIpreputation;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("WafPolicyIpException", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder ipMask(String ipMask) {
-            this.ipMask = Objects.requireNonNull(ipMask);
+            if (ipMask == null) {
+              throw new MissingRequiredPropertyException("WafPolicyIpException", "ipMask");
+            }
+            this.ipMask = ipMask;
             return this;
         }
         @CustomType.Setter
         public Builder trustedbyPolicybuilder(@Nullable Boolean trustedbyPolicybuilder) {
+
             this.trustedbyPolicybuilder = trustedbyPolicybuilder;
             return this;
         }

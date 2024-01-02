@@ -59,11 +59,13 @@ public final class VlanInterface {
 
         @CustomType.Setter
         public Builder tagged(@Nullable Boolean tagged) {
+
             this.tagged = tagged;
             return this;
         }
         @CustomType.Setter
         public Builder vlanport(@Nullable String vlanport) {
+
             this.vlanport = vlanport;
             return this;
         }

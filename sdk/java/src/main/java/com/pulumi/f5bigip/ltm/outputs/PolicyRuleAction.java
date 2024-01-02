@@ -656,521 +656,625 @@ public final class PolicyRuleAction {
 
         @CustomType.Setter
         public Builder appService(@Nullable String appService) {
+
             this.appService = appService;
             return this;
         }
         @CustomType.Setter
         public Builder application(@Nullable String application) {
+
             this.application = application;
             return this;
         }
         @CustomType.Setter
         public Builder asm(@Nullable Boolean asm) {
+
             this.asm = asm;
             return this;
         }
         @CustomType.Setter
         public Builder avr(@Nullable Boolean avr) {
+
             this.avr = avr;
             return this;
         }
         @CustomType.Setter
         public Builder cache(@Nullable Boolean cache) {
+
             this.cache = cache;
             return this;
         }
         @CustomType.Setter
         public Builder carp(@Nullable Boolean carp) {
+
             this.carp = carp;
             return this;
         }
         @CustomType.Setter
         public Builder category(@Nullable String category) {
+
             this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder classify(@Nullable Boolean classify) {
+
             this.classify = classify;
             return this;
         }
         @CustomType.Setter
         public Builder clonePool(@Nullable String clonePool) {
+
             this.clonePool = clonePool;
             return this;
         }
         @CustomType.Setter
         public Builder code(@Nullable Integer code) {
+
             this.code = code;
             return this;
         }
         @CustomType.Setter
         public Builder compress(@Nullable Boolean compress) {
+
             this.compress = compress;
             return this;
         }
         @CustomType.Setter
         public Builder connection(@Nullable Boolean connection) {
+
             this.connection = connection;
             return this;
         }
         @CustomType.Setter
         public Builder content(@Nullable String content) {
+
             this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder cookieHash(@Nullable Boolean cookieHash) {
+
             this.cookieHash = cookieHash;
             return this;
         }
         @CustomType.Setter
         public Builder cookieInsert(@Nullable Boolean cookieInsert) {
+
             this.cookieInsert = cookieInsert;
             return this;
         }
         @CustomType.Setter
         public Builder cookiePassive(@Nullable Boolean cookiePassive) {
+
             this.cookiePassive = cookiePassive;
             return this;
         }
         @CustomType.Setter
         public Builder cookieRewrite(@Nullable Boolean cookieRewrite) {
+
             this.cookieRewrite = cookieRewrite;
             return this;
         }
         @CustomType.Setter
         public Builder decompress(@Nullable Boolean decompress) {
+
             this.decompress = decompress;
             return this;
         }
         @CustomType.Setter
         public Builder defer(@Nullable Boolean defer) {
+
             this.defer = defer;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddress(@Nullable Boolean destinationAddress) {
+
             this.destinationAddress = destinationAddress;
             return this;
         }
         @CustomType.Setter
         public Builder disable(@Nullable Boolean disable) {
+
             this.disable = disable;
             return this;
         }
         @CustomType.Setter
         public Builder domain(@Nullable String domain) {
+
             this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
+
             this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder expirySecs(@Nullable Integer expirySecs) {
+
             this.expirySecs = expirySecs;
             return this;
         }
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder extension(@Nullable String extension) {
+
             this.extension = extension;
             return this;
         }
         @CustomType.Setter
         public Builder facility(@Nullable String facility) {
+
             this.facility = facility;
             return this;
         }
         @CustomType.Setter
         public Builder forward(@Nullable Boolean forward) {
+
             this.forward = forward;
             return this;
         }
         @CustomType.Setter
         public Builder fromProfile(@Nullable String fromProfile) {
+
             this.fromProfile = fromProfile;
             return this;
         }
         @CustomType.Setter
         public Builder hash(@Nullable Boolean hash) {
+
             this.hash = hash;
             return this;
         }
         @CustomType.Setter
         public Builder host(@Nullable String host) {
+
             this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder http(@Nullable Boolean http) {
+
             this.http = http;
             return this;
         }
         @CustomType.Setter
         public Builder httpBasicAuth(@Nullable Boolean httpBasicAuth) {
+
             this.httpBasicAuth = httpBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder httpCookie(@Nullable Boolean httpCookie) {
+
             this.httpCookie = httpCookie;
             return this;
         }
         @CustomType.Setter
         public Builder httpHeader(@Nullable Boolean httpHeader) {
+
             this.httpHeader = httpHeader;
             return this;
         }
         @CustomType.Setter
         public Builder httpHost(@Nullable Boolean httpHost) {
+
             this.httpHost = httpHost;
             return this;
         }
         @CustomType.Setter
         public Builder httpReferer(@Nullable Boolean httpReferer) {
+
             this.httpReferer = httpReferer;
             return this;
         }
         @CustomType.Setter
         public Builder httpReply(@Nullable Boolean httpReply) {
+
             this.httpReply = httpReply;
             return this;
         }
         @CustomType.Setter
         public Builder httpSetCookie(@Nullable Boolean httpSetCookie) {
+
             this.httpSetCookie = httpSetCookie;
             return this;
         }
         @CustomType.Setter
         public Builder httpUri(@Nullable Boolean httpUri) {
+
             this.httpUri = httpUri;
             return this;
         }
         @CustomType.Setter
         public Builder ifile(@Nullable String ifile) {
+
             this.ifile = ifile;
             return this;
         }
         @CustomType.Setter
         public Builder insert(@Nullable Boolean insert) {
+
             this.insert = insert;
             return this;
         }
         @CustomType.Setter
         public Builder internalVirtual(@Nullable String internalVirtual) {
+
             this.internalVirtual = internalVirtual;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder l7dos(@Nullable Boolean l7dos) {
+
             this.l7dos = l7dos;
             return this;
         }
         @CustomType.Setter
         public Builder length(@Nullable Integer length) {
+
             this.length = length;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder log(@Nullable Boolean log) {
+
             this.log = log;
             return this;
         }
         @CustomType.Setter
         public Builder ltmPolicy(@Nullable Boolean ltmPolicy) {
+
             this.ltmPolicy = ltmPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder member(@Nullable String member) {
+
             this.member = member;
             return this;
         }
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder netmask(@Nullable String netmask) {
+
             this.netmask = netmask;
             return this;
         }
         @CustomType.Setter
         public Builder nexthop(@Nullable String nexthop) {
+
             this.nexthop = nexthop;
             return this;
         }
         @CustomType.Setter
         public Builder node(@Nullable String node) {
+
             this.node = node;
             return this;
         }
         @CustomType.Setter
         public Builder offset(@Nullable Integer offset) {
+
             this.offset = offset;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pem(@Nullable Boolean pem) {
+
             this.pem = pem;
             return this;
         }
         @CustomType.Setter
         public Builder persist(@Nullable Boolean persist) {
+
             this.persist = persist;
             return this;
         }
         @CustomType.Setter
         public Builder pin(@Nullable Boolean pin) {
+
             this.pin = pin;
             return this;
         }
         @CustomType.Setter
         public Builder policy(@Nullable String policy) {
+
             this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder pool(@Nullable String pool) {
+
             this.pool = pool;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable String priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder rateclass(@Nullable String rateclass) {
+
             this.rateclass = rateclass;
             return this;
         }
         @CustomType.Setter
         public Builder redirect(@Nullable Boolean redirect) {
+
             this.redirect = redirect;
             return this;
         }
         @CustomType.Setter
         public Builder remove(@Nullable Boolean remove) {
+
             this.remove = remove;
             return this;
         }
         @CustomType.Setter
         public Builder replace(@Nullable Boolean replace) {
+
             this.replace = replace;
             return this;
         }
         @CustomType.Setter
         public Builder request(@Nullable Boolean request) {
+
             this.request = request;
             return this;
         }
         @CustomType.Setter
         public Builder requestAdapt(@Nullable Boolean requestAdapt) {
+
             this.requestAdapt = requestAdapt;
             return this;
         }
         @CustomType.Setter
         public Builder reset(@Nullable Boolean reset) {
+
             this.reset = reset;
             return this;
         }
         @CustomType.Setter
         public Builder response(@Nullable Boolean response) {
+
             this.response = response;
             return this;
         }
         @CustomType.Setter
         public Builder responseAdapt(@Nullable Boolean responseAdapt) {
+
             this.responseAdapt = responseAdapt;
             return this;
         }
         @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
+
             this.scheme = scheme;
             return this;
         }
         @CustomType.Setter
         public Builder script(@Nullable String script) {
+
             this.script = script;
             return this;
         }
         @CustomType.Setter
         public Builder select(@Nullable Boolean select) {
+
             this.select = select;
             return this;
         }
         @CustomType.Setter
         public Builder serverSsl(@Nullable Boolean serverSsl) {
+
             this.serverSsl = serverSsl;
             return this;
         }
         @CustomType.Setter
         public Builder setVariable(@Nullable Boolean setVariable) {
+
             this.setVariable = setVariable;
             return this;
         }
         @CustomType.Setter
         public Builder shutdown(@Nullable Boolean shutdown) {
+
             this.shutdown = shutdown;
             return this;
         }
         @CustomType.Setter
         public Builder snat(@Nullable String snat) {
+
             this.snat = snat;
             return this;
         }
         @CustomType.Setter
         public Builder snatpool(@Nullable String snatpool) {
+
             this.snatpool = snatpool;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddress(@Nullable Boolean sourceAddress) {
+
             this.sourceAddress = sourceAddress;
             return this;
         }
         @CustomType.Setter
         public Builder sslClientHello(@Nullable Boolean sslClientHello) {
+
             this.sslClientHello = sslClientHello;
             return this;
         }
         @CustomType.Setter
         public Builder sslServerHandshake(@Nullable Boolean sslServerHandshake) {
+
             this.sslServerHandshake = sslServerHandshake;
             return this;
         }
         @CustomType.Setter
         public Builder sslServerHello(@Nullable Boolean sslServerHello) {
+
             this.sslServerHello = sslServerHello;
             return this;
         }
         @CustomType.Setter
         public Builder sslSessionId(@Nullable Boolean sslSessionId) {
+
             this.sslSessionId = sslSessionId;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable Integer status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tcl(@Nullable Boolean tcl) {
+
             this.tcl = tcl;
             return this;
         }
         @CustomType.Setter
         public Builder tcpNagle(@Nullable Boolean tcpNagle) {
+
             this.tcpNagle = tcpNagle;
             return this;
         }
         @CustomType.Setter
         public Builder text(@Nullable String text) {
+
             this.text = text;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder tmName(@Nullable String tmName) {
+
             this.tmName = tmName;
             return this;
         }
         @CustomType.Setter
         public Builder uie(@Nullable Boolean uie) {
+
             this.uie = uie;
             return this;
         }
         @CustomType.Setter
         public Builder universal(@Nullable Boolean universal) {
+
             this.universal = universal;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder virtual(@Nullable String virtual) {
+
             this.virtual = virtual;
             return this;
         }
         @CustomType.Setter
         public Builder vlan(@Nullable String vlan) {
+
             this.vlan = vlan;
             return this;
         }
         @CustomType.Setter
         public Builder vlanId(@Nullable Integer vlanId) {
+
             this.vlanId = vlanId;
             return this;
         }
         @CustomType.Setter
         public Builder wam(@Nullable Boolean wam) {
+
             this.wam = wam;
             return this;
         }
         @CustomType.Setter
         public Builder write(@Nullable Boolean write) {
+
             this.write = write;
             return this;
         }

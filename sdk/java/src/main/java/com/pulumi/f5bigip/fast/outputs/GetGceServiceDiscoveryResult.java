@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -132,71 +133,95 @@ public final class GetGceServiceDiscoveryResult {
 
         @CustomType.Setter
         public Builder addressRealm(@Nullable String addressRealm) {
+
             this.addressRealm = addressRealm;
             return this;
         }
         @CustomType.Setter
         public Builder credentialUpdate(@Nullable Boolean credentialUpdate) {
+
             this.credentialUpdate = credentialUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder encodedCredentials(@Nullable String encodedCredentials) {
+
             this.encodedCredentials = encodedCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder gceSdJson(String gceSdJson) {
-            this.gceSdJson = Objects.requireNonNull(gceSdJson);
+            if (gceSdJson == null) {
+              throw new MissingRequiredPropertyException("GetGceServiceDiscoveryResult", "gceSdJson");
+            }
+            this.gceSdJson = gceSdJson;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGceServiceDiscoveryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumMonitors(@Nullable String minimumMonitors) {
+
             this.minimumMonitors = minimumMonitors;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(@Nullable String projectId) {
+
             this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetGceServiceDiscoveryResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(String tagKey) {
-            this.tagKey = Objects.requireNonNull(tagKey);
+            if (tagKey == null) {
+              throw new MissingRequiredPropertyException("GetGceServiceDiscoveryResult", "tagKey");
+            }
+            this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(String tagValue) {
-            this.tagValue = Objects.requireNonNull(tagValue);
+            if (tagValue == null) {
+              throw new MissingRequiredPropertyException("GetGceServiceDiscoveryResult", "tagValue");
+            }
+            this.tagValue = tagValue;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder undetectableAction(@Nullable String undetectableAction) {
+
             this.undetectableAction = undetectableAction;
             return this;
         }
         @CustomType.Setter
         public Builder updateInterval(@Nullable String updateInterval) {
+
             this.updateInterval = updateInterval;
             return this;
         }

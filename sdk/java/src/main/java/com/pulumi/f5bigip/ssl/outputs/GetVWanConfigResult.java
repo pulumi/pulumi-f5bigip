@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -131,32 +132,50 @@ public final class GetVWanConfigResult {
 
         @CustomType.Setter
         public Builder azureVwanName(String azureVwanName) {
-            this.azureVwanName = Objects.requireNonNull(azureVwanName);
+            if (azureVwanName == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "azureVwanName");
+            }
+            this.azureVwanName = azureVwanName;
             return this;
         }
         @CustomType.Setter
         public Builder azureVwanResourcegroup(String azureVwanResourcegroup) {
-            this.azureVwanResourcegroup = Objects.requireNonNull(azureVwanResourcegroup);
+            if (azureVwanResourcegroup == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "azureVwanResourcegroup");
+            }
+            this.azureVwanResourcegroup = azureVwanResourcegroup;
             return this;
         }
         @CustomType.Setter
         public Builder azureVwanVpnsite(String azureVwanVpnsite) {
-            this.azureVwanVpnsite = Objects.requireNonNull(azureVwanVpnsite);
+            if (azureVwanVpnsite == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "azureVwanVpnsite");
+            }
+            this.azureVwanVpnsite = azureVwanVpnsite;
             return this;
         }
         @CustomType.Setter
         public Builder bigipGwIp(String bigipGwIp) {
-            this.bigipGwIp = Objects.requireNonNull(bigipGwIp);
+            if (bigipGwIp == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "bigipGwIp");
+            }
+            this.bigipGwIp = bigipGwIp;
             return this;
         }
         @CustomType.Setter
         public Builder hubAddressSpace(String hubAddressSpace) {
-            this.hubAddressSpace = Objects.requireNonNull(hubAddressSpace);
+            if (hubAddressSpace == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "hubAddressSpace");
+            }
+            this.hubAddressSpace = hubAddressSpace;
             return this;
         }
         @CustomType.Setter
         public Builder hubConnectedSubnets(List<String> hubConnectedSubnets) {
-            this.hubConnectedSubnets = Objects.requireNonNull(hubConnectedSubnets);
+            if (hubConnectedSubnets == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "hubConnectedSubnets");
+            }
+            this.hubConnectedSubnets = hubConnectedSubnets;
             return this;
         }
         public Builder hubConnectedSubnets(String... hubConnectedSubnets) {
@@ -164,17 +183,26 @@ public final class GetVWanConfigResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder presharedKey(String presharedKey) {
-            this.presharedKey = Objects.requireNonNull(presharedKey);
+            if (presharedKey == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "presharedKey");
+            }
+            this.presharedKey = presharedKey;
             return this;
         }
         @CustomType.Setter
         public Builder vwanGwAddresses(List<String> vwanGwAddresses) {
-            this.vwanGwAddresses = Objects.requireNonNull(vwanGwAddresses);
+            if (vwanGwAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVWanConfigResult", "vwanGwAddresses");
+            }
+            this.vwanGwAddresses = vwanGwAddresses;
             return this;
         }
         public Builder vwanGwAddresses(String... vwanGwAddresses) {

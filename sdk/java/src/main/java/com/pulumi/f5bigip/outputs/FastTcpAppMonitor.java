@@ -44,6 +44,7 @@ public final class FastTcpAppMonitor {
 
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }

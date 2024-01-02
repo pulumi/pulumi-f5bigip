@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -103,7 +104,10 @@ public final class FastTcpAppPoolMember {
 
         @CustomType.Setter
         public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+            if (addresses == null) {
+              throw new MissingRequiredPropertyException("FastTcpAppPoolMember", "addresses");
+            }
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
@@ -111,21 +115,25 @@ public final class FastTcpAppPoolMember {
         }
         @CustomType.Setter
         public Builder connectionLimit(@Nullable Integer connectionLimit) {
+
             this.connectionLimit = connectionLimit;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder priorityGroup(@Nullable Integer priorityGroup) {
+
             this.priorityGroup = priorityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder shareNodes(@Nullable Boolean shareNodes) {
+
             this.shareNodes = shareNodes;
             return this;
         }

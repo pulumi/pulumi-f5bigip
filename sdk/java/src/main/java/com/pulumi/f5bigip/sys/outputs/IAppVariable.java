@@ -56,16 +56,19 @@ public final class IAppVariable {
 
         @CustomType.Setter
         public Builder encrypted(@Nullable String encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

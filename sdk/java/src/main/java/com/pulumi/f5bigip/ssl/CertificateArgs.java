@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ssl;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,8 +299,12 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "content");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "name");
+            }
             return $;
         }
     }

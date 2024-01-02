@@ -87,21 +87,25 @@ public final class ProfileHttpHttpStrictTransportSecurity {
 
         @CustomType.Setter
         public Builder includeSubdomains(@Nullable String includeSubdomains) {
+
             this.includeSubdomains = includeSubdomains;
             return this;
         }
         @CustomType.Setter
         public Builder maximumAge(@Nullable Integer maximumAge) {
+
             this.maximumAge = maximumAge;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder preload(@Nullable String preload) {
+
             this.preload = preload;
             return this;
         }

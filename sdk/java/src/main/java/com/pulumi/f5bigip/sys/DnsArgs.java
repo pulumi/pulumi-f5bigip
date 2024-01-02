@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.sys;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -209,8 +210,12 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DnsArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.nameServers = Objects.requireNonNull($.nameServers, "expected parameter 'nameServers' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("DnsArgs", "description");
+            }
+            if ($.nameServers == null) {
+                throw new MissingRequiredPropertyException("DnsArgs", "nameServers");
+            }
             return $;
         }
     }

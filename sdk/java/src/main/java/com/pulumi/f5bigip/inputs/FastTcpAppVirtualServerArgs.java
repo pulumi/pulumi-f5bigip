@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class FastTcpAppVirtualServerArgs extends com.pulumi.resources.Reso
         }
 
         public FastTcpAppVirtualServerArgs build() {
-            $.ip = Objects.requireNonNull($.ip, "expected parameter 'ip' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.ip == null) {
+                throw new MissingRequiredPropertyException("FastTcpAppVirtualServerArgs", "ip");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("FastTcpAppVirtualServerArgs", "port");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class GetNodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GetNodeFqdnArgs build() {
-            $.autopopulate = Objects.requireNonNull($.autopopulate, "expected parameter 'autopopulate' to be non-null");
-            $.downinterval = Objects.requireNonNull($.downinterval, "expected parameter 'downinterval' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
+            if ($.autopopulate == null) {
+                throw new MissingRequiredPropertyException("GetNodeFqdnArgs", "autopopulate");
+            }
+            if ($.downinterval == null) {
+                throw new MissingRequiredPropertyException("GetNodeFqdnArgs", "downinterval");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("GetNodeFqdnArgs", "interval");
+            }
             return $;
         }
     }

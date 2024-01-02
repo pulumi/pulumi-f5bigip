@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -435,8 +436,12 @@ public final class PersistenceProfileDstAddrArgs extends com.pulumi.resources.Re
         }
 
         public PersistenceProfileDstAddrArgs build() {
-            $.defaultsFrom = Objects.requireNonNull($.defaultsFrom, "expected parameter 'defaultsFrom' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.defaultsFrom == null) {
+                throw new MissingRequiredPropertyException("PersistenceProfileDstAddrArgs", "defaultsFrom");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PersistenceProfileDstAddrArgs", "name");
+            }
             return $;
         }
     }

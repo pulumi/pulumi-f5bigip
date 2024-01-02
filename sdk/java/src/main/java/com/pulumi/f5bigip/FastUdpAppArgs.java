@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.inputs.FastUdpAppMonitorArgs;
 import com.pulumi.f5bigip.inputs.FastUdpAppPoolMemberArgs;
 import com.pulumi.f5bigip.inputs.FastUdpAppVirtualServerArgs;
@@ -858,8 +859,12 @@ public final class FastUdpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FastUdpAppArgs build() {
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
-            $.tenant = Objects.requireNonNull($.tenant, "expected parameter 'tenant' to be non-null");
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("FastUdpAppArgs", "application");
+            }
+            if ($.tenant == null) {
+                throw new MissingRequiredPropertyException("FastUdpAppArgs", "tenant");
+            }
             return $;
         }
     }

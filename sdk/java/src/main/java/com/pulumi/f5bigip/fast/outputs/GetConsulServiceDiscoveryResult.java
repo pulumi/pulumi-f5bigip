@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -132,72 +133,94 @@ public final class GetConsulServiceDiscoveryResult {
 
         @CustomType.Setter
         public Builder addressRealm(@Nullable String addressRealm) {
+
             this.addressRealm = addressRealm;
             return this;
         }
         @CustomType.Setter
         public Builder consulSdJson(String consulSdJson) {
-            this.consulSdJson = Objects.requireNonNull(consulSdJson);
+            if (consulSdJson == null) {
+              throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryResult", "consulSdJson");
+            }
+            this.consulSdJson = consulSdJson;
             return this;
         }
         @CustomType.Setter
         public Builder credentialUpdate(@Nullable Boolean credentialUpdate) {
+
             this.credentialUpdate = credentialUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder encodedToken(@Nullable String encodedToken) {
+
             this.encodedToken = encodedToken;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder jmesPathQuery(@Nullable String jmesPathQuery) {
+
             this.jmesPathQuery = jmesPathQuery;
             return this;
         }
         @CustomType.Setter
         public Builder minimumMonitors(@Nullable String minimumMonitors) {
+
             this.minimumMonitors = minimumMonitors;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder rejectUnauthorized(@Nullable Boolean rejectUnauthorized) {
+
             this.rejectUnauthorized = rejectUnauthorized;
             return this;
         }
         @CustomType.Setter
         public Builder trustCa(@Nullable String trustCa) {
+
             this.trustCa = trustCa;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder undetectableAction(@Nullable String undetectableAction) {
+
             this.undetectableAction = undetectableAction;
             return this;
         }
         @CustomType.Setter
         public Builder updateInterval(@Nullable String updateInterval) {
+
             this.updateInterval = updateInterval;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("GetConsulServiceDiscoveryResult", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public GetConsulServiceDiscoveryResult build() {

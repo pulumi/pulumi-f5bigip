@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.fast.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,66 +127,87 @@ public final class GetAzureServiceDiscoveryResult {
 
         @CustomType.Setter
         public Builder addressRealm(@Nullable String addressRealm) {
+
             this.addressRealm = addressRealm;
             return this;
         }
         @CustomType.Setter
         public Builder azureSdJson(String azureSdJson) {
-            this.azureSdJson = Objects.requireNonNull(azureSdJson);
+            if (azureSdJson == null) {
+              throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryResult", "azureSdJson");
+            }
+            this.azureSdJson = azureSdJson;
             return this;
         }
         @CustomType.Setter
         public Builder credentialUpdate(@Nullable Boolean credentialUpdate) {
+
             this.credentialUpdate = credentialUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumMonitors(@Nullable String minimumMonitors) {
+
             this.minimumMonitors = minimumMonitors;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroup(String resourceGroup) {
-            this.resourceGroup = Objects.requireNonNull(resourceGroup);
+            if (resourceGroup == null) {
+              throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryResult", "resourceGroup");
+            }
+            this.resourceGroup = resourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = Objects.requireNonNull(subscriptionId);
+            if (subscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetAzureServiceDiscoveryResult", "subscriptionId");
+            }
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder tagKey(@Nullable String tagKey) {
+
             this.tagKey = tagKey;
             return this;
         }
         @CustomType.Setter
         public Builder tagValue(@Nullable String tagValue) {
+
             this.tagValue = tagValue;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder undetectableAction(@Nullable String undetectableAction) {
+
             this.undetectableAction = undetectableAction;
             return this;
         }
         @CustomType.Setter
         public Builder updateInterval(@Nullable String updateInterval) {
+
             this.updateInterval = updateInterval;
             return this;
         }

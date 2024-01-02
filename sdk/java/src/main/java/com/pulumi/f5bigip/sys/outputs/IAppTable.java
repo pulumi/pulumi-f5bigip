@@ -64,6 +64,7 @@ public final class IAppTable {
 
         @CustomType.Setter
         public Builder columnNames(@Nullable List<String> columnNames) {
+
             this.columnNames = columnNames;
             return this;
         }
@@ -72,16 +73,19 @@ public final class IAppTable {
         }
         @CustomType.Setter
         public Builder encryptedColumns(@Nullable String encryptedColumns) {
+
             this.encryptedColumns = encryptedColumns;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder rows(@Nullable List<IAppTableRow> rows) {
+
             this.rows = rows;
             return this;
         }

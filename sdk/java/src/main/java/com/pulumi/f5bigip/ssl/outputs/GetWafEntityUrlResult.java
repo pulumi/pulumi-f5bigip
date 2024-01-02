@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ssl.outputs.GetWafEntityUrlMethodOverride;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -110,26 +111,35 @@ public final class GetWafEntityUrlResult {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityUrlResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder json(String json) {
-            this.json = Objects.requireNonNull(json);
+            if (json == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityUrlResult", "json");
+            }
+            this.json = json;
             return this;
         }
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder methodOverrides(@Nullable List<GetWafEntityUrlMethodOverride> methodOverrides) {
+
             this.methodOverrides = methodOverrides;
             return this;
         }
@@ -138,21 +148,27 @@ public final class GetWafEntityUrlResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWafEntityUrlResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder performStaging(@Nullable Boolean performStaging) {
+
             this.performStaging = performStaging;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder signatureOverridesDisables(@Nullable List<Integer> signatureOverridesDisables) {
+
             this.signatureOverridesDisables = signatureOverridesDisables;
             return this;
         }
@@ -161,6 +177,7 @@ public final class GetWafEntityUrlResult {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

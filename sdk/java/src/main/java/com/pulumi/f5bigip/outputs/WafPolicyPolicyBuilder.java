@@ -44,6 +44,7 @@ public final class WafPolicyPolicyBuilder {
 
         @CustomType.Setter
         public Builder learningMode(@Nullable String learningMode) {
+
             this.learningMode = learningMode;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -147,9 +148,15 @@ public final class GetWafPbSuggestionsPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetWafPbSuggestionsPlainArgs build() {
-            $.minimumLearningScore = Objects.requireNonNull($.minimumLearningScore, "expected parameter 'minimumLearningScore' to be non-null");
-            $.partition = Objects.requireNonNull($.partition, "expected parameter 'partition' to be non-null");
-            $.policyName = Objects.requireNonNull($.policyName, "expected parameter 'policyName' to be non-null");
+            if ($.minimumLearningScore == null) {
+                throw new MissingRequiredPropertyException("GetWafPbSuggestionsPlainArgs", "minimumLearningScore");
+            }
+            if ($.partition == null) {
+                throw new MissingRequiredPropertyException("GetWafPbSuggestionsPlainArgs", "partition");
+            }
+            if ($.policyName == null) {
+                throw new MissingRequiredPropertyException("GetWafPbSuggestionsPlainArgs", "policyName");
+            }
             return $;
         }
     }

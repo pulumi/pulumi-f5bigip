@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.inputs.FastTcpAppMonitorArgs;
 import com.pulumi.f5bigip.inputs.FastTcpAppPoolMemberArgs;
 import com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs;
@@ -595,8 +596,12 @@ public final class FastTcpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FastTcpAppArgs build() {
-            $.application = Objects.requireNonNull($.application, "expected parameter 'application' to be non-null");
-            $.tenant = Objects.requireNonNull($.tenant, "expected parameter 'tenant' to be non-null");
+            if ($.application == null) {
+                throw new MissingRequiredPropertyException("FastTcpAppArgs", "application");
+            }
+            if ($.tenant == null) {
+                throw new MissingRequiredPropertyException("FastTcpAppArgs", "tenant");
+            }
             return $;
         }
     }

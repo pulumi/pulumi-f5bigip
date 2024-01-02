@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ssl.inputs.GetWafEntityParameterUrl;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -345,7 +346,9 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
         }
 
         public GetWafEntityParameterPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetWafEntityParameterPlainArgs", "name");
+            }
             return $;
         }
     }

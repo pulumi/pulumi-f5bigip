@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.f5bigip.ltm.outputs.GetPolicyRule;
 import java.lang.String;
 import java.util.List;
@@ -122,6 +123,7 @@ public final class GetPolicyResult {
 
         @CustomType.Setter
         public Builder controls(@Nullable List<String> controls) {
+
             this.controls = controls;
             return this;
         }
@@ -130,21 +132,29 @@ public final class GetPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publishedCopy(@Nullable String publishedCopy) {
+
             this.publishedCopy = publishedCopy;
             return this;
         }
         @CustomType.Setter
         public Builder requires(@Nullable List<String> requires) {
+
             this.requires = requires;
             return this;
         }
@@ -153,6 +163,7 @@ public final class GetPolicyResult {
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<GetPolicyRule> rules) {
+
             this.rules = rules;
             return this;
         }
@@ -161,6 +172,7 @@ public final class GetPolicyResult {
         }
         @CustomType.Setter
         public Builder strategy(@Nullable String strategy) {
+
             this.strategy = strategy;
             return this;
         }

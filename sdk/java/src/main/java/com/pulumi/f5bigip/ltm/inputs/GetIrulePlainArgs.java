@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetIrulePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetIrulePlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.partition = Objects.requireNonNull($.partition, "expected parameter 'partition' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetIrulePlainArgs", "name");
+            }
+            if ($.partition == null) {
+                throw new MissingRequiredPropertyException("GetIrulePlainArgs", "partition");
+            }
             return $;
         }
     }
