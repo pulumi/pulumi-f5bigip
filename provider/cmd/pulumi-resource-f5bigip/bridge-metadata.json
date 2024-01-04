@@ -1196,9 +1196,12 @@
                 "templateName": "template_name"
             },
             "f5bigip:index:Provider": {
+                "apiRetries": "api_retries",
+                "apiTimeout": "api_timeout",
                 "loginRef": "login_ref",
                 "teemDisable": "teem_disable",
                 "tokenAuth": "token_auth",
+                "tokenTimeout": "token_timeout",
                 "tokenValue": "token_value",
                 "trustedCertPath": "trusted_cert_path",
                 "validateCertsDisable": "validate_certs_disable"
@@ -1914,9 +1917,12 @@
             }
         },
         "renamedConfigProperties": {
+            "apiRetries": "api_retries",
+            "apiTimeout": "api_timeout",
             "loginRef": "login_ref",
             "teemDisable": "teem_disable",
             "tokenAuth": "token_auth",
+            "tokenTimeout": "token_timeout",
             "tokenValue": "token_value",
             "trustedCertPath": "trusted_cert_path",
             "validateCertsDisable": "validate_certs_disable"

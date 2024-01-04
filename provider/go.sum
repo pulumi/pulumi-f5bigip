@@ -699,8 +699,8 @@ github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
-github.com/F5Networks/terraform-provider-bigip v1.20.1 h1:AAdw9fCxzYxOXZeAOnxUFLY4jtz8DhHCnZwQ2NScuPM=
-github.com/F5Networks/terraform-provider-bigip v1.20.1/go.mod h1:hJ7BmFrKIt67l88vfPpe4ETgXITrULwvqvANU9Z3Jmw=
+github.com/F5Networks/terraform-provider-bigip v1.20.2 h1:LExSO7rbqsM2F+eBHT9jL/6ra1vawFDuenaWWFcTgwQ=
+github.com/F5Networks/terraform-provider-bigip v1.20.2/go.mod h1:bSSopz3FXTgj1T+xRlPGnpsbrWVArzgtuseD+oq2fp0=
 github.com/GoogleCloudPlatform/cloudsql-proxy v1.31.2/go.mod h1:qR6jVnZTKDCW3j+fC9mOEPHm++1nKDMkqbbkD6KNsfo=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2 h1:5IcZpTvzydCQeHzK4Ef/D5rrSqwxob0t8PQPMybUNFM=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2/go.mod h1:yDgFjdqOqDEKOvasDdhWNXYg9BVp4O+o5f6V/ehm6Oo=
@@ -1191,10 +1191,10 @@ github.com/evanphx/json-patch v4.9.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLi
 github.com/evanphx/json-patch v4.11.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/evanphx/json-patch v4.12.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/evanphx/json-patch/v5 v5.5.0/go.mod h1:G79N1coSVB93tBe7j6PhzjmR3/2VvlbKOFpnXhI9Bw4=
-github.com/f5devcentral/go-bigip v0.0.0-20231120063103-95f22f4d262c h1:D0BniMWVM/IOkhNZk17d6ukX2CVnbAhr2MavEDrDQj4=
-github.com/f5devcentral/go-bigip v0.0.0-20231120063103-95f22f4d262c/go.mod h1:0Lkr0fBU6O1yBxF2mt9JFwXpaFbIb/wAY7oM3dMJDdA=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20231120063103-95f22f4d262c h1:FEs8wSVxdTTZHPwR/GuESA5GXZJi/NulZuOjbiOHD1M=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20231120063103-95f22f4d262c/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
+github.com/f5devcentral/go-bigip v0.0.0-20240102182502-074c3e5c7aee h1:RVNlRNmKTdRVEacKkgXM+LVM0HZEDY07wneeUXXZTeo=
+github.com/f5devcentral/go-bigip v0.0.0-20240102182502-074c3e5c7aee/go.mod h1:0Lkr0fBU6O1yBxF2mt9JFwXpaFbIb/wAY7oM3dMJDdA=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20240102182502-074c3e5c7aee h1:fmGl57vb62P4gkOASOURc7IoAxfoaRmPpLXed4uBDoo=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20240102182502-074c3e5c7aee/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
 github.com/fatih/color v1.10.0/go.mod h1:ELkj/draVOlAH/xkhN6mQ50Qd0MPOk5AAr3maGEBuJM=
