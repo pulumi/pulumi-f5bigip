@@ -121,7 +121,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      */
-    public readonly cipherGroup!: pulumi.Output<string | undefined>;
+    public readonly cipherGroup!: pulumi.Output<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */

@@ -50,6 +50,21 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     * 
+     */
+    @Import(name="mtu")
+    private @Nullable Output<Integer> mtu;
+
+    /**
+     * @return Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     * 
+     */
+    public Optional<Output<Integer>> mtu() {
+        return Optional.ofNullable(this.mtu);
+    }
+
+    /**
      * Name of the vlan
      * 
      */
@@ -84,6 +99,7 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
     private VlanArgs(VlanArgs $) {
         this.cmpHash = $.cmpHash;
         this.interfaces = $.interfaces;
+        this.mtu = $.mtu;
         this.name = $.name;
         this.tag = $.tag;
     }
@@ -156,6 +172,27 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder interfaces(VlanInterfaceArgs... interfaces) {
             return interfaces(List.of(interfaces));
+        }
+
+        /**
+         * @param mtu Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mtu(@Nullable Output<Integer> mtu) {
+            $.mtu = mtu;
+            return this;
+        }
+
+        /**
+         * @param mtu Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mtu(Integer mtu) {
+            return mtu(Output.of(mtu));
         }
 
         /**

@@ -5,6 +5,7 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 
@@ -17,6 +18,20 @@ public final class Config {
  */
     public Optional<String> address() {
         return Codegen.stringProp("address").config(config).get();
+    }
+/**
+ * Amount of times to retry AS3 API requests. Default: 10.
+ * 
+ */
+    public Optional<Integer> apiRetries() {
+        return Codegen.integerProp("apiRetries").config(config).get();
+    }
+/**
+ * A timeout for AS3 requests, represented as a number of seconds. Default: 60
+ * 
+ */
+    public Optional<Integer> apiTimeout() {
+        return Codegen.integerProp("apiTimeout").config(config).get();
     }
 /**
  * Login reference for token authentication (see BIG-IP REST docs for details)
@@ -52,6 +67,13 @@ public final class Config {
  */
     public Optional<Boolean> tokenAuth() {
         return Codegen.booleanProp("tokenAuth").config(config).get();
+    }
+/**
+ * A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+ * 
+ */
+    public Optional<Integer> tokenTimeout() {
+        return Codegen.integerProp("tokenTimeout").config(config).get();
     }
 /**
  * A token generated outside the provider, in place of password

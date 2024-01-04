@@ -57,6 +57,12 @@ namespace Pulumi.F5BigIP.Net
         public Output<ImmutableArray<Outputs.VlanInterface>> Interfaces { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        /// </summary>
+        [Output("mtu")]
+        public Output<int?> Mtu { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the vlan
         /// </summary>
         [Output("name")]
@@ -133,6 +139,12 @@ namespace Pulumi.F5BigIP.Net
         }
 
         /// <summary>
+        /// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        /// </summary>
+        [Input("mtu")]
+        public Input<int>? Mtu { get; set; }
+
+        /// <summary>
         /// Name of the vlan
         /// </summary>
         [Input("name", required: true)]
@@ -169,6 +181,12 @@ namespace Pulumi.F5BigIP.Net
             get => _interfaces ?? (_interfaces = new InputList<Inputs.VlanInterfaceGetArgs>());
             set => _interfaces = value;
         }
+
+        /// <summary>
+        /// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        /// </summary>
+        [Input("mtu")]
+        public Input<int>? Mtu { get; set; }
 
         /// <summary>
         /// Name of the vlan

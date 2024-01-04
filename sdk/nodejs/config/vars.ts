@@ -19,6 +19,28 @@ Object.defineProperty(exports, "address", {
 });
 
 /**
+ * Amount of times to retry AS3 API requests. Default: 10.
+ */
+export declare const apiRetries: number | undefined;
+Object.defineProperty(exports, "apiRetries", {
+    get() {
+        return __config.getObject<number>("apiRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * A timeout for AS3 requests, represented as a number of seconds. Default: 60
+ */
+export declare const apiTimeout: number | undefined;
+Object.defineProperty(exports, "apiTimeout", {
+    get() {
+        return __config.getObject<number>("apiTimeout");
+    },
+    enumerable: true,
+});
+
+/**
  * Login reference for token authentication (see BIG-IP REST docs for details)
  */
 export declare const loginRef: string | undefined;
@@ -69,6 +91,17 @@ export declare const tokenAuth: boolean | undefined;
 Object.defineProperty(exports, "tokenAuth", {
     get() {
         return __config.getObject<boolean>("tokenAuth");
+    },
+    enumerable: true,
+});
+
+/**
+ * A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+ */
+export declare const tokenTimeout: number | undefined;
+Object.defineProperty(exports, "tokenTimeout", {
+    get() {
+        return __config.getObject<number>("tokenTimeout");
     },
     enumerable: true,
 });

@@ -55,6 +55,8 @@ type Vlan struct {
 	CmpHash pulumi.StringOutput `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayOutput `pulumi:"interfaces"`
+	// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// Name of the vlan
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -98,6 +100,8 @@ type vlanState struct {
 	CmpHash *string `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces []VlanInterface `pulumi:"interfaces"`
+	// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+	Mtu *int `pulumi:"mtu"`
 	// Name of the vlan
 	Name *string `pulumi:"name"`
 	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -109,6 +113,8 @@ type VlanState struct {
 	CmpHash pulumi.StringPtrInput
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayInput
+	// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+	Mtu pulumi.IntPtrInput
 	// Name of the vlan
 	Name pulumi.StringPtrInput
 	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -124,6 +130,8 @@ type vlanArgs struct {
 	CmpHash *string `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces []VlanInterface `pulumi:"interfaces"`
+	// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+	Mtu *int `pulumi:"mtu"`
 	// Name of the vlan
 	Name string `pulumi:"name"`
 	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -136,6 +144,8 @@ type VlanArgs struct {
 	CmpHash pulumi.StringPtrInput
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayInput
+	// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+	Mtu pulumi.IntPtrInput
 	// Name of the vlan
 	Name pulumi.StringInput
 	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -237,6 +247,11 @@ func (o VlanOutput) CmpHash() pulumi.StringOutput {
 // Specifies which interfaces you want this VLAN to use for traffic management.
 func (o VlanOutput) Interfaces() VlanInterfaceArrayOutput {
 	return o.ApplyT(func(v *Vlan) VlanInterfaceArrayOutput { return v.Interfaces }).(VlanInterfaceArrayOutput)
+}
+
+// Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+func (o VlanOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
 // Name of the vlan

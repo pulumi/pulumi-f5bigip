@@ -23,6 +23,20 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('address')
 
     @property
+    def api_retries(self) -> Optional[int]:
+        """
+        Amount of times to retry AS3 API requests. Default: 10.
+        """
+        return __config__.get_int('apiRetries')
+
+    @property
+    def api_timeout(self) -> Optional[int]:
+        """
+        A timeout for AS3 requests, represented as a number of seconds. Default: 60
+        """
+        return __config__.get_int('apiTimeout')
+
+    @property
     def login_ref(self) -> Optional[str]:
         """
         Login reference for token authentication (see BIG-IP REST docs for details)
@@ -56,6 +70,13 @@ class _ExportableConfig(types.ModuleType):
         Enable to use an external authentication source (LDAP, TACACS, etc)
         """
         return __config__.get_bool('tokenAuth')
+
+    @property
+    def token_timeout(self) -> Optional[int]:
+        """
+        A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+        """
+        return __config__.get_int('tokenTimeout')
 
     @property
     def token_value(self) -> Optional[str]:

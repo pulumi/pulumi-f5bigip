@@ -16,6 +16,16 @@ func GetAddress(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:address")
 }
 
+// Amount of times to retry AS3 API requests. Default: 10.
+func GetApiRetries(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "f5bigip:apiRetries")
+}
+
+// A timeout for AS3 requests, represented as a number of seconds. Default: 60
+func GetApiTimeout(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "f5bigip:apiTimeout")
+}
+
 // Login reference for token authentication (see BIG-IP REST docs for details)
 func GetLoginRef(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:loginRef")
@@ -39,6 +49,11 @@ func GetTeemDisable(ctx *pulumi.Context) bool {
 // Enable to use an external authentication source (LDAP, TACACS, etc)
 func GetTokenAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:tokenAuth")
+}
+
+// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+func GetTokenTimeout(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "f5bigip:tokenTimeout")
 }
 
 // A token generated outside the provider, in place of password

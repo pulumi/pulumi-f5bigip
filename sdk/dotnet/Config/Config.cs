@@ -42,6 +42,26 @@ namespace Pulumi.F5BigIP
             set => _address.Set(value);
         }
 
+        private static readonly __Value<int?> _apiRetries = new __Value<int?>(() => __config.GetInt32("apiRetries"));
+        /// <summary>
+        /// Amount of times to retry AS3 API requests. Default: 10.
+        /// </summary>
+        public static int? ApiRetries
+        {
+            get => _apiRetries.Get();
+            set => _apiRetries.Set(value);
+        }
+
+        private static readonly __Value<int?> _apiTimeout = new __Value<int?>(() => __config.GetInt32("apiTimeout"));
+        /// <summary>
+        /// A timeout for AS3 requests, represented as a number of seconds. Default: 60
+        /// </summary>
+        public static int? ApiTimeout
+        {
+            get => _apiTimeout.Get();
+            set => _apiTimeout.Set(value);
+        }
+
         private static readonly __Value<string?> _loginRef = new __Value<string?>(() => __config.Get("loginRef"));
         /// <summary>
         /// Login reference for token authentication (see BIG-IP REST docs for details)
@@ -90,6 +110,16 @@ namespace Pulumi.F5BigIP
         {
             get => _tokenAuth.Get();
             set => _tokenAuth.Set(value);
+        }
+
+        private static readonly __Value<int?> _tokenTimeout = new __Value<int?>(() => __config.GetInt32("tokenTimeout"));
+        /// <summary>
+        /// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+        /// </summary>
+        public static int? TokenTimeout
+        {
+            get => _tokenTimeout.Get();
+            set => _tokenTimeout.Set(value);
         }
 
         private static readonly __Value<string?> _tokenValue = new __Value<string?>(() => __config.Get("tokenValue"));

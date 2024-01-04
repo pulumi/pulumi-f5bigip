@@ -64,6 +64,10 @@ export class Vlan extends pulumi.CustomResource {
      */
     public readonly interfaces!: pulumi.Output<outputs.net.VlanInterface[] | undefined>;
     /**
+     * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     */
+    public readonly mtu!: pulumi.Output<number | undefined>;
+    /**
      * Name of the vlan
      */
     public readonly name!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class Vlan extends pulumi.CustomResource {
             const state = argsOrState as VlanState | undefined;
             resourceInputs["cmpHash"] = state ? state.cmpHash : undefined;
             resourceInputs["interfaces"] = state ? state.interfaces : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tag"] = state ? state.tag : undefined;
         } else {
@@ -96,6 +101,7 @@ export class Vlan extends pulumi.CustomResource {
             }
             resourceInputs["cmpHash"] = args ? args.cmpHash : undefined;
             resourceInputs["interfaces"] = args ? args.interfaces : undefined;
+            resourceInputs["mtu"] = args ? args.mtu : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tag"] = args ? args.tag : undefined;
         }
@@ -116,6 +122,10 @@ export interface VlanState {
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    /**
+     * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     */
+    mtu?: pulumi.Input<number>;
     /**
      * Name of the vlan
      */
@@ -138,6 +148,10 @@ export interface VlanArgs {
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    /**
+     * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     */
+    mtu?: pulumi.Input<number>;
     /**
      * Name of the vlan
      */

@@ -2523,7 +2523,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cipherGroup")
-    def cipher_group(self) -> pulumi.Output[Optional[str]]:
+    def cipher_group(self) -> pulumi.Output[str]:
         """
         Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         """

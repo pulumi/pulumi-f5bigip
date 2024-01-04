@@ -136,7 +136,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         /// </summary>
         [Output("cipherGroup")]
-        public Output<string?> CipherGroup { get; private set; } = null!;
+        public Output<string> CipherGroup { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.

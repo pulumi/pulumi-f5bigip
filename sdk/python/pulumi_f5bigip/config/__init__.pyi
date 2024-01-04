@@ -14,6 +14,16 @@ address: Optional[str]
 Domain name/IP of the BigIP
 """
 
+apiRetries: Optional[int]
+"""
+Amount of times to retry AS3 API requests. Default: 10.
+"""
+
+apiTimeout: Optional[int]
+"""
+A timeout for AS3 requests, represented as a number of seconds. Default: 60
+"""
+
 loginRef: Optional[str]
 """
 Login reference for token authentication (see BIG-IP REST docs for details)
@@ -37,6 +47,11 @@ If this flag set to true,sending telemetry data to TEEM will be disabled
 tokenAuth: Optional[bool]
 """
 Enable to use an external authentication source (LDAP, TACACS, etc)
+"""
+
+tokenTimeout: Optional[int]
+"""
+A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
 """
 
 tokenValue: Optional[str]
