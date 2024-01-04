@@ -287,14 +287,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cipherGroup", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> cipherGroup;
+    private Output<String> cipherGroup;
 
     /**
      * @return Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      * 
      */
-    public Output<Optional<String>> cipherGroup() {
-        return Codegen.optional(this.cipherGroup);
+    public Output<String> cipherGroup() {
+        return this.cipherGroup;
     }
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.

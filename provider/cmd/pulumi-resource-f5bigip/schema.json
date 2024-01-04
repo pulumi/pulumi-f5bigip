@@ -64,6 +64,14 @@
                 "type": "string",
                 "description": "Domain name/IP of the BigIP\n"
             },
+            "apiRetries": {
+                "type": "integer",
+                "description": "Amount of times to retry AS3 API requests. Default: 10.\n"
+            },
+            "apiTimeout": {
+                "type": "integer",
+                "description": "A timeout for AS3 requests, represented as a number of seconds. Default: 60\n"
+            },
             "loginRef": {
                 "type": "string",
                 "description": "Login reference for token authentication (see BIG-IP REST docs for details)\n"
@@ -83,6 +91,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenTimeout": {
+                "type": "integer",
+                "description": "A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200\n"
             },
             "tokenValue": {
                 "type": "string",
@@ -2632,6 +2644,14 @@
                 "type": "string",
                 "description": "Domain name/IP of the BigIP\n"
             },
+            "apiRetries": {
+                "type": "integer",
+                "description": "Amount of times to retry AS3 API requests. Default: 10.\n"
+            },
+            "apiTimeout": {
+                "type": "integer",
+                "description": "A timeout for AS3 requests, represented as a number of seconds. Default: 60\n"
+            },
             "loginRef": {
                 "type": "string",
                 "description": "Login reference for token authentication (see BIG-IP REST docs for details)\n"
@@ -2651,6 +2671,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenTimeout": {
+                "type": "integer",
+                "description": "A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200\n"
             },
             "tokenValue": {
                 "type": "string",
@@ -2674,6 +2698,14 @@
                 "type": "string",
                 "description": "Domain name/IP of the BigIP\n"
             },
+            "apiRetries": {
+                "type": "integer",
+                "description": "Amount of times to retry AS3 API requests. Default: 10.\n"
+            },
+            "apiTimeout": {
+                "type": "integer",
+                "description": "A timeout for AS3 requests, represented as a number of seconds. Default: 60\n"
+            },
             "loginRef": {
                 "type": "string",
                 "description": "Login reference for token authentication (see BIG-IP REST docs for details)\n"
@@ -2693,6 +2725,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenTimeout": {
+                "type": "integer",
+                "description": "A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200\n"
             },
             "tokenValue": {
                 "type": "string",
@@ -9025,6 +9061,7 @@
                 "certLifeSpan",
                 "certLookupByIpaddrPort",
                 "chain",
+                "cipherGroup",
                 "ciphers",
                 "clientCertCa",
                 "crlFile",
@@ -13374,6 +13411,10 @@
                     },
                     "description": "Specifies which interfaces you want this VLAN to use for traffic management.\n"
                 },
+                "mtu": {
+                    "type": "integer",
+                    "description": "Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the vlan\n"
@@ -13398,6 +13439,10 @@
                         "$ref": "#/types/f5bigip:net/VlanInterface:VlanInterface"
                     },
                     "description": "Specifies which interfaces you want this VLAN to use for traffic management.\n"
+                },
+                "mtu": {
+                    "type": "integer",
+                    "description": "Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.\n"
                 },
                 "name": {
                     "type": "string",
@@ -13425,6 +13470,10 @@
                             "$ref": "#/types/f5bigip:net/VlanInterface:VlanInterface"
                         },
                         "description": "Specifies which interfaces you want this VLAN to use for traffic management.\n"
+                    },
+                    "mtu": {
+                        "type": "integer",
+                        "description": "Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.\n"
                     },
                     "name": {
                         "type": "string",

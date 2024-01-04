@@ -53,6 +53,10 @@ func NewProvider(ctx *pulumi.Context,
 type providerArgs struct {
 	// Domain name/IP of the BigIP
 	Address *string `pulumi:"address"`
+	// Amount of times to retry AS3 API requests. Default: 10.
+	ApiRetries *int `pulumi:"apiRetries"`
+	// A timeout for AS3 requests, represented as a number of seconds. Default: 60
+	ApiTimeout *int `pulumi:"apiTimeout"`
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef *string `pulumi:"loginRef"`
 	// The user's password. Leave empty if using token_value
@@ -63,6 +67,8 @@ type providerArgs struct {
 	TeemDisable *bool `pulumi:"teemDisable"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth *bool `pulumi:"tokenAuth"`
+	// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+	TokenTimeout *int `pulumi:"tokenTimeout"`
 	// A token generated outside the provider, in place of password
 	TokenValue *string `pulumi:"tokenValue"`
 	// Valid Trusted Certificate path
@@ -77,6 +83,10 @@ type providerArgs struct {
 type ProviderArgs struct {
 	// Domain name/IP of the BigIP
 	Address pulumi.StringPtrInput
+	// Amount of times to retry AS3 API requests. Default: 10.
+	ApiRetries pulumi.IntPtrInput
+	// A timeout for AS3 requests, represented as a number of seconds. Default: 60
+	ApiTimeout pulumi.IntPtrInput
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef pulumi.StringPtrInput
 	// The user's password. Leave empty if using token_value
@@ -87,6 +97,8 @@ type ProviderArgs struct {
 	TeemDisable pulumi.BoolPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth pulumi.BoolPtrInput
+	// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+	TokenTimeout pulumi.IntPtrInput
 	// A token generated outside the provider, in place of password
 	TokenValue pulumi.StringPtrInput
 	// Valid Trusted Certificate path

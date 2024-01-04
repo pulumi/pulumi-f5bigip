@@ -90,6 +90,20 @@ public class Vlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.interfaces);
     }
     /**
+     * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     * 
+     */
+    @Export(name="mtu", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> mtu;
+
+    /**
+     * @return Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+     * 
+     */
+    public Output<Optional<Integer>> mtu() {
+        return Codegen.optional(this.mtu);
+    }
+    /**
      * Name of the vlan
      * 
      */

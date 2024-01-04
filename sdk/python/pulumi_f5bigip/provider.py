@@ -15,11 +15,14 @@ __all__ = ['ProviderArgs', 'Provider']
 class ProviderArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
+                 api_retries: Optional[pulumi.Input[int]] = None,
+                 api_timeout: Optional[pulumi.Input[int]] = None,
                  login_ref: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_timeout: Optional[pulumi.Input[int]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
                  trusted_cert_path: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -27,11 +30,14 @@ class ProviderArgs:
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] address: Domain name/IP of the BigIP
+        :param pulumi.Input[int] api_retries: Amount of times to retry AS3 API requests. Default: 10.
+        :param pulumi.Input[int] api_timeout: A timeout for AS3 requests, represented as a number of seconds. Default: 60
         :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
         :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[int] token_timeout: A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path
         :param pulumi.Input[str] username: Username with API access to the BigIP
@@ -39,6 +45,10 @@ class ProviderArgs:
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
+        if api_retries is not None:
+            pulumi.set(__self__, "api_retries", api_retries)
+        if api_timeout is not None:
+            pulumi.set(__self__, "api_timeout", api_timeout)
         if login_ref is not None:
             pulumi.set(__self__, "login_ref", login_ref)
         if password is not None:
@@ -49,6 +59,8 @@ class ProviderArgs:
             pulumi.set(__self__, "teem_disable", teem_disable)
         if token_auth is not None:
             pulumi.set(__self__, "token_auth", token_auth)
+        if token_timeout is not None:
+            pulumi.set(__self__, "token_timeout", token_timeout)
         if token_value is not None:
             pulumi.set(__self__, "token_value", token_value)
         if trusted_cert_path is not None:
@@ -69,6 +81,30 @@ class ProviderArgs:
     @address.setter
     def address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="apiRetries")
+    def api_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of times to retry AS3 API requests. Default: 10.
+        """
+        return pulumi.get(self, "api_retries")
+
+    @api_retries.setter
+    def api_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_retries", value)
+
+    @property
+    @pulumi.getter(name="apiTimeout")
+    def api_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        A timeout for AS3 requests, represented as a number of seconds. Default: 60
+        """
+        return pulumi.get(self, "api_timeout")
+
+    @api_timeout.setter
+    def api_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "api_timeout", value)
 
     @property
     @pulumi.getter(name="loginRef")
@@ -131,6 +167,18 @@ class ProviderArgs:
         pulumi.set(self, "token_auth", value)
 
     @property
+    @pulumi.getter(name="tokenTimeout")
+    def token_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+        """
+        return pulumi.get(self, "token_timeout")
+
+    @token_timeout.setter
+    def token_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "token_timeout", value)
+
+    @property
     @pulumi.getter(name="tokenValue")
     def token_value(self) -> Optional[pulumi.Input[str]]:
         """
@@ -185,11 +233,14 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
+                 api_retries: Optional[pulumi.Input[int]] = None,
+                 api_timeout: Optional[pulumi.Input[int]] = None,
                  login_ref: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_timeout: Optional[pulumi.Input[int]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
                  trusted_cert_path: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -204,11 +255,14 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: Domain name/IP of the BigIP
+        :param pulumi.Input[int] api_retries: Amount of times to retry AS3 API requests. Default: 10.
+        :param pulumi.Input[int] api_timeout: A timeout for AS3 requests, represented as a number of seconds. Default: 60
         :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
         :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[int] token_timeout: A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path
         :param pulumi.Input[str] username: Username with API access to the BigIP
@@ -242,11 +296,14 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
+                 api_retries: Optional[pulumi.Input[int]] = None,
+                 api_timeout: Optional[pulumi.Input[int]] = None,
                  login_ref: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_timeout: Optional[pulumi.Input[int]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
                  trusted_cert_path: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -261,11 +318,14 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["address"] = address
+            __props__.__dict__["api_retries"] = pulumi.Output.from_input(api_retries).apply(pulumi.runtime.to_json) if api_retries is not None else None
+            __props__.__dict__["api_timeout"] = pulumi.Output.from_input(api_timeout).apply(pulumi.runtime.to_json) if api_timeout is not None else None
             __props__.__dict__["login_ref"] = login_ref
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
             __props__.__dict__["teem_disable"] = pulumi.Output.from_input(teem_disable).apply(pulumi.runtime.to_json) if teem_disable is not None else None
             __props__.__dict__["token_auth"] = pulumi.Output.from_input(token_auth).apply(pulumi.runtime.to_json) if token_auth is not None else None
+            __props__.__dict__["token_timeout"] = pulumi.Output.from_input(token_timeout).apply(pulumi.runtime.to_json) if token_timeout is not None else None
             __props__.__dict__["token_value"] = token_value
             __props__.__dict__["trusted_cert_path"] = trusted_cert_path
             __props__.__dict__["username"] = username

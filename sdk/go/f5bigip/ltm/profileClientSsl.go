@@ -81,7 +81,7 @@ type ProfileClientSsl struct {
 	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
 	Chain pulumi.StringOutput `pulumi:"chain"`
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-	CipherGroup pulumi.StringPtrOutput `pulumi:"cipherGroup"`
+	CipherGroup pulumi.StringOutput `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringOutput `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
@@ -874,8 +874,8 @@ func (o ProfileClientSslOutput) Chain() pulumi.StringOutput {
 }
 
 // Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-func (o ProfileClientSslOutput) CipherGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.CipherGroup }).(pulumi.StringPtrOutput)
+func (o ProfileClientSslOutput) CipherGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CipherGroup }).(pulumi.StringOutput)
 }
 
 // Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.

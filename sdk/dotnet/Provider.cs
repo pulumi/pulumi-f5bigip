@@ -95,6 +95,18 @@ namespace Pulumi.F5BigIP
         public Input<string>? Address { get; set; }
 
         /// <summary>
+        /// Amount of times to retry AS3 API requests. Default: 10.
+        /// </summary>
+        [Input("apiRetries", json: true)]
+        public Input<int>? ApiRetries { get; set; }
+
+        /// <summary>
+        /// A timeout for AS3 requests, represented as a number of seconds. Default: 60
+        /// </summary>
+        [Input("apiTimeout", json: true)]
+        public Input<int>? ApiTimeout { get; set; }
+
+        /// <summary>
         /// Login reference for token authentication (see BIG-IP REST docs for details)
         /// </summary>
         [Input("loginRef")]
@@ -123,6 +135,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("tokenAuth", json: true)]
         public Input<bool>? TokenAuth { get; set; }
+
+        /// <summary>
+        /// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+        /// </summary>
+        [Input("tokenTimeout", json: true)]
+        public Input<int>? TokenTimeout { get; set; }
 
         /// <summary>
         /// A token generated outside the provider, in place of password

@@ -66,11 +66,14 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["apiRetries"] = pulumi.output(args ? args.apiRetries : undefined).apply(JSON.stringify);
+            resourceInputs["apiTimeout"] = pulumi.output(args ? args.apiTimeout : undefined).apply(JSON.stringify);
             resourceInputs["loginRef"] = args ? args.loginRef : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
             resourceInputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
+            resourceInputs["tokenTimeout"] = pulumi.output(args ? args.tokenTimeout : undefined).apply(JSON.stringify);
             resourceInputs["tokenValue"] = args ? args.tokenValue : undefined;
             resourceInputs["trustedCertPath"] = args ? args.trustedCertPath : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -89,6 +92,14 @@ export interface ProviderArgs {
      * Domain name/IP of the BigIP
      */
     address?: pulumi.Input<string>;
+    /**
+     * Amount of times to retry AS3 API requests. Default: 10.
+     */
+    apiRetries?: pulumi.Input<number>;
+    /**
+     * A timeout for AS3 requests, represented as a number of seconds. Default: 60
+     */
+    apiTimeout?: pulumi.Input<number>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
@@ -109,6 +120,10 @@ export interface ProviderArgs {
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
     tokenAuth?: pulumi.Input<boolean>;
+    /**
+     * A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+     */
+    tokenTimeout?: pulumi.Input<number>;
     /**
      * A token generated outside the provider, in place of password
      */

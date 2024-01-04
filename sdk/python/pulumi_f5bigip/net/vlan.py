@@ -19,12 +19,14 @@ class VlanArgs:
                  name: pulumi.Input[str],
                  cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Vlan resource.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         pulumi.set(__self__, "name", name)
@@ -32,6 +34,8 @@ class VlanArgs:
             pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
             pulumi.set(__self__, "interfaces", interfaces)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
 
@@ -73,6 +77,18 @@ class VlanArgs:
 
     @property
     @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter
     def tag(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -89,12 +105,14 @@ class _VlanState:
     def __init__(__self__, *,
                  cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Vlan resources.
         :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
@@ -102,6 +120,8 @@ class _VlanState:
             pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
             pulumi.set(__self__, "interfaces", interfaces)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tag is not None:
@@ -130,6 +150,18 @@ class _VlanState:
     @interfaces.setter
     def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
         pulumi.set(self, "interfaces", value)
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
 
     @property
     @pulumi.getter
@@ -163,6 +195,7 @@ class Vlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -190,6 +223,7 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
@@ -236,6 +270,7 @@ class Vlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -249,6 +284,7 @@ class Vlan(pulumi.CustomResource):
 
             __props__.__dict__["cmp_hash"] = cmp_hash
             __props__.__dict__["interfaces"] = interfaces
+            __props__.__dict__["mtu"] = mtu
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -265,6 +301,7 @@ class Vlan(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cmp_hash: Optional[pulumi.Input[str]] = None,
             interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
+            mtu: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tag: Optional[pulumi.Input[int]] = None) -> 'Vlan':
         """
@@ -276,6 +313,7 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
@@ -285,6 +323,7 @@ class Vlan(pulumi.CustomResource):
 
         __props__.__dict__["cmp_hash"] = cmp_hash
         __props__.__dict__["interfaces"] = interfaces
+        __props__.__dict__["mtu"] = mtu
         __props__.__dict__["name"] = name
         __props__.__dict__["tag"] = tag
         return Vlan(resource_name, opts=opts, __props__=__props__)
@@ -304,6 +343,14 @@ class Vlan(pulumi.CustomResource):
         Specifies which interfaces you want this VLAN to use for traffic management.
         """
         return pulumi.get(self, "interfaces")
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
+        """
+        return pulumi.get(self, "mtu")
 
     @property
     @pulumi.getter

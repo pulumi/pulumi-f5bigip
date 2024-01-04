@@ -6,6 +6,7 @@ package com.pulumi.f5bigip;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,6 +30,36 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> address() {
         return Optional.ofNullable(this.address);
+    }
+
+    /**
+     * Amount of times to retry AS3 API requests. Default: 10.
+     * 
+     */
+    @Import(name="apiRetries", json=true)
+    private @Nullable Output<Integer> apiRetries;
+
+    /**
+     * @return Amount of times to retry AS3 API requests. Default: 10.
+     * 
+     */
+    public Optional<Output<Integer>> apiRetries() {
+        return Optional.ofNullable(this.apiRetries);
+    }
+
+    /**
+     * A timeout for AS3 requests, represented as a number of seconds. Default: 60
+     * 
+     */
+    @Import(name="apiTimeout", json=true)
+    private @Nullable Output<Integer> apiTimeout;
+
+    /**
+     * @return A timeout for AS3 requests, represented as a number of seconds. Default: 60
+     * 
+     */
+    public Optional<Output<Integer>> apiTimeout() {
+        return Optional.ofNullable(this.apiTimeout);
     }
 
     /**
@@ -107,6 +138,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+     * 
+     */
+    @Import(name="tokenTimeout", json=true)
+    private @Nullable Output<Integer> tokenTimeout;
+
+    /**
+     * @return A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+     * 
+     */
+    public Optional<Output<Integer>> tokenTimeout() {
+        return Optional.ofNullable(this.tokenTimeout);
+    }
+
+    /**
      * A token generated outside the provider, in place of password
      * 
      */
@@ -170,11 +216,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     private ProviderArgs(ProviderArgs $) {
         this.address = $.address;
+        this.apiRetries = $.apiRetries;
+        this.apiTimeout = $.apiTimeout;
         this.loginRef = $.loginRef;
         this.password = $.password;
         this.port = $.port;
         this.teemDisable = $.teemDisable;
         this.tokenAuth = $.tokenAuth;
+        this.tokenTimeout = $.tokenTimeout;
         this.tokenValue = $.tokenValue;
         this.trustedCertPath = $.trustedCertPath;
         this.username = $.username;
@@ -218,6 +267,48 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder address(String address) {
             return address(Output.of(address));
+        }
+
+        /**
+         * @param apiRetries Amount of times to retry AS3 API requests. Default: 10.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiRetries(@Nullable Output<Integer> apiRetries) {
+            $.apiRetries = apiRetries;
+            return this;
+        }
+
+        /**
+         * @param apiRetries Amount of times to retry AS3 API requests. Default: 10.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiRetries(Integer apiRetries) {
+            return apiRetries(Output.of(apiRetries));
+        }
+
+        /**
+         * @param apiTimeout A timeout for AS3 requests, represented as a number of seconds. Default: 60
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTimeout(@Nullable Output<Integer> apiTimeout) {
+            $.apiTimeout = apiTimeout;
+            return this;
+        }
+
+        /**
+         * @param apiTimeout A timeout for AS3 requests, represented as a number of seconds. Default: 60
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTimeout(Integer apiTimeout) {
+            return apiTimeout(Output.of(apiTimeout));
         }
 
         /**
@@ -323,6 +414,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tokenAuth(Boolean tokenAuth) {
             return tokenAuth(Output.of(tokenAuth));
+        }
+
+        /**
+         * @param tokenTimeout A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenTimeout(@Nullable Output<Integer> tokenTimeout) {
+            $.tokenTimeout = tokenTimeout;
+            return this;
+        }
+
+        /**
+         * @param tokenTimeout A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenTimeout(Integer tokenTimeout) {
+            return tokenTimeout(Output.of(tokenTimeout));
         }
 
         /**
