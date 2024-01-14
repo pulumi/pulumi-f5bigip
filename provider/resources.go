@@ -15,19 +15,22 @@
 package f5bigip
 
 import (
-	// embed is used to store bridge-metadata.json in the compiled binary
-	_ "embed"
 	"fmt"
 	"path/filepath"
 	"strings"
 	"unicode"
 
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
+
 	"github.com/F5Networks/terraform-provider-bigip/bigip"
-	"github.com/pulumi/pulumi-f5bigip/provider/v3/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-f5bigip/provider/v3/pkg/version"
 )
 
 // all of the F5 BigIP token components used below.
