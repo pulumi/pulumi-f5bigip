@@ -2,12 +2,12 @@
     "name": "virtualappliance",
     "devDependencies": {
         "@types/node": "^20.11.0",
-        "@types/node-fetch": "^3.0.0"
+        "@types/node-fetch": "^2.3.0"
     },
     "dependencies": {
-        "@pulumi/aws": "^4.0.0-alpha.0",
-        "@pulumi/pulumi": "^3.0.0-alpha.0",
-        "@pulumi/random": "^4.0.0-alpha.0",
-        "node-fetch": "^3.3.0"
+        "@pulumi/aws": "^6.0.0",
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/random": "^4.0.0",
+        "node-fetch": "^2.3.0"
     }
 }
