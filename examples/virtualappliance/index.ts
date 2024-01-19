@@ -3,7 +3,7 @@ import * as f5bigip from "@pulumi/f5bigip";
 import * as virtualappliance from "./virtualappliance";
 import * as backendinstances from "./loadbalancedinstances";
 import * as https from "https";
-import fetch from "node-fetch";
+import * as fetch from "node-fetch";
 
 function sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
