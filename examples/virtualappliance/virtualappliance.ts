@@ -37,7 +37,7 @@ const firewall = new aws.ec2.SecurityGroup("bigIp", {
  * If the subscription is missing, the test will fail with a helpful error message and a
  * link to subscribe.
  */
-const bigIpAmiId = aws.getAmi({
+const bigIpAmiId = aws.ec2.getAmi({
   mostRecent: true,
   owners: ["679593333241"],
   filters: [
