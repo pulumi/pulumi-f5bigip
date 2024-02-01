@@ -122,7 +122,8 @@
                     "description": "Is the name of the device Group\n"
                 },
                 "setSyncLeader": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Name of origin\n"
                 }
             },
             "type": "object"
@@ -130,13 +131,16 @@
         "f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode": {
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "name of node\n"
                 },
                 "ip": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "ip of nonde\n"
                 },
                 "port": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "port\n"
                 }
             },
             "type": "object"
@@ -631,7 +635,8 @@
                     "type": "boolean"
                 },
                 "signatureStaging": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "setting true will enforce all signature from staging\n"
                 }
             },
             "type": "object"
@@ -659,10 +664,12 @@
                     "description": "Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).\n"
                 },
                 "autopopulate": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies whether the node should scale to the IP address set returned by DNS.\n"
                 },
                 "downinterval": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Specifies the number of attempts to resolve a domain name. The default is 5.\n"
                 },
                 "interval": {
                     "type": "string",
@@ -1543,6 +1550,7 @@
                 },
                 "passphrase": {
                     "type": "string",
+                    "description": "Key passphrase\n",
                     "secret": true
                 }
             },
@@ -1623,7 +1631,8 @@
         "f5bigip:ltm/SnatOrigin:SnatOrigin": {
             "properties": {
                 "appService": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "app service\n"
                 },
                 "name": {
                     "type": "string",
@@ -2567,10 +2576,12 @@
         "f5bigip:sys/IAppList:IAppList": {
             "properties": {
                 "encrypted": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 }
             },
             "type": "object"
@@ -2578,10 +2589,12 @@
         "f5bigip:sys/IAppMetadata:IAppMetadata": {
             "properties": {
                 "persists": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 }
             },
             "type": "object"
@@ -2595,7 +2608,8 @@
                     }
                 },
                 "encryptedColumns": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 },
                 "name": {
                     "type": "string",
@@ -2624,14 +2638,16 @@
         "f5bigip:sys/IAppVariable:IAppVariable": {
             "properties": {
                 "encrypted": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 },
                 "name": {
                     "type": "string",
                     "description": "Name of the iApp.\n"
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of origin\n"
                 }
             },
             "type": "object"
@@ -15240,8 +15256,7 @@
                         "type": "string"
                     },
                     "consulSdJson": {
-                        "type": "string",
-                        "description": "The JSON for Hashicorp Consul service discovery block.\n"
+                        "type": "string"
                     },
                     "credentialUpdate": {
                         "type": "boolean"
