@@ -14,6 +14,9 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicySignaturesSetting
     {
         public readonly bool? PlacesignaturesInStaging;
+        /// <summary>
+        /// setting true will enforce all signature from staging
+        /// </summary>
         public readonly bool? SignatureStaging;
 
         [OutputConstructor]

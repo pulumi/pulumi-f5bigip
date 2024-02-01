@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetConsulServiceDiscoveryResult {
     private @Nullable String addressRealm;
-    /**
-     * @return The JSON for Hashicorp Consul service discovery block.
-     * 
-     */
     private String consulSdJson;
     private @Nullable Boolean credentialUpdate;
     private @Nullable String encodedToken;
@@ -41,10 +37,6 @@ public final class GetConsulServiceDiscoveryResult {
     public Optional<String> addressRealm() {
         return Optional.ofNullable(this.addressRealm);
     }
-    /**
-     * @return The JSON for Hashicorp Consul service discovery block.
-     * 
-     */
     public String consulSdJson() {
         return this.consulSdJson;
     }

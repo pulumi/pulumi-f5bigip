@@ -43,6 +43,11 @@ class EventServiceDiscoveryNode(dict):
                  id: Optional[str] = None,
                  ip: Optional[str] = None,
                  port: Optional[int] = None):
+        """
+        :param str id: name of node
+        :param str ip: ip of nonde
+        :param int port: port
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip is not None:
@@ -53,16 +58,25 @@ class EventServiceDiscoveryNode(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        name of node
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def ip(self) -> Optional[str]:
+        """
+        ip of nonde
+        """
         return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
+        """
+        port
+        """
         return pulumi.get(self, "port")
 
 
@@ -1364,6 +1378,9 @@ class WafPolicySignaturesSetting(dict):
     def __init__(__self__, *,
                  placesignatures_in_staging: Optional[bool] = None,
                  signature_staging: Optional[bool] = None):
+        """
+        :param bool signature_staging: setting true will enforce all signature from staging
+        """
         if placesignatures_in_staging is not None:
             pulumi.set(__self__, "placesignatures_in_staging", placesignatures_in_staging)
         if signature_staging is not None:
@@ -1377,6 +1394,9 @@ class WafPolicySignaturesSetting(dict):
     @property
     @pulumi.getter(name="signatureStaging")
     def signature_staging(self) -> Optional[bool]:
+        """
+        setting true will enforce all signature from staging
+        """
         return pulumi.get(self, "signature_staging")
 
 

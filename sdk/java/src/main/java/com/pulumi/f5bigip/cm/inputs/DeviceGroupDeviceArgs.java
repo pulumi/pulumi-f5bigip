@@ -31,9 +31,17 @@ public final class DeviceGroupDeviceArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="setSyncLeader")
     private @Nullable Output<Boolean> setSyncLeader;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<Boolean>> setSyncLeader() {
         return Optional.ofNullable(this.setSyncLeader);
     }
@@ -84,11 +92,23 @@ public final class DeviceGroupDeviceArgs extends com.pulumi.resources.ResourceAr
             return name(Output.of(name));
         }
 
+        /**
+         * @param setSyncLeader Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder setSyncLeader(@Nullable Output<Boolean> setSyncLeader) {
             $.setSyncLeader = setSyncLeader;
             return this;
         }
 
+        /**
+         * @param setSyncLeader Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder setSyncLeader(Boolean setSyncLeader) {
             return setSyncLeader(Output.of(setSyncLeader));
         }

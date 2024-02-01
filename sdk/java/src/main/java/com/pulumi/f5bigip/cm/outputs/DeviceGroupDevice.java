@@ -17,6 +17,10 @@ public final class DeviceGroupDevice {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable Boolean setSyncLeader;
 
     private DeviceGroupDevice() {}
@@ -27,6 +31,10 @@ public final class DeviceGroupDevice {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Boolean> setSyncLeader() {
         return Optional.ofNullable(this.setSyncLeader);
     }

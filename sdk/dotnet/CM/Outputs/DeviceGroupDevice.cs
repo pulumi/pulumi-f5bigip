@@ -17,6 +17,9 @@ namespace Pulumi.F5BigIP.CM.Outputs
         /// Is the name of the device Group
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly bool? SetSyncLeader;
 
         [OutputConstructor]

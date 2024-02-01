@@ -15,8 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type DeviceGroupDevice struct {
 	// Is the name of the device Group
-	Name          *string `pulumi:"name"`
-	SetSyncLeader *bool   `pulumi:"setSyncLeader"`
+	Name *string `pulumi:"name"`
+	// Name of origin
+	SetSyncLeader *bool `pulumi:"setSyncLeader"`
 }
 
 // DeviceGroupDeviceInput is an input type that accepts DeviceGroupDeviceArgs and DeviceGroupDeviceOutput values.
@@ -32,8 +33,9 @@ type DeviceGroupDeviceInput interface {
 
 type DeviceGroupDeviceArgs struct {
 	// Is the name of the device Group
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	SetSyncLeader pulumi.BoolPtrInput   `pulumi:"setSyncLeader"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of origin
+	SetSyncLeader pulumi.BoolPtrInput `pulumi:"setSyncLeader"`
 }
 
 func (DeviceGroupDeviceArgs) ElementType() reflect.Type {
@@ -92,6 +94,7 @@ func (o DeviceGroupDeviceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceGroupDevice) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of origin
 func (o DeviceGroupDeviceOutput) SetSyncLeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceGroupDevice) *bool { return v.SetSyncLeader }).(pulumi.BoolPtrOutput)
 }

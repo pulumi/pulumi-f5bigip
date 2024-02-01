@@ -15,9 +15,17 @@ public final class IAppVariableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final IAppVariableArgs Empty = new IAppVariableArgs();
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="encrypted")
     private @Nullable Output<String> encrypted;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
@@ -37,9 +45,17 @@ public final class IAppVariableArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,11 +86,23 @@ public final class IAppVariableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new IAppVariableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encrypted Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
+        /**
+         * @param encrypted Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
         }
@@ -100,11 +128,23 @@ public final class IAppVariableArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

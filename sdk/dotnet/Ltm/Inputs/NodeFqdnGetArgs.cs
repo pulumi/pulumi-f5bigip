@@ -18,9 +18,15 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }
 
+        /// <summary>
+        /// Specifies whether the node should scale to the IP address set returned by DNS.
+        /// </summary>
         [Input("autopopulate")]
         public Input<string>? Autopopulate { get; set; }
 
+        /// <summary>
+        /// Specifies the number of attempts to resolve a domain name. The default is 5.
+        /// </summary>
         [Input("downinterval")]
         public Input<int>? Downinterval { get; set; }
 

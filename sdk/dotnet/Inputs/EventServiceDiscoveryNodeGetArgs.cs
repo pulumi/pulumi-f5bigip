@@ -12,12 +12,21 @@ namespace Pulumi.F5BigIP.Inputs
 
     public sealed class EventServiceDiscoveryNodeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// name of node
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// ip of nonde
+        /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
 
+        /// <summary>
+        /// port
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 

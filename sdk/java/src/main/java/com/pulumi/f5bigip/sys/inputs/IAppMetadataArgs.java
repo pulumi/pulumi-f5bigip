@@ -15,16 +15,32 @@ public final class IAppMetadataArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final IAppMetadataArgs Empty = new IAppMetadataArgs();
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="persists")
     private @Nullable Output<String> persists;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> persists() {
         return Optional.ofNullable(this.persists);
     }
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,20 +70,44 @@ public final class IAppMetadataArgs extends com.pulumi.resources.ResourceArgs {
             $ = new IAppMetadataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param persists Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder persists(@Nullable Output<String> persists) {
             $.persists = persists;
             return this;
         }
 
+        /**
+         * @param persists Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder persists(String persists) {
             return persists(Output.of(persists));
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

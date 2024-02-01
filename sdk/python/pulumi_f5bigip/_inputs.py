@@ -42,6 +42,11 @@ class EventServiceDiscoveryNodeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] id: name of node
+        :param pulumi.Input[str] ip: ip of nonde
+        :param pulumi.Input[int] port: port
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip is not None:
@@ -52,6 +57,9 @@ class EventServiceDiscoveryNodeArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        name of node
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -61,6 +69,9 @@ class EventServiceDiscoveryNodeArgs:
     @property
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        ip of nonde
+        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -70,6 +81,9 @@ class EventServiceDiscoveryNodeArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        port
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1373,6 +1387,9 @@ class WafPolicySignaturesSettingArgs:
     def __init__(__self__, *,
                  placesignatures_in_staging: Optional[pulumi.Input[bool]] = None,
                  signature_staging: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] signature_staging: setting true will enforce all signature from staging
+        """
         if placesignatures_in_staging is not None:
             pulumi.set(__self__, "placesignatures_in_staging", placesignatures_in_staging)
         if signature_staging is not None:
@@ -1390,6 +1407,9 @@ class WafPolicySignaturesSettingArgs:
     @property
     @pulumi.getter(name="signatureStaging")
     def signature_staging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        setting true will enforce all signature from staging
+        """
         return pulumi.get(self, "signature_staging")
 
     @signature_staging.setter

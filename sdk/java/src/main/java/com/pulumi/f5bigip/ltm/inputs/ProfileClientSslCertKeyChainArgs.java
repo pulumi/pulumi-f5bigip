@@ -75,9 +75,17 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Key passphrase
+     * 
+     */
     @Import(name="passphrase")
     private @Nullable Output<String> passphrase;
 
+    /**
+     * @return Key passphrase
+     * 
+     */
     public Optional<Output<String>> passphrase() {
         return Optional.ofNullable(this.passphrase);
     }
@@ -194,11 +202,23 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
+        /**
+         * @param passphrase Key passphrase
+         * 
+         * @return builder
+         * 
+         */
         public Builder passphrase(@Nullable Output<String> passphrase) {
             $.passphrase = passphrase;
             return this;
         }
 
+        /**
+         * @param passphrase Key passphrase
+         * 
+         * @return builder
+         * 
+         */
         public Builder passphrase(String passphrase) {
             return passphrase(Output.of(passphrase));
         }

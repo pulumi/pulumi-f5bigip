@@ -13,7 +13,13 @@ namespace Pulumi.F5BigIP.Sys.Outputs
     [OutputType]
     public sealed class IAppMetadata
     {
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly string? Persists;
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

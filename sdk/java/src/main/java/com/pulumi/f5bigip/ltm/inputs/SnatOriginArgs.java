@@ -15,9 +15,17 @@ public final class SnatOriginArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SnatOriginArgs Empty = new SnatOriginArgs();
 
+    /**
+     * app service
+     * 
+     */
     @Import(name="appService")
     private @Nullable Output<String> appService;
 
+    /**
+     * @return app service
+     * 
+     */
     public Optional<Output<String>> appService() {
         return Optional.ofNullable(this.appService);
     }
@@ -62,11 +70,23 @@ public final class SnatOriginArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SnatOriginArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param appService app service
+         * 
+         * @return builder
+         * 
+         */
         public Builder appService(@Nullable Output<String> appService) {
             $.appService = appService;
             return this;
         }
 
+        /**
+         * @param appService app service
+         * 
+         * @return builder
+         * 
+         */
         public Builder appService(String appService) {
             return appService(Output.of(appService));
         }

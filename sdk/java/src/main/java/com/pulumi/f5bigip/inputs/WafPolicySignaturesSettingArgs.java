@@ -22,9 +22,17 @@ public final class WafPolicySignaturesSettingArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.placesignaturesInStaging);
     }
 
+    /**
+     * setting true will enforce all signature from staging
+     * 
+     */
     @Import(name="signatureStaging")
     private @Nullable Output<Boolean> signatureStaging;
 
+    /**
+     * @return setting true will enforce all signature from staging
+     * 
+     */
     public Optional<Output<Boolean>> signatureStaging() {
         return Optional.ofNullable(this.signatureStaging);
     }
@@ -63,11 +71,23 @@ public final class WafPolicySignaturesSettingArgs extends com.pulumi.resources.R
             return placesignaturesInStaging(Output.of(placesignaturesInStaging));
         }
 
+        /**
+         * @param signatureStaging setting true will enforce all signature from staging
+         * 
+         * @return builder
+         * 
+         */
         public Builder signatureStaging(@Nullable Output<Boolean> signatureStaging) {
             $.signatureStaging = signatureStaging;
             return this;
         }
 
+        /**
+         * @param signatureStaging setting true will enforce all signature from staging
+         * 
+         * @return builder
+         * 
+         */
         public Builder signatureStaging(Boolean signatureStaging) {
             return signatureStaging(Output.of(signatureStaging));
         }

@@ -15,16 +15,32 @@ public final class IAppListArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final IAppListArgs Empty = new IAppListArgs();
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="encrypted")
     private @Nullable Output<String> encrypted;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -54,20 +70,44 @@ public final class IAppListArgs extends com.pulumi.resources.ResourceArgs {
             $ = new IAppListArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param encrypted Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
+        /**
+         * @param encrypted Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }
