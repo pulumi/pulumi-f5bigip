@@ -18,6 +18,9 @@ namespace Pulumi.F5BigIP.CM.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("setSyncLeader")]
         public Input<bool>? SetSyncLeader { get; set; }
 

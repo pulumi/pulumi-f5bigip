@@ -31,6 +31,10 @@ public final class ProfileClientSslCertKeyChain {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Key passphrase
+     * 
+     */
     private @Nullable String passphrase;
 
     private ProfileClientSslCertKeyChain() {}
@@ -62,6 +66,10 @@ public final class ProfileClientSslCertKeyChain {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Key passphrase
+     * 
+     */
     public Optional<String> passphrase() {
         return Optional.ofNullable(this.passphrase);
     }

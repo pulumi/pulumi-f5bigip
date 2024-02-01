@@ -11,15 +11,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IAppVariable {
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable String encrypted;
     /**
      * @return Name of the iApp.
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable String value;
 
     private IAppVariable() {}
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<String> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
@@ -30,6 +42,10 @@ public final class IAppVariable {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

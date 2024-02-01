@@ -24,9 +24,17 @@ public final class IAppTableArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.columnNames);
     }
 
+    /**
+     * Name of origin
+     * 
+     */
     @Import(name="encryptedColumns")
     private @Nullable Output<String> encryptedColumns;
 
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<Output<String>> encryptedColumns() {
         return Optional.ofNullable(this.encryptedColumns);
     }
@@ -93,11 +101,23 @@ public final class IAppTableArgs extends com.pulumi.resources.ResourceArgs {
             return columnNames(List.of(columnNames));
         }
 
+        /**
+         * @param encryptedColumns Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedColumns(@Nullable Output<String> encryptedColumns) {
             $.encryptedColumns = encryptedColumns;
             return this;
         }
 
+        /**
+         * @param encryptedColumns Name of origin
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptedColumns(String encryptedColumns) {
             return encryptedColumns(Output.of(encryptedColumns));
         }

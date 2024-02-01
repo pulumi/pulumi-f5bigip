@@ -31,16 +31,32 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.addressFamily);
     }
 
+    /**
+     * Specifies whether the node should scale to the IP address set returned by DNS.
+     * 
+     */
     @Import(name="autopopulate")
     private @Nullable Output<String> autopopulate;
 
+    /**
+     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * 
+     */
     public Optional<Output<String>> autopopulate() {
         return Optional.ofNullable(this.autopopulate);
     }
 
+    /**
+     * Specifies the number of attempts to resolve a domain name. The default is 5.
+     * 
+     */
     @Import(name="downinterval")
     private @Nullable Output<Integer> downinterval;
 
+    /**
+     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * 
+     */
     public Optional<Output<Integer>> downinterval() {
         return Optional.ofNullable(this.downinterval);
     }
@@ -124,20 +140,44 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
             return addressFamily(Output.of(addressFamily));
         }
 
+        /**
+         * @param autopopulate Specifies whether the node should scale to the IP address set returned by DNS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autopopulate(@Nullable Output<String> autopopulate) {
             $.autopopulate = autopopulate;
             return this;
         }
 
+        /**
+         * @param autopopulate Specifies whether the node should scale to the IP address set returned by DNS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autopopulate(String autopopulate) {
             return autopopulate(Output.of(autopopulate));
         }
 
+        /**
+         * @param downinterval Specifies the number of attempts to resolve a domain name. The default is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder downinterval(@Nullable Output<Integer> downinterval) {
             $.downinterval = downinterval;
             return this;
         }
 
+        /**
+         * @param downinterval Specifies the number of attempts to resolve a domain name. The default is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder downinterval(Integer downinterval) {
             return downinterval(Output.of(downinterval));
         }

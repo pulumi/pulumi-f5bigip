@@ -12,6 +12,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
     public sealed class SnatOriginGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// app service
+        /// </summary>
         [Input("appService")]
         public Input<string>? AppService { get; set; }
 

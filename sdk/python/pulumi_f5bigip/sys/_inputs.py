@@ -22,6 +22,10 @@ class IAppListArgs:
     def __init__(__self__, *,
                  encrypted: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encrypted: Name of origin
+        :param pulumi.Input[str] value: Name of origin
+        """
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if value is not None:
@@ -30,6 +34,9 @@ class IAppListArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -39,6 +46,9 @@ class IAppListArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -51,6 +61,10 @@ class IAppMetadataArgs:
     def __init__(__self__, *,
                  persists: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] persists: Name of origin
+        :param pulumi.Input[str] value: Name of origin
+        """
         if persists is not None:
             pulumi.set(__self__, "persists", persists)
         if value is not None:
@@ -59,6 +73,9 @@ class IAppMetadataArgs:
     @property
     @pulumi.getter
     def persists(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "persists")
 
     @persists.setter
@@ -68,6 +85,9 @@ class IAppMetadataArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -83,6 +103,7 @@ class IAppTableArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  rows: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None):
         """
+        :param pulumi.Input[str] encrypted_columns: Name of origin
         :param pulumi.Input[str] name: Name of the iApp.
         """
         if column_names is not None:
@@ -106,6 +127,9 @@ class IAppTableArgs:
     @property
     @pulumi.getter(name="encryptedColumns")
     def encrypted_columns(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted_columns")
 
     @encrypted_columns.setter
@@ -158,7 +182,9 @@ class IAppVariableArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] encrypted: Name of origin
         :param pulumi.Input[str] name: Name of the iApp.
+        :param pulumi.Input[str] value: Name of origin
         """
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
@@ -170,6 +196,9 @@ class IAppVariableArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -191,6 +220,9 @@ class IAppVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IAppMetadata {
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable String persists;
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable String value;
 
     private IAppMetadata() {}
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<String> persists() {
         return Optional.ofNullable(this.persists);
     }
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

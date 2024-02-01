@@ -12,9 +12,15 @@ namespace Pulumi.F5BigIP.Sys.Inputs
 
     public sealed class IAppMetadataGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("persists")]
         public Input<string>? Persists { get; set; }
 
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

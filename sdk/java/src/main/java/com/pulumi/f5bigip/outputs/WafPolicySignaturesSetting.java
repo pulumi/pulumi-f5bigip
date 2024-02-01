@@ -12,12 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WafPolicySignaturesSetting {
     private @Nullable Boolean placesignaturesInStaging;
+    /**
+     * @return setting true will enforce all signature from staging
+     * 
+     */
     private @Nullable Boolean signatureStaging;
 
     private WafPolicySignaturesSetting() {}
     public Optional<Boolean> placesignaturesInStaging() {
         return Optional.ofNullable(this.placesignaturesInStaging);
     }
+    /**
+     * @return setting true will enforce all signature from staging
+     * 
+     */
     public Optional<Boolean> signatureStaging() {
         return Optional.ofNullable(this.signatureStaging);
     }

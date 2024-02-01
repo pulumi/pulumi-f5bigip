@@ -12,6 +12,9 @@ namespace Pulumi.F5BigIP.Sys.Inputs
 
     public sealed class IAppVariableGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
@@ -21,6 +24,9 @@ namespace Pulumi.F5BigIP.Sys.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

@@ -15,6 +15,9 @@ namespace Pulumi.F5BigIP.Inputs
         [Input("placesignaturesInStaging")]
         public Input<bool>? PlacesignaturesInStaging { get; set; }
 
+        /// <summary>
+        /// setting true will enforce all signature from staging
+        /// </summary>
         [Input("signatureStaging")]
         public Input<bool>? SignatureStaging { get; set; }
 
