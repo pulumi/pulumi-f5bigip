@@ -38,6 +38,10 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
         [Input("passphrase")]
         private Input<string>? _passphrase;
+
+        /// <summary>
+        /// Key passphrase
+        /// </summary>
         public Input<string>? Passphrase
         {
             get => _passphrase;

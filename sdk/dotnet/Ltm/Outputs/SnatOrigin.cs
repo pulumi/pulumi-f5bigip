@@ -13,6 +13,9 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     [OutputType]
     public sealed class SnatOrigin
     {
+        /// <summary>
+        /// app service
+        /// </summary>
         public readonly string? AppService;
         /// <summary>
         /// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.

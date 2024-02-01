@@ -17,7 +17,15 @@ public final class NodeFqdn {
      * 
      */
     private @Nullable String addressFamily;
+    /**
+     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * 
+     */
     private @Nullable String autopopulate;
+    /**
+     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * 
+     */
     private @Nullable Integer downinterval;
     /**
      * @return Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
@@ -38,9 +46,17 @@ public final class NodeFqdn {
     public Optional<String> addressFamily() {
         return Optional.ofNullable(this.addressFamily);
     }
+    /**
+     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * 
+     */
     public Optional<String> autopopulate() {
         return Optional.ofNullable(this.autopopulate);
     }
+    /**
+     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * 
+     */
     public Optional<Integer> downinterval() {
         return Optional.ofNullable(this.downinterval);
     }

@@ -12,9 +12,15 @@ namespace Pulumi.F5BigIP.Sys.Inputs
 
     public sealed class IAppListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
 
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

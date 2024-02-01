@@ -14,6 +14,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IAppTable {
     private @Nullable List<String> columnNames;
+    /**
+     * @return Name of origin
+     * 
+     */
     private @Nullable String encryptedColumns;
     /**
      * @return Name of the iApp.
@@ -26,6 +30,10 @@ public final class IAppTable {
     public List<String> columnNames() {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
+    /**
+     * @return Name of origin
+     * 
+     */
     public Optional<String> encryptedColumns() {
         return Optional.ofNullable(this.encryptedColumns);
     }

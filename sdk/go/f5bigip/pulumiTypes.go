@@ -14,9 +14,12 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type EventServiceDiscoveryNode struct {
-	Id   *string `pulumi:"id"`
-	Ip   *string `pulumi:"ip"`
-	Port *int    `pulumi:"port"`
+	// name of node
+	Id *string `pulumi:"id"`
+	// ip of nonde
+	Ip *string `pulumi:"ip"`
+	// port
+	Port *int `pulumi:"port"`
 }
 
 // EventServiceDiscoveryNodeInput is an input type that accepts EventServiceDiscoveryNodeArgs and EventServiceDiscoveryNodeOutput values.
@@ -31,9 +34,12 @@ type EventServiceDiscoveryNodeInput interface {
 }
 
 type EventServiceDiscoveryNodeArgs struct {
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Ip   pulumi.StringPtrInput `pulumi:"ip"`
-	Port pulumi.IntPtrInput    `pulumi:"port"`
+	// name of node
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// ip of nonde
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// port
+	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
 func (EventServiceDiscoveryNodeArgs) ElementType() reflect.Type {
@@ -87,14 +93,17 @@ func (o EventServiceDiscoveryNodeOutput) ToEventServiceDiscoveryNodeOutputWithCo
 	return o
 }
 
+// name of node
 func (o EventServiceDiscoveryNodeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventServiceDiscoveryNode) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// ip of nonde
 func (o EventServiceDiscoveryNodeOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventServiceDiscoveryNode) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
+// port
 func (o EventServiceDiscoveryNodeOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventServiceDiscoveryNode) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3374,7 +3383,8 @@ func (o WafPolicyPolicyBuilderArrayOutput) Index(i pulumi.IntInput) WafPolicyPol
 
 type WafPolicySignaturesSetting struct {
 	PlacesignaturesInStaging *bool `pulumi:"placesignaturesInStaging"`
-	SignatureStaging         *bool `pulumi:"signatureStaging"`
+	// setting true will enforce all signature from staging
+	SignatureStaging *bool `pulumi:"signatureStaging"`
 }
 
 // WafPolicySignaturesSettingInput is an input type that accepts WafPolicySignaturesSettingArgs and WafPolicySignaturesSettingOutput values.
@@ -3390,7 +3400,8 @@ type WafPolicySignaturesSettingInput interface {
 
 type WafPolicySignaturesSettingArgs struct {
 	PlacesignaturesInStaging pulumi.BoolPtrInput `pulumi:"placesignaturesInStaging"`
-	SignatureStaging         pulumi.BoolPtrInput `pulumi:"signatureStaging"`
+	// setting true will enforce all signature from staging
+	SignatureStaging pulumi.BoolPtrInput `pulumi:"signatureStaging"`
 }
 
 func (WafPolicySignaturesSettingArgs) ElementType() reflect.Type {
@@ -3448,6 +3459,7 @@ func (o WafPolicySignaturesSettingOutput) PlacesignaturesInStaging() pulumi.Bool
 	return o.ApplyT(func(v WafPolicySignaturesSetting) *bool { return v.PlacesignaturesInStaging }).(pulumi.BoolPtrOutput)
 }
 
+// setting true will enforce all signature from staging
 func (o WafPolicySignaturesSettingOutput) SignatureStaging() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WafPolicySignaturesSetting) *bool { return v.SignatureStaging }).(pulumi.BoolPtrOutput)
 }

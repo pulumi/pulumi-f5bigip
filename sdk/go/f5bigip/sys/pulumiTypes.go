@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IAppList struct {
+	// Name of origin
 	Encrypted *string `pulumi:"encrypted"`
-	Value     *string `pulumi:"value"`
+	// Name of origin
+	Value *string `pulumi:"value"`
 }
 
 // IAppListInput is an input type that accepts IAppListArgs and IAppListOutput values.
@@ -30,8 +32,10 @@ type IAppListInput interface {
 }
 
 type IAppListArgs struct {
+	// Name of origin
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
-	Value     pulumi.StringPtrInput `pulumi:"value"`
+	// Name of origin
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (IAppListArgs) ElementType() reflect.Type {
@@ -85,10 +89,12 @@ func (o IAppListOutput) ToIAppListOutputWithContext(ctx context.Context) IAppLis
 	return o
 }
 
+// Name of origin
 func (o IAppListOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppList) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
+// Name of origin
 func (o IAppListOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppList) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -114,8 +120,10 @@ func (o IAppListArrayOutput) Index(i pulumi.IntInput) IAppListOutput {
 }
 
 type IAppMetadata struct {
+	// Name of origin
 	Persists *string `pulumi:"persists"`
-	Value    *string `pulumi:"value"`
+	// Name of origin
+	Value *string `pulumi:"value"`
 }
 
 // IAppMetadataInput is an input type that accepts IAppMetadataArgs and IAppMetadataOutput values.
@@ -130,8 +138,10 @@ type IAppMetadataInput interface {
 }
 
 type IAppMetadataArgs struct {
+	// Name of origin
 	Persists pulumi.StringPtrInput `pulumi:"persists"`
-	Value    pulumi.StringPtrInput `pulumi:"value"`
+	// Name of origin
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (IAppMetadataArgs) ElementType() reflect.Type {
@@ -185,10 +195,12 @@ func (o IAppMetadataOutput) ToIAppMetadataOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Name of origin
 func (o IAppMetadataOutput) Persists() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppMetadata) *string { return v.Persists }).(pulumi.StringPtrOutput)
 }
 
+// Name of origin
 func (o IAppMetadataOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -214,8 +226,9 @@ func (o IAppMetadataArrayOutput) Index(i pulumi.IntInput) IAppMetadataOutput {
 }
 
 type IAppTable struct {
-	ColumnNames      []string `pulumi:"columnNames"`
-	EncryptedColumns *string  `pulumi:"encryptedColumns"`
+	ColumnNames []string `pulumi:"columnNames"`
+	// Name of origin
+	EncryptedColumns *string `pulumi:"encryptedColumns"`
 	// Name of the iApp.
 	Name *string        `pulumi:"name"`
 	Rows []IAppTableRow `pulumi:"rows"`
@@ -233,8 +246,9 @@ type IAppTableInput interface {
 }
 
 type IAppTableArgs struct {
-	ColumnNames      pulumi.StringArrayInput `pulumi:"columnNames"`
-	EncryptedColumns pulumi.StringPtrInput   `pulumi:"encryptedColumns"`
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// Name of origin
+	EncryptedColumns pulumi.StringPtrInput `pulumi:"encryptedColumns"`
 	// Name of the iApp.
 	Name pulumi.StringPtrInput  `pulumi:"name"`
 	Rows IAppTableRowArrayInput `pulumi:"rows"`
@@ -295,6 +309,7 @@ func (o IAppTableOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IAppTable) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// Name of origin
 func (o IAppTableOutput) EncryptedColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppTable) *string { return v.EncryptedColumns }).(pulumi.StringPtrOutput)
 }
@@ -423,9 +438,11 @@ func (o IAppTableRowArrayOutput) Index(i pulumi.IntInput) IAppTableRowOutput {
 }
 
 type IAppVariable struct {
+	// Name of origin
 	Encrypted *string `pulumi:"encrypted"`
 	// Name of the iApp.
-	Name  *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Name of origin
 	Value *string `pulumi:"value"`
 }
 
@@ -441,9 +458,11 @@ type IAppVariableInput interface {
 }
 
 type IAppVariableArgs struct {
+	// Name of origin
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// Name of the iApp.
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of origin
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -498,6 +517,7 @@ func (o IAppVariableOutput) ToIAppVariableOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Name of origin
 func (o IAppVariableOutput) Encrypted() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppVariable) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
@@ -507,6 +527,7 @@ func (o IAppVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Name of origin
 func (o IAppVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IAppVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
