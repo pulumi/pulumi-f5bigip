@@ -12,17 +12,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventServiceDiscoveryNode {
+    /**
+     * @return name of node
+     * 
+     */
     private @Nullable String id;
+    /**
+     * @return ip of nonde
+     * 
+     */
     private @Nullable String ip;
+    /**
+     * @return port
+     * 
+     */
     private @Nullable Integer port;
 
     private EventServiceDiscoveryNode() {}
+    /**
+     * @return name of node
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
+    /**
+     * @return ip of nonde
+     * 
+     */
     public Optional<String> ip() {
         return Optional.ofNullable(this.ip);
     }
+    /**
+     * @return port
+     * 
+     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

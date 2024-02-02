@@ -37,6 +37,7 @@ class DeviceGroupDevice(dict):
                  set_sync_leader: Optional[bool] = None):
         """
         :param str name: Is the name of the device Group
+        :param bool set_sync_leader: Name of origin
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -54,6 +55,9 @@ class DeviceGroupDevice(dict):
     @property
     @pulumi.getter(name="setSyncLeader")
     def set_sync_leader(self) -> Optional[bool]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "set_sync_leader")
 
 

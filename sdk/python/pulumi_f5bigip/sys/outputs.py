@@ -23,6 +23,10 @@ class IAppList(dict):
     def __init__(__self__, *,
                  encrypted: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str encrypted: Name of origin
+        :param str value: Name of origin
+        """
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if value is not None:
@@ -31,11 +35,17 @@ class IAppList(dict):
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
 
@@ -44,6 +54,10 @@ class IAppMetadata(dict):
     def __init__(__self__, *,
                  persists: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str persists: Name of origin
+        :param str value: Name of origin
+        """
         if persists is not None:
             pulumi.set(__self__, "persists", persists)
         if value is not None:
@@ -52,11 +66,17 @@ class IAppMetadata(dict):
     @property
     @pulumi.getter
     def persists(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "persists")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
 
@@ -87,6 +107,7 @@ class IAppTable(dict):
                  name: Optional[str] = None,
                  rows: Optional[Sequence['outputs.IAppTableRow']] = None):
         """
+        :param str encrypted_columns: Name of origin
         :param str name: Name of the iApp.
         """
         if column_names is not None:
@@ -106,6 +127,9 @@ class IAppTable(dict):
     @property
     @pulumi.getter(name="encryptedColumns")
     def encrypted_columns(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted_columns")
 
     @property
@@ -142,7 +166,9 @@ class IAppVariable(dict):
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
+        :param str encrypted: Name of origin
         :param str name: Name of the iApp.
+        :param str value: Name of origin
         """
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
@@ -154,6 +180,9 @@ class IAppVariable(dict):
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "encrypted")
 
     @property
@@ -167,6 +196,9 @@ class IAppVariable(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        Name of origin
+        """
         return pulumi.get(self, "value")
 
 

@@ -94,9 +94,6 @@ export interface GetConsulServiceDiscoveryArgs {
  */
 export interface GetConsulServiceDiscoveryResult {
     readonly addressRealm?: string;
-    /**
-     * The JSON for Hashicorp Consul service discovery block.
-     */
     readonly consulSdJson: string;
     readonly credentialUpdate?: boolean;
     readonly encodedToken?: string;

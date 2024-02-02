@@ -14,6 +14,9 @@ namespace Pulumi.F5BigIP.Sys.Outputs
     public sealed class IAppTable
     {
         public readonly ImmutableArray<string> ColumnNames;
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly string? EncryptedColumns;
         /// <summary>
         /// Name of the iApp.

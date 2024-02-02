@@ -6,8 +6,17 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface EventServiceDiscoveryNode {
+    /**
+     * name of node
+     */
     id?: string;
+    /**
+     * ip of nonde
+     */
     ip?: string;
+    /**
+     * port
+     */
     port?: number;
 }
 
@@ -370,6 +379,9 @@ export interface WafPolicyPolicyBuilder {
 
 export interface WafPolicySignaturesSetting {
     placesignaturesInStaging?: boolean;
+    /**
+     * setting true will enforce all signature from staging
+     */
     signatureStaging?: boolean;
 }
 
@@ -379,6 +391,9 @@ export namespace cm {
          * Is the name of the device Group
          */
         name?: string;
+        /**
+         * Name of origin
+         */
         setSyncLeader?: boolean;
     }
 
@@ -642,7 +657,13 @@ export namespace ltm {
          * Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
          */
         addressFamily: string;
+        /**
+         * Specifies whether the node should scale to the IP address set returned by DNS.
+         */
         autopopulate: string;
+        /**
+         * Specifies the number of attempts to resolve a domain name. The default is 5.
+         */
         downinterval: number;
         /**
          * Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
@@ -893,6 +914,9 @@ export namespace ltm {
          * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
          */
         name?: string;
+        /**
+         * Key passphrase
+         */
         passphrase: string;
     }
 
@@ -935,6 +959,9 @@ export namespace ltm {
     }
 
     export interface SnatOrigin {
+        /**
+         * app service
+         */
         appService?: string;
         /**
          * Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -981,17 +1008,32 @@ export namespace ssl {
 
 export namespace sys {
     export interface IAppList {
+        /**
+         * Name of origin
+         */
         encrypted?: string;
+        /**
+         * Name of origin
+         */
         value?: string;
     }
 
     export interface IAppMetadata {
+        /**
+         * Name of origin
+         */
         persists?: string;
+        /**
+         * Name of origin
+         */
         value?: string;
     }
 
     export interface IAppTable {
         columnNames?: string[];
+        /**
+         * Name of origin
+         */
         encryptedColumns?: string;
         /**
          * Name of the iApp.
@@ -1005,11 +1047,17 @@ export namespace sys {
     }
 
     export interface IAppVariable {
+        /**
+         * Name of origin
+         */
         encrypted?: string;
         /**
          * Name of the iApp.
          */
         name?: string;
+        /**
+         * Name of origin
+         */
         value?: string;
     }
 

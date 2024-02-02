@@ -74,6 +74,8 @@ class NodeFqdnArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] address_family: Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+        :param pulumi.Input[str] autopopulate: Specifies whether the node should scale to the IP address set returned by DNS.
+        :param pulumi.Input[int] downinterval: Specifies the number of attempts to resolve a domain name. The default is 5.
         :param pulumi.Input[str] interval: Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
         :param pulumi.Input[str] name: Name of the node
         """
@@ -103,6 +105,9 @@ class NodeFqdnArgs:
     @property
     @pulumi.getter
     def autopopulate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the node should scale to the IP address set returned by DNS.
+        """
         return pulumi.get(self, "autopopulate")
 
     @autopopulate.setter
@@ -112,6 +117,9 @@ class NodeFqdnArgs:
     @property
     @pulumi.getter
     def downinterval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of attempts to resolve a domain name. The default is 5.
+        """
         return pulumi.get(self, "downinterval")
 
     @downinterval.setter
@@ -2600,6 +2608,7 @@ class ProfileClientSslCertKeyChainArgs:
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] key: Contains a key name
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] passphrase: Key passphrase
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -2663,6 +2672,9 @@ class ProfileClientSslCertKeyChainArgs:
     @property
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key passphrase
+        """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
@@ -2818,6 +2830,7 @@ class SnatOriginArgs:
                  app_service: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] app_service: app service
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         if app_service is not None:
@@ -2828,6 +2841,9 @@ class SnatOriginArgs:
     @property
     @pulumi.getter(name="appService")
     def app_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        app service
+        """
         return pulumi.get(self, "app_service")
 
     @app_service.setter

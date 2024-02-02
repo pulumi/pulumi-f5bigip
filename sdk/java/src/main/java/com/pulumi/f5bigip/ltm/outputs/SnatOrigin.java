@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SnatOrigin {
+    /**
+     * @return app service
+     * 
+     */
     private @Nullable String appService;
     /**
      * @return Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -19,6 +23,10 @@ public final class SnatOrigin {
     private @Nullable String name;
 
     private SnatOrigin() {}
+    /**
+     * @return app service
+     * 
+     */
     public Optional<String> appService() {
         return Optional.ofNullable(this.appService);
     }

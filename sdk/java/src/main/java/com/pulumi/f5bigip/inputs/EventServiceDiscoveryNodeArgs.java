@@ -16,23 +16,47 @@ public final class EventServiceDiscoveryNodeArgs extends com.pulumi.resources.Re
 
     public static final EventServiceDiscoveryNodeArgs Empty = new EventServiceDiscoveryNodeArgs();
 
+    /**
+     * name of node
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return name of node
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * ip of nonde
+     * 
+     */
     @Import(name="ip")
     private @Nullable Output<String> ip;
 
+    /**
+     * @return ip of nonde
+     * 
+     */
     public Optional<Output<String>> ip() {
         return Optional.ofNullable(this.ip);
     }
 
+    /**
+     * port
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return port
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
@@ -63,29 +87,65 @@ public final class EventServiceDiscoveryNodeArgs extends com.pulumi.resources.Re
             $ = new EventServiceDiscoveryNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id name of node
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id name of node
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param ip ip of nonde
+         * 
+         * @return builder
+         * 
+         */
         public Builder ip(@Nullable Output<String> ip) {
             $.ip = ip;
             return this;
         }
 
+        /**
+         * @param ip ip of nonde
+         * 
+         * @return builder
+         * 
+         */
         public Builder ip(String ip) {
             return ip(Output.of(ip));
         }
 
+        /**
+         * @param port port
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port port
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

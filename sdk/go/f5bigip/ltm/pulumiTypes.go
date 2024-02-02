@@ -122,8 +122,10 @@ func (o DataGroupRecordArrayOutput) Index(i pulumi.IntInput) DataGroupRecordOutp
 type NodeFqdn struct {
 	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 	AddressFamily *string `pulumi:"addressFamily"`
-	Autopopulate  *string `pulumi:"autopopulate"`
-	Downinterval  *int    `pulumi:"downinterval"`
+	// Specifies whether the node should scale to the IP address set returned by DNS.
+	Autopopulate *string `pulumi:"autopopulate"`
+	// Specifies the number of attempts to resolve a domain name. The default is 5.
+	Downinterval *int `pulumi:"downinterval"`
 	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 	Interval *string `pulumi:"interval"`
 	// Name of the node
@@ -144,8 +146,10 @@ type NodeFqdnInput interface {
 type NodeFqdnArgs struct {
 	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 	AddressFamily pulumi.StringPtrInput `pulumi:"addressFamily"`
-	Autopopulate  pulumi.StringPtrInput `pulumi:"autopopulate"`
-	Downinterval  pulumi.IntPtrInput    `pulumi:"downinterval"`
+	// Specifies whether the node should scale to the IP address set returned by DNS.
+	Autopopulate pulumi.StringPtrInput `pulumi:"autopopulate"`
+	// Specifies the number of attempts to resolve a domain name. The default is 5.
+	Downinterval pulumi.IntPtrInput `pulumi:"downinterval"`
 	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 	Interval pulumi.StringPtrInput `pulumi:"interval"`
 	// Name of the node
@@ -234,10 +238,12 @@ func (o NodeFqdnOutput) AddressFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the node should scale to the IP address set returned by DNS.
 func (o NodeFqdnOutput) Autopopulate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the number of attempts to resolve a domain name. The default is 5.
 func (o NodeFqdnOutput) Downinterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
 }
@@ -286,6 +292,7 @@ func (o NodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the node should scale to the IP address set returned by DNS.
 func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *string {
 		if v == nil {
@@ -295,6 +302,7 @@ func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the number of attempts to resolve a domain name. The default is 5.
 func (o NodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *int {
 		if v == nil {
@@ -1814,7 +1822,8 @@ type ProfileClientSslCertKeyChain struct {
 	// Contains a key name
 	Key *string `pulumi:"key"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
-	Name       *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key passphrase
 	Passphrase *string `pulumi:"passphrase"`
 }
 
@@ -1837,7 +1846,8 @@ type ProfileClientSslCertKeyChainArgs struct {
 	// Contains a key name
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
-	Name       pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Key passphrase
 	Passphrase pulumi.StringPtrInput `pulumi:"passphrase"`
 }
 
@@ -1938,6 +1948,7 @@ func (o ProfileClientSslCertKeyChainOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Key passphrase
 func (o ProfileClientSslCertKeyChainOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
@@ -2006,6 +2017,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Key passphrase
 func (o ProfileClientSslCertKeyChainPtrOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {
@@ -2264,6 +2276,7 @@ func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) Index(i pulumi.IntInp
 }
 
 type SnatOrigin struct {
+	// app service
 	AppService *string `pulumi:"appService"`
 	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name *string `pulumi:"name"`
@@ -2281,6 +2294,7 @@ type SnatOriginInput interface {
 }
 
 type SnatOriginArgs struct {
+	// app service
 	AppService pulumi.StringPtrInput `pulumi:"appService"`
 	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2337,6 +2351,7 @@ func (o SnatOriginOutput) ToSnatOriginOutputWithContext(ctx context.Context) Sna
 	return o
 }
 
+// app service
 func (o SnatOriginOutput) AppService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnatOrigin) *string { return v.AppService }).(pulumi.StringPtrOutput)
 }

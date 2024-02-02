@@ -17,7 +17,13 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
         /// </summary>
         public readonly string? AddressFamily;
+        /// <summary>
+        /// Specifies whether the node should scale to the IP address set returned by DNS.
+        /// </summary>
         public readonly string? Autopopulate;
+        /// <summary>
+        /// Specifies the number of attempts to resolve a domain name. The default is 5.
+        /// </summary>
         public readonly int? Downinterval;
         /// <summary>
         /// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).

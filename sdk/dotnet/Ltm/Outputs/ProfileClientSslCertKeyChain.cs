@@ -29,6 +29,9 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Key passphrase
+        /// </summary>
         public readonly string? Passphrase;
 
         [OutputConstructor]

@@ -20,6 +20,9 @@ namespace Pulumi.F5BigIP.Sys.Inputs
             set => _columnNames = value;
         }
 
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         [Input("encryptedColumns")]
         public Input<string>? EncryptedColumns { get; set; }
 

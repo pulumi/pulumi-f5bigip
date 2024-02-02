@@ -13,7 +13,13 @@ namespace Pulumi.F5BigIP.Sys.Outputs
     [OutputType]
     public sealed class IAppList
     {
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly string? Encrypted;
+        /// <summary>
+        /// Name of origin
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]
