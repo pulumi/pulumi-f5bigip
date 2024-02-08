@@ -1019,10 +1019,12 @@ class ProfileHttp(pulumi.CustomResource):
 
         ## Import
 
-        BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
+        BIG-IP LTM http profiles can be imported using the `name`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
         ```
 
         :param str resource_name: The name of the resource.
@@ -1088,10 +1090,12 @@ class ProfileHttp(pulumi.CustomResource):
 
         ## Import
 
-        BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
+        BIG-IP LTM http profiles can be imported using the `name`, e.g.
+
+         bash
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
         ```
 
         :param str resource_name: The name of the resource.
