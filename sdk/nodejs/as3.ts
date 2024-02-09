@@ -30,22 +30,38 @@ import * as utilities from "./utilities";
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
  *
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01
+ * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01
  * ```
  *
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01
+ * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01
  * ```
  *
  * #### Import examples ( single and multiple partitions )
  *
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+ * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
  * ```
  *
- *  bigip_as3.testImporting from ID "Sample_http_01"... bigip_as3.testImport prepared!
+ *  bigip_as3.test: Importing from ID "Sample_http_01"...
  *
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
+ *  bigip_as3.test: Import prepared!
+ *
+ *  Prepared bigip_as3 for import
+ *
+ *  bigip_as3.test: Refreshing state... [id=Sample_http_01]
+ *
+ *  Import successful!
+ *
+ *  The resources that were imported are shown above. These resources are now in
+ *
+ *  your Terraform state and will henceforth be managed by Terraform.
+ *
+ *  $ terraform show
+ *
+ *  bigip_as3.test:
+ *
+ *  resource "bigip_as3" "test" {
  *
  *  as3_json
  *
@@ -205,15 +221,33 @@ import * as utilities from "./utilities";
  *
  *  tenant_list
  *
- *  = "Sample_http_01" }
+ *  = "Sample_http_01"
+ *
+ *  }
  *
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
+ * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
  * ```
  *
- *  bigip_as3.testImporting from ID "Sample_http_01,Sample_non_http_01"... bigip_as3.testImport prepared!
+ *  bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
  *
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
+ *  bigip_as3.test: Import prepared!
+ *
+ *  Prepared bigip_as3 for import
+ *
+ *  bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
+ *
+ *  Import successful!
+ *
+ *  The resources that were imported are shown above. These resources are now in
+ *
+ *  your Terraform state and will henceforth be managed by Terraform.
+ *
+ *  $ terraform show
+ *
+ *  bigip_as3.test:
+ *
+ *  resource "bigip_as3" "test" {
  *
  *  as3_json
  *
@@ -463,7 +497,11 @@ import * as utilities from "./utilities";
  *
  *  tenant_list
  *
- *  = "Sample_http_01,Sample_non_http_01" } * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+ *  = "Sample_http_01,Sample_non_http_01"
+ *
+ *  }
+ *
+ *  * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
  */
 export class As3 extends pulumi.CustomResource {
     /**
