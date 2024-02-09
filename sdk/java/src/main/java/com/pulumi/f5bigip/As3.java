@@ -60,22 +60,38 @@ import javax.annotation.Nullable;
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
  * 
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01
+ * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01
  * ```
  * 
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01
+ * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01
  * ```
  * 
  * #### Import examples ( single and multiple partitions )
  * 
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+ * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
  * ```
  * 
- *  bigip_as3.testImporting from ID &#34;Sample_http_01&#34;... bigip_as3.testImport prepared!
+ *  bigip_as3.test: Importing from ID &#34;Sample_http_01&#34;...
  * 
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
+ *  bigip_as3.test: Import prepared!
+ * 
+ *  Prepared bigip_as3 for import
+ * 
+ *  bigip_as3.test: Refreshing state... [id=Sample_http_01]
+ * 
+ *  Import successful!
+ * 
+ *  The resources that were imported are shown above. These resources are now in
+ * 
+ *  your Terraform state and will henceforth be managed by Terraform.
+ * 
+ *  $ terraform show
+ * 
+ *  bigip_as3.test:
+ * 
+ *  resource &#34;bigip_as3&#34; &#34;test&#34; {
  * 
  *  as3_json
  * 
@@ -235,15 +251,33 @@ import javax.annotation.Nullable;
  * 
  *  tenant_list
  * 
- *  = &#34;Sample_http_01&#34; }
+ *  = &#34;Sample_http_01&#34;
+ * 
+ *  }
  * 
  * ```sh
- *  $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
+ * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
  * ```
  * 
- *  bigip_as3.testImporting from ID &#34;Sample_http_01,Sample_non_http_01&#34;... bigip_as3.testImport prepared!
+ *  bigip_as3.test: Importing from ID &#34;Sample_http_01,Sample_non_http_01&#34;...
  * 
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
+ *  bigip_as3.test: Import prepared!
+ * 
+ *  Prepared bigip_as3 for import
+ * 
+ *  bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
+ * 
+ *  Import successful!
+ * 
+ *  The resources that were imported are shown above. These resources are now in
+ * 
+ *  your Terraform state and will henceforth be managed by Terraform.
+ * 
+ *  $ terraform show
+ * 
+ *  bigip_as3.test:
+ * 
+ *  resource &#34;bigip_as3&#34; &#34;test&#34; {
  * 
  *  as3_json
  * 
@@ -493,7 +527,11 @@ import javax.annotation.Nullable;
  * 
  *  tenant_list
  * 
- *  = &#34;Sample_http_01,Sample_non_http_01&#34; } * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+ *  = &#34;Sample_http_01,Sample_non_http_01&#34;
+ * 
+ *  }
+ * 
+ *  * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
  * 
  */
 @ResourceType(type="f5bigip:index/as3:As3")

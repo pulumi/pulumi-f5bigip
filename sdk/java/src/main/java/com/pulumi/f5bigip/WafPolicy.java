@@ -102,10 +102,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g
+ * An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`.
+ * 
+ *  e.g:
  * 
  * ```sh
- *  $ pulumi import f5bigip:index/wafPolicy:WafPolicy example &lt;id&gt;
+ * $ pulumi import f5bigip:index/wafPolicy:WafPolicy example &lt;id&gt;
  * ```
  * 
  */
