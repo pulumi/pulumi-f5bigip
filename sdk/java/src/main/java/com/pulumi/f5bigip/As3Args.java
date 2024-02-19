@@ -17,14 +17,14 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
     public static final As3Args Empty = new As3Args();
 
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      * 
      */
     @Import(name="applicationList")
     private @Nullable Output<String> applicationList;
 
     /**
-     * @return Name of Application
+     * @return Application deployed through AS3 Declaration
      * 
      */
     public Optional<Output<String>> applicationList() {
@@ -254,7 +254,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Name of Application
+         * @param applicationList Application deployed through AS3 Declaration
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Name of Application
+         * @param applicationList Application deployed through AS3 Declaration
          * 
          * @return builder
          * 

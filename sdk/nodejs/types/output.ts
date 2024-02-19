@@ -958,6 +958,85 @@ export namespace ltm {
         preload: string;
     }
 
+    export interface ProfileRewriteCookieRule {
+        clientDomain: string;
+        clientPath: string;
+        /**
+         * Name of the cookie rewrite rule.
+         */
+        ruleName: string;
+        serverDomain: string;
+        serverPath: string;
+    }
+
+    export interface ProfileRewriteRequest {
+        /**
+         * Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdFor?: string;
+        /**
+         * Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdHost?: string;
+        /**
+         * Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdProtocol?: string;
+        /**
+         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteHeaders?: string;
+    }
+
+    export interface ProfileRewriteResponse {
+        /**
+         * Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteContent?: string;
+        /**
+         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteHeaders?: string;
+    }
+
+    export interface ProfileRewriteUriRulesClient {
+        /**
+         * Host part of the uri, e.g. `www.foo.com`.
+         */
+        host: string;
+        /**
+         * Path part of the uri, must always end with `/`. Default value is: `/`
+         */
+        path?: string;
+        /**
+         * Port part of the uri. Default value is: `none`
+         */
+        port?: string;
+        /**
+         * Scheme part of the uri, e.g. `https`, `ftp`.
+         */
+        scheme: string;
+    }
+
+    export interface ProfileRewriteUriRulesServer {
+        /**
+         * Host part of the uri, e.g. `www.foo.com`.
+         */
+        host: string;
+        /**
+         * Path part of the uri, must always end with `/`. Default value is: `/`
+         */
+        path?: string;
+        /**
+         * Port part of the uri. Default value is: `none`
+         */
+        port?: string;
+        /**
+         * Scheme part of the uri, e.g. `https`, `ftp`.
+         */
+        scheme: string;
+    }
+
     export interface SnatOrigin {
         /**
          * app service

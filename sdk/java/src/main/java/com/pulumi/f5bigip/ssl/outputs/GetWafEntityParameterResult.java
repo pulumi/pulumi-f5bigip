@@ -35,7 +35,9 @@ public final class GetWafEntityParameterResult {
     private String json;
     private @Nullable String level;
     private @Nullable Boolean mandatory;
+    private @Nullable Integer maxValueLength;
     private @Nullable Boolean metacharsOnParameterValueCheck;
+    private @Nullable Integer minValueLength;
     private String name;
     private @Nullable String parameterLocation;
     private @Nullable Boolean performStaging;
@@ -95,8 +97,14 @@ public final class GetWafEntityParameterResult {
     public Optional<Boolean> mandatory() {
         return Optional.ofNullable(this.mandatory);
     }
+    public Optional<Integer> maxValueLength() {
+        return Optional.ofNullable(this.maxValueLength);
+    }
     public Optional<Boolean> metacharsOnParameterValueCheck() {
         return Optional.ofNullable(this.metacharsOnParameterValueCheck);
+    }
+    public Optional<Integer> minValueLength() {
+        return Optional.ofNullable(this.minValueLength);
     }
     public String name() {
         return this.name;
@@ -147,7 +155,9 @@ public final class GetWafEntityParameterResult {
         private String json;
         private @Nullable String level;
         private @Nullable Boolean mandatory;
+        private @Nullable Integer maxValueLength;
         private @Nullable Boolean metacharsOnParameterValueCheck;
+        private @Nullable Integer minValueLength;
         private String name;
         private @Nullable String parameterLocation;
         private @Nullable Boolean performStaging;
@@ -174,7 +184,9 @@ public final class GetWafEntityParameterResult {
     	      this.json = defaults.json;
     	      this.level = defaults.level;
     	      this.mandatory = defaults.mandatory;
+    	      this.maxValueLength = defaults.maxValueLength;
     	      this.metacharsOnParameterValueCheck = defaults.metacharsOnParameterValueCheck;
+    	      this.minValueLength = defaults.minValueLength;
     	      this.name = defaults.name;
     	      this.parameterLocation = defaults.parameterLocation;
     	      this.performStaging = defaults.performStaging;
@@ -280,9 +292,21 @@ public final class GetWafEntityParameterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder maxValueLength(@Nullable Integer maxValueLength) {
+
+            this.maxValueLength = maxValueLength;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metacharsOnParameterValueCheck(@Nullable Boolean metacharsOnParameterValueCheck) {
 
             this.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minValueLength(@Nullable Integer minValueLength) {
+
+            this.minValueLength = minValueLength;
             return this;
         }
         @CustomType.Setter
@@ -355,7 +379,9 @@ public final class GetWafEntityParameterResult {
             _resultValue.json = json;
             _resultValue.level = level;
             _resultValue.mandatory = mandatory;
+            _resultValue.maxValueLength = maxValueLength;
             _resultValue.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
+            _resultValue.minValueLength = minValueLength;
             _resultValue.name = name;
             _resultValue.parameterLocation = parameterLocation;
             _resultValue.performStaging = performStaging;

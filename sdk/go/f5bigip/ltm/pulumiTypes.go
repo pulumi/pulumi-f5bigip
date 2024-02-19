@@ -2275,6 +2275,605 @@ func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) Index(i pulumi.IntInp
 	}).(ProfileHttpHttpStrictTransportSecurityOutput)
 }
 
+type ProfileRewriteCookieRule struct {
+	ClientDomain string `pulumi:"clientDomain"`
+	ClientPath   string `pulumi:"clientPath"`
+	// Name of the cookie rewrite rule.
+	RuleName     string `pulumi:"ruleName"`
+	ServerDomain string `pulumi:"serverDomain"`
+	ServerPath   string `pulumi:"serverPath"`
+}
+
+// ProfileRewriteCookieRuleInput is an input type that accepts ProfileRewriteCookieRuleArgs and ProfileRewriteCookieRuleOutput values.
+// You can construct a concrete instance of `ProfileRewriteCookieRuleInput` via:
+//
+//	ProfileRewriteCookieRuleArgs{...}
+type ProfileRewriteCookieRuleInput interface {
+	pulumi.Input
+
+	ToProfileRewriteCookieRuleOutput() ProfileRewriteCookieRuleOutput
+	ToProfileRewriteCookieRuleOutputWithContext(context.Context) ProfileRewriteCookieRuleOutput
+}
+
+type ProfileRewriteCookieRuleArgs struct {
+	ClientDomain pulumi.StringInput `pulumi:"clientDomain"`
+	ClientPath   pulumi.StringInput `pulumi:"clientPath"`
+	// Name of the cookie rewrite rule.
+	RuleName     pulumi.StringInput `pulumi:"ruleName"`
+	ServerDomain pulumi.StringInput `pulumi:"serverDomain"`
+	ServerPath   pulumi.StringInput `pulumi:"serverPath"`
+}
+
+func (ProfileRewriteCookieRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteCookieRule)(nil)).Elem()
+}
+
+func (i ProfileRewriteCookieRuleArgs) ToProfileRewriteCookieRuleOutput() ProfileRewriteCookieRuleOutput {
+	return i.ToProfileRewriteCookieRuleOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteCookieRuleArgs) ToProfileRewriteCookieRuleOutputWithContext(ctx context.Context) ProfileRewriteCookieRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteCookieRuleOutput)
+}
+
+// ProfileRewriteCookieRuleArrayInput is an input type that accepts ProfileRewriteCookieRuleArray and ProfileRewriteCookieRuleArrayOutput values.
+// You can construct a concrete instance of `ProfileRewriteCookieRuleArrayInput` via:
+//
+//	ProfileRewriteCookieRuleArray{ ProfileRewriteCookieRuleArgs{...} }
+type ProfileRewriteCookieRuleArrayInput interface {
+	pulumi.Input
+
+	ToProfileRewriteCookieRuleArrayOutput() ProfileRewriteCookieRuleArrayOutput
+	ToProfileRewriteCookieRuleArrayOutputWithContext(context.Context) ProfileRewriteCookieRuleArrayOutput
+}
+
+type ProfileRewriteCookieRuleArray []ProfileRewriteCookieRuleInput
+
+func (ProfileRewriteCookieRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteCookieRule)(nil)).Elem()
+}
+
+func (i ProfileRewriteCookieRuleArray) ToProfileRewriteCookieRuleArrayOutput() ProfileRewriteCookieRuleArrayOutput {
+	return i.ToProfileRewriteCookieRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteCookieRuleArray) ToProfileRewriteCookieRuleArrayOutputWithContext(ctx context.Context) ProfileRewriteCookieRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteCookieRuleArrayOutput)
+}
+
+type ProfileRewriteCookieRuleOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteCookieRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteCookieRule)(nil)).Elem()
+}
+
+func (o ProfileRewriteCookieRuleOutput) ToProfileRewriteCookieRuleOutput() ProfileRewriteCookieRuleOutput {
+	return o
+}
+
+func (o ProfileRewriteCookieRuleOutput) ToProfileRewriteCookieRuleOutputWithContext(ctx context.Context) ProfileRewriteCookieRuleOutput {
+	return o
+}
+
+func (o ProfileRewriteCookieRuleOutput) ClientDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteCookieRule) string { return v.ClientDomain }).(pulumi.StringOutput)
+}
+
+func (o ProfileRewriteCookieRuleOutput) ClientPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteCookieRule) string { return v.ClientPath }).(pulumi.StringOutput)
+}
+
+// Name of the cookie rewrite rule.
+func (o ProfileRewriteCookieRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteCookieRule) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+func (o ProfileRewriteCookieRuleOutput) ServerDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteCookieRule) string { return v.ServerDomain }).(pulumi.StringOutput)
+}
+
+func (o ProfileRewriteCookieRuleOutput) ServerPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteCookieRule) string { return v.ServerPath }).(pulumi.StringOutput)
+}
+
+type ProfileRewriteCookieRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteCookieRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteCookieRule)(nil)).Elem()
+}
+
+func (o ProfileRewriteCookieRuleArrayOutput) ToProfileRewriteCookieRuleArrayOutput() ProfileRewriteCookieRuleArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteCookieRuleArrayOutput) ToProfileRewriteCookieRuleArrayOutputWithContext(ctx context.Context) ProfileRewriteCookieRuleArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteCookieRuleArrayOutput) Index(i pulumi.IntInput) ProfileRewriteCookieRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileRewriteCookieRule {
+		return vs[0].([]ProfileRewriteCookieRule)[vs[1].(int)]
+	}).(ProfileRewriteCookieRuleOutput)
+}
+
+type ProfileRewriteRequest struct {
+	// Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdFor *string `pulumi:"insertXfwdFor"`
+	// Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdHost *string `pulumi:"insertXfwdHost"`
+	// Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdProtocol *string `pulumi:"insertXfwdProtocol"`
+	// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+	RewriteHeaders *string `pulumi:"rewriteHeaders"`
+}
+
+// ProfileRewriteRequestInput is an input type that accepts ProfileRewriteRequestArgs and ProfileRewriteRequestOutput values.
+// You can construct a concrete instance of `ProfileRewriteRequestInput` via:
+//
+//	ProfileRewriteRequestArgs{...}
+type ProfileRewriteRequestInput interface {
+	pulumi.Input
+
+	ToProfileRewriteRequestOutput() ProfileRewriteRequestOutput
+	ToProfileRewriteRequestOutputWithContext(context.Context) ProfileRewriteRequestOutput
+}
+
+type ProfileRewriteRequestArgs struct {
+	// Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdFor pulumi.StringPtrInput `pulumi:"insertXfwdFor"`
+	// Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdHost pulumi.StringPtrInput `pulumi:"insertXfwdHost"`
+	// Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+	InsertXfwdProtocol pulumi.StringPtrInput `pulumi:"insertXfwdProtocol"`
+	// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+	RewriteHeaders pulumi.StringPtrInput `pulumi:"rewriteHeaders"`
+}
+
+func (ProfileRewriteRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteRequest)(nil)).Elem()
+}
+
+func (i ProfileRewriteRequestArgs) ToProfileRewriteRequestOutput() ProfileRewriteRequestOutput {
+	return i.ToProfileRewriteRequestOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteRequestArgs) ToProfileRewriteRequestOutputWithContext(ctx context.Context) ProfileRewriteRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteRequestOutput)
+}
+
+// ProfileRewriteRequestArrayInput is an input type that accepts ProfileRewriteRequestArray and ProfileRewriteRequestArrayOutput values.
+// You can construct a concrete instance of `ProfileRewriteRequestArrayInput` via:
+//
+//	ProfileRewriteRequestArray{ ProfileRewriteRequestArgs{...} }
+type ProfileRewriteRequestArrayInput interface {
+	pulumi.Input
+
+	ToProfileRewriteRequestArrayOutput() ProfileRewriteRequestArrayOutput
+	ToProfileRewriteRequestArrayOutputWithContext(context.Context) ProfileRewriteRequestArrayOutput
+}
+
+type ProfileRewriteRequestArray []ProfileRewriteRequestInput
+
+func (ProfileRewriteRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteRequest)(nil)).Elem()
+}
+
+func (i ProfileRewriteRequestArray) ToProfileRewriteRequestArrayOutput() ProfileRewriteRequestArrayOutput {
+	return i.ToProfileRewriteRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteRequestArray) ToProfileRewriteRequestArrayOutputWithContext(ctx context.Context) ProfileRewriteRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteRequestArrayOutput)
+}
+
+type ProfileRewriteRequestOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteRequest)(nil)).Elem()
+}
+
+func (o ProfileRewriteRequestOutput) ToProfileRewriteRequestOutput() ProfileRewriteRequestOutput {
+	return o
+}
+
+func (o ProfileRewriteRequestOutput) ToProfileRewriteRequestOutputWithContext(ctx context.Context) ProfileRewriteRequestOutput {
+	return o
+}
+
+// Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteRequestOutput) InsertXfwdFor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteRequest) *string { return v.InsertXfwdFor }).(pulumi.StringPtrOutput)
+}
+
+// Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteRequestOutput) InsertXfwdHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteRequest) *string { return v.InsertXfwdHost }).(pulumi.StringPtrOutput)
+}
+
+// Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteRequestOutput) InsertXfwdProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteRequest) *string { return v.InsertXfwdProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteRequestOutput) RewriteHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteRequest) *string { return v.RewriteHeaders }).(pulumi.StringPtrOutput)
+}
+
+type ProfileRewriteRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteRequest)(nil)).Elem()
+}
+
+func (o ProfileRewriteRequestArrayOutput) ToProfileRewriteRequestArrayOutput() ProfileRewriteRequestArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteRequestArrayOutput) ToProfileRewriteRequestArrayOutputWithContext(ctx context.Context) ProfileRewriteRequestArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteRequestArrayOutput) Index(i pulumi.IntInput) ProfileRewriteRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileRewriteRequest {
+		return vs[0].([]ProfileRewriteRequest)[vs[1].(int)]
+	}).(ProfileRewriteRequestOutput)
+}
+
+type ProfileRewriteResponse struct {
+	// Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+	RewriteContent *string `pulumi:"rewriteContent"`
+	// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+	RewriteHeaders *string `pulumi:"rewriteHeaders"`
+}
+
+// ProfileRewriteResponseInput is an input type that accepts ProfileRewriteResponseArgs and ProfileRewriteResponseOutput values.
+// You can construct a concrete instance of `ProfileRewriteResponseInput` via:
+//
+//	ProfileRewriteResponseArgs{...}
+type ProfileRewriteResponseInput interface {
+	pulumi.Input
+
+	ToProfileRewriteResponseOutput() ProfileRewriteResponseOutput
+	ToProfileRewriteResponseOutputWithContext(context.Context) ProfileRewriteResponseOutput
+}
+
+type ProfileRewriteResponseArgs struct {
+	// Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+	RewriteContent pulumi.StringPtrInput `pulumi:"rewriteContent"`
+	// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+	RewriteHeaders pulumi.StringPtrInput `pulumi:"rewriteHeaders"`
+}
+
+func (ProfileRewriteResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteResponse)(nil)).Elem()
+}
+
+func (i ProfileRewriteResponseArgs) ToProfileRewriteResponseOutput() ProfileRewriteResponseOutput {
+	return i.ToProfileRewriteResponseOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteResponseArgs) ToProfileRewriteResponseOutputWithContext(ctx context.Context) ProfileRewriteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteResponseOutput)
+}
+
+// ProfileRewriteResponseArrayInput is an input type that accepts ProfileRewriteResponseArray and ProfileRewriteResponseArrayOutput values.
+// You can construct a concrete instance of `ProfileRewriteResponseArrayInput` via:
+//
+//	ProfileRewriteResponseArray{ ProfileRewriteResponseArgs{...} }
+type ProfileRewriteResponseArrayInput interface {
+	pulumi.Input
+
+	ToProfileRewriteResponseArrayOutput() ProfileRewriteResponseArrayOutput
+	ToProfileRewriteResponseArrayOutputWithContext(context.Context) ProfileRewriteResponseArrayOutput
+}
+
+type ProfileRewriteResponseArray []ProfileRewriteResponseInput
+
+func (ProfileRewriteResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteResponse)(nil)).Elem()
+}
+
+func (i ProfileRewriteResponseArray) ToProfileRewriteResponseArrayOutput() ProfileRewriteResponseArrayOutput {
+	return i.ToProfileRewriteResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteResponseArray) ToProfileRewriteResponseArrayOutputWithContext(ctx context.Context) ProfileRewriteResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteResponseArrayOutput)
+}
+
+type ProfileRewriteResponseOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteResponse)(nil)).Elem()
+}
+
+func (o ProfileRewriteResponseOutput) ToProfileRewriteResponseOutput() ProfileRewriteResponseOutput {
+	return o
+}
+
+func (o ProfileRewriteResponseOutput) ToProfileRewriteResponseOutputWithContext(ctx context.Context) ProfileRewriteResponseOutput {
+	return o
+}
+
+// Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteResponseOutput) RewriteContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteResponse) *string { return v.RewriteContent }).(pulumi.StringPtrOutput)
+}
+
+// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+func (o ProfileRewriteResponseOutput) RewriteHeaders() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteResponse) *string { return v.RewriteHeaders }).(pulumi.StringPtrOutput)
+}
+
+type ProfileRewriteResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteResponse)(nil)).Elem()
+}
+
+func (o ProfileRewriteResponseArrayOutput) ToProfileRewriteResponseArrayOutput() ProfileRewriteResponseArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteResponseArrayOutput) ToProfileRewriteResponseArrayOutputWithContext(ctx context.Context) ProfileRewriteResponseArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteResponseArrayOutput) Index(i pulumi.IntInput) ProfileRewriteResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileRewriteResponse {
+		return vs[0].([]ProfileRewriteResponse)[vs[1].(int)]
+	}).(ProfileRewriteResponseOutput)
+}
+
+type ProfileRewriteUriRulesClient struct {
+	// Host part of the uri, e.g. `www.foo.com`.
+	Host string `pulumi:"host"`
+	// Path part of the uri, must always end with `/`. Default value is: `/`
+	Path *string `pulumi:"path"`
+	// Port part of the uri. Default value is: `none`
+	Port *string `pulumi:"port"`
+	// Scheme part of the uri, e.g. `https`, `ftp`.
+	Scheme string `pulumi:"scheme"`
+}
+
+// ProfileRewriteUriRulesClientInput is an input type that accepts ProfileRewriteUriRulesClientArgs and ProfileRewriteUriRulesClientOutput values.
+// You can construct a concrete instance of `ProfileRewriteUriRulesClientInput` via:
+//
+//	ProfileRewriteUriRulesClientArgs{...}
+type ProfileRewriteUriRulesClientInput interface {
+	pulumi.Input
+
+	ToProfileRewriteUriRulesClientOutput() ProfileRewriteUriRulesClientOutput
+	ToProfileRewriteUriRulesClientOutputWithContext(context.Context) ProfileRewriteUriRulesClientOutput
+}
+
+type ProfileRewriteUriRulesClientArgs struct {
+	// Host part of the uri, e.g. `www.foo.com`.
+	Host pulumi.StringInput `pulumi:"host"`
+	// Path part of the uri, must always end with `/`. Default value is: `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Port part of the uri. Default value is: `none`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// Scheme part of the uri, e.g. `https`, `ftp`.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+}
+
+func (ProfileRewriteUriRulesClientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteUriRulesClient)(nil)).Elem()
+}
+
+func (i ProfileRewriteUriRulesClientArgs) ToProfileRewriteUriRulesClientOutput() ProfileRewriteUriRulesClientOutput {
+	return i.ToProfileRewriteUriRulesClientOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteUriRulesClientArgs) ToProfileRewriteUriRulesClientOutputWithContext(ctx context.Context) ProfileRewriteUriRulesClientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteUriRulesClientOutput)
+}
+
+// ProfileRewriteUriRulesClientArrayInput is an input type that accepts ProfileRewriteUriRulesClientArray and ProfileRewriteUriRulesClientArrayOutput values.
+// You can construct a concrete instance of `ProfileRewriteUriRulesClientArrayInput` via:
+//
+//	ProfileRewriteUriRulesClientArray{ ProfileRewriteUriRulesClientArgs{...} }
+type ProfileRewriteUriRulesClientArrayInput interface {
+	pulumi.Input
+
+	ToProfileRewriteUriRulesClientArrayOutput() ProfileRewriteUriRulesClientArrayOutput
+	ToProfileRewriteUriRulesClientArrayOutputWithContext(context.Context) ProfileRewriteUriRulesClientArrayOutput
+}
+
+type ProfileRewriteUriRulesClientArray []ProfileRewriteUriRulesClientInput
+
+func (ProfileRewriteUriRulesClientArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteUriRulesClient)(nil)).Elem()
+}
+
+func (i ProfileRewriteUriRulesClientArray) ToProfileRewriteUriRulesClientArrayOutput() ProfileRewriteUriRulesClientArrayOutput {
+	return i.ToProfileRewriteUriRulesClientArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteUriRulesClientArray) ToProfileRewriteUriRulesClientArrayOutputWithContext(ctx context.Context) ProfileRewriteUriRulesClientArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteUriRulesClientArrayOutput)
+}
+
+type ProfileRewriteUriRulesClientOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteUriRulesClientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteUriRulesClient)(nil)).Elem()
+}
+
+func (o ProfileRewriteUriRulesClientOutput) ToProfileRewriteUriRulesClientOutput() ProfileRewriteUriRulesClientOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesClientOutput) ToProfileRewriteUriRulesClientOutputWithContext(ctx context.Context) ProfileRewriteUriRulesClientOutput {
+	return o
+}
+
+// Host part of the uri, e.g. `www.foo.com`.
+func (o ProfileRewriteUriRulesClientOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesClient) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// Path part of the uri, must always end with `/`. Default value is: `/`
+func (o ProfileRewriteUriRulesClientOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesClient) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Port part of the uri. Default value is: `none`
+func (o ProfileRewriteUriRulesClientOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesClient) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// Scheme part of the uri, e.g. `https`, `ftp`.
+func (o ProfileRewriteUriRulesClientOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesClient) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+type ProfileRewriteUriRulesClientArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteUriRulesClientArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteUriRulesClient)(nil)).Elem()
+}
+
+func (o ProfileRewriteUriRulesClientArrayOutput) ToProfileRewriteUriRulesClientArrayOutput() ProfileRewriteUriRulesClientArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesClientArrayOutput) ToProfileRewriteUriRulesClientArrayOutputWithContext(ctx context.Context) ProfileRewriteUriRulesClientArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesClientArrayOutput) Index(i pulumi.IntInput) ProfileRewriteUriRulesClientOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileRewriteUriRulesClient {
+		return vs[0].([]ProfileRewriteUriRulesClient)[vs[1].(int)]
+	}).(ProfileRewriteUriRulesClientOutput)
+}
+
+type ProfileRewriteUriRulesServer struct {
+	// Host part of the uri, e.g. `www.foo.com`.
+	Host string `pulumi:"host"`
+	// Path part of the uri, must always end with `/`. Default value is: `/`
+	Path *string `pulumi:"path"`
+	// Port part of the uri. Default value is: `none`
+	Port *string `pulumi:"port"`
+	// Scheme part of the uri, e.g. `https`, `ftp`.
+	Scheme string `pulumi:"scheme"`
+}
+
+// ProfileRewriteUriRulesServerInput is an input type that accepts ProfileRewriteUriRulesServerArgs and ProfileRewriteUriRulesServerOutput values.
+// You can construct a concrete instance of `ProfileRewriteUriRulesServerInput` via:
+//
+//	ProfileRewriteUriRulesServerArgs{...}
+type ProfileRewriteUriRulesServerInput interface {
+	pulumi.Input
+
+	ToProfileRewriteUriRulesServerOutput() ProfileRewriteUriRulesServerOutput
+	ToProfileRewriteUriRulesServerOutputWithContext(context.Context) ProfileRewriteUriRulesServerOutput
+}
+
+type ProfileRewriteUriRulesServerArgs struct {
+	// Host part of the uri, e.g. `www.foo.com`.
+	Host pulumi.StringInput `pulumi:"host"`
+	// Path part of the uri, must always end with `/`. Default value is: `/`
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Port part of the uri. Default value is: `none`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// Scheme part of the uri, e.g. `https`, `ftp`.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+}
+
+func (ProfileRewriteUriRulesServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteUriRulesServer)(nil)).Elem()
+}
+
+func (i ProfileRewriteUriRulesServerArgs) ToProfileRewriteUriRulesServerOutput() ProfileRewriteUriRulesServerOutput {
+	return i.ToProfileRewriteUriRulesServerOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteUriRulesServerArgs) ToProfileRewriteUriRulesServerOutputWithContext(ctx context.Context) ProfileRewriteUriRulesServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteUriRulesServerOutput)
+}
+
+// ProfileRewriteUriRulesServerArrayInput is an input type that accepts ProfileRewriteUriRulesServerArray and ProfileRewriteUriRulesServerArrayOutput values.
+// You can construct a concrete instance of `ProfileRewriteUriRulesServerArrayInput` via:
+//
+//	ProfileRewriteUriRulesServerArray{ ProfileRewriteUriRulesServerArgs{...} }
+type ProfileRewriteUriRulesServerArrayInput interface {
+	pulumi.Input
+
+	ToProfileRewriteUriRulesServerArrayOutput() ProfileRewriteUriRulesServerArrayOutput
+	ToProfileRewriteUriRulesServerArrayOutputWithContext(context.Context) ProfileRewriteUriRulesServerArrayOutput
+}
+
+type ProfileRewriteUriRulesServerArray []ProfileRewriteUriRulesServerInput
+
+func (ProfileRewriteUriRulesServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteUriRulesServer)(nil)).Elem()
+}
+
+func (i ProfileRewriteUriRulesServerArray) ToProfileRewriteUriRulesServerArrayOutput() ProfileRewriteUriRulesServerArrayOutput {
+	return i.ToProfileRewriteUriRulesServerArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileRewriteUriRulesServerArray) ToProfileRewriteUriRulesServerArrayOutputWithContext(ctx context.Context) ProfileRewriteUriRulesServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileRewriteUriRulesServerArrayOutput)
+}
+
+type ProfileRewriteUriRulesServerOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteUriRulesServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileRewriteUriRulesServer)(nil)).Elem()
+}
+
+func (o ProfileRewriteUriRulesServerOutput) ToProfileRewriteUriRulesServerOutput() ProfileRewriteUriRulesServerOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesServerOutput) ToProfileRewriteUriRulesServerOutputWithContext(ctx context.Context) ProfileRewriteUriRulesServerOutput {
+	return o
+}
+
+// Host part of the uri, e.g. `www.foo.com`.
+func (o ProfileRewriteUriRulesServerOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesServer) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// Path part of the uri, must always end with `/`. Default value is: `/`
+func (o ProfileRewriteUriRulesServerOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesServer) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Port part of the uri. Default value is: `none`
+func (o ProfileRewriteUriRulesServerOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesServer) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// Scheme part of the uri, e.g. `https`, `ftp`.
+func (o ProfileRewriteUriRulesServerOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileRewriteUriRulesServer) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+type ProfileRewriteUriRulesServerArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileRewriteUriRulesServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileRewriteUriRulesServer)(nil)).Elem()
+}
+
+func (o ProfileRewriteUriRulesServerArrayOutput) ToProfileRewriteUriRulesServerArrayOutput() ProfileRewriteUriRulesServerArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesServerArrayOutput) ToProfileRewriteUriRulesServerArrayOutputWithContext(ctx context.Context) ProfileRewriteUriRulesServerArrayOutput {
+	return o
+}
+
+func (o ProfileRewriteUriRulesServerArrayOutput) Index(i pulumi.IntInput) ProfileRewriteUriRulesServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileRewriteUriRulesServer {
+		return vs[0].([]ProfileRewriteUriRulesServer)[vs[1].(int)]
+	}).(ProfileRewriteUriRulesServerOutput)
+}
+
 type SnatOrigin struct {
 	// app service
 	AppService *string `pulumi:"appService"`
@@ -4169,6 +4768,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpEnforcementArrayInput)(nil)).Elem(), ProfileHttpEnforcementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurityInput)(nil)).Elem(), ProfileHttpHttpStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurityArrayInput)(nil)).Elem(), ProfileHttpHttpStrictTransportSecurityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteCookieRuleInput)(nil)).Elem(), ProfileRewriteCookieRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteCookieRuleArrayInput)(nil)).Elem(), ProfileRewriteCookieRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteRequestInput)(nil)).Elem(), ProfileRewriteRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteRequestArrayInput)(nil)).Elem(), ProfileRewriteRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteResponseInput)(nil)).Elem(), ProfileRewriteResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteResponseArrayInput)(nil)).Elem(), ProfileRewriteResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteUriRulesClientInput)(nil)).Elem(), ProfileRewriteUriRulesClientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteUriRulesClientArrayInput)(nil)).Elem(), ProfileRewriteUriRulesClientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteUriRulesServerInput)(nil)).Elem(), ProfileRewriteUriRulesServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileRewriteUriRulesServerArrayInput)(nil)).Elem(), ProfileRewriteUriRulesServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginInput)(nil)).Elem(), SnatOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginArrayInput)(nil)).Elem(), SnatOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataGroupRecordInput)(nil)).Elem(), GetDataGroupRecordArgs{})
@@ -4197,6 +4806,16 @@ func init() {
 	pulumi.RegisterOutputType(ProfileHttpEnforcementArrayOutput{})
 	pulumi.RegisterOutputType(ProfileHttpHttpStrictTransportSecurityOutput{})
 	pulumi.RegisterOutputType(ProfileHttpHttpStrictTransportSecurityArrayOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteCookieRuleOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteCookieRuleArrayOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteRequestOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteRequestArrayOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteResponseOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteUriRulesClientOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteUriRulesClientArrayOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteUriRulesServerOutput{})
+	pulumi.RegisterOutputType(ProfileRewriteUriRulesServerArrayOutput{})
 	pulumi.RegisterOutputType(SnatOriginOutput{})
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})

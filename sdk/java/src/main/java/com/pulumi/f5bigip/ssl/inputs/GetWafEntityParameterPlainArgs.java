@@ -117,11 +117,25 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.mandatory);
     }
 
+    @Import(name="maxValueLength")
+    private @Nullable Integer maxValueLength;
+
+    public Optional<Integer> maxValueLength() {
+        return Optional.ofNullable(this.maxValueLength);
+    }
+
     @Import(name="metacharsOnParameterValueCheck")
     private @Nullable Boolean metacharsOnParameterValueCheck;
 
     public Optional<Boolean> metacharsOnParameterValueCheck() {
         return Optional.ofNullable(this.metacharsOnParameterValueCheck);
+    }
+
+    @Import(name="minValueLength")
+    private @Nullable Integer minValueLength;
+
+    public Optional<Integer> minValueLength() {
+        return Optional.ofNullable(this.minValueLength);
     }
 
     @Import(name="name", required=true)
@@ -197,7 +211,9 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
         this.json = $.json;
         this.level = $.level;
         this.mandatory = $.mandatory;
+        this.maxValueLength = $.maxValueLength;
         this.metacharsOnParameterValueCheck = $.metacharsOnParameterValueCheck;
+        this.minValueLength = $.minValueLength;
         this.name = $.name;
         this.parameterLocation = $.parameterLocation;
         this.performStaging = $.performStaging;
@@ -296,8 +312,18 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        public Builder maxValueLength(@Nullable Integer maxValueLength) {
+            $.maxValueLength = maxValueLength;
+            return this;
+        }
+
         public Builder metacharsOnParameterValueCheck(@Nullable Boolean metacharsOnParameterValueCheck) {
             $.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
+            return this;
+        }
+
+        public Builder minValueLength(@Nullable Integer minValueLength) {
+            $.minValueLength = minValueLength;
             return this;
         }
 

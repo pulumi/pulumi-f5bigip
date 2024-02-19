@@ -37,7 +37,9 @@ type GetWafEntityParameterArgs struct {
 	Json                           *string                   `pulumi:"json"`
 	Level                          *string                   `pulumi:"level"`
 	Mandatory                      *bool                     `pulumi:"mandatory"`
+	MaxValueLength                 *int                      `pulumi:"maxValueLength"`
 	MetacharsOnParameterValueCheck *bool                     `pulumi:"metacharsOnParameterValueCheck"`
+	MinValueLength                 *int                      `pulumi:"minValueLength"`
 	Name                           string                    `pulumi:"name"`
 	ParameterLocation              *string                   `pulumi:"parameterLocation"`
 	PerformStaging                 *bool                     `pulumi:"performStaging"`
@@ -66,7 +68,9 @@ type GetWafEntityParameterResult struct {
 	Json                           string                    `pulumi:"json"`
 	Level                          *string                   `pulumi:"level"`
 	Mandatory                      *bool                     `pulumi:"mandatory"`
+	MaxValueLength                 *int                      `pulumi:"maxValueLength"`
 	MetacharsOnParameterValueCheck *bool                     `pulumi:"metacharsOnParameterValueCheck"`
+	MinValueLength                 *int                      `pulumi:"minValueLength"`
 	Name                           string                    `pulumi:"name"`
 	ParameterLocation              *string                   `pulumi:"parameterLocation"`
 	PerformStaging                 *bool                     `pulumi:"performStaging"`
@@ -106,7 +110,9 @@ type GetWafEntityParameterOutputArgs struct {
 	Json                           pulumi.StringPtrInput            `pulumi:"json"`
 	Level                          pulumi.StringPtrInput            `pulumi:"level"`
 	Mandatory                      pulumi.BoolPtrInput              `pulumi:"mandatory"`
+	MaxValueLength                 pulumi.IntPtrInput               `pulumi:"maxValueLength"`
 	MetacharsOnParameterValueCheck pulumi.BoolPtrInput              `pulumi:"metacharsOnParameterValueCheck"`
+	MinValueLength                 pulumi.IntPtrInput               `pulumi:"minValueLength"`
 	Name                           pulumi.StringInput               `pulumi:"name"`
 	ParameterLocation              pulumi.StringPtrInput            `pulumi:"parameterLocation"`
 	PerformStaging                 pulumi.BoolPtrInput              `pulumi:"performStaging"`
@@ -197,8 +203,16 @@ func (o GetWafEntityParameterResultOutput) Mandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetWafEntityParameterResult) *bool { return v.Mandatory }).(pulumi.BoolPtrOutput)
 }
 
+func (o GetWafEntityParameterResultOutput) MaxValueLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWafEntityParameterResult) *int { return v.MaxValueLength }).(pulumi.IntPtrOutput)
+}
+
 func (o GetWafEntityParameterResultOutput) MetacharsOnParameterValueCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetWafEntityParameterResult) *bool { return v.MetacharsOnParameterValueCheck }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetWafEntityParameterResultOutput) MinValueLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetWafEntityParameterResult) *int { return v.MinValueLength }).(pulumi.IntPtrOutput)
 }
 
 func (o GetWafEntityParameterResultOutput) Name() pulumi.StringOutput {

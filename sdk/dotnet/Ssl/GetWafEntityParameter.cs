@@ -63,8 +63,14 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("mandatory")]
         public bool? Mandatory { get; set; }
 
+        [Input("maxValueLength")]
+        public int? MaxValueLength { get; set; }
+
         [Input("metacharsOnParameterValueCheck")]
         public bool? MetacharsOnParameterValueCheck { get; set; }
+
+        [Input("minValueLength")]
+        public int? MinValueLength { get; set; }
 
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -145,8 +151,14 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("mandatory")]
         public Input<bool>? Mandatory { get; set; }
 
+        [Input("maxValueLength")]
+        public Input<int>? MaxValueLength { get; set; }
+
         [Input("metacharsOnParameterValueCheck")]
         public Input<bool>? MetacharsOnParameterValueCheck { get; set; }
+
+        [Input("minValueLength")]
+        public Input<int>? MinValueLength { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -205,7 +217,9 @@ namespace Pulumi.F5BigIP.Ssl
         public readonly string Json;
         public readonly string? Level;
         public readonly bool? Mandatory;
+        public readonly int? MaxValueLength;
         public readonly bool? MetacharsOnParameterValueCheck;
+        public readonly int? MinValueLength;
         public readonly string Name;
         public readonly string? ParameterLocation;
         public readonly bool? PerformStaging;
@@ -247,7 +261,11 @@ namespace Pulumi.F5BigIP.Ssl
 
             bool? mandatory,
 
+            int? maxValueLength,
+
             bool? metacharsOnParameterValueCheck,
+
+            int? minValueLength,
 
             string name,
 
@@ -280,7 +298,9 @@ namespace Pulumi.F5BigIP.Ssl
             Json = json;
             Level = level;
             Mandatory = mandatory;
+            MaxValueLength = maxValueLength;
             MetacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
+            MinValueLength = minValueLength;
             Name = name;
             ParameterLocation = parameterLocation;
             PerformStaging = performStaging;

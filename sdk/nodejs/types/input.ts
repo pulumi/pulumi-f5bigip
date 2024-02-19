@@ -1197,6 +1197,85 @@ export namespace ltm {
         preload?: pulumi.Input<string>;
     }
 
+    export interface ProfileRewriteCookieRule {
+        clientDomain: pulumi.Input<string>;
+        clientPath: pulumi.Input<string>;
+        /**
+         * Name of the cookie rewrite rule.
+         */
+        ruleName: pulumi.Input<string>;
+        serverDomain: pulumi.Input<string>;
+        serverPath: pulumi.Input<string>;
+    }
+
+    export interface ProfileRewriteRequest {
+        /**
+         * Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdFor?: pulumi.Input<string>;
+        /**
+         * Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdHost?: pulumi.Input<string>;
+        /**
+         * Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+         */
+        insertXfwdProtocol?: pulumi.Input<string>;
+        /**
+         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteHeaders?: pulumi.Input<string>;
+    }
+
+    export interface ProfileRewriteResponse {
+        /**
+         * Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteContent?: pulumi.Input<string>;
+        /**
+         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         */
+        rewriteHeaders?: pulumi.Input<string>;
+    }
+
+    export interface ProfileRewriteUriRulesClient {
+        /**
+         * Host part of the uri, e.g. `www.foo.com`.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * Path part of the uri, must always end with `/`. Default value is: `/`
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Port part of the uri. Default value is: `none`
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * Scheme part of the uri, e.g. `https`, `ftp`.
+         */
+        scheme: pulumi.Input<string>;
+    }
+
+    export interface ProfileRewriteUriRulesServer {
+        /**
+         * Host part of the uri, e.g. `www.foo.com`.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * Path part of the uri, must always end with `/`. Default value is: `/`
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * Port part of the uri. Default value is: `none`
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * Scheme part of the uri, e.g. `https`, `ftp`.
+         */
+        scheme: pulumi.Input<string>;
+    }
+
     export interface SnatOrigin {
         /**
          * app service

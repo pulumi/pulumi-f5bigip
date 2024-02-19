@@ -118,11 +118,25 @@ public final class GetWafEntityParameterArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.mandatory);
     }
 
+    @Import(name="maxValueLength")
+    private @Nullable Output<Integer> maxValueLength;
+
+    public Optional<Output<Integer>> maxValueLength() {
+        return Optional.ofNullable(this.maxValueLength);
+    }
+
     @Import(name="metacharsOnParameterValueCheck")
     private @Nullable Output<Boolean> metacharsOnParameterValueCheck;
 
     public Optional<Output<Boolean>> metacharsOnParameterValueCheck() {
         return Optional.ofNullable(this.metacharsOnParameterValueCheck);
+    }
+
+    @Import(name="minValueLength")
+    private @Nullable Output<Integer> minValueLength;
+
+    public Optional<Output<Integer>> minValueLength() {
+        return Optional.ofNullable(this.minValueLength);
     }
 
     @Import(name="name", required=true)
@@ -198,7 +212,9 @@ public final class GetWafEntityParameterArgs extends com.pulumi.resources.Invoke
         this.json = $.json;
         this.level = $.level;
         this.mandatory = $.mandatory;
+        this.maxValueLength = $.maxValueLength;
         this.metacharsOnParameterValueCheck = $.metacharsOnParameterValueCheck;
+        this.minValueLength = $.minValueLength;
         this.name = $.name;
         this.parameterLocation = $.parameterLocation;
         this.performStaging = $.performStaging;
@@ -353,6 +369,15 @@ public final class GetWafEntityParameterArgs extends com.pulumi.resources.Invoke
             return mandatory(Output.of(mandatory));
         }
 
+        public Builder maxValueLength(@Nullable Output<Integer> maxValueLength) {
+            $.maxValueLength = maxValueLength;
+            return this;
+        }
+
+        public Builder maxValueLength(Integer maxValueLength) {
+            return maxValueLength(Output.of(maxValueLength));
+        }
+
         public Builder metacharsOnParameterValueCheck(@Nullable Output<Boolean> metacharsOnParameterValueCheck) {
             $.metacharsOnParameterValueCheck = metacharsOnParameterValueCheck;
             return this;
@@ -360,6 +385,15 @@ public final class GetWafEntityParameterArgs extends com.pulumi.resources.Invoke
 
         public Builder metacharsOnParameterValueCheck(Boolean metacharsOnParameterValueCheck) {
             return metacharsOnParameterValueCheck(Output.of(metacharsOnParameterValueCheck));
+        }
+
+        public Builder minValueLength(@Nullable Output<Integer> minValueLength) {
+            $.minValueLength = minValueLength;
+            return this;
+        }
+
+        public Builder minValueLength(Integer minValueLength) {
+            return minValueLength(Output.of(minValueLength));
         }
 
         public Builder name(Output<String> name) {

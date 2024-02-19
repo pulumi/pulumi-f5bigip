@@ -100,6 +100,11 @@ export type PoolAttachment = import("./poolAttachment").PoolAttachment;
 export const PoolAttachment: typeof import("./poolAttachment").PoolAttachment = null as any;
 utilities.lazyLoad(exports, ["PoolAttachment"], () => require("./poolAttachment"));
 
+export { ProfileBotDefenseArgs, ProfileBotDefenseState } from "./profileBotDefense";
+export type ProfileBotDefense = import("./profileBotDefense").ProfileBotDefense;
+export const ProfileBotDefense: typeof import("./profileBotDefense").ProfileBotDefense = null as any;
+utilities.lazyLoad(exports, ["ProfileBotDefense"], () => require("./profileBotDefense"));
+
 export { ProfileClientSslArgs, ProfileClientSslState } from "./profileClientSsl";
 export type ProfileClientSsl = import("./profileClientSsl").ProfileClientSsl;
 export const ProfileClientSsl: typeof import("./profileClientSsl").ProfileClientSsl = null as any;
@@ -140,6 +145,16 @@ export type ProfileOneConnect = import("./profileOneConnect").ProfileOneConnect;
 export const ProfileOneConnect: typeof import("./profileOneConnect").ProfileOneConnect = null as any;
 utilities.lazyLoad(exports, ["ProfileOneConnect"], () => require("./profileOneConnect"));
 
+export { ProfileRewriteArgs, ProfileRewriteState } from "./profileRewrite";
+export type ProfileRewrite = import("./profileRewrite").ProfileRewrite;
+export const ProfileRewrite: typeof import("./profileRewrite").ProfileRewrite = null as any;
+utilities.lazyLoad(exports, ["ProfileRewrite"], () => require("./profileRewrite"));
+
+export { ProfileRewriteUriRulesArgs, ProfileRewriteUriRulesState } from "./profileRewriteUriRules";
+export type ProfileRewriteUriRules = import("./profileRewriteUriRules").ProfileRewriteUriRules;
+export const ProfileRewriteUriRules: typeof import("./profileRewriteUriRules").ProfileRewriteUriRules = null as any;
+utilities.lazyLoad(exports, ["ProfileRewriteUriRules"], () => require("./profileRewriteUriRules"));
+
 export { ProfileServerSslArgs, ProfileServerSslState } from "./profileServerSsl";
 export type ProfileServerSsl = import("./profileServerSsl").ProfileServerSsl;
 export const ProfileServerSsl: typeof import("./profileServerSsl").ProfileServerSsl = null as any;
@@ -154,6 +169,11 @@ export { ProfileWebAccelerationArgs, ProfileWebAccelerationState } from "./profi
 export type ProfileWebAcceleration = import("./profileWebAcceleration").ProfileWebAcceleration;
 export const ProfileWebAcceleration: typeof import("./profileWebAcceleration").ProfileWebAcceleration = null as any;
 utilities.lazyLoad(exports, ["ProfileWebAcceleration"], () => require("./profileWebAcceleration"));
+
+export { RequestLogProfileArgs, RequestLogProfileState } from "./requestLogProfile";
+export type RequestLogProfile = import("./requestLogProfile").RequestLogProfile;
+export const RequestLogProfile: typeof import("./requestLogProfile").RequestLogProfile = null as any;
+utilities.lazyLoad(exports, ["RequestLogProfile"], () => require("./requestLogProfile"));
 
 export { SnatArgs, SnatState } from "./snat";
 export type Snat = import("./snat").Snat;
@@ -206,6 +226,8 @@ const _module = {
                 return new Pool(name, <any>undefined, { urn })
             case "f5bigip:ltm/poolAttachment:PoolAttachment":
                 return new PoolAttachment(name, <any>undefined, { urn })
+            case "f5bigip:ltm/profileBotDefense:ProfileBotDefense":
+                return new ProfileBotDefense(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileClientSsl:ProfileClientSsl":
                 return new ProfileClientSsl(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileFastHttp:ProfileFastHttp":
@@ -222,12 +244,18 @@ const _module = {
                 return new ProfileHttpCompress(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileOneConnect:ProfileOneConnect":
                 return new ProfileOneConnect(name, <any>undefined, { urn })
+            case "f5bigip:ltm/profileRewrite:ProfileRewrite":
+                return new ProfileRewrite(name, <any>undefined, { urn })
+            case "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules":
+                return new ProfileRewriteUriRules(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileServerSsl:ProfileServerSsl":
                 return new ProfileServerSsl(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileTcp:ProfileTcp":
                 return new ProfileTcp(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration":
                 return new ProfileWebAcceleration(name, <any>undefined, { urn })
+            case "f5bigip:ltm/requestLogProfile:RequestLogProfile":
+                return new RequestLogProfile(name, <any>undefined, { urn })
             case "f5bigip:ltm/snat:Snat":
                 return new Snat(name, <any>undefined, { urn })
             case "f5bigip:ltm/snatPool:SnatPool":
@@ -254,6 +282,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "ltm/persistenceProfileSsl", _m
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/policy", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/pool", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/poolAttachment", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileBotDefense", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileClientSsl", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileFastHttp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileFastL4", _module)
@@ -262,9 +291,12 @@ pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttp2", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttpCompress", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileOneConnect", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileRewrite", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileRewriteUriRules", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileServerSsl", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileTcp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileWebAcceleration", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/requestLogProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/snat", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/snatPool", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/virtualAddress", _module)

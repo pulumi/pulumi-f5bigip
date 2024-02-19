@@ -17,14 +17,14 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     public static final As3State Empty = new As3State();
 
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      * 
      */
     @Import(name="applicationList")
     private @Nullable Output<String> applicationList;
 
     /**
-     * @return Name of Application
+     * @return Application deployed through AS3 Declaration
      * 
      */
     public Optional<Output<String>> applicationList() {
@@ -156,6 +156,21 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Will define Perapp mode enabled on BIG-IP or not
+     * 
+     */
+    @Import(name="perAppMode")
+    private @Nullable Output<Boolean> perAppMode;
+
+    /**
+     * @return Will define Perapp mode enabled on BIG-IP or not
+     * 
+     */
+    public Optional<Output<Boolean>> perAppMode() {
+        return Optional.ofNullable(this.perAppMode);
+    }
+
+    /**
      * ID of AS3 post declaration async task
      * 
      */
@@ -229,6 +244,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         this.applicationList = $.applicationList;
         this.as3Json = $.as3Json;
         this.ignoreMetadata = $.ignoreMetadata;
+        this.perAppMode = $.perAppMode;
         this.taskId = $.taskId;
         this.tenantFilter = $.tenantFilter;
         this.tenantList = $.tenantList;
@@ -254,7 +270,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Name of Application
+         * @param applicationList Application deployed through AS3 Declaration
          * 
          * @return builder
          * 
@@ -265,7 +281,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Name of Application
+         * @param applicationList Application deployed through AS3 Declaration
          * 
          * @return builder
          * 
@@ -408,6 +424,27 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ignoreMetadata(Boolean ignoreMetadata) {
             return ignoreMetadata(Output.of(ignoreMetadata));
+        }
+
+        /**
+         * @param perAppMode Will define Perapp mode enabled on BIG-IP or not
+         * 
+         * @return builder
+         * 
+         */
+        public Builder perAppMode(@Nullable Output<Boolean> perAppMode) {
+            $.perAppMode = perAppMode;
+            return this;
+        }
+
+        /**
+         * @param perAppMode Will define Perapp mode enabled on BIG-IP or not
+         * 
+         * @return builder
+         * 
+         */
+        public Builder perAppMode(Boolean perAppMode) {
+            return perAppMode(Output.of(perAppMode));
         }
 
         /**

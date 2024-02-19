@@ -24,7 +24,9 @@ export function getWafEntityParameter(args: GetWafEntityParameterArgs, opts?: pu
         "json": args.json,
         "level": args.level,
         "mandatory": args.mandatory,
+        "maxValueLength": args.maxValueLength,
         "metacharsOnParameterValueCheck": args.metacharsOnParameterValueCheck,
+        "minValueLength": args.minValueLength,
         "name": args.name,
         "parameterLocation": args.parameterLocation,
         "performStaging": args.performStaging,
@@ -54,7 +56,9 @@ export interface GetWafEntityParameterArgs {
     json?: string;
     level?: string;
     mandatory?: boolean;
+    maxValueLength?: number;
     metacharsOnParameterValueCheck?: boolean;
+    minValueLength?: number;
     name: string;
     parameterLocation?: string;
     performStaging?: boolean;
@@ -87,7 +91,9 @@ export interface GetWafEntityParameterResult {
     readonly json: string;
     readonly level?: string;
     readonly mandatory?: boolean;
+    readonly maxValueLength?: number;
     readonly metacharsOnParameterValueCheck?: boolean;
+    readonly minValueLength?: number;
     readonly name: string;
     readonly parameterLocation?: string;
     readonly performStaging?: boolean;
@@ -119,7 +125,9 @@ export interface GetWafEntityParameterOutputArgs {
     json?: pulumi.Input<string>;
     level?: pulumi.Input<string>;
     mandatory?: pulumi.Input<boolean>;
+    maxValueLength?: pulumi.Input<number>;
     metacharsOnParameterValueCheck?: pulumi.Input<boolean>;
+    minValueLength?: pulumi.Input<number>;
     name: pulumi.Input<string>;
     parameterLocation?: pulumi.Input<string>;
     performStaging?: pulumi.Input<boolean>;

@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pool{}
 	case "f5bigip:ltm/poolAttachment:PoolAttachment":
 		r = &PoolAttachment{}
+	case "f5bigip:ltm/profileBotDefense:ProfileBotDefense":
+		r = &ProfileBotDefense{}
 	case "f5bigip:ltm/profileClientSsl:ProfileClientSsl":
 		r = &ProfileClientSsl{}
 	case "f5bigip:ltm/profileFastHttp:ProfileFastHttp":
@@ -63,12 +65,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProfileHttpCompress{}
 	case "f5bigip:ltm/profileOneConnect:ProfileOneConnect":
 		r = &ProfileOneConnect{}
+	case "f5bigip:ltm/profileRewrite:ProfileRewrite":
+		r = &ProfileRewrite{}
+	case "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules":
+		r = &ProfileRewriteUriRules{}
 	case "f5bigip:ltm/profileServerSsl:ProfileServerSsl":
 		r = &ProfileServerSsl{}
 	case "f5bigip:ltm/profileTcp:ProfileTcp":
 		r = &ProfileTcp{}
 	case "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration":
 		r = &ProfileWebAcceleration{}
+	case "f5bigip:ltm/requestLogProfile:RequestLogProfile":
+		r = &RequestLogProfile{}
 	case "f5bigip:ltm/snat:Snat":
 		r = &Snat{}
 	case "f5bigip:ltm/snatPool:SnatPool":
@@ -157,6 +165,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"f5bigip",
+		"ltm/profileBotDefense",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
 		"ltm/profileClientSsl",
 		&module{version},
 	)
@@ -197,6 +210,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"f5bigip",
+		"ltm/profileRewrite",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/profileRewriteUriRules",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
 		"ltm/profileServerSsl",
 		&module{version},
 	)
@@ -208,6 +231,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"ltm/profileWebAcceleration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/requestLogProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
