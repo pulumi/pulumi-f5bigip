@@ -532,7 +532,7 @@ export class As3 extends pulumi.CustomResource {
     }
 
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      */
     public readonly applicationList!: pulumi.Output<string>;
     /**
@@ -554,6 +554,10 @@ export class As3 extends pulumi.CustomResource {
      * ```
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    /**
+     * Will define Perapp mode enabled on BIG-IP or not
+     */
+    public /*out*/ readonly perAppMode!: pulumi.Output<boolean>;
     /**
      * ID of AS3 post declaration async task
      */
@@ -589,6 +593,7 @@ export class As3 extends pulumi.CustomResource {
             resourceInputs["applicationList"] = state ? state.applicationList : undefined;
             resourceInputs["as3Json"] = state ? state.as3Json : undefined;
             resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
+            resourceInputs["perAppMode"] = state ? state.perAppMode : undefined;
             resourceInputs["taskId"] = state ? state.taskId : undefined;
             resourceInputs["tenantFilter"] = state ? state.tenantFilter : undefined;
             resourceInputs["tenantList"] = state ? state.tenantList : undefined;
@@ -602,6 +607,7 @@ export class As3 extends pulumi.CustomResource {
             resourceInputs["tenantFilter"] = args ? args.tenantFilter : undefined;
             resourceInputs["tenantList"] = args ? args.tenantList : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["perAppMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(As3.__pulumiType, name, resourceInputs, opts);
@@ -613,7 +619,7 @@ export class As3 extends pulumi.CustomResource {
  */
 export interface As3State {
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      */
     applicationList?: pulumi.Input<string>;
     /**
@@ -635,6 +641,10 @@ export interface As3State {
      * ```
      */
     ignoreMetadata?: pulumi.Input<boolean>;
+    /**
+     * Will define Perapp mode enabled on BIG-IP or not
+     */
+    perAppMode?: pulumi.Input<boolean>;
     /**
      * ID of AS3 post declaration async task
      */
@@ -660,7 +670,7 @@ export interface As3State {
  */
 export interface As3Args {
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      */
     applicationList?: pulumi.Input<string>;
     /**

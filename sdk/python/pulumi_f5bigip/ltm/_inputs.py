@@ -18,6 +18,11 @@ __all__ = [
     'ProfileClientSslCertKeyChainArgs',
     'ProfileHttpEnforcementArgs',
     'ProfileHttpHttpStrictTransportSecurityArgs',
+    'ProfileRewriteCookieRuleArgs',
+    'ProfileRewriteRequestArgs',
+    'ProfileRewriteResponseArgs',
+    'ProfileRewriteUriRulesClientArgs',
+    'ProfileRewriteUriRulesServerArgs',
     'SnatOriginArgs',
     'GetDataGroupRecordArgs',
     'GetNodeFqdnArgs',
@@ -2822,6 +2827,320 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
     @preload.setter
     def preload(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "preload", value)
+
+
+@pulumi.input_type
+class ProfileRewriteCookieRuleArgs:
+    def __init__(__self__, *,
+                 client_domain: pulumi.Input[str],
+                 client_path: pulumi.Input[str],
+                 rule_name: pulumi.Input[str],
+                 server_domain: pulumi.Input[str],
+                 server_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] rule_name: Name of the cookie rewrite rule.
+        """
+        pulumi.set(__self__, "client_domain", client_domain)
+        pulumi.set(__self__, "client_path", client_path)
+        pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "server_domain", server_domain)
+        pulumi.set(__self__, "server_path", server_path)
+
+    @property
+    @pulumi.getter(name="clientDomain")
+    def client_domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_domain")
+
+    @client_domain.setter
+    def client_domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_domain", value)
+
+    @property
+    @pulumi.getter(name="clientPath")
+    def client_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_path")
+
+    @client_path.setter
+    def client_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_path", value)
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[str]:
+        """
+        Name of the cookie rewrite rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_name", value)
+
+    @property
+    @pulumi.getter(name="serverDomain")
+    def server_domain(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_domain")
+
+    @server_domain.setter
+    def server_domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_domain", value)
+
+    @property
+    @pulumi.getter(name="serverPath")
+    def server_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_path")
+
+    @server_path.setter
+    def server_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_path", value)
+
+
+@pulumi.input_type
+class ProfileRewriteRequestArgs:
+    def __init__(__self__, *,
+                 insert_xfwd_for: Optional[pulumi.Input[str]] = None,
+                 insert_xfwd_host: Optional[pulumi.Input[str]] = None,
+                 insert_xfwd_protocol: Optional[pulumi.Input[str]] = None,
+                 rewrite_headers: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] insert_xfwd_for: Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+        :param pulumi.Input[str] insert_xfwd_host: Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+        :param pulumi.Input[str] insert_xfwd_protocol: Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+        :param pulumi.Input[str] rewrite_headers: Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        """
+        if insert_xfwd_for is not None:
+            pulumi.set(__self__, "insert_xfwd_for", insert_xfwd_for)
+        if insert_xfwd_host is not None:
+            pulumi.set(__self__, "insert_xfwd_host", insert_xfwd_host)
+        if insert_xfwd_protocol is not None:
+            pulumi.set(__self__, "insert_xfwd_protocol", insert_xfwd_protocol)
+        if rewrite_headers is not None:
+            pulumi.set(__self__, "rewrite_headers", rewrite_headers)
+
+    @property
+    @pulumi.getter(name="insertXfwdFor")
+    def insert_xfwd_for(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "insert_xfwd_for")
+
+    @insert_xfwd_for.setter
+    def insert_xfwd_for(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insert_xfwd_for", value)
+
+    @property
+    @pulumi.getter(name="insertXfwdHost")
+    def insert_xfwd_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "insert_xfwd_host")
+
+    @insert_xfwd_host.setter
+    def insert_xfwd_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insert_xfwd_host", value)
+
+    @property
+    @pulumi.getter(name="insertXfwdProtocol")
+    def insert_xfwd_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "insert_xfwd_protocol")
+
+    @insert_xfwd_protocol.setter
+    def insert_xfwd_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insert_xfwd_protocol", value)
+
+    @property
+    @pulumi.getter(name="rewriteHeaders")
+    def rewrite_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "rewrite_headers")
+
+    @rewrite_headers.setter
+    def rewrite_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewrite_headers", value)
+
+
+@pulumi.input_type
+class ProfileRewriteResponseArgs:
+    def __init__(__self__, *,
+                 rewrite_content: Optional[pulumi.Input[str]] = None,
+                 rewrite_headers: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] rewrite_content: Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+        :param pulumi.Input[str] rewrite_headers: Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        """
+        if rewrite_content is not None:
+            pulumi.set(__self__, "rewrite_content", rewrite_content)
+        if rewrite_headers is not None:
+            pulumi.set(__self__, "rewrite_headers", rewrite_headers)
+
+    @property
+    @pulumi.getter(name="rewriteContent")
+    def rewrite_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "rewrite_content")
+
+    @rewrite_content.setter
+    def rewrite_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewrite_content", value)
+
+    @property
+    @pulumi.getter(name="rewriteHeaders")
+    def rewrite_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        """
+        return pulumi.get(self, "rewrite_headers")
+
+    @rewrite_headers.setter
+    def rewrite_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rewrite_headers", value)
+
+
+@pulumi.input_type
+class ProfileRewriteUriRulesClientArgs:
+    def __init__(__self__, *,
+                 host: pulumi.Input[str],
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host: Host part of the uri, e.g. `www.foo.com`.
+        :param pulumi.Input[str] scheme: Scheme part of the uri, e.g. `https`, `ftp`.
+        :param pulumi.Input[str] path: Path part of the uri, must always end with `/`. Default value is: `/`
+        :param pulumi.Input[str] port: Port part of the uri. Default value is: `none`
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "scheme", scheme)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        Host part of the uri, e.g. `www.foo.com`.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        Scheme part of the uri, e.g. `https`, `ftp`.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path part of the uri, must always end with `/`. Default value is: `/`
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port part of the uri. Default value is: `none`
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ProfileRewriteUriRulesServerArgs:
+    def __init__(__self__, *,
+                 host: pulumi.Input[str],
+                 scheme: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] host: Host part of the uri, e.g. `www.foo.com`.
+        :param pulumi.Input[str] scheme: Scheme part of the uri, e.g. `https`, `ftp`.
+        :param pulumi.Input[str] path: Path part of the uri, must always end with `/`. Default value is: `/`
+        :param pulumi.Input[str] port: Port part of the uri. Default value is: `none`
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "scheme", scheme)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        Host part of the uri, e.g. `www.foo.com`.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> pulumi.Input[str]:
+        """
+        Scheme part of the uri, e.g. `https`, `ftp`.
+        """
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path part of the uri, must always end with `/`. Default value is: `/`
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Port part of the uri. Default value is: `none`
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

@@ -342,6 +342,14 @@ _utilities.register(
  },
  {
   "pkg": "f5bigip",
+  "mod": "ltm/profileBotDefense",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/profileBotDefense:ProfileBotDefense": "ProfileBotDefense"
+  }
+ },
+ {
+  "pkg": "f5bigip",
   "mod": "ltm/profileClientSsl",
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
@@ -406,6 +414,22 @@ _utilities.register(
  },
  {
   "pkg": "f5bigip",
+  "mod": "ltm/profileRewrite",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/profileRewrite:ProfileRewrite": "ProfileRewrite"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "ltm/profileRewriteUriRules",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules": "ProfileRewriteUriRules"
+  }
+ },
+ {
+  "pkg": "f5bigip",
   "mod": "ltm/profileServerSsl",
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
@@ -426,6 +450,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
    "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration": "ProfileWebAcceleration"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "ltm/requestLogProfile",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/requestLogProfile:RequestLogProfile": "RequestLogProfile"
   }
  },
  {

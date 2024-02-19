@@ -283,6 +283,9 @@
             "bigip_ltm_pool_attachment": {
                 "current": "f5bigip:ltm/poolAttachment:PoolAttachment"
             },
+            "bigip_ltm_profile_bot_defense": {
+                "current": "f5bigip:ltm/profileBotDefense:ProfileBotDefense"
+            },
             "bigip_ltm_profile_client_ssl": {
                 "current": "f5bigip:ltm/profileClientSsl:ProfileClientSsl",
                 "fields": {
@@ -364,6 +367,37 @@
             "bigip_ltm_profile_oneconnect": {
                 "current": "f5bigip:ltm/profileOneConnect:ProfileOneConnect"
             },
+            "bigip_ltm_profile_rewrite": {
+                "current": "f5bigip:ltm/profileRewrite:ProfileRewrite",
+                "fields": {
+                    "bypass_list": {
+                        "maxItemsOne": false
+                    },
+                    "cookie_rules": {
+                        "maxItemsOne": false
+                    },
+                    "request": {
+                        "maxItemsOne": false
+                    },
+                    "response": {
+                        "maxItemsOne": false
+                    },
+                    "rewrite_list": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "bigip_ltm_profile_rewrite_uri_rules": {
+                "current": "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules",
+                "fields": {
+                    "client": {
+                        "maxItemsOne": false
+                    },
+                    "server": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "bigip_ltm_profile_server_ssl": {
                 "current": "f5bigip:ltm/profileServerSsl:ProfileServerSsl",
                 "fields": {
@@ -397,6 +431,9 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "bigip_ltm_request_log_profile": {
+                "current": "f5bigip:ltm/requestLogProfile:RequestLogProfile"
             },
             "bigip_ltm_snat": {
                 "current": "f5bigip:ltm/snat:Snat",
@@ -787,6 +824,7 @@
             "f5bigip:ltm/policy:Policy": "bigip_ltm_policy",
             "f5bigip:ltm/pool:Pool": "bigip_ltm_pool",
             "f5bigip:ltm/poolAttachment:PoolAttachment": "bigip_ltm_pool_attachment",
+            "f5bigip:ltm/profileBotDefense:ProfileBotDefense": "bigip_ltm_profile_bot_defense",
             "f5bigip:ltm/profileClientSsl:ProfileClientSsl": "bigip_ltm_profile_client_ssl",
             "f5bigip:ltm/profileFastHttp:ProfileFastHttp": "bigip_ltm_profile_fasthttp",
             "f5bigip:ltm/profileFastL4:ProfileFastL4": "bigip_ltm_profile_fastl4",
@@ -795,9 +833,12 @@
             "f5bigip:ltm/profileHttp:ProfileHttp": "bigip_ltm_profile_http",
             "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress": "bigip_ltm_profile_httpcompress",
             "f5bigip:ltm/profileOneConnect:ProfileOneConnect": "bigip_ltm_profile_oneconnect",
+            "f5bigip:ltm/profileRewrite:ProfileRewrite": "bigip_ltm_profile_rewrite",
+            "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules": "bigip_ltm_profile_rewrite_uri_rules",
             "f5bigip:ltm/profileServerSsl:ProfileServerSsl": "bigip_ltm_profile_server_ssl",
             "f5bigip:ltm/profileTcp:ProfileTcp": "bigip_ltm_profile_tcp",
             "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration": "bigip_ltm_profile_web_acceleration",
+            "f5bigip:ltm/requestLogProfile:RequestLogProfile": "bigip_ltm_request_log_profile",
             "f5bigip:ltm/snat:Snat": "bigip_ltm_snat",
             "f5bigip:ltm/snatPool:SnatPool": "bigip_ltm_snatpool",
             "f5bigip:ltm/virtualAddress:VirtualAddress": "bigip_ltm_virtual_address",
@@ -976,6 +1017,7 @@
                 "applicationList": "application_list",
                 "as3Json": "as3_json",
                 "ignoreMetadata": "ignore_metadata",
+                "perAppMode": "per_app_mode",
                 "taskId": "task_id",
                 "tenantFilter": "tenant_filter",
                 "tenantList": "tenant_list",
@@ -1308,6 +1350,23 @@
                 "includeSubdomains": "include_subdomains",
                 "maximumAge": "maximum_age"
             },
+            "f5bigip:ltm/ProfileRewriteCookieRule:ProfileRewriteCookieRule": {
+                "clientDomain": "client_domain",
+                "clientPath": "client_path",
+                "ruleName": "rule_name",
+                "serverDomain": "server_domain",
+                "serverPath": "server_path"
+            },
+            "f5bigip:ltm/ProfileRewriteRequest:ProfileRewriteRequest": {
+                "insertXfwdFor": "insert_xfwd_for",
+                "insertXfwdHost": "insert_xfwd_host",
+                "insertXfwdProtocol": "insert_xfwd_protocol",
+                "rewriteHeaders": "rewrite_headers"
+            },
+            "f5bigip:ltm/ProfileRewriteResponse:ProfileRewriteResponse": {
+                "rewriteContent": "rewrite_content",
+                "rewriteHeaders": "rewrite_headers"
+            },
             "f5bigip:ltm/SnatOrigin:SnatOrigin": {
                 "appService": "app_service"
             },
@@ -1514,6 +1573,10 @@
                 "fqdnAutopopulate": "fqdn_autopopulate",
                 "priorityGroup": "priority_group"
             },
+            "f5bigip:ltm/profileBotDefense:ProfileBotDefense": {
+                "defaultsFrom": "defaults_from",
+                "enforcementMode": "enforcement_mode"
+            },
             "f5bigip:ltm/profileClientSsl:ProfileClientSsl": {
                 "alertTimeout": "alert_timeout",
                 "allowNonSsl": "allow_non_ssl",
@@ -1669,6 +1732,29 @@
                 "sharePools": "share_pools",
                 "sourceMask": "source_mask"
             },
+            "f5bigip:ltm/profileRewrite:ProfileRewrite": {
+                "bypassLists": "bypass_list",
+                "caFile": "ca_file",
+                "cacheType": "cache_type",
+                "cookieRules": "cookie_rules",
+                "crlFile": "crl_file",
+                "defaultsFrom": "defaults_from",
+                "requests": "request",
+                "responses": "response",
+                "rewriteLists": "rewrite_list",
+                "rewriteMode": "rewrite_mode",
+                "signingCert": "signing_cert",
+                "signingKey": "signing_key",
+                "signingKeyPassword": "signing_key_password",
+                "splitTunneling": "split_tunneling"
+            },
+            "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules": {
+                "clients": "client",
+                "profileName": "profile_name",
+                "ruleName": "rule_name",
+                "ruleType": "rule_type",
+                "servers": "server"
+            },
             "f5bigip:ltm/profileServerSsl:ProfileServerSsl": {
                 "alertTimeout": "alert_timeout",
                 "authenticateDepth": "authenticate_depth",
@@ -1747,6 +1833,26 @@
                 "cacheUriPinneds": "cache_uri_pinned",
                 "defaultsFrom": "defaults_from"
             },
+            "f5bigip:ltm/requestLogProfile:RequestLogProfile": {
+                "defaultsFrom": "defaults_from",
+                "proxyResponse": "proxy_response",
+                "proxycloseOnError": "proxyclose_on_error",
+                "proxyrespondOnLoggingerror": "proxyrespond_on_loggingerror",
+                "requestLogging": "request_logging",
+                "requestlogErrorPool": "requestlog_error_pool",
+                "requestlogErrorProtocol": "requestlog_error_protocol",
+                "requestlogErrorTemplate": "requestlog_error_template",
+                "requestlogPool": "requestlog_pool",
+                "requestlogProtocol": "requestlog_protocol",
+                "requestlogTemplate": "requestlog_template",
+                "responseLogging": "response_logging",
+                "responselogErrorPool": "responselog_error_pool",
+                "responselogErrorProtocol": "responselog_error_protocol",
+                "responselogErrorTemplate": "responselog_error_template",
+                "responselogPool": "responselog_pool",
+                "responselogProtocol": "responselog_protocol",
+                "responselogTemplate": "responselog_template"
+            },
             "f5bigip:ltm/snat:Snat": {
                 "fullPath": "full_path"
             },
@@ -1810,7 +1916,9 @@
                 "isBase64": "is_base64",
                 "isCookie": "is_cookie",
                 "isHeader": "is_header",
+                "maxValueLength": "max_value_length",
                 "metacharsOnParameterValueCheck": "metachars_on_parameter_value_check",
+                "minValueLength": "min_value_length",
                 "parameterLocation": "parameter_location",
                 "performStaging": "perform_staging",
                 "sensitiveParameter": "sensitive_parameter",

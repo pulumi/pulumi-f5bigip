@@ -537,14 +537,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:index/as3:As3")
 public class As3 extends com.pulumi.resources.CustomResource {
     /**
-     * Name of Application
+     * Application deployed through AS3 Declaration
      * 
      */
     @Export(name="applicationList", refs={String.class}, tree="[0]")
     private Output<String> applicationList;
 
     /**
-     * @return Name of Application
+     * @return Application deployed through AS3 Declaration
      * 
      */
     public Output<String> applicationList() {
@@ -671,6 +671,20 @@ public class As3 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> ignoreMetadata() {
         return Codegen.optional(this.ignoreMetadata);
+    }
+    /**
+     * Will define Perapp mode enabled on BIG-IP or not
+     * 
+     */
+    @Export(name="perAppMode", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> perAppMode;
+
+    /**
+     * @return Will define Perapp mode enabled on BIG-IP or not
+     * 
+     */
+    public Output<Boolean> perAppMode() {
+        return this.perAppMode;
     }
     /**
      * ID of AS3 post declaration async task

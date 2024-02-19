@@ -5,7 +5,7 @@ go 1.21.3
 toolchain go1.21.4
 
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.20.2
+	github.com/F5Networks/terraform-provider-bigip v1.21.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.74.0
 	github.com/pulumi/pulumi/sdk/v3 v3.105.0
 )
@@ -89,8 +89,8 @@ require (
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/f5devcentral/go-bigip v0.0.0-20240102182502-074c3e5c7aee // indirect
-	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20240102182502-074c3e5c7aee // indirect
+	github.com/f5devcentral/go-bigip v0.0.0-20240214135103-fd95be9ae1fb // indirect
+	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20240214135103-fd95be9ae1fb // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect

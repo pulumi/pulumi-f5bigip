@@ -23,7 +23,7 @@ class GetWafEntityParameterResult:
     """
     A collection of values returned by getWafEntityParameter.
     """
-    def __init__(__self__, allow_empty_type=None, allow_repeated_parameter_name=None, attack_signatures_check=None, check_max_value_length=None, check_min_value_length=None, data_type=None, description=None, enable_regular_expression=None, id=None, is_base64=None, is_cookie=None, is_header=None, json=None, level=None, mandatory=None, metachars_on_parameter_value_check=None, name=None, parameter_location=None, perform_staging=None, sensitive_parameter=None, signature_overrides_disables=None, type=None, url=None, value_type=None):
+    def __init__(__self__, allow_empty_type=None, allow_repeated_parameter_name=None, attack_signatures_check=None, check_max_value_length=None, check_min_value_length=None, data_type=None, description=None, enable_regular_expression=None, id=None, is_base64=None, is_cookie=None, is_header=None, json=None, level=None, mandatory=None, max_value_length=None, metachars_on_parameter_value_check=None, min_value_length=None, name=None, parameter_location=None, perform_staging=None, sensitive_parameter=None, signature_overrides_disables=None, type=None, url=None, value_type=None):
         if allow_empty_type and not isinstance(allow_empty_type, bool):
             raise TypeError("Expected argument 'allow_empty_type' to be a bool")
         pulumi.set(__self__, "allow_empty_type", allow_empty_type)
@@ -69,9 +69,15 @@ class GetWafEntityParameterResult:
         if mandatory and not isinstance(mandatory, bool):
             raise TypeError("Expected argument 'mandatory' to be a bool")
         pulumi.set(__self__, "mandatory", mandatory)
+        if max_value_length and not isinstance(max_value_length, int):
+            raise TypeError("Expected argument 'max_value_length' to be a int")
+        pulumi.set(__self__, "max_value_length", max_value_length)
         if metachars_on_parameter_value_check and not isinstance(metachars_on_parameter_value_check, bool):
             raise TypeError("Expected argument 'metachars_on_parameter_value_check' to be a bool")
         pulumi.set(__self__, "metachars_on_parameter_value_check", metachars_on_parameter_value_check)
+        if min_value_length and not isinstance(min_value_length, int):
+            raise TypeError("Expected argument 'min_value_length' to be a int")
+        pulumi.set(__self__, "min_value_length", min_value_length)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -176,9 +182,19 @@ class GetWafEntityParameterResult:
         return pulumi.get(self, "mandatory")
 
     @property
+    @pulumi.getter(name="maxValueLength")
+    def max_value_length(self) -> Optional[int]:
+        return pulumi.get(self, "max_value_length")
+
+    @property
     @pulumi.getter(name="metacharsOnParameterValueCheck")
     def metachars_on_parameter_value_check(self) -> Optional[bool]:
         return pulumi.get(self, "metachars_on_parameter_value_check")
+
+    @property
+    @pulumi.getter(name="minValueLength")
+    def min_value_length(self) -> Optional[int]:
+        return pulumi.get(self, "min_value_length")
 
     @property
     @pulumi.getter
@@ -242,7 +258,9 @@ class AwaitableGetWafEntityParameterResult(GetWafEntityParameterResult):
             json=self.json,
             level=self.level,
             mandatory=self.mandatory,
+            max_value_length=self.max_value_length,
             metachars_on_parameter_value_check=self.metachars_on_parameter_value_check,
+            min_value_length=self.min_value_length,
             name=self.name,
             parameter_location=self.parameter_location,
             perform_staging=self.perform_staging,
@@ -267,7 +285,9 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
                              json: Optional[str] = None,
                              level: Optional[str] = None,
                              mandatory: Optional[bool] = None,
+                             max_value_length: Optional[int] = None,
                              metachars_on_parameter_value_check: Optional[bool] = None,
+                             min_value_length: Optional[int] = None,
                              name: Optional[str] = None,
                              parameter_location: Optional[str] = None,
                              perform_staging: Optional[bool] = None,
@@ -295,7 +315,9 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
     __args__['json'] = json
     __args__['level'] = level
     __args__['mandatory'] = mandatory
+    __args__['maxValueLength'] = max_value_length
     __args__['metacharsOnParameterValueCheck'] = metachars_on_parameter_value_check
+    __args__['minValueLength'] = min_value_length
     __args__['name'] = name
     __args__['parameterLocation'] = parameter_location
     __args__['performStaging'] = perform_staging
@@ -323,7 +345,9 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
         json=pulumi.get(__ret__, 'json'),
         level=pulumi.get(__ret__, 'level'),
         mandatory=pulumi.get(__ret__, 'mandatory'),
+        max_value_length=pulumi.get(__ret__, 'max_value_length'),
         metachars_on_parameter_value_check=pulumi.get(__ret__, 'metachars_on_parameter_value_check'),
+        min_value_length=pulumi.get(__ret__, 'min_value_length'),
         name=pulumi.get(__ret__, 'name'),
         parameter_location=pulumi.get(__ret__, 'parameter_location'),
         perform_staging=pulumi.get(__ret__, 'perform_staging'),
@@ -349,7 +373,9 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
                                     json: Optional[pulumi.Input[Optional[str]]] = None,
                                     level: Optional[pulumi.Input[Optional[str]]] = None,
                                     mandatory: Optional[pulumi.Input[Optional[bool]]] = None,
+                                    max_value_length: Optional[pulumi.Input[Optional[int]]] = None,
                                     metachars_on_parameter_value_check: Optional[pulumi.Input[Optional[bool]]] = None,
+                                    min_value_length: Optional[pulumi.Input[Optional[int]]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     parameter_location: Optional[pulumi.Input[Optional[str]]] = None,
                                     perform_staging: Optional[pulumi.Input[Optional[bool]]] = None,

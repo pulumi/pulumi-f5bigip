@@ -1628,6 +1628,118 @@
                 }
             }
         },
+        "f5bigip:ltm/ProfileRewriteCookieRule:ProfileRewriteCookieRule": {
+            "properties": {
+                "clientDomain": {
+                    "type": "string"
+                },
+                "clientPath": {
+                    "type": "string"
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "Name of the cookie rewrite rule.\n"
+                },
+                "serverDomain": {
+                    "type": "string"
+                },
+                "serverPath": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientDomain",
+                "clientPath",
+                "ruleName",
+                "serverDomain",
+                "serverPath"
+            ]
+        },
+        "f5bigip:ltm/ProfileRewriteRequest:ProfileRewriteRequest": {
+            "properties": {
+                "insertXfwdFor": {
+                    "type": "string",
+                    "description": "Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`\n"
+                },
+                "insertXfwdHost": {
+                    "type": "string",
+                    "description": "Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`\n"
+                },
+                "insertXfwdProtocol": {
+                    "type": "string",
+                    "description": "Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`\n"
+                },
+                "rewriteHeaders": {
+                    "type": "string",
+                    "description": "Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`\n"
+                }
+            },
+            "type": "object"
+        },
+        "f5bigip:ltm/ProfileRewriteResponse:ProfileRewriteResponse": {
+            "properties": {
+                "rewriteContent": {
+                    "type": "string",
+                    "description": "Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`\n"
+                },
+                "rewriteHeaders": {
+                    "type": "string",
+                    "description": "Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`\n"
+                }
+            },
+            "type": "object"
+        },
+        "f5bigip:ltm/ProfileRewriteUriRulesClient:ProfileRewriteUriRulesClient": {
+            "properties": {
+                "host": {
+                    "type": "string",
+                    "description": "Host part of the uri, e.g. `www.foo.com`.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path part of the uri, must always end with `/`. Default value is: `/`\n"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "Port part of the uri. Default value is: `none`\n"
+                },
+                "scheme": {
+                    "type": "string",
+                    "description": "Scheme part of the uri, e.g. `https`, `ftp`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "host",
+                "scheme"
+            ]
+        },
+        "f5bigip:ltm/ProfileRewriteUriRulesServer:ProfileRewriteUriRulesServer": {
+            "properties": {
+                "host": {
+                    "type": "string",
+                    "description": "Host part of the uri, e.g. `www.foo.com`.\n"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "Path part of the uri, must always end with `/`. Default value is: `/`\n"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "Port part of the uri. Default value is: `none`\n"
+                },
+                "scheme": {
+                    "type": "string",
+                    "description": "Scheme part of the uri, e.g. `https`, `ftp`.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "host",
+                "scheme"
+            ]
+        },
         "f5bigip:ltm/SnatOrigin:SnatOrigin": {
             "properties": {
                 "appService": {
@@ -2981,7 +3093,7 @@
             "properties": {
                 "applicationList": {
                     "type": "string",
-                    "description": "Name of Application\n"
+                    "description": "Application deployed through AS3 Declaration\n"
                 },
                 "as3Json": {
                     "type": "string",
@@ -2990,6 +3102,10 @@
                 "ignoreMetadata": {
                     "type": "boolean",
                     "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
+                },
+                "perAppMode": {
+                    "type": "boolean",
+                    "description": "Will define Perapp mode enabled on BIG-IP or not\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -3011,13 +3127,14 @@
             },
             "required": [
                 "applicationList",
+                "perAppMode",
                 "taskId",
                 "tenantList"
             ],
             "inputProperties": {
                 "applicationList": {
                     "type": "string",
-                    "description": "Name of Application\n"
+                    "description": "Application deployed through AS3 Declaration\n"
                 },
                 "as3Json": {
                     "type": "string",
@@ -3050,7 +3167,7 @@
                 "properties": {
                     "applicationList": {
                         "type": "string",
-                        "description": "Name of Application\n"
+                        "description": "Application deployed through AS3 Declaration\n"
                     },
                     "as3Json": {
                         "type": "string",
@@ -3059,6 +3176,10 @@
                     "ignoreMetadata": {
                         "type": "boolean",
                         "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
+                    },
+                    "perAppMode": {
+                        "type": "boolean",
+                        "description": "Will define Perapp mode enabled on BIG-IP or not\n"
                     },
                     "taskId": {
                         "type": "string",
@@ -8822,6 +8943,91 @@
                 "type": "object"
             }
         },
+        "f5bigip:ltm/profileBotDefense:ProfileBotDefense": {
+            "properties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`\nprofile\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description for Bot Defense profile\n"
+                },
+                "enforcementMode": {
+                    "type": "string",
+                    "description": "Select the enforcement mode, possible values are `transparent` and `blocking`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Bot Defense profile\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and\n`strict`\n"
+                }
+            },
+            "required": [
+                "description",
+                "enforcementMode",
+                "name",
+                "template"
+            ],
+            "inputProperties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`\nprofile\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description for Bot Defense profile\n"
+                },
+                "enforcementMode": {
+                    "type": "string",
+                    "description": "Select the enforcement mode, possible values are `transparent` and `blocking`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Bot Defense profile\n",
+                    "willReplaceOnChanges": true
+                },
+                "template": {
+                    "type": "string",
+                    "description": "Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and\n`strict`\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProfileBotDefense resources.\n",
+                "properties": {
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`\nprofile\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "User defined description for Bot Defense profile\n"
+                    },
+                    "enforcementMode": {
+                        "type": "string",
+                        "description": "Select the enforcement mode, possible values are `transparent` and `blocking`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Bot Defense profile\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and\n`strict`\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:ltm/profileClientSsl:ProfileClientSsl": {
             "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new()\n    {\n        Authenticate = \"always\",\n        Ciphers = \"DEFAULT\",\n        DefaultsFrom = \"/Common/clientssl\",\n        Name = \"/Common/test-ClientSsl\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test-ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.ProfileClientSsl;\nimport com.pulumi.f5bigip.ltm.ProfileClientSslArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_ClientSsl = new ProfileClientSsl(\"test-ClientSsl\", ProfileClientSslArgs.builder()        \n            .authenticate(\"always\")\n            .ciphers(\"DEFAULT\")\n            .defaultsFrom(\"/Common/clientssl\")\n            .name(\"/Common/test-ClientSsl\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-ClientSsl:\n    type: f5bigip:ltm:ProfileClientSsl\n    properties:\n      authenticate: always\n      ciphers: DEFAULT\n      defaultsFrom: /Common/clientssl\n      name: /Common/test-ClientSsl\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -11217,6 +11423,369 @@
                 "type": "object"
             }
         },
+        "f5bigip:ltm/profileRewrite:ProfileRewrite": {
+            "description": "`bigip_ltm_rewrite_profile` Configures ltm policies to manage traffic assigned to a virtual server\n\nFor resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-profile`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_profile = new f5bigip.ltm.ProfileRewrite(\"test-profile\", {\n    bypassLists: [\"http://notouch.com\"],\n    caFile: \"/Common/ca-bundle.crt\",\n    cacheType: \"cache-img-css-js\",\n    crlFile: \"none\",\n    defaultsFrom: \"/Common/rewrite\",\n    name: \"/Common/tf_profile\",\n    rewriteLists: [\"http://some.com\"],\n    rewriteMode: \"portal\",\n    signingCert: \"/Common/default.crt\",\n    signingKey: \"/Common/default.key\",\n    splitTunneling: \"true\",\n});\nconst test_profile2 = new f5bigip.ltm.ProfileRewrite(\"test-profile2\", {\n    cookieRules: [\n        {\n            clientDomain: \"wrong.com\",\n            clientPath: \"/this/\",\n            ruleName: \"cookie1\",\n            serverDomain: \"wrong.com\",\n            serverPath: \"/this/\",\n        },\n        {\n            clientDomain: \"incorrect.com\",\n            clientPath: \"/this/\",\n            ruleName: \"cookie2\",\n            serverDomain: \"absolute.com\",\n            serverPath: \"/this/\",\n        },\n    ],\n    defaultsFrom: \"/Common/rewrite\",\n    name: \"/Common/tf_profile_translate\",\n    requests: [{\n        insertXfwdFor: \"enabled\",\n        insertXfwdHost: \"disabled\",\n        insertXfwdProtocol: \"enabled\",\n        rewriteHeaders: \"disabled\",\n    }],\n    responses: [{\n        rewriteContent: \"enabled\",\n        rewriteHeaders: \"disabled\",\n    }],\n    rewriteMode: \"uri-translation\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_profile = f5bigip.ltm.ProfileRewrite(\"test-profile\",\n    bypass_lists=[\"http://notouch.com\"],\n    ca_file=\"/Common/ca-bundle.crt\",\n    cache_type=\"cache-img-css-js\",\n    crl_file=\"none\",\n    defaults_from=\"/Common/rewrite\",\n    name=\"/Common/tf_profile\",\n    rewrite_lists=[\"http://some.com\"],\n    rewrite_mode=\"portal\",\n    signing_cert=\"/Common/default.crt\",\n    signing_key=\"/Common/default.key\",\n    split_tunneling=\"true\")\ntest_profile2 = f5bigip.ltm.ProfileRewrite(\"test-profile2\",\n    cookie_rules=[\n        f5bigip.ltm.ProfileRewriteCookieRuleArgs(\n            client_domain=\"wrong.com\",\n            client_path=\"/this/\",\n            rule_name=\"cookie1\",\n            server_domain=\"wrong.com\",\n            server_path=\"/this/\",\n        ),\n        f5bigip.ltm.ProfileRewriteCookieRuleArgs(\n            client_domain=\"incorrect.com\",\n            client_path=\"/this/\",\n            rule_name=\"cookie2\",\n            server_domain=\"absolute.com\",\n            server_path=\"/this/\",\n        ),\n    ],\n    defaults_from=\"/Common/rewrite\",\n    name=\"/Common/tf_profile_translate\",\n    requests=[f5bigip.ltm.ProfileRewriteRequestArgs(\n        insert_xfwd_for=\"enabled\",\n        insert_xfwd_host=\"disabled\",\n        insert_xfwd_protocol=\"enabled\",\n        rewrite_headers=\"disabled\",\n    )],\n    responses=[f5bigip.ltm.ProfileRewriteResponseArgs(\n        rewrite_content=\"enabled\",\n        rewrite_headers=\"disabled\",\n    )],\n    rewrite_mode=\"uri-translation\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_profile = new F5BigIP.Ltm.ProfileRewrite(\"test-profile\", new()\n    {\n        BypassLists = new[]\n        {\n            \"http://notouch.com\",\n        },\n        CaFile = \"/Common/ca-bundle.crt\",\n        CacheType = \"cache-img-css-js\",\n        CrlFile = \"none\",\n        DefaultsFrom = \"/Common/rewrite\",\n        Name = \"/Common/tf_profile\",\n        RewriteLists = new[]\n        {\n            \"http://some.com\",\n        },\n        RewriteMode = \"portal\",\n        SigningCert = \"/Common/default.crt\",\n        SigningKey = \"/Common/default.key\",\n        SplitTunneling = \"true\",\n    });\n\n    var test_profile2 = new F5BigIP.Ltm.ProfileRewrite(\"test-profile2\", new()\n    {\n        CookieRules = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs\n            {\n                ClientDomain = \"wrong.com\",\n                ClientPath = \"/this/\",\n                RuleName = \"cookie1\",\n                ServerDomain = \"wrong.com\",\n                ServerPath = \"/this/\",\n            },\n            new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs\n            {\n                ClientDomain = \"incorrect.com\",\n                ClientPath = \"/this/\",\n                RuleName = \"cookie2\",\n                ServerDomain = \"absolute.com\",\n                ServerPath = \"/this/\",\n            },\n        },\n        DefaultsFrom = \"/Common/rewrite\",\n        Name = \"/Common/tf_profile_translate\",\n        Requests = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteRequestArgs\n            {\n                InsertXfwdFor = \"enabled\",\n                InsertXfwdHost = \"disabled\",\n                InsertXfwdProtocol = \"enabled\",\n                RewriteHeaders = \"disabled\",\n            },\n        },\n        Responses = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteResponseArgs\n            {\n                RewriteContent = \"enabled\",\n                RewriteHeaders = \"disabled\",\n            },\n        },\n        RewriteMode = \"uri-translation\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileRewrite(ctx, \"test-profile\", \u0026ltm.ProfileRewriteArgs{\n\t\t\tBypassLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"http://notouch.com\"),\n\t\t\t},\n\t\t\tCaFile:       pulumi.String(\"/Common/ca-bundle.crt\"),\n\t\t\tCacheType:    pulumi.String(\"cache-img-css-js\"),\n\t\t\tCrlFile:      pulumi.String(\"none\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/rewrite\"),\n\t\t\tName:         pulumi.String(\"/Common/tf_profile\"),\n\t\t\tRewriteLists: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"http://some.com\"),\n\t\t\t},\n\t\t\tRewriteMode:    pulumi.String(\"portal\"),\n\t\t\tSigningCert:    pulumi.String(\"/Common/default.crt\"),\n\t\t\tSigningKey:     pulumi.String(\"/Common/default.key\"),\n\t\t\tSplitTunneling: pulumi.String(\"true\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewProfileRewrite(ctx, \"test-profile2\", \u0026ltm.ProfileRewriteArgs{\n\t\t\tCookieRules: ltm.ProfileRewriteCookieRuleArray{\n\t\t\t\t\u0026ltm.ProfileRewriteCookieRuleArgs{\n\t\t\t\t\tClientDomain: pulumi.String(\"wrong.com\"),\n\t\t\t\t\tClientPath:   pulumi.String(\"/this/\"),\n\t\t\t\t\tRuleName:     pulumi.String(\"cookie1\"),\n\t\t\t\t\tServerDomain: pulumi.String(\"wrong.com\"),\n\t\t\t\t\tServerPath:   pulumi.String(\"/this/\"),\n\t\t\t\t},\n\t\t\t\t\u0026ltm.ProfileRewriteCookieRuleArgs{\n\t\t\t\t\tClientDomain: pulumi.String(\"incorrect.com\"),\n\t\t\t\t\tClientPath:   pulumi.String(\"/this/\"),\n\t\t\t\t\tRuleName:     pulumi.String(\"cookie2\"),\n\t\t\t\t\tServerDomain: pulumi.String(\"absolute.com\"),\n\t\t\t\t\tServerPath:   pulumi.String(\"/this/\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/rewrite\"),\n\t\t\tName:         pulumi.String(\"/Common/tf_profile_translate\"),\n\t\t\tRequests: ltm.ProfileRewriteRequestArray{\n\t\t\t\t\u0026ltm.ProfileRewriteRequestArgs{\n\t\t\t\t\tInsertXfwdFor:      pulumi.String(\"enabled\"),\n\t\t\t\t\tInsertXfwdHost:     pulumi.String(\"disabled\"),\n\t\t\t\t\tInsertXfwdProtocol: pulumi.String(\"enabled\"),\n\t\t\t\t\tRewriteHeaders:     pulumi.String(\"disabled\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tResponses: ltm.ProfileRewriteResponseArray{\n\t\t\t\t\u0026ltm.ProfileRewriteResponseArgs{\n\t\t\t\t\tRewriteContent: pulumi.String(\"enabled\"),\n\t\t\t\t\tRewriteHeaders: pulumi.String(\"disabled\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRewriteMode: pulumi.String(\"uri-translation\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.ProfileRewrite;\nimport com.pulumi.f5bigip.ltm.ProfileRewriteArgs;\nimport com.pulumi.f5bigip.ltm.inputs.ProfileRewriteCookieRuleArgs;\nimport com.pulumi.f5bigip.ltm.inputs.ProfileRewriteRequestArgs;\nimport com.pulumi.f5bigip.ltm.inputs.ProfileRewriteResponseArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_profile = new ProfileRewrite(\"test-profile\", ProfileRewriteArgs.builder()        \n            .bypassLists(\"http://notouch.com\")\n            .caFile(\"/Common/ca-bundle.crt\")\n            .cacheType(\"cache-img-css-js\")\n            .crlFile(\"none\")\n            .defaultsFrom(\"/Common/rewrite\")\n            .name(\"/Common/tf_profile\")\n            .rewriteLists(\"http://some.com\")\n            .rewriteMode(\"portal\")\n            .signingCert(\"/Common/default.crt\")\n            .signingKey(\"/Common/default.key\")\n            .splitTunneling(\"true\")\n            .build());\n\n        var test_profile2 = new ProfileRewrite(\"test-profile2\", ProfileRewriteArgs.builder()        \n            .cookieRules(            \n                ProfileRewriteCookieRuleArgs.builder()\n                    .clientDomain(\"wrong.com\")\n                    .clientPath(\"/this/\")\n                    .ruleName(\"cookie1\")\n                    .serverDomain(\"wrong.com\")\n                    .serverPath(\"/this/\")\n                    .build(),\n                ProfileRewriteCookieRuleArgs.builder()\n                    .clientDomain(\"incorrect.com\")\n                    .clientPath(\"/this/\")\n                    .ruleName(\"cookie2\")\n                    .serverDomain(\"absolute.com\")\n                    .serverPath(\"/this/\")\n                    .build())\n            .defaultsFrom(\"/Common/rewrite\")\n            .name(\"/Common/tf_profile_translate\")\n            .requests(ProfileRewriteRequestArgs.builder()\n                .insertXfwdFor(\"enabled\")\n                .insertXfwdHost(\"disabled\")\n                .insertXfwdProtocol(\"enabled\")\n                .rewriteHeaders(\"disabled\")\n                .build())\n            .responses(ProfileRewriteResponseArgs.builder()\n                .rewriteContent(\"enabled\")\n                .rewriteHeaders(\"disabled\")\n                .build())\n            .rewriteMode(\"uri-translation\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-profile:\n    type: f5bigip:ltm:ProfileRewrite\n    properties:\n      bypassLists:\n        - http://notouch.com\n      caFile: /Common/ca-bundle.crt\n      cacheType: cache-img-css-js\n      crlFile: none\n      defaultsFrom: /Common/rewrite\n      name: /Common/tf_profile\n      rewriteLists:\n        - http://some.com\n      rewriteMode: portal\n      signingCert: /Common/default.crt\n      signingKey: /Common/default.key\n      splitTunneling: 'true'\n  test-profile2:\n    type: f5bigip:ltm:ProfileRewrite\n    properties:\n      cookieRules:\n        - clientDomain: wrong.com\n          clientPath: /this/\n          ruleName: cookie1\n          serverDomain: wrong.com\n          serverPath: /this/\n        - clientDomain: incorrect.com\n          clientPath: /this/\n          ruleName: cookie2\n          serverDomain: absolute.com\n          serverPath: /this/\n      defaultsFrom: /Common/rewrite\n      name: /Common/tf_profile_translate\n      requests:\n        - insertXfwdFor: enabled\n          insertXfwdHost: disabled\n          insertXfwdProtocol: enabled\n          rewriteHeaders: disabled\n      responses:\n        - rewriteContent: enabled\n          rewriteHeaders: disabled\n      rewriteMode: uri-translation\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "bypassLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.\n"
+                },
+                "caFile": {
+                    "type": "string",
+                    "description": "Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )\n"
+                },
+                "cacheType": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`\n"
+                },
+                "cookieRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteCookieRule:ProfileRewriteCookieRule"
+                    },
+                    "description": "Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.\n"
+                },
+                "crlFile": {
+                    "type": "string",
+                    "description": "Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )\n"
+                },
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteRequest:ProfileRewriteRequest"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "responses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteResponse:ProfileRewriteResponse"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "rewriteLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.\n"
+                },
+                "rewriteMode": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `portal, uri-translation`\n"
+                },
+                "signingCert": {
+                    "type": "string",
+                    "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )\n"
+                },
+                "signingKey": {
+                    "type": "string",
+                    "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )\n"
+                },
+                "signingKeyPassword": {
+                    "type": "string",
+                    "description": "Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.\n",
+                    "secret": true
+                },
+                "splitTunneling": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `true, false`\n"
+                }
+            },
+            "required": [
+                "caFile",
+                "name",
+                "requests",
+                "responses",
+                "rewriteMode",
+                "signingCert",
+                "signingKey",
+                "signingKeyPassword",
+                "splitTunneling"
+            ],
+            "inputProperties": {
+                "bypassLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.\n"
+                },
+                "caFile": {
+                    "type": "string",
+                    "description": "Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )\n"
+                },
+                "cacheType": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`\n"
+                },
+                "cookieRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteCookieRule:ProfileRewriteCookieRule"
+                    },
+                    "description": "Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.\n"
+                },
+                "crlFile": {
+                    "type": "string",
+                    "description": "Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )\n"
+                },
+                "requests": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteRequest:ProfileRewriteRequest"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "responses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteResponse:ProfileRewriteResponse"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "rewriteLists": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.\n"
+                },
+                "rewriteMode": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `portal, uri-translation`\n"
+                },
+                "signingCert": {
+                    "type": "string",
+                    "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )\n"
+                },
+                "signingKey": {
+                    "type": "string",
+                    "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )\n"
+                },
+                "signingKeyPassword": {
+                    "type": "string",
+                    "description": "Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.\n",
+                    "secret": true
+                },
+                "splitTunneling": {
+                    "type": "string",
+                    "description": "Specifies the type of Client caching. Valid choices are: `true, false`\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "rewriteMode"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProfileRewrite resources.\n",
+                "properties": {
+                    "bypassLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.\n"
+                    },
+                    "caFile": {
+                        "type": "string",
+                        "description": "Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )\n"
+                    },
+                    "cacheType": {
+                        "type": "string",
+                        "description": "Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`\n"
+                    },
+                    "cookieRules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileRewriteCookieRule:ProfileRewriteCookieRule"
+                        },
+                        "description": "Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.\n"
+                    },
+                    "crlFile": {
+                        "type": "string",
+                        "description": "Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.\n"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )\n"
+                    },
+                    "requests": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileRewriteRequest:ProfileRewriteRequest"
+                        },
+                        "description": "Block type. Each request is block type with following arguments.\n"
+                    },
+                    "responses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileRewriteResponse:ProfileRewriteResponse"
+                        },
+                        "description": "Block type. Each request is block type with following arguments.\n"
+                    },
+                    "rewriteLists": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.\n"
+                    },
+                    "rewriteMode": {
+                        "type": "string",
+                        "description": "Specifies the type of Client caching. Valid choices are: `portal, uri-translation`\n"
+                    },
+                    "signingCert": {
+                        "type": "string",
+                        "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )\n"
+                    },
+                    "signingKey": {
+                        "type": "string",
+                        "description": "Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )\n"
+                    },
+                    "signingKeyPassword": {
+                        "type": "string",
+                        "description": "Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.\n",
+                        "secret": true
+                    },
+                    "splitTunneling": {
+                        "type": "string",
+                        "description": "Specifies the type of Client caching. Valid choices are: `true, false`\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules": {
+            "description": "`f5bigip.ltm.ProfileRewriteUriRules` Configures uri rewrite rules attached to the ltm rewrite profile\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst tftest = new f5bigip.ltm.ProfileRewrite(\"tftest\", {\n    name: \"/Common/tf_profile\",\n    defaultsFrom: \"/Common/rewrite\",\n    rewriteMode: \"uri-translation\",\n});\nconst tftestrule1 = new f5bigip.ltm.ProfileRewriteUriRules(\"tftestrule1\", {\n    profileName: tftest.name,\n    ruleName: \"tf_rule\",\n    ruleType: \"request\",\n    clients: [{\n        host: \"www.foo.com\",\n        scheme: \"https\",\n    }],\n    servers: [{\n        host: \"www.bar.com\",\n        path: \"/this/\",\n        scheme: \"https\",\n        port: \"8888\",\n    }],\n});\nconst tftestrule2 = new f5bigip.ltm.ProfileRewriteUriRules(\"tftestrule2\", {\n    profileName: tftest.name,\n    ruleName: \"tf_rule2\",\n    clients: [{\n        host: \"www.baz.com\",\n        path: \"/that/\",\n        scheme: \"ftp\",\n        port: \"8888\",\n    }],\n    servers: [{\n        host: \"www.buz.com\",\n        path: \"/those/\",\n        scheme: \"ftps\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntftest = f5bigip.ltm.ProfileRewrite(\"tftest\",\n    name=\"/Common/tf_profile\",\n    defaults_from=\"/Common/rewrite\",\n    rewrite_mode=\"uri-translation\")\ntftestrule1 = f5bigip.ltm.ProfileRewriteUriRules(\"tftestrule1\",\n    profile_name=tftest.name,\n    rule_name=\"tf_rule\",\n    rule_type=\"request\",\n    clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(\n        host=\"www.foo.com\",\n        scheme=\"https\",\n    )],\n    servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(\n        host=\"www.bar.com\",\n        path=\"/this/\",\n        scheme=\"https\",\n        port=\"8888\",\n    )])\ntftestrule2 = f5bigip.ltm.ProfileRewriteUriRules(\"tftestrule2\",\n    profile_name=tftest.name,\n    rule_name=\"tf_rule2\",\n    clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(\n        host=\"www.baz.com\",\n        path=\"/that/\",\n        scheme=\"ftp\",\n        port=\"8888\",\n    )],\n    servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(\n        host=\"www.buz.com\",\n        path=\"/those/\",\n        scheme=\"ftps\",\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var tftest = new F5BigIP.Ltm.ProfileRewrite(\"tftest\", new()\n    {\n        Name = \"/Common/tf_profile\",\n        DefaultsFrom = \"/Common/rewrite\",\n        RewriteMode = \"uri-translation\",\n    });\n\n    var tftestrule1 = new F5BigIP.Ltm.ProfileRewriteUriRules(\"tftestrule1\", new()\n    {\n        ProfileName = tftest.Name,\n        RuleName = \"tf_rule\",\n        RuleType = \"request\",\n        Clients = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesClientArgs\n            {\n                Host = \"www.foo.com\",\n                Scheme = \"https\",\n            },\n        },\n        Servers = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesServerArgs\n            {\n                Host = \"www.bar.com\",\n                Path = \"/this/\",\n                Scheme = \"https\",\n                Port = \"8888\",\n            },\n        },\n    });\n\n    var tftestrule2 = new F5BigIP.Ltm.ProfileRewriteUriRules(\"tftestrule2\", new()\n    {\n        ProfileName = tftest.Name,\n        RuleName = \"tf_rule2\",\n        Clients = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesClientArgs\n            {\n                Host = \"www.baz.com\",\n                Path = \"/that/\",\n                Scheme = \"ftp\",\n                Port = \"8888\",\n            },\n        },\n        Servers = new[]\n        {\n            new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesServerArgs\n            {\n                Host = \"www.buz.com\",\n                Path = \"/those/\",\n                Scheme = \"ftps\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttftest, err := ltm.NewProfileRewrite(ctx, \"tftest\", \u0026ltm.ProfileRewriteArgs{\n\t\t\tName:         pulumi.String(\"/Common/tf_profile\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/rewrite\"),\n\t\t\tRewriteMode:  pulumi.String(\"uri-translation\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewProfileRewriteUriRules(ctx, \"tftestrule1\", \u0026ltm.ProfileRewriteUriRulesArgs{\n\t\t\tProfileName: tftest.Name,\n\t\t\tRuleName:    pulumi.String(\"tf_rule\"),\n\t\t\tRuleType:    pulumi.String(\"request\"),\n\t\t\tClients: ltm.ProfileRewriteUriRulesClientArray{\n\t\t\t\t\u0026ltm.ProfileRewriteUriRulesClientArgs{\n\t\t\t\t\tHost:   pulumi.String(\"www.foo.com\"),\n\t\t\t\t\tScheme: pulumi.String(\"https\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tServers: ltm.ProfileRewriteUriRulesServerArray{\n\t\t\t\t\u0026ltm.ProfileRewriteUriRulesServerArgs{\n\t\t\t\t\tHost:   pulumi.String(\"www.bar.com\"),\n\t\t\t\t\tPath:   pulumi.String(\"/this/\"),\n\t\t\t\t\tScheme: pulumi.String(\"https\"),\n\t\t\t\t\tPort:   pulumi.String(\"8888\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewProfileRewriteUriRules(ctx, \"tftestrule2\", \u0026ltm.ProfileRewriteUriRulesArgs{\n\t\t\tProfileName: tftest.Name,\n\t\t\tRuleName:    pulumi.String(\"tf_rule2\"),\n\t\t\tClients: ltm.ProfileRewriteUriRulesClientArray{\n\t\t\t\t\u0026ltm.ProfileRewriteUriRulesClientArgs{\n\t\t\t\t\tHost:   pulumi.String(\"www.baz.com\"),\n\t\t\t\t\tPath:   pulumi.String(\"/that/\"),\n\t\t\t\t\tScheme: pulumi.String(\"ftp\"),\n\t\t\t\t\tPort:   pulumi.String(\"8888\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tServers: ltm.ProfileRewriteUriRulesServerArray{\n\t\t\t\t\u0026ltm.ProfileRewriteUriRulesServerArgs{\n\t\t\t\t\tHost:   pulumi.String(\"www.buz.com\"),\n\t\t\t\t\tPath:   pulumi.String(\"/those/\"),\n\t\t\t\t\tScheme: pulumi.String(\"ftps\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.ProfileRewrite;\nimport com.pulumi.f5bigip.ltm.ProfileRewriteArgs;\nimport com.pulumi.f5bigip.ltm.ProfileRewriteUriRules;\nimport com.pulumi.f5bigip.ltm.ProfileRewriteUriRulesArgs;\nimport com.pulumi.f5bigip.ltm.inputs.ProfileRewriteUriRulesClientArgs;\nimport com.pulumi.f5bigip.ltm.inputs.ProfileRewriteUriRulesServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var tftest = new ProfileRewrite(\"tftest\", ProfileRewriteArgs.builder()        \n            .name(\"/Common/tf_profile\")\n            .defaultsFrom(\"/Common/rewrite\")\n            .rewriteMode(\"uri-translation\")\n            .build());\n\n        var tftestrule1 = new ProfileRewriteUriRules(\"tftestrule1\", ProfileRewriteUriRulesArgs.builder()        \n            .profileName(tftest.name())\n            .ruleName(\"tf_rule\")\n            .ruleType(\"request\")\n            .clients(ProfileRewriteUriRulesClientArgs.builder()\n                .host(\"www.foo.com\")\n                .scheme(\"https\")\n                .build())\n            .servers(ProfileRewriteUriRulesServerArgs.builder()\n                .host(\"www.bar.com\")\n                .path(\"/this/\")\n                .scheme(\"https\")\n                .port(\"8888\")\n                .build())\n            .build());\n\n        var tftestrule2 = new ProfileRewriteUriRules(\"tftestrule2\", ProfileRewriteUriRulesArgs.builder()        \n            .profileName(tftest.name())\n            .ruleName(\"tf_rule2\")\n            .clients(ProfileRewriteUriRulesClientArgs.builder()\n                .host(\"www.baz.com\")\n                .path(\"/that/\")\n                .scheme(\"ftp\")\n                .port(\"8888\")\n                .build())\n            .servers(ProfileRewriteUriRulesServerArgs.builder()\n                .host(\"www.buz.com\")\n                .path(\"/those/\")\n                .scheme(\"ftps\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  tftest:\n    type: f5bigip:ltm:ProfileRewrite\n    properties:\n      name: /Common/tf_profile\n      defaultsFrom: /Common/rewrite\n      rewriteMode: uri-translation\n  tftestrule1:\n    type: f5bigip:ltm:ProfileRewriteUriRules\n    properties:\n      profileName: ${tftest.name}\n      ruleName: tf_rule\n      ruleType: request\n      clients:\n        - host: www.foo.com\n          scheme: https\n      servers:\n        - host: www.bar.com\n          path: /this/\n          scheme: https\n          port: '8888'\n  tftestrule2:\n    type: f5bigip:ltm:ProfileRewriteUriRules\n    properties:\n      profileName: ${tftest.name}\n      ruleName: tf_rule2\n      clients:\n        - host: www.baz.com\n          path: /that/\n          scheme: ftp\n          port: '8888'\n      servers:\n        - host: www.buz.com\n          path: /those/\n          scheme: ftps\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "clients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesClient:ProfileRewriteUriRulesClient"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "profileName": {
+                    "type": "string",
+                    "description": "Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )\n"
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "Specifies the name of the uri rule.\n"
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`\n"
+                },
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesServer:ProfileRewriteUriRulesServer"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                }
+            },
+            "required": [
+                "clients",
+                "profileName",
+                "ruleName",
+                "servers"
+            ],
+            "inputProperties": {
+                "clients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesClient:ProfileRewriteUriRulesClient"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                },
+                "profileName": {
+                    "type": "string",
+                    "description": "Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )\n",
+                    "willReplaceOnChanges": true
+                },
+                "ruleName": {
+                    "type": "string",
+                    "description": "Specifies the name of the uri rule.\n",
+                    "willReplaceOnChanges": true
+                },
+                "ruleType": {
+                    "type": "string",
+                    "description": "Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`\n"
+                },
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesServer:ProfileRewriteUriRulesServer"
+                    },
+                    "description": "Block type. Each request is block type with following arguments.\n"
+                }
+            },
+            "requiredInputs": [
+                "clients",
+                "profileName",
+                "ruleName",
+                "servers"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProfileRewriteUriRules resources.\n",
+                "properties": {
+                    "clients": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesClient:ProfileRewriteUriRulesClient"
+                        },
+                        "description": "Block type. Each request is block type with following arguments.\n"
+                    },
+                    "profileName": {
+                        "type": "string",
+                        "description": "Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ruleName": {
+                        "type": "string",
+                        "description": "Specifies the name of the uri rule.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ruleType": {
+                        "type": "string",
+                        "description": "Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`\n"
+                    },
+                    "servers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileRewriteUriRulesServer:ProfileRewriteUriRulesServer"
+                        },
+                        "description": "Block type. Each request is block type with following arguments.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:ltm/profileServerSsl:ProfileServerSsl": {
             "description": "`f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ServerSsl = new f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/serverssl\",\n    name: \"/Common/test-ServerSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__server_ssl = f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/serverssl\",\n    name=\"/Common/test-ServerSsl\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_ServerSsl = new F5BigIP.Ltm.ProfileServerSsl(\"test-ServerSsl\", new()\n    {\n        Authenticate = \"always\",\n        Ciphers = \"DEFAULT\",\n        DefaultsFrom = \"/Common/serverssl\",\n        Name = \"/Common/test-ServerSsl\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileServerSsl(ctx, \"test-ServerSsl\", \u0026ltm.ProfileServerSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/serverssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ServerSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.ProfileServerSsl;\nimport com.pulumi.f5bigip.ltm.ProfileServerSslArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_ServerSsl = new ProfileServerSsl(\"test-ServerSsl\", ProfileServerSslArgs.builder()        \n            .authenticate(\"always\")\n            .ciphers(\"DEFAULT\")\n            .defaultsFrom(\"/Common/serverssl\")\n            .name(\"/Common/test-ServerSsl\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-ServerSsl:\n    type: f5bigip:ltm:ProfileServerSsl\n    properties:\n      authenticate: always\n      ciphers: DEFAULT\n      defaultsFrom: /Common/serverssl\n      name: /Common/test-ServerSsl\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -12446,6 +13015,270 @@
                         "type": "string",
                         "description": "Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.\n",
                         "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:ltm/requestLogProfile:RequestLogProfile": {
+            "description": "`f5bigip.ltm.RequestLogProfile` Resource used for Configures request logging using the Request Logging profile\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst request_log_profile_tc1_child = new f5bigip.ltm.RequestLogProfile(\"request-log-profile-tc1-child\", {\n    name: \"/Common/request-log-profile-tc1-child\",\n    defaultsFrom: bigip_ltm_request_log_profile[\"request-log-profile-tc1\"].name,\n    requestLogging: \"disabled\",\n    requestlogPool: \"/Common/pool2\",\n    requestlogErrorPool: \"/Common/pool1\",\n    requestlogProtocol: \"mds-tcp\",\n    requestlogErrorProtocol: \"mds-tcp\",\n    responselogProtocol: \"mds-tcp\",\n    responselogErrorProtocol: \"mds-tcp\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nrequest_log_profile_tc1_child = f5bigip.ltm.RequestLogProfile(\"request-log-profile-tc1-child\",\n    name=\"/Common/request-log-profile-tc1-child\",\n    defaults_from=bigip_ltm_request_log_profile[\"request-log-profile-tc1\"][\"name\"],\n    request_logging=\"disabled\",\n    requestlog_pool=\"/Common/pool2\",\n    requestlog_error_pool=\"/Common/pool1\",\n    requestlog_protocol=\"mds-tcp\",\n    requestlog_error_protocol=\"mds-tcp\",\n    responselog_protocol=\"mds-tcp\",\n    responselog_error_protocol=\"mds-tcp\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var request_log_profile_tc1_child = new F5BigIP.Ltm.RequestLogProfile(\"request-log-profile-tc1-child\", new()\n    {\n        Name = \"/Common/request-log-profile-tc1-child\",\n        DefaultsFrom = bigip_ltm_request_log_profile.Request_log_profile_tc1.Name,\n        RequestLogging = \"disabled\",\n        RequestlogPool = \"/Common/pool2\",\n        RequestlogErrorPool = \"/Common/pool1\",\n        RequestlogProtocol = \"mds-tcp\",\n        RequestlogErrorProtocol = \"mds-tcp\",\n        ResponselogProtocol = \"mds-tcp\",\n        ResponselogErrorProtocol = \"mds-tcp\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewRequestLogProfile(ctx, \"request-log-profile-tc1-child\", \u0026ltm.RequestLogProfileArgs{\n\t\t\tName:                     pulumi.String(\"/Common/request-log-profile-tc1-child\"),\n\t\t\tDefaultsFrom:             pulumi.Any(bigip_ltm_request_log_profile.RequestLogProfileTc1.Name),\n\t\t\tRequestLogging:           pulumi.String(\"disabled\"),\n\t\t\tRequestlogPool:           pulumi.String(\"/Common/pool2\"),\n\t\t\tRequestlogErrorPool:      pulumi.String(\"/Common/pool1\"),\n\t\t\tRequestlogProtocol:       pulumi.String(\"mds-tcp\"),\n\t\t\tRequestlogErrorProtocol:  pulumi.String(\"mds-tcp\"),\n\t\t\tResponselogProtocol:      pulumi.String(\"mds-tcp\"),\n\t\t\tResponselogErrorProtocol: pulumi.String(\"mds-tcp\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.RequestLogProfile;\nimport com.pulumi.f5bigip.ltm.RequestLogProfileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var request_log_profile_tc1_child = new RequestLogProfile(\"request-log-profile-tc1-child\", RequestLogProfileArgs.builder()        \n            .name(\"/Common/request-log-profile-tc1-child\")\n            .defaultsFrom(bigip_ltm_request_log_profile.request-log-profile-tc1().name())\n            .requestLogging(\"disabled\")\n            .requestlogPool(\"/Common/pool2\")\n            .requestlogErrorPool(\"/Common/pool1\")\n            .requestlogProtocol(\"mds-tcp\")\n            .requestlogErrorProtocol(\"mds-tcp\")\n            .responselogProtocol(\"mds-tcp\")\n            .responselogErrorProtocol(\"mds-tcp\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  request-log-profile-tc1-child:\n    type: f5bigip:ltm:RequestLogProfile\n    properties:\n      name: /Common/request-log-profile-tc1-child\n      defaultsFrom: ${bigip_ltm_request_log_profile\"request-log-profile-tc1\"[%!s(MISSING)].name}\n      requestLogging: disabled\n      requestlogPool: /Common/pool2\n      requestlogErrorPool: /Common/pool1\n      requestlogProtocol: mds-tcp\n      requestlogErrorProtocol: mds-tcp\n      responselogProtocol: mds-tcp\n      responselogErrorProtocol: mds-tcp\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM Request Log profiles can be imported using the `name`, e.g.\n\n bash\n\n ```sh\n $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log\n```\n\n ",
+            "properties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies user-defined description.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.\n"
+                },
+                "proxyResponse": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "proxycloseOnError": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "proxyrespondOnLoggingerror": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "requestLogging": {
+                    "type": "string",
+                    "description": "Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                },
+                "requestlogErrorPool": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "requestlogErrorProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "requestlogErrorTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged for request errors.\n"
+                },
+                "requestlogPool": {
+                    "type": "string",
+                    "description": "Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.\n"
+                },
+                "requestlogProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "requestlogTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
+                },
+                "responseLogging": {
+                    "type": "string",
+                    "description": "Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                },
+                "responselogErrorPool": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging response errors. The default is `none`.\n"
+                },
+                "responselogErrorProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "responselogErrorTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged for request errors.\n"
+                },
+                "responselogPool": {
+                    "type": "string",
+                    "description": "Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.\n"
+                },
+                "responselogProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "responselogTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
+                }
+            },
+            "required": [
+                "description",
+                "name",
+                "requestLogging",
+                "responseLogging"
+            ],
+            "inputProperties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies user-defined description.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "proxyResponse": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "proxycloseOnError": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "proxyrespondOnLoggingerror": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "requestLogging": {
+                    "type": "string",
+                    "description": "Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                },
+                "requestlogErrorPool": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                },
+                "requestlogErrorProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "requestlogErrorTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged for request errors.\n"
+                },
+                "requestlogPool": {
+                    "type": "string",
+                    "description": "Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.\n"
+                },
+                "requestlogProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "requestlogTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
+                },
+                "responseLogging": {
+                    "type": "string",
+                    "description": "Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                },
+                "responselogErrorPool": {
+                    "type": "string",
+                    "description": "Defines the pool associated with logging response errors. The default is `none`.\n"
+                },
+                "responselogErrorProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "responselogErrorTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged for request errors.\n"
+                },
+                "responselogPool": {
+                    "type": "string",
+                    "description": "Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.\n"
+                },
+                "responselogProtocol": {
+                    "type": "string",
+                    "description": "Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                },
+                "responselogTemplate": {
+                    "type": "string",
+                    "description": "Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RequestLogProfile resources.\n",
+                "properties": {
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies user-defined description.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "proxyResponse": {
+                        "type": "string",
+                        "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                    },
+                    "proxycloseOnError": {
+                        "type": "string",
+                        "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                    },
+                    "proxyrespondOnLoggingerror": {
+                        "type": "string",
+                        "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                    },
+                    "requestLogging": {
+                        "type": "string",
+                        "description": "Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                    },
+                    "requestlogErrorPool": {
+                        "type": "string",
+                        "description": "Defines the pool associated with logging request errors. The default is None.\n"
+                    },
+                    "requestlogErrorProtocol": {
+                        "type": "string",
+                        "description": "Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                    },
+                    "requestlogErrorTemplate": {
+                        "type": "string",
+                        "description": "Specifies the directives and entries to be logged for request errors.\n"
+                    },
+                    "requestlogPool": {
+                        "type": "string",
+                        "description": "Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.\n"
+                    },
+                    "requestlogProtocol": {
+                        "type": "string",
+                        "description": "Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                    },
+                    "requestlogTemplate": {
+                        "type": "string",
+                        "description": "Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
+                    },
+                    "responseLogging": {
+                        "type": "string",
+                        "description": "Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.\n"
+                    },
+                    "responselogErrorPool": {
+                        "type": "string",
+                        "description": "Defines the pool associated with logging response errors. The default is `none`.\n"
+                    },
+                    "responselogErrorProtocol": {
+                        "type": "string",
+                        "description": "Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                    },
+                    "responselogErrorTemplate": {
+                        "type": "string",
+                        "description": "Specifies the directives and entries to be logged for request errors.\n"
+                    },
+                    "responselogPool": {
+                        "type": "string",
+                        "description": "Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.\n"
+                    },
+                    "responselogProtocol": {
+                        "type": "string",
+                        "description": "Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.\n"
+                    },
+                    "responselogTemplate": {
+                        "type": "string",
+                        "description": "Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).\n"
                     }
                 },
                 "type": "object"
@@ -16078,8 +16911,14 @@
                     "mandatory": {
                         "type": "boolean"
                     },
+                    "maxValueLength": {
+                        "type": "integer"
+                    },
                     "metacharsOnParameterValueCheck": {
                         "type": "boolean"
+                    },
+                    "minValueLength": {
+                        "type": "integer"
                     },
                     "name": {
                         "type": "string"
@@ -16163,8 +17002,14 @@
                     "mandatory": {
                         "type": "boolean"
                     },
+                    "maxValueLength": {
+                        "type": "integer"
+                    },
                     "metacharsOnParameterValueCheck": {
                         "type": "boolean"
+                    },
+                    "minValueLength": {
+                        "type": "integer"
                     },
                     "name": {
                         "type": "string"

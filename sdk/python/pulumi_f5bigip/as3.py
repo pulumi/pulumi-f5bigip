@@ -23,7 +23,7 @@ class As3Args:
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a As3 resource.
-        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -64,7 +64,7 @@ class As3Args:
     @pulumi.getter(name="applicationList")
     def application_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Application
+        Application deployed through AS3 Declaration
         """
         return pulumi.get(self, "application_list")
 
@@ -165,13 +165,14 @@ class _As3State:
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 per_app_mode: Optional[pulumi.Input[bool]] = None,
                  task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering As3 resources.
-        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -185,6 +186,7 @@ class _As3State:
                ```python
                import pulumi
                ```
+        :param pulumi.Input[bool] per_app_mode: Will define Perapp mode enabled on BIG-IP or not
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -196,6 +198,8 @@ class _As3State:
             pulumi.set(__self__, "as3_json", as3_json)
         if ignore_metadata is not None:
             pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+        if per_app_mode is not None:
+            pulumi.set(__self__, "per_app_mode", per_app_mode)
         if task_id is not None:
             pulumi.set(__self__, "task_id", task_id)
         if tenant_filter is not None:
@@ -212,7 +216,7 @@ class _As3State:
     @pulumi.getter(name="applicationList")
     def application_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Application
+        Application deployed through AS3 Declaration
         """
         return pulumi.get(self, "application_list")
 
@@ -254,6 +258,18 @@ class _As3State:
     @ignore_metadata.setter
     def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_metadata", value)
+
+    @property
+    @pulumi.getter(name="perAppMode")
+    def per_app_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Will define Perapp mode enabled on BIG-IP or not
+        """
+        return pulumi.get(self, "per_app_mode")
+
+    @per_app_mode.setter
+    def per_app_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "per_app_mode", value)
 
     @property
     @pulumi.getter(name="taskId")
@@ -819,7 +835,7 @@ class As3(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -1379,6 +1395,7 @@ class As3(pulumi.CustomResource):
             __props__.__dict__["tenant_filter"] = tenant_filter
             __props__.__dict__["tenant_list"] = tenant_list
             __props__.__dict__["tenant_name"] = tenant_name
+            __props__.__dict__["per_app_mode"] = None
         super(As3, __self__).__init__(
             'f5bigip:index/as3:As3',
             resource_name,
@@ -1392,6 +1409,7 @@ class As3(pulumi.CustomResource):
             application_list: Optional[pulumi.Input[str]] = None,
             as3_json: Optional[pulumi.Input[str]] = None,
             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+            per_app_mode: Optional[pulumi.Input[bool]] = None,
             task_id: Optional[pulumi.Input[str]] = None,
             tenant_filter: Optional[pulumi.Input[str]] = None,
             tenant_list: Optional[pulumi.Input[str]] = None,
@@ -1403,7 +1421,7 @@ class As3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -1417,6 +1435,7 @@ class As3(pulumi.CustomResource):
                ```python
                import pulumi
                ```
+        :param pulumi.Input[bool] per_app_mode: Will define Perapp mode enabled on BIG-IP or not
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -1429,6 +1448,7 @@ class As3(pulumi.CustomResource):
         __props__.__dict__["application_list"] = application_list
         __props__.__dict__["as3_json"] = as3_json
         __props__.__dict__["ignore_metadata"] = ignore_metadata
+        __props__.__dict__["per_app_mode"] = per_app_mode
         __props__.__dict__["task_id"] = task_id
         __props__.__dict__["tenant_filter"] = tenant_filter
         __props__.__dict__["tenant_list"] = tenant_list
@@ -1439,7 +1459,7 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="applicationList")
     def application_list(self) -> pulumi.Output[str]:
         """
-        Name of Application
+        Application deployed through AS3 Declaration
         """
         return pulumi.get(self, "application_list")
 
@@ -1469,6 +1489,14 @@ class As3(pulumi.CustomResource):
         ```
         """
         return pulumi.get(self, "ignore_metadata")
+
+    @property
+    @pulumi.getter(name="perAppMode")
+    def per_app_mode(self) -> pulumi.Output[bool]:
+        """
+        Will define Perapp mode enabled on BIG-IP or not
+        """
+        return pulumi.get(self, "per_app_mode")
 
     @property
     @pulumi.getter(name="taskId")

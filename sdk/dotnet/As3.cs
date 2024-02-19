@@ -523,7 +523,7 @@ namespace Pulumi.F5BigIP
     public partial class As3 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of Application
+        /// Application deployed through AS3 Declaration
         /// </summary>
         [Output("applicationList")]
         public Output<string> ApplicationList { get; private set; } = null!;
@@ -562,6 +562,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// Will define Perapp mode enabled on BIG-IP or not
+        /// </summary>
+        [Output("perAppMode")]
+        public Output<bool> PerAppMode { get; private set; } = null!;
 
         /// <summary>
         /// ID of AS3 post declaration async task
@@ -634,7 +640,7 @@ namespace Pulumi.F5BigIP
     public sealed class As3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of Application
+        /// Application deployed through AS3 Declaration
         /// </summary>
         [Input("applicationList")]
         public Input<string>? ApplicationList { get; set; }
@@ -707,7 +713,7 @@ namespace Pulumi.F5BigIP
     public sealed class As3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of Application
+        /// Application deployed through AS3 Declaration
         /// </summary>
         [Input("applicationList")]
         public Input<string>? ApplicationList { get; set; }
@@ -746,6 +752,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
+
+        /// <summary>
+        /// Will define Perapp mode enabled on BIG-IP or not
+        /// </summary>
+        [Input("perAppMode")]
+        public Input<bool>? PerAppMode { get; set; }
 
         /// <summary>
         /// ID of AS3 post declaration async task

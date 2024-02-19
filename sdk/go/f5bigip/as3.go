@@ -538,7 +538,7 @@ import (
 type As3 struct {
 	pulumi.CustomResourceState
 
-	// Name of Application
+	// Application deployed through AS3 Declaration
 	ApplicationList pulumi.StringOutput `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
@@ -575,6 +575,8 @@ type As3 struct {
 	// }
 	// ```
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
+	// Will define Perapp mode enabled on BIG-IP or not
+	PerAppMode pulumi.BoolOutput `pulumi:"perAppMode"`
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringOutput `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -617,7 +619,7 @@ func GetAs3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering As3 resources.
 type as3State struct {
-	// Name of Application
+	// Application deployed through AS3 Declaration
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
@@ -654,6 +656,8 @@ type as3State struct {
 	// }
 	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
+	// Will define Perapp mode enabled on BIG-IP or not
+	PerAppMode *bool `pulumi:"perAppMode"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -667,7 +671,7 @@ type as3State struct {
 }
 
 type As3State struct {
-	// Name of Application
+	// Application deployed through AS3 Declaration
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
@@ -704,6 +708,8 @@ type As3State struct {
 	// }
 	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
+	// Will define Perapp mode enabled on BIG-IP or not
+	PerAppMode pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -721,7 +727,7 @@ func (As3State) ElementType() reflect.Type {
 }
 
 type as3Args struct {
-	// Name of Application
+	// Application deployed through AS3 Declaration
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
@@ -772,7 +778,7 @@ type as3Args struct {
 
 // The set of arguments for constructing a As3 resource.
 type As3Args struct {
-	// Name of Application
+	// Application deployed through AS3 Declaration
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
@@ -908,7 +914,7 @@ func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return o
 }
 
-// Name of Application
+// Application deployed through AS3 Declaration
 func (o As3Output) ApplicationList() pulumi.StringOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.ApplicationList }).(pulumi.StringOutput)
 }
@@ -958,6 +964,11 @@ func (o As3Output) As3Json() pulumi.StringPtrOutput {
 // ```
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
+}
+
+// Will define Perapp mode enabled on BIG-IP or not
+func (o As3Output) PerAppMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v *As3) pulumi.BoolOutput { return v.PerAppMode }).(pulumi.BoolOutput)
 }
 
 // ID of AS3 post declaration async task
