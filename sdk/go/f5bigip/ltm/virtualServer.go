@@ -40,6 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// A Virtual server with SSL enabled
 //			_, err = ltm.NewVirtualServer(ctx, "httpsVirtualServer", &ltm.VirtualServerArgs{
 //				Name:        pulumi.String("/Common/terraform_vs_https"),
 //				Destination: pulumi.Any(_var.Vip_ip),
@@ -58,6 +59,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// A Virtual server with separate client and server profiles
 //			_, err = ltm.NewVirtualServer(ctx, "httpsLtm/virtualServerVirtualServer", &ltm.VirtualServerArgs{
 //				Name:        pulumi.String("/Common/terraform_vs_https"),
 //				Destination: pulumi.String("10.255.255.254"),
