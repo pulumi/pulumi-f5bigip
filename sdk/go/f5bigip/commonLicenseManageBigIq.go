@@ -28,6 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// MANAGED Regkey Pool
 //			_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.Any(_var.Bigiq),
 //				BigiqUser:       pulumi.Any(_var.Bigiq_un),
@@ -38,6 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// UNMANAGED Regkey Pool
 //			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.Any(_var.Bigiq),
 //				BigiqUser:       pulumi.Any(_var.Bigiq_un),
@@ -48,6 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// UNMANAGED Utility Pool
 //			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.Any(_var.Bigiq),
 //				BigiqUser:       pulumi.Any(_var.Bigiq_un),
@@ -60,6 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// UNREACHABLE Regkey Pool
 //			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.String("xxx.xxx.xxx.xxx"),
 //				BigiqUser:       pulumi.String("xxxx"),
@@ -72,6 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// MANAGED Purchased Pool
 //			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.Any(_var.Bigiq),
 //				BigiqUser:       pulumi.Any(_var.Bigiq_un),
@@ -82,6 +87,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// UNMANAGED Purchased Pool
 //			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", &f5bigip.CommonLicenseManageBigIqArgs{
 //				BigiqAddress:    pulumi.Any(_var.Bigiq),
 //				BigiqUser:       pulumi.Any(_var.Bigiq_un),

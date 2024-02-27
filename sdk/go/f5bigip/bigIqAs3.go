@@ -40,6 +40,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Usage for json file
 //			_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
 //				As3Json:       readFileOrPanic("bigiq_example.json"),
 //				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),

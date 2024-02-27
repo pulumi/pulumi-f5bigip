@@ -39,12 +39,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Example Usage for json file
 //			_, err := f5bigip.NewAs3(ctx, "as3-example1As3", &f5bigip.As3Args{
 //				As3Json: readFileOrPanic("example1.json"),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			// Example Usage for json file with tenant filter
 //			_, err = f5bigip.NewAs3(ctx, "as3-example1Index/as3As3", &f5bigip.As3Args{
 //				As3Json:      readFileOrPanic("example2.json"),
 //				TenantFilter: pulumi.String("Sample_03"),

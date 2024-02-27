@@ -61,6 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// attaching ipv4 address with service port
 //			_, err = ltm.NewPoolAttachment(ctx, "ipv4NodeAttach", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: pulumi.String("1.1.1.1:80"),
@@ -68,6 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// attaching ipv6 address with service port
 //			_, err = ltm.NewPoolAttachment(ctx, "ipv6NodeAttach", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: pulumi.String("2003::4.80"),

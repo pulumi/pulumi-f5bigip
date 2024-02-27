@@ -29,6 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// create ltm node
 //			_, err := f5bigip.NewCommand(ctx, "test-command", &f5bigip.CommandArgs{
 //				Commands: pulumi.StringArray{
 //					pulumi.String("delete ltm node 10.10.10.70"),
