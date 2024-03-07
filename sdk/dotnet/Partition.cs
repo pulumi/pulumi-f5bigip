@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,18 @@ namespace Pulumi.F5BigIP
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+    /// 
+    /// An example is below:
+    /// 
+    /// ```sh
+    /// $ terraform import bigip_partition.test_partition test_partition
+    /// 
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/partition:Partition")]

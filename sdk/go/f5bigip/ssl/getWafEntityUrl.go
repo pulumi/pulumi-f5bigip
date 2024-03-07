@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,6 +55,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetWafEntityUrl(ctx *pulumi.Context, args *GetWafEntityUrlArgs, opts ...pulumi.InvokeOption) (*GetWafEntityUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafEntityUrlResult

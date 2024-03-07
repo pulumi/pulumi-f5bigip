@@ -598,6 +598,7 @@ class Ocsp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -608,6 +609,15 @@ class Ocsp(pulumi.CustomResource):
             proxy_server_pool="/Common/test-poolxyz",
             signer_cert="/Common/le-ssl",
             signer_key="/Common/le-ssl")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing OCSP can be imported into this resource by supplying the full path name  ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
         ```
 
         :param str resource_name: The name of the resource.
@@ -641,6 +651,7 @@ class Ocsp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -651,6 +662,15 @@ class Ocsp(pulumi.CustomResource):
             proxy_server_pool="/Common/test-poolxyz",
             signer_cert="/Common/le-ssl",
             signer_key="/Common/le-ssl")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing OCSP can be imported into this resource by supplying the full path name  ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
         ```
 
         :param str resource_name: The name of the resource.

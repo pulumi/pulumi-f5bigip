@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * For example `/Common/my-pool`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,6 +62,16 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;      
+ * 
+ * ## Importing
+ * 
+ * An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
+ * 
  * ```
  * 
  */

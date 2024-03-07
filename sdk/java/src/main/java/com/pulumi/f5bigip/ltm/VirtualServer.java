@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,6 +82,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;      
+ * 
+ * ## Importing
+ * 
+ * An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
  * ```
  * 
  */

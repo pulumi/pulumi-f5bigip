@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,6 +73,15 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;      
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/monitor:Monitor")]

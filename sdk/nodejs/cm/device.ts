@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     name: "bigip300.f5.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Device extends pulumi.CustomResource {
     /**

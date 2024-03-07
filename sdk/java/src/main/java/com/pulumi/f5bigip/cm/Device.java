@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * 
  * This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:cm/device:Device")

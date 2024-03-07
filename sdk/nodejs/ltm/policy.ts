@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -39,6 +40,15 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [mypool],
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Importing
+ *
+ * An existing policy can be imported into this resource by supplying policy Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2
  * ```
  */
 export class Policy extends pulumi.CustomResource {

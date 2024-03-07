@@ -370,6 +370,7 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -382,6 +383,16 @@ class Pool(pulumi.CustomResource):
             load_balancing_mode="round-robin",
             minimum_active_members=1,
             monitors=[monitor.name])
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
+
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,6 +422,7 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -423,6 +435,16 @@ class Pool(pulumi.CustomResource):
             load_balancing_mode="round-robin",
             minimum_active_members=1,
             monitors=[monitor.name])
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
+
         ```
 
         :param str resource_name: The name of the resource.

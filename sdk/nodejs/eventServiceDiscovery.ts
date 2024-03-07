@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -29,6 +30,7 @@ import * as utilities from "./utilities";
  *     taskid: "~Sample_event_sd~My_app~My_pool",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class EventServiceDiscovery extends pulumi.CustomResource {
     /**
@@ -62,7 +64,7 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
      * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
      *
      * For more information, please refer below document
-     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
+     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%!d(MISSING)iscovery#event-driven-service-discovery
      *
      * Below example shows how to use event-driven service discovery, introduced in AS3 3.9.0.
      *
@@ -148,7 +150,7 @@ export interface EventServiceDiscoveryState {
      * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
      *
      * For more information, please refer below document
-     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
+     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%!d(MISSING)iscovery#event-driven-service-discovery
      *
      * Below example shows how to use event-driven service discovery, introduced in AS3 3.9.0.
      *
@@ -207,7 +209,7 @@ export interface EventServiceDiscoveryArgs {
      * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
      *
      * For more information, please refer below document
-     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
+     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%!d(MISSING)iscovery#event-driven-service-discovery
      *
      * Below example shows how to use event-driven service discovery, introduced in AS3 3.9.0.
      *

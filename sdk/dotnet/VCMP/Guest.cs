@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.VCMP
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.F5BigIP.VCMP
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:vcmp/guest:Guest")]
     public partial class Guest : global::Pulumi.CustomResource

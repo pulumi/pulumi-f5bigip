@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -27,13 +28,14 @@ import * as utilities from "../utilities";
  *     uriIncludes: ["www.xyzbc.cisco.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
  *
  * ```sh
- *  $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+ * $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
  * ```
  */
 export class ProfileHttpCompress extends pulumi.CustomResource {

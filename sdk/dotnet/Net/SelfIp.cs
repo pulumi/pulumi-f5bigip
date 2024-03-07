@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,8 +54,10 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ### Example usage with `port_lockdown`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,8 +88,11 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example usage with `port_lockdown` set to `["none"]`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,8 +121,11 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example usage with route domain embedded in the `ip`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,12 +154,13 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/selfIp:SelfIp")]
     public partial class SelfIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
@@ -226,7 +236,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class SelfIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         /// </summary>
         [Input("ip", required: true)]
         public Input<string> Ip { get; set; } = null!;
@@ -270,7 +280,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class SelfIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }

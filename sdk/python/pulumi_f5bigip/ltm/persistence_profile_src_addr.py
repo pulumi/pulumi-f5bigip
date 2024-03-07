@@ -432,6 +432,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -449,6 +450,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -473,6 +475,14 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 
         `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+
+        ## Importing
+
+        An source-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -501,6 +511,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -518,6 +529,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -542,6 +554,14 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 
         `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+
+        ## Importing
+
+        An source-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
+        ```
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileSrcAddrArgs args: The arguments to use to populate this resource's properties.

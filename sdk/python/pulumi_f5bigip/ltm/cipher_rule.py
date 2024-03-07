@@ -201,6 +201,7 @@ class CipherRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -210,6 +211,15 @@ class CipherRule(pulumi.CustomResource):
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
             name="/Common/test_cipher_rule",
             signature_algorithms="DEFAULT")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher rule can be imported into this resource by supplying the cipher rule full path name  ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
         ```
 
         :param str resource_name: The name of the resource.
@@ -231,6 +241,7 @@ class CipherRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -240,6 +251,15 @@ class CipherRule(pulumi.CustomResource):
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
             name="/Common/test_cipher_rule",
             signature_algorithms="DEFAULT")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher rule can be imported into this resource by supplying the cipher rule full path name  ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
         ```
 
         :param str resource_name: The name of the resource.

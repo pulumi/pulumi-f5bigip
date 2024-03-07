@@ -21,7 +21,7 @@ class SelfIpArgs:
                  traffic_group: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SelfIp resource.
-        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
@@ -39,7 +39,7 @@ class SelfIpArgs:
     @pulumi.getter
     def ip(self) -> pulumi.Input[str]:
         """
-        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         """
         return pulumi.get(self, "ip")
 
@@ -106,7 +106,7 @@ class _SelfIpState:
                  vlan: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SelfIp resources.
-        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
@@ -127,7 +127,7 @@ class _SelfIpState:
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         """
         return pulumi.get(self, "ip")
 
@@ -202,6 +202,7 @@ class SelfIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -219,8 +220,10 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
+        <!--End PulumiCodeChooser -->
         ### Example usage with `port_lockdown`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -237,8 +240,11 @@ class SelfIp(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example usage with `port_lockdown` set to `["none"]`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -251,8 +257,11 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example usage with route domain embedded in the `ip`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -265,10 +274,11 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
@@ -287,6 +297,7 @@ class SelfIp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -304,8 +315,10 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
+        <!--End PulumiCodeChooser -->
         ### Example usage with `port_lockdown`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -322,8 +335,11 @@ class SelfIp(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example usage with `port_lockdown` set to `["none"]`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -336,8 +352,11 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example usage with route domain embedded in the `ip`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -350,6 +369,7 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SelfIpArgs args: The arguments to use to populate this resource's properties.
@@ -413,7 +433,7 @@ class SelfIp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
@@ -434,7 +454,7 @@ class SelfIp(pulumi.CustomResource):
     @pulumi.getter
     def ip(self) -> pulumi.Output[str]:
         """
-        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+        The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
         """
         return pulumi.get(self, "ip")
 

@@ -830,6 +830,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -869,6 +870,15 @@ class Monitor(pulumi.CustomResource):
             send="SELECT 'Test';",
             timeout=16,
             username="abcd")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
         ```
 
         :param str resource_name: The name of the resource.
@@ -911,6 +921,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -950,6 +961,15 @@ class Monitor(pulumi.CustomResource):
             send="SELECT 'Test';",
             timeout=16,
             username="abcd")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
         ```
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,6 +20,16 @@ import * as utilities from "../utilities";
  *     ordering: "speed",
  *     requires: ["/Common/f5-quic"],
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Importing
+ *
+ * An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
+ *
  * ```
  */
 export class CipherGroup extends pulumi.CustomResource {

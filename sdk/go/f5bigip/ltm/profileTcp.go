@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,6 +48,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
 // ```
 type ProfileTcp struct {
 	pulumi.CustomResourceState

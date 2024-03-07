@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * The certificate and the key can be imported from files on the local disk, in PEM format
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/sslKeyCert:SslKeyCert")

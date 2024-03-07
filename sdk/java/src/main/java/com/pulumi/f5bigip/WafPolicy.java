@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,12 +101,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`.
  * 
- *  e.g:
+ * e.g:
  * 
  * ```sh
  * $ pulumi import f5bigip:index/wafPolicy:WafPolicy example &lt;id&gt;

@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  * This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -20,6 +21,7 @@ import * as utilities from "./utilities";
  *     when: "destroy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Command extends pulumi.CustomResource {
     /**

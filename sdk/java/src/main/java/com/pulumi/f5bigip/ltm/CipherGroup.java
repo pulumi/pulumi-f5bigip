@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * `f5bigip.ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,16 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Importing
+ * 
+ * An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
+ * 
  * ```
  * 
  */

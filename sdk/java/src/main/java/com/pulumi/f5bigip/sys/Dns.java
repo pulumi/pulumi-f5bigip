@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * `f5bigip.sys.Dns` Configures DNS Name server on F5 BIG-IP
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:sys/dns:Dns")

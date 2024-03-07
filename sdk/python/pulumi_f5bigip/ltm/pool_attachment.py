@@ -373,10 +373,12 @@ class PoolAttachment(pulumi.CustomResource):
 
         > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
         IPv4 should be specified as `ipv4_address:port`
+
         ### Usage Pool attachment with node/member directly attaching to pool.
 
         node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -402,8 +404,11 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="2003::4.80")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage Pool attachment with node referenced from `ltm.Node`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -426,6 +431,16 @@ class PoolAttachment(pulumi.CustomResource):
         attach_node = f5bigip.ltm.PoolAttachment("attachNode",
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:
+
+        ```sh
+        $ terraform import bigip_ltm_pool_attachment.node-pool-attach \\
+        	'{"pool": "/Common/terraform-pool", "node": "/Common/node1:80"}'
         ```
 
         :param str resource_name: The name of the resource.
@@ -459,10 +474,12 @@ class PoolAttachment(pulumi.CustomResource):
 
         > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
         IPv4 should be specified as `ipv4_address:port`
+
         ### Usage Pool attachment with node/member directly attaching to pool.
 
         node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -488,8 +505,11 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="2003::4.80")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage Pool attachment with node referenced from `ltm.Node`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -512,6 +532,16 @@ class PoolAttachment(pulumi.CustomResource):
         attach_node = f5bigip.ltm.PoolAttachment("attachNode",
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:
+
+        ```sh
+        $ terraform import bigip_ltm_pool_attachment.node-pool-attach \\
+        	'{"pool": "/Common/terraform-pool", "node": "/Common/node1:80"}'
         ```
 
         :param str resource_name: The name of the resource.

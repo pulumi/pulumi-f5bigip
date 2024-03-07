@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -31,6 +32,18 @@ import * as utilities from "../utilities";
  *     name: "/Common/terraform_node1",
  *     rateLimit: "disabled",
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->      
+ *
+ * ## Importing
+ *
+ * An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"
+ *             (or)
+ * $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
+ *
  * ```
  */
 export class Node extends pulumi.CustomResource {

@@ -468,6 +468,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -489,6 +490,7 @@ class ProfileHttp2(pulumi.CustomResource):
             name="/Common/test-profile-http2-child",
             defaults_from=nyhttp2.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -519,6 +521,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -540,6 +543,7 @@ class ProfileHttp2(pulumi.CustomResource):
             name="/Common/test-profile-http2-child",
             defaults_from=nyhttp2.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ProfileHttp2Args args: The arguments to use to populate this resource's properties.

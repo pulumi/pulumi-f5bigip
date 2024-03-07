@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,15 @@ namespace Pulumi.F5BigIP.Sys
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing OCSP can be imported into this resource by supplying the full path name  ex : `/partition/name`
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ocsp:Ocsp")]

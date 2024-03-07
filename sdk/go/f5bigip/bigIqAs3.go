@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 
@@ -75,20 +77,6 @@ type BigIqAs3 struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -181,20 +169,6 @@ type bigIqAs3State struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
@@ -221,20 +195,6 @@ type BigIqAs3State struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -267,20 +227,6 @@ type bigIqAs3Args struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
@@ -308,20 +254,6 @@ type BigIqAs3Args struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -456,23 +388,6 @@ func (o BigIqAs3Output) BigiqUser() pulumi.StringOutput {
 // Set True if you want to ignore metadata changes during update. By default it is set to `true`
 //
 // * `bigiq_example.json` - Example  AS3 Declarative JSON file
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 //

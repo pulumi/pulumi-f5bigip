@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -21,6 +22,16 @@ import * as utilities from "../utilities";
  *     defaultsFrom: "/Common/serverssl",
  *     name: "/Common/test-ServerSsl",
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->      
+ *
+ * ## Importing
+ *
+ * An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
+ *
  * ```
  */
 export class ProfileServerSsl extends pulumi.CustomResource {

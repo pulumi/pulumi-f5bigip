@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,6 +51,20 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"
+//
+//	(or)
+//
+// $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
 //
 // ```
 type Node struct {

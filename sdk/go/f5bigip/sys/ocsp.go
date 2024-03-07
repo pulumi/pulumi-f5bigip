@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing OCSP can be imported into this resource by supplying the full path name  ex : `/partition/name`
+// An example is below:
+// ```sh
+// $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
 // ```
 type Ocsp struct {
 	pulumi.CustomResourceState

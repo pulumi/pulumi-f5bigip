@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * `f5bigip.sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     sysLocation: "SeattleHQ",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Snmp extends pulumi.CustomResource {
     /**

@@ -85,6 +85,7 @@ def get_certificate(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -93,6 +94,7 @@ def get_certificate(name: Optional[str] = None,
         partition="Common")
     pulumi.export("bigipSslCertificateName", test.name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ssl_certificate
@@ -120,6 +122,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -128,6 +131,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
         partition="Common")
     pulumi.export("bigipSslCertificateName", test.name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ssl_certificate

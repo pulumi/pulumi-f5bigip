@@ -399,6 +399,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -415,6 +416,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -433,6 +435,14 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
 
         `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+
+        ## Importing
+
+        An dest-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_dstaddr.dstaddr "/Common/terraform_ppdstaddr"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,6 +470,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -476,6 +487,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -494,6 +506,14 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
 
         `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+
+        ## Importing
+
+        An dest-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_dstaddr.dstaddr "/Common/terraform_ppdstaddr"
+        ```
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileDstAddrArgs args: The arguments to use to populate this resource's properties.
