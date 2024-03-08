@@ -15,10 +15,9 @@ namespace Pulumi.F5BigIP.Ltm
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.F5BigIP.Ltm
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
         /// 
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

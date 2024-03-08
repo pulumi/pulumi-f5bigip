@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Certificate key can be imported from certificate key files on the local disk, in PEM format
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:ssl/key:Key")

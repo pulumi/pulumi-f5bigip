@@ -169,6 +169,7 @@ class IpsecProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -178,6 +179,7 @@ class IpsecProfile(pulumi.CustomResource):
             name="/Common/Mytestipsecprofile",
             traffic_selector="test-trafficselector")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,6 +199,7 @@ class IpsecProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -206,6 +209,7 @@ class IpsecProfile(pulumi.CustomResource):
             name="/Common/Mytestipsecprofile",
             traffic_selector="test-trafficselector")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IpsecProfileArgs args: The arguments to use to populate this resource's properties.

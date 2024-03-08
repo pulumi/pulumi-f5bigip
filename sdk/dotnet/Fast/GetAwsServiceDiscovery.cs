@@ -14,10 +14,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAwsServiceDiscoveryResult> InvokeAsync(GetAwsServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAwsServiceDiscoveryResult> Invoke(GetAwsServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryInvokeArgs(), options.WithDefaults());

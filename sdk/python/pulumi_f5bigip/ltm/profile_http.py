@@ -1002,6 +1002,7 @@ class ProfileHttp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1016,12 +1017,13 @@ class ProfileHttp(pulumi.CustomResource):
             ],
             name="/Common/sanjose-http")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
@@ -1073,6 +1075,7 @@ class ProfileHttp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1087,12 +1090,13 @@ class ProfileHttp(pulumi.CustomResource):
             ],
             name="/Common/sanjose-http")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http

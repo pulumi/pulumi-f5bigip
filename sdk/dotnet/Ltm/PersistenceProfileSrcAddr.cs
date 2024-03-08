@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Reference
     /// 
@@ -63,6 +65,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
     /// 
     /// `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+    /// 
+    /// ## Importing
+    /// 
+    /// An source-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr")]
     public partial class PersistenceProfileSrcAddr : global::Pulumi.CustomResource

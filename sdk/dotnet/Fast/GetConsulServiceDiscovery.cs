@@ -14,10 +14,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConsulServiceDiscoveryResult> InvokeAsync(GetConsulServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConsulServiceDiscoveryResult> Invoke(GetConsulServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryInvokeArgs(), options.WithDefaults());

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +59,10 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 // ### Example usage with `portLockdown`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,8 +96,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example usage with `portLockdown` set to `["none"]`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,8 +132,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example usage with route domain embedded in the `ip`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -159,10 +168,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SelfIp struct {
 	pulumi.CustomResourceState
 
-	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 	Ip pulumi.StringOutput `pulumi:"ip"`
 	// Name of the selfip
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -213,7 +223,7 @@ func GetSelfIp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SelfIp resources.
 type selfIpState struct {
-	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 	Ip *string `pulumi:"ip"`
 	// Name of the selfip
 	Name *string `pulumi:"name"`
@@ -226,7 +236,7 @@ type selfIpState struct {
 }
 
 type SelfIpState struct {
-	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 	Ip pulumi.StringPtrInput
 	// Name of the selfip
 	Name pulumi.StringPtrInput
@@ -243,7 +253,7 @@ func (SelfIpState) ElementType() reflect.Type {
 }
 
 type selfIpArgs struct {
-	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 	Ip string `pulumi:"ip"`
 	// Name of the selfip
 	Name string `pulumi:"name"`
@@ -257,7 +267,7 @@ type selfIpArgs struct {
 
 // The set of arguments for constructing a SelfIp resource.
 type SelfIpArgs struct {
-	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 	Ip pulumi.StringInput
 	// Name of the selfip
 	Name pulumi.StringInput
@@ -356,7 +366,7 @@ func (o SelfIpOutput) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutpu
 	return o
 }
 
-// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
+// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
 func (o SelfIpOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v *SelfIp) pulumi.StringOutput { return v.Ip }).(pulumi.StringOutput)
 }

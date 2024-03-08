@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -36,6 +37,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/bigIqAs3:BigIqAs3")]
     public partial class BigIqAs3 : global::Pulumi.CustomResource
@@ -87,14 +89,54 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "class": "AS3",
+        /// "action": "deploy",
+        /// "persist": true,
+        /// "declaration": {
+        /// "class": "ADC",
+        /// "schemaVersion": "3.7.0",
+        /// "id": "example-declaration-01",
+        /// "label": "Task1",
+        /// "remark": "Task 1 - HTTP Application Service",
+        /// "target": {
+        /// "address": "xx.xxx.xx.xxx"
+        /// },
+        /// "Task1": {
+        /// "class": "Tenant",
+        /// "MyWebApp1http": {
+        /// "class": "Application",
+        /// "template": "http",
+        /// 
+        /// 
+        /// "serviceMain": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "10.1.2.10"
+        /// ],
+        /// "pool": "web_pool"
+        /// },
+        /// "web_pool": {
+        /// "class": "Pool",
+        /// "monitors": [
+        /// "http"
+        /// ],
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.33",
+        /// "192.0.2.13"
+        /// ],
+        /// "shareNodes": true
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
+        /// }
+        /// }
         /// ```
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
@@ -261,14 +303,54 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "class": "AS3",
+        /// "action": "deploy",
+        /// "persist": true,
+        /// "declaration": {
+        /// "class": "ADC",
+        /// "schemaVersion": "3.7.0",
+        /// "id": "example-declaration-01",
+        /// "label": "Task1",
+        /// "remark": "Task 1 - HTTP Application Service",
+        /// "target": {
+        /// "address": "xx.xxx.xx.xxx"
+        /// },
+        /// "Task1": {
+        /// "class": "Tenant",
+        /// "MyWebApp1http": {
+        /// "class": "Application",
+        /// "template": "http",
+        /// 
+        /// 
+        /// "serviceMain": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "10.1.2.10"
+        /// ],
+        /// "pool": "web_pool"
+        /// },
+        /// "web_pool": {
+        /// "class": "Pool",
+        /// "monitors": [
+        /// "http"
+        /// ],
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.33",
+        /// "192.0.2.13"
+        /// ],
+        /// "shareNodes": true
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
+        /// }
+        /// }
         /// ```
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
@@ -389,14 +471,54 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "class": "AS3",
+        /// "action": "deploy",
+        /// "persist": true,
+        /// "declaration": {
+        /// "class": "ADC",
+        /// "schemaVersion": "3.7.0",
+        /// "id": "example-declaration-01",
+        /// "label": "Task1",
+        /// "remark": "Task 1 - HTTP Application Service",
+        /// "target": {
+        /// "address": "xx.xxx.xx.xxx"
+        /// },
+        /// "Task1": {
+        /// "class": "Tenant",
+        /// "MyWebApp1http": {
+        /// "class": "Application",
+        /// "template": "http",
+        /// 
+        /// 
+        /// "serviceMain": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "10.1.2.10"
+        /// ],
+        /// "pool": "web_pool"
+        /// },
+        /// "web_pool": {
+        /// "class": "Pool",
+        /// "monitors": [
+        /// "http"
+        /// ],
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.33",
+        /// "192.0.2.13"
+        /// ],
+        /// "shareNodes": true
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
+        /// }
+        /// }
         /// ```
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html

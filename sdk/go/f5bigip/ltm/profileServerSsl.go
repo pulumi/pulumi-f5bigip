@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,16 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
 //
 // ```
 type ProfileServerSsl struct {

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * `f5bigip.sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,6 +53,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Importing
+ * 
+ * An existing OCSP can be imported into this resource by supplying the full path name  ex : `/partition/name`
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
  * ```
  * 
  */

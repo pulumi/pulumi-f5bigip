@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +38,15 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;      
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileTcp:ProfileTcp")]

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -28,12 +29,13 @@ import * as utilities from "../utilities";
  *     name: "/Common/sanjose-http",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * BIG-IP LTM http profiles can be imported using the `name`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http

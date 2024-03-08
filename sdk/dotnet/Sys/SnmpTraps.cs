@@ -13,6 +13,7 @@ namespace Pulumi.F5BigIP.Sys
     /// `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/snmpTraps:SnmpTraps")]
     public partial class SnmpTraps : global::Pulumi.CustomResource

@@ -17,6 +17,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +76,15 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;      
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/virtualServer:VirtualServer")]

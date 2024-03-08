@@ -626,6 +626,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -645,6 +646,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             expiration="1:0:0",
             hash_length=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -682,6 +684,14 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
 
         `httponly` (Optional) (enabled or disabled) Sending only over http
+
+        ## Importing
+
+        An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -715,6 +725,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         ## Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -734,6 +745,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             expiration="1:0:0",
             hash_length=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -771,6 +783,14 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
 
         `httponly` (Optional) (enabled or disabled) Sending only over http
+
+        ## Importing
+
+        An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
+        ```
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileCookieArgs args: The arguments to use to populate this resource's properties.

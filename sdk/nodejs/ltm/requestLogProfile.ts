@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -25,12 +26,13 @@ import * as utilities from "../utilities";
  *     responselogErrorProtocol: "mds-tcp",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
  *
- *  bash
+ * bash
  *
  * ```sh
  * $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log

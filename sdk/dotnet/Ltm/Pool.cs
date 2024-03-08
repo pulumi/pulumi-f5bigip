@@ -17,6 +17,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,16 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;      
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
+    /// 
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/pool:Pool")]

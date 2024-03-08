@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,6 +84,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
 // ```
 type VirtualServer struct {
 	pulumi.CustomResourceState

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:sys/snmpTraps:SnmpTraps")

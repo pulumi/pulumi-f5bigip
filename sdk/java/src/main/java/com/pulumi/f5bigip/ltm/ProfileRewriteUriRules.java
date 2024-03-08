@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * `f5bigip.ltm.ProfileRewriteUriRules` Configures uri rewrite rules attached to the ltm rewrite profile
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules")

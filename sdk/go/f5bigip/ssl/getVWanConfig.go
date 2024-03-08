@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Pre-required Environment Settings:
 //
 // * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

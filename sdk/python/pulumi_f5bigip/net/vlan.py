@@ -206,6 +206,7 @@ class Vlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -218,6 +219,7 @@ class Vlan(pulumi.CustomResource):
             name="/Common/Internal",
             tag=101)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,6 +242,7 @@ class Vlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -252,6 +255,7 @@ class Vlan(pulumi.CustomResource):
             name="/Common/Internal",
             tag=101)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VlanArgs args: The arguments to use to populate this resource's properties.

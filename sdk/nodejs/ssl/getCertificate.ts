@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const bigipSslCertificateName = test.then(test => test.name);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -66,6 +68,7 @@ export interface GetCertificateResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -76,6 +79,7 @@ export interface GetCertificateResult {
  * });
  * export const bigipSslCertificateName = test.then(test => test.name);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

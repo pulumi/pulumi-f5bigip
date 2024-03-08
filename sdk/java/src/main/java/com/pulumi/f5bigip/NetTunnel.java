@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * `f5bigip.NetTunnel` Manages a tunnel configuration
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/netTunnel:NetTunnel")

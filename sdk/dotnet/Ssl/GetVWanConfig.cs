@@ -15,10 +15,9 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,8 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;      
+        /// 
         /// ## Pre-required Environment Settings:
         /// 
         /// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -59,10 +58,9 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,8 +78,8 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;      
+        /// 
         /// ## Pre-required Environment Settings:
         /// 
         /// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

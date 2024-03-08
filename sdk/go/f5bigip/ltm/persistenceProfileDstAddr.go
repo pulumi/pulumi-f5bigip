@@ -16,6 +16,7 @@ import (
 //
 // ## Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,6 +49,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Reference
 //
@@ -66,6 +68,14 @@ import (
 // `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
 //
 // `overrideConnLimit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+//
+// ## Importing
+//
+// An dest-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_persistence_profile_dstaddr.dstaddr "/Common/terraform_ppdstaddr"
+// ```
 type PersistenceProfileDstAddr struct {
 	pulumi.CustomResourceState
 

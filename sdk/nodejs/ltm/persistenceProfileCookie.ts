@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  *     hashLength: 0,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Reference
  *
@@ -66,6 +68,14 @@ import * as utilities from "../utilities";
  * `hashOffset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
  *
  * `httponly` (Optional) (enabled or disabled) Sending only over http
+ *
+ * ## Importing
+ *
+ * An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
+ * ```
  */
 export class PersistenceProfileCookie extends pulumi.CustomResource {
     /**

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,6 +20,8 @@ import * as utilities from "../utilities";
  *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->      
+ *
  * ## Pre-required Environment Settings:
  *
  * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -98,6 +101,7 @@ export interface GetVWanConfigResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -108,6 +112,8 @@ export interface GetVWanConfigResult {
  *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->      
+ *
  * ## Pre-required Environment Settings:
  *
  * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

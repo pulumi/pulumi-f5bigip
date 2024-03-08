@@ -500,6 +500,7 @@ class Guest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -515,6 +516,7 @@ class Guest(pulumi.CustomResource):
             number_of_slots=1,
             state="provisioned")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -545,6 +547,7 @@ class Guest(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -560,6 +563,7 @@ class Guest(pulumi.CustomResource):
             number_of_slots=1,
             state="provisioned")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param GuestArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/provision:Provision")]
     public partial class Provision : global::Pulumi.CustomResource
