@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,6 +71,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing policy can be imported into this resource by supplying policy Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2
 // ```
 type Policy struct {
 	pulumi.CustomResourceState

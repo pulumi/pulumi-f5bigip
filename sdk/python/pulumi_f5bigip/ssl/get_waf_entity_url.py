@@ -144,6 +144,7 @@ def get_waf_entity_url(description: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -168,6 +169,7 @@ def get_waf_entity_url(description: Optional[str] = None,
         ],
         type="explicit")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description of the URL.
@@ -219,6 +221,7 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -243,6 +246,7 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
         ],
         type="explicit")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description of the URL.

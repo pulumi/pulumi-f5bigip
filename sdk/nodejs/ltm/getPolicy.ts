@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const bigipPolicy = test.then(test => test.rules);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -96,6 +98,7 @@ export interface GetPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -105,6 +108,7 @@ export interface GetPolicyResult {
  * });
  * export const bigipPolicy = test.then(test => test.rules);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

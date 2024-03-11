@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,7 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:cm/deviceGroup:DeviceGroup")]
     public partial class DeviceGroup : global::Pulumi.CustomResource

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,16 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
 //
 // ```
 type CipherGroup struct {

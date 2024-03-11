@@ -168,6 +168,7 @@ class Dns(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -177,6 +178,7 @@ class Dns(pulumi.CustomResource):
             name_servers=["1.1.1.1"],
             searches=["f5.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,6 +198,7 @@ class Dns(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -205,6 +208,7 @@ class Dns(pulumi.CustomResource):
             name_servers=["1.1.1.1"],
             searches=["f5.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DnsArgs args: The arguments to use to populate this resource's properties.

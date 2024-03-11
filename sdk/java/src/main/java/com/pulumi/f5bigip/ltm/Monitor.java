@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,6 +92,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;      
+ * 
+ * ## Importing
+ * 
+ * An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
  * ```
  * 
  */

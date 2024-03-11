@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:vcmp/guest:Guest")

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Configures a source address persistence profile
  * 
  * ## Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference
  * 
@@ -80,6 +83,14 @@ import javax.annotation.Nullable;
  * `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
  * 
  * `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+ * 
+ * ## Importing
+ * 
+ * An source-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr &#34;/Common/terraform_srcaddr&#34;
+ * ```
  * 
  */
 @ResourceType(type="f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr")

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     timeout: 3600,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Reference
  *
@@ -42,6 +44,14 @@ import * as utilities from "../utilities";
  * `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
  *
  * `overrideConnLimit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+ *
+ * ## Importing
+ *
+ * An ssl persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_ssl.ppssl "/Common/terraform_ssl"
+ * ```
  */
 export class PersistenceProfileSsl extends pulumi.CustomResource {
     /**

@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -31,16 +32,9 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// });
     /// ```
-    /// ### Json File
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
+    /// ### Json File
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
     public partial class IApp : global::Pulumi.CustomResource

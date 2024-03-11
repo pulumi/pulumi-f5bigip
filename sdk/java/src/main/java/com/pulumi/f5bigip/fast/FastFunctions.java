@@ -27,6 +27,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAwsServiceDiscoveryResult> getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs args) {
@@ -65,6 +68,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAwsServiceDiscoveryResult> getAwsServiceDiscoveryPlain(GetAwsServiceDiscoveryPlainArgs args) {
@@ -103,6 +109,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAwsServiceDiscoveryResult> getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAwsServiceDiscoveryResult> getAwsServiceDiscoveryPlain(GetAwsServiceDiscoveryPlainArgs args, InvokeOptions options) {
@@ -179,6 +191,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +224,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAzureServiceDiscoveryResult> getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs args) {
@@ -219,6 +234,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +267,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAzureServiceDiscoveryResult> getAzureServiceDiscoveryPlain(GetAzureServiceDiscoveryPlainArgs args) {
@@ -259,6 +277,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -290,6 +310,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAzureServiceDiscoveryResult> getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs args, InvokeOptions options) {
@@ -299,6 +320,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,6 +353,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAzureServiceDiscoveryResult> getAzureServiceDiscoveryPlain(GetAzureServiceDiscoveryPlainArgs args, InvokeOptions options) {
@@ -339,6 +363,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -368,6 +394,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConsulServiceDiscoveryResult> getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs args) {
@@ -377,6 +404,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -406,6 +435,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConsulServiceDiscoveryResult> getConsulServiceDiscoveryPlain(GetConsulServiceDiscoveryPlainArgs args) {
@@ -415,6 +445,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -444,6 +476,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConsulServiceDiscoveryResult> getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs args, InvokeOptions options) {
@@ -453,6 +486,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -482,6 +517,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConsulServiceDiscoveryResult> getConsulServiceDiscoveryPlain(GetConsulServiceDiscoveryPlainArgs args, InvokeOptions options) {
@@ -491,6 +527,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -521,6 +559,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGceServiceDiscoveryResult> getGceServiceDiscovery(GetGceServiceDiscoveryArgs args) {
@@ -530,6 +569,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +601,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGceServiceDiscoveryResult> getGceServiceDiscoveryPlain(GetGceServiceDiscoveryPlainArgs args) {
@@ -569,6 +611,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -599,6 +643,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGceServiceDiscoveryResult> getGceServiceDiscovery(GetGceServiceDiscoveryArgs args, InvokeOptions options) {
@@ -608,6 +653,8 @@ public final class FastFunctions {
      * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -638,6 +685,7 @@ public final class FastFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGceServiceDiscoveryResult> getGceServiceDiscoveryPlain(GetGceServiceDiscoveryPlainArgs args, InvokeOptions options) {

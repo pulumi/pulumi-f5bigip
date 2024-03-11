@@ -15,6 +15,7 @@ namespace Pulumi.F5BigIP
     /// This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/command:Command")]
     public partial class Command : global::Pulumi.CustomResource

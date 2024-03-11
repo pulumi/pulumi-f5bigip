@@ -941,6 +941,7 @@ class WafPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -976,12 +977,13 @@ class WafPolicy(pulumi.CustomResource):
                 u_rl2.json,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`.
 
-         e.g:
+        e.g:
 
         ```sh
         $ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>
@@ -1038,6 +1040,7 @@ class WafPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1073,12 +1076,13 @@ class WafPolicy(pulumi.CustomResource):
                 u_rl2.json,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`.
 
-         e.g:
+        e.g:
 
         ```sh
         $ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>

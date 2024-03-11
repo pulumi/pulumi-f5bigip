@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     tagValue: "testazurevalue",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAzureServiceDiscovery(args: GetAzureServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureServiceDiscoveryResult> {
 
@@ -115,6 +117,7 @@ export interface GetAzureServiceDiscoveryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -126,6 +129,7 @@ export interface GetAzureServiceDiscoveryResult {
  *     tagValue: "testazurevalue",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getAzureServiceDiscovery(a, opts))

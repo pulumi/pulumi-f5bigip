@@ -11,6 +11,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -24,6 +25,7 @@ import * as utilities from "./utilities";
  *     bigiqUser: "xxxxx",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class BigIqAs3 extends pulumi.CustomResource {
     /**
@@ -86,8 +88,54 @@ export class BigIqAs3 extends pulumi.CustomResource {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
+     * ```json
+     * {
+     * "class": "AS3",
+     * "action": "deploy",
+     * "persist": true,
+     * "declaration": {
+     * "class": "ADC",
+     * "schemaVersion": "3.7.0",
+     * "id": "example-declaration-01",
+     * "label": "Task1",
+     * "remark": "Task 1 - HTTP Application Service",
+     * "target": {
+     * "address": "xx.xxx.xx.xxx"
+     * },
+     * "Task1": {
+     * "class": "Tenant",
+     * "MyWebApp1http": {
+     * "class": "Application",
+     * "template": "http",
+     *
+     *
+     * "serviceMain": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "10.1.2.10"
+     * ],
+     * "pool": "web_pool"
+     * },
+     * "web_pool": {
+     * "class": "Pool",
+     * "monitors": [
+     * "http"
+     * ],
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.33",
+     * "192.0.2.13"
+     * ],
+     * "shareNodes": true
+     * }
+     * ]
+     * }
+     * }
+     * }
+     * }
+     * }
      * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
@@ -190,8 +238,54 @@ export interface BigIqAs3State {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
+     * ```json
+     * {
+     * "class": "AS3",
+     * "action": "deploy",
+     * "persist": true,
+     * "declaration": {
+     * "class": "ADC",
+     * "schemaVersion": "3.7.0",
+     * "id": "example-declaration-01",
+     * "label": "Task1",
+     * "remark": "Task 1 - HTTP Application Service",
+     * "target": {
+     * "address": "xx.xxx.xx.xxx"
+     * },
+     * "Task1": {
+     * "class": "Tenant",
+     * "MyWebApp1http": {
+     * "class": "Application",
+     * "template": "http",
+     *
+     *
+     * "serviceMain": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "10.1.2.10"
+     * ],
+     * "pool": "web_pool"
+     * },
+     * "web_pool": {
+     * "class": "Pool",
+     * "monitors": [
+     * "http"
+     * ],
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.33",
+     * "192.0.2.13"
+     * ],
+     * "shareNodes": true
+     * }
+     * ]
+     * }
+     * }
+     * }
+     * }
+     * }
      * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
@@ -242,8 +336,54 @@ export interface BigIqAs3Args {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
+     * ```json
+     * {
+     * "class": "AS3",
+     * "action": "deploy",
+     * "persist": true,
+     * "declaration": {
+     * "class": "ADC",
+     * "schemaVersion": "3.7.0",
+     * "id": "example-declaration-01",
+     * "label": "Task1",
+     * "remark": "Task 1 - HTTP Application Service",
+     * "target": {
+     * "address": "xx.xxx.xx.xxx"
+     * },
+     * "Task1": {
+     * "class": "Tenant",
+     * "MyWebApp1http": {
+     * "class": "Application",
+     * "template": "http",
+     *
+     *
+     * "serviceMain": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "10.1.2.10"
+     * ],
+     * "pool": "web_pool"
+     * },
+     * "web_pool": {
+     * "class": "Pool",
+     * "monitors": [
+     * "http"
+     * ],
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.33",
+     * "192.0.2.13"
+     * ],
+     * "shareNodes": true
+     * }
+     * ]
+     * }
+     * }
+     * }
+     * }
+     * }
      * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html

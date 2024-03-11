@@ -369,19 +369,21 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
         test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
+        $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
         ```
 
         :param str resource_name: The name of the resource.
@@ -410,19 +412,21 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
         test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
+        $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
         ```
 
         :param str resource_name: The name of the resource.

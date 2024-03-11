@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * When including directory in `full path` we have to make sure it is created in the given partition before using it.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,6 +63,18 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;      
+ * 
+ * ## Importing
+ * 
+ * An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_node.site2_node &#34;/TEST/testnode&#34;
+ *             (or)
+ * $ terraform import bigip_ltm_node.site2_node &#34;/Common/3.3.3.3&#34;
+ * 
  * ```
  * 
  */

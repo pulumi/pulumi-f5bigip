@@ -18,6 +18,49 @@ import javax.annotation.Nullable;
  * 
  * For resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.ltm.IRule;
+ * import com.pulumi.f5bigip.ltm.IRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var rule = new IRule(&#34;rule&#34;, IRuleArgs.builder()        
+ *             .name(&#34;/Common/terraform_irule&#34;)
+ *             .irule(Files.readString(Paths.get(&#34;myirule.tcl&#34;)))
+ *             .build());
+ * 
+ *         var rule2 = new IRule(&#34;rule2&#34;, IRuleArgs.builder()        
+ *             .name(&#34;/Common/terraform_irule2&#34;)
+ *             .irule(&#34;&#34;&#34;
+ * when CLIENT_ACCEPTED {
+ *      log local0. &#34;test&#34;
+ *    }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="f5bigip:ltm/iRule:IRule")
 public class IRule extends com.pulumi.resources.CustomResource {

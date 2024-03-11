@@ -15,10 +15,9 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWafSignaturesResult> InvokeAsync(GetWafSignaturesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWafSignaturesResult> Invoke(GetWafSignaturesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesInvokeArgs(), options.WithDefaults());

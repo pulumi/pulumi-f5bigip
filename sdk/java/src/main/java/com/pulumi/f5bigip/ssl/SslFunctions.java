@@ -36,6 +36,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -66,6 +68,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -75,6 +78,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +110,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -114,6 +120,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,6 +152,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -153,6 +162,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -183,6 +194,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -192,6 +204,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -222,6 +236,8 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;      
+     * 
      * ## Pre-required Environment Settings:
      * 
      * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -244,6 +260,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +292,8 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;      
+     * 
      * ## Pre-required Environment Settings:
      * 
      * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -296,6 +316,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -326,6 +348,8 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;      
+     * 
      * ## Pre-required Environment Settings:
      * 
      * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -348,6 +372,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -378,6 +404,8 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;      
+     * 
      * ## Pre-required Environment Settings:
      * 
      * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -412,6 +440,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -456,6 +486,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafEntityUrlResult> getWafEntityUrl(GetWafEntityUrlArgs args) {
@@ -465,6 +496,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -509,6 +542,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafEntityUrlResult> getWafEntityUrlPlain(GetWafEntityUrlPlainArgs args) {
@@ -518,6 +552,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -562,6 +598,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafEntityUrlResult> getWafEntityUrl(GetWafEntityUrlArgs args, InvokeOptions options) {
@@ -571,6 +608,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -615,6 +654,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafEntityUrlResult> getWafEntityUrlPlain(GetWafEntityUrlPlainArgs args, InvokeOptions options) {
@@ -624,6 +664,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -654,6 +696,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafPbSuggestionsResult> getWafPbSuggestions(GetWafPbSuggestionsArgs args) {
@@ -663,6 +706,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -693,6 +738,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafPbSuggestionsResult> getWafPbSuggestionsPlain(GetWafPbSuggestionsPlainArgs args) {
@@ -702,6 +748,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -732,6 +780,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafPbSuggestionsResult> getWafPbSuggestions(GetWafPbSuggestionsArgs args, InvokeOptions options) {
@@ -741,6 +790,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -771,6 +822,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafPbSuggestionsResult> getWafPbSuggestionsPlain(GetWafPbSuggestionsPlainArgs args, InvokeOptions options) {
@@ -780,6 +832,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -808,6 +862,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafPolicyResult> getWafPolicy(GetWafPolicyArgs args) {
@@ -817,6 +872,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -845,6 +902,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafPolicyResult> getWafPolicyPlain(GetWafPolicyPlainArgs args) {
@@ -854,6 +912,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -882,6 +942,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafPolicyResult> getWafPolicy(GetWafPolicyArgs args, InvokeOptions options) {
@@ -891,6 +952,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -919,6 +982,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafPolicyResult> getWafPolicyPlain(GetWafPolicyPlainArgs args, InvokeOptions options) {
@@ -928,6 +992,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -956,6 +1022,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafSignaturesResult> getWafSignatures(GetWafSignaturesArgs args) {
@@ -965,6 +1032,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -993,6 +1062,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafSignaturesResult> getWafSignaturesPlain(GetWafSignaturesPlainArgs args) {
@@ -1002,6 +1072,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1030,6 +1102,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWafSignaturesResult> getWafSignatures(GetWafSignaturesArgs args, InvokeOptions options) {
@@ -1039,6 +1112,8 @@ public final class SslFunctions {
      * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1067,6 +1142,7 @@ public final class SslFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWafSignaturesResult> getWafSignaturesPlain(GetWafSignaturesPlainArgs args, InvokeOptions options) {

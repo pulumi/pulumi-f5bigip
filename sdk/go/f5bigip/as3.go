@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,6 +60,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -78,465 +80,347 @@ import (
 // $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
 // ```
 //
-//	bigip_as3.test: Importing from ID "Sample_http_01"...
+// bigip_as3.test: Importing from ID "Sample_http_01"...
 //
-//	bigip_as3.test: Import prepared!
+// bigip_as3.test: Import prepared!
 //
 //	Prepared bigip_as3 for import
 //
-//	bigip_as3.test: Refreshing state... [id=Sample_http_01]
+// bigip_as3.test: Refreshing state... [id=Sample_http_01]
 //
-//	Import successful!
+// Import successful!
 //
-//	The resources that were imported are shown above. These resources are now in
+// The resources that were imported are shown above. These resources are now in
 //
-//	your Terraform state and will henceforth be managed by Terraform.
+// your Terraform state and will henceforth be managed by Terraform.
 //
-//	$ terraform show
+// $ terraform show
 //
-//	bigip_as3.test:
+// bigip_as3.test:
 //
-//	resource "bigip_as3" "test" {
+// resource "bigip_as3" "test" {
 //
-//	as3_json
+//	as3_json      = jsonencode(
 //
-// = jsonencode(
+//	    {
 //
-//	{
+//	        action      = "deploy"
 //
-//	action
+//	        class       = "AS3"
 //
-// = "deploy"
+//	        declaration = {
 //
-//	class
+//	            Sample_http_01 = {
 //
-//	= "AS3"
+//	                A1    = {
 //
-//	declaration = {
+//	                    class      = "Application"
 //
-//	Sample_http_01 = {
+//	                    jsessionid = {
 //
-//	A1
+//	                        class             = "Persist"
 //
-// = {
+//	                        cookieMethod      = "hash"
 //
-//	class
+//	                        cookieName        = "JSESSIONID"
 //
-// = "Application"
+//	                        persistenceMethod = "cookie"
 //
-//	jsessionid = {
+//	                    }
 //
-//	class
+//	                    service    = {
 //
-//	= "Persist"
+//	                        class              = "Service_HTTP"
 //
-//	cookieMethod
+//	                        persistenceMethods = [
 //
-// = "hash"
+//	                            {
 //
-//	cookieName
+//	                                use = "jsessionid"
 //
-// = "JSESSIONID"
+//	                            },
 //
-//	persistenceMethod = "cookie"
+//	                        ]
 //
-//	}
+//	                        pool               = "web_pool"
 //
-//	service
+//	                        virtualAddresses   = [
 //
-// = {
+//	                            "10.0.2.10",
 //
-//	class
+//	                        ]
 //
-// = "Service_HTTP"
+//	                    }
 //
-//	persistenceMethods = [
+//	                    web_pool   = {
 //
-//	{
+//	                        class    = "Pool"
 //
-//	use = "jsessionid"
+//	                        members  = [
 //
-//	},
+//	                            {
 //
-//	]
+//	                                serverAddresses = [
 //
-//	pool
+//	                                    "192.0.2.10",
 //
-//	= "web_pool"
+//	                                    "192.0.2.11",
 //
-//	virtualAddresses
+//	                                ]
 //
-//	= [
+//	                                servicePort     = 80
 //
-//	"10.0.2.10",
+//	                            },
 //
-//	]
+//	                        ]
 //
-//	}
+//	                        monitors = [
 //
-//	web_pool
+//	                            "http",
 //
-//	= {
+//	                        ]
 //
-//	class
+//	                    }
 //
-// = "Pool"
+//	                }
 //
-//	members
+//	                class = "Tenant"
 //
-// = [
+//	            }
 //
-//	{
+//	            class          = "ADC"
 //
-//	serverAddresses = [
+//	            id             = "UDP_DNS_Sample"
 //
-//	"192.0.2.10",
+//	            label          = "UDP_DNS_Sample"
 //
-//	"192.0.2.11",
+//	            remark         = "Sample of a UDP DNS Load Balancer Service"
 //
-//	]
+//	            schemaVersion  = "3.0.0"
 //
-//	servicePort
+//	        }
 //
-//	= 80
+//	        persist     = true
 //
-//	},
-//
-//	]
-//
-//	monitors = [
-//
-//	"http",
-//
-//	]
-//
-//	}
-//
-//	}
-//
-//	class = "Tenant"
-//
-//	}
-//
-//	class
-//
-// = "ADC"
-//
-//	id
-//
-//	= "UDP_DNS_Sample"
-//
-//	label
-//
-// = "UDP_DNS_Sample"
-//
-//	remark
-//
-//	= "Sample of a UDP DNS Load Balancer Service"
-//
-//	schemaVersion
-//
-// = "3.0.0"
-//
-//	}
-//
-//	persist
-//
-//	= true
-//
-//	}
+//	    }
 //
 //	)
 //
-//	id
-//
-// = "Sample_http_01"
+//	id            = "Sample_http_01"
 //
 //	tenant_filter = "Sample_http_01"
 //
-//	tenant_list
+//	tenant_list   = "Sample_http_01"
 //
-//	= "Sample_http_01"
-//
-//	}
+// }
 //
 // ```sh
 // $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
 // ```
 //
-//	bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
+// bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
 //
-//	bigip_as3.test: Import prepared!
+// bigip_as3.test: Import prepared!
 //
 //	Prepared bigip_as3 for import
 //
-//	bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
+// bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
 //
-//	Import successful!
+// Import successful!
 //
-//	The resources that were imported are shown above. These resources are now in
+// The resources that were imported are shown above. These resources are now in
 //
-//	your Terraform state and will henceforth be managed by Terraform.
+// your Terraform state and will henceforth be managed by Terraform.
 //
-//	$ terraform show
+// $ terraform show
 //
-//	bigip_as3.test:
+// bigip_as3.test:
 //
-//	resource "bigip_as3" "test" {
+// resource "bigip_as3" "test" {
 //
-//	as3_json
+//	as3_json      = jsonencode(
 //
-// = jsonencode(
+//	    {
 //
-//	{
+//	        action      = "deploy"
 //
-//	action
+//	        class       = "AS3"
 //
-// = "deploy"
+//	        declaration = {
 //
-//	class
+//	            Sample_http_01     = {
 //
-//	= "AS3"
+//	                A1    = {
 //
-//	declaration = {
+//	                    class      = "Application"
 //
-//	Sample_http_01
+//	                    jsessionid = {
 //
-//	= {
+//	                        class             = "Persist"
 //
-//	A1
+//	                        cookieMethod      = "hash"
 //
-// = {
+//	                        cookieName        = "JSESSIONID"
 //
-//	class
+//	                        persistenceMethod = "cookie"
 //
-// = "Application"
+//	                    }
 //
-//	jsessionid = {
+//	                    service    = {
 //
-//	class
+//	                        class              = "Service_HTTP"
 //
-//	= "Persist"
+//	                        persistenceMethods = [
 //
-//	cookieMethod
+//	                            {
 //
-// = "hash"
+//	                                use = "jsessionid"
 //
-//	cookieName
+//	                            },
 //
-// = "JSESSIONID"
+//	                        ]
 //
-//	persistenceMethod = "cookie"
+//	                        pool               = "web_pool"
 //
-//	}
+//	                        virtualAddresses   = [
 //
-//	service
+//	                            "10.0.2.10",
 //
-// = {
+//	                        ]
 //
-//	class
+//	                    }
 //
-// = "Service_HTTP"
+//	                    web_pool   = {
 //
-//	persistenceMethods = [
+//	                        class    = "Pool"
 //
-//	{
+//	                        members  = [
 //
-//	use = "jsessionid"
+//	                            {
 //
-//	},
+//	                                serverAddresses = [
 //
-//	]
+//	                                    "192.0.2.10",
 //
-//	pool
+//	                                    "192.0.2.11",
 //
-//	= "web_pool"
+//	                                ]
 //
-//	virtualAddresses
+//	                                servicePort     = 80
 //
-//	= [
+//	                            },
 //
-//	"10.0.2.10",
+//	                        ]
 //
-//	]
+//	                        monitors = [
 //
-//	}
+//	                            "http",
 //
-//	web_pool
+//	                        ]
 //
-//	= {
+//	                    }
 //
-//	class
+//	                }
 //
-// = "Pool"
+//	                class = "Tenant"
 //
-//	members
+//	            }
 //
-// = [
+//	            Sample_non_http_01 = {
 //
-//	{
+//	                DNS_Service = {
 //
-//	serverAddresses = [
+//	                    Pool1   = {
 //
-//	"192.0.2.10",
+//	                        class    = "Pool"
 //
-//	"192.0.2.11",
+//	                        members  = [
 //
-//	]
+//	                            {
 //
-//	servicePort
+//	                                serverAddresses = [
 //
-//	= 80
+//	                                    "10.1.10.100",
 //
-//	},
+//	                                ]
 //
-//	]
+//	                                servicePort     = 53
 //
-//	monitors = [
+//	                            },
 //
-//	"http",
+//	                            {
 //
-//	]
+//	                                serverAddresses = [
 //
-//	}
+//	                                    "10.1.10.101",
 //
-//	}
+//	                                ]
 //
-//	class = "Tenant"
+//	                                servicePort     = 53
 //
-//	}
+//	                            },
 //
-//	Sample_non_http_01 = {
+//	                        ]
 //
-//	DNS_Service = {
+//	                        monitors = [
 //
-//	Pool1
+//	                            "icmp",
 //
-//	= {
+//	                        ]
 //
-//	class
+//	                    }
 //
-// = "Pool"
+//	                    class   = "Application"
 //
-//	members
+//	                    service = {
 //
-// = [
+//	                        class            = "Service_UDP"
 //
-//	{
+//	                        pool             = "Pool1"
 //
-//	serverAddresses = [
+//	                        virtualAddresses = [
 //
-//	"10.1.10.100",
+//	                            "10.1.20.121",
 //
-//	]
+//	                        ]
 //
-//	servicePort
+//	                        virtualPort      = 53
 //
-//	= 53
+//	                    }
 //
-//	},
+//	                }
 //
-//	{
+//	                class       = "Tenant"
 //
-//	serverAddresses = [
+//	            }
 //
-//	"10.1.10.101",
+//	            class              = "ADC"
 //
-//	]
+//	            id                 = "UDP_DNS_Sample"
 //
-//	servicePort
+//	            label              = "UDP_DNS_Sample"
 //
-//	= 53
+//	            remark             = "Sample of a UDP DNS Load Balancer Service"
 //
-//	},
+//	            schemaVersion      = "3.0.0"
 //
-//	]
+//	        }
 //
-//	monitors = [
+//	        persist     = true
 //
-//	"icmp",
-//
-//	]
-//
-//	}
-//
-//	class
-//
-//	= "Application"
-//
-//	service = {
-//
-//	class
-//
-// = "Service_UDP"
-//
-//	pool
-//
-//	= "Pool1"
-//
-//	virtualAddresses = [
-//
-//	"10.1.20.121",
-//
-//	]
-//
-//	virtualPort
-//
-// = 53
-//
-//	}
-//
-//	}
-//
-//	class
-//
-//	= "Tenant"
-//
-//	}
-//
-//	class
-//
-// = "ADC"
-//
-//	id
-//
-//	= "UDP_DNS_Sample"
-//
-//	label
-//
-// = "UDP_DNS_Sample"
-//
-//	remark
-//
-//	= "Sample of a UDP DNS Load Balancer Service"
-//
-//	schemaVersion
-//
-// = "3.0.0"
-//
-//	}
-//
-//	persist
-//
-//	= true
-//
-//	}
+//	    }
 //
 //	)
 //
-//	id
-//
-// = "Sample_http_01,Sample_non_http_01"
+//	id            = "Sample_http_01,Sample_non_http_01"
 //
 //	tenant_filter = "Sample_http_01,Sample_non_http_01"
 //
-//	tenant_list
+//	tenant_list   = "Sample_http_01,Sample_non_http_01"
 //
-//	= "Sample_http_01,Sample_non_http_01"
+// }
 //
-//	}
-//
-//	* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
 type As3 struct {
 	pulumi.CustomResourceState
 
@@ -547,35 +431,7 @@ type As3 struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// Will define Perapp mode enabled on BIG-IP or not
 	PerAppMode pulumi.BoolOutput `pulumi:"perAppMode"`
@@ -628,35 +484,7 @@ type as3State struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Will define Perapp mode enabled on BIG-IP or not
 	PerAppMode *bool `pulumi:"perAppMode"`
@@ -680,35 +508,7 @@ type As3State struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// Will define Perapp mode enabled on BIG-IP or not
 	PerAppMode pulumi.BoolPtrInput
@@ -736,35 +536,7 @@ type as3Args struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -787,35 +559,7 @@ type As3Args struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -929,41 +673,7 @@ func (o As3Output) As3Json() pulumi.StringPtrOutput {
 // Set True if you want to ignore metadata changes during update. By default it is set to false
 //
 // * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 // * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

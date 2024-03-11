@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -37,6 +38,7 @@ import * as utilities from "../utilities";
  *     type: "explicit",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityUrlResult> {
 
@@ -117,6 +119,7 @@ export interface GetWafEntityUrlResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -143,6 +146,7 @@ export interface GetWafEntityUrlResult {
  *     type: "explicit",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
     return pulumi.output(args).apply((a: any) => getWafEntityUrl(a, opts))

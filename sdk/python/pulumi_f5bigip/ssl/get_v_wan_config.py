@@ -140,6 +140,7 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -148,6 +149,8 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
         azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
         azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
     ```
+    <!--End PulumiCodeChooser -->      
+
     ## Pre-required Environment Settings:
 
     * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -196,6 +199,7 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -204,6 +208,8 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
         azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
         azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
     ```
+    <!--End PulumiCodeChooser -->      
+
     ## Pre-required Environment Settings:
 
     * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

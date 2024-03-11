@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * `f5bigip.ltm.RequestLogProfile` Resource used for Configures request logging using the Request Logging profile
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,12 +56,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
  * 
- *  bash
+ * bash
  * 
  * ```sh
  * $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log

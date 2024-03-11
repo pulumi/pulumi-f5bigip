@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing cipher rule can be imported into this resource by supplying the cipher rule full path name  ex : `/partition/name`
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
 // ```
 type CipherRule struct {
 	pulumi.CustomResourceState

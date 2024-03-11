@@ -33,6 +33,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -62,6 +64,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataGroupResult> getDataGroup(GetDataGroupArgs args) {
@@ -71,6 +74,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -100,6 +105,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataGroupResult> getDataGroupPlain(GetDataGroupPlainArgs args) {
@@ -109,6 +115,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +146,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataGroupResult> getDataGroup(GetDataGroupArgs args, InvokeOptions options) {
@@ -147,6 +156,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,6 +187,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataGroupResult> getDataGroupPlain(GetDataGroupPlainArgs args, InvokeOptions options) {
@@ -185,6 +197,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -215,6 +229,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIruleResult> getIrule(GetIruleArgs args) {
@@ -224,6 +239,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -254,6 +271,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIruleResult> getIrulePlain(GetIrulePlainArgs args) {
@@ -263,6 +281,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -293,6 +313,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIruleResult> getIrule(GetIruleArgs args, InvokeOptions options) {
@@ -302,6 +323,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -332,6 +355,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIruleResult> getIrulePlain(GetIrulePlainArgs args, InvokeOptions options) {
@@ -341,6 +365,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,6 +396,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args) {
@@ -379,6 +406,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -408,6 +437,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args) {
@@ -417,6 +447,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -446,6 +478,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOptions options) {
@@ -455,6 +488,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -484,6 +519,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args, InvokeOptions options) {
@@ -521,6 +557,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +588,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
@@ -559,6 +598,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -588,6 +629,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
@@ -597,6 +639,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -626,6 +670,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
@@ -635,6 +680,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -664,6 +711,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
@@ -673,6 +721,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -702,6 +752,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -711,6 +762,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -740,6 +793,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -749,6 +803,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -778,6 +834,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -787,6 +844,8 @@ public final class LtmFunctions {
      * Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -816,6 +875,7 @@ public final class LtmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {

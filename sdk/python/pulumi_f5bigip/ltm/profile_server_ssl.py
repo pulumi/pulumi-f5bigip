@@ -1850,6 +1850,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1859,6 +1860,16 @@ class ProfileServerSsl(pulumi.CustomResource):
             ciphers="DEFAULT",
             defaults_from="/Common/serverssl",
             name="/Common/test-ServerSsl")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
+
         ```
 
         :param str resource_name: The name of the resource.
@@ -1960,6 +1971,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1969,6 +1981,16 @@ class ProfileServerSsl(pulumi.CustomResource):
             ciphers="DEFAULT",
             defaults_from="/Common/serverssl",
             name="/Common/test-ServerSsl")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
+
         ```
 
         :param str resource_name: The name of the resource.

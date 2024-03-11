@@ -136,6 +136,7 @@ class Partition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -144,6 +145,18 @@ class Partition(pulumi.CustomResource):
             description="created by terraform",
             name="test-partition",
             route_domain_id=2)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+
+        An example is below:
+
+        ```sh
+        $ terraform import bigip_partition.test_partition test_partition
+
         ```
 
         :param str resource_name: The name of the resource.
@@ -163,6 +176,7 @@ class Partition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -171,6 +185,18 @@ class Partition(pulumi.CustomResource):
             description="created by terraform",
             name="test-partition",
             route_domain_id=2)
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+
+        An example is below:
+
+        ```sh
+        $ terraform import bigip_partition.test_partition test_partition
+
         ```
 
         :param str resource_name: The name of the resource.

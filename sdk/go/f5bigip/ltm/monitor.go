@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,6 +82,15 @@ import (
 //		})
 //	}
 //
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
 // ```
 type Monitor struct {
 	pulumi.CustomResourceState

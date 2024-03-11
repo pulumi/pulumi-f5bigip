@@ -82,6 +82,7 @@ def get_pool(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -89,6 +90,7 @@ def get_pool(name: Optional[str] = None,
     pool__example = f5bigip.ltm.get_pool(name="example-pool",
         partition="Common")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ltm monitor
@@ -116,6 +118,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -123,6 +126,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     pool__example = f5bigip.ltm.get_pool(name="example-pool",
         partition="Common")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ltm monitor

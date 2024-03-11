@@ -127,6 +127,7 @@ def get_policy(controls: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -134,6 +135,7 @@ def get_policy(controls: Optional[Sequence[str]] = None,
     test = f5bigip.ltm.get_policy(name="/Common/test-policy")
     pulumi.export("bigipPolicy", test.rules)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] controls: Specifies the controls.
@@ -175,6 +177,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -182,6 +185,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
     test = f5bigip.ltm.get_policy(name="/Common/test-policy")
     pulumi.export("bigipPolicy", test.rules)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] controls: Specifies the controls.
