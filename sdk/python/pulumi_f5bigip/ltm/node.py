@@ -404,6 +404,7 @@ class Node(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -420,6 +421,18 @@ class Node(pulumi.CustomResource):
             monitor="/Common/icmp",
             name="/Common/terraform_node1",
             rate_limit="disabled")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"
+                    (or)
+        $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
+
         ```
 
         :param str resource_name: The name of the resource.
@@ -451,6 +464,7 @@ class Node(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -467,6 +481,18 @@ class Node(pulumi.CustomResource):
             monitor="/Common/icmp",
             name="/Common/terraform_node1",
             rate_limit="disabled")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"
+                    (or)
+        $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
+
         ```
 
         :param str resource_name: The name of the resource.

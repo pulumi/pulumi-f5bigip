@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -27,6 +28,7 @@ import * as utilities from "../utilities";
  *     timeout: 3600,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Reference
  *
@@ -51,6 +53,14 @@ import * as utilities from "../utilities";
  * `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
  *
  * `mapProxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+ *
+ * ## Importing
+ *
+ * An source-addr persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
+ * ```
  */
 export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
     /**

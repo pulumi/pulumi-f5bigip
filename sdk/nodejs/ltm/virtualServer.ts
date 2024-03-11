@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -49,6 +50,15 @@ import * as utilities from "../utilities";
  *     securityLogProfiles: ["/Common/global-network"],
  *     sourceAddressTranslation: "automap",
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->      
+ *
+ * ## Importing
+ *
+ * An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
  * ```
  */
 export class VirtualServer extends pulumi.CustomResource {

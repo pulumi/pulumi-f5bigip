@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetWafPbSuggestions(ctx *pulumi.Context, args *GetWafPbSuggestionsArgs, opts ...pulumi.InvokeOption) (*GetWafPbSuggestionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafPbSuggestionsResult

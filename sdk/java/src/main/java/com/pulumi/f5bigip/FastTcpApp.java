@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * `f5bigip.FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/fastTcpApp:FastTcpApp")

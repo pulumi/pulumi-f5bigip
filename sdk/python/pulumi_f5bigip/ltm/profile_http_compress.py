@@ -468,6 +468,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -483,13 +484,14 @@ class ProfileHttpCompress(pulumi.CustomResource):
             ],
             uri_includes=["www.xyzbc.cisco.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+        $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
         ```
 
         :param str resource_name: The name of the resource.
@@ -521,6 +523,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -536,13 +539,14 @@ class ProfileHttpCompress(pulumi.CustomResource):
             ],
             uri_includes=["www.xyzbc.cisco.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+        $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
         ```
 
         :param str resource_name: The name of the resource.

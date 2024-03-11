@@ -952,6 +952,7 @@ class VirtualServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -986,6 +987,15 @@ class VirtualServer(pulumi.CustomResource):
             server_profiles=["/Common/serverssl"],
             security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
         ```
 
         :param str resource_name: The name of the resource.
@@ -1032,6 +1042,7 @@ class VirtualServer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1066,6 +1077,15 @@ class VirtualServer(pulumi.CustomResource):
             server_profiles=["/Common/serverssl"],
             security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
         ```
 
         :param str resource_name: The name of the resource.

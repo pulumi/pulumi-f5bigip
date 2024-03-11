@@ -14,10 +14,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGceServiceDiscoveryResult> InvokeAsync(GetGceServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.F5BigIP.Fast
         /// <summary>
         /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGceServiceDiscoveryResult> Invoke(GetGceServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryInvokeArgs(), options.WithDefaults());

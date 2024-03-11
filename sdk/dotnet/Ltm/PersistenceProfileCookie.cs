@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Reference
     /// 
@@ -78,6 +80,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
     /// 
     /// `httponly` (Optional) (enabled or disabled) Sending only over http
+    /// 
+    /// ## Importing
+    /// 
+    /// An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie")]
     public partial class PersistenceProfileCookie : global::Pulumi.CustomResource

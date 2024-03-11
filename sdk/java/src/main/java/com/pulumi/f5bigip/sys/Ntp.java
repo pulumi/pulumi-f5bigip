@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:sys/ntp:Ntp")

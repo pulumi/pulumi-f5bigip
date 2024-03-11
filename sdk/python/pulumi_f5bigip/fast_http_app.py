@@ -699,6 +699,7 @@ class FastHttpApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -711,8 +712,11 @@ class FastHttpApp(pulumi.CustomResource):
                 port=443,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Service Discovery
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -744,6 +748,7 @@ class FastHttpApp(pulumi.CustomResource):
                 t_c3_azure_service_discovery.azure_sd_json,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -784,6 +789,7 @@ class FastHttpApp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -796,8 +802,11 @@ class FastHttpApp(pulumi.CustomResource):
                 port=443,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Service Discovery
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -829,6 +838,7 @@ class FastHttpApp(pulumi.CustomResource):
                 t_c3_azure_service_discovery.azure_sd_json,
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FastHttpAppArgs args: The arguments to use to populate this resource's properties.

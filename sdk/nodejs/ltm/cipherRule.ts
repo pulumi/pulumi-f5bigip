@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,6 +20,15 @@ import * as utilities from "../utilities";
  *     name: "/Common/test_cipher_rule",
  *     signatureAlgorithms: "DEFAULT",
  * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Importing
+ *
+ * An existing cipher rule can be imported into this resource by supplying the cipher rule full path name  ex : `/partition/name`
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
  * ```
  */
 export class CipherRule extends pulumi.CustomResource {

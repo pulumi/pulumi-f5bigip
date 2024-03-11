@@ -17,6 +17,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,18 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;      
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"
+    ///             (or)
+    /// $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
+    /// 
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/node:Node")]

@@ -202,6 +202,7 @@ class CipherGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -211,6 +212,16 @@ class CipherGroup(pulumi.CustomResource):
             name="/Common/test-cipher-group-01",
             ordering="speed",
             requires=["/Common/f5-quic"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
+
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,6 +243,7 @@ class CipherGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -241,6 +253,16 @@ class CipherGroup(pulumi.CustomResource):
             name="/Common/test-cipher-group-01",
             ordering="speed",
             requires=["/Common/f5-quic"])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ## Importing
+
+        An existing cipher group can be imported into this resource by supplying the cipher rule full path name ex : `/partition/name`
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
+
         ```
 
         :param str resource_name: The name of the resource.

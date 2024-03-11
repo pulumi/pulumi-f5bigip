@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetGceServiceDiscovery(ctx *pulumi.Context, args *GetGceServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetGceServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGceServiceDiscoveryResult

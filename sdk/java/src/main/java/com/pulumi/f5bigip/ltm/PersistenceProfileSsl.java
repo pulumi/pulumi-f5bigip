@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Configures an SSL persistence profile
  * 
  * ## Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,6 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference
  * 
@@ -72,6 +75,14 @@ import javax.annotation.Nullable;
  * `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
  * 
  * `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+ * 
+ * ## Importing
+ * 
+ * An ssl persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_ssl.ppssl &#34;/Common/terraform_ssl&#34;
+ * ```
  * 
  */
 @ResourceType(type="f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl")

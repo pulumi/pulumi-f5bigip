@@ -89,6 +89,7 @@ def get_irule(irule: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -97,6 +98,7 @@ def get_irule(irule: Optional[str] = None,
         partition="Common")
     pulumi.export("bigipIrule", test.irule)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str irule: Irule configured on bigip
@@ -127,6 +129,7 @@ def get_irule_output(irule: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -135,6 +138,7 @@ def get_irule_output(irule: Optional[pulumi.Input[Optional[str]]] = None,
         partition="Common")
     pulumi.export("bigipIrule", test.irule)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str irule: Irule configured on bigip

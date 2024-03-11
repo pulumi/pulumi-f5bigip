@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * `f5bigip.IpsecProfile` Manage IPSec Profiles on a BIG-IP
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/ipsecProfile:IpsecProfile")

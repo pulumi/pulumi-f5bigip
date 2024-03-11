@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     network: "10.10.10.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Route extends pulumi.CustomResource {
     /**

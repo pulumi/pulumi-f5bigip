@@ -765,6 +765,7 @@ class ProfileTcp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -778,6 +779,15 @@ class ProfileTcp(pulumi.CustomResource):
             idle_timeout=200,
             keepalive_interval=1700,
             name="/Common/sanjose-tcp-lan-profile")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
         ```
 
         :param str resource_name: The name of the resource.
@@ -818,6 +828,7 @@ class ProfileTcp(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -831,6 +842,15 @@ class ProfileTcp(pulumi.CustomResource):
             idle_timeout=200,
             keepalive_interval=1700,
             name="/Common/sanjose-tcp-lan-profile")
+        ```
+        <!--End PulumiCodeChooser -->      
+
+        ## Importing
+
+        An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `id`.
+        An example is below:
+        ```sh
+        $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
         ```
 
         :param str resource_name: The name of the resource.

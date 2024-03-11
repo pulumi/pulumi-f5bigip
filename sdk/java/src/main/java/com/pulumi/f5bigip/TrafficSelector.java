@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name (example: /Common/test-selector)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/trafficSelector:TrafficSelector")

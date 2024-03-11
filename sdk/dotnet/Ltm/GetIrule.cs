@@ -15,10 +15,9 @@ namespace Pulumi.F5BigIP.Ltm
         /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIruleResult> InvokeAsync(GetIruleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.F5BigIP.Ltm
         /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
         ///  
         ///  
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithDefaults());

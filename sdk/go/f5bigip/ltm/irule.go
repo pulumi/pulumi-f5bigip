@@ -15,6 +15,53 @@ import (
 // `ltm.IRule` Creates iRule on BIG-IP F5 device
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Loading from a file is the preferred method
+//			_, err := ltm.NewIRule(ctx, "rule", &ltm.IRuleArgs{
+//				Name:  pulumi.String("/Common/terraform_irule"),
+//				Irule: readFileOrPanic("myirule.tcl"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewIRule(ctx, "rule2", &ltm.IRuleArgs{
+//				Name:  pulumi.String("/Common/terraform_irule2"),
+//				Irule: pulumi.String("when CLIENT_ACCEPTED {\n     log local0. \"test\"\n   }\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 type IRule struct {
 	pulumi.CustomResourceState
 

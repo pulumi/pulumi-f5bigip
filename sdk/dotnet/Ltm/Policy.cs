@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +70,15 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ## Importing
+    /// 
+    /// An existing policy can be imported into this resource by supplying policy Name in `full path` as `id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/policy:Policy")]

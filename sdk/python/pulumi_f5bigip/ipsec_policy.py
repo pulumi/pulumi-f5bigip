@@ -447,6 +447,7 @@ class IpsecPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -463,6 +464,7 @@ class IpsecPolicy(pulumi.CustomResource):
             tunnel_local_address="192.168.1.1",
             tunnel_remote_address="10.10.1.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -495,6 +497,7 @@ class IpsecPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -511,6 +514,7 @@ class IpsecPolicy(pulumi.CustomResource):
             tunnel_local_address="192.168.1.1",
             tunnel_remote_address="10.10.1.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IpsecPolicyArgs args: The arguments to use to populate this resource's properties.

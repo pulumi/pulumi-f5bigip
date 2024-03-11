@@ -182,6 +182,7 @@ def get_gce_service_discovery(address_realm: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -190,6 +191,7 @@ def get_gce_service_discovery(address_realm: Optional[str] = None,
         tag_key="testgcetag",
         tag_value="testgcevalue")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
@@ -256,6 +258,7 @@ def get_gce_service_discovery_output(address_realm: Optional[pulumi.Input[Option
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -264,6 +267,7 @@ def get_gce_service_discovery_output(address_realm: Optional[pulumi.Input[Option
         tag_key="testgcetag",
         tag_value="testgcevalue")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.

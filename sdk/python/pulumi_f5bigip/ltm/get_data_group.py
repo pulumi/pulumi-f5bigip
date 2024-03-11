@@ -98,6 +98,7 @@ def get_data_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -105,6 +106,7 @@ def get_data_group(name: Optional[str] = None,
     d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
         partition="Common")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the datagroup
@@ -139,6 +141,7 @@ def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -146,6 +149,7 @@ def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
     d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
         partition="Common")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the datagroup

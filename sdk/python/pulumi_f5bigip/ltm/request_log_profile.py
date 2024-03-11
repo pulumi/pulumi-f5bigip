@@ -697,6 +697,7 @@ class RequestLogProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -712,12 +713,13 @@ class RequestLogProfile(pulumi.CustomResource):
             responselog_protocol="mds-tcp",
             responselog_error_protocol="mds-tcp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
@@ -757,6 +759,7 @@ class RequestLogProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -772,12 +775,13 @@ class RequestLogProfile(pulumi.CustomResource):
             responselog_protocol="mds-tcp",
             responselog_error_protocol="mds-tcp")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
 
-         bash
+        bash
 
         ```sh
         $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log

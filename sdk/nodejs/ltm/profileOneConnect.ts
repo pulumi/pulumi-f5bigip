@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_oneconnect = new f5bigip.ltm.ProfileOneConnect("test-oneconnect", {name: "/Common/test-oneconnect"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
  *
  * ```sh
- *  $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
+ * $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
  * ```
  */
 export class ProfileOneConnect extends pulumi.CustomResource {

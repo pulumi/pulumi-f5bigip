@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Configures a cookie persistence profile
  * 
  * ## Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference
  * 
@@ -95,6 +98,14 @@ import javax.annotation.Nullable;
  * `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
  * 
  * `httponly` (Optional) (enabled or disabled) Sending only over http
+ * 
+ * ## Importing
+ * 
+ * An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie &#34;/Common/terraform_cookie&#34;
+ * ```
  * 
  */
 @ResourceType(type="f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie")

@@ -14,6 +14,7 @@ import (
 // `sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type SnmpTraps struct {
 	pulumi.CustomResourceState
 

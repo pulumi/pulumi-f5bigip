@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     policyId: "xxxxx",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafPolicy(args: GetWafPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPolicyResult> {
 
@@ -60,6 +62,7 @@ export interface GetWafPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -68,6 +71,7 @@ export interface GetWafPolicyResult {
  *     policyId: "xxxxx",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafPolicyOutput(args: GetWafPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWafPolicy(a, opts))

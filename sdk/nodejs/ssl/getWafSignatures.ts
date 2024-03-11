@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     signatureId: 200104004,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafSignatures(args: GetWafSignaturesArgs, opts?: pulumi.InvokeOptions): Promise<GetWafSignaturesResult> {
 
@@ -118,6 +120,7 @@ export interface GetWafSignaturesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -126,6 +129,7 @@ export interface GetWafSignaturesResult {
  *     signatureId: 200104004,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWafSignaturesOutput(args: GetWafSignaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafSignaturesResult> {
     return pulumi.output(args).apply((a: any) => getWafSignatures(a, opts))

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -27,13 +28,14 @@ import * as utilities from "../utilities";
  *     name: "/Common/sjfastl4profile",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
  *
  * ```sh
- *  $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
+ * $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
  * ```
  */
 export class ProfileFastL4 extends pulumi.CustomResource {

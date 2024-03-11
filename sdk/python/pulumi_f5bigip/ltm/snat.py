@@ -403,6 +403,7 @@ class Snat(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -417,6 +418,7 @@ class Snat(pulumi.CustomResource):
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -445,6 +447,7 @@ class Snat(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -459,6 +462,7 @@ class Snat(pulumi.CustomResource):
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SnatArgs args: The arguments to use to populate this resource's properties.

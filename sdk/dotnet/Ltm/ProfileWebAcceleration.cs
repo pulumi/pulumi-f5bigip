@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration")]
     public partial class ProfileWebAcceleration : global::Pulumi.CustomResource

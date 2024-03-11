@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,12 +49,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // BIG-IP LTM http profiles can be imported using the `name`, e.g.
 //
-//	bash
+// bash
 //
 // ```sh
 // $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http

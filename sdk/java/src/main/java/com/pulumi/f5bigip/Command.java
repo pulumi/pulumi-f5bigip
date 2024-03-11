@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/command:Command")

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const bigipIrule = test.then(test => test.irule);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promise<GetIruleResult> {
 
@@ -74,6 +76,7 @@ export interface GetIruleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -84,6 +87,7 @@ export interface GetIruleResult {
  * });
  * export const bigipIrule = test.then(test => test.irule);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
     return pulumi.output(args).apply((a: any) => getIrule(a, opts))

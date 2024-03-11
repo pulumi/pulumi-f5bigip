@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+    /// $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress")]

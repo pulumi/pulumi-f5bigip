@@ -534,6 +534,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -549,13 +550,14 @@ class ProfileFastL4(pulumi.CustomResource):
             keepalive_interval="disabled",
             name="/Common/sjfastl4profile")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
+        $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
         ```
 
         :param str resource_name: The name of the resource.
@@ -589,6 +591,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -604,13 +607,14 @@ class ProfileFastL4(pulumi.CustomResource):
             keepalive_interval="disabled",
             name="/Common/sjfastl4profile")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
 
         ```sh
-         $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
+        $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
         ```
 
         :param str resource_name: The name of the resource.

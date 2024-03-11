@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * `f5bigip.ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +50,15 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Importing
+ * 
+ * An existing cipher rule can be imported into this resource by supplying the cipher rule full path name  ex : `/partition/name`
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
  * ```
  * 
  */

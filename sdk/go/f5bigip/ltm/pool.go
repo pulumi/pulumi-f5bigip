@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,6 +53,16 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ## Importing
+//
+// An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
 //
 // ```
 type Pool struct {
