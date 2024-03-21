@@ -78,12 +78,12 @@ import (
 //					pulumi.String("MongoDB"),
 //				},
 //				Parameters: pulumi.StringArray{
-//					*pulumi.String(param1.Json),
-//					*pulumi.String(param2.Json),
+//					pulumi.String(param1.Json),
+//					pulumi.String(param2.Json),
 //				},
 //				Urls: pulumi.StringArray{
-//					*pulumi.String(uRL.Json),
-//					*pulumi.String(uRL2.Json),
+//					pulumi.String(uRL.Json),
+//					pulumi.String(uRL2.Json),
 //				},
 //			})
 //			if err != nil {
