@@ -526,18 +526,16 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return this.tenantList;
     }
     /**
-     * Name of Tenant
-     * 
-     * @deprecated
-     * this attribute is no longer in use
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
     @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantName;
 
     /**
-     * @return Name of Tenant
+     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      * 
      */
     public Output<Optional<String>> tenantName() {

@@ -571,9 +571,8 @@ export class As3 extends pulumi.CustomResource {
      */
     public readonly tenantList!: pulumi.Output<string>;
     /**
-     * Name of Tenant
-     *
-     * @deprecated this attribute is no longer in use
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      */
     public readonly tenantName!: pulumi.Output<string | undefined>;
 
@@ -774,9 +773,8 @@ export interface As3State {
      */
     tenantList?: pulumi.Input<string>;
     /**
-     * Name of Tenant
-     *
-     * @deprecated this attribute is no longer in use
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      */
     tenantName?: pulumi.Input<string>;
 }
@@ -937,9 +935,8 @@ export interface As3Args {
      */
     tenantList?: pulumi.Input<string>;
     /**
-     * Name of Tenant
-     *
-     * @deprecated this attribute is no longer in use
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      */
     tenantName?: pulumi.Input<string>;
 }

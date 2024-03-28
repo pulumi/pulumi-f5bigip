@@ -576,7 +576,8 @@ namespace Pulumi.F5BigIP
         public Output<string> TenantList { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Tenant
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        /// name would be generated.
         /// </summary>
         [Output("tenantName")]
         public Output<string?> TenantName { get; private set; } = null!;
@@ -791,7 +792,8 @@ namespace Pulumi.F5BigIP
         public Input<string>? TenantList { get; set; }
 
         /// <summary>
-        /// Name of Tenant
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        /// name would be generated.
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
@@ -974,7 +976,8 @@ namespace Pulumi.F5BigIP
         public Input<string>? TenantList { get; set; }
 
         /// <summary>
-        /// Name of Tenant
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        /// name would be generated.
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
