@@ -3121,8 +3121,7 @@
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "Name of Tenant\n",
-                    "deprecationMessage": "this attribute is no longer in use"
+                    "description": "Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random\nname would be generated.\n"
                 }
             },
             "required": [
@@ -3158,8 +3157,7 @@
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "Name of Tenant\n",
-                    "deprecationMessage": "this attribute is no longer in use"
+                    "description": "Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random\nname would be generated.\n"
                 }
             },
             "stateInputs": {
@@ -3195,8 +3193,7 @@
                     },
                     "tenantName": {
                         "type": "string",
-                        "description": "Name of Tenant\n",
-                        "deprecationMessage": "this attribute is no longer in use"
+                        "description": "Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random\nname would be generated.\n"
                     }
                 },
                 "type": "object"
