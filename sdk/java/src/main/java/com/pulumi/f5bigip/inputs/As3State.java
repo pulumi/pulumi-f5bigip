@@ -128,24 +128,18 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of Tenant
-     * 
-     * @deprecated
-     * this attribute is no longer in use
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
     @Import(name="tenantName")
     private @Nullable Output<String> tenantName;
 
     /**
-     * @return Name of Tenant
-     * 
-     * @deprecated
-     * this attribute is no longer in use
+     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+     * name would be generated.
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
     public Optional<Output<String>> tenantName() {
         return Optional.ofNullable(this.tenantName);
     }
@@ -335,30 +329,24 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantName Name of Tenant
+         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+         * name would be generated.
          * 
          * @return builder
          * 
-         * @deprecated
-         * this attribute is no longer in use
-         * 
          */
-        @Deprecated /* this attribute is no longer in use */
         public Builder tenantName(@Nullable Output<String> tenantName) {
             $.tenantName = tenantName;
             return this;
         }
 
         /**
-         * @param tenantName Name of Tenant
+         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+         * name would be generated.
          * 
          * @return builder
          * 
-         * @deprecated
-         * this attribute is no longer in use
-         * 
          */
-        @Deprecated /* this attribute is no longer in use */
         public Builder tenantName(String tenantName) {
             return tenantName(Output.of(tenantName));
         }

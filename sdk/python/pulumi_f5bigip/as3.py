@@ -156,7 +156,8 @@ class As3Args:
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+               name would be generated.
         """
         if application_list is not None:
             pulumi.set(__self__, "application_list", application_list)
@@ -170,9 +171,6 @@ class As3Args:
             pulumi.set(__self__, "tenant_filter", tenant_filter)
         if tenant_list is not None:
             pulumi.set(__self__, "tenant_list", tenant_list)
-        if tenant_name is not None:
-            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
 
@@ -379,11 +377,9 @@ class As3Args:
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        name would be generated.
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -538,7 +534,8 @@ class _As3State:
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+               name would be generated.
         """
         if application_list is not None:
             pulumi.set(__self__, "application_list", application_list)
@@ -554,9 +551,6 @@ class _As3State:
             pulumi.set(__self__, "tenant_filter", tenant_filter)
         if tenant_list is not None:
             pulumi.set(__self__, "tenant_list", tenant_list)
-        if tenant_name is not None:
-            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
             pulumi.set(__self__, "tenant_name", tenant_name)
 
@@ -775,11 +769,9 @@ class _As3State:
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        name would be generated.
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -1316,7 +1308,8 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+               name would be generated.
         """
         ...
     @overload
@@ -1903,7 +1896,8 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+               name would be generated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2106,10 +2100,8 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of Tenant
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+        name would be generated.
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 

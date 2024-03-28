@@ -441,9 +441,8 @@ type As3 struct {
 	TenantFilter pulumi.StringPtrOutput `pulumi:"tenantFilter"`
 	// Name of Tenant
 	TenantList pulumi.StringOutput `pulumi:"tenantList"`
-	// Name of Tenant
-	//
-	// Deprecated: this attribute is no longer in use
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+	// name would be generated.
 	TenantName pulumi.StringPtrOutput `pulumi:"tenantName"`
 }
 
@@ -494,9 +493,8 @@ type as3State struct {
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
-	// Name of Tenant
-	//
-	// Deprecated: this attribute is no longer in use
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+	// name would be generated.
 	TenantName *string `pulumi:"tenantName"`
 }
 
@@ -518,9 +516,8 @@ type As3State struct {
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
-	// Name of Tenant
-	//
-	// Deprecated: this attribute is no longer in use
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+	// name would be generated.
 	TenantName pulumi.StringPtrInput
 }
 
@@ -544,9 +541,8 @@ type as3Args struct {
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
-	// Name of Tenant
-	//
-	// Deprecated: this attribute is no longer in use
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+	// name would be generated.
 	TenantName *string `pulumi:"tenantName"`
 }
 
@@ -567,9 +563,8 @@ type As3Args struct {
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
-	// Name of Tenant
-	//
-	// Deprecated: this attribute is no longer in use
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+	// name would be generated.
 	TenantName pulumi.StringPtrInput
 }
 
@@ -698,9 +693,8 @@ func (o As3Output) TenantList() pulumi.StringOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TenantList }).(pulumi.StringOutput)
 }
 
-// Name of Tenant
-//
-// Deprecated: this attribute is no longer in use
+// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
+// name would be generated.
 func (o As3Output) TenantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.TenantName }).(pulumi.StringPtrOutput)
 }
