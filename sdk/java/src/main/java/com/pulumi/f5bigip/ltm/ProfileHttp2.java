@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *             .activationModes(&#34;always&#34;)
  *             .build());
  * 
+ *         //Child Profile which inherits parent http2 profile
  *         var nyhttp2_child = new ProfileHttp2(&#34;nyhttp2-child&#34;, ProfileHttp2Args.builder()        
  *             .name(&#34;/Common/test-profile-http2-child&#34;)
  *             .defaultsFrom(nyhttp2.name())

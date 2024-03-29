@@ -44,10 +44,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Usage for json file
  *         var as3_example1As3 = new As3(&#34;as3-example1As3&#34;, As3Args.builder()        
  *             .as3Json(Files.readString(Paths.get(&#34;example1.json&#34;)))
  *             .build());
  * 
+ *         // Example Usage for json file with tenant filter
  *         var as3_example1Index_as3As3 = new As3(&#34;as3-example1Index/as3As3&#34;, As3Args.builder()        
  *             .as3Json(Files.readString(Paths.get(&#34;example2.json&#34;)))
  *             .tenantFilter(&#34;Sample_03&#34;)

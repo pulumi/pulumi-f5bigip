@@ -76,11 +76,13 @@ import javax.annotation.Nullable;
  *             .allowNat(&#34;yes&#34;)
  *             .build());
  * 
+ *         // attaching ipv4 address with service port
  *         var ipv4NodeAttach = new PoolAttachment(&#34;ipv4NodeAttach&#34;, PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
  *             .node(&#34;1.1.1.1:80&#34;)
  *             .build());
  * 
+ *         // attaching ipv6 address with service port
  *         var ipv6NodeAttach = new PoolAttachment(&#34;ipv6NodeAttach&#34;, PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
  *             .node(&#34;2003::4.80&#34;)
