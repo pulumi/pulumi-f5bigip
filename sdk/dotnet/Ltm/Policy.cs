@@ -63,9 +63,9 @@ namespace Pulumi.F5BigIP.Ltm
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             mypool,
+    ///             mypool, 
     ///         },
     ///     });
     /// 

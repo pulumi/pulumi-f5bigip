@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .pool(&#34;/Common/the-default-pool&#34;)
  *             .build());
  * 
+ *         // A Virtual server with SSL enabled
  *         var httpsVirtualServer = new VirtualServer(&#34;httpsVirtualServer&#34;, VirtualServerArgs.builder()        
  *             .name(&#34;/Common/terraform_vs_https&#34;)
  *             .destination(var_.vip_ip())
@@ -69,6 +70,7 @@ import javax.annotation.Nullable;
  *             .translatePort(&#34;enabled&#34;)
  *             .build());
  * 
+ *         // A Virtual server with separate client and server profiles
  *         var httpsLtm_virtualServerVirtualServer = new VirtualServer(&#34;httpsLtm/virtualServerVirtualServer&#34;, VirtualServerArgs.builder()        
  *             .name(&#34;/Common/terraform_vs_https&#34;)
  *             .destination(&#34;10.255.255.254&#34;)

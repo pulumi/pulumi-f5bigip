@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Loading from a file is the preferred method
  *         var rule = new IRule(&#34;rule&#34;, IRuleArgs.builder()        
  *             .name(&#34;/Common/terraform_irule&#34;)
  *             .irule(Files.readString(Paths.get(&#34;myirule.tcl&#34;)))

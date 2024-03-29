@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // MANAGED Regkey Pool
  *         var testExampleCommonLicenseManageBigIq = new CommonLicenseManageBigIq(&#34;testExampleCommonLicenseManageBigIq&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(var_.bigiq())
  *             .bigiqUser(var_.bigiq_un())
@@ -51,6 +52,7 @@ import javax.annotation.Nullable;
  *             .assignmentType(&#34;MANAGED&#34;)
  *             .build());
  * 
+ *         // UNMANAGED Regkey Pool
  *         var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new CommonLicenseManageBigIq(&#34;testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(var_.bigiq())
  *             .bigiqUser(var_.bigiq_un())
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *             .assignmentType(&#34;UNMANAGED&#34;)
  *             .build());
  * 
+ *         // UNMANAGED Utility Pool
  *         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new CommonLicenseManageBigIq(&#34;testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(var_.bigiq())
  *             .bigiqUser(var_.bigiq_un())
@@ -69,6 +72,7 @@ import javax.annotation.Nullable;
  *             .skukeyword1(&#34;BTHSM200M&#34;)
  *             .build());
  * 
+ *         // UNREACHABLE Regkey Pool
  *         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new CommonLicenseManageBigIq(&#34;testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(&#34;xxx.xxx.xxx.xxx&#34;)
  *             .bigiqUser(&#34;xxxx&#34;)
@@ -79,6 +83,7 @@ import javax.annotation.Nullable;
  *             .hypervisor(&#34;azure&#34;)
  *             .build());
  * 
+ *         // MANAGED Purchased Pool
  *         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new CommonLicenseManageBigIq(&#34;testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(var_.bigiq())
  *             .bigiqUser(var_.bigiq_un())
@@ -87,6 +92,7 @@ import javax.annotation.Nullable;
  *             .assignmentType(&#34;MANAGED&#34;)
  *             .build());
  * 
+ *         // UNMANAGED Purchased Pool
  *         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new CommonLicenseManageBigIq(&#34;testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3&#34;, CommonLicenseManageBigIqArgs.builder()        
  *             .bigiqAddress(var_.bigiq())
  *             .bigiqUser(var_.bigiq_un())
