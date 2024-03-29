@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         //create ltm node
  *         var test_command = new Command(&#34;test-command&#34;, CommandArgs.builder()        
  *             .commands(&#34;delete ltm node 10.10.10.70&#34;)
  *             .when(&#34;destroy&#34;)

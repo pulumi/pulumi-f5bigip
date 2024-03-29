@@ -46,9 +46,9 @@ namespace Pulumi.F5BigIP.Net
     ///         Vlan = "/Common/internal",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             vlan1,
+    ///             vlan1, 
     ///         },
     ///     });
     /// 
@@ -80,9 +80,9 @@ namespace Pulumi.F5BigIP.Net
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             bigip_net_vlan.Vlan1,
+    ///             bigip_net_vlan.Vlan1, 
     ///         },
     ///     });
     /// 
@@ -113,9 +113,9 @@ namespace Pulumi.F5BigIP.Net
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             bigip_net_vlan.Vlan1,
+    ///             bigip_net_vlan.Vlan1, 
     ///         },
     ///     });
     /// 
@@ -146,9 +146,9 @@ namespace Pulumi.F5BigIP.Net
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             bigip_net_vlan.Vlan1,
+    ///             bigip_net_vlan.Vlan1, 
     ///         },
     ///     });
     /// 
