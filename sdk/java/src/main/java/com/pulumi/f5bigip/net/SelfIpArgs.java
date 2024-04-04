@@ -18,14 +18,14 @@ public final class SelfIpArgs extends com.pulumi.resources.ResourceArgs {
     public static final SelfIpArgs Empty = new SelfIpArgs();
 
     /**
-     * The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      * 
      */
     @Import(name="ip", required=true)
     private Output<String> ip;
 
     /**
-     * @return The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * @return The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      * 
      */
     public Output<String> ip() {
@@ -121,7 +121,7 @@ public final class SelfIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ip The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+         * @param ip The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class SelfIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ip The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+         * @param ip The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
          * 
          * @return builder
          * 

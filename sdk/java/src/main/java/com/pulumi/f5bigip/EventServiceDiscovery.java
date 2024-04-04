@@ -69,7 +69,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
      * 
      * For more information, please refer below document
-     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%!d(MISSING)iscovery#event-driven-service-discovery
+     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
      * 
      * Below example shows how to use event-driven service discovery, introduced in AS3 3.9.0.
      * 
@@ -120,7 +120,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * @return Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
      * 
      * For more information, please refer below document
-     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%!d(MISSING)iscovery#event-driven-service-discovery
+     * https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
      * 
      * Below example shows how to use event-driven service discovery, introduced in AS3 3.9.0.
      * 
