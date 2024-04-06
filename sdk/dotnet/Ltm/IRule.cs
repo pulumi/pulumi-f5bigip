@@ -45,6 +45,8 @@ namespace Pulumi.F5BigIP.Ltm
     /// });
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ##myirule.tcl
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/iRule:IRule")]
     public partial class IRule : global::Pulumi.CustomResource
