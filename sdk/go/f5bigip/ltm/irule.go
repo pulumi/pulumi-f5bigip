@@ -62,6 +62,8 @@ import (
 //
 // ```
 // <!--End PulumiCodeChooser -->
+//
+// ##myirule.tcl
 type IRule struct {
 	pulumi.CustomResourceState
 

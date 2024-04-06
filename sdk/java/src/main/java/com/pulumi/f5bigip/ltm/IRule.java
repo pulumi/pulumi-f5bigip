@@ -62,6 +62,8 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ##myirule.tcl
+ * 
  */
 @ResourceType(type="f5bigip:ltm/iRule:IRule")
 public class IRule extends com.pulumi.resources.CustomResource {

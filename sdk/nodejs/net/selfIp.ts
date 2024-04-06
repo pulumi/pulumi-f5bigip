@@ -123,7 +123,7 @@ export class SelfIp extends pulumi.CustomResource {
     }
 
     /**
-     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     public readonly ip!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class SelfIp extends pulumi.CustomResource {
  */
 export interface SelfIpState {
     /**
-     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     ip?: pulumi.Input<string>;
     /**
@@ -214,7 +214,7 @@ export interface SelfIpState {
  */
 export interface SelfIpArgs {
     /**
-     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     ip: pulumi.Input<string>;
     /**

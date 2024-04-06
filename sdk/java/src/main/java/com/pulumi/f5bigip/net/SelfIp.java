@@ -196,14 +196,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:net/selfIp:SelfIp")
 public class SelfIp extends com.pulumi.resources.CustomResource {
     /**
-     * The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      * 
      */
     @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
-     * @return The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%!/(MISSING)24`.
+     * @return The Self IP&#39;s address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      * 
      */
     public Output<String> ip() {

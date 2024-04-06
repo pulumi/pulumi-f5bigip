@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  * <!--End PulumiCodeChooser -->
+ *
+ * ##myirule.tcl
  */
 export class IRule extends pulumi.CustomResource {
     /**
