@@ -6,7 +6,7 @@ toolchain go1.21.4
 
 require (
 	github.com/F5Networks/terraform-provider-bigip v1.22.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.80.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.80.1-0.20240412160859-7d378f74db75
 	github.com/pulumi/pulumi/sdk/v3 v3.112.0
 )
 
