@@ -86,7 +86,7 @@ import (
 //					pulumi.String("egp:0"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				bigip_net_vlan.Vlan1,
+//				vlan1,
 //			}))
 //			if err != nil {
 //				return err
@@ -122,7 +122,7 @@ import (
 //					pulumi.String("none"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				bigip_net_vlan.Vlan1,
+//				vlan1,
 //			}))
 //			if err != nil {
 //				return err
@@ -158,7 +158,7 @@ import (
 //					pulumi.String("none"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
-//				bigip_net_vlan.Vlan1,
+//				vlan1,
 //			}))
 //			if err != nil {
 //				return err

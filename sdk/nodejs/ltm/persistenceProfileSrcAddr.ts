@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const srcaddr = new f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr", {
+ *     name: "/Common/terraform_srcaddr",
  *     defaultsFrom: "/Common/source_addr",
- *     hashAlgorithm: "carp",
- *     mapProxies: "enabled",
- *     mask: "255.255.255.255",
  *     matchAcrossPools: "enabled",
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
- *     name: "/Common/terraform_srcaddr",
- *     overrideConnLimit: "enabled",
  *     timeout: 3600,
+ *     overrideConnLimit: "enabled",
+ *     hashAlgorithm: "carp",
+ *     mapProxies: "enabled",
+ *     mask: "255.255.255.255",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

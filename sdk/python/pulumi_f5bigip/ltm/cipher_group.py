@@ -208,10 +208,10 @@ class CipherGroup(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_cipher_group = f5bigip.ltm.CipherGroup("test-cipher-group",
-            allows=["/Common/f5-aes"],
             name="/Common/test-cipher-group-01",
-            ordering="speed",
-            requires=["/Common/f5-quic"])
+            allows=["/Common/f5-aes"],
+            requires=["/Common/f5-quic"],
+            ordering="speed")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -249,10 +249,10 @@ class CipherGroup(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_cipher_group = f5bigip.ltm.CipherGroup("test-cipher-group",
-            allows=["/Common/f5-aes"],
             name="/Common/test-cipher-group-01",
-            ordering="speed",
-            requires=["/Common/f5-quic"])
+            allows=["/Common/f5-aes"],
+            requires=["/Common/f5-quic"],
+            ordering="speed")
         ```
         <!--End PulumiCodeChooser -->
 

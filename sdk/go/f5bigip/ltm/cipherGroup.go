@@ -30,14 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewCipherGroup(ctx, "test-cipher-group", &ltm.CipherGroupArgs{
+//				Name: pulumi.String("/Common/test-cipher-group-01"),
 //				Allows: pulumi.StringArray{
 //					pulumi.String("/Common/f5-aes"),
 //				},
-//				Name:     pulumi.String("/Common/test-cipher-group-01"),
-//				Ordering: pulumi.String("speed"),
 //				Requires: pulumi.StringArray{
 //					pulumi.String("/Common/f5-quic"),
 //				},
+//				Ordering: pulumi.String("speed"),
 //			})
 //			if err != nil {
 //				return err

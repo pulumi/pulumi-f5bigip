@@ -27,10 +27,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sample_resource = new F5BigIP.Ltm.ProfileWebAcceleration("sample-resource", new()
     ///     {
-    ///         CacheMaxEntries = 201,
-    ///         CacheSize = 101,
-    ///         DefaultsFrom = "/Common/test2",
     ///         Name = "/Common/sample-resource",
+    ///         DefaultsFrom = "/Common/test2",
+    ///         CacheSize = 101,
+    ///         CacheMaxEntries = 201,
     ///     });
     /// 
     /// });

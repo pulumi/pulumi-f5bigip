@@ -27,20 +27,20 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var test_profile = new F5BigIP.Ltm.ProfileRewrite("test-profile", new()
     ///     {
+    ///         Name = "/Common/tf_profile",
+    ///         DefaultsFrom = "/Common/rewrite",
     ///         BypassLists = new[]
     ///         {
     ///             "http://notouch.com",
     ///         },
-    ///         CaFile = "/Common/ca-bundle.crt",
-    ///         CacheType = "cache-img-css-js",
-    ///         CrlFile = "none",
-    ///         DefaultsFrom = "/Common/rewrite",
-    ///         Name = "/Common/tf_profile",
     ///         RewriteLists = new[]
     ///         {
     ///             "http://some.com",
     ///         },
     ///         RewriteMode = "portal",
+    ///         CacheType = "cache-img-css-js",
+    ///         CaFile = "/Common/ca-bundle.crt",
+    ///         CrlFile = "none",
     ///         SigningCert = "/Common/default.crt",
     ///         SigningKey = "/Common/default.key",
     ///         SplitTunneling = "true",
@@ -48,27 +48,9 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     ///     var test_profile2 = new F5BigIP.Ltm.ProfileRewrite("test-profile2", new()
     ///     {
-    ///         CookieRules = new[]
-    ///         {
-    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs
-    ///             {
-    ///                 ClientDomain = "wrong.com",
-    ///                 ClientPath = "/this/",
-    ///                 RuleName = "cookie1",
-    ///                 ServerDomain = "wrong.com",
-    ///                 ServerPath = "/this/",
-    ///             },
-    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs
-    ///             {
-    ///                 ClientDomain = "incorrect.com",
-    ///                 ClientPath = "/this/",
-    ///                 RuleName = "cookie2",
-    ///                 ServerDomain = "absolute.com",
-    ///                 ServerPath = "/this/",
-    ///             },
-    ///         },
-    ///         DefaultsFrom = "/Common/rewrite",
     ///         Name = "/Common/tf_profile_translate",
+    ///         DefaultsFrom = "/Common/rewrite",
+    ///         RewriteMode = "uri-translation",
     ///         Requests = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.ProfileRewriteRequestArgs
@@ -87,7 +69,25 @@ namespace Pulumi.F5BigIP.Ltm
     ///                 RewriteHeaders = "disabled",
     ///             },
     ///         },
-    ///         RewriteMode = "uri-translation",
+    ///         CookieRules = new[]
+    ///         {
+    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs
+    ///             {
+    ///                 RuleName = "cookie1",
+    ///                 ClientDomain = "wrong.com",
+    ///                 ClientPath = "/this/",
+    ///                 ServerDomain = "wrong.com",
+    ///                 ServerPath = "/this/",
+    ///             },
+    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs
+    ///             {
+    ///                 RuleName = "cookie2",
+    ///                 ClientDomain = "incorrect.com",
+    ///                 ClientPath = "/this/",
+    ///                 ServerDomain = "absolute.com",
+    ///                 ServerPath = "/this/",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

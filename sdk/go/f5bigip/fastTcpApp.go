@@ -13,51 +13,6 @@ import (
 )
 
 // `FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
-//
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewFastTcpApp(ctx, "fast-tcp-app", &f5bigip.FastTcpAppArgs{
-//				Application: pulumi.String("tcp_app_2"),
-//				PoolMembers: f5bigip.FastTcpAppPoolMemberArray{
-//					&f5bigip.FastTcpAppPoolMemberArgs{
-//						Addresses: pulumi.StringArray{
-//							pulumi.String("10.11.34.65"),
-//							pulumi.String("56.43.23.76"),
-//						},
-//						ConnectionLimit: pulumi.Int(4),
-//						Port:            pulumi.Int(443),
-//						PriorityGroup:   pulumi.Int(1),
-//						ShareNodes:      pulumi.Bool(true),
-//					},
-//				},
-//				Tenant: pulumi.String("tcp_app_tenant"),
-//				VirtualServer: &f5bigip.FastTcpAppVirtualServerArgs{
-//					Ip:   pulumi.String("11.12.16.30"),
-//					Port: pulumi.Int(443),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 type FastTcpApp struct {
 	pulumi.CustomResourceState
 

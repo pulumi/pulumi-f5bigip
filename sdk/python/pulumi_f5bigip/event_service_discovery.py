@@ -289,6 +289,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test = f5bigip.EventServiceDiscovery("test",
+            taskid="~Sample_event_sd~My_app~My_pool",
             nodes=[
                 f5bigip.EventServiceDiscoveryNodeArgs(
                     id="newNode1",
@@ -300,8 +301,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
                     ip="192.168.2.4",
                     port=8080,
                 ),
-            ],
-            taskid="~Sample_event_sd~My_app~My_pool")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -370,6 +370,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test = f5bigip.EventServiceDiscovery("test",
+            taskid="~Sample_event_sd~My_app~My_pool",
             nodes=[
                 f5bigip.EventServiceDiscoveryNodeArgs(
                     id="newNode1",
@@ -381,8 +382,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
                     ip="192.168.2.4",
                     port=8080,
                 ),
-            ],
-            taskid="~Sample_event_sd~My_app~My_pool")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

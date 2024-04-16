@@ -950,46 +950,6 @@ class VirtualServer(pulumi.CustomResource):
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
         When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        http = f5bigip.ltm.VirtualServer("http",
-            name="/Common/terraform_vs_http",
-            destination="10.12.12.12",
-            port=80,
-            pool="/Common/the-default-pool")
-        # A Virtual server with SSL enabled
-        https_virtual_server = f5bigip.ltm.VirtualServer("httpsVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination=var["vip_ip"],
-            description="VirtualServer-test",
-            port=443,
-            pool=var["pool"],
-            profiles=[
-                "/Common/tcp",
-                "/Common/my-awesome-ssl-cert",
-                "/Common/http",
-            ],
-            source_address_translation="automap",
-            translate_address="enabled",
-            translate_port="enabled")
-        # A Virtual server with separate client and server profiles
-        https_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer("httpsLtm/virtualServerVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination="10.255.255.254",
-            description="VirtualServer-test",
-            port=443,
-            client_profiles=["/Common/clientssl"],
-            server_profiles=["/Common/serverssl"],
-            security_log_profiles=["/Common/global-network"],
-            source_address_translation="automap")
-        ```
-        <!--End PulumiCodeChooser -->      
-
         ## Importing
 
         An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
@@ -1039,46 +999,6 @@ class VirtualServer(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
         When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        http = f5bigip.ltm.VirtualServer("http",
-            name="/Common/terraform_vs_http",
-            destination="10.12.12.12",
-            port=80,
-            pool="/Common/the-default-pool")
-        # A Virtual server with SSL enabled
-        https_virtual_server = f5bigip.ltm.VirtualServer("httpsVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination=var["vip_ip"],
-            description="VirtualServer-test",
-            port=443,
-            pool=var["pool"],
-            profiles=[
-                "/Common/tcp",
-                "/Common/my-awesome-ssl-cert",
-                "/Common/http",
-            ],
-            source_address_translation="automap",
-            translate_address="enabled",
-            translate_port="enabled")
-        # A Virtual server with separate client and server profiles
-        https_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer("httpsLtm/virtualServerVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination="10.255.255.254",
-            description="VirtualServer-test",
-            port=443,
-            client_profiles=["/Common/clientssl"],
-            server_profiles=["/Common/serverssl"],
-            security_log_profiles=["/Common/global-network"],
-            source_address_translation="automap")
-        ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

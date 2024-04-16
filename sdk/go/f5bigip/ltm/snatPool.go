@@ -31,12 +31,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewSnatPool(ctx, "snatpoolSanjose", &ltm.SnatPoolArgs{
+//			_, err := ltm.NewSnatPool(ctx, "snatpool_sanjose", &ltm.SnatPoolArgs{
+//				Name: pulumi.String("/Common/snatpool_sanjose"),
 //				Members: pulumi.StringArray{
 //					pulumi.String("191.1.1.1"),
 //					pulumi.String("194.2.2.2"),
 //				},
-//				Name: pulumi.String("/Common/snatpool_sanjose"),
 //			})
 //			if err != nil {
 //				return err

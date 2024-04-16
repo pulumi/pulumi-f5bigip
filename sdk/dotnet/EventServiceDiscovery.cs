@@ -23,6 +23,7 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var test = new F5BigIP.EventServiceDiscovery("test", new()
     ///     {
+    ///         Taskid = "~Sample_event_sd~My_app~My_pool",
     ///         Nodes = new[]
     ///         {
     ///             new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
@@ -38,7 +39,6 @@ namespace Pulumi.F5BigIP
     ///                 Port = 8080,
     ///             },
     ///         },
-    ///         Taskid = "~Sample_event_sd~My_app~My_pool",
     ///     });
     /// 
     /// });

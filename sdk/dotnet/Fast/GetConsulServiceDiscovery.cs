@@ -25,10 +25,10 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC2 = F5BigIP.Fast.GetConsulServiceDiscovery.Invoke(new()
+        ///     var TC2 = F5BigIP.Fast.GetConsulServiceDiscovery.Invoke(new()
         ///     {
-        ///         Port = 8080,
         ///         Uri = "https://192.0.2.100:8500/v1/catalog/nodes",
+        ///         Port = 8080,
         ///     });
         /// 
         /// });
@@ -52,10 +52,10 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC2 = F5BigIP.Fast.GetConsulServiceDiscovery.Invoke(new()
+        ///     var TC2 = F5BigIP.Fast.GetConsulServiceDiscovery.Invoke(new()
         ///     {
-        ///         Port = 8080,
         ///         Uri = "https://192.0.2.100:8500/v1/catalog/nodes",
+        ///         Port = 8080,
         ///     });
         /// 
         /// });

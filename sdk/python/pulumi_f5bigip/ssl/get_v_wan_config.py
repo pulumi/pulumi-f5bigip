@@ -145,8 +145,8 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_name="azurevwan-bigip-vwan-9c8d",
-        azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+        azure_vwan_name="azurevwan-bigip-vwan-9c8d",
         azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
     ```
     <!--End PulumiCodeChooser -->      
@@ -204,8 +204,8 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_name="azurevwan-bigip-vwan-9c8d",
-        azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+        azure_vwan_name="azurevwan-bigip-vwan-9c8d",
         azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
     ```
     <!--End PulumiCodeChooser -->      

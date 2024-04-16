@@ -16,8 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
+ * const WAFURL1 = f5bigip.ssl.getWafEntityUrl({
+ *     name: "/foobar",
  *     description: "this is a test",
+ *     type: "explicit",
+ *     protocol: "HTTP",
+ *     performStaging: true,
+ *     signatureOverridesDisables: [
+ *         12345678,
+ *         87654321,
+ *     ],
  *     methodOverrides: [
  *         {
  *             allow: false,
@@ -28,14 +36,6 @@ import * as utilities from "../utilities";
  *             method: "BDELETE",
  *         },
  *     ],
- *     name: "/foobar",
- *     performStaging: true,
- *     protocol: "HTTP",
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     type: "explicit",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -124,8 +124,16 @@ export interface GetWafEntityUrlResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
+ * const WAFURL1 = f5bigip.ssl.getWafEntityUrl({
+ *     name: "/foobar",
  *     description: "this is a test",
+ *     type: "explicit",
+ *     protocol: "HTTP",
+ *     performStaging: true,
+ *     signatureOverridesDisables: [
+ *         12345678,
+ *         87654321,
+ *     ],
  *     methodOverrides: [
  *         {
  *             allow: false,
@@ -136,14 +144,6 @@ export interface GetWafEntityUrlResult {
  *             method: "BDELETE",
  *         },
  *     ],
- *     name: "/foobar",
- *     performStaging: true,
- *     protocol: "HTTP",
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     type: "explicit",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

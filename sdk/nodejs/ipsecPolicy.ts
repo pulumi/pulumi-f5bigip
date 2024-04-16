@@ -17,16 +17,16 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_policy = new f5bigip.IpsecPolicy("test-policy", {
- *     authAlgorithm: "sha1",
- *     description: "created by terraform provider",
- *     encryptAlgorithm: "3des",
- *     ipcomp: "deflate",
- *     lifetime: 3,
- *     mode: "tunnel",
  *     name: "/Common/test-policy",
+ *     description: "created by terraform provider",
  *     protocol: "esp",
+ *     mode: "tunnel",
  *     tunnelLocalAddress: "192.168.1.1",
  *     tunnelRemoteAddress: "10.10.1.1",
+ *     authAlgorithm: "sha1",
+ *     encryptAlgorithm: "3des",
+ *     lifetime: 3,
+ *     ipcomp: "deflate",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -31,16 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileFastL4(ctx, "profileFastl4", &ltm.ProfileFastL4Args{
-//				ClientTimeout:         pulumi.Int(40),
+//			_, err := ltm.NewProfileFastL4(ctx, "profile_fastl4", &ltm.ProfileFastL4Args{
+//				Name:                  pulumi.String("/Common/sjfastl4profile"),
 //				DefaultsFrom:          pulumi.String("/Common/fastL4"),
+//				ClientTimeout:         pulumi.Int(40),
 //				ExplicitflowMigration: pulumi.String("enabled"),
 //				HardwareSyncookie:     pulumi.String("enabled"),
 //				IdleTimeout:           pulumi.String("200"),
 //				IptosToclient:         pulumi.String("pass-through"),
 //				IptosToserver:         pulumi.String("pass-through"),
 //				KeepaliveInterval:     pulumi.String("disabled"),
-//				Name:                  pulumi.String("/Common/sjfastl4profile"),
 //			})
 //			if err != nil {
 //				return err

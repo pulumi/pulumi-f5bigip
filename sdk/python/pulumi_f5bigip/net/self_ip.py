@@ -238,7 +238,7 @@ class SelfIp(pulumi.CustomResource):
                 "udp:5050",
                 "egp:0",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -255,7 +255,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -272,7 +272,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -333,7 +333,7 @@ class SelfIp(pulumi.CustomResource):
                 "udp:5050",
                 "egp:0",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -350,7 +350,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -367,7 +367,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         <!--End PulumiCodeChooser -->
 

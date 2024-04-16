@@ -860,9 +860,9 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            application="fasthttpsapp",
+        fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
             tenant="fasthttpstenant",
+            application="fasthttpsapp",
             virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
                 ip="10.30.40.44",
                 port=443,
@@ -877,14 +877,14 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+        tc3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
             subscription_id="testazuresid",
             tag_key="testazuretag",
             tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+        tc3_get_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
             tag_value="testgcevalue",
             region="testgceregion")
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
+        fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
             tenant="fasthttpstenant",
             application="fasthttpsapp",
             virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
@@ -900,8 +900,8 @@ class FastHttpsApp(pulumi.CustomResource):
                 port=80,
             )],
             service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
+                tc3_get_gce_service_discovery.gce_sd_json,
+                tc3.azure_sd_json,
             ])
         ```
         <!--End PulumiCodeChooser -->
@@ -960,9 +960,9 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            application="fasthttpsapp",
+        fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
             tenant="fasthttpstenant",
+            application="fasthttpsapp",
             virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
                 ip="10.30.40.44",
                 port=443,
@@ -977,14 +977,14 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+        tc3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
             subscription_id="testazuresid",
             tag_key="testazuretag",
             tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+        tc3_get_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
             tag_value="testgcevalue",
             region="testgceregion")
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
+        fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
             tenant="fasthttpstenant",
             application="fasthttpsapp",
             virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
@@ -1000,8 +1000,8 @@ class FastHttpsApp(pulumi.CustomResource):
                 port=80,
             )],
             service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
+                tc3_get_gce_service_discovery.gce_sd_json,
+                tc3.azure_sd_json,
             ])
         ```
         <!--End PulumiCodeChooser -->

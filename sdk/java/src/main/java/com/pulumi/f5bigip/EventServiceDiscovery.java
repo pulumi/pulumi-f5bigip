@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventServiceDiscovery(&#34;test&#34;, EventServiceDiscoveryArgs.builder()        
+ *             .taskid(&#34;~Sample_event_sd~My_app~My_pool&#34;)
  *             .nodes(            
  *                 EventServiceDiscoveryNodeArgs.builder()
  *                     .id(&#34;newNode1&#34;)
@@ -54,7 +55,6 @@ import javax.annotation.Nullable;
  *                     .ip(&#34;192.168.2.4&#34;)
  *                     .port(8080)
  *                     .build())
- *             .taskid(&#34;~Sample_event_sd~My_app~My_pool&#34;)
  *             .build());
  * 
  *     }

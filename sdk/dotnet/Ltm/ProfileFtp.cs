@@ -29,13 +29,13 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new()
     ///     {
-    ///         AllowActiveMode = "enabled",
-    ///         DefaultsFrom = "/Common/ftp",
-    ///         Description = "test-tftp-profile",
-    ///         EnforceTlssessionReuse = "enabled",
-    ///         FtpsMode = "allow",
     ///         Name = "/Common/sanjose-ftp-profile",
+    ///         DefaultsFrom = "/Common/ftp",
     ///         Port = 2020,
+    ///         Description = "test-tftp-profile",
+    ///         FtpsMode = "allow",
+    ///         EnforceTlssessionReuse = "enabled",
+    ///         AllowActiveMode = "enabled",
     ///     });
     /// 
     /// });
@@ -55,11 +55,11 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new()
     ///     {
-    ///         AllowFtps = "enabled",
-    ///         DefaultsFrom = "/Common/ftp",
-    ///         Description = "test-tftp-profile",
     ///         Name = "/Common/sanjose-ftp-profile",
+    ///         DefaultsFrom = "/Common/ftp",
     ///         Port = 2020,
+    ///         Description = "test-tftp-profile",
+    ///         AllowFtps = "enabled",
     ///         TranslateExtended = "enabled",
     ///     });
     /// 

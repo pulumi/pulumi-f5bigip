@@ -32,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vcmp.NewGuest(ctx, "vcmp-test", &vcmp.GuestArgs{
-//				CoresPerSlot:     pulumi.Int(2),
-//				InitialImage:     pulumi.String("12.1.2.iso"),
-//				MgmtAddress:      pulumi.String("10.1.1.1/24"),
-//				MgmtNetwork:      pulumi.String("bridged"),
-//				MgmtRoute:        pulumi.String("none"),
-//				MinNumberOfSlots: pulumi.Int(1),
 //				Name:             pulumi.String("tf_guest"),
-//				NumberOfSlots:    pulumi.Int(1),
+//				InitialImage:     pulumi.String("12.1.2.iso"),
+//				MgmtNetwork:      pulumi.String("bridged"),
+//				MgmtAddress:      pulumi.String("10.1.1.1/24"),
+//				MgmtRoute:        pulumi.String("none"),
 //				State:            pulumi.String("provisioned"),
+//				CoresPerSlot:     pulumi.Int(2),
+//				NumberOfSlots:    pulumi.Int(1),
+//				MinNumberOfSlots: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

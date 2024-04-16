@@ -102,26 +102,6 @@ class IRule(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Loading from a file is the preferred method
-        rule = f5bigip.ltm.IRule("rule",
-            name="/Common/terraform_irule",
-            irule=(lambda path: open(path).read())("myirule.tcl"))
-        rule2 = f5bigip.ltm.IRule("rule2",
-            name="/Common/terraform_irule2",
-            irule=\"\"\"when CLIENT_ACCEPTED {
-             log local0. "test"
-           }
-        \"\"\")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ##myirule.tcl
 
         :param str resource_name: The name of the resource.
@@ -139,26 +119,6 @@ class IRule(pulumi.CustomResource):
         `ltm.IRule` Creates iRule on BIG-IP F5 device
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Loading from a file is the preferred method
-        rule = f5bigip.ltm.IRule("rule",
-            name="/Common/terraform_irule",
-            irule=(lambda path: open(path).read())("myirule.tcl"))
-        rule2 = f5bigip.ltm.IRule("rule2",
-            name="/Common/terraform_irule2",
-            irule=\"\"\"when CLIENT_ACCEPTED {
-             log local0. "test"
-           }
-        \"\"\")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ##myirule.tcl
 

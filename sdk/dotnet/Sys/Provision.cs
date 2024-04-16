@@ -25,11 +25,11 @@ namespace Pulumi.F5BigIP.Sys
     /// {
     ///     var gtm = new F5BigIP.Sys.Provision("gtm", new()
     ///     {
+    ///         Name = "gtm",
     ///         CpuRatio = 0,
     ///         DiskRatio = 0,
     ///         Level = "nominal",
     ///         MemoryRatio = 0,
-    ///         Name = "gtm",
     ///     });
     /// 
     /// });

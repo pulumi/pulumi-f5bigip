@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sanjose_ftp_profile = new ProfileFtp(&#34;sanjose-ftp-profile&#34;, ProfileFtpArgs.builder()        
- *             .allowActiveMode(&#34;enabled&#34;)
- *             .defaultsFrom(&#34;/Common/ftp&#34;)
- *             .description(&#34;test-tftp-profile&#34;)
- *             .enforceTlssessionReuse(&#34;enabled&#34;)
- *             .ftpsMode(&#34;allow&#34;)
  *             .name(&#34;/Common/sanjose-ftp-profile&#34;)
+ *             .defaultsFrom(&#34;/Common/ftp&#34;)
  *             .port(2020)
+ *             .description(&#34;test-tftp-profile&#34;)
+ *             .ftpsMode(&#34;allow&#34;)
+ *             .enforceTlssessionReuse(&#34;enabled&#34;)
+ *             .allowActiveMode(&#34;enabled&#34;)
  *             .build());
  * 
  *     }
@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sanjose_ftp_profile = new ProfileFtp(&#34;sanjose-ftp-profile&#34;, ProfileFtpArgs.builder()        
- *             .allowFtps(&#34;enabled&#34;)
- *             .defaultsFrom(&#34;/Common/ftp&#34;)
- *             .description(&#34;test-tftp-profile&#34;)
  *             .name(&#34;/Common/sanjose-ftp-profile&#34;)
+ *             .defaultsFrom(&#34;/Common/ftp&#34;)
  *             .port(2020)
+ *             .description(&#34;test-tftp-profile&#34;)
+ *             .allowFtps(&#34;enabled&#34;)
  *             .translateExtended(&#34;enabled&#34;)
  *             .build());
  * 

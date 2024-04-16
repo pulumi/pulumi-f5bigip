@@ -27,16 +27,16 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var test_policy = new F5BigIP.IpsecPolicy("test-policy", new()
     ///     {
-    ///         AuthAlgorithm = "sha1",
-    ///         Description = "created by terraform provider",
-    ///         EncryptAlgorithm = "3des",
-    ///         Ipcomp = "deflate",
-    ///         Lifetime = 3,
-    ///         Mode = "tunnel",
     ///         Name = "/Common/test-policy",
+    ///         Description = "created by terraform provider",
     ///         Protocol = "esp",
+    ///         Mode = "tunnel",
     ///         TunnelLocalAddress = "192.168.1.1",
     ///         TunnelRemoteAddress = "10.10.1.1",
+    ///         AuthAlgorithm = "sha1",
+    ///         EncryptAlgorithm = "3des",
+    ///         Lifetime = 3,
+    ///         Ipcomp = "deflate",
     ///     });
     /// 
     /// });

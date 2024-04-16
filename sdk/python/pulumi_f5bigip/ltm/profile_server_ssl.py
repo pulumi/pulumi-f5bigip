@@ -1856,10 +1856,10 @@ class ProfileServerSsl(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test__server_ssl = f5bigip.ltm.ProfileServerSsl("test-ServerSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
+            name="/Common/test-ServerSsl",
             defaults_from="/Common/serverssl",
-            name="/Common/test-ServerSsl")
+            authenticate="always",
+            ciphers="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->      
 
@@ -1977,10 +1977,10 @@ class ProfileServerSsl(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test__server_ssl = f5bigip.ltm.ProfileServerSsl("test-ServerSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
+            name="/Common/test-ServerSsl",
             defaults_from="/Common/serverssl",
-            name="/Common/test-ServerSsl")
+            authenticate="always",
+            ciphers="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->      
 

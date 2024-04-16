@@ -109,12 +109,12 @@ class SnatPool(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
+        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpool_sanjose",
+            name="/Common/snatpool_sanjose",
             members=[
                 "191.1.1.1",
                 "194.2.2.2",
-            ],
-            name="/Common/snatpool_sanjose")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -141,12 +141,12 @@ class SnatPool(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
+        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpool_sanjose",
+            name="/Common/snatpool_sanjose",
             members=[
                 "191.1.1.1",
                 "194.2.2.2",
-            ],
-            name="/Common/snatpool_sanjose")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

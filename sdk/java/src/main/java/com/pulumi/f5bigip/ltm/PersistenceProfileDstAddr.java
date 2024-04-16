@@ -42,16 +42,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var dstaddr = new PersistenceProfileDstAddr(&#34;dstaddr&#34;, PersistenceProfileDstAddrArgs.builder()        
+ *             .name(&#34;/Common/terraform_ppdstaddr&#34;)
  *             .defaultsFrom(&#34;/Common/dest_addr&#34;)
- *             .hashAlgorithm(&#34;carp&#34;)
- *             .mask(&#34;255.255.255.255&#34;)
  *             .matchAcrossPools(&#34;enabled&#34;)
  *             .matchAcrossServices(&#34;enabled&#34;)
  *             .matchAcrossVirtuals(&#34;enabled&#34;)
  *             .mirror(&#34;enabled&#34;)
- *             .name(&#34;/Common/terraform_ppdstaddr&#34;)
- *             .overrideConnLimit(&#34;enabled&#34;)
  *             .timeout(3600)
+ *             .overrideConnLimit(&#34;enabled&#34;)
+ *             .hashAlgorithm(&#34;carp&#34;)
+ *             .mask(&#34;255.255.255.255&#34;)
  *             .build());
  * 
  *     }

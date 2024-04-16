@@ -555,22 +555,6 @@ class BigIqAs3(pulumi.CustomResource):
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
-            bigiq_address="xx.xx.xxx.xx",
-            bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
-        ```
-        <!--End PulumiCodeChooser -->
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -649,22 +633,6 @@ class BigIqAs3(pulumi.CustomResource):
         `BigIqAs3` provides details about bigiq as3 resource
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
-            bigiq_address="xx.xx.xxx.xx",
-            bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param BigIqAs3Args args: The arguments to use to populate this resource's properties.

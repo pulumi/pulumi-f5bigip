@@ -27,9 +27,9 @@ namespace Pulumi.F5BigIP.Net
     /// {
     ///     var route2 = new F5BigIP.Net.Route("route2", new()
     ///     {
-    ///         Gw = "1.1.1.2",
     ///         Name = "/Common/external-route",
     ///         Network = "10.10.10.0/24",
+    ///         Gw = "1.1.1.2",
     ///     });
     /// 
     /// });

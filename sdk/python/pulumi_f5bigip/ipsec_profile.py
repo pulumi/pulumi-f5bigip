@@ -174,9 +174,9 @@ class IpsecProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
-            description="mytestipsecprofile",
+        azurev_wan_profile = f5bigip.IpsecProfile("azurevWAN_profile",
             name="/Common/Mytestipsecprofile",
+            description="mytestipsecprofile",
             traffic_selector="test-trafficselector")
         ```
         <!--End PulumiCodeChooser -->
@@ -204,9 +204,9 @@ class IpsecProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
-            description="mytestipsecprofile",
+        azurev_wan_profile = f5bigip.IpsecProfile("azurevWAN_profile",
             name="/Common/Mytestipsecprofile",
+            description="mytestipsecprofile",
             traffic_selector="test-trafficselector")
         ```
         <!--End PulumiCodeChooser -->

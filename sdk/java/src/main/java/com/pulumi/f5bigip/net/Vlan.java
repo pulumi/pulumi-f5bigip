@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vlan1 = new Vlan(&#34;vlan1&#34;, VlanArgs.builder()        
- *             .interfaces(VlanInterfaceArgs.builder()
- *                 .tagged(false)
- *                 .vlanport(1.2)
- *                 .build())
  *             .name(&#34;/Common/Internal&#34;)
  *             .tag(101)
+ *             .interfaces(VlanInterfaceArgs.builder()
+ *                 .vlanport(1.2)
+ *                 .tagged(false)
+ *                 .build())
  *             .build());
  * 
  *     }

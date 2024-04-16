@@ -27,14 +27,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp("sanjose-tcp-lan-profile", new()
     ///     {
+    ///         Name = "/Common/sanjose-tcp-lan-profile",
+    ///         IdleTimeout = 200,
     ///         CloseWaitTimeout = 5,
-    ///         DeferredAccept = "enabled",
-    ///         FastOpen = "enabled",
     ///         Finwait2timeout = 5,
     ///         FinwaitTimeout = 300,
-    ///         IdleTimeout = 200,
     ///         KeepaliveInterval = 1700,
-    ///         Name = "/Common/sanjose-tcp-lan-profile",
+    ///         DeferredAccept = "enabled",
+    ///         FastOpen = "enabled",
     ///     });
     /// 
     /// });

@@ -26,11 +26,11 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
+        ///     var PBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
         ///     {
-        ///         MinimumLearningScore = 20,
-        ///         Partition = "Common",
         ///         PolicyName = "protect_me_policy",
+        ///         Partition = "Common",
+        ///         MinimumLearningScore = 20,
         ///     });
         /// 
         /// });
@@ -55,11 +55,11 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
+        ///     var PBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
         ///     {
-        ///         MinimumLearningScore = 20,
-        ///         Partition = "Common",
         ///         PolicyName = "protect_me_policy",
+        ///         Partition = "Common",
+        ///         MinimumLearningScore = 20,
         ///     });
         /// 
         /// });

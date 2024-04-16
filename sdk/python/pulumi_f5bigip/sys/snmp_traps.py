@@ -504,11 +504,11 @@ class SnmpTraps(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
-            community="f5community",
-            description="Setup snmp traps",
-            host="195.10.10.1",
+        snmp_traps = f5bigip.sys.SnmpTraps("snmp_traps",
             name="snmptraps",
+            community="f5community",
+            host="195.10.10.1",
+            description="Setup snmp traps",
             port=111)
         ```
         <!--End PulumiCodeChooser -->
@@ -545,11 +545,11 @@ class SnmpTraps(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
-            community="f5community",
-            description="Setup snmp traps",
-            host="195.10.10.1",
+        snmp_traps = f5bigip.sys.SnmpTraps("snmp_traps",
             name="snmptraps",
+            community="f5community",
+            host="195.10.10.1",
+            description="Setup snmp traps",
             port=111)
         ```
         <!--End PulumiCodeChooser -->

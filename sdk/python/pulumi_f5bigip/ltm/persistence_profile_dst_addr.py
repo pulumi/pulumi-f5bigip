@@ -405,16 +405,16 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         dstaddr = f5bigip.ltm.PersistenceProfileDstAddr("dstaddr",
+            name="/Common/terraform_ppdstaddr",
             defaults_from="/Common/dest_addr",
-            hash_algorithm="carp",
-            mask="255.255.255.255",
             match_across_pools="enabled",
             match_across_services="enabled",
             match_across_virtuals="enabled",
             mirror="enabled",
-            name="/Common/terraform_ppdstaddr",
+            timeout=3600,
             override_conn_limit="enabled",
-            timeout=3600)
+            hash_algorithm="carp",
+            mask="255.255.255.255")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -476,16 +476,16 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         dstaddr = f5bigip.ltm.PersistenceProfileDstAddr("dstaddr",
+            name="/Common/terraform_ppdstaddr",
             defaults_from="/Common/dest_addr",
-            hash_algorithm="carp",
-            mask="255.255.255.255",
             match_across_pools="enabled",
             match_across_services="enabled",
             match_across_virtuals="enabled",
             mirror="enabled",
-            name="/Common/terraform_ppdstaddr",
+            timeout=3600,
             override_conn_limit="enabled",
-            timeout=3600)
+            hash_algorithm="carp",
+            mask="255.255.255.255")
         ```
         <!--End PulumiCodeChooser -->
 

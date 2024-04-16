@@ -207,7 +207,7 @@ def get_aws_service_discovery(address_realm: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
+    tc2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
         tag_value="testawstagvalue")
     ```
     <!--End PulumiCodeChooser -->
@@ -290,7 +290,7 @@ def get_aws_service_discovery_output(address_realm: Optional[pulumi.Input[Option
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
+    tc2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
         tag_value="testawstagvalue")
     ```
     <!--End PulumiCodeChooser -->

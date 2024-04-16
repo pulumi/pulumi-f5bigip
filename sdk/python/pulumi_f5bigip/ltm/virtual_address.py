@@ -308,9 +308,9 @@ class VirtualAddress(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        vs_va = f5bigip.ltm.VirtualAddress("vsVa",
-            advertize_route="enabled",
-            name="/Common/xxxxx")
+        vs_va = f5bigip.ltm.VirtualAddress("vs_va",
+            name="/Common/xxxxx",
+            advertize_route="enabled")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -343,9 +343,9 @@ class VirtualAddress(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        vs_va = f5bigip.ltm.VirtualAddress("vsVa",
-            advertize_route="enabled",
-            name="/Common/xxxxx")
+        vs_va = f5bigip.ltm.VirtualAddress("vs_va",
+            name="/Common/xxxxx",
+            advertize_route="enabled")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -212,12 +212,12 @@ class Vlan(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                tagged=False,
-                vlanport="1.2",
-            )],
             name="/Common/Internal",
-            tag=101)
+            tag=101,
+            interfaces=[f5bigip.net.VlanInterfaceArgs(
+                vlanport="1.2",
+                tagged=False,
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -248,12 +248,12 @@ class Vlan(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                tagged=False,
-                vlanport="1.2",
-            )],
             name="/Common/Internal",
-            tag=101)
+            tag=101,
+            interfaces=[f5bigip.net.VlanInterfaceArgs(
+                vlanport="1.2",
+                tagged=False,
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

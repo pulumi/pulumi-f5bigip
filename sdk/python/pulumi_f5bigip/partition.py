@@ -142,8 +142,8 @@ class Partition(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_partition = f5bigip.Partition("test-partition",
-            description="created by terraform",
             name="test-partition",
+            description="created by terraform",
             route_domain_id=2)
         ```
         <!--End PulumiCodeChooser -->
@@ -182,8 +182,8 @@ class Partition(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_partition = f5bigip.Partition("test-partition",
-            description="created by terraform",
             name="test-partition",
+            description="created by terraform",
             route_domain_id=2)
         ```
         <!--End PulumiCodeChooser -->

@@ -24,12 +24,12 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myNewDevice = new F5BigIP.CM.Device("myNewDevice", new()
+    ///     var myNewDevice = new F5BigIP.CM.Device("my_new_device", new()
     ///     {
+    ///         Name = "bigip300.f5.com",
     ///         ConfigsyncIp = "2.2.2.2",
     ///         MirrorIp = "10.10.10.10",
     ///         MirrorSecondaryIp = "11.11.11.11",
-    ///         Name = "bigip300.f5.com",
     ///     });
     /// 
     /// });

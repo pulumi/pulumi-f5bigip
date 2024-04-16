@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
+        ///     var WAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
         ///     {
         ///         SignatureId = 200104004,
         ///     });
@@ -53,7 +53,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
+        ///     var WAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
         ///     {
         ///         SignatureId = 200104004,
         ///     });

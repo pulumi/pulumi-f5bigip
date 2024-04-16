@@ -17,40 +17,6 @@ import javax.annotation.Nullable;
 /**
  * `f5bigip.FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.FastApplication;
- * import com.pulumi.f5bigip.FastApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_app = new FastApplication(&#34;foo-app&#34;, FastApplicationArgs.builder()        
- *             .fastJson(Files.readString(Paths.get(&#34;new_fast_app.json&#34;)))
- *             .template(&#34;examples/simple_http&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  */
 @ResourceType(type="f5bigip:index/fastApplication:FastApplication")
 public class FastApplication extends com.pulumi.resources.CustomResource {

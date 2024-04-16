@@ -30,11 +30,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cm.NewDevice(ctx, "myNewDevice", &cm.DeviceArgs{
+//			_, err := cm.NewDevice(ctx, "my_new_device", &cm.DeviceArgs{
+//				Name:              pulumi.String("bigip300.f5.com"),
 //				ConfigsyncIp:      pulumi.String("2.2.2.2"),
 //				MirrorIp:          pulumi.String("10.10.10.10"),
 //				MirrorSecondaryIp: pulumi.String("11.11.11.11"),
-//				Name:              pulumi.String("bigip300.f5.com"),
 //			})
 //			if err != nil {
 //				return err

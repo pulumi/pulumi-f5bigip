@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
-//				Region:   "testgceregion",
 //				TagKey:   "testgcetag",
 //				TagValue: "testgcevalue",
+//				Region:   "testgceregion",
 //			}, nil)
 //			if err != nil {
 //				return err

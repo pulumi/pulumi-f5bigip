@@ -15,48 +15,6 @@ import (
 // `BigIqAs3` provides details about bigiq as3 resource
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
-//
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example Usage for json file
-//			_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
-//				As3Json:       readFileOrPanic("bigiq_example.json"),
-//				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
-//				BigiqPassword: pulumi.String("xxxxxxxxx"),
-//				BigiqUser:     pulumi.String("xxxxx"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 

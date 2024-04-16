@@ -25,16 +25,16 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var test_cipher_group = new F5BigIP.Ltm.CipherGroup("test-cipher-group", new()
     ///     {
+    ///         Name = "/Common/test-cipher-group-01",
     ///         Allows = new[]
     ///         {
     ///             "/Common/f5-aes",
     ///         },
-    ///         Name = "/Common/test-cipher-group-01",
-    ///         Ordering = "speed",
     ///         Requires = new[]
     ///         {
     ///             "/Common/f5-quic",
     ///         },
+    ///         Ordering = "speed",
     ///     });
     /// 
     /// });

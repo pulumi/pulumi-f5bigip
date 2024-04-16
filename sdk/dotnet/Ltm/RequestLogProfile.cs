@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///     var request_log_profile_tc1_child = new F5BigIP.Ltm.RequestLogProfile("request-log-profile-tc1-child", new()
     ///     {
     ///         Name = "/Common/request-log-profile-tc1-child",
-    ///         DefaultsFrom = bigip_ltm_request_log_profile.Request_log_profile_tc1.Name,
+    ///         DefaultsFrom = request_log_profile_tc1.Name,
     ///         RequestLogging = "disabled",
     ///         RequestlogPool = "/Common/pool2",
     ///         RequestlogErrorPool = "/Common/pool1",

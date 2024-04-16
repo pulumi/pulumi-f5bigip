@@ -32,18 +32,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileRewrite(ctx, "test-profile", &ltm.ProfileRewriteArgs{
+//				Name:         pulumi.String("/Common/tf_profile"),
+//				DefaultsFrom: pulumi.String("/Common/rewrite"),
 //				BypassLists: pulumi.StringArray{
 //					pulumi.String("http://notouch.com"),
 //				},
-//				CaFile:       pulumi.String("/Common/ca-bundle.crt"),
-//				CacheType:    pulumi.String("cache-img-css-js"),
-//				CrlFile:      pulumi.String("none"),
-//				DefaultsFrom: pulumi.String("/Common/rewrite"),
-//				Name:         pulumi.String("/Common/tf_profile"),
 //				RewriteLists: pulumi.StringArray{
 //					pulumi.String("http://some.com"),
 //				},
 //				RewriteMode:    pulumi.String("portal"),
+//				CacheType:      pulumi.String("cache-img-css-js"),
+//				CaFile:         pulumi.String("/Common/ca-bundle.crt"),
+//				CrlFile:        pulumi.String("none"),
 //				SigningCert:    pulumi.String("/Common/default.crt"),
 //				SigningKey:     pulumi.String("/Common/default.key"),
 //				SplitTunneling: pulumi.String("true"),
@@ -52,24 +52,9 @@ import (
 //				return err
 //			}
 //			_, err = ltm.NewProfileRewrite(ctx, "test-profile2", &ltm.ProfileRewriteArgs{
-//				CookieRules: ltm.ProfileRewriteCookieRuleArray{
-//					&ltm.ProfileRewriteCookieRuleArgs{
-//						ClientDomain: pulumi.String("wrong.com"),
-//						ClientPath:   pulumi.String("/this/"),
-//						RuleName:     pulumi.String("cookie1"),
-//						ServerDomain: pulumi.String("wrong.com"),
-//						ServerPath:   pulumi.String("/this/"),
-//					},
-//					&ltm.ProfileRewriteCookieRuleArgs{
-//						ClientDomain: pulumi.String("incorrect.com"),
-//						ClientPath:   pulumi.String("/this/"),
-//						RuleName:     pulumi.String("cookie2"),
-//						ServerDomain: pulumi.String("absolute.com"),
-//						ServerPath:   pulumi.String("/this/"),
-//					},
-//				},
-//				DefaultsFrom: pulumi.String("/Common/rewrite"),
 //				Name:         pulumi.String("/Common/tf_profile_translate"),
+//				DefaultsFrom: pulumi.String("/Common/rewrite"),
+//				RewriteMode:  pulumi.String("uri-translation"),
 //				Requests: ltm.ProfileRewriteRequestArray{
 //					&ltm.ProfileRewriteRequestArgs{
 //						InsertXfwdFor:      pulumi.String("enabled"),
@@ -84,7 +69,22 @@ import (
 //						RewriteHeaders: pulumi.String("disabled"),
 //					},
 //				},
-//				RewriteMode: pulumi.String("uri-translation"),
+//				CookieRules: ltm.ProfileRewriteCookieRuleArray{
+//					&ltm.ProfileRewriteCookieRuleArgs{
+//						RuleName:     pulumi.String("cookie1"),
+//						ClientDomain: pulumi.String("wrong.com"),
+//						ClientPath:   pulumi.String("/this/"),
+//						ServerDomain: pulumi.String("wrong.com"),
+//						ServerPath:   pulumi.String("/this/"),
+//					},
+//					&ltm.ProfileRewriteCookieRuleArgs{
+//						RuleName:     pulumi.String("cookie2"),
+//						ClientDomain: pulumi.String("incorrect.com"),
+//						ClientPath:   pulumi.String("/this/"),
+//						ServerDomain: pulumi.String("absolute.com"),
+//						ServerPath:   pulumi.String("/this/"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

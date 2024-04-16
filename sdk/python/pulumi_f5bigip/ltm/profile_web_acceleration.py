@@ -507,10 +507,10 @@ class ProfileWebAcceleration(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sample_resource = f5bigip.ltm.ProfileWebAcceleration("sample-resource",
-            cache_max_entries=201,
-            cache_size=101,
+            name="/Common/sample-resource",
             defaults_from="/Common/test2",
-            name="/Common/sample-resource")
+            cache_size=101,
+            cache_max_entries=201)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -550,10 +550,10 @@ class ProfileWebAcceleration(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sample_resource = f5bigip.ltm.ProfileWebAcceleration("sample-resource",
-            cache_max_entries=201,
-            cache_size=101,
+            name="/Common/sample-resource",
             defaults_from="/Common/test2",
-            name="/Common/sample-resource")
+            cache_size=101,
+            cache_max_entries=201)
         ```
         <!--End PulumiCodeChooser -->
 

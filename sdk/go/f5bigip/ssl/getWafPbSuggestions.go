@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssl.GetWafPbSuggestions(ctx, &ssl.GetWafPbSuggestionsArgs{
-//				MinimumLearningScore: 20,
-//				Partition:            "Common",
 //				PolicyName:           "protect_me_policy",
+//				Partition:            "Common",
+//				MinimumLearningScore: 20,
 //			}, nil)
 //			if err != nil {
 //				return err

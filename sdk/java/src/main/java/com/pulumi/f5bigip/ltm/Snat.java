@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test_snat = new Snat(&#34;test-snat&#34;, SnatArgs.builder()        
  *             .name(&#34;/Common/test-snat&#34;)
+ *             .translation(&#34;/Common/136.1.1.2&#34;)
+ *             .sourceport(&#34;preserve&#34;)
  *             .origins(SnatOriginArgs.builder()
  *                 .name(&#34;0.0.0.0/0&#34;)
  *                 .build())
- *             .sourceport(&#34;preserve&#34;)
- *             .translation(&#34;/Common/136.1.1.2&#34;)
  *             .vlans(&#34;/Common/internal&#34;)
  *             .vlansdisabled(false)
  *             .build());

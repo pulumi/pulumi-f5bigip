@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test_ocsp = new Ocsp(&#34;test-ocsp&#34;, OcspArgs.builder()        
  *             .name(&#34;/Uncommon/test-ocsp&#34;)
- *             .passphrase(&#34;testabcdef&#34;)
  *             .proxyServerPool(&#34;/Common/test-poolxyz&#34;)
- *             .signerCert(&#34;/Common/le-ssl&#34;)
  *             .signerKey(&#34;/Common/le-ssl&#34;)
+ *             .signerCert(&#34;/Common/le-ssl&#34;)
+ *             .passphrase(&#34;testabcdef&#34;)
  *             .build());
  * 
  *     }

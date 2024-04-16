@@ -32,16 +32,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewIpsecPolicy(ctx, "test-policy", &f5bigip.IpsecPolicyArgs{
-//				AuthAlgorithm:       pulumi.String("sha1"),
-//				Description:         pulumi.String("created by terraform provider"),
-//				EncryptAlgorithm:    pulumi.String("3des"),
-//				Ipcomp:              pulumi.String("deflate"),
-//				Lifetime:            pulumi.Int(3),
-//				Mode:                pulumi.String("tunnel"),
 //				Name:                pulumi.String("/Common/test-policy"),
+//				Description:         pulumi.String("created by terraform provider"),
 //				Protocol:            pulumi.String("esp"),
+//				Mode:                pulumi.String("tunnel"),
 //				TunnelLocalAddress:  pulumi.String("192.168.1.1"),
 //				TunnelRemoteAddress: pulumi.String("10.10.1.1"),
+//				AuthAlgorithm:       pulumi.String("sha1"),
+//				EncryptAlgorithm:    pulumi.String("3des"),
+//				Lifetime:            pulumi.Int(3),
+//				Ipcomp:              pulumi.String("deflate"),
 //			})
 //			if err != nil {
 //				return err

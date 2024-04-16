@@ -506,15 +506,15 @@ class Guest(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
-            cores_per_slot=2,
-            initial_image="12.1.2.iso",
-            mgmt_address="10.1.1.1/24",
-            mgmt_network="bridged",
-            mgmt_route="none",
-            min_number_of_slots=1,
             name="tf_guest",
+            initial_image="12.1.2.iso",
+            mgmt_network="bridged",
+            mgmt_address="10.1.1.1/24",
+            mgmt_route="none",
+            state="provisioned",
+            cores_per_slot=2,
             number_of_slots=1,
-            state="provisioned")
+            min_number_of_slots=1)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -553,15 +553,15 @@ class Guest(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
-            cores_per_slot=2,
-            initial_image="12.1.2.iso",
-            mgmt_address="10.1.1.1/24",
-            mgmt_network="bridged",
-            mgmt_route="none",
-            min_number_of_slots=1,
             name="tf_guest",
+            initial_image="12.1.2.iso",
+            mgmt_network="bridged",
+            mgmt_address="10.1.1.1/24",
+            mgmt_route="none",
+            state="provisioned",
+            cores_per_slot=2,
             number_of_slots=1,
-            state="provisioned")
+            min_number_of_slots=1)
         ```
         <!--End PulumiCodeChooser -->
 

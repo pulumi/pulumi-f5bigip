@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example1 = new NetIkePeer(&#34;example1&#34;, NetIkePeerArgs.builder()        
- *             .localAddress(&#34;192.16.81.240&#34;)
  *             .name(&#34;example1&#34;)
+ *             .localAddress(&#34;192.16.81.240&#34;)
  *             .profile(&#34;/Common/dslite&#34;)
  *             .build());
  * 

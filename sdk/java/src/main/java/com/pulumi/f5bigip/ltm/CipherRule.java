@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testCipherRule = new CipherRule(&#34;testCipherRule&#34;, CipherRuleArgs.builder()        
+ *             .name(&#34;/Common/test_cipher_rule&#34;)
  *             .cipher(&#34;TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384&#34;)
  *             .dhGroups(&#34;P256:P384:FFDHE2048:FFDHE3072:FFDHE4096&#34;)
- *             .name(&#34;/Common/test_cipher_rule&#34;)
  *             .signatureAlgorithms(&#34;DEFAULT&#34;)
  *             .build());
  * 

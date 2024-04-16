@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_cipher_group = new f5bigip.ltm.CipherGroup("test-cipher-group", {
- *     allows: ["/Common/f5-aes"],
  *     name: "/Common/test-cipher-group-01",
- *     ordering: "speed",
+ *     allows: ["/Common/f5-aes"],
  *     requires: ["/Common/f5-quic"],
+ *     ordering: "speed",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

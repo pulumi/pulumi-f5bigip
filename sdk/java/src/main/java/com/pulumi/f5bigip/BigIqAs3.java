@@ -21,43 +21,6 @@ import javax.annotation.Nullable;
  * 
  * This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.BigIqAs3;
- * import com.pulumi.f5bigip.BigIqAs3Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Example Usage for json file
- *         var exampletask = new BigIqAs3(&#34;exampletask&#34;, BigIqAs3Args.builder()        
- *             .as3Json(Files.readString(Paths.get(&#34;bigiq_example.json&#34;)))
- *             .bigiqAddress(&#34;xx.xx.xxx.xx&#34;)
- *             .bigiqPassword(&#34;xxxxxxxxx&#34;)
- *             .bigiqUser(&#34;xxxxx&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  */
 @ResourceType(type="f5bigip:index/bigIqAs3:BigIqAs3")
 public class BigIqAs3 extends com.pulumi.resources.CustomResource {

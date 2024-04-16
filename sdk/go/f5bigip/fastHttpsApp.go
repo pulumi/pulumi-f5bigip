@@ -31,9 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewFastHttpsApp(ctx, "fastHttpsApp", &f5bigip.FastHttpsAppArgs{
-//				Application: pulumi.String("fasthttpsapp"),
+//			_, err := f5bigip.NewFastHttpsApp(ctx, "fast_https_app", &f5bigip.FastHttpsAppArgs{
 //				Tenant:      pulumi.String("fasthttpstenant"),
+//				Application: pulumi.String("fasthttpsapp"),
 //				VirtualServer: &f5bigip.FastHttpsAppVirtualServerArgs{
 //					Ip:   pulumi.String("10.30.40.44"),
 //					Port: pulumi.Int(443),
@@ -65,7 +65,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tC3AzureServiceDiscovery, err := fast.GetAzureServiceDiscovery(ctx, &fast.GetAzureServiceDiscoveryArgs{
+//			TC3, err := fast.GetAzureServiceDiscovery(ctx, &fast.GetAzureServiceDiscoveryArgs{
 //				ResourceGroup:  "testazurerg",
 //				SubscriptionId: "testazuresid",
 //				TagKey:         pulumi.StringRef("testazuretag"),
@@ -74,7 +74,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tC3GceServiceDiscovery, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
+//			TC3GetGceServiceDiscovery, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
 //				TagKey:   "testgcetag",
 //				TagValue: "testgcevalue",
 //				Region:   "testgceregion",
@@ -82,7 +82,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = f5bigip.NewFastHttpsApp(ctx, "fastHttpsApp", &f5bigip.FastHttpsAppArgs{
+//			_, err = f5bigip.NewFastHttpsApp(ctx, "fast_https_app", &f5bigip.FastHttpsAppArgs{
 //				Tenant:      pulumi.String("fasthttpstenant"),
 //				Application: pulumi.String("fasthttpsapp"),
 //				VirtualServer: &f5bigip.FastHttpsAppVirtualServerArgs{
@@ -100,8 +100,8 @@ import (
 //					},
 //				},
 //				ServiceDiscoveries: pulumi.StringArray{
-//					pulumi.String(tC3GceServiceDiscovery.GceSdJson),
-//					pulumi.String(tC3AzureServiceDiscovery.AzureSdJson),
+//					pulumi.String(TC3GetGceServiceDiscovery.GceSdJson),
+//					pulumi.String(TC3.AzureSdJson),
 //				},
 //			})
 //			if err != nil {

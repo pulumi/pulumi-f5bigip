@@ -526,33 +526,6 @@ class FastTcpApp(pulumi.CustomResource):
         """
         `FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_tcp_app = f5bigip.FastTcpApp("fast-tcp-app",
-            application="tcp_app_2",
-            pool_members=[f5bigip.FastTcpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.34.65",
-                    "56.43.23.76",
-                ],
-                connection_limit=4,
-                port=443,
-                priority_group=1,
-                share_nodes=True,
-            )],
-            tenant="tcp_app_tenant",
-            virtual_server=f5bigip.FastTcpAppVirtualServerArgs(
-                ip="11.12.16.30",
-                port=443,
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST TCP application.
@@ -581,33 +554,6 @@ class FastTcpApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_tcp_app = f5bigip.FastTcpApp("fast-tcp-app",
-            application="tcp_app_2",
-            pool_members=[f5bigip.FastTcpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.34.65",
-                    "56.43.23.76",
-                ],
-                connection_limit=4,
-                port=443,
-                priority_group=1,
-                share_nodes=True,
-            )],
-            tenant="tcp_app_tenant",
-            virtual_server=f5bigip.FastTcpAppVirtualServerArgs(
-                ip="11.12.16.30",
-                port=443,
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FastTcpAppArgs args: The arguments to use to populate this resource's properties.

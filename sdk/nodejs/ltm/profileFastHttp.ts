@@ -17,17 +17,17 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile", {
+ *     name: "/Common/sjfasthttpprofile",
+ *     defaultsFrom: "/Common/fasthttp",
+ *     idleTimeout: 300,
+ *     connpoolidleTimeoutoverride: 0,
  *     connpoolMaxreuse: 2,
  *     connpoolMaxsize: 2048,
  *     connpoolMinsize: 0,
  *     connpoolReplenish: "enabled",
  *     connpoolStep: 4,
- *     connpoolidleTimeoutoverride: 0,
- *     defaultsFrom: "/Common/fasthttp",
  *     forcehttp10response: "disabled",
- *     idleTimeout: 300,
  *     maxheaderSize: 32768,
- *     name: "/Common/sjfasthttpprofile",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

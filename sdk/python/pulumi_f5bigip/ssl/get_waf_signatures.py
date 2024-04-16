@@ -185,7 +185,7 @@ def get_waf_signatures(accuracy: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
+    wafsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
     ```
     <!--End PulumiCodeChooser -->
 
@@ -249,7 +249,7 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
+    wafsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
     ```
     <!--End PulumiCodeChooser -->
 

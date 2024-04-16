@@ -453,16 +453,16 @@ class IpsecPolicy(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_policy = f5bigip.IpsecPolicy("test-policy",
-            auth_algorithm="sha1",
-            description="created by terraform provider",
-            encrypt_algorithm="3des",
-            ipcomp="deflate",
-            lifetime=3,
-            mode="tunnel",
             name="/Common/test-policy",
+            description="created by terraform provider",
             protocol="esp",
+            mode="tunnel",
             tunnel_local_address="192.168.1.1",
-            tunnel_remote_address="10.10.1.1")
+            tunnel_remote_address="10.10.1.1",
+            auth_algorithm="sha1",
+            encrypt_algorithm="3des",
+            lifetime=3,
+            ipcomp="deflate")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -503,16 +503,16 @@ class IpsecPolicy(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_policy = f5bigip.IpsecPolicy("test-policy",
-            auth_algorithm="sha1",
-            description="created by terraform provider",
-            encrypt_algorithm="3des",
-            ipcomp="deflate",
-            lifetime=3,
-            mode="tunnel",
             name="/Common/test-policy",
+            description="created by terraform provider",
             protocol="esp",
+            mode="tunnel",
             tunnel_local_address="192.168.1.1",
-            tunnel_remote_address="10.10.1.1")
+            tunnel_remote_address="10.10.1.1",
+            auth_algorithm="sha1",
+            encrypt_algorithm="3des",
+            lifetime=3,
+            ipcomp="deflate")
         ```
         <!--End PulumiCodeChooser -->
 

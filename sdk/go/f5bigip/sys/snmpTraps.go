@@ -27,11 +27,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sys.NewSnmpTraps(ctx, "snmpTraps", &sys.SnmpTrapsArgs{
-//				Community:   pulumi.String("f5community"),
-//				Description: pulumi.String("Setup snmp traps"),
-//				Host:        pulumi.String("195.10.10.1"),
+//			_, err := sys.NewSnmpTraps(ctx, "snmp_traps", &sys.SnmpTrapsArgs{
 //				Name:        pulumi.String("snmptraps"),
+//				Community:   pulumi.String("f5community"),
+//				Host:        pulumi.String("195.10.10.1"),
+//				Description: pulumi.String("Setup snmp traps"),
 //				Port:        pulumi.Int(111),
 //			})
 //			if err != nil {

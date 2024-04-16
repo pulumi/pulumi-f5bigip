@@ -47,15 +47,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vcmp_test = new Guest(&#34;vcmp-test&#34;, GuestArgs.builder()        
- *             .coresPerSlot(2)
- *             .initialImage(&#34;12.1.2.iso&#34;)
- *             .mgmtAddress(&#34;10.1.1.1/24&#34;)
- *             .mgmtNetwork(&#34;bridged&#34;)
- *             .mgmtRoute(&#34;none&#34;)
- *             .minNumberOfSlots(1)
  *             .name(&#34;tf_guest&#34;)
- *             .numberOfSlots(1)
+ *             .initialImage(&#34;12.1.2.iso&#34;)
+ *             .mgmtNetwork(&#34;bridged&#34;)
+ *             .mgmtAddress(&#34;10.1.1.1/24&#34;)
+ *             .mgmtRoute(&#34;none&#34;)
  *             .state(&#34;provisioned&#34;)
+ *             .coresPerSlot(2)
+ *             .numberOfSlots(1)
+ *             .minNumberOfSlots(1)
  *             .build());
  * 
  *     }

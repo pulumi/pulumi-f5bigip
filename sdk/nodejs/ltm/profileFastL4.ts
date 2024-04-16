@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profileFastl4", {
- *     clientTimeout: 40,
+ * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
+ *     name: "/Common/sjfastl4profile",
  *     defaultsFrom: "/Common/fastL4",
+ *     clientTimeout: 40,
  *     explicitflowMigration: "enabled",
  *     hardwareSyncookie: "enabled",
  *     idleTimeout: "200",
  *     iptosToclient: "pass-through",
  *     iptosToserver: "pass-through",
  *     keepaliveInterval: "disabled",
- *     name: "/Common/sjfastl4profile",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

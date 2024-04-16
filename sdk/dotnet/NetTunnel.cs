@@ -25,8 +25,8 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var example1 = new F5BigIP.NetTunnel("example1", new()
     ///     {
-    ///         LocalAddress = "192.16.81.240",
     ///         Name = "example1",
+    ///         LocalAddress = "192.16.81.240",
     ///         Profile = "/Common/dslite",
     ///     });
     /// 

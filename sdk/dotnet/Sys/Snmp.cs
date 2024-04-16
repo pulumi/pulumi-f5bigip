@@ -24,12 +24,12 @@ namespace Pulumi.F5BigIP.Sys
     /// {
     ///     var snmp = new F5BigIP.Sys.Snmp("snmp", new()
     ///     {
+    ///         SysContact = " NetOPsAdmin s.shitole@f5.com",
+    ///         SysLocation = "SeattleHQ",
     ///         Allowedaddresses = new[]
     ///         {
     ///             "202.10.10.2",
     ///         },
-    ///         SysContact = " NetOPsAdmin s.shitole@f5.com",
-    ///         SysLocation = "SeattleHQ",
     ///     });
     /// 
     /// });

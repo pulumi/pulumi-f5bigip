@@ -13,31 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.BigIqAs3` provides details about bigiq as3 resource
     /// 
     /// This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Example Usage for json file
-    ///     var exampletask = new F5BigIP.BigIqAs3("exampletask", new()
-    ///     {
-    ///         As3Json = File.ReadAllText("bigiq_example.json"),
-    ///         BigiqAddress = "xx.xx.xxx.xx",
-    ///         BigiqPassword = "xxxxxxxxx",
-    ///         BigiqUser = "xxxxx",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/bigIqAs3:BigIqAs3")]
     public partial class BigIqAs3 : global::Pulumi.CustomResource

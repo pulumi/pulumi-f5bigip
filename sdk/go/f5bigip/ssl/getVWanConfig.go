@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssl.GetVWanConfig(ctx, &ssl.GetVWanConfigArgs{
-//				AzureVwanName:          "azurevwan-bigip-vwan-9c8d",
 //				AzureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+//				AzureVwanName:          "azurevwan-bigip-vwan-9c8d",
 //				AzureVwanVpnsite:       "azurevwan-bigip-vsite-9c8d",
 //			}, nil)
 //			if err != nil {

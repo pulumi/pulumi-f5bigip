@@ -375,8 +375,11 @@ class DeviceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
+        my_new_devicegroup = f5bigip.cm.DeviceGroup("my_new_devicegroup",
+            name="sanjose_devicegroup",
             auto_sync="enabled",
+            full_load_on_sync="true",
+            type="sync-only",
             devices=[
                 f5bigip.cm.DeviceGroupDeviceArgs(
                     name="bigip1.cisco.com",
@@ -384,10 +387,7 @@ class DeviceGroup(pulumi.CustomResource):
                 f5bigip.cm.DeviceGroupDeviceArgs(
                     name="bigip200.f5.com",
                 ),
-            ],
-            full_load_on_sync="true",
-            name="sanjose_devicegroup",
-            type="sync-only")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -420,8 +420,11 @@ class DeviceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
+        my_new_devicegroup = f5bigip.cm.DeviceGroup("my_new_devicegroup",
+            name="sanjose_devicegroup",
             auto_sync="enabled",
+            full_load_on_sync="true",
+            type="sync-only",
             devices=[
                 f5bigip.cm.DeviceGroupDeviceArgs(
                     name="bigip1.cisco.com",
@@ -429,10 +432,7 @@ class DeviceGroup(pulumi.CustomResource):
                 f5bigip.cm.DeviceGroupDeviceArgs(
                     name="bigip200.f5.com",
                 ),
-            ],
-            full_load_on_sync="true",
-            name="sanjose_devicegroup",
-            type="sync-only")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

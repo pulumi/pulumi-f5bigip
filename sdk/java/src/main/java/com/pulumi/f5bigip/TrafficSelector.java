@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_selector = new TrafficSelector(&#34;test-selector&#34;, TrafficSelectorArgs.builder()        
- *             .destinationAddress(&#34;3.10.11.2/32&#34;)
  *             .name(&#34;/Common/test-selector&#34;)
+ *             .destinationAddress(&#34;3.10.11.2/32&#34;)
  *             .sourceAddress(&#34;2.10.11.12/32&#34;)
  *             .build());
  * 

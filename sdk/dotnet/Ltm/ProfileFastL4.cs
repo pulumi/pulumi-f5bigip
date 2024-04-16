@@ -25,17 +25,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profileFastl4", new()
+    ///     var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profile_fastl4", new()
     ///     {
-    ///         ClientTimeout = 40,
+    ///         Name = "/Common/sjfastl4profile",
     ///         DefaultsFrom = "/Common/fastL4",
+    ///         ClientTimeout = 40,
     ///         ExplicitflowMigration = "enabled",
     ///         HardwareSyncookie = "enabled",
     ///         IdleTimeout = "200",
     ///         IptosToclient = "pass-through",
     ///         IptosToserver = "pass-through",
     ///         KeepaliveInterval = "disabled",
-    ///         Name = "/Common/sjfastl4profile",
     ///     });
     /// 
     /// });

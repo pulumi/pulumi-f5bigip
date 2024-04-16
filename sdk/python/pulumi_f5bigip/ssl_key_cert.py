@@ -396,22 +396,6 @@ class SslKeyCert(pulumi.CustomResource):
         `SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM.
         The certificate and the key can be imported from files on the local disk, in PEM format
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        testkeycert = f5bigip.SslKeyCert("testkeycert",
-            partition="Common",
-            key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
-            cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
-        ```
-        <!--End PulumiCodeChooser -->
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cert_content: The content of the cert.
@@ -435,22 +419,6 @@ class SslKeyCert(pulumi.CustomResource):
         """
         `SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM.
         The certificate and the key can be imported from files on the local disk, in PEM format
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        testkeycert = f5bigip.SslKeyCert("testkeycert",
-            partition="Common",
-            key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
-            cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SslKeyCertArgs args: The arguments to use to populate this resource's properties.

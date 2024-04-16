@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_ServerSsl = new f5bigip.ltm.ProfileServerSsl("test-ServerSsl", {
+ *     name: "/Common/test-ServerSsl",
+ *     defaultsFrom: "/Common/serverssl",
  *     authenticate: "always",
  *     ciphers: "DEFAULT",
- *     defaultsFrom: "/Common/serverssl",
- *     name: "/Common/test-ServerSsl",
  * });
  * ```
  * <!--End PulumiCodeChooser -->      

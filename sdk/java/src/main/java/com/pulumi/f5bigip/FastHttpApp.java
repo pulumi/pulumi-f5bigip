@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fastHttpApp = new FastHttpApp(&#34;fastHttpApp&#34;, FastHttpAppArgs.builder()        
- *             .application(&#34;fasthttpapp&#34;)
  *             .tenant(&#34;fasthttptenant&#34;)
+ *             .application(&#34;fasthttpapp&#34;)
  *             .virtualServer(FastHttpAppVirtualServerArgs.builder()
  *                 .ip(&#34;10.30.30.44&#34;)
  *                 .port(443)
@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var tC3AzureServiceDiscovery = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+ *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
  *             .resourceGroup(&#34;testazurerg&#34;)
  *             .subscriptionId(&#34;testazuresid&#34;)
  *             .tagKey(&#34;testazuretag&#34;)
  *             .tagValue(&#34;testazurevalue&#34;)
  *             .build());
  * 
- *         final var tC3GceServiceDiscovery = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
+ *         final var TC3GetGceServiceDiscovery = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
  *             .tagKey(&#34;testgcetag&#34;)
  *             .tagValue(&#34;testgcevalue&#34;)
  *             .region(&#34;testgceregion&#34;)
@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *                 .port(80)
  *                 .build())
  *             .serviceDiscoveries(            
- *                 tC3GceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -&gt; getGceServiceDiscoveryResult.gceSdJson()),
- *                 tC3AzureServiceDiscovery.applyValue(getAzureServiceDiscoveryResult -&gt; getAzureServiceDiscoveryResult.azureSdJson()))
+ *                 TC3GetGceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -&gt; getGceServiceDiscoveryResult.gceSdJson()),
+ *                 TC3.applyValue(getAzureServiceDiscoveryResult -&gt; getAzureServiceDiscoveryResult.azureSdJson()))
  *             .build());
  * 
  *     }

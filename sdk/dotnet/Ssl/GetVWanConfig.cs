@@ -28,8 +28,8 @@ namespace Pulumi.F5BigIP.Ssl
         /// {
         ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
         ///     {
-        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
         ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
+        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
         ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
         ///     });
         /// 
@@ -71,8 +71,8 @@ namespace Pulumi.F5BigIP.Ssl
         /// {
         ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
         ///     {
-        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
         ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
+        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
         ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
         ///     });
         /// 

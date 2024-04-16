@@ -32,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileHttp(ctx, "sanjose-http", &ltm.ProfileHttpArgs{
+//				Name:         pulumi.String("/Common/sanjose-http"),
 //				DefaultsFrom: pulumi.String("/Common/http"),
 //				FallbackHost: pulumi.String("titanic"),
 //				FallbackStatusCodes: pulumi.StringArray{
@@ -39,7 +40,6 @@ import (
 //					pulumi.String("500"),
 //					pulumi.String("300"),
 //				},
-//				Name: pulumi.String("/Common/sanjose-http"),
 //			})
 //			if err != nil {
 //				return err

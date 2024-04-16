@@ -25,10 +25,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new()
+    ///     var vsVa = new F5BigIP.Ltm.VirtualAddress("vs_va", new()
     ///     {
-    ///         AdvertizeRoute = "enabled",
     ///         Name = "/Common/xxxxx",
+    ///         AdvertizeRoute = "enabled",
     ///     });
     /// 
     /// });

@@ -29,10 +29,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewCipherRule(ctx, "testCipherRule", &ltm.CipherRuleArgs{
+//			_, err := ltm.NewCipherRule(ctx, "test_cipher_rule", &ltm.CipherRuleArgs{
+//				Name:                pulumi.String("/Common/test_cipher_rule"),
 //				Cipher:              pulumi.String("TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384"),
 //				DhGroups:            pulumi.String("P256:P384:FFDHE2048:FFDHE3072:FFDHE4096"),
-//				Name:                pulumi.String("/Common/test_cipher_rule"),
 //				SignatureAlgorithms: pulumi.String("DEFAULT"),
 //			})
 //			if err != nil {

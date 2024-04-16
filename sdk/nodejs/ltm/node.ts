@@ -20,17 +20,17 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const node = new f5bigip.ltm.Node("node", {
+ *     name: "/Common/terraform_node1",
  *     address: "192.168.30.1",
  *     connectionLimit: 0,
- *     description: "Test-Node",
  *     dynamicRatio: 1,
+ *     monitor: "/Common/icmp",
+ *     description: "Test-Node",
+ *     rateLimit: "disabled",
  *     fqdn: {
  *         addressFamily: "ipv4",
  *         interval: "3000",
  *     },
- *     monitor: "/Common/icmp",
- *     name: "/Common/terraform_node1",
- *     rateLimit: "disabled",
  * });
  * ```
  * <!--End PulumiCodeChooser -->      

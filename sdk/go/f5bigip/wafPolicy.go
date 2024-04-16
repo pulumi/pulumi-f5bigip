@@ -53,14 +53,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			uRL, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//			URL, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
 //				Name:     "URL1",
 //				Protocol: pulumi.StringRef("http"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			uRL2, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//			URL2, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
 //				Name: "URL2",
 //			}, nil)
 //			if err != nil {
@@ -82,8 +82,8 @@ import (
 //					pulumi.String(param2.Json),
 //				},
 //				Urls: pulumi.StringArray{
-//					pulumi.String(uRL.Json),
-//					pulumi.String(uRL2.Json),
+//					pulumi.String(URL.Json),
+//					pulumi.String(URL2.Json),
 //				},
 //			})
 //			if err != nil {

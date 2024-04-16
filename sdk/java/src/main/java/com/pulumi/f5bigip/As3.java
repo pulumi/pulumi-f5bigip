@@ -20,46 +20,6 @@ import javax.annotation.Nullable;
  * 
  * This resource is helpful to configure as3 declarative JSON on BIG-IP.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.As3;
- * import com.pulumi.f5bigip.As3Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         // Example Usage for json file
- *         var as3_example1As3 = new As3(&#34;as3-example1As3&#34;, As3Args.builder()        
- *             .as3Json(Files.readString(Paths.get(&#34;example1.json&#34;)))
- *             .build());
- * 
- *         // Example Usage for json file with tenant filter
- *         var as3_example1Index_as3As3 = new As3(&#34;as3-example1Index/as3As3&#34;, As3Args.builder()        
- *             .as3Json(Files.readString(Paths.get(&#34;example2.json&#34;)))
- *             .tenantFilter(&#34;Sample_03&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )

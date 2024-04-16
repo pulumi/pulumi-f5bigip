@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var vsVa = new VirtualAddress(&#34;vsVa&#34;, VirtualAddressArgs.builder()        
- *             .advertizeRoute(&#34;enabled&#34;)
  *             .name(&#34;/Common/xxxxx&#34;)
+ *             .advertizeRoute(&#34;enabled&#34;)
  *             .build());
  * 
  *     }

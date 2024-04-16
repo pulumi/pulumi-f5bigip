@@ -43,11 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var gtm = new Provision(&#34;gtm&#34;, ProvisionArgs.builder()        
+ *             .name(&#34;gtm&#34;)
  *             .cpuRatio(0)
  *             .diskRatio(0)
  *             .level(&#34;nominal&#34;)
  *             .memoryRatio(0)
- *             .name(&#34;gtm&#34;)
  *             .build());
  * 
  *     }

@@ -27,10 +27,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl("test-ClientSsl", new()
     ///     {
+    ///         Name = "/Common/test-ClientSsl",
+    ///         DefaultsFrom = "/Common/clientssl",
     ///         Authenticate = "always",
     ///         Ciphers = "DEFAULT",
-    ///         DefaultsFrom = "/Common/clientssl",
-    ///         Name = "/Common/test-ClientSsl",
     ///     });
     /// 
     /// });

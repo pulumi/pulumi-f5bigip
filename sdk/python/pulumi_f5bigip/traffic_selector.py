@@ -377,8 +377,8 @@ class TrafficSelector(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_selector = f5bigip.TrafficSelector("test-selector",
-            destination_address="3.10.11.2/32",
             name="/Common/test-selector",
+            destination_address="3.10.11.2/32",
             source_address="2.10.11.12/32")
         ```
         <!--End PulumiCodeChooser -->
@@ -416,8 +416,8 @@ class TrafficSelector(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_selector = f5bigip.TrafficSelector("test-selector",
-            destination_address="3.10.11.2/32",
             name="/Common/test-selector",
+            destination_address="3.10.11.2/32",
             source_address="2.10.11.12/32")
         ```
         <!--End PulumiCodeChooser -->

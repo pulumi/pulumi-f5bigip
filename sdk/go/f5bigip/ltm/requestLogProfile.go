@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewRequestLogProfile(ctx, "request-log-profile-tc1-child", &ltm.RequestLogProfileArgs{
 //				Name:                     pulumi.String("/Common/request-log-profile-tc1-child"),
-//				DefaultsFrom:             pulumi.Any(bigip_ltm_request_log_profile.RequestLogProfileTc1.Name),
+//				DefaultsFrom:             pulumi.Any(request_log_profile_tc1.Name),
 //				RequestLogging:           pulumi.String("disabled"),
 //				RequestlogPool:           pulumi.String("/Common/pool2"),
 //				RequestlogErrorPool:      pulumi.String("/Common/pool1"),

@@ -34,9 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.f5bigip.ltm.ProfileRewrite;
  * import com.pulumi.f5bigip.ltm.ProfileRewriteArgs;
- * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteCookieRuleArgs;
  * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteRequestArgs;
  * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteResponseArgs;
+ * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteCookieRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,37 +51,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_profile = new ProfileRewrite(&#34;test-profile&#34;, ProfileRewriteArgs.builder()        
- *             .bypassLists(&#34;http://notouch.com&#34;)
- *             .caFile(&#34;/Common/ca-bundle.crt&#34;)
- *             .cacheType(&#34;cache-img-css-js&#34;)
- *             .crlFile(&#34;none&#34;)
- *             .defaultsFrom(&#34;/Common/rewrite&#34;)
  *             .name(&#34;/Common/tf_profile&#34;)
+ *             .defaultsFrom(&#34;/Common/rewrite&#34;)
+ *             .bypassLists(&#34;http://notouch.com&#34;)
  *             .rewriteLists(&#34;http://some.com&#34;)
  *             .rewriteMode(&#34;portal&#34;)
+ *             .cacheType(&#34;cache-img-css-js&#34;)
+ *             .caFile(&#34;/Common/ca-bundle.crt&#34;)
+ *             .crlFile(&#34;none&#34;)
  *             .signingCert(&#34;/Common/default.crt&#34;)
  *             .signingKey(&#34;/Common/default.key&#34;)
  *             .splitTunneling(&#34;true&#34;)
  *             .build());
  * 
  *         var test_profile2 = new ProfileRewrite(&#34;test-profile2&#34;, ProfileRewriteArgs.builder()        
- *             .cookieRules(            
- *                 ProfileRewriteCookieRuleArgs.builder()
- *                     .clientDomain(&#34;wrong.com&#34;)
- *                     .clientPath(&#34;/this/&#34;)
- *                     .ruleName(&#34;cookie1&#34;)
- *                     .serverDomain(&#34;wrong.com&#34;)
- *                     .serverPath(&#34;/this/&#34;)
- *                     .build(),
- *                 ProfileRewriteCookieRuleArgs.builder()
- *                     .clientDomain(&#34;incorrect.com&#34;)
- *                     .clientPath(&#34;/this/&#34;)
- *                     .ruleName(&#34;cookie2&#34;)
- *                     .serverDomain(&#34;absolute.com&#34;)
- *                     .serverPath(&#34;/this/&#34;)
- *                     .build())
- *             .defaultsFrom(&#34;/Common/rewrite&#34;)
  *             .name(&#34;/Common/tf_profile_translate&#34;)
+ *             .defaultsFrom(&#34;/Common/rewrite&#34;)
+ *             .rewriteMode(&#34;uri-translation&#34;)
  *             .requests(ProfileRewriteRequestArgs.builder()
  *                 .insertXfwdFor(&#34;enabled&#34;)
  *                 .insertXfwdHost(&#34;disabled&#34;)
@@ -92,7 +78,21 @@ import javax.annotation.Nullable;
  *                 .rewriteContent(&#34;enabled&#34;)
  *                 .rewriteHeaders(&#34;disabled&#34;)
  *                 .build())
- *             .rewriteMode(&#34;uri-translation&#34;)
+ *             .cookieRules(            
+ *                 ProfileRewriteCookieRuleArgs.builder()
+ *                     .ruleName(&#34;cookie1&#34;)
+ *                     .clientDomain(&#34;wrong.com&#34;)
+ *                     .clientPath(&#34;/this/&#34;)
+ *                     .serverDomain(&#34;wrong.com&#34;)
+ *                     .serverPath(&#34;/this/&#34;)
+ *                     .build(),
+ *                 ProfileRewriteCookieRuleArgs.builder()
+ *                     .ruleName(&#34;cookie2&#34;)
+ *                     .clientDomain(&#34;incorrect.com&#34;)
+ *                     .clientPath(&#34;/this/&#34;)
+ *                     .serverDomain(&#34;absolute.com&#34;)
+ *                     .serverPath(&#34;/this/&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }

@@ -19,41 +19,6 @@ import javax.annotation.Nullable;
  * `f5bigip.ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
  * Certificate key can be imported from certificate key files on the local disk, in PEM format
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.ssl.Key;
- * import com.pulumi.f5bigip.ssl.KeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test_key = new Key(&#34;test-key&#34;, KeyArgs.builder()        
- *             .name(&#34;serverkey.key&#34;)
- *             .content(Files.readString(Paths.get(&#34;serverkey.key&#34;)))
- *             .partition(&#34;Common&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  */
 @ResourceType(type="f5bigip:ssl/key:Key")
 public class Key extends com.pulumi.resources.CustomResource {

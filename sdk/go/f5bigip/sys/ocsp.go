@@ -31,10 +31,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sys.NewOcsp(ctx, "test-ocsp", &sys.OcspArgs{
 //				Name:            pulumi.String("/Uncommon/test-ocsp"),
-//				Passphrase:      pulumi.String("testabcdef"),
 //				ProxyServerPool: pulumi.String("/Common/test-poolxyz"),
-//				SignerCert:      pulumi.String("/Common/le-ssl"),
 //				SignerKey:       pulumi.String("/Common/le-ssl"),
+//				SignerCert:      pulumi.String("/Common/le-ssl"),
+//				Passphrase:      pulumi.String("testabcdef"),
 //			})
 //			if err != nil {
 //				return err

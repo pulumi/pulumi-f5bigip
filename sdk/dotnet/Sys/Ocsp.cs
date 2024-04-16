@@ -26,10 +26,10 @@ namespace Pulumi.F5BigIP.Sys
     ///     var test_ocsp = new F5BigIP.Sys.Ocsp("test-ocsp", new()
     ///     {
     ///         Name = "/Uncommon/test-ocsp",
-    ///         Passphrase = "testabcdef",
     ///         ProxyServerPool = "/Common/test-poolxyz",
-    ///         SignerCert = "/Common/le-ssl",
     ///         SignerKey = "/Common/le-ssl",
+    ///         SignerCert = "/Common/le-ssl",
+    ///         Passphrase = "testabcdef",
     ///     });
     /// 
     /// });

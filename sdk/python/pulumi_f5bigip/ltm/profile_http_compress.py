@@ -474,15 +474,15 @@ class ProfileHttpCompress(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
-            content_type_excludes=["nicecontentexclude.com"],
-            content_type_includes=["nicecontent.com"],
-            defaults_from="/Common/httpcompression",
             name="/Common/sjhttpcompression2",
+            defaults_from="/Common/httpcompression",
             uri_excludes=[
                 "www.abc.f5.com",
                 "www.abc2.f5.com",
             ],
-            uri_includes=["www.xyzbc.cisco.com"])
+            uri_includes=["www.xyzbc.cisco.com"],
+            content_type_includes=["nicecontent.com"],
+            content_type_excludes=["nicecontentexclude.com"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -529,15 +529,15 @@ class ProfileHttpCompress(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
-            content_type_excludes=["nicecontentexclude.com"],
-            content_type_includes=["nicecontent.com"],
-            defaults_from="/Common/httpcompression",
             name="/Common/sjhttpcompression2",
+            defaults_from="/Common/httpcompression",
             uri_excludes=[
                 "www.abc.f5.com",
                 "www.abc2.f5.com",
             ],
-            uri_includes=["www.xyzbc.cisco.com"])
+            uri_includes=["www.xyzbc.cisco.com"],
+            content_type_includes=["nicecontent.com"],
+            content_type_excludes=["nicecontentexclude.com"])
         ```
         <!--End PulumiCodeChooser -->
 

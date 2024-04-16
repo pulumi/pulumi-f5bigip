@@ -32,48 +32,48 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
-//				Destination: pulumi.String("1.2.3.4:1234"),
-//				Interval:    pulumi.Int(998),
 //				Name:        pulumi.String("/Common/terraform_monitor"),
 //				Parent:      pulumi.String("/Common/http"),
-//				Send:        pulumi.String("GET /some/path\n\n"),
+//				Send:        pulumi.String("GET /some/path\n"),
 //				Timeout:     pulumi.Int(999),
+//				Interval:    pulumi.Int(998),
+//				Destination: pulumi.String("1.2.3.4:1234"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ltm.NewMonitor(ctx, "test-https-monitor", &ltm.MonitorArgs{
-//				Interval:   pulumi.Int(999),
 //				Name:       pulumi.String("/Common/terraform_monitor"),
 //				Parent:     pulumi.String("/Common/http"),
-//				Send:       pulumi.String("GET /some/path\n\n"),
 //				SslProfile: pulumi.String("/Common/serverssl"),
+//				Send:       pulumi.String("GET /some/path\n"),
+//				Interval:   pulumi.Int(999),
 //				Timeout:    pulumi.Int(1000),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ltm.NewMonitor(ctx, "test-ftp-monitor", &ltm.MonitorArgs{
-//				Destination: pulumi.String("*:8008"),
-//				Filename:    pulumi.String("somefile"),
-//				Interval:    pulumi.Int(5),
 //				Name:        pulumi.String("/Common/ftp-test"),
 //				Parent:      pulumi.String("/Common/ftp"),
+//				Interval:    pulumi.Int(5),
 //				TimeUntilUp: pulumi.Int(0),
 //				Timeout:     pulumi.Int(16),
+//				Destination: pulumi.String("*:8008"),
+//				Filename:    pulumi.String("somefile"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ltm.NewMonitor(ctx, "test-postgresql-monitor", &ltm.MonitorArgs{
-//				Interval: pulumi.Int(5),
 //				Name:     pulumi.String("/Common/test-postgresql-monitor"),
 //				Parent:   pulumi.String("/Common/postgresql"),
-//				Password: pulumi.String("abcd1234"),
-//				Receive:  pulumi.String("Test"),
 //				Send:     pulumi.String("SELECT 'Test';"),
+//				Receive:  pulumi.String("Test"),
+//				Interval: pulumi.Int(5),
 //				Timeout:  pulumi.Int(16),
 //				Username: pulumi.String("abcd"),
+//				Password: pulumi.String("abcd1234"),
 //			})
 //			if err != nil {
 //				return err

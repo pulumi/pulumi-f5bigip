@@ -631,7 +631,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("testPpcookie",
+        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("test_ppcookie",
             name="/Common/terraform_cookie",
             defaults_from="/Common/cookie",
             match_across_pools="enabled",
@@ -730,7 +730,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("testPpcookie",
+        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("test_ppcookie",
             name="/Common/terraform_cookie",
             defaults_from="/Common/cookie",
             match_across_pools="enabled",

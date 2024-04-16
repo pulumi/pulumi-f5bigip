@@ -438,17 +438,17 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         srcaddr = f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr",
+            name="/Common/terraform_srcaddr",
             defaults_from="/Common/source_addr",
-            hash_algorithm="carp",
-            map_proxies="enabled",
-            mask="255.255.255.255",
             match_across_pools="enabled",
             match_across_services="enabled",
             match_across_virtuals="enabled",
             mirror="enabled",
-            name="/Common/terraform_srcaddr",
+            timeout=3600,
             override_conn_limit="enabled",
-            timeout=3600)
+            hash_algorithm="carp",
+            map_proxies="enabled",
+            mask="255.255.255.255")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -517,17 +517,17 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         srcaddr = f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr",
+            name="/Common/terraform_srcaddr",
             defaults_from="/Common/source_addr",
-            hash_algorithm="carp",
-            map_proxies="enabled",
-            mask="255.255.255.255",
             match_across_pools="enabled",
             match_across_services="enabled",
             match_across_virtuals="enabled",
             mirror="enabled",
-            name="/Common/terraform_srcaddr",
+            timeout=3600,
             override_conn_limit="enabled",
-            timeout=3600)
+            hash_algorithm="carp",
+            map_proxies="enabled",
+            mask="255.255.255.255")
         ```
         <!--End PulumiCodeChooser -->
 

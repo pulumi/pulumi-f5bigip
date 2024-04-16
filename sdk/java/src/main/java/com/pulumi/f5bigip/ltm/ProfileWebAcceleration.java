@@ -45,10 +45,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample_resource = new ProfileWebAcceleration(&#34;sample-resource&#34;, ProfileWebAccelerationArgs.builder()        
- *             .cacheMaxEntries(201)
- *             .cacheSize(101)
- *             .defaultsFrom(&#34;/Common/test2&#34;)
  *             .name(&#34;/Common/sample-resource&#34;)
+ *             .defaultsFrom(&#34;/Common/test2&#34;)
+ *             .cacheSize(101)
+ *             .cacheMaxEntries(201)
  *             .build());
  * 
  *     }

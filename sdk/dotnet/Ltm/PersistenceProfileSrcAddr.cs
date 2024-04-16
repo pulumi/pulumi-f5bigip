@@ -25,17 +25,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var srcaddr = new F5BigIP.Ltm.PersistenceProfileSrcAddr("srcaddr", new()
     ///     {
+    ///         Name = "/Common/terraform_srcaddr",
     ///         DefaultsFrom = "/Common/source_addr",
-    ///         HashAlgorithm = "carp",
-    ///         MapProxies = "enabled",
-    ///         Mask = "255.255.255.255",
     ///         MatchAcrossPools = "enabled",
     ///         MatchAcrossServices = "enabled",
     ///         MatchAcrossVirtuals = "enabled",
     ///         Mirror = "enabled",
-    ///         Name = "/Common/terraform_srcaddr",
-    ///         OverrideConnLimit = "enabled",
     ///         Timeout = 3600,
+    ///         OverrideConnLimit = "enabled",
+    ///         HashAlgorithm = "carp",
+    ///         MapProxies = "enabled",
+    ///         Mask = "255.255.255.255",
     ///     });
     /// 
     /// });

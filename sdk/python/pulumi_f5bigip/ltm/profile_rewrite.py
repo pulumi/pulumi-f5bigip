@@ -541,36 +541,21 @@ class ProfileRewrite(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_profile = f5bigip.ltm.ProfileRewrite("test-profile",
-            bypass_lists=["http://notouch.com"],
-            ca_file="/Common/ca-bundle.crt",
-            cache_type="cache-img-css-js",
-            crl_file="none",
-            defaults_from="/Common/rewrite",
             name="/Common/tf_profile",
+            defaults_from="/Common/rewrite",
+            bypass_lists=["http://notouch.com"],
             rewrite_lists=["http://some.com"],
             rewrite_mode="portal",
+            cache_type="cache-img-css-js",
+            ca_file="/Common/ca-bundle.crt",
+            crl_file="none",
             signing_cert="/Common/default.crt",
             signing_key="/Common/default.key",
             split_tunneling="true")
         test_profile2 = f5bigip.ltm.ProfileRewrite("test-profile2",
-            cookie_rules=[
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    client_domain="wrong.com",
-                    client_path="/this/",
-                    rule_name="cookie1",
-                    server_domain="wrong.com",
-                    server_path="/this/",
-                ),
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    client_domain="incorrect.com",
-                    client_path="/this/",
-                    rule_name="cookie2",
-                    server_domain="absolute.com",
-                    server_path="/this/",
-                ),
-            ],
-            defaults_from="/Common/rewrite",
             name="/Common/tf_profile_translate",
+            defaults_from="/Common/rewrite",
+            rewrite_mode="uri-translation",
             requests=[f5bigip.ltm.ProfileRewriteRequestArgs(
                 insert_xfwd_for="enabled",
                 insert_xfwd_host="disabled",
@@ -581,7 +566,22 @@ class ProfileRewrite(pulumi.CustomResource):
                 rewrite_content="enabled",
                 rewrite_headers="disabled",
             )],
-            rewrite_mode="uri-translation")
+            cookie_rules=[
+                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
+                    rule_name="cookie1",
+                    client_domain="wrong.com",
+                    client_path="/this/",
+                    server_domain="wrong.com",
+                    server_path="/this/",
+                ),
+                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
+                    rule_name="cookie2",
+                    client_domain="incorrect.com",
+                    client_path="/this/",
+                    server_domain="absolute.com",
+                    server_path="/this/",
+                ),
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -622,36 +622,21 @@ class ProfileRewrite(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_profile = f5bigip.ltm.ProfileRewrite("test-profile",
-            bypass_lists=["http://notouch.com"],
-            ca_file="/Common/ca-bundle.crt",
-            cache_type="cache-img-css-js",
-            crl_file="none",
-            defaults_from="/Common/rewrite",
             name="/Common/tf_profile",
+            defaults_from="/Common/rewrite",
+            bypass_lists=["http://notouch.com"],
             rewrite_lists=["http://some.com"],
             rewrite_mode="portal",
+            cache_type="cache-img-css-js",
+            ca_file="/Common/ca-bundle.crt",
+            crl_file="none",
             signing_cert="/Common/default.crt",
             signing_key="/Common/default.key",
             split_tunneling="true")
         test_profile2 = f5bigip.ltm.ProfileRewrite("test-profile2",
-            cookie_rules=[
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    client_domain="wrong.com",
-                    client_path="/this/",
-                    rule_name="cookie1",
-                    server_domain="wrong.com",
-                    server_path="/this/",
-                ),
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    client_domain="incorrect.com",
-                    client_path="/this/",
-                    rule_name="cookie2",
-                    server_domain="absolute.com",
-                    server_path="/this/",
-                ),
-            ],
-            defaults_from="/Common/rewrite",
             name="/Common/tf_profile_translate",
+            defaults_from="/Common/rewrite",
+            rewrite_mode="uri-translation",
             requests=[f5bigip.ltm.ProfileRewriteRequestArgs(
                 insert_xfwd_for="enabled",
                 insert_xfwd_host="disabled",
@@ -662,7 +647,22 @@ class ProfileRewrite(pulumi.CustomResource):
                 rewrite_content="enabled",
                 rewrite_headers="disabled",
             )],
-            rewrite_mode="uri-translation")
+            cookie_rules=[
+                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
+                    rule_name="cookie1",
+                    client_domain="wrong.com",
+                    client_path="/this/",
+                    server_domain="wrong.com",
+                    server_path="/this/",
+                ),
+                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
+                    rule_name="cookie2",
+                    client_domain="incorrect.com",
+                    client_path="/this/",
+                    server_domain="absolute.com",
+                    server_path="/this/",
+                ),
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
