@@ -14,6 +14,41 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Loading from a file is the preferred method
+    ///     var rule = new F5BigIP.Ltm.IRule("rule", new()
+    ///     {
+    ///         Name = "/Common/terraform_irule",
+    ///         Irule = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "myirule.tcl",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var rule2 = new F5BigIP.Ltm.IRule("rule2", new()
+    ///     {
+    ///         Name = "/Common/terraform_irule2",
+    ///         Irule = @"when CLIENT_ACCEPTED {
+    ///      log local0. ""test""
+    ///    }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ##myirule.tcl
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/iRule:IRule")]

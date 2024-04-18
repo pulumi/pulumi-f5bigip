@@ -141,6 +141,20 @@ class FastApplication(pulumi.CustomResource):
         """
         `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        foo_app = f5bigip.FastApplication("foo-app",
+            template="examples/simple_http",
+            fast_json=std.file(input="new_fast_app.json").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
@@ -154,6 +168,20 @@ class FastApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        foo_app = f5bigip.FastApplication("foo-app",
+            template="examples/simple_http",
+            fast_json=std.file(input="new_fast_app.json").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FastApplicationArgs args: The arguments to use to populate this resource's properties.

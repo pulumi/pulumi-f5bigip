@@ -12,6 +12,32 @@ namespace Pulumi.F5BigIP
     /// <summary>
     /// `f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
     /// Template set can be imported from zip archive files on the local disk.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_template = new F5BigIP.FastTemplate("foo-template", new()
+    ///     {
+    ///         Name = "foo_template",
+    ///         Source = "foo_template.zip",
+    ///         Md5Hash = Std.Filemd5.Invoke(new()
+    ///         {
+    ///             Input = "foo_template.zip",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastTemplate:FastTemplate")]
     public partial class FastTemplate : global::Pulumi.CustomResource

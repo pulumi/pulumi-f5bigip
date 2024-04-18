@@ -14,6 +14,43 @@ import (
 
 // `ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
 // Certificate key can be imported from certificate key files on the local disk, in PEM format
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "serverkey.key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssl.NewKey(ctx, "test-key", &ssl.KeyArgs{
+//				Name:      pulumi.String("serverkey.key"),
+//				Content:   invokeFile.Result,
+//				Partition: pulumi.String("Common"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 type Key struct {
 	pulumi.CustomResourceState
 

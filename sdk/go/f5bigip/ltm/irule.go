@@ -16,6 +16,50 @@ import (
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "myirule.tcl",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Loading from a file is the preferred method
+//			_, err = ltm.NewIRule(ctx, "rule", &ltm.IRuleArgs{
+//				Name:  pulumi.String("/Common/terraform_irule"),
+//				Irule: invokeFile.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewIRule(ctx, "rule2", &ltm.IRuleArgs{
+//				Name:  pulumi.String("/Common/terraform_irule2"),
+//				Irule: pulumi.String("when CLIENT_ACCEPTED {\n     log local0. \"test\"\n   }\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ##myirule.tcl
 type IRule struct {
 	pulumi.CustomResourceState

@@ -7,6 +7,24 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
  * Certificate key can be imported from certificate key files on the local disk, in PEM format
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as std from "@pulumi/std";
+ *
+ * const test_key = new f5bigip.ssl.Key("test-key", {
+ *     name: "serverkey.key",
+ *     content: std.file({
+ *         input: "serverkey.key",
+ *     }).then(invoke => invoke.result),
+ *     partition: "Common",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Key extends pulumi.CustomResource {
     /**

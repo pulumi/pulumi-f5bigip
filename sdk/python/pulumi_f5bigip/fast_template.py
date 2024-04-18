@@ -134,6 +134,21 @@ class FastTemplate(pulumi.CustomResource):
         `FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
         Template set can be imported from zip archive files on the local disk.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        foo_template = f5bigip.FastTemplate("foo-template",
+            name="foo_template",
+            source="foo_template.zip",
+            md5_hash=std.filemd5(input="foo_template.zip").result)
+        ```
+        <!--End PulumiCodeChooser -->
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] md5_hash: MD5 hash of the zip archive file containing FAST template
@@ -149,6 +164,21 @@ class FastTemplate(pulumi.CustomResource):
         """
         `FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
         Template set can be imported from zip archive files on the local disk.
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        foo_template = f5bigip.FastTemplate("foo-template",
+            name="foo_template",
+            source="foo_template.zip",
+            md5_hash=std.filemd5(input="foo_template.zip").result)
+        ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FastTemplateArgs args: The arguments to use to populate this resource's properties.

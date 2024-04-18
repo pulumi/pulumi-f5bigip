@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as std from "@pulumi/std";
+ *
+ * // Loading from a file is the preferred method
+ * const rule = new f5bigip.ltm.IRule("rule", {
+ *     name: "/Common/terraform_irule",
+ *     irule: std.file({
+ *         input: "myirule.tcl",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const rule2 = new f5bigip.ltm.IRule("rule2", {
+ *     name: "/Common/terraform_irule2",
+ *     irule: `when CLIENT_ACCEPTED {
+ *      log local0. "test"
+ *    }
+ * `,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ##myirule.tcl
  */
 export class IRule extends pulumi.CustomResource {

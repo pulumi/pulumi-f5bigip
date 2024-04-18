@@ -7,6 +7,24 @@ import * as utilities from "./utilities";
 /**
  * `f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
  * Template set can be imported from zip archive files on the local disk.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as std from "@pulumi/std";
+ *
+ * const foo_template = new f5bigip.FastTemplate("foo-template", {
+ *     name: "foo_template",
+ *     source: "foo_template.zip",
+ *     md5Hash: std.filemd5({
+ *         input: "foo_template.zip",
+ *     }).then(invoke => invoke.result),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class FastTemplate extends pulumi.CustomResource {
     /**

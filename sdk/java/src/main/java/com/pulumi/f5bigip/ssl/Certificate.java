@@ -19,6 +19,43 @@ import javax.annotation.Nullable;
  * `f5bigip.ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
  * Certificates can be imported from certificate files on the local disk, in PEM format
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.ssl.Certificate;
+ * import com.pulumi.f5bigip.ssl.CertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test_cert = new Certificate(&#34;test-cert&#34;, CertificateArgs.builder()        
+ *             .name(&#34;servercert.crt&#34;)
+ *             .content(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;servercert.crt&#34;)
+ *                 .build()).result())
+ *             .partition(&#34;Common&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="f5bigip:ssl/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {

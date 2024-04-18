@@ -12,6 +12,31 @@ namespace Pulumi.F5BigIP.Sys
     /// <summary>
     /// `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var simplehttp = new F5BigIP.Sys.IApp("simplehttp", new()
+    ///     {
+    ///         Name = "simplehttp",
+    ///         Jsonfile = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "simplehttp.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Json File
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
