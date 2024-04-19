@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     timeout: 999,
  *     interval: 998,
  * });
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     timeout: 999,
  *     interval: 998,
  * });
