@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     certContent: fs.readFileSync("certificate.pem", "utf8"),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class SslKeyCert extends pulumi.CustomResource {
     /**

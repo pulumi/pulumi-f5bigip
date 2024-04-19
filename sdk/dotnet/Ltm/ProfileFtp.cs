@@ -18,7 +18,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ### For Bigip versions (14.x - 16.x)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,9 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;      
     /// 
     /// ### For Bigip versions (12.x - 13.x)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +62,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Common Arguments for all versions
     /// 

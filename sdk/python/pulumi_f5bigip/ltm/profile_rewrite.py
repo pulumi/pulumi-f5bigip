@@ -535,7 +535,6 @@ class ProfileRewrite(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -583,7 +582,6 @@ class ProfileRewrite(pulumi.CustomResource):
             )],
             rewrite_mode="uri-translation")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -616,7 +614,6 @@ class ProfileRewrite(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -664,7 +661,6 @@ class ProfileRewrite(pulumi.CustomResource):
             )],
             rewrite_mode="uri-translation")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ProfileRewriteArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -22,7 +21,6 @@ import * as utilities from "./utilities";
  *     sourceAddress: "2.10.11.12/32",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class TrafficSelector extends pulumi.CustomResource {
     /**

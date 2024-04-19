@@ -202,7 +202,6 @@ class SelfIp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -220,10 +219,8 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
-        <!--End PulumiCodeChooser -->
         ### Example usage with `port_lockdown`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -240,11 +237,9 @@ class SelfIp(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example usage with `port_lockdown` set to `["none"]`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -257,11 +252,9 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example usage with route domain embedded in the `ip`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -274,7 +267,6 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +289,6 @@ class SelfIp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -315,10 +306,8 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts=pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
-        <!--End PulumiCodeChooser -->
         ### Example usage with `port_lockdown`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -335,11 +324,9 @@ class SelfIp(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example usage with `port_lockdown` set to `["none"]`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -352,11 +339,9 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example usage with route domain embedded in the `ip`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -369,7 +354,6 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SelfIpArgs args: The arguments to use to populate this resource's properties.

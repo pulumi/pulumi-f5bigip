@@ -14,7 +14,6 @@ namespace Pulumi.F5BigIP
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.F5BigIP
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastTcpApp:FastTcpApp")]
     public partial class FastTcpApp : global::Pulumi.CustomResource

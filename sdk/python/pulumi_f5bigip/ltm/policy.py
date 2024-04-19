@@ -284,7 +284,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -309,7 +308,6 @@ class Policy(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[mypool]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -342,7 +340,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -367,7 +364,6 @@ class Policy(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[mypool]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 

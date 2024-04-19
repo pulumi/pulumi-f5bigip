@@ -9,7 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -30,7 +29,6 @@ import * as utilities from "./utilities";
  *     taskid: "~Sample_event_sd~My_app~My_pool",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class EventServiceDiscovery extends pulumi.CustomResource {
     /**

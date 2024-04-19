@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/vlan:Vlan")]
     public partial class Vlan : global::Pulumi.CustomResource

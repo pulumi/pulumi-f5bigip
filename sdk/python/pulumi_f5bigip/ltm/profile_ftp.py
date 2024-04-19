@@ -577,7 +577,6 @@ class ProfileFtp(pulumi.CustomResource):
 
         ### For Bigip versions (14.x - 16.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -591,11 +590,9 @@ class ProfileFtp(pulumi.CustomResource):
             name="/Common/sanjose-ftp-profile",
             port=2020)
         ```
-        <!--End PulumiCodeChooser -->      
 
         ### For Bigip versions (12.x - 13.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -608,7 +605,6 @@ class ProfileFtp(pulumi.CustomResource):
             port=2020,
             translate_extended="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Common Arguments for all versions
 
@@ -660,7 +656,6 @@ class ProfileFtp(pulumi.CustomResource):
 
         ### For Bigip versions (14.x - 16.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -674,11 +669,9 @@ class ProfileFtp(pulumi.CustomResource):
             name="/Common/sanjose-ftp-profile",
             port=2020)
         ```
-        <!--End PulumiCodeChooser -->      
 
         ### For Bigip versions (12.x - 13.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -691,7 +684,6 @@ class ProfileFtp(pulumi.CustomResource):
             port=2020,
             translate_extended="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Common Arguments for all versions
 

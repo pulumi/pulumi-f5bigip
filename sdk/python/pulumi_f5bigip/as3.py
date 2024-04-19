@@ -799,7 +799,6 @@ class As3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -811,7 +810,6 @@ class As3(pulumi.CustomResource):
             as3_json=(lambda path: open(path).read())("example2.json"),
             tenant_filter="Sample_03")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1324,7 +1322,6 @@ class As3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1336,7 +1333,6 @@ class As3(pulumi.CustomResource):
             as3_json=(lambda path: open(path).read())("example2.json"),
             tenant_filter="Sample_03")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

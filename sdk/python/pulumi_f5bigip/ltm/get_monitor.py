@@ -238,7 +238,6 @@ def get_monitor(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -246,7 +245,6 @@ def get_monitor(name: Optional[str] = None,
     monitor__tc1 = f5bigip.ltm.get_monitor(name="test-monitor",
         partition="Common")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ltm monitor
@@ -289,7 +287,6 @@ def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -297,7 +294,6 @@ def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
     monitor__tc1 = f5bigip.ltm.get_monitor(name="test-monitor",
         partition="Common")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ltm monitor

@@ -830,7 +830,6 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -840,7 +839,7 @@ class Monitor(pulumi.CustomResource):
             interval=998,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
+            send=\"\"\"GET /some/path\\x0d
 
         \"\"\",
             timeout=999)
@@ -848,7 +847,7 @@ class Monitor(pulumi.CustomResource):
             interval=999,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
+            send=\"\"\"GET /some/path\\x0d
 
         \"\"\",
             ssl_profile="/Common/serverssl",
@@ -871,7 +870,6 @@ class Monitor(pulumi.CustomResource):
             timeout=16,
             username="abcd")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -921,7 +919,6 @@ class Monitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -931,7 +928,7 @@ class Monitor(pulumi.CustomResource):
             interval=998,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
+            send=\"\"\"GET /some/path\\x0d
 
         \"\"\",
             timeout=999)
@@ -939,7 +936,7 @@ class Monitor(pulumi.CustomResource):
             interval=999,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
+            send=\"\"\"GET /some/path\\x0d
 
         \"\"\",
             ssl_profile="/Common/serverssl",
@@ -962,7 +959,6 @@ class Monitor(pulumi.CustomResource):
             timeout=16,
             username="abcd")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

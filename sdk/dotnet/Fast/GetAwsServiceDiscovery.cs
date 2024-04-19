@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAwsServiceDiscoveryResult> InvokeAsync(GetAwsServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAwsServiceDiscoveryResult> Invoke(GetAwsServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryInvokeArgs(), options.WithDefaults());

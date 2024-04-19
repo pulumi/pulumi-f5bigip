@@ -17,7 +17,6 @@ namespace Pulumi.F5BigIP.Ssl
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.F5BigIP.Ssl
         ///     });
         /// 
         /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;      
+        /// ```      
         /// 
         /// ## Pre-required Environment Settings:
         /// 
@@ -60,7 +58,6 @@ namespace Pulumi.F5BigIP.Ssl
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,8 +74,7 @@ namespace Pulumi.F5BigIP.Ssl
         ///     });
         /// 
         /// });
-        /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;      
+        /// ```      
         /// 
         /// ## Pre-required Environment Settings:
         /// 

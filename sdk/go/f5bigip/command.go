@@ -17,7 +17,6 @@ import (
 // This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type Command struct {
 	pulumi.CustomResourceState
 

@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,7 +91,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileRewrite:ProfileRewrite")]
     public partial class ProfileRewrite : global::Pulumi.CustomResource

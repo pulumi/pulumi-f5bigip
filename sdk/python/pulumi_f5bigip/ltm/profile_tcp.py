@@ -765,7 +765,6 @@ class ProfileTcp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -780,7 +779,6 @@ class ProfileTcp(pulumi.CustomResource):
             keepalive_interval=1700,
             name="/Common/sanjose-tcp-lan-profile")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -828,7 +826,6 @@ class ProfileTcp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -843,7 +840,6 @@ class ProfileTcp(pulumi.CustomResource):
             keepalive_interval=1700,
             name="/Common/sanjose-tcp-lan-profile")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

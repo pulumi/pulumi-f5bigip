@@ -73,14 +73,12 @@ def get_waf_policy(policy_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
 
     existpolicy = f5bigip.ssl.get_waf_policy(policy_id="xxxxx")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str policy_id: ID of the WAF policy deployed in the BIG-IP.
@@ -107,14 +105,12 @@ def get_waf_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
 
     existpolicy = f5bigip.ssl.get_waf_policy(policy_id="xxxxx")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str policy_id: ID of the WAF policy deployed in the BIG-IP.

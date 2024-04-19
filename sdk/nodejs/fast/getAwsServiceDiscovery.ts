@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     tagValue: "testawstagvalue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAwsServiceDiscovery(args: GetAwsServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsServiceDiscoveryResult> {
 
@@ -133,7 +131,6 @@ export interface GetAwsServiceDiscoveryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -143,7 +140,6 @@ export interface GetAwsServiceDiscoveryResult {
  *     tagValue: "testawstagvalue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getAwsServiceDiscovery(a, opts))

@@ -17,7 +17,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWafEntityUrlResult> InvokeAsync(GetWafEntityUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlArgs(), options.WithDefaults());
@@ -66,7 +64,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +101,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWafEntityUrlResult> Invoke(GetWafEntityUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());

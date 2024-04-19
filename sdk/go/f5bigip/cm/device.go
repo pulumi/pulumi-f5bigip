@@ -17,7 +17,6 @@ import (
 // This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type Device struct {
 	pulumi.CustomResourceState
 

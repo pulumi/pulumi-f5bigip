@@ -136,7 +136,6 @@ class Partition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -146,7 +145,6 @@ class Partition(pulumi.CustomResource):
             name="test-partition",
             route_domain_id=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -176,7 +174,6 @@ class Partition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -186,7 +183,6 @@ class Partition(pulumi.CustomResource):
             name="test-partition",
             route_domain_id=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 

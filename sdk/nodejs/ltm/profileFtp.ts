@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### For Bigip versions (14.x - 16.x)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     port: 2020,
  * });
  * ```
- * <!--End PulumiCodeChooser -->      
  *
  * ### For Bigip versions (12.x - 13.x)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -46,7 +43,6 @@ import * as utilities from "../utilities";
  *     translateExtended: "enabled",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Common Arguments for all versions
  *

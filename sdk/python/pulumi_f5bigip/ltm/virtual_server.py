@@ -952,7 +952,6 @@ class VirtualServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -988,7 +987,6 @@ class VirtualServer(pulumi.CustomResource):
             security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -1042,7 +1040,6 @@ class VirtualServer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1078,7 +1075,6 @@ class VirtualServer(pulumi.CustomResource):
             security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

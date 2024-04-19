@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAzureServiceDiscoveryResult> InvokeAsync(GetAzureServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureServiceDiscoveryResult>("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args ?? new GetAzureServiceDiscoveryArgs(), options.WithDefaults());
@@ -45,7 +43,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAzureServiceDiscoveryResult> Invoke(GetAzureServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureServiceDiscoveryResult>("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args ?? new GetAzureServiceDiscoveryInvokeArgs(), options.WithDefaults());

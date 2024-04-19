@@ -399,7 +399,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -416,7 +415,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -470,7 +468,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -487,7 +484,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             override_conn_limit="enabled",
             timeout=3600)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     tagValue: "testgcevalue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGceServiceDiscovery(args: GetGceServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetGceServiceDiscoveryResult> {
 
@@ -122,7 +120,6 @@ export interface GetGceServiceDiscoveryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -133,7 +130,6 @@ export interface GetGceServiceDiscoveryResult {
  *     tagValue: "testgcevalue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGceServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getGceServiceDiscovery(a, opts))

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "/Common/xxxxx",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class VirtualAddress extends pulumi.CustomResource {
     /**

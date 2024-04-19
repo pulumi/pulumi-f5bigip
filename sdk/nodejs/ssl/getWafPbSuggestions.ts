@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     policyName: "protect_me_policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWafPbSuggestions(args: GetWafPbSuggestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPbSuggestionsResult> {
 
@@ -80,7 +78,6 @@ export interface GetWafPbSuggestionsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -91,7 +88,6 @@ export interface GetWafPbSuggestionsResult {
  *     policyName: "protect_me_policy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWafPbSuggestionsOutput(args: GetWafPbSuggestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPbSuggestionsResult> {
     return pulumi.output(args).apply((a: any) => getWafPbSuggestions(a, opts))

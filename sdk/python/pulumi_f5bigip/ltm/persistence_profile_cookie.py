@@ -626,7 +626,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -646,7 +645,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             expiration="1:0:0",
             hash_length=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -725,7 +723,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -745,7 +742,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             expiration="1:0:0",
             hash_length=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 

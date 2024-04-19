@@ -598,7 +598,6 @@ class Ocsp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -610,7 +609,6 @@ class Ocsp(pulumi.CustomResource):
             signer_cert="/Common/le-ssl",
             signer_key="/Common/le-ssl")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -651,7 +649,6 @@ class Ocsp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -663,7 +660,6 @@ class Ocsp(pulumi.CustomResource):
             signer_cert="/Common/le-ssl",
             signer_key="/Common/le-ssl")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 

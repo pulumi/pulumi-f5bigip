@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetWafSignatures(ctx *pulumi.Context, args *GetWafSignaturesArgs, opts ...pulumi.InvokeOption) (*GetWafSignaturesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafSignaturesResult

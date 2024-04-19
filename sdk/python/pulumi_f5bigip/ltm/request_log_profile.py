@@ -697,7 +697,6 @@ class RequestLogProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -713,7 +712,6 @@ class RequestLogProfile(pulumi.CustomResource):
             responselog_protocol="mds-tcp",
             responselog_error_protocol="mds-tcp")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -759,7 +757,6 @@ class RequestLogProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -775,7 +772,6 @@ class RequestLogProfile(pulumi.CustomResource):
             responselog_protocol="mds-tcp",
             responselog_error_protocol="mds-tcp")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

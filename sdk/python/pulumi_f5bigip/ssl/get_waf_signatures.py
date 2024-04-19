@@ -180,14 +180,12 @@ def get_waf_signatures(accuracy: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
 
     w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accuracy: The relative detection accuracy of the signature.
@@ -244,14 +242,12 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
 
     w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accuracy: The relative detection accuracy of the signature.

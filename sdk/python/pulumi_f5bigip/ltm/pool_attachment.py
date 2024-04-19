@@ -378,7 +378,6 @@ class PoolAttachment(pulumi.CustomResource):
 
         node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -386,7 +385,7 @@ class PoolAttachment(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998)
         pool = f5bigip.ltm.Pool("pool",
@@ -404,11 +403,9 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="2003::4.80")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage Pool attachment with node referenced from `ltm.Node`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -416,7 +413,7 @@ class PoolAttachment(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998)
         pool = f5bigip.ltm.Pool("pool",
@@ -432,7 +429,6 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -479,7 +475,6 @@ class PoolAttachment(pulumi.CustomResource):
 
         node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -487,7 +482,7 @@ class PoolAttachment(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998)
         pool = f5bigip.ltm.Pool("pool",
@@ -505,11 +500,9 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="2003::4.80")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage Pool attachment with node referenced from `ltm.Node`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -517,7 +510,7 @@ class PoolAttachment(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998)
         pool = f5bigip.ltm.Pool("pool",
@@ -533,7 +526,6 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
