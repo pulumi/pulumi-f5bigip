@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
+        ///     var DG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
         ///     {
         ///         Name = "test-dg",
         ///         Partition = "Common",
@@ -54,7 +54,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var dG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
+        ///     var DG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
         ///     {
         ///         Name = "test-dg",
         ///         Partition = "Common",

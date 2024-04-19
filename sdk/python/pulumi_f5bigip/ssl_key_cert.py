@@ -402,13 +402,14 @@ class SslKeyCert(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         testkeycert = f5bigip.SslKeyCert("testkeycert",
             partition="Common",
             key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
+            key_content=std.file(input="key.pem").result,
             cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
+            cert_content=std.file(input="certificate.pem").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -442,13 +443,14 @@ class SslKeyCert(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         testkeycert = f5bigip.SslKeyCert("testkeycert",
             partition="Common",
             key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
+            key_content=std.file(input="key.pem").result,
             cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
+            cert_content=std.file(input="certificate.pem").result)
         ```
         <!--End PulumiCodeChooser -->
 

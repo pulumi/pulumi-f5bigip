@@ -71,12 +71,12 @@ import javax.annotation.Nullable;
  *             .performStaging(true)
  *             .build());
  * 
- *         final var uRL = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+ *         final var URL = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
  *             .name(&#34;URL1&#34;)
  *             .protocol(&#34;http&#34;)
  *             .build());
  * 
- *         final var uRL2 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+ *         final var URL2 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
  *             .name(&#34;URL2&#34;)
  *             .build());
  * 
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  *                 param1.applyValue(getWafEntityParameterResult -&gt; getWafEntityParameterResult.json()),
  *                 param2.applyValue(getWafEntityParameterResult -&gt; getWafEntityParameterResult.json()))
  *             .urls(            
- *                 uRL.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()),
- *                 uRL2.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()))
+ *                 URL.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()),
+ *                 URL2.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()))
  *             .build());
  * 
  *     }

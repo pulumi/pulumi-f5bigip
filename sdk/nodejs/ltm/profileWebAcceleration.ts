@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sample_resource = new f5bigip.ltm.ProfileWebAcceleration("sample-resource", {
- *     cacheMaxEntries: 201,
- *     cacheSize: 101,
- *     defaultsFrom: "/Common/test2",
  *     name: "/Common/sample-resource",
+ *     defaultsFrom: "/Common/test2",
+ *     cacheSize: 101,
+ *     cacheMaxEntries: 201,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

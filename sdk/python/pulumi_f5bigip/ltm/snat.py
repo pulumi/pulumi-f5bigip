@@ -410,11 +410,11 @@ class Snat(pulumi.CustomResource):
 
         test_snat = f5bigip.ltm.Snat("test-snat",
             name="/Common/test-snat",
+            translation="/Common/136.1.1.2",
+            sourceport="preserve",
             origins=[f5bigip.ltm.SnatOriginArgs(
                 name="0.0.0.0/0",
             )],
-            sourceport="preserve",
-            translation="/Common/136.1.1.2",
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
@@ -454,11 +454,11 @@ class Snat(pulumi.CustomResource):
 
         test_snat = f5bigip.ltm.Snat("test-snat",
             name="/Common/test-snat",
+            translation="/Common/136.1.1.2",
+            sourceport="preserve",
             origins=[f5bigip.ltm.SnatOriginArgs(
                 name="0.0.0.0/0",
             )],
-            sourceport="preserve",
-            translation="/Common/136.1.1.2",
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```

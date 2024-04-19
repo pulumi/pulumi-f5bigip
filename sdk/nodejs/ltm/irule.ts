@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * // Loading from a file is the preferred method
  * const rule = new f5bigip.ltm.IRule("rule", {
  *     name: "/Common/terraform_irule",
- *     irule: fs.readFileSync("myirule.tcl", "utf8"),
+ *     irule: std.file({
+ *         input: "myirule.tcl",
+ *     }).then(invoke => invoke.result),
  * });
  * const rule2 = new f5bigip.ltm.IRule("rule2", {
  *     name: "/Common/terraform_irule2",

@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test = new f5bigip.EventServiceDiscovery("test", {
+ *     taskid: "~Sample_event_sd~My_app~My_pool",
  *     nodes: [
  *         {
  *             id: "newNode1",
@@ -27,7 +28,6 @@ import * as utilities from "./utilities";
  *             port: 8080,
  *         },
  *     ],
- *     taskid: "~Sample_event_sd~My_app~My_pool",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -32,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileTcp(ctx, "sanjose-tcp-lan-profile", &ltm.ProfileTcpArgs{
+//				Name:              pulumi.String("/Common/sanjose-tcp-lan-profile"),
+//				IdleTimeout:       pulumi.Int(200),
 //				CloseWaitTimeout:  pulumi.Int(5),
-//				DeferredAccept:    pulumi.String("enabled"),
-//				FastOpen:          pulumi.String("enabled"),
 //				Finwait2timeout:   pulumi.Int(5),
 //				FinwaitTimeout:    pulumi.Int(300),
-//				IdleTimeout:       pulumi.Int(200),
 //				KeepaliveInterval: pulumi.Int(1700),
-//				Name:              pulumi.String("/Common/sanjose-tcp-lan-profile"),
+//				DeferredAccept:    pulumi.String("enabled"),
+//				FastOpen:          pulumi.String("enabled"),
 //			})
 //			if err != nil {
 //				return err

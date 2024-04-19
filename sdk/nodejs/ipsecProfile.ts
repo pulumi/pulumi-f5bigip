@@ -14,9 +14,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const azurevWANProfile = new f5bigip.IpsecProfile("azurevWANProfile", {
- *     description: "mytestipsecprofile",
+ * const azurevWANProfile = new f5bigip.IpsecProfile("azurevWAN_profile", {
  *     name: "/Common/Mytestipsecprofile",
+ *     description: "mytestipsecprofile",
  *     trafficSelector: "test-trafficselector",
  * });
  * ```

@@ -50,7 +50,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
+     *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testawstagkey&#34;)
      *             .tagValue(&#34;testawstagvalue&#34;)
      *             .build());
@@ -91,7 +91,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
+     *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testawstagkey&#34;)
      *             .tagValue(&#34;testawstagvalue&#34;)
      *             .build());
@@ -132,7 +132,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
+     *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testawstagkey&#34;)
      *             .tagValue(&#34;testawstagvalue&#34;)
      *             .build());
@@ -173,7 +173,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
+     *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testawstagkey&#34;)
      *             .tagValue(&#34;testawstagvalue&#34;)
      *             .build());
@@ -214,7 +214,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+     *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
      *             .resourceGroup(&#34;testazurerg&#34;)
      *             .subscriptionId(&#34;testazuresid&#34;)
      *             .tagKey(&#34;testazuretag&#34;)
@@ -257,7 +257,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+     *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
      *             .resourceGroup(&#34;testazurerg&#34;)
      *             .subscriptionId(&#34;testazuresid&#34;)
      *             .tagKey(&#34;testazuretag&#34;)
@@ -300,7 +300,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+     *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
      *             .resourceGroup(&#34;testazurerg&#34;)
      *             .subscriptionId(&#34;testazuresid&#34;)
      *             .tagKey(&#34;testazuretag&#34;)
@@ -343,7 +343,7 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+     *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
      *             .resourceGroup(&#34;testazurerg&#34;)
      *             .subscriptionId(&#34;testazuresid&#34;)
      *             .tagKey(&#34;testazuretag&#34;)
@@ -386,9 +386,9 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .port(8080)
+     *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
      *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .port(8080)
      *             .build());
      * 
      *     }
@@ -427,9 +427,9 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .port(8080)
+     *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
      *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .port(8080)
      *             .build());
      * 
      *     }
@@ -468,9 +468,9 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .port(8080)
+     *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
      *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .port(8080)
      *             .build());
      * 
      *     }
@@ -509,9 +509,9 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .port(8080)
+     *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
      *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .port(8080)
      *             .build());
      * 
      *     }
@@ -550,10 +550,10 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .region(&#34;testgceregion&#34;)
+     *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testgcetag&#34;)
      *             .tagValue(&#34;testgcevalue&#34;)
+     *             .region(&#34;testgceregion&#34;)
      *             .build());
      * 
      *     }
@@ -592,10 +592,10 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .region(&#34;testgceregion&#34;)
+     *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testgcetag&#34;)
      *             .tagValue(&#34;testgcevalue&#34;)
+     *             .region(&#34;testgceregion&#34;)
      *             .build());
      * 
      *     }
@@ -634,10 +634,10 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .region(&#34;testgceregion&#34;)
+     *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testgcetag&#34;)
      *             .tagValue(&#34;testgcevalue&#34;)
+     *             .region(&#34;testgceregion&#34;)
      *             .build());
      * 
      *     }
@@ -676,10 +676,10 @@ public final class FastFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .region(&#34;testgceregion&#34;)
+     *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
      *             .tagKey(&#34;testgcetag&#34;)
      *             .tagValue(&#34;testgcevalue&#34;)
+     *             .region(&#34;testgceregion&#34;)
      *             .build());
      * 
      *     }

@@ -19,40 +19,6 @@ import javax.annotation.Nullable;
  * `f5bigip.Command` Run TMSH commands on F5 devices
  * 
  * This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.Command;
- * import com.pulumi.f5bigip.CommandArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         //create ltm node
- *         var test_command = new Command(&#34;test-command&#34;, CommandArgs.builder()        
- *             .commands(&#34;delete ltm node 10.10.10.70&#34;)
- *             .when(&#34;destroy&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/command:Command")

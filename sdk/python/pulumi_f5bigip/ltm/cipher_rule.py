@@ -206,10 +206,10 @@ class CipherRule(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
+        test_cipher_rule = f5bigip.ltm.CipherRule("test_cipher_rule",
+            name="/Common/test_cipher_rule",
             cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
-            name="/Common/test_cipher_rule",
             signature_algorithms="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->
@@ -246,10 +246,10 @@ class CipherRule(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
+        test_cipher_rule = f5bigip.ltm.CipherRule("test_cipher_rule",
+            name="/Common/test_cipher_rule",
             cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
-            name="/Common/test_cipher_rule",
             signature_algorithms="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->

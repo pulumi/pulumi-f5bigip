@@ -797,22 +797,6 @@ class As3(pulumi.CustomResource):
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        as3_example1_as3 = f5bigip.As3("as3-example1As3", as3_json=(lambda path: open(path).read())("example1.json"))
-        # Example Usage for json file with tenant filter
-        as3_example1_index_as3_as3 = f5bigip.As3("as3-example1Index/as3As3",
-            as3_json=(lambda path: open(path).read())("example2.json"),
-            tenant_filter="Sample_03")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
@@ -1321,22 +1305,6 @@ class As3(pulumi.CustomResource):
         `As3` provides details about bigip as3 resource
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        as3_example1_as3 = f5bigip.As3("as3-example1As3", as3_json=(lambda path: open(path).read())("example1.json"))
-        # Example Usage for json file with tenant filter
-        as3_example1_index_as3_as3 = f5bigip.As3("as3-example1Index/as3As3",
-            as3_json=(lambda path: open(path).read())("example2.json"),
-            tenant_filter="Sample_03")
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

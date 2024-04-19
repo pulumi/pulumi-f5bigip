@@ -147,10 +147,11 @@ class FastApplication(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         foo_app = f5bigip.FastApplication("foo-app",
-            fast_json=(lambda path: open(path).read())("new_fast_app.json"),
-            template="examples/simple_http")
+            template="examples/simple_http",
+            fast_json=std.file(input="new_fast_app.json").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -174,10 +175,11 @@ class FastApplication(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         foo_app = f5bigip.FastApplication("foo-app",
-            fast_json=(lambda path: open(path).read())("new_fast_app.json"),
-            template="examples/simple_http")
+            template="examples/simple_http",
+            fast_json=std.file(input="new_fast_app.json").result)
         ```
         <!--End PulumiCodeChooser -->
 

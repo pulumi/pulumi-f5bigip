@@ -14,11 +14,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const test_key = new f5bigip.ssl.Key("test-key", {
  *     name: "serverkey.key",
- *     content: fs.readFileSync("serverkey.key", "utf8"),
+ *     content: std.file({
+ *         input: "serverkey.key",
+ *     }).then(invoke => invoke.result),
  *     partition: "Common",
  * });
  * ```

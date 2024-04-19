@@ -32,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileWebAcceleration(ctx, "sample-resource", &ltm.ProfileWebAccelerationArgs{
-//				CacheMaxEntries: pulumi.Int(201),
-//				CacheSize:       pulumi.Int(101),
-//				DefaultsFrom:    pulumi.String("/Common/test2"),
 //				Name:            pulumi.String("/Common/sample-resource"),
+//				DefaultsFrom:    pulumi.String("/Common/test2"),
+//				CacheSize:       pulumi.Int(101),
+//				CacheMaxEntries: pulumi.Int(201),
 //			})
 //			if err != nil {
 //				return err

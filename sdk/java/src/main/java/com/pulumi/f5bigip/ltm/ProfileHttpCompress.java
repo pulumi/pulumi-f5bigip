@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sjhttpcompression = new ProfileHttpCompress(&#34;sjhttpcompression&#34;, ProfileHttpCompressArgs.builder()        
- *             .contentTypeExcludes(&#34;nicecontentexclude.com&#34;)
- *             .contentTypeIncludes(&#34;nicecontent.com&#34;)
- *             .defaultsFrom(&#34;/Common/httpcompression&#34;)
  *             .name(&#34;/Common/sjhttpcompression2&#34;)
+ *             .defaultsFrom(&#34;/Common/httpcompression&#34;)
  *             .uriExcludes(            
  *                 &#34;www.abc.f5.com&#34;,
  *                 &#34;www.abc2.f5.com&#34;)
  *             .uriIncludes(&#34;www.xyzbc.cisco.com&#34;)
+ *             .contentTypeIncludes(&#34;nicecontent.com&#34;)
+ *             .contentTypeExcludes(&#34;nicecontentexclude.com&#34;)
  *             .build());
  * 
  *     }

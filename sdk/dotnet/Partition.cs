@@ -25,8 +25,8 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var test_partition = new F5BigIP.Partition("test-partition", new()
     ///     {
-    ///         Description = "created by terraform",
     ///         Name = "test-partition",
+    ///         Description = "created by terraform",
     ///         RouteDomainId = 2,
     ///     });
     /// 

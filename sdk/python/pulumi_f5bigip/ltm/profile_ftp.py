@@ -583,13 +583,13 @@ class ProfileFtp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_active_mode="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            enforce_tlssession_reuse="enabled",
-            ftps_mode="allow",
             name="/Common/sanjose-ftp-profile",
-            port=2020)
+            defaults_from="/Common/ftp",
+            port=2020,
+            description="test-tftp-profile",
+            ftps_mode="allow",
+            enforce_tlssession_reuse="enabled",
+            allow_active_mode="enabled")
         ```
         <!--End PulumiCodeChooser -->      
 
@@ -601,11 +601,11 @@ class ProfileFtp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_ftps="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
             name="/Common/sanjose-ftp-profile",
+            defaults_from="/Common/ftp",
             port=2020,
+            description="test-tftp-profile",
+            allow_ftps="enabled",
             translate_extended="enabled")
         ```
         <!--End PulumiCodeChooser -->
@@ -666,13 +666,13 @@ class ProfileFtp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_active_mode="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            enforce_tlssession_reuse="enabled",
-            ftps_mode="allow",
             name="/Common/sanjose-ftp-profile",
-            port=2020)
+            defaults_from="/Common/ftp",
+            port=2020,
+            description="test-tftp-profile",
+            ftps_mode="allow",
+            enforce_tlssession_reuse="enabled",
+            allow_active_mode="enabled")
         ```
         <!--End PulumiCodeChooser -->      
 
@@ -684,11 +684,11 @@ class ProfileFtp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_ftps="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
             name="/Common/sanjose-ftp-profile",
+            defaults_from="/Common/ftp",
             port=2020,
+            description="test-tftp-profile",
+            allow_ftps="enabled",
             translate_extended="enabled")
         ```
         <!--End PulumiCodeChooser -->

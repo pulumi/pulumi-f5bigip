@@ -15,14 +15,16 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * // Example Usage for json file
  * const exampletask = new f5bigip.BigIqAs3("exampletask", {
- *     as3Json: fs.readFileSync("bigiq_example.json", "utf8"),
  *     bigiqAddress: "xx.xx.xxx.xx",
- *     bigiqPassword: "xxxxxxxxx",
  *     bigiqUser: "xxxxx",
+ *     bigiqPassword: "xxxxxxxxx",
+ *     as3Json: std.file({
+ *         input: "bigiq_example.json",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

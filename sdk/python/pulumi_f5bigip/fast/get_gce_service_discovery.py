@@ -187,9 +187,9 @@ def get_gce_service_discovery(address_realm: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c3 = f5bigip.fast.get_gce_service_discovery(region="testgceregion",
-        tag_key="testgcetag",
-        tag_value="testgcevalue")
+    tc3 = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+        tag_value="testgcevalue",
+        region="testgceregion")
     ```
     <!--End PulumiCodeChooser -->
 
@@ -263,9 +263,9 @@ def get_gce_service_discovery_output(address_realm: Optional[pulumi.Input[Option
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c3 = f5bigip.fast.get_gce_service_discovery(region="testgceregion",
-        tag_key="testgcetag",
-        tag_value="testgcevalue")
+    tc3 = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+        tag_value="testgcevalue",
+        region="testgceregion")
     ```
     <!--End PulumiCodeChooser -->
 

@@ -1008,14 +1008,14 @@ class ProfileHttp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_http = f5bigip.ltm.ProfileHttp("sanjose-http",
+            name="/Common/sanjose-http",
             defaults_from="/Common/http",
             fallback_host="titanic",
             fallback_status_codes=[
                 "400",
                 "500",
                 "300",
-            ],
-            name="/Common/sanjose-http")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1081,14 +1081,14 @@ class ProfileHttp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         sanjose_http = f5bigip.ltm.ProfileHttp("sanjose-http",
+            name="/Common/sanjose-http",
             defaults_from="/Common/http",
             fallback_host="titanic",
             fallback_status_codes=[
                 "400",
                 "500",
                 "300",
-            ],
-            name="/Common/sanjose-http")
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

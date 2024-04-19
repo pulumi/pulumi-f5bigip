@@ -17,17 +17,20 @@ namespace Pulumi.F5BigIP
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var foo_app = new F5BigIP.FastApplication("foo-app", new()
     ///     {
-    ///         FastJson = File.ReadAllText("new_fast_app.json"),
     ///         Template = "examples/simple_http",
+    ///         FastJson = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "new_fast_app.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

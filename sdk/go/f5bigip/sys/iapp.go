@@ -22,26 +22,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "simplehttp.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
 //				Name:     pulumi.String("simplehttp"),
-//				Jsonfile: readFileOrPanic("simplehttp.json"),
+//				Jsonfile: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

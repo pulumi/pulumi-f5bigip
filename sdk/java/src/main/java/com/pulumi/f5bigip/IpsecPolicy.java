@@ -44,16 +44,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_policy = new IpsecPolicy(&#34;test-policy&#34;, IpsecPolicyArgs.builder()        
- *             .authAlgorithm(&#34;sha1&#34;)
- *             .description(&#34;created by terraform provider&#34;)
- *             .encryptAlgorithm(&#34;3des&#34;)
- *             .ipcomp(&#34;deflate&#34;)
- *             .lifetime(3)
- *             .mode(&#34;tunnel&#34;)
  *             .name(&#34;/Common/test-policy&#34;)
+ *             .description(&#34;created by terraform provider&#34;)
  *             .protocol(&#34;esp&#34;)
+ *             .mode(&#34;tunnel&#34;)
  *             .tunnelLocalAddress(&#34;192.168.1.1&#34;)
  *             .tunnelRemoteAddress(&#34;10.10.1.1&#34;)
+ *             .authAlgorithm(&#34;sha1&#34;)
+ *             .encryptAlgorithm(&#34;3des&#34;)
+ *             .lifetime(3)
+ *             .ipcomp(&#34;deflate&#34;)
  *             .build());
  * 
  *     }

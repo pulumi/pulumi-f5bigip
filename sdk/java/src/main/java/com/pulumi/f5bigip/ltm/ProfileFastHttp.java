@@ -45,17 +45,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sjfasthttpprofile = new ProfileFastHttp(&#34;sjfasthttpprofile&#34;, ProfileFastHttpArgs.builder()        
+ *             .name(&#34;/Common/sjfasthttpprofile&#34;)
+ *             .defaultsFrom(&#34;/Common/fasthttp&#34;)
+ *             .idleTimeout(300)
+ *             .connpoolidleTimeoutoverride(0)
  *             .connpoolMaxreuse(2)
  *             .connpoolMaxsize(2048)
  *             .connpoolMinsize(0)
  *             .connpoolReplenish(&#34;enabled&#34;)
  *             .connpoolStep(4)
- *             .connpoolidleTimeoutoverride(0)
- *             .defaultsFrom(&#34;/Common/fasthttp&#34;)
  *             .forcehttp10response(&#34;disabled&#34;)
- *             .idleTimeout(300)
  *             .maxheaderSize(32768)
- *             .name(&#34;/Common/sjfasthttpprofile&#34;)
  *             .build());
  * 
  *     }

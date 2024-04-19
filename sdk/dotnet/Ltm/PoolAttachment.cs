@@ -58,14 +58,14 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     ///     // attaching ipv4 address with service port
-    ///     var ipv4NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv4NodeAttach", new()
+    ///     var ipv4NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv4_node_attach", new()
     ///     {
     ///         Pool = pool.Name,
     ///         Node = "1.1.1.1:80",
     ///     });
     /// 
     ///     // attaching ipv6 address with service port
-    ///     var ipv6NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv6NodeAttach", new()
+    ///     var ipv6NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv6_node_attach", new()
     ///     {
     ///         Pool = pool.Name,
     ///         Node = "2003::4.80",
@@ -114,7 +114,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///         Address = "192.168.30.2",
     ///     });
     /// 
-    ///     var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new()
+    ///     var attachNode = new F5BigIP.Ltm.PoolAttachment("attach_node", new()
     ///     {
     ///         Pool = pool.Name,
     ///         Node = node.Name.Apply(name =&gt; $"{name}:80"),

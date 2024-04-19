@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewPersistenceProfileCookie(ctx, "testPpcookie", &ltm.PersistenceProfileCookieArgs{
+//			_, err := ltm.NewPersistenceProfileCookie(ctx, "test_ppcookie", &ltm.PersistenceProfileCookieArgs{
 //				Name:                       pulumi.String("/Common/terraform_cookie"),
 //				DefaultsFrom:               pulumi.String("/Common/cookie"),
 //				MatchAcrossPools:           pulumi.String("enabled"),

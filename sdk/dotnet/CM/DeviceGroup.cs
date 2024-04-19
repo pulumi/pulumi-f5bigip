@@ -23,9 +23,12 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myNewDevicegroup = new F5BigIP.CM.DeviceGroup("myNewDevicegroup", new()
+    ///     var myNewDevicegroup = new F5BigIP.CM.DeviceGroup("my_new_devicegroup", new()
     ///     {
+    ///         Name = "sanjose_devicegroup",
     ///         AutoSync = "enabled",
+    ///         FullLoadOnSync = "true",
+    ///         Type = "sync-only",
     ///         Devices = new[]
     ///         {
     ///             new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
@@ -37,9 +40,6 @@ namespace Pulumi.F5BigIP.CM
     ///                 Name = "bigip200.f5.com",
     ///             },
     ///         },
-    ///         FullLoadOnSync = "true",
-    ///         Name = "sanjose_devicegroup",
-    ///         Type = "sync-only",
     ///     });
     /// 
     /// });

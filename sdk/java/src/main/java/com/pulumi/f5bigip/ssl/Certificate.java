@@ -45,7 +45,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test_cert = new Certificate(&#34;test-cert&#34;, CertificateArgs.builder()        
  *             .name(&#34;servercert.crt&#34;)
- *             .content(Files.readString(Paths.get(&#34;servercert.crt&#34;)))
+ *             .content(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;servercert.crt&#34;)
+ *                 .build()).result())
  *             .partition(&#34;Common&#34;)
  *             .build());
  * 

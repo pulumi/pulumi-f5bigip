@@ -25,14 +25,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var snatpoolSanjose = new F5BigIP.Ltm.SnatPool("snatpoolSanjose", new()
+    ///     var snatpoolSanjose = new F5BigIP.Ltm.SnatPool("snatpool_sanjose", new()
     ///     {
+    ///         Name = "/Common/snatpool_sanjose",
     ///         Members = new[]
     ///         {
     ///             "191.1.1.1",
     ///             "194.2.2.2",
     ///         },
-    ///         Name = "/Common/snatpool_sanjose",
     ///     });
     /// 
     /// });

@@ -41,12 +41,12 @@ import * as utilities from "../utilities";
  *     allowNat: "yes",
  * });
  * // attaching ipv4 address with service port
- * const ipv4NodeAttach = new f5bigip.ltm.PoolAttachment("ipv4NodeAttach", {
+ * const ipv4NodeAttach = new f5bigip.ltm.PoolAttachment("ipv4_node_attach", {
  *     pool: pool.name,
  *     node: "1.1.1.1:80",
  * });
  * // attaching ipv6 address with service port
- * const ipv6NodeAttach = new f5bigip.ltm.PoolAttachment("ipv6NodeAttach", {
+ * const ipv6NodeAttach = new f5bigip.ltm.PoolAttachment("ipv6_node_attach", {
  *     pool: pool.name,
  *     node: "2003::4.80",
  * });
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *     name: "/Common/terraform_node",
  *     address: "192.168.30.2",
  * });
- * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
+ * const attachNode = new f5bigip.ltm.PoolAttachment("attach_node", {
  *     pool: pool.name,
  *     node: pulumi.interpolate`${node.name}:80`,
  * });

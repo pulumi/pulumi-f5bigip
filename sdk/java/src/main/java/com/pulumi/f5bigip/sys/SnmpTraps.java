@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var snmpTraps = new SnmpTraps(&#34;snmpTraps&#34;, SnmpTrapsArgs.builder()        
- *             .community(&#34;f5community&#34;)
- *             .description(&#34;Setup snmp traps&#34;)
- *             .host(&#34;195.10.10.1&#34;)
  *             .name(&#34;snmptraps&#34;)
+ *             .community(&#34;f5community&#34;)
+ *             .host(&#34;195.10.10.1&#34;)
+ *             .description(&#34;Setup snmp traps&#34;)
  *             .port(111)
  *             .build());
  * 

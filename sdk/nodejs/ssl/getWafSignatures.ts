@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const wAFSIG1 = f5bigip.ssl.getWafSignatures({
+ * const WAFSIG1 = f5bigip.ssl.getWafSignatures({
  *     signatureId: 200104004,
  * });
  * ```
@@ -125,7 +125,7 @@ export interface GetWafSignaturesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const wAFSIG1 = f5bigip.ssl.getWafSignatures({
+ * const WAFSIG1 = f5bigip.ssl.getWafSignatures({
  *     signatureId: 200104004,
  * });
  * ```

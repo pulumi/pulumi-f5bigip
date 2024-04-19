@@ -149,7 +149,15 @@ def get_waf_entity_url(description: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    w_afurl1 = f5bigip.ssl.get_waf_entity_url(description="this is a test",
+    wafurl1 = f5bigip.ssl.get_waf_entity_url(name="/foobar",
+        description="this is a test",
+        type="explicit",
+        protocol="HTTP",
+        perform_staging=True,
+        signature_overrides_disables=[
+            12345678,
+            87654321,
+        ],
         method_overrides=[
             f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
                 allow=False,
@@ -159,15 +167,7 @@ def get_waf_entity_url(description: Optional[str] = None,
                 allow=True,
                 method="BDELETE",
             ),
-        ],
-        name="/foobar",
-        perform_staging=True,
-        protocol="HTTP",
-        signature_overrides_disables=[
-            12345678,
-            87654321,
-        ],
-        type="explicit")
+        ])
     ```
     <!--End PulumiCodeChooser -->
 
@@ -226,7 +226,15 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    w_afurl1 = f5bigip.ssl.get_waf_entity_url(description="this is a test",
+    wafurl1 = f5bigip.ssl.get_waf_entity_url(name="/foobar",
+        description="this is a test",
+        type="explicit",
+        protocol="HTTP",
+        perform_staging=True,
+        signature_overrides_disables=[
+            12345678,
+            87654321,
+        ],
         method_overrides=[
             f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
                 allow=False,
@@ -236,15 +244,7 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
                 allow=True,
                 method="BDELETE",
             ),
-        ],
-        name="/foobar",
-        perform_staging=True,
-        protocol="HTTP",
-        signature_overrides_disables=[
-            12345678,
-            87654321,
-        ],
-        type="explicit")
+        ])
     ```
     <!--End PulumiCodeChooser -->
 

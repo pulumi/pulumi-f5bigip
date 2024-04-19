@@ -19,10 +19,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -30,7 +30,10 @@ namespace Pulumi.F5BigIP.Ltm
     ///     var rule = new F5BigIP.Ltm.IRule("rule", new()
     ///     {
     ///         Name = "/Common/terraform_irule",
-    ///         Irule = File.ReadAllText("myirule.tcl"),
+    ///         Irule = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "myirule.tcl",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     ///     var rule2 = new F5BigIP.Ltm.IRule("rule2", new()

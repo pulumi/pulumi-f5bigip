@@ -44,10 +44,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var snatpoolSanjose = new SnatPool(&#34;snatpoolSanjose&#34;, SnatPoolArgs.builder()        
+ *             .name(&#34;/Common/snatpool_sanjose&#34;)
  *             .members(            
  *                 &#34;191.1.1.1&#34;,
  *                 &#34;194.2.2.2&#34;)
- *             .name(&#34;/Common/snatpool_sanjose&#34;)
  *             .build());
  * 
  *     }

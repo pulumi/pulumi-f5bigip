@@ -28,11 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sys.NewSnmp(ctx, "snmp", &sys.SnmpArgs{
+//				SysContact:  pulumi.String(" NetOPsAdmin s.shitole@f5.com"),
+//				SysLocation: pulumi.String("SeattleHQ"),
 //				Allowedaddresses: pulumi.StringArray{
 //					pulumi.String("202.10.10.2"),
 //				},
-//				SysContact:  pulumi.String(" NetOPsAdmin s.shitole@f5.com"),
-//				SysLocation: pulumi.String("SeattleHQ"),
 //			})
 //			if err != nil {
 //				return err

@@ -587,10 +587,11 @@ class IApp(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         simplehttp = f5bigip.sys.IApp("simplehttp",
             name="simplehttp",
-            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
+            jsonfile=std.file(input="simplehttp.json").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -629,10 +630,11 @@ class IApp(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         simplehttp = f5bigip.sys.IApp("simplehttp",
             name="simplehttp",
-            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
+            jsonfile=std.file(input="simplehttp.json").result)
         ```
         <!--End PulumiCodeChooser -->
 

@@ -27,17 +27,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp("sjfasthttpprofile", new()
     ///     {
+    ///         Name = "/Common/sjfasthttpprofile",
+    ///         DefaultsFrom = "/Common/fasthttp",
+    ///         IdleTimeout = 300,
+    ///         ConnpoolidleTimeoutoverride = 0,
     ///         ConnpoolMaxreuse = 2,
     ///         ConnpoolMaxsize = 2048,
     ///         ConnpoolMinsize = 0,
     ///         ConnpoolReplenish = "enabled",
     ///         ConnpoolStep = 4,
-    ///         ConnpoolidleTimeoutoverride = 0,
-    ///         DefaultsFrom = "/Common/fasthttp",
     ///         Forcehttp10response = "disabled",
-    ///         IdleTimeout = 300,
     ///         MaxheaderSize = 32768,
-    ///         Name = "/Common/sjfasthttpprofile",
     ///     });
     /// 
     /// });

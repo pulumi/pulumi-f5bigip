@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
- *     contentTypeExcludes: ["nicecontentexclude.com"],
- *     contentTypeIncludes: ["nicecontent.com"],
- *     defaultsFrom: "/Common/httpcompression",
  *     name: "/Common/sjhttpcompression2",
+ *     defaultsFrom: "/Common/httpcompression",
  *     uriExcludes: [
  *         "www.abc.f5.com",
  *         "www.abc2.f5.com",
  *     ],
  *     uriIncludes: ["www.xyzbc.cisco.com"],
+ *     contentTypeIncludes: ["nicecontent.com"],
+ *     contentTypeExcludes: ["nicecontentexclude.com"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -31,9 +31,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewVirtualAddress(ctx, "vsVa", &ltm.VirtualAddressArgs{
-//				AdvertizeRoute: pulumi.String("enabled"),
+//			_, err := ltm.NewVirtualAddress(ctx, "vs_va", &ltm.VirtualAddressArgs{
 //				Name:           pulumi.String("/Common/xxxxx"),
+//				AdvertizeRoute: pulumi.String("enabled"),
 //			})
 //			if err != nil {
 //				return err

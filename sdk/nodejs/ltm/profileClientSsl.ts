@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_ClientSsl = new f5bigip.ltm.ProfileClientSsl("test-ClientSsl", {
+ *     name: "/Common/test-ClientSsl",
+ *     defaultsFrom: "/Common/clientssl",
  *     authenticate: "always",
  *     ciphers: "DEFAULT",
- *     defaultsFrom: "/Common/clientssl",
- *     name: "/Common/test-ClientSsl",
  * });
  * ```
  * <!--End PulumiCodeChooser -->      

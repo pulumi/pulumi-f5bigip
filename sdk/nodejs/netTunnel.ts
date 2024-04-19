@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const example1 = new f5bigip.NetTunnel("example1", {
- *     localAddress: "192.16.81.240",
  *     name: "example1",
+ *     localAddress: "192.16.81.240",
  *     profile: "/Common/dslite",
  * });
  * ```

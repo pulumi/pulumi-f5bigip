@@ -46,48 +46,46 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .destination(&#34;1.2.3.4:1234&#34;)
- *             .interval(&#34;998&#34;)
  *             .name(&#34;/Common/terraform_monitor&#34;)
  *             .parent(&#34;/Common/http&#34;)
  *             .send(&#34;&#34;&#34;
  * GET /some/path
- * 
  *             &#34;&#34;&#34;)
  *             .timeout(&#34;999&#34;)
+ *             .interval(&#34;998&#34;)
+ *             .destination(&#34;1.2.3.4:1234&#34;)
  *             .build());
  * 
  *         var test_https_monitor = new Monitor(&#34;test-https-monitor&#34;, MonitorArgs.builder()        
- *             .interval(&#34;999&#34;)
  *             .name(&#34;/Common/terraform_monitor&#34;)
  *             .parent(&#34;/Common/http&#34;)
+ *             .sslProfile(&#34;/Common/serverssl&#34;)
  *             .send(&#34;&#34;&#34;
  * GET /some/path
- * 
  *             &#34;&#34;&#34;)
- *             .sslProfile(&#34;/Common/serverssl&#34;)
+ *             .interval(&#34;999&#34;)
  *             .timeout(&#34;1000&#34;)
  *             .build());
  * 
  *         var test_ftp_monitor = new Monitor(&#34;test-ftp-monitor&#34;, MonitorArgs.builder()        
- *             .destination(&#34;*:8008&#34;)
- *             .filename(&#34;somefile&#34;)
- *             .interval(5)
  *             .name(&#34;/Common/ftp-test&#34;)
  *             .parent(&#34;/Common/ftp&#34;)
+ *             .interval(5)
  *             .timeUntilUp(0)
  *             .timeout(16)
+ *             .destination(&#34;*:8008&#34;)
+ *             .filename(&#34;somefile&#34;)
  *             .build());
  * 
  *         var test_postgresql_monitor = new Monitor(&#34;test-postgresql-monitor&#34;, MonitorArgs.builder()        
- *             .interval(5)
  *             .name(&#34;/Common/test-postgresql-monitor&#34;)
  *             .parent(&#34;/Common/postgresql&#34;)
- *             .password(&#34;abcd1234&#34;)
- *             .receive(&#34;Test&#34;)
  *             .send(&#34;SELECT &#39;Test&#39;;&#34;)
+ *             .receive(&#34;Test&#34;)
+ *             .interval(5)
  *             .timeout(16)
  *             .username(&#34;abcd&#34;)
+ *             .password(&#34;abcd1234&#34;)
  *             .build());
  * 
  *     }

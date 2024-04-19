@@ -23,29 +23,32 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewSslKeyCert(ctx, "testkeycert", &f5bigip.SslKeyCertArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "certificate.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewSslKeyCert(ctx, "testkeycert", &f5bigip.SslKeyCertArgs{
 //				Partition:   pulumi.String("Common"),
 //				KeyName:     pulumi.String("ssl-test-key"),
-//				KeyContent:  readFileOrPanic("key.pem"),
+//				KeyContent:  invokeFile.Result,
 //				CertName:    pulumi.String("ssl-test-cert"),
-//				CertContent: readFileOrPanic("certificate.pem"),
+//				CertContent: invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err

@@ -15,53 +15,6 @@ import (
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP.
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Example Usage for json file
-//			_, err := f5bigip.NewAs3(ctx, "as3-example1As3", &f5bigip.As3Args{
-//				As3Json: readFileOrPanic("example1.json"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example Usage for json file with tenant filter
-//			_, err = f5bigip.NewAs3(ctx, "as3-example1Index/as3As3", &f5bigip.As3Args{
-//				As3Json:      readFileOrPanic("example2.json"),
-//				TenantFilter: pulumi.String("Sample_03"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )

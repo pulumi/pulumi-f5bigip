@@ -27,49 +27,47 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
     ///     {
-    ///         Destination = "1.2.3.4:1234",
-    ///         Interval = 998,
     ///         Name = "/Common/terraform_monitor",
     ///         Parent = "/Common/http",
     ///         Send = @"GET /some/path
-    /// 
     /// ",
     ///         Timeout = 999,
+    ///         Interval = 998,
+    ///         Destination = "1.2.3.4:1234",
     ///     });
     /// 
     ///     var test_https_monitor = new F5BigIP.Ltm.Monitor("test-https-monitor", new()
     ///     {
-    ///         Interval = 999,
     ///         Name = "/Common/terraform_monitor",
     ///         Parent = "/Common/http",
-    ///         Send = @"GET /some/path
-    /// 
-    /// ",
     ///         SslProfile = "/Common/serverssl",
+    ///         Send = @"GET /some/path
+    /// ",
+    ///         Interval = 999,
     ///         Timeout = 1000,
     ///     });
     /// 
     ///     var test_ftp_monitor = new F5BigIP.Ltm.Monitor("test-ftp-monitor", new()
     ///     {
-    ///         Destination = "*:8008",
-    ///         Filename = "somefile",
-    ///         Interval = 5,
     ///         Name = "/Common/ftp-test",
     ///         Parent = "/Common/ftp",
+    ///         Interval = 5,
     ///         TimeUntilUp = 0,
     ///         Timeout = 16,
+    ///         Destination = "*:8008",
+    ///         Filename = "somefile",
     ///     });
     /// 
     ///     var test_postgresql_monitor = new F5BigIP.Ltm.Monitor("test-postgresql-monitor", new()
     ///     {
-    ///         Interval = 5,
     ///         Name = "/Common/test-postgresql-monitor",
     ///         Parent = "/Common/postgresql",
-    ///         Password = "abcd1234",
-    ///         Receive = "Test",
     ///         Send = "SELECT 'Test';",
+    ///         Receive = "Test",
+    ///         Interval = 5,
     ///         Timeout = 16,
     ///         Username = "abcd",
+    ///         Password = "abcd1234",
     ///     });
     /// 
     /// });

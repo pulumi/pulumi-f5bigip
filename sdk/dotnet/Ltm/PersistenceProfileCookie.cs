@@ -23,7 +23,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie("testPpcookie", new()
+    ///     var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie("test_ppcookie", new()
     ///     {
     ///         Name = "/Common/terraform_cookie",
     ///         DefaultsFrom = "/Common/cookie",

@@ -836,40 +836,36 @@ class Monitor(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         monitor = f5bigip.ltm.Monitor("monitor",
-            destination="1.2.3.4:1234",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\\n",
+            timeout=999,
             interval=998,
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send=\"\"\"GET /some/path
-
-        \"\"\",
-            timeout=999)
+            destination="1.2.3.4:1234")
         test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
-            interval=999,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
-
-        \"\"\",
             ssl_profile="/Common/serverssl",
+            send="GET /some/path\\n",
+            interval=999,
             timeout=1000)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
-            destination="*:8008",
-            filename="somefile",
-            interval=5,
             name="/Common/ftp-test",
             parent="/Common/ftp",
-            time_until_up=0,
-            timeout=16)
-        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
             interval=5,
+            time_until_up=0,
+            timeout=16,
+            destination="*:8008",
+            filename="somefile")
+        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
             name="/Common/test-postgresql-monitor",
             parent="/Common/postgresql",
-            password="abcd1234",
-            receive="Test",
             send="SELECT 'Test';",
+            receive="Test",
+            interval=5,
             timeout=16,
-            username="abcd")
+            username="abcd",
+            password="abcd1234")
         ```
         <!--End PulumiCodeChooser -->      
 
@@ -927,40 +923,36 @@ class Monitor(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         monitor = f5bigip.ltm.Monitor("monitor",
-            destination="1.2.3.4:1234",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\\n",
+            timeout=999,
             interval=998,
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send=\"\"\"GET /some/path
-
-        \"\"\",
-            timeout=999)
+            destination="1.2.3.4:1234")
         test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
-            interval=999,
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send=\"\"\"GET /some/path
-
-        \"\"\",
             ssl_profile="/Common/serverssl",
+            send="GET /some/path\\n",
+            interval=999,
             timeout=1000)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
-            destination="*:8008",
-            filename="somefile",
-            interval=5,
             name="/Common/ftp-test",
             parent="/Common/ftp",
-            time_until_up=0,
-            timeout=16)
-        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
             interval=5,
+            time_until_up=0,
+            timeout=16,
+            destination="*:8008",
+            filename="somefile")
+        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
             name="/Common/test-postgresql-monitor",
             parent="/Common/postgresql",
-            password="abcd1234",
-            receive="Test",
             send="SELECT 'Test';",
+            receive="Test",
+            interval=5,
             timeout=16,
-            username="abcd")
+            username="abcd",
+            password="abcd1234")
         ```
         <!--End PulumiCodeChooser -->      
 

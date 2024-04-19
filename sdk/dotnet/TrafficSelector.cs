@@ -27,8 +27,8 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var test_selector = new F5BigIP.TrafficSelector("test-selector", new()
     ///     {
-    ///         DestinationAddress = "3.10.11.2/32",
     ///         Name = "/Common/test-selector",
+    ///         DestinationAddress = "3.10.11.2/32",
     ///         SourceAddress = "2.10.11.12/32",
     ///     });
     /// 

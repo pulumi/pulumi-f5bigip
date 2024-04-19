@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vwanconfig = f5bigip.ssl.getVWanConfig({
- *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
  *     azureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+ *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
  *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
  * });
  * ```
@@ -107,8 +107,8 @@ export interface GetVWanConfigResult {
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vwanconfig = f5bigip.ssl.getVWanConfig({
- *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
  *     azureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+ *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
  *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
  * });
  * ```

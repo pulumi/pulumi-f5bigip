@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const ppssl = new f5bigip.ltm.PersistenceProfileSsl("ppssl", {
+ *     name: "/Common/terraform_ssl",
  *     defaultsFrom: "/Common/ssl",
  *     matchAcrossPools: "enabled",
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
- *     name: "/Common/terraform_ssl",
- *     overrideConnLimit: "enabled",
  *     timeout: 3600,
+ *     overrideConnLimit: "enabled",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sanjose_http = new ProfileHttp(&#34;sanjose-http&#34;, ProfileHttpArgs.builder()        
+ *             .name(&#34;/Common/sanjose-http&#34;)
  *             .defaultsFrom(&#34;/Common/http&#34;)
  *             .fallbackHost(&#34;titanic&#34;)
  *             .fallbackStatusCodes(            
  *                 &#34;400&#34;,
  *                 &#34;500&#34;,
  *                 &#34;300&#34;)
- *             .name(&#34;/Common/sanjose-http&#34;)
  *             .build());
  * 
  *     }

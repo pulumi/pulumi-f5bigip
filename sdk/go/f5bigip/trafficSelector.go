@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewTrafficSelector(ctx, "test-selector", &f5bigip.TrafficSelectorArgs{
-//				DestinationAddress: pulumi.String("3.10.11.2/32"),
 //				Name:               pulumi.String("/Common/test-selector"),
+//				DestinationAddress: pulumi.String("3.10.11.2/32"),
 //				SourceAddress:      pulumi.String("2.10.11.12/32"),
 //			})
 //			if err != nil {

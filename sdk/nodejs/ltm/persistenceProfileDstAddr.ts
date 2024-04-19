@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const dstaddr = new f5bigip.ltm.PersistenceProfileDstAddr("dstaddr", {
+ *     name: "/Common/terraform_ppdstaddr",
  *     defaultsFrom: "/Common/dest_addr",
- *     hashAlgorithm: "carp",
- *     mask: "255.255.255.255",
  *     matchAcrossPools: "enabled",
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
- *     name: "/Common/terraform_ppdstaddr",
- *     overrideConnLimit: "enabled",
  *     timeout: 3600,
+ *     overrideConnLimit: "enabled",
+ *     hashAlgorithm: "carp",
+ *     mask: "255.255.255.255",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

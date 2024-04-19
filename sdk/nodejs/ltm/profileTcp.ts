@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile", {
+ *     name: "/Common/sanjose-tcp-lan-profile",
+ *     idleTimeout: 200,
  *     closeWaitTimeout: 5,
- *     deferredAccept: "enabled",
- *     fastOpen: "enabled",
  *     finwait2timeout: 5,
  *     finwaitTimeout: 300,
- *     idleTimeout: 200,
  *     keepaliveInterval: 1700,
- *     name: "/Common/sanjose-tcp-lan-profile",
+ *     deferredAccept: "enabled",
+ *     fastOpen: "enabled",
  * });
  * ```
  * <!--End PulumiCodeChooser -->      

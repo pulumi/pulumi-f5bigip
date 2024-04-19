@@ -25,10 +25,10 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fastHttpsApp", new()
+    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
     ///     {
-    ///         Application = "fasthttpsapp",
     ///         Tenant = "fasthttpstenant",
+    ///         Application = "fasthttpsapp",
     ///         VirtualServer = new F5BigIP.Inputs.FastHttpsAppVirtualServerArgs
     ///         {
     ///             Ip = "10.30.40.44",
@@ -51,7 +51,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var tC3AzureServiceDiscovery = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
+    ///     var TC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
     ///     {
     ///         ResourceGroup = "testazurerg",
     ///         SubscriptionId = "testazuresid",
@@ -59,14 +59,14 @@ namespace Pulumi.F5BigIP
     ///         TagValue = "testazurevalue",
     ///     });
     /// 
-    ///     var tC3GceServiceDiscovery = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+    ///     var TC3GetGceServiceDiscovery = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
     ///     {
     ///         TagKey = "testgcetag",
     ///         TagValue = "testgcevalue",
     ///         Region = "testgceregion",
     ///     });
     /// 
-    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fastHttpsApp", new()
+    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
     ///     {
     ///         Tenant = "fasthttpstenant",
     ///         Application = "fasthttpsapp",
@@ -90,8 +90,8 @@ namespace Pulumi.F5BigIP
     ///         },
     ///         ServiceDiscoveries = new[]
     ///         {
-    ///             tC3GceServiceDiscovery.Apply(getGceServiceDiscoveryResult =&gt; getGceServiceDiscoveryResult.GceSdJson),
-    ///             tC3AzureServiceDiscovery.Apply(getAzureServiceDiscoveryResult =&gt; getAzureServiceDiscoveryResult.AzureSdJson),
+    ///             TC3GetGceServiceDiscovery.Apply(getGceServiceDiscoveryResult =&gt; getGceServiceDiscoveryResult.GceSdJson),
+    ///             TC3.Apply(getAzureServiceDiscoveryResult =&gt; getAzureServiceDiscoveryResult.AzureSdJson),
     ///         },
     ///     });
     /// 

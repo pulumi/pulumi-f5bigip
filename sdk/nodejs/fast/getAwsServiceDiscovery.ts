@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC2 = f5bigip.fast.getAwsServiceDiscovery({
+ * const TC2 = f5bigip.fast.getAwsServiceDiscovery({
  *     tagKey: "testawstagkey",
  *     tagValue: "testawstagvalue",
  * });
@@ -138,7 +138,7 @@ export interface GetAwsServiceDiscoveryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC2 = f5bigip.fast.getAwsServiceDiscovery({
+ * const TC2 = f5bigip.fast.getAwsServiceDiscovery({
  *     tagKey: "testawstagkey",
  *     tagValue: "testawstagvalue",
  * });

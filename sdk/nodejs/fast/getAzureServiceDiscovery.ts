@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC3 = f5bigip.fast.getAzureServiceDiscovery({
+ * const TC3 = f5bigip.fast.getAzureServiceDiscovery({
  *     resourceGroup: "testazurerg",
  *     subscriptionId: "testazuresid",
  *     tagKey: "testazuretag",
@@ -122,7 +122,7 @@ export interface GetAzureServiceDiscoveryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC3 = f5bigip.fast.getAzureServiceDiscovery({
+ * const TC3 = f5bigip.fast.getAzureServiceDiscovery({
  *     resourceGroup: "testazurerg",
  *     subscriptionId: "testazuresid",
  *     tagKey: "testazuretag",

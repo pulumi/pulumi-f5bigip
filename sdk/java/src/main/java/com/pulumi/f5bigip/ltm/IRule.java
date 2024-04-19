@@ -45,7 +45,9 @@ import javax.annotation.Nullable;
  *         // Loading from a file is the preferred method
  *         var rule = new IRule(&#34;rule&#34;, IRuleArgs.builder()        
  *             .name(&#34;/Common/terraform_irule&#34;)
- *             .irule(Files.readString(Paths.get(&#34;myirule.tcl&#34;)))
+ *             .irule(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;myirule.tcl&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var rule2 = new IRule(&#34;rule2&#34;, IRuleArgs.builder()        

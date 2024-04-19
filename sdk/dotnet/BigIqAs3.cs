@@ -19,20 +19,23 @@ namespace Pulumi.F5BigIP
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Usage for json file
     ///     var exampletask = new F5BigIP.BigIqAs3("exampletask", new()
     ///     {
-    ///         As3Json = File.ReadAllText("bigiq_example.json"),
     ///         BigiqAddress = "xx.xx.xxx.xx",
-    ///         BigiqPassword = "xxxxxxxxx",
     ///         BigiqUser = "xxxxx",
+    ///         BigiqPassword = "xxxxxxxxx",
+    ///         As3Json = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "bigiq_example.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

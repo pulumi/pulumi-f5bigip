@@ -602,8 +602,8 @@ class NetTunnel(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         example1 = f5bigip.NetTunnel("example1",
-            local_address="192.16.81.240",
             name="example1",
+            local_address="192.16.81.240",
             profile="/Common/dslite")
         ```
         <!--End PulumiCodeChooser -->
@@ -645,8 +645,8 @@ class NetTunnel(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         example1 = f5bigip.NetTunnel("example1",
-            local_address="192.16.81.240",
             name="example1",
+            local_address="192.16.81.240",
             profile="/Common/dslite")
         ```
         <!--End PulumiCodeChooser -->

@@ -22,26 +22,23 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
-//				FastJson: readFileOrPanic("new_fast_app.json"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "new_fast_app.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
 //				Template: pulumi.String("examples/simple_http"),
+//				FastJson: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

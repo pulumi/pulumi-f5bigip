@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *         "egp:0",
  *     ],
  * }, {
- *     dependsOn: [bigip_net_vlan.vlan1],
+ *     dependsOn: [vlan1],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     trafficGroup: "traffic-group-1",
  *     portLockdowns: ["none"],
  * }, {
- *     dependsOn: [bigip_net_vlan.vlan1],
+ *     dependsOn: [vlan1],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -89,7 +89,7 @@ import * as utilities from "../utilities";
  *     trafficGroup: "traffic-group-1",
  *     portLockdowns: ["none"],
  * }, {
- *     dependsOn: [bigip_net_vlan.vlan1],
+ *     dependsOn: [vlan1],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

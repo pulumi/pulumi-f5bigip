@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sanjose_tcp_lan_profile = new ProfileTcp(&#34;sanjose-tcp-lan-profile&#34;, ProfileTcpArgs.builder()        
+ *             .name(&#34;/Common/sanjose-tcp-lan-profile&#34;)
+ *             .idleTimeout(200)
  *             .closeWaitTimeout(5)
- *             .deferredAccept(&#34;enabled&#34;)
- *             .fastOpen(&#34;enabled&#34;)
  *             .finwait2timeout(5)
  *             .finwaitTimeout(300)
- *             .idleTimeout(200)
  *             .keepaliveInterval(1700)
- *             .name(&#34;/Common/sanjose-tcp-lan-profile&#34;)
+ *             .deferredAccept(&#34;enabled&#34;)
+ *             .fastOpen(&#34;enabled&#34;)
  *             .build());
  * 
  *     }

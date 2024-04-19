@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var request_log_profile_tc1_child = new RequestLogProfile(&#34;request-log-profile-tc1-child&#34;, RequestLogProfileArgs.builder()        
  *             .name(&#34;/Common/request-log-profile-tc1-child&#34;)
- *             .defaultsFrom(bigip_ltm_request_log_profile.request-log-profile-tc1().name())
+ *             .defaultsFrom(request_log_profile_tc1.name())
  *             .requestLogging(&#34;disabled&#34;)
  *             .requestlogPool(&#34;/Common/pool2&#34;)
  *             .requestlogErrorPool(&#34;/Common/pool1&#34;)

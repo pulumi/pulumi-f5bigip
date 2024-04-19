@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *                 &#34;udp:5050&#34;,
  *                 &#34;egp:0&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(bigip_net_vlan.vlan1())
+ *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *             .trafficGroup(&#34;traffic-group-1&#34;)
  *             .portLockdowns(&#34;none&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(bigip_net_vlan.vlan1())
+ *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .trafficGroup(&#34;traffic-group-1&#34;)
  *             .portLockdowns(&#34;none&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(bigip_net_vlan.vlan1())
+ *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }

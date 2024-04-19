@@ -127,19 +127,6 @@ class Command(pulumi.CustomResource):
         `Command` Run TMSH commands on F5 devices
 
         This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        #create ltm node
-        test_command = f5bigip.Command("test-command",
-            commands=["delete ltm node 10.10.10.70"],
-            when="destroy")
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,19 +143,6 @@ class Command(pulumi.CustomResource):
         `Command` Run TMSH commands on F5 devices
 
         This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        #create ltm node
-        test_command = f5bigip.Command("test-command",
-            commands=["delete ltm node 10.10.10.70"],
-            when="destroy")
-        ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CommandArgs args: The arguments to use to populate this resource's properties.

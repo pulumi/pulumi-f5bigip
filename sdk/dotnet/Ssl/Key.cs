@@ -18,17 +18,20 @@ namespace Pulumi.F5BigIP.Ssl
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var test_key = new F5BigIP.Ssl.Key("test-key", new()
     ///     {
     ///         Name = "serverkey.key",
-    ///         Content = File.ReadAllText("serverkey.key"),
+    ///         Content = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "serverkey.key",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Partition = "Common",
     ///     });
     /// 

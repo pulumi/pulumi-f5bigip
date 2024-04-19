@@ -34,13 +34,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
-//				AllowActiveMode:        pulumi.String("enabled"),
-//				DefaultsFrom:           pulumi.String("/Common/ftp"),
-//				Description:            pulumi.String("test-tftp-profile"),
-//				EnforceTlssessionReuse: pulumi.String("enabled"),
-//				FtpsMode:               pulumi.String("allow"),
 //				Name:                   pulumi.String("/Common/sanjose-ftp-profile"),
+//				DefaultsFrom:           pulumi.String("/Common/ftp"),
 //				Port:                   pulumi.Int(2020),
+//				Description:            pulumi.String("test-tftp-profile"),
+//				FtpsMode:               pulumi.String("allow"),
+//				EnforceTlssessionReuse: pulumi.String("enabled"),
+//				AllowActiveMode:        pulumi.String("enabled"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,11 +68,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
-//				AllowFtps:         pulumi.String("enabled"),
-//				DefaultsFrom:      pulumi.String("/Common/ftp"),
-//				Description:       pulumi.String("test-tftp-profile"),
 //				Name:              pulumi.String("/Common/sanjose-ftp-profile"),
+//				DefaultsFrom:      pulumi.String("/Common/ftp"),
 //				Port:              pulumi.Int(2020),
+//				Description:       pulumi.String("test-tftp-profile"),
+//				AllowFtps:         pulumi.String("enabled"),
 //				TranslateExtended: pulumi.String("enabled"),
 //			})
 //			if err != nil {

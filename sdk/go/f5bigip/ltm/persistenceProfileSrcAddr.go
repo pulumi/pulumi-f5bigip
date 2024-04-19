@@ -30,17 +30,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewPersistenceProfileSrcAddr(ctx, "srcaddr", &ltm.PersistenceProfileSrcAddrArgs{
+//				Name:                pulumi.String("/Common/terraform_srcaddr"),
 //				DefaultsFrom:        pulumi.String("/Common/source_addr"),
-//				HashAlgorithm:       pulumi.String("carp"),
-//				MapProxies:          pulumi.String("enabled"),
-//				Mask:                pulumi.String("255.255.255.255"),
 //				MatchAcrossPools:    pulumi.String("enabled"),
 //				MatchAcrossServices: pulumi.String("enabled"),
 //				MatchAcrossVirtuals: pulumi.String("enabled"),
 //				Mirror:              pulumi.String("enabled"),
-//				Name:                pulumi.String("/Common/terraform_srcaddr"),
-//				OverrideConnLimit:   pulumi.String("enabled"),
 //				Timeout:             pulumi.Int(3600),
+//				OverrideConnLimit:   pulumi.String("enabled"),
+//				HashAlgorithm:       pulumi.String("carp"),
+//				MapProxies:          pulumi.String("enabled"),
+//				Mask:                pulumi.String("255.255.255.255"),
 //			})
 //			if err != nil {
 //				return err

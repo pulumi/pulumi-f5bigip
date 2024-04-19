@@ -561,13 +561,14 @@ class BigIqAs3(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         # Example Usage for json file
         exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
             bigiq_address="xx.xx.xxx.xx",
+            bigiq_user="xxxxx",
             bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
+            as3_json=std.file(input="bigiq_example.json").result)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -656,13 +657,14 @@ class BigIqAs3(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         # Example Usage for json file
         exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
             bigiq_address="xx.xx.xxx.xx",
+            bigiq_user="xxxxx",
             bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
+            as3_json=std.file(input="bigiq_example.json").result)
         ```
         <!--End PulumiCodeChooser -->
 

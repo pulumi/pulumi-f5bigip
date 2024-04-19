@@ -206,10 +206,11 @@ class Key(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         test_key = f5bigip.ssl.Key("test-key",
             name="serverkey.key",
-            content=(lambda path: open(path).read())("serverkey.key"),
+            content=std.file(input="serverkey.key").result,
             partition="Common")
         ```
         <!--End PulumiCodeChooser -->
@@ -238,10 +239,11 @@ class Key(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         test_key = f5bigip.ssl.Key("test-key",
             name="serverkey.key",
-            content=(lambda path: open(path).read())("serverkey.key"),
+            content=std.file(input="serverkey.key").result,
             partition="Common")
         ```
         <!--End PulumiCodeChooser -->

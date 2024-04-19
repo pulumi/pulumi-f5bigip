@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC2 = f5bigip.fast.getConsulServiceDiscovery({
- *     port: 8080,
+ * const TC2 = f5bigip.fast.getConsulServiceDiscovery({
  *     uri: "https://192.0.2.100:8500/v1/catalog/nodes",
+ *     port: 8080,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -123,9 +123,9 @@ export interface GetConsulServiceDiscoveryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC2 = f5bigip.fast.getConsulServiceDiscovery({
- *     port: 8080,
+ * const TC2 = f5bigip.fast.getConsulServiceDiscovery({
  *     uri: "https://192.0.2.100:8500/v1/catalog/nodes",
+ *     port: 8080,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

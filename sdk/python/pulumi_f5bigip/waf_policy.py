@@ -954,9 +954,9 @@ class WafPolicy(pulumi.CustomResource):
             type="explicit",
             data_type="alpha-numeric",
             perform_staging=True)
-        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
+        url = f5bigip.ssl.get_waf_entity_url(name="URL1",
             protocol="http")
-        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
+        url2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
         test_awaf = f5bigip.WafPolicy("test-awaf",
             name="testpolicyravi",
             partition="Common",
@@ -973,8 +973,8 @@ class WafPolicy(pulumi.CustomResource):
                 param2.json,
             ],
             urls=[
-                u_rl.json,
-                u_rl2.json,
+                url.json,
+                url2.json,
             ])
         ```
         <!--End PulumiCodeChooser -->
@@ -1053,9 +1053,9 @@ class WafPolicy(pulumi.CustomResource):
             type="explicit",
             data_type="alpha-numeric",
             perform_staging=True)
-        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
+        url = f5bigip.ssl.get_waf_entity_url(name="URL1",
             protocol="http")
-        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
+        url2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
         test_awaf = f5bigip.WafPolicy("test-awaf",
             name="testpolicyravi",
             partition="Common",
@@ -1072,8 +1072,8 @@ class WafPolicy(pulumi.CustomResource):
                 param2.json,
             ],
             urls=[
-                u_rl.json,
-                u_rl2.json,
+                url.json,
+                url2.json,
             ])
         ```
         <!--End PulumiCodeChooser -->

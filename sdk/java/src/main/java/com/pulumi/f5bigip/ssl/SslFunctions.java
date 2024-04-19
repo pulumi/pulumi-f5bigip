@@ -228,8 +228,8 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
+     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
      *             .build());
      * 
@@ -284,8 +284,8 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
+     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
      *             .build());
      * 
@@ -340,8 +340,8 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
+     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
      *             .build());
      * 
@@ -396,8 +396,8 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
+     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
      *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
      *             .build());
      * 
@@ -463,8 +463,15 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *             .name(&#34;/foobar&#34;)
      *             .description(&#34;this is a test&#34;)
+     *             .type(&#34;explicit&#34;)
+     *             .protocol(&#34;HTTP&#34;)
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
@@ -474,13 +481,6 @@ public final class SslFunctions {
      *                     .allow(true)
      *                     .method(&#34;BDELETE&#34;)
      *                     .build())
-     *             .name(&#34;/foobar&#34;)
-     *             .performStaging(true)
-     *             .protocol(&#34;HTTP&#34;)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .type(&#34;explicit&#34;)
      *             .build());
      * 
      *     }
@@ -519,8 +519,15 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *             .name(&#34;/foobar&#34;)
      *             .description(&#34;this is a test&#34;)
+     *             .type(&#34;explicit&#34;)
+     *             .protocol(&#34;HTTP&#34;)
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
@@ -530,13 +537,6 @@ public final class SslFunctions {
      *                     .allow(true)
      *                     .method(&#34;BDELETE&#34;)
      *                     .build())
-     *             .name(&#34;/foobar&#34;)
-     *             .performStaging(true)
-     *             .protocol(&#34;HTTP&#34;)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .type(&#34;explicit&#34;)
      *             .build());
      * 
      *     }
@@ -575,8 +575,15 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *             .name(&#34;/foobar&#34;)
      *             .description(&#34;this is a test&#34;)
+     *             .type(&#34;explicit&#34;)
+     *             .protocol(&#34;HTTP&#34;)
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
@@ -586,13 +593,6 @@ public final class SslFunctions {
      *                     .allow(true)
      *                     .method(&#34;BDELETE&#34;)
      *                     .build())
-     *             .name(&#34;/foobar&#34;)
-     *             .performStaging(true)
-     *             .protocol(&#34;HTTP&#34;)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .type(&#34;explicit&#34;)
      *             .build());
      * 
      *     }
@@ -631,8 +631,15 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
+     *             .name(&#34;/foobar&#34;)
      *             .description(&#34;this is a test&#34;)
+     *             .type(&#34;explicit&#34;)
+     *             .protocol(&#34;HTTP&#34;)
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
@@ -642,13 +649,6 @@ public final class SslFunctions {
      *                     .allow(true)
      *                     .method(&#34;BDELETE&#34;)
      *                     .build())
-     *             .name(&#34;/foobar&#34;)
-     *             .performStaging(true)
-     *             .protocol(&#34;HTTP&#34;)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .type(&#34;explicit&#34;)
      *             .build());
      * 
      *     }
@@ -687,10 +687,10 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .minimumLearningScore(20)
-     *             .partition(&#34;Common&#34;)
+     *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
      *             .policyName(&#34;protect_me_policy&#34;)
+     *             .partition(&#34;Common&#34;)
+     *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
@@ -729,10 +729,10 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .minimumLearningScore(20)
-     *             .partition(&#34;Common&#34;)
+     *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
      *             .policyName(&#34;protect_me_policy&#34;)
+     *             .partition(&#34;Common&#34;)
+     *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
@@ -771,10 +771,10 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .minimumLearningScore(20)
-     *             .partition(&#34;Common&#34;)
+     *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
      *             .policyName(&#34;protect_me_policy&#34;)
+     *             .partition(&#34;Common&#34;)
+     *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
@@ -813,10 +813,10 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .minimumLearningScore(20)
-     *             .partition(&#34;Common&#34;)
+     *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
      *             .policyName(&#34;protect_me_policy&#34;)
+     *             .partition(&#34;Common&#34;)
+     *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
@@ -1015,7 +1015,7 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
+     *         final var WAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
      *             .signatureId(200104004)
      *             .build());
      * 
@@ -1055,7 +1055,7 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
+     *         final var WAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
      *             .signatureId(200104004)
      *             .build());
      * 
@@ -1095,7 +1095,7 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
+     *         final var WAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
      *             .signatureId(200104004)
      *             .build());
      * 
@@ -1135,7 +1135,7 @@ public final class SslFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var wAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
+     *         final var WAFSIG1 = SslFunctions.getWafSignatures(GetWafSignaturesArgs.builder()
      *             .signatureId(200104004)
      *             .build());
      * 

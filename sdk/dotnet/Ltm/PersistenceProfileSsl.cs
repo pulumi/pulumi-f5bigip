@@ -25,14 +25,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var ppssl = new F5BigIP.Ltm.PersistenceProfileSsl("ppssl", new()
     ///     {
+    ///         Name = "/Common/terraform_ssl",
     ///         DefaultsFrom = "/Common/ssl",
     ///         MatchAcrossPools = "enabled",
     ///         MatchAcrossServices = "enabled",
     ///         MatchAcrossVirtuals = "enabled",
     ///         Mirror = "enabled",
-    ///         Name = "/Common/terraform_ssl",
-    ///         OverrideConnLimit = "enabled",
     ///         Timeout = 3600,
+    ///         OverrideConnLimit = "enabled",
     ///     });
     /// 
     /// });

@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const test_snat = new f5bigip.ltm.Snat("test-snat", {
  *     name: "/Common/test-snat",
+ *     translation: "/Common/136.1.1.2",
+ *     sourceport: "preserve",
  *     origins: [{
  *         name: "0.0.0.0/0",
  *     }],
- *     sourceport: "preserve",
- *     translation: "/Common/136.1.1.2",
  *     vlans: ["/Common/internal"],
  *     vlansdisabled: false,
  * });

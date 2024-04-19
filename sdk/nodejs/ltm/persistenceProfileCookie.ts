@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const testPpcookie = new f5bigip.ltm.PersistenceProfileCookie("testPpcookie", {
+ * const testPpcookie = new f5bigip.ltm.PersistenceProfileCookie("test_ppcookie", {
  *     name: "/Common/terraform_cookie",
  *     defaultsFrom: "/Common/cookie",
  *     matchAcrossPools: "enabled",

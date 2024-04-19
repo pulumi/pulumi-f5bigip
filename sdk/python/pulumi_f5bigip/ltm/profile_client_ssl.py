@@ -1956,10 +1956,10 @@ class ProfileClientSsl(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test__client_ssl = f5bigip.ltm.ProfileClientSsl("test-ClientSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
+            name="/Common/test-ClientSsl",
             defaults_from="/Common/clientssl",
-            name="/Common/test-ClientSsl")
+            authenticate="always",
+            ciphers="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->      
 
@@ -2055,10 +2055,10 @@ class ProfileClientSsl(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test__client_ssl = f5bigip.ltm.ProfileClientSsl("test-ClientSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
+            name="/Common/test-ClientSsl",
             defaults_from="/Common/clientssl",
-            name="/Common/test-ClientSsl")
+            authenticate="always",
+            ciphers="DEFAULT")
         ```
         <!--End PulumiCodeChooser -->      
 

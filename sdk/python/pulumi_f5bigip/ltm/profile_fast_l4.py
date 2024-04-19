@@ -539,16 +539,16 @@ class ProfileFastL4(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
-            client_timeout=40,
+        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profile_fastl4",
+            name="/Common/sjfastl4profile",
             defaults_from="/Common/fastL4",
+            client_timeout=40,
             explicitflow_migration="enabled",
             hardware_syncookie="enabled",
             idle_timeout="200",
             iptos_toclient="pass-through",
             iptos_toserver="pass-through",
-            keepalive_interval="disabled",
-            name="/Common/sjfastl4profile")
+            keepalive_interval="disabled")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -596,16 +596,16 @@ class ProfileFastL4(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
-            client_timeout=40,
+        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profile_fastl4",
+            name="/Common/sjfastl4profile",
             defaults_from="/Common/fastL4",
+            client_timeout=40,
             explicitflow_migration="enabled",
             hardware_syncookie="enabled",
             idle_timeout="200",
             iptos_toclient="pass-through",
             iptos_toserver="pass-through",
-            keepalive_interval="disabled",
-            name="/Common/sjfastl4profile")
+            keepalive_interval="disabled")
         ```
         <!--End PulumiCodeChooser -->
 

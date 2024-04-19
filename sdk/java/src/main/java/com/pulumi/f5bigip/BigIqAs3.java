@@ -47,10 +47,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Example Usage for json file
  *         var exampletask = new BigIqAs3(&#34;exampletask&#34;, BigIqAs3Args.builder()        
- *             .as3Json(Files.readString(Paths.get(&#34;bigiq_example.json&#34;)))
  *             .bigiqAddress(&#34;xx.xx.xxx.xx&#34;)
- *             .bigiqPassword(&#34;xxxxxxxxx&#34;)
  *             .bigiqUser(&#34;xxxxx&#34;)
+ *             .bigiqPassword(&#34;xxxxxxxxx&#34;)
+ *             .as3Json(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;bigiq_example.json&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

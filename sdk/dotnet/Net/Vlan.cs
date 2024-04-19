@@ -27,16 +27,16 @@ namespace Pulumi.F5BigIP.Net
     /// {
     ///     var vlan1 = new F5BigIP.Net.Vlan("vlan1", new()
     ///     {
+    ///         Name = "/Common/Internal",
+    ///         Tag = 101,
     ///         Interfaces = new[]
     ///         {
     ///             new F5BigIP.Net.Inputs.VlanInterfaceArgs
     ///             {
-    ///                 Tagged = false,
     ///                 Vlanport = "1.2",
+    ///                 Tagged = false,
     ///             },
     ///         },
-    ///         Name = "/Common/Internal",
-    ///         Tag = 101,
     ///     });
     /// 
     /// });

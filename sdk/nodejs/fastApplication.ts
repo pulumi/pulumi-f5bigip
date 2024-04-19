@@ -13,11 +13,13 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const foo_app = new f5bigip.FastApplication("foo-app", {
- *     fastJson: fs.readFileSync("new_fast_app.json", "utf8"),
  *     template: "examples/simple_http",
+ *     fastJson: std.file({
+ *         input: "new_fast_app.json",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

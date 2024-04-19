@@ -32,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewSnat(ctx, "test-snat", &ltm.SnatArgs{
-//				Name: pulumi.String("/Common/test-snat"),
+//				Name:        pulumi.String("/Common/test-snat"),
+//				Translation: pulumi.String("/Common/136.1.1.2"),
+//				Sourceport:  pulumi.String("preserve"),
 //				Origins: ltm.SnatOriginArray{
 //					&ltm.SnatOriginArgs{
 //						Name: pulumi.String("0.0.0.0/0"),
 //					},
 //				},
-//				Sourceport:  pulumi.String("preserve"),
-//				Translation: pulumi.String("/Common/136.1.1.2"),
 //				Vlans: pulumi.StringArray{
 //					pulumi.String("/Common/internal"),
 //				},

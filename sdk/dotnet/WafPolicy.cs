@@ -44,13 +44,13 @@ namespace Pulumi.F5BigIP
     ///         PerformStaging = true,
     ///     });
     /// 
-    ///     var uRL = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
+    ///     var URL = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
     ///     {
     ///         Name = "URL1",
     ///         Protocol = "http",
     ///     });
     /// 
-    ///     var uRL2 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
+    ///     var URL2 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
     ///     {
     ///         Name = "URL2",
     ///     });
@@ -75,8 +75,8 @@ namespace Pulumi.F5BigIP
     ///         },
     ///         Urls = new[]
     ///         {
-    ///             uRL.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
-    ///             uRL2.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
+    ///             URL.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
+    ///             URL2.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
     ///         },
     ///     });
     /// 

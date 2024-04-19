@@ -23,10 +23,10 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var azurevWANProfile = new F5BigIP.IpsecProfile("azurevWANProfile", new()
+    ///     var azurevWANProfile = new F5BigIP.IpsecProfile("azurevWAN_profile", new()
     ///     {
-    ///         Description = "mytestipsecprofile",
     ///         Name = "/Common/Mytestipsecprofile",
+    ///         Description = "mytestipsecprofile",
     ///         TrafficSelector = "test-trafficselector",
     ///     });
     /// 

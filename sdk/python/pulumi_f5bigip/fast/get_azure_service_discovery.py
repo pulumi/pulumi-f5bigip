@@ -177,7 +177,7 @@ def get_azure_service_discovery(address_realm: Optional[str] = None,
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+    tc3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
         subscription_id="testazuresid",
         tag_key="testazuretag",
         tag_value="testazurevalue")
@@ -250,7 +250,7 @@ def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_f5bigip as f5bigip
 
-    t_c3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+    tc3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
         subscription_id="testazuresid",
         tag_key="testazuretag",
         tag_value="testazurevalue")

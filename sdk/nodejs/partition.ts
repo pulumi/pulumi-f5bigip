@@ -15,8 +15,8 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_partition = new f5bigip.Partition("test-partition", {
- *     description: "created by terraform",
  *     name: "test-partition",
+ *     description: "created by terraform",
  *     routeDomainId: 2,
  * });
  * ```

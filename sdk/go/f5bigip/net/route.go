@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := net.NewRoute(ctx, "route2", &net.RouteArgs{
-//				Gw:      pulumi.String("1.1.1.2"),
 //				Name:    pulumi.String("/Common/external-route"),
 //				Network: pulumi.String("10.10.10.0/24"),
+//				Gw:      pulumi.String("1.1.1.2"),
 //			})
 //			if err != nil {
 //				return err

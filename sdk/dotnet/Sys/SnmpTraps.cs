@@ -22,12 +22,12 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var snmpTraps = new F5BigIP.Sys.SnmpTraps("snmpTraps", new()
+    ///     var snmpTraps = new F5BigIP.Sys.SnmpTraps("snmp_traps", new()
     ///     {
-    ///         Community = "f5community",
-    ///         Description = "Setup snmp traps",
-    ///         Host = "195.10.10.1",
     ///         Name = "snmptraps",
+    ///         Community = "f5community",
+    ///         Host = "195.10.10.1",
+    ///         Description = "Setup snmp traps",
     ///         Port = 111,
     ///     });
     /// 

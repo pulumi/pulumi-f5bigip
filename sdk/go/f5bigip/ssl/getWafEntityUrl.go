@@ -28,7 +28,15 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+// Name: "/foobar",
 // Description: pulumi.StringRef("this is a test"),
+// Type: pulumi.StringRef("explicit"),
+// Protocol: pulumi.StringRef("HTTP"),
+// PerformStaging: pulumi.BoolRef(true),
+// SignatureOverridesDisables: interface{}{
+// 12345678,
+// 87654321,
+// },
 // MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
 // {
 // Allow: false,
@@ -39,14 +47,6 @@ import (
 // Method: "BDELETE",
 // },
 // },
-// Name: "/foobar",
-// PerformStaging: pulumi.BoolRef(true),
-// Protocol: pulumi.StringRef("HTTP"),
-// SignatureOverridesDisables: interface{}{
-// 12345678,
-// 87654321,
-// },
-// Type: pulumi.StringRef("explicit"),
 // }, nil);
 // if err != nil {
 // return err

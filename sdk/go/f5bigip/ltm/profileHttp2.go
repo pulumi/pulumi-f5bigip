@@ -49,6 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Child Profile which inherits parent http2 profile
 //			_, err = ltm.NewProfileHttp2(ctx, "nyhttp2-child", &ltm.ProfileHttp2Args{
 //				Name:         pulumi.String("/Common/test-profile-http2-child"),
 //				DefaultsFrom: nyhttp2.Name,

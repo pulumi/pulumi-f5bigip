@@ -209,9 +209,9 @@ class Route(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         route2 = f5bigip.net.Route("route2",
-            gw="1.1.1.2",
             name="/Common/external-route",
-            network="10.10.10.0/24")
+            network="10.10.10.0/24",
+            gw="1.1.1.2")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -242,9 +242,9 @@ class Route(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         route2 = f5bigip.net.Route("route2",
-            gw="1.1.1.2",
             name="/Common/external-route",
-            network="10.10.10.0/24")
+            network="10.10.10.0/24",
+            gw="1.1.1.2")
         ```
         <!--End PulumiCodeChooser -->
 

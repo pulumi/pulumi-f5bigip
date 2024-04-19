@@ -27,16 +27,8 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress("sjhttpcompression", new()
     ///     {
-    ///         ContentTypeExcludes = new[]
-    ///         {
-    ///             "nicecontentexclude.com",
-    ///         },
-    ///         ContentTypeIncludes = new[]
-    ///         {
-    ///             "nicecontent.com",
-    ///         },
-    ///         DefaultsFrom = "/Common/httpcompression",
     ///         Name = "/Common/sjhttpcompression2",
+    ///         DefaultsFrom = "/Common/httpcompression",
     ///         UriExcludes = new[]
     ///         {
     ///             "www.abc.f5.com",
@@ -45,6 +37,14 @@ namespace Pulumi.F5BigIP.Ltm
     ///         UriIncludes = new[]
     ///         {
     ///             "www.xyzbc.cisco.com",
+    ///         },
+    ///         ContentTypeIncludes = new[]
+    ///         {
+    ///             "nicecontent.com",
+    ///         },
+    ///         ContentTypeExcludes = new[]
+    ///         {
+    ///             "nicecontentexclude.com",
     ///         },
     ///     });
     /// 

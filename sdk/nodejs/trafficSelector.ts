@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_selector = new f5bigip.TrafficSelector("test-selector", {
- *     destinationAddress: "3.10.11.2/32",
  *     name: "/Common/test-selector",
+ *     destinationAddress: "3.10.11.2/32",
  *     sourceAddress: "2.10.11.12/32",
  * });
  * ```

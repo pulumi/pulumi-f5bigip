@@ -325,11 +325,11 @@ class Provision(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         gtm = f5bigip.sys.Provision("gtm",
+            name="gtm",
             cpu_ratio=0,
             disk_ratio=0,
             level="nominal",
-            memory_ratio=0,
-            name="gtm")
+            memory_ratio=0)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -381,11 +381,11 @@ class Provision(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         gtm = f5bigip.sys.Provision("gtm",
+            name="gtm",
             cpu_ratio=0,
             disk_ratio=0,
             level="nominal",
-            memory_ratio=0,
-            name="gtm")
+            memory_ratio=0)
         ```
         <!--End PulumiCodeChooser -->
 

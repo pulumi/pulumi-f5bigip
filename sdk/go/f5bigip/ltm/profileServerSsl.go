@@ -32,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileServerSsl(ctx, "test-ServerSsl", &ltm.ProfileServerSslArgs{
+//				Name:         pulumi.String("/Common/test-ServerSsl"),
+//				DefaultsFrom: pulumi.String("/Common/serverssl"),
 //				Authenticate: pulumi.String("always"),
 //				Ciphers:      pulumi.String("DEFAULT"),
-//				DefaultsFrom: pulumi.String("/Common/serverssl"),
-//				Name:         pulumi.String("/Common/test-ServerSsl"),
 //			})
 //			if err != nil {
 //				return err

@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC3 = f5bigip.fast.getGceServiceDiscovery({
- *     region: "testgceregion",
+ * const TC3 = f5bigip.fast.getGceServiceDiscovery({
  *     tagKey: "testgcetag",
  *     tagValue: "testgcevalue",
+ *     region: "testgceregion",
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -127,10 +127,10 @@ export interface GetGceServiceDiscoveryResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC3 = f5bigip.fast.getGceServiceDiscovery({
- *     region: "testgceregion",
+ * const TC3 = f5bigip.fast.getGceServiceDiscovery({
  *     tagKey: "testgcetag",
  *     tagValue: "testgcevalue",
+ *     region: "testgceregion",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const simplehttp = new f5bigip.sys.IApp("simplehttp", {
  *     name: "simplehttp",
- *     jsonfile: fs.readFileSync("simplehttp.json", "utf8"),
+ *     jsonfile: std.file({
+ *         input: "simplehttp.json",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

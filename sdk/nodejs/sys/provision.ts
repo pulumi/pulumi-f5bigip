@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const gtm = new f5bigip.sys.Provision("gtm", {
+ *     name: "gtm",
  *     cpuRatio: 0,
  *     diskRatio: 0,
  *     level: "nominal",
  *     memoryRatio: 0,
- *     name: "gtm",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const fastHttpApp = new f5bigip.FastHttpApp("fastHttpApp", {
- *     application: "fasthttpapp",
+ * const fastHttpApp = new f5bigip.FastHttpApp("fast_http_app", {
  *     tenant: "fasthttptenant",
+ *     application: "fasthttpapp",
  *     virtualServer: {
  *         ip: "10.30.30.44",
  *         port: 443,
@@ -36,18 +36,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const tC3AzureServiceDiscovery = f5bigip.fast.getAzureServiceDiscovery({
+ * const TC3 = f5bigip.fast.getAzureServiceDiscovery({
  *     resourceGroup: "testazurerg",
  *     subscriptionId: "testazuresid",
  *     tagKey: "testazuretag",
  *     tagValue: "testazurevalue",
  * });
- * const tC3GceServiceDiscovery = f5bigip.fast.getGceServiceDiscovery({
+ * const TC3GetGceServiceDiscovery = f5bigip.fast.getGceServiceDiscovery({
  *     tagKey: "testgcetag",
  *     tagValue: "testgcevalue",
  *     region: "testgceregion",
  * });
- * const fastHttpsApp = new f5bigip.FastHttpApp("fastHttpsApp", {
+ * const fastHttpsApp = new f5bigip.FastHttpApp("fast_https_app", {
  *     tenant: "fasthttptenant",
  *     application: "fasthttpapp",
  *     virtualServer: {
@@ -63,8 +63,8 @@ import * as utilities from "./utilities";
  *         port: 80,
  *     }],
  *     serviceDiscoveries: [
- *         tC3GceServiceDiscovery.then(tC3GceServiceDiscovery => tC3GceServiceDiscovery.gceSdJson),
- *         tC3AzureServiceDiscovery.then(tC3AzureServiceDiscovery => tC3AzureServiceDiscovery.azureSdJson),
+ *         TC3GetGceServiceDiscovery.then(TC3GetGceServiceDiscovery => TC3GetGceServiceDiscovery.gceSdJson),
+ *         TC3.then(TC3 => TC3.azureSdJson),
  *     ],
  * });
  * ```

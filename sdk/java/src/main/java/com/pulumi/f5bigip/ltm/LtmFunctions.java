@@ -56,7 +56,7 @@ public final class LtmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
+     *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
      *             .name(&#34;test-dg&#34;)
      *             .partition(&#34;Common&#34;)
      *             .build());
@@ -97,7 +97,7 @@ public final class LtmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
+     *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
      *             .name(&#34;test-dg&#34;)
      *             .partition(&#34;Common&#34;)
      *             .build());
@@ -138,7 +138,7 @@ public final class LtmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
+     *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
      *             .name(&#34;test-dg&#34;)
      *             .partition(&#34;Common&#34;)
      *             .build());
@@ -179,7 +179,7 @@ public final class LtmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
+     *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
      *             .name(&#34;test-dg&#34;)
      *             .partition(&#34;Common&#34;)
      *             .build());

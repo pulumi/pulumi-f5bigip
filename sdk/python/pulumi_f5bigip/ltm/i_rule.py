@@ -108,11 +108,12 @@ class IRule(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         # Loading from a file is the preferred method
         rule = f5bigip.ltm.IRule("rule",
             name="/Common/terraform_irule",
-            irule=(lambda path: open(path).read())("myirule.tcl"))
+            irule=std.file(input="myirule.tcl").result)
         rule2 = f5bigip.ltm.IRule("rule2",
             name="/Common/terraform_irule2",
             irule=\"\"\"when CLIENT_ACCEPTED {
@@ -146,11 +147,12 @@ class IRule(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         # Loading from a file is the preferred method
         rule = f5bigip.ltm.IRule("rule",
             name="/Common/terraform_irule",
-            irule=(lambda path: open(path).read())("myirule.tcl"))
+            irule=std.file(input="myirule.tcl").result)
         rule2 = f5bigip.ltm.IRule("rule2",
             name="/Common/terraform_irule2",
             irule=\"\"\"when CLIENT_ACCEPTED {

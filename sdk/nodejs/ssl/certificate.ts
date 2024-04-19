@@ -14,11 +14,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const test_cert = new f5bigip.ssl.Certificate("test-cert", {
  *     name: "servercert.crt",
- *     content: fs.readFileSync("servercert.crt", "utf8"),
+ *     content: std.file({
+ *         input: "servercert.crt",
+ *     }).then(invoke => invoke.result),
  *     partition: "Common",
  * });
  * ```

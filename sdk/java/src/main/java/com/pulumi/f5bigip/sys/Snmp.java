@@ -42,9 +42,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var snmp = new Snmp(&#34;snmp&#34;, SnmpArgs.builder()        
- *             .allowedaddresses(&#34;202.10.10.2&#34;)
  *             .sysContact(&#34; NetOPsAdmin s.shitole@f5.com&#34;)
  *             .sysLocation(&#34;SeattleHQ&#34;)
+ *             .allowedaddresses(&#34;202.10.10.2&#34;)
  *             .build());
  * 
  *     }

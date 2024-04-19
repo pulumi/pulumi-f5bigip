@@ -23,11 +23,11 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testCipherRule = new F5BigIP.Ltm.CipherRule("testCipherRule", new()
+    ///     var testCipherRule = new F5BigIP.Ltm.CipherRule("test_cipher_rule", new()
     ///     {
+    ///         Name = "/Common/test_cipher_rule",
     ///         Cipher = "TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
     ///         DhGroups = "P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
-    ///         Name = "/Common/test_cipher_rule",
     ///         SignatureAlgorithms = "DEFAULT",
     ///     });
     /// 

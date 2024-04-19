@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const snmp = new f5bigip.sys.Snmp("snmp", {
- *     allowedaddresses: ["202.10.10.2"],
  *     sysContact: " NetOPsAdmin s.shitole@f5.com",
  *     sysLocation: "SeattleHQ",
+ *     allowedaddresses: ["202.10.10.2"],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

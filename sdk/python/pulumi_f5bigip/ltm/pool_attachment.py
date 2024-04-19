@@ -396,11 +396,11 @@ class PoolAttachment(pulumi.CustomResource):
             allow_snat="yes",
             allow_nat="yes")
         # attaching ipv4 address with service port
-        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
+        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4_node_attach",
             pool=pool.name,
             node="1.1.1.1:80")
         # attaching ipv6 address with service port
-        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
+        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6_node_attach",
             pool=pool.name,
             node="2003::4.80")
         ```
@@ -428,7 +428,7 @@ class PoolAttachment(pulumi.CustomResource):
         node = f5bigip.ltm.Node("node",
             name="/Common/terraform_node",
             address="192.168.30.2")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+        attach_node = f5bigip.ltm.PoolAttachment("attach_node",
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
         ```
@@ -497,11 +497,11 @@ class PoolAttachment(pulumi.CustomResource):
             allow_snat="yes",
             allow_nat="yes")
         # attaching ipv4 address with service port
-        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
+        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4_node_attach",
             pool=pool.name,
             node="1.1.1.1:80")
         # attaching ipv6 address with service port
-        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
+        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6_node_attach",
             pool=pool.name,
             node="2003::4.80")
         ```
@@ -529,7 +529,7 @@ class PoolAttachment(pulumi.CustomResource):
         node = f5bigip.ltm.Node("node",
             name="/Common/terraform_node",
             address="192.168.30.2")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+        attach_node = f5bigip.ltm.PoolAttachment("attach_node",
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
         ```

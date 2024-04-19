@@ -46,10 +46,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_ServerSsl = new ProfileServerSsl(&#34;test-ServerSsl&#34;, ProfileServerSslArgs.builder()        
+ *             .name(&#34;/Common/test-ServerSsl&#34;)
+ *             .defaultsFrom(&#34;/Common/serverssl&#34;)
  *             .authenticate(&#34;always&#34;)
  *             .ciphers(&#34;DEFAULT&#34;)
- *             .defaultsFrom(&#34;/Common/serverssl&#34;)
- *             .name(&#34;/Common/test-ServerSsl&#34;)
  *             .build());
  * 
  *     }

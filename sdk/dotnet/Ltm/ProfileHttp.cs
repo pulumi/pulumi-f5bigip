@@ -27,6 +27,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new()
     ///     {
+    ///         Name = "/Common/sanjose-http",
     ///         DefaultsFrom = "/Common/http",
     ///         FallbackHost = "titanic",
     ///         FallbackStatusCodes = new[]
@@ -35,7 +36,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///             "500",
     ///             "300",
     ///         },
-    ///         Name = "/Common/sanjose-http",
     ///     });
     /// 
     /// });

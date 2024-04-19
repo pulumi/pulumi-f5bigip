@@ -14,6 +14,43 @@ import (
 
 // `FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
 // Template set can be imported from zip archive files on the local disk.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFilemd5, err := std.Filemd5(ctx, &std.Filemd5Args{
+//				Input: "foo_template.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewFastTemplate(ctx, "foo-template", &f5bigip.FastTemplateArgs{
+//				Name:    pulumi.String("foo_template"),
+//				Source:  pulumi.String("foo_template.zip"),
+//				Md5Hash: invokeFilemd5.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 type FastTemplate struct {
 	pulumi.CustomResourceState
 

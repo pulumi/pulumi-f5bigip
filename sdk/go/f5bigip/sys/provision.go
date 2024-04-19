@@ -30,11 +30,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sys.NewProvision(ctx, "gtm", &sys.ProvisionArgs{
+//				Name:        pulumi.String("gtm"),
 //				CpuRatio:    pulumi.Int(0),
 //				DiskRatio:   pulumi.Int(0),
 //				Level:       pulumi.String("nominal"),
 //				MemoryRatio: pulumi.Int(0),
-//				Name:        pulumi.String("gtm"),
 //			})
 //			if err != nil {
 //				return err

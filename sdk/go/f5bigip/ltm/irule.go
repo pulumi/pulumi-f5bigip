@@ -24,27 +24,24 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "myirule.tcl",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Loading from a file is the preferred method
-//			_, err := ltm.NewIRule(ctx, "rule", &ltm.IRuleArgs{
+//			_, err = ltm.NewIRule(ctx, "rule", &ltm.IRuleArgs{
 //				Name:  pulumi.String("/Common/terraform_irule"),
-//				Irule: readFileOrPanic("myirule.tcl"),
+//				Irule: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

@@ -46,9 +46,13 @@ import javax.annotation.Nullable;
  *         var testkeycert = new SslKeyCert(&#34;testkeycert&#34;, SslKeyCertArgs.builder()        
  *             .partition(&#34;Common&#34;)
  *             .keyName(&#34;ssl-test-key&#34;)
- *             .keyContent(Files.readString(Paths.get(&#34;key.pem&#34;)))
+ *             .keyContent(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;key.pem&#34;)
+ *                 .build()).result())
  *             .certName(&#34;ssl-test-cert&#34;)
- *             .certContent(Files.readString(Paths.get(&#34;certificate.pem&#34;)))
+ *             .certContent(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;certificate.pem&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

@@ -48,17 +48,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var node = new Node(&#34;node&#34;, NodeArgs.builder()        
+ *             .name(&#34;/Common/terraform_node1&#34;)
  *             .address(&#34;192.168.30.1&#34;)
  *             .connectionLimit(&#34;0&#34;)
- *             .description(&#34;Test-Node&#34;)
  *             .dynamicRatio(&#34;1&#34;)
+ *             .monitor(&#34;/Common/icmp&#34;)
+ *             .description(&#34;Test-Node&#34;)
+ *             .rateLimit(&#34;disabled&#34;)
  *             .fqdn(NodeFqdnArgs.builder()
  *                 .addressFamily(&#34;ipv4&#34;)
  *                 .interval(&#34;3000&#34;)
  *                 .build())
- *             .monitor(&#34;/Common/icmp&#34;)
- *             .name(&#34;/Common/terraform_node1&#34;)
- *             .rateLimit(&#34;disabled&#34;)
  *             .build());
  * 
  *     }

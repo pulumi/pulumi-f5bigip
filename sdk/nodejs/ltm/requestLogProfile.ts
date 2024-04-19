@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const request_log_profile_tc1_child = new f5bigip.ltm.RequestLogProfile("request-log-profile-tc1-child", {
  *     name: "/Common/request-log-profile-tc1-child",
- *     defaultsFrom: bigip_ltm_request_log_profile["request-log-profile-tc1"].name,
+ *     defaultsFrom: request_log_profile_tc1.name,
  *     requestLogging: "disabled",
  *     requestlogPool: "/Common/pool2",
  *     requestlogErrorPool: "/Common/pool1",

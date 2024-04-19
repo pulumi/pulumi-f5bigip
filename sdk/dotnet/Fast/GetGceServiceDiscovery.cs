@@ -25,11 +25,11 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC3 = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+        ///     var TC3 = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
         ///     {
-        ///         Region = "testgceregion",
         ///         TagKey = "testgcetag",
         ///         TagValue = "testgcevalue",
+        ///         Region = "testgceregion",
         ///     });
         /// 
         /// });
@@ -53,11 +53,11 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC3 = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+        ///     var TC3 = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
         ///     {
-        ///         Region = "testgceregion",
         ///         TagKey = "testgcetag",
         ///         TagValue = "testgcevalue",
+        ///         Region = "testgceregion",
         ///     });
         /// 
         /// });

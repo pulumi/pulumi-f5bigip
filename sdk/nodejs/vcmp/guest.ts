@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vcmp_test = new f5bigip.vcmp.Guest("vcmp-test", {
- *     coresPerSlot: 2,
- *     initialImage: "12.1.2.iso",
- *     mgmtAddress: "10.1.1.1/24",
- *     mgmtNetwork: "bridged",
- *     mgmtRoute: "none",
- *     minNumberOfSlots: 1,
  *     name: "tf_guest",
- *     numberOfSlots: 1,
+ *     initialImage: "12.1.2.iso",
+ *     mgmtNetwork: "bridged",
+ *     mgmtAddress: "10.1.1.1/24",
+ *     mgmtRoute: "none",
  *     state: "provisioned",
+ *     coresPerSlot: 2,
+ *     numberOfSlots: 1,
+ *     minNumberOfSlots: 1,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

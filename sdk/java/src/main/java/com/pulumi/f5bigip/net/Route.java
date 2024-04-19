@@ -45,9 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var route2 = new Route(&#34;route2&#34;, RouteArgs.builder()        
- *             .gw(&#34;1.1.1.2&#34;)
  *             .name(&#34;/Common/external-route&#34;)
  *             .network(&#34;10.10.10.0/24&#34;)
+ *             .gw(&#34;1.1.1.2&#34;)
  *             .build());
  * 
  *     }

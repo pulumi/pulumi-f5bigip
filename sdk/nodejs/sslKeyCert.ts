@@ -14,14 +14,18 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const testkeycert = new f5bigip.SslKeyCert("testkeycert", {
  *     partition: "Common",
  *     keyName: "ssl-test-key",
- *     keyContent: fs.readFileSync("key.pem", "utf8"),
+ *     keyContent: std.file({
+ *         input: "key.pem",
+ *     }).then(invoke => invoke.result),
  *     certName: "ssl-test-cert",
- *     certContent: fs.readFileSync("certificate.pem", "utf8"),
+ *     certContent: std.file({
+ *         input: "certificate.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewPartition(ctx, "test-partition", &f5bigip.PartitionArgs{
-//				Description:   pulumi.String("created by terraform"),
 //				Name:          pulumi.String("test-partition"),
+//				Description:   pulumi.String("created by terraform"),
 //				RouteDomainId: pulumi.Int(2),
 //			})
 //			if err != nil {

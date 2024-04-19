@@ -27,15 +27,15 @@ namespace Pulumi.F5BigIP.VCMP
     /// {
     ///     var vcmp_test = new F5BigIP.VCMP.Guest("vcmp-test", new()
     ///     {
-    ///         CoresPerSlot = 2,
-    ///         InitialImage = "12.1.2.iso",
-    ///         MgmtAddress = "10.1.1.1/24",
-    ///         MgmtNetwork = "bridged",
-    ///         MgmtRoute = "none",
-    ///         MinNumberOfSlots = 1,
     ///         Name = "tf_guest",
-    ///         NumberOfSlots = 1,
+    ///         InitialImage = "12.1.2.iso",
+    ///         MgmtNetwork = "bridged",
+    ///         MgmtAddress = "10.1.1.1/24",
+    ///         MgmtRoute = "none",
     ///         State = "provisioned",
+    ///         CoresPerSlot = 2,
+    ///         NumberOfSlots = 1,
+    ///         MinNumberOfSlots = 1,
     ///     });
     /// 
     /// });

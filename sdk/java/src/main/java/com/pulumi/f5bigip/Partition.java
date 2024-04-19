@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_partition = new Partition(&#34;test-partition&#34;, PartitionArgs.builder()        
- *             .description(&#34;created by terraform&#34;)
  *             .name(&#34;test-partition&#34;)
+ *             .description(&#34;created by terraform&#34;)
  *             .routeDomainId(2)
  *             .build());
  * 

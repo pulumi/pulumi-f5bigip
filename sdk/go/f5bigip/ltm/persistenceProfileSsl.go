@@ -30,14 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewPersistenceProfileSsl(ctx, "ppssl", &ltm.PersistenceProfileSslArgs{
+//				Name:                pulumi.String("/Common/terraform_ssl"),
 //				DefaultsFrom:        pulumi.String("/Common/ssl"),
 //				MatchAcrossPools:    pulumi.String("enabled"),
 //				MatchAcrossServices: pulumi.String("enabled"),
 //				MatchAcrossVirtuals: pulumi.String("enabled"),
 //				Mirror:              pulumi.String("enabled"),
-//				Name:                pulumi.String("/Common/terraform_ssl"),
-//				OverrideConnLimit:   pulumi.String("enabled"),
 //				Timeout:             pulumi.Int(3600),
+//				OverrideConnLimit:   pulumi.String("enabled"),
 //			})
 //			if err != nil {
 //				return err

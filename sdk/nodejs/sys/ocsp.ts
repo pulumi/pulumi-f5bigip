@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  *
  * const test_ocsp = new f5bigip.sys.Ocsp("test-ocsp", {
  *     name: "/Uncommon/test-ocsp",
- *     passphrase: "testabcdef",
  *     proxyServerPool: "/Common/test-poolxyz",
- *     signerCert: "/Common/le-ssl",
  *     signerKey: "/Common/le-ssl",
+ *     signerCert: "/Common/le-ssl",
+ *     passphrase: "testabcdef",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

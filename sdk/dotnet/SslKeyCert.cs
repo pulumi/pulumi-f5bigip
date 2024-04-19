@@ -18,10 +18,10 @@ namespace Pulumi.F5BigIP
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -29,9 +29,15 @@ namespace Pulumi.F5BigIP
     ///     {
     ///         Partition = "Common",
     ///         KeyName = "ssl-test-key",
-    ///         KeyContent = File.ReadAllText("key.pem"),
+    ///         KeyContent = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CertName = "ssl-test-cert",
-    ///         CertContent = File.ReadAllText("certificate.pem"),
+    ///         CertContent = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

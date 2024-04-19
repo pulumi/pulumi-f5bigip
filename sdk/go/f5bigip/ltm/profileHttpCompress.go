@@ -32,20 +32,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileHttpCompress(ctx, "sjhttpcompression", &ltm.ProfileHttpCompressArgs{
-//				ContentTypeExcludes: pulumi.StringArray{
-//					pulumi.String("nicecontentexclude.com"),
-//				},
-//				ContentTypeIncludes: pulumi.StringArray{
-//					pulumi.String("nicecontent.com"),
-//				},
-//				DefaultsFrom: pulumi.String("/Common/httpcompression"),
 //				Name:         pulumi.String("/Common/sjhttpcompression2"),
+//				DefaultsFrom: pulumi.String("/Common/httpcompression"),
 //				UriExcludes: pulumi.StringArray{
 //					pulumi.String("www.abc.f5.com"),
 //					pulumi.String("www.abc2.f5.com"),
 //				},
 //				UriIncludes: pulumi.StringArray{
 //					pulumi.String("www.xyzbc.cisco.com"),
+//				},
+//				ContentTypeIncludes: pulumi.StringArray{
+//					pulumi.String("nicecontent.com"),
+//				},
+//				ContentTypeExcludes: pulumi.StringArray{
+//					pulumi.String("nicecontentexclude.com"),
 //				},
 //			})
 //			if err != nil {

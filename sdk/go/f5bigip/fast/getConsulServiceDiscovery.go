@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fast.GetConsulServiceDiscovery(ctx, &fast.GetConsulServiceDiscoveryArgs{
-//				Port: 8080,
 //				Uri:  "https://192.0.2.100:8500/v1/catalog/nodes",
+//				Port: 8080,
 //			}, nil)
 //			if err != nil {
 //				return err

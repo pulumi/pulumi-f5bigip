@@ -10,49 +10,6 @@ import * as utilities from "../utilities";
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
  * When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
  *
- * ## Example Usage
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const http = new f5bigip.ltm.VirtualServer("http", {
- *     name: "/Common/terraform_vs_http",
- *     destination: "10.12.12.12",
- *     port: 80,
- *     pool: "/Common/the-default-pool",
- * });
- * // A Virtual server with SSL enabled
- * const httpsVirtualServer = new f5bigip.ltm.VirtualServer("httpsVirtualServer", {
- *     name: "/Common/terraform_vs_https",
- *     destination: _var.vip_ip,
- *     description: "VirtualServer-test",
- *     port: 443,
- *     pool: _var.pool,
- *     profiles: [
- *         "/Common/tcp",
- *         "/Common/my-awesome-ssl-cert",
- *         "/Common/http",
- *     ],
- *     sourceAddressTranslation: "automap",
- *     translateAddress: "enabled",
- *     translatePort: "enabled",
- * });
- * // A Virtual server with separate client and server profiles
- * const httpsLtm_virtualServerVirtualServer = new f5bigip.ltm.VirtualServer("httpsLtm/virtualServerVirtualServer", {
- *     name: "/Common/terraform_vs_https",
- *     destination: "10.255.255.254",
- *     description: "VirtualServer-test",
- *     port: 443,
- *     clientProfiles: ["/Common/clientssl"],
- *     serverProfiles: ["/Common/serverssl"],
- *     securityLogProfiles: ["/Common/global-network"],
- *     sourceAddressTranslation: "automap",
- * });
- * ```
- * <!--End PulumiCodeChooser -->      
- *
  * ## Importing
  *
  * An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.

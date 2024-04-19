@@ -11,47 +11,6 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fast_udp_app = new F5BigIP.FastUdpApp("fast-udp-app", new()
-    ///     {
-    ///         Application = "udp_app_2",
-    ///         PoolMembers = new[]
-    ///         {
-    ///             new F5BigIP.Inputs.FastUdpAppPoolMemberArgs
-    ///             {
-    ///                 Addresses = new[]
-    ///                 {
-    ///                     "10.11.34.65",
-    ///                     "56.43.23.76",
-    ///                 },
-    ///                 ConnectionLimit = 4,
-    ///                 Port = 443,
-    ///                 PriorityGroup = 1,
-    ///                 ShareNodes = true,
-    ///             },
-    ///         },
-    ///         Tenant = "udp_app_tenant",
-    ///         VirtualServer = new F5BigIP.Inputs.FastUdpAppVirtualServerArgs
-    ///         {
-    ///             Ip = "11.12.16.30",
-    ///             Port = 443,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastUdpApp:FastUdpApp")]
     public partial class FastUdpApp : global::Pulumi.CustomResource

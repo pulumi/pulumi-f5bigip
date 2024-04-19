@@ -19,37 +19,22 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_profile = new f5bigip.ltm.ProfileRewrite("test-profile", {
- *     bypassLists: ["http://notouch.com"],
- *     caFile: "/Common/ca-bundle.crt",
- *     cacheType: "cache-img-css-js",
- *     crlFile: "none",
- *     defaultsFrom: "/Common/rewrite",
  *     name: "/Common/tf_profile",
+ *     defaultsFrom: "/Common/rewrite",
+ *     bypassLists: ["http://notouch.com"],
  *     rewriteLists: ["http://some.com"],
  *     rewriteMode: "portal",
+ *     cacheType: "cache-img-css-js",
+ *     caFile: "/Common/ca-bundle.crt",
+ *     crlFile: "none",
  *     signingCert: "/Common/default.crt",
  *     signingKey: "/Common/default.key",
  *     splitTunneling: "true",
  * });
  * const test_profile2 = new f5bigip.ltm.ProfileRewrite("test-profile2", {
- *     cookieRules: [
- *         {
- *             clientDomain: "wrong.com",
- *             clientPath: "/this/",
- *             ruleName: "cookie1",
- *             serverDomain: "wrong.com",
- *             serverPath: "/this/",
- *         },
- *         {
- *             clientDomain: "incorrect.com",
- *             clientPath: "/this/",
- *             ruleName: "cookie2",
- *             serverDomain: "absolute.com",
- *             serverPath: "/this/",
- *         },
- *     ],
- *     defaultsFrom: "/Common/rewrite",
  *     name: "/Common/tf_profile_translate",
+ *     defaultsFrom: "/Common/rewrite",
+ *     rewriteMode: "uri-translation",
  *     requests: [{
  *         insertXfwdFor: "enabled",
  *         insertXfwdHost: "disabled",
@@ -60,7 +45,22 @@ import * as utilities from "../utilities";
  *         rewriteContent: "enabled",
  *         rewriteHeaders: "disabled",
  *     }],
- *     rewriteMode: "uri-translation",
+ *     cookieRules: [
+ *         {
+ *             ruleName: "cookie1",
+ *             clientDomain: "wrong.com",
+ *             clientPath: "/this/",
+ *             serverDomain: "wrong.com",
+ *             serverPath: "/this/",
+ *         },
+ *         {
+ *             ruleName: "cookie2",
+ *             clientDomain: "incorrect.com",
+ *             clientPath: "/this/",
+ *             serverDomain: "absolute.com",
+ *             serverPath: "/this/",
+ *         },
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -29,9 +29,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewIpsecProfile(ctx, "azurevWANProfile", &f5bigip.IpsecProfileArgs{
-//				Description:     pulumi.String("mytestipsecprofile"),
+//			_, err := f5bigip.NewIpsecProfile(ctx, "azurevWAN_profile", &f5bigip.IpsecProfileArgs{
 //				Name:            pulumi.String("/Common/Mytestipsecprofile"),
+//				Description:     pulumi.String("mytestipsecprofile"),
 //				TrafficSelector: pulumi.String("test-trafficselector"),
 //			})
 //			if err != nil {

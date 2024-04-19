@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var azurevWANProfile = new IpsecProfile(&#34;azurevWANProfile&#34;, IpsecProfileArgs.builder()        
- *             .description(&#34;mytestipsecprofile&#34;)
  *             .name(&#34;/Common/Mytestipsecprofile&#34;)
+ *             .description(&#34;mytestipsecprofile&#34;)
  *             .trafficSelector(&#34;test-trafficselector&#34;)
  *             .build());
  * 

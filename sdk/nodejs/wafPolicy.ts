@@ -33,11 +33,11 @@ import * as utilities from "./utilities";
  *     dataType: "alpha-numeric",
  *     performStaging: true,
  * });
- * const uRL = f5bigip.ssl.getWafEntityUrl({
+ * const URL = f5bigip.ssl.getWafEntityUrl({
  *     name: "URL1",
  *     protocol: "http",
  * });
- * const uRL2 = f5bigip.ssl.getWafEntityUrl({
+ * const URL2 = f5bigip.ssl.getWafEntityUrl({
  *     name: "URL2",
  * });
  * const test_awaf = new f5bigip.WafPolicy("test-awaf", {
@@ -56,8 +56,8 @@ import * as utilities from "./utilities";
  *         param2.then(param2 => param2.json),
  *     ],
  *     urls: [
- *         uRL.then(uRL => uRL.json),
- *         uRL2.then(uRL2 => uRL2.json),
+ *         URL.then(URL => URL.json),
+ *         URL2.then(URL2 => URL2.json),
  *     ],
  * });
  * ```

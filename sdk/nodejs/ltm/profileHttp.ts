@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sanjose_http = new f5bigip.ltm.ProfileHttp("sanjose-http", {
+ *     name: "/Common/sanjose-http",
  *     defaultsFrom: "/Common/http",
  *     fallbackHost: "titanic",
  *     fallbackStatusCodes: [
@@ -26,7 +27,6 @@ import * as utilities from "../utilities";
  *         "500",
  *         "300",
  *     ],
- *     name: "/Common/sanjose-http",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

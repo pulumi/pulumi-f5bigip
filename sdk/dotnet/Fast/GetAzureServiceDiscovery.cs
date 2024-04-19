@@ -25,7 +25,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
+        ///     var TC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
         ///     {
         ///         ResourceGroup = "testazurerg",
         ///         SubscriptionId = "testazuresid",
@@ -54,7 +54,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
+        ///     var TC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
         ///     {
         ///         ResourceGroup = "testazurerg",
         ///         SubscriptionId = "testazuresid",

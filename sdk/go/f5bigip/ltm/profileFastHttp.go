@@ -32,17 +32,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewProfileFastHttp(ctx, "sjfasthttpprofile", &ltm.ProfileFastHttpArgs{
+//				Name:                        pulumi.String("/Common/sjfasthttpprofile"),
+//				DefaultsFrom:                pulumi.String("/Common/fasthttp"),
+//				IdleTimeout:                 pulumi.Int(300),
+//				ConnpoolidleTimeoutoverride: pulumi.Int(0),
 //				ConnpoolMaxreuse:            pulumi.Int(2),
 //				ConnpoolMaxsize:             pulumi.Int(2048),
 //				ConnpoolMinsize:             pulumi.Int(0),
 //				ConnpoolReplenish:           pulumi.String("enabled"),
 //				ConnpoolStep:                pulumi.Int(4),
-//				ConnpoolidleTimeoutoverride: pulumi.Int(0),
-//				DefaultsFrom:                pulumi.String("/Common/fasthttp"),
 //				Forcehttp10response:         pulumi.String("disabled"),
-//				IdleTimeout:                 pulumi.Int(300),
 //				MaxheaderSize:               pulumi.Int(32768),
-//				Name:                        pulumi.String("/Common/sjfasthttpprofile"),
 //			})
 //			if err != nil {
 //				return err

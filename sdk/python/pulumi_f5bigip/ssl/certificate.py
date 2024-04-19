@@ -272,10 +272,11 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         test_cert = f5bigip.ssl.Certificate("test-cert",
             name="servercert.crt",
-            content=(lambda path: open(path).read())("servercert.crt"),
+            content=std.file(input="servercert.crt").result,
             partition="Common")
         ```
         <!--End PulumiCodeChooser -->
@@ -306,10 +307,11 @@ class Certificate(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
 
         test_cert = f5bigip.ssl.Certificate("test-cert",
             name="servercert.crt",
-            content=(lambda path: open(path).read())("servercert.crt"),
+            content=std.file(input="servercert.crt").result,
             partition="Common")
         ```
         <!--End PulumiCodeChooser -->

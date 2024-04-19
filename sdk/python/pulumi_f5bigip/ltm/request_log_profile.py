@@ -704,7 +704,7 @@ class RequestLogProfile(pulumi.CustomResource):
 
         request_log_profile_tc1_child = f5bigip.ltm.RequestLogProfile("request-log-profile-tc1-child",
             name="/Common/request-log-profile-tc1-child",
-            defaults_from=bigip_ltm_request_log_profile["request-log-profile-tc1"]["name"],
+            defaults_from=request_log_profile_tc1["name"],
             request_logging="disabled",
             requestlog_pool="/Common/pool2",
             requestlog_error_pool="/Common/pool1",
@@ -766,7 +766,7 @@ class RequestLogProfile(pulumi.CustomResource):
 
         request_log_profile_tc1_child = f5bigip.ltm.RequestLogProfile("request-log-profile-tc1-child",
             name="/Common/request-log-profile-tc1-child",
-            defaults_from=bigip_ltm_request_log_profile["request-log-profile-tc1"]["name"],
+            defaults_from=request_log_profile_tc1["name"],
             request_logging="disabled",
             requestlog_pool="/Common/pool2",
             requestlog_error_pool="/Common/pool1",

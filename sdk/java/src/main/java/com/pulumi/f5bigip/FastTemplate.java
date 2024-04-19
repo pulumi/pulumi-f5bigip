@@ -18,6 +18,43 @@ import javax.annotation.Nullable;
  * `f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
  * Template set can be imported from zip archive files on the local disk.
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.FastTemplate;
+ * import com.pulumi.f5bigip.FastTemplateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo_template = new FastTemplate(&#34;foo-template&#34;, FastTemplateArgs.builder()        
+ *             .name(&#34;foo_template&#34;)
+ *             .source(&#34;foo_template.zip&#34;)
+ *             .md5Hash(StdFunctions.filemd5(Filemd5Args.builder()
+ *                 .input(&#34;foo_template.zip&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="f5bigip:index/fastTemplate:FastTemplate")
 public class FastTemplate extends com.pulumi.resources.CustomResource {

@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const pBWAF1 = f5bigip.ssl.getWafPbSuggestions({
- *     minimumLearningScore: 20,
- *     partition: "Common",
+ * const PBWAF1 = f5bigip.ssl.getWafPbSuggestions({
  *     policyName: "protect_me_policy",
+ *     partition: "Common",
+ *     minimumLearningScore: 20,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -85,10 +85,10 @@ export interface GetWafPbSuggestionsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const pBWAF1 = f5bigip.ssl.getWafPbSuggestions({
- *     minimumLearningScore: 20,
- *     partition: "Common",
+ * const PBWAF1 = f5bigip.ssl.getWafPbSuggestions({
  *     policyName: "protect_me_policy",
+ *     partition: "Common",
+ *     minimumLearningScore: 20,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

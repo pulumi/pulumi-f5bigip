@@ -45,7 +45,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test_key = new Key(&#34;test-key&#34;, KeyArgs.builder()        
  *             .name(&#34;serverkey.key&#34;)
- *             .content(Files.readString(Paths.get(&#34;serverkey.key&#34;)))
+ *             .content(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;serverkey.key&#34;)
+ *                 .build()).result())
  *             .partition(&#34;Common&#34;)
  *             .build());
  * 

@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			// attaching ipv4 address with service port
-//			_, err = ltm.NewPoolAttachment(ctx, "ipv4NodeAttach", &ltm.PoolAttachmentArgs{
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv4_node_attach", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: pulumi.String("1.1.1.1:80"),
 //			})
@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			// attaching ipv6 address with service port
-//			_, err = ltm.NewPoolAttachment(ctx, "ipv6NodeAttach", &ltm.PoolAttachmentArgs{
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv6_node_attach", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: pulumi.String("2003::4.80"),
 //			})
@@ -132,7 +132,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
+//			_, err = ltm.NewPoolAttachment(ctx, "attach_node", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: node.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("%v:80", name), nil

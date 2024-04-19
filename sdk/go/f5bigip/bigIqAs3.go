@@ -24,29 +24,26 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "bigiq_example.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Example Usage for json file
-//			_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
-//				As3Json:       readFileOrPanic("bigiq_example.json"),
+//			_, err = f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
 //				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
-//				BigiqPassword: pulumi.String("xxxxxxxxx"),
 //				BigiqUser:     pulumi.String("xxxxx"),
+//				BigiqPassword: pulumi.String("xxxxxxxxx"),
+//				As3Json:       invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

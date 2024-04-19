@@ -25,7 +25,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
+        ///     var TC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
         ///     {
         ///         TagKey = "testawstagkey",
         ///         TagValue = "testawstagvalue",
@@ -52,7 +52,7 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var tC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
+        ///     var TC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
         ///     {
         ///         TagKey = "testawstagkey",
         ///         TagValue = "testawstagvalue",

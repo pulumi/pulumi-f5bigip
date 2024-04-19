@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sanjose_ftp_profile = new f5bigip.ltm.ProfileFtp("sanjose-ftp-profile", {
- *     allowActiveMode: "enabled",
- *     defaultsFrom: "/Common/ftp",
- *     description: "test-tftp-profile",
- *     enforceTlssessionReuse: "enabled",
- *     ftpsMode: "allow",
  *     name: "/Common/sanjose-ftp-profile",
+ *     defaultsFrom: "/Common/ftp",
  *     port: 2020,
+ *     description: "test-tftp-profile",
+ *     ftpsMode: "allow",
+ *     enforceTlssessionReuse: "enabled",
+ *     allowActiveMode: "enabled",
  * });
  * ```
  * <!--End PulumiCodeChooser -->      
@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const sanjose_ftp_profile = new f5bigip.ltm.ProfileFtp("sanjose-ftp-profile", {
- *     allowFtps: "enabled",
- *     defaultsFrom: "/Common/ftp",
- *     description: "test-tftp-profile",
  *     name: "/Common/sanjose-ftp-profile",
+ *     defaultsFrom: "/Common/ftp",
  *     port: 2020,
+ *     description: "test-tftp-profile",
+ *     allowFtps: "enabled",
  *     translateExtended: "enabled",
  * });
  * ```

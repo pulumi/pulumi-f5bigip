@@ -605,10 +605,10 @@ class Ocsp(pulumi.CustomResource):
 
         test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
             name="/Uncommon/test-ocsp",
-            passphrase="testabcdef",
             proxy_server_pool="/Common/test-poolxyz",
+            signer_key="/Common/le-ssl",
             signer_cert="/Common/le-ssl",
-            signer_key="/Common/le-ssl")
+            passphrase="testabcdef")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -658,10 +658,10 @@ class Ocsp(pulumi.CustomResource):
 
         test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
             name="/Uncommon/test-ocsp",
-            passphrase="testabcdef",
             proxy_server_pool="/Common/test-poolxyz",
+            signer_key="/Common/le-ssl",
             signer_cert="/Common/le-ssl",
-            signer_key="/Common/le-ssl")
+            passphrase="testabcdef")
         ```
         <!--End PulumiCodeChooser -->
 
