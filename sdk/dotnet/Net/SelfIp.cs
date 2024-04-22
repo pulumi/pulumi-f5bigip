@@ -48,7 +48,7 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
@@ -115,7 +115,7 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
@@ -148,7 +148,7 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 

@@ -65,7 +65,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             mypool, 
+    ///             mypool,
     ///         },
     ///     });
     /// 

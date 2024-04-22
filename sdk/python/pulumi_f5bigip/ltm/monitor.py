@@ -838,7 +838,7 @@ class Monitor(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998,
             destination="1.2.3.4:1234")
@@ -846,7 +846,7 @@ class Monitor(pulumi.CustomResource):
             name="/Common/terraform_monitor",
             parent="/Common/http",
             ssl_profile="/Common/serverssl",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             interval=999,
             timeout=1000)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
@@ -925,7 +925,7 @@ class Monitor(pulumi.CustomResource):
         monitor = f5bigip.ltm.Monitor("monitor",
             name="/Common/terraform_monitor",
             parent="/Common/http",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             timeout=999,
             interval=998,
             destination="1.2.3.4:1234")
@@ -933,7 +933,7 @@ class Monitor(pulumi.CustomResource):
             name="/Common/terraform_monitor",
             parent="/Common/http",
             ssl_profile="/Common/serverssl",
-            send="GET /some/path\\n",
+            send="GET /some/path\\x0d\\n",
             interval=999,
             timeout=1000)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
