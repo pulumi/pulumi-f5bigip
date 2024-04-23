@@ -45,6 +45,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("compress")]
         public Input<bool>? Compress { get; set; }
 
+        /// <summary>
+        /// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        /// </summary>
         [Input("connection")]
         public Input<bool>? Connection { get; set; }
 
@@ -96,6 +99,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("facility")]
         public Input<string>? Facility { get; set; }
 
+        /// <summary>
+        /// This action will affect forwarding.
+        /// </summary>
         [Input("forward")]
         public Input<bool>? Forward { get; set; }
 
@@ -198,6 +204,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
+        /// <summary>
+        /// This action will direct the stream to this pool.
+        /// </summary>
         [Input("pool")]
         public Input<string>? Pool { get; set; }
 

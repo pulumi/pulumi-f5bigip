@@ -404,7 +404,6 @@ class Node(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -422,7 +421,6 @@ class Node(pulumi.CustomResource):
                 interval="3000",
             ))
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -464,7 +462,6 @@ class Node(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -482,7 +479,6 @@ class Node(pulumi.CustomResource):
                 interval="3000",
             ))
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

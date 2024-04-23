@@ -17,7 +17,6 @@ namespace Pulumi.F5BigIP.Ltm
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIruleResult> InvokeAsync(GetIruleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithDefaults());
@@ -49,7 +47,6 @@ namespace Pulumi.F5BigIP.Ltm
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.F5BigIP.Ltm
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithDefaults());

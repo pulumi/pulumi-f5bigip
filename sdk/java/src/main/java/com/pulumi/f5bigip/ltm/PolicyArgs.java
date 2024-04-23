@@ -34,14 +34,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * @return Specifies descriptive text that identifies the ltm policy.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of Rule to be applied in policy.
+     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     public Output<String> name() {
@@ -193,7 +193,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * @param description Specifies descriptive text that identifies the ltm policy.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * @param description Specifies descriptive text that identifies the ltm policy.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of Rule to be applied in policy.
+         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of Rule to be applied in policy.
+         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          * 
          * @return builder
          * 

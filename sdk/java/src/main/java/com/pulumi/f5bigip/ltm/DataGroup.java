@@ -40,14 +40,14 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internal);
     }
     /**
-     * , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+     * Name of the datagroup
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return , sets the value of the record&#39;s `name` attribute, must be of type defined in `type` attribute
+     * @return Name of the datagroup
      * 
      */
     public Output<String> name() {

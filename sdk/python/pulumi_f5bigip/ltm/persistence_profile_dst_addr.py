@@ -399,7 +399,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -416,7 +415,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             hash_algorithm="carp",
             mask="255.255.255.255")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -470,7 +468,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -487,7 +484,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             hash_algorithm="carp",
             mask="255.255.255.255")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 

@@ -329,7 +329,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -344,7 +343,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
             timeout=3600,
             override_conn_limit="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 
@@ -395,7 +393,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
         ## Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -410,7 +407,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
             timeout=3600,
             override_conn_limit="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Reference
 

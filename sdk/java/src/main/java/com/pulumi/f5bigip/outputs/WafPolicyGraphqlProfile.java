@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WafPolicyGraphqlProfile {
     /**
-     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      * 
      */
     private @Nullable Boolean attackSignaturesCheck;
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return defense_attributes settings for policy
      * 
      */
     private @Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes;
     /**
-     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      * 
      */
     private @Nullable Boolean metacharElementcheck;
@@ -38,21 +38,21 @@ public final class WafPolicyGraphqlProfile {
 
     private WafPolicyGraphqlProfile() {}
     /**
-     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      * 
      */
     public Optional<Boolean> attackSignaturesCheck() {
         return Optional.ofNullable(this.attackSignaturesCheck);
     }
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return defense_attributes settings for policy
      * 
      */
     public List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes() {
         return this.defenseAttributes == null ? List.of() : this.defenseAttributes;
     }
     /**
-     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      * 
      */
     public Optional<Boolean> metacharElementcheck() {

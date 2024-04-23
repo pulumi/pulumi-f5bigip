@@ -27,7 +27,7 @@ public final class ProfileRewriteRequest {
      */
     private @Nullable String insertXfwdProtocol;
     /**
-     * @return Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+     * @return Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
      * 
      */
     private @Nullable String rewriteHeaders;
@@ -55,7 +55,7 @@ public final class ProfileRewriteRequest {
         return Optional.ofNullable(this.insertXfwdProtocol);
     }
     /**
-     * @return Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+     * @return Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
      * 
      */
     public Optional<String> rewriteHeaders() {

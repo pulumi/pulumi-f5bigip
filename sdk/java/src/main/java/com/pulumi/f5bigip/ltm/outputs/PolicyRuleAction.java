@@ -24,6 +24,10 @@ public final class PolicyRuleAction {
     private @Nullable String clonePool;
     private @Nullable Integer code;
     private @Nullable Boolean compress;
+    /**
+     * @return This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+     * 
+     */
     private @Nullable Boolean connection;
     private @Nullable String content;
     private @Nullable Boolean cookieHash;
@@ -41,6 +45,10 @@ public final class PolicyRuleAction {
     private @Nullable String expression;
     private @Nullable String extension;
     private @Nullable String facility;
+    /**
+     * @return This action will affect forwarding.
+     * 
+     */
     private @Nullable Boolean forward;
     private @Nullable String fromProfile;
     private @Nullable Boolean hash;
@@ -75,6 +83,10 @@ public final class PolicyRuleAction {
     private @Nullable Boolean persist;
     private @Nullable Boolean pin;
     private @Nullable String policy;
+    /**
+     * @return This action will direct the stream to this pool.
+     * 
+     */
     private @Nullable String pool;
     private @Nullable Integer port;
     private @Nullable String priority;
@@ -152,6 +164,10 @@ public final class PolicyRuleAction {
     public Optional<Boolean> compress() {
         return Optional.ofNullable(this.compress);
     }
+    /**
+     * @return This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+     * 
+     */
     public Optional<Boolean> connection() {
         return Optional.ofNullable(this.connection);
     }
@@ -203,6 +219,10 @@ public final class PolicyRuleAction {
     public Optional<String> facility() {
         return Optional.ofNullable(this.facility);
     }
+    /**
+     * @return This action will affect forwarding.
+     * 
+     */
     public Optional<Boolean> forward() {
         return Optional.ofNullable(this.forward);
     }
@@ -305,6 +325,10 @@ public final class PolicyRuleAction {
     public Optional<String> policy() {
         return Optional.ofNullable(this.policy);
     }
+    /**
+     * @return This action will direct the stream to this pool.
+     * 
+     */
     public Optional<String> pool() {
         return Optional.ofNullable(this.pool);
     }

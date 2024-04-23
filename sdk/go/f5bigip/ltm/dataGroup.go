@@ -20,7 +20,7 @@ type DataGroup struct {
 
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal pulumi.BoolPtrOutput `pulumi:"internal"`
-	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+	// Name of the datagroup
 	Name pulumi.StringOutput `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayOutput `pulumi:"records"`
@@ -69,7 +69,7 @@ func GetDataGroup(ctx *pulumi.Context,
 type dataGroupState struct {
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal *bool `pulumi:"internal"`
-	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+	// Name of the datagroup
 	Name *string `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records []DataGroupRecord `pulumi:"records"`
@@ -83,7 +83,7 @@ type dataGroupState struct {
 type DataGroupState struct {
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal pulumi.BoolPtrInput
-	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+	// Name of the datagroup
 	Name pulumi.StringPtrInput
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayInput
@@ -101,7 +101,7 @@ func (DataGroupState) ElementType() reflect.Type {
 type dataGroupArgs struct {
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal *bool `pulumi:"internal"`
-	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+	// Name of the datagroup
 	Name string `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records []DataGroupRecord `pulumi:"records"`
@@ -116,7 +116,7 @@ type dataGroupArgs struct {
 type DataGroupArgs struct {
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal pulumi.BoolPtrInput
-	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+	// Name of the datagroup
 	Name pulumi.StringInput
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayInput
@@ -219,7 +219,7 @@ func (o DataGroupOutput) Internal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataGroup) pulumi.BoolPtrOutput { return v.Internal }).(pulumi.BoolPtrOutput)
 }
 
-// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+// Name of the datagroup
 func (o DataGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

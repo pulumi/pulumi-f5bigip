@@ -18,7 +18,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ### For Bigip versions (14.x - 16.x)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,9 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;      
     /// 
     /// ### For Bigip versions (12.x - 13.x)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +62,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Common Arguments for all versions
     /// 
@@ -85,13 +81,13 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class ProfileFtp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         /// </summary>
         [Output("allowActiveMode")]
         public Output<string?> AllowActiveMode { get; private set; } = null!;
 
         /// <summary>
-        /// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Output("allowFtps")]
         public Output<string?> AllowFtps { get; private set; } = null!;
@@ -115,13 +111,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        /// value is unchecked (disabled).
         /// </summary>
         [Output("enforceTlssessionReuse")]
         public Output<string?> EnforceTlssessionReuse { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Output("ftpsMode")]
         public Output<string?> FtpsMode { get; private set; } = null!;
@@ -177,7 +174,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Security { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        /// and PORT when communicating with IPv4 servers.
         /// </summary>
         [Output("translateExtended")]
         public Output<string?> TranslateExtended { get; private set; } = null!;
@@ -229,13 +227,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileFtpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         /// </summary>
         [Input("allowActiveMode")]
         public Input<string>? AllowActiveMode { get; set; }
 
         /// <summary>
-        /// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Input("allowFtps")]
         public Input<string>? AllowFtps { get; set; }
@@ -259,13 +257,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        /// value is unchecked (disabled).
         /// </summary>
         [Input("enforceTlssessionReuse")]
         public Input<string>? EnforceTlssessionReuse { get; set; }
 
         /// <summary>
-        /// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Input("ftpsMode")]
         public Input<string>? FtpsMode { get; set; }
@@ -321,7 +320,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Security { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        /// and PORT when communicating with IPv4 servers.
         /// </summary>
         [Input("translateExtended")]
         public Input<string>? TranslateExtended { get; set; }
@@ -335,13 +335,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileFtpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         /// </summary>
         [Input("allowActiveMode")]
         public Input<string>? AllowActiveMode { get; set; }
 
         /// <summary>
-        /// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Input("allowFtps")]
         public Input<string>? AllowFtps { get; set; }
@@ -365,13 +365,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        /// value is unchecked (disabled).
         /// </summary>
         [Input("enforceTlssessionReuse")]
         public Input<string>? EnforceTlssessionReuse { get; set; }
 
         /// <summary>
-        /// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        /// Allows explicit FTPS negotiation
         /// </summary>
         [Input("ftpsMode")]
         public Input<string>? FtpsMode { get; set; }
@@ -427,7 +428,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Security { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        /// and PORT when communicating with IPv4 servers.
         /// </summary>
         [Input("translateExtended")]
         public Input<string>? TranslateExtended { get; set; }

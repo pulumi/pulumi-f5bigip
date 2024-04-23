@@ -201,7 +201,6 @@ class CipherRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -212,7 +211,6 @@ class CipherRule(pulumi.CustomResource):
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
             signature_algorithms="DEFAULT")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -241,7 +239,6 @@ class CipherRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -252,7 +249,6 @@ class CipherRule(pulumi.CustomResource):
             dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
             signature_algorithms="DEFAULT")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 

@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,10 +58,8 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 // ### Example usage with `portLockdown`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,11 +93,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example usage with `portLockdown` set to `["none"]`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,11 +127,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example usage with route domain embedded in the `ip`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -168,7 +161,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type SelfIp struct {
 	pulumi.CustomResourceState
 

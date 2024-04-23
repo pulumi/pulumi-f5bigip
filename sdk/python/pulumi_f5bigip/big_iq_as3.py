@@ -557,7 +557,6 @@ class BigIqAs3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -570,7 +569,6 @@ class BigIqAs3(pulumi.CustomResource):
             bigiq_password="xxxxxxxxx",
             as3_json=std.file(input="bigiq_example.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -653,7 +651,6 @@ class BigIqAs3(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -666,7 +663,6 @@ class BigIqAs3(pulumi.CustomResource):
             bigiq_password="xxxxxxxxx",
             as3_json=std.file(input="bigiq_example.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param BigIqAs3Args args: The arguments to use to populate this resource's properties.

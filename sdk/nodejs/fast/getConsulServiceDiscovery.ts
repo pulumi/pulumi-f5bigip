@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     port: 8080,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConsulServiceDiscovery(args: GetConsulServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetConsulServiceDiscoveryResult> {
 
@@ -118,7 +116,6 @@ export interface GetConsulServiceDiscoveryResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -128,7 +125,6 @@ export interface GetConsulServiceDiscoveryResult {
  *     port: 8080,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsulServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getConsulServiceDiscovery(a, opts))

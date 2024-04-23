@@ -31,7 +31,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<string>? InsertXfwdProtocol { get; set; }
 
         /// <summary>
-        /// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        /// Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         /// </summary>
         [Input("rewriteHeaders")]
         public Input<string>? RewriteHeaders { get; set; }

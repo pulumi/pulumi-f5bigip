@@ -468,7 +468,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -484,7 +483,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
             content_type_includes=["nicecontent.com"],
             content_type_excludes=["nicecontentexclude.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -523,7 +521,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -539,7 +536,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
             content_type_includes=["nicecontent.com"],
             content_type_excludes=["nicecontentexclude.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
