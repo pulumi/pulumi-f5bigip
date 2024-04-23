@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGceServiceDiscoveryResult> InvokeAsync(GetGceServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGceServiceDiscoveryResult> Invoke(GetGceServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryInvokeArgs(), options.WithDefaults());

@@ -1850,7 +1850,6 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1861,7 +1860,6 @@ class ProfileServerSsl(pulumi.CustomResource):
             authenticate="always",
             ciphers="DEFAULT")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -1971,7 +1969,6 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -1982,7 +1979,6 @@ class ProfileServerSsl(pulumi.CustomResource):
             authenticate="always",
             ciphers="DEFAULT")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

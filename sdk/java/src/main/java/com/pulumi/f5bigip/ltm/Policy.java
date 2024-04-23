@@ -104,28 +104,28 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * @return Specifies descriptive text that identifies the ltm policy.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of Rule to be applied in policy.
+     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      * 
      */
     public Output<String> name() {

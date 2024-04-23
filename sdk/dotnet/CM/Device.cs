@@ -15,7 +15,6 @@ namespace Pulumi.F5BigIP.CM
     /// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:cm/device:Device")]
     public partial class Device : global::Pulumi.CustomResource

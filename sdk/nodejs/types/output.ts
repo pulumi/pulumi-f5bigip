@@ -287,15 +287,15 @@ export interface WafPolicyFileType {
 
 export interface WafPolicyGraphqlProfile {
     /**
-     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      */
     attackSignaturesCheck?: boolean;
     /**
-     * `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * defense_attributes settings for policy
      */
     defenseAttributes?: outputs.WafPolicyGraphqlProfileDefenseAttribute[];
     /**
-     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      */
     metacharElementcheck?: boolean;
     /**
@@ -706,6 +706,9 @@ export namespace ltm {
         clonePool: string;
         code: number;
         compress: boolean;
+        /**
+         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+         */
         connection?: boolean;
         content: string;
         cookieHash: boolean;
@@ -723,6 +726,9 @@ export namespace ltm {
         expression: string;
         extension: string;
         facility: string;
+        /**
+         * This action will affect forwarding.
+         */
         forward?: boolean;
         fromProfile: string;
         hash: boolean;
@@ -757,6 +763,9 @@ export namespace ltm {
         persist: boolean;
         pin: boolean;
         policy: string;
+        /**
+         * This action will direct the stream to this pool.
+         */
         pool: string;
         port: number;
         priority: string;
@@ -983,7 +992,7 @@ export namespace ltm {
          */
         insertXfwdProtocol?: string;
         /**
-         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         * Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
          */
         rewriteHeaders?: string;
     }

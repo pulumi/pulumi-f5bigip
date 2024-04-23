@@ -1030,9 +1030,9 @@ class WafPolicyGraphqlProfile(dict):
                  metachar_elementcheck: Optional[bool] = None):
         """
         :param str name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-        :param bool attack_signatures_check: Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
-        :param Sequence['WafPolicyGraphqlProfileDefenseAttributeArgs'] defense_attributes: `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
-        :param bool metachar_elementcheck: Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        :param bool attack_signatures_check: Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
+        :param Sequence['WafPolicyGraphqlProfileDefenseAttributeArgs'] defense_attributes: defense_attributes settings for policy
+        :param bool metachar_elementcheck: Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
         """
         pulumi.set(__self__, "name", name)
         if attack_signatures_check is not None:
@@ -1054,7 +1054,7 @@ class WafPolicyGraphqlProfile(dict):
     @pulumi.getter(name="attackSignaturesCheck")
     def attack_signatures_check(self) -> Optional[bool]:
         """
-        Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
         """
         return pulumi.get(self, "attack_signatures_check")
 
@@ -1062,7 +1062,7 @@ class WafPolicyGraphqlProfile(dict):
     @pulumi.getter(name="defenseAttributes")
     def defense_attributes(self) -> Optional[Sequence['outputs.WafPolicyGraphqlProfileDefenseAttribute']]:
         """
-        `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        defense_attributes settings for policy
         """
         return pulumi.get(self, "defense_attributes")
 
@@ -1070,7 +1070,7 @@ class WafPolicyGraphqlProfile(dict):
     @pulumi.getter(name="metacharElementcheck")
     def metachar_elementcheck(self) -> Optional[bool]:
         """
-        Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
         """
         return pulumi.get(self, "metachar_elementcheck")
 

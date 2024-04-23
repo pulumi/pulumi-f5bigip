@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### For Bigip versions (14.x - 16.x)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     allowActiveMode: "enabled",
  * });
  * ```
- * <!--End PulumiCodeChooser -->      
  *
  * ### For Bigip versions (12.x - 13.x)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -46,7 +43,6 @@ import * as utilities from "../utilities";
  *     translateExtended: "enabled",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Common Arguments for all versions
  *
@@ -91,11 +87,11 @@ export class ProfileFtp extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
     public readonly allowActiveMode!: pulumi.Output<string | undefined>;
     /**
-     * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * Allows explicit FTPS negotiation
      */
     public readonly allowFtps!: pulumi.Output<string | undefined>;
     /**
@@ -111,11 +107,12 @@ export class ProfileFtp extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      */
     public readonly enforceTlssessionReuse!: pulumi.Output<string | undefined>;
     /**
-     * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * Allows explicit FTPS negotiation
      */
     public readonly ftpsMode!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +150,8 @@ export class ProfileFtp extends pulumi.CustomResource {
      */
     public readonly security!: pulumi.Output<string>;
     /**
-     * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      */
     public readonly translateExtended!: pulumi.Output<string | undefined>;
 
@@ -218,11 +216,11 @@ export class ProfileFtp extends pulumi.CustomResource {
  */
 export interface ProfileFtpState {
     /**
-     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
     allowActiveMode?: pulumi.Input<string>;
     /**
-     * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * Allows explicit FTPS negotiation
      */
     allowFtps?: pulumi.Input<string>;
     /**
@@ -238,11 +236,12 @@ export interface ProfileFtpState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      */
     enforceTlssessionReuse?: pulumi.Input<string>;
     /**
-     * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * Allows explicit FTPS negotiation
      */
     ftpsMode?: pulumi.Input<string>;
     /**
@@ -280,7 +279,8 @@ export interface ProfileFtpState {
      */
     security?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      */
     translateExtended?: pulumi.Input<string>;
 }
@@ -290,11 +290,11 @@ export interface ProfileFtpState {
  */
 export interface ProfileFtpArgs {
     /**
-     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
     allowActiveMode?: pulumi.Input<string>;
     /**
-     * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * Allows explicit FTPS negotiation
      */
     allowFtps?: pulumi.Input<string>;
     /**
@@ -310,11 +310,12 @@ export interface ProfileFtpArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      */
     enforceTlssessionReuse?: pulumi.Input<string>;
     /**
-     * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * Allows explicit FTPS negotiation
      */
     ftpsMode?: pulumi.Input<string>;
     /**
@@ -352,7 +353,8 @@ export interface ProfileFtpArgs {
      */
     security?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      */
     translateExtended?: pulumi.Input<string>;
 }

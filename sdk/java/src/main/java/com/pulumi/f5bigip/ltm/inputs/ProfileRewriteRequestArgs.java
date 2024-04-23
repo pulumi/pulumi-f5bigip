@@ -61,14 +61,14 @@ public final class ProfileRewriteRequestArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+     * Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
      * 
      */
     @Import(name="rewriteHeaders")
     private @Nullable Output<String> rewriteHeaders;
 
     /**
-     * @return Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+     * @return Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
      * 
      */
     public Optional<Output<String>> rewriteHeaders() {
@@ -166,7 +166,7 @@ public final class ProfileRewriteRequestArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param rewriteHeaders Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         * @param rewriteHeaders Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ProfileRewriteRequestArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param rewriteHeaders Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         * @param rewriteHeaders Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
          * 
          * @return builder
          * 

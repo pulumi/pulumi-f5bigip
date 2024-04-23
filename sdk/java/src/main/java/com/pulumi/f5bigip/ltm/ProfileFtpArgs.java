@@ -18,14 +18,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProfileFtpArgs Empty = new ProfileFtpArgs();
 
     /**
-     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      * 
      */
     @Import(name="allowActiveMode")
     private @Nullable Output<String> allowActiveMode;
 
     /**
-     * @return Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * @return Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      * 
      */
     public Optional<Output<String>> allowActiveMode() {
@@ -33,14 +33,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * Allows explicit FTPS negotiation
      * 
      */
     @Import(name="allowFtps")
     private @Nullable Output<String> allowFtps;
 
     /**
-     * @return Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * @return Allows explicit FTPS negotiation
      * 
      */
     public Optional<Output<String>> allowFtps() {
@@ -93,14 +93,16 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      * 
      */
     @Import(name="enforceTlssessionReuse")
     private @Nullable Output<String> enforceTlssessionReuse;
 
     /**
-     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      * 
      */
     public Optional<Output<String>> enforceTlssessionReuse() {
@@ -108,14 +110,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * Allows explicit FTPS negotiation
      * 
      */
     @Import(name="ftpsMode")
     private @Nullable Output<String> ftpsMode;
 
     /**
-     * @return Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * @return Allows explicit FTPS negotiation
      * 
      */
     public Optional<Output<String>> ftpsMode() {
@@ -247,14 +249,16 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      * 
      */
     @Import(name="translateExtended")
     private @Nullable Output<String> translateExtended;
 
     /**
-     * @return Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      * 
      */
     public Optional<Output<String>> translateExtended() {
@@ -301,7 +305,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowActiveMode Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+         * @param allowActiveMode Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
          * 
          * @return builder
          * 
@@ -312,7 +316,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowActiveMode Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+         * @param allowActiveMode Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
          * 
          * @return builder
          * 
@@ -322,7 +326,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowFtps Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+         * @param allowFtps Allows explicit FTPS negotiation
          * 
          * @return builder
          * 
@@ -333,7 +337,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowFtps Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+         * @param allowFtps Allows explicit FTPS negotiation
          * 
          * @return builder
          * 
@@ -406,7 +410,8 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+         * value is unchecked (disabled).
          * 
          * @return builder
          * 
@@ -417,7 +422,8 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+         * value is unchecked (disabled).
          * 
          * @return builder
          * 
@@ -427,7 +433,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ftpsMode Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+         * @param ftpsMode Allows explicit FTPS negotiation
          * 
          * @return builder
          * 
@@ -438,7 +444,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ftpsMode Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+         * @param ftpsMode Allows explicit FTPS negotiation
          * 
          * @return builder
          * 
@@ -620,7 +626,8 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param translateExtended Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+         * and PORT when communicating with IPv4 servers.
          * 
          * @return builder
          * 
@@ -631,7 +638,8 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param translateExtended Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+         * and PORT when communicating with IPv4 servers.
          * 
          * @return builder
          * 

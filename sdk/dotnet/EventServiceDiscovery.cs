@@ -12,7 +12,6 @@ namespace Pulumi.F5BigIP
     /// <summary>
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.F5BigIP
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery")]
     public partial class EventServiceDiscovery : global::Pulumi.CustomResource

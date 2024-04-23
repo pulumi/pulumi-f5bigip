@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Ssl
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWafPolicyResult> InvokeAsync(GetWafPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.F5BigIP.Ssl
         ///  
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWafPolicyResult> Invoke(GetWafPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyInvokeArgs(), options.WithDefaults());

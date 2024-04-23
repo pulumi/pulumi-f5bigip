@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConsulServiceDiscoveryResult> InvokeAsync(GetConsulServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.F5BigIP.Fast
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConsulServiceDiscoveryResult> Invoke(GetConsulServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryInvokeArgs(), options.WithDefaults());

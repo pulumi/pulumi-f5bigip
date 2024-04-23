@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// </summary>
         public readonly string? InsertXfwdProtocol;
         /// <summary>
-        /// Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        /// Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         /// </summary>
         public readonly string? RewriteHeaders;
 

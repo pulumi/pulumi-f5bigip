@@ -26,7 +26,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,11 +72,9 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -122,7 +119,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Importing
     /// 

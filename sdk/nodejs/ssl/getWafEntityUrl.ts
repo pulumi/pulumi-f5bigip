@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -38,7 +37,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityUrlResult> {
 
@@ -64,7 +62,7 @@ export interface GetWafEntityUrlArgs {
      */
     description?: string;
     /**
-     * Specifies an HTTP method.
+     * Select a Method for the URL to create an API endpoint. Default is : *.
      */
     method?: string;
     /**
@@ -119,7 +117,6 @@ export interface GetWafEntityUrlResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -146,7 +143,6 @@ export interface GetWafEntityUrlResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
     return pulumi.output(args).apply((a: any) => getWafEntityUrl(a, opts))
@@ -161,7 +157,7 @@ export interface GetWafEntityUrlOutputArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies an HTTP method.
+     * Select a Method for the URL to create an API endpoint. Default is : *.
      */
     method?: pulumi.Input<string>;
     /**

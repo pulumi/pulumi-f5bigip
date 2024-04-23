@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,13 +64,12 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             mypool, 
+    ///             mypool,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Importing
     /// 
@@ -91,13 +89,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -185,13 +183,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -253,13 +251,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// Specifies descriptive text that identifies the ltm policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of Rule to be applied in policy.
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

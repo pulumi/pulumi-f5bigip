@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [mypool],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Importing
  *
@@ -84,11 +82,11 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly controls!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -157,11 +155,11 @@ export interface PolicyState {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     name?: pulumi.Input<string>;
     /**
@@ -193,11 +191,11 @@ export interface PolicyArgs {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies descriptive text that identifies the irule attached to policy.
+     * Specifies descriptive text that identifies the ltm policy.
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of Rule to be applied in policy.
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     name: pulumi.Input<string>;
     /**

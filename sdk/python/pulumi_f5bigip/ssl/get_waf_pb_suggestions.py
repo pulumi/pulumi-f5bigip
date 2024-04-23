@@ -105,7 +105,6 @@ def get_waf_pb_suggestions(minimum_learning_score: Optional[int] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -114,7 +113,6 @@ def get_waf_pb_suggestions(minimum_learning_score: Optional[int] = None,
         partition="Common",
         minimum_learning_score=20)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int minimum_learning_score: The minimum learning score for suggestions.
@@ -150,7 +148,6 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -159,7 +156,6 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
         partition="Common",
         minimum_learning_score=20)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param int minimum_learning_score: The minimum learning score for suggestions.

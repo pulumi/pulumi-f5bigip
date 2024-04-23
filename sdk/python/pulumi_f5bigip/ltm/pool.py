@@ -370,7 +370,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -384,7 +383,6 @@ class Pool(pulumi.CustomResource):
             minimum_active_members=1,
             monitors=[monitor.name])
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 
@@ -422,7 +420,6 @@ class Pool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -436,7 +433,6 @@ class Pool(pulumi.CustomResource):
             minimum_active_members=1,
             monitors=[monitor.name])
         ```
-        <!--End PulumiCodeChooser -->      
 
         ## Importing
 

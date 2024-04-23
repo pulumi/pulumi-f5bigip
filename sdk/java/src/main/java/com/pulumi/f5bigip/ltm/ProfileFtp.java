@@ -117,28 +117,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:ltm/profileFtp:ProfileFtp")
 public class ProfileFtp extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      * 
      */
     @Export(name="allowActiveMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowActiveMode;
 
     /**
-     * @return Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+     * @return Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      * 
      */
     public Output<Optional<String>> allowActiveMode() {
         return Codegen.optional(this.allowActiveMode);
     }
     /**
-     * Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * Allows explicit FTPS negotiation
      * 
      */
     @Export(name="allowFtps", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowFtps;
 
     /**
-     * @return Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+     * @return Allows explicit FTPS negotiation
      * 
      */
     public Output<Optional<String>> allowFtps() {
@@ -187,28 +187,30 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      * 
      */
     @Export(name="enforceTlssessionReuse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enforceTlssessionReuse;
 
     /**
-     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+     * value is unchecked (disabled).
      * 
      */
     public Output<Optional<String>> enforceTlssessionReuse() {
         return Codegen.optional(this.enforceTlssessionReuse);
     }
     /**
-     * Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * Allows explicit FTPS negotiation
      * 
      */
     @Export(name="ftpsMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ftpsMode;
 
     /**
-     * @return Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+     * @return Allows explicit FTPS negotiation
      * 
      */
     public Output<Optional<String>> ftpsMode() {
@@ -331,14 +333,16 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
         return this.security;
     }
     /**
-     * Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      * 
      */
     @Export(name="translateExtended", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translateExtended;
 
     /**
-     * @return Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+     * and PORT when communicating with IPv4 servers.
      * 
      */
     public Output<Optional<String>> translateExtended() {

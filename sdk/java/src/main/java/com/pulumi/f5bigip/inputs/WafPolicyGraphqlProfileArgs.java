@@ -20,14 +20,14 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
     public static final WafPolicyGraphqlProfileArgs Empty = new WafPolicyGraphqlProfileArgs();
 
     /**
-     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      * 
      */
     @Import(name="attackSignaturesCheck")
     private @Nullable Output<Boolean> attackSignaturesCheck;
 
     /**
-     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      * 
      */
     public Optional<Output<Boolean>> attackSignaturesCheck() {
@@ -35,14 +35,14 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * defense_attributes settings for policy
      * 
      */
     @Import(name="defenseAttributes")
     private @Nullable Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>> defenseAttributes;
 
     /**
-     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * @return defense_attributes settings for policy
      * 
      */
     public Optional<Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>>> defenseAttributes() {
@@ -50,14 +50,14 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      * 
      */
     @Import(name="metacharElementcheck")
     private @Nullable Output<Boolean> metacharElementcheck;
 
     /**
-     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      * 
      */
     public Optional<Output<Boolean>> metacharElementcheck() {
@@ -107,7 +107,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes defense_attributes settings for policy
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes defense_attributes settings for policy
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * @param defenseAttributes defense_attributes settings for policy
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
          * 
          * @return builder
          * 

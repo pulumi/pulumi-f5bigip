@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *
  * node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -29,7 +28,7 @@ import * as utilities from "../utilities";
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     timeout: 999,
  *     interval: 998,
  * });
@@ -51,11 +50,9 @@ import * as utilities from "../utilities";
  *     node: "2003::4.80",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -63,7 +60,7 @@ import * as utilities from "../utilities";
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     timeout: 999,
  *     interval: 998,
  * });
@@ -83,7 +80,6 @@ import * as utilities from "../utilities";
  *     node: pulumi.interpolate`${node.name}:80`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Importing
  *

@@ -333,6 +333,11 @@ class PolicyRuleActionArgs:
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  wam: Optional[pulumi.Input[bool]] = None,
                  write: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] connection: This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        :param pulumi.Input[bool] forward: This action will affect forwarding.
+        :param pulumi.Input[str] pool: This action will direct the stream to this pool.
+        """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
         if application is not None:
@@ -644,6 +649,9 @@ class PolicyRuleActionArgs:
     @property
     @pulumi.getter
     def connection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        """
         return pulumi.get(self, "connection")
 
     @connection.setter
@@ -797,6 +805,9 @@ class PolicyRuleActionArgs:
     @property
     @pulumi.getter
     def forward(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This action will affect forwarding.
+        """
         return pulumi.get(self, "forward")
 
     @forward.setter
@@ -1103,6 +1114,9 @@ class PolicyRuleActionArgs:
     @property
     @pulumi.getter
     def pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        This action will direct the stream to this pool.
+        """
         return pulumi.get(self, "pool")
 
     @pool.setter
@@ -2906,7 +2920,7 @@ class ProfileRewriteRequestArgs:
         :param pulumi.Input[str] insert_xfwd_for: Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
         :param pulumi.Input[str] insert_xfwd_host: Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
         :param pulumi.Input[str] insert_xfwd_protocol: Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
-        :param pulumi.Input[str] rewrite_headers: Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        :param pulumi.Input[str] rewrite_headers: Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         """
         if insert_xfwd_for is not None:
             pulumi.set(__self__, "insert_xfwd_for", insert_xfwd_for)
@@ -2957,7 +2971,7 @@ class ProfileRewriteRequestArgs:
     @pulumi.getter(name="rewriteHeaders")
     def rewrite_headers(self) -> Optional[pulumi.Input[str]]:
         """
-        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "rewrite_headers")
 
