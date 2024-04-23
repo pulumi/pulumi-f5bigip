@@ -534,7 +534,6 @@ class ProfileFastL4(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -550,7 +549,6 @@ class ProfileFastL4(pulumi.CustomResource):
             iptos_toserver="pass-through",
             keepalive_interval="disabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -591,7 +589,6 @@ class ProfileFastL4(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -607,7 +604,6 @@ class ProfileFastL4(pulumi.CustomResource):
             iptos_toserver="pass-through",
             keepalive_interval="disabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,7 +14,6 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ntp:Ntp")]
     public partial class Ntp : global::Pulumi.CustomResource

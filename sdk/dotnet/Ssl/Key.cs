@@ -15,7 +15,6 @@ namespace Pulumi.F5BigIP.Ssl
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.F5BigIP.Ssl
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:ssl/key:Key")]
     public partial class Key : global::Pulumi.CustomResource

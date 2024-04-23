@@ -447,7 +447,6 @@ class IpsecPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -464,7 +463,6 @@ class IpsecPolicy(pulumi.CustomResource):
             lifetime=3,
             ipcomp="deflate")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -497,7 +495,6 @@ class IpsecPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -514,7 +511,6 @@ class IpsecPolicy(pulumi.CustomResource):
             lifetime=3,
             ipcomp="deflate")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IpsecPolicyArgs args: The arguments to use to populate this resource's properties.

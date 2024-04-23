@@ -16,7 +16,6 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,16 +47,14 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// ### Example usage with `port_lockdown`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,17 +79,15 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example usage with `port_lockdown` set to `["none"]`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,17 +110,15 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example usage with route domain embedded in the `ip`
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,13 +141,12 @@ namespace Pulumi.F5BigIP.Net
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vlan1, 
+    ///             vlan1,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/selfIp:SelfIp")]
     public partial class SelfIp : global::Pulumi.CustomResource

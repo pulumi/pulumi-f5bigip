@@ -28,7 +28,6 @@ import (
 //
 // node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,11 +83,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage Pool attachment with node referenced from `ltm.Node`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,7 +143,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Importing
 //

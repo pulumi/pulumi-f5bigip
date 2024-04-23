@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Inputs
     public sealed class WafPolicyGraphqlProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        /// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
         /// </summary>
         [Input("attackSignaturesCheck")]
         public Input<bool>? AttackSignaturesCheck { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP.Inputs
         private InputList<Inputs.WafPolicyGraphqlProfileDefenseAttributeArgs>? _defenseAttributes;
 
         /// <summary>
-        /// `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        /// defense_attributes settings for policy
         /// </summary>
         public InputList<Inputs.WafPolicyGraphqlProfileDefenseAttributeArgs> DefenseAttributes
         {
@@ -31,7 +31,7 @@ namespace Pulumi.F5BigIP.Inputs
         }
 
         /// <summary>
-        /// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        /// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
         /// </summary>
         [Input("metacharElementcheck")]
         public Input<bool>? MetacharElementcheck { get; set; }

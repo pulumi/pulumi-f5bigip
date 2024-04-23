@@ -202,7 +202,6 @@ class CipherGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -213,7 +212,6 @@ class CipherGroup(pulumi.CustomResource):
             requires=["/Common/f5-quic"],
             ordering="speed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 
@@ -243,7 +241,6 @@ class CipherGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -254,7 +251,6 @@ class CipherGroup(pulumi.CustomResource):
             requires=["/Common/f5-quic"],
             ordering="speed")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Importing
 

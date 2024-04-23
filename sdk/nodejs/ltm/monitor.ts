@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -19,7 +18,7 @@ import * as utilities from "../utilities";
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     timeout: 999,
  *     interval: 998,
  *     destination: "1.2.3.4:1234",
@@ -28,7 +27,7 @@ import * as utilities from "../utilities";
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
  *     sslProfile: "/Common/serverssl",
- *     send: "GET /some/path\n",
+ *     send: "GET /some/path\x0d\n",
  *     interval: 999,
  *     timeout: 1000,
  * });
@@ -52,7 +51,6 @@ import * as utilities from "../utilities";
  *     password: "abcd1234",
  * });
  * ```
- * <!--End PulumiCodeChooser -->      
  *
  * ## Importing
  *

@@ -388,6 +388,11 @@ class PolicyRuleAction(dict):
                  vlan_id: Optional[int] = None,
                  wam: Optional[bool] = None,
                  write: Optional[bool] = None):
+        """
+        :param bool connection: This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        :param bool forward: This action will affect forwarding.
+        :param str pool: This action will direct the stream to this pool.
+        """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
         if application is not None:
@@ -655,6 +660,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def connection(self) -> Optional[bool]:
+        """
+        This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        """
         return pulumi.get(self, "connection")
 
     @property
@@ -740,6 +748,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def forward(self) -> Optional[bool]:
+        """
+        This action will affect forwarding.
+        """
         return pulumi.get(self, "forward")
 
     @property
@@ -910,6 +921,9 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter
     def pool(self) -> Optional[str]:
+        """
+        This action will direct the stream to this pool.
+        """
         return pulumi.get(self, "pool")
 
     @property
@@ -2298,7 +2312,7 @@ class ProfileRewriteRequest(dict):
         :param str insert_xfwd_for: Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
         :param str insert_xfwd_host: Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
         :param str insert_xfwd_protocol: Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
-        :param str rewrite_headers: Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        :param str rewrite_headers: Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         """
         if insert_xfwd_for is not None:
             pulumi.set(__self__, "insert_xfwd_for", insert_xfwd_for)
@@ -2337,7 +2351,7 @@ class ProfileRewriteRequest(dict):
     @pulumi.getter(name="rewriteHeaders")
     def rewrite_headers(self) -> Optional[str]:
         """
-        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "rewrite_headers")
 

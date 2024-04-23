@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetAwsServiceDiscovery(ctx *pulumi.Context, args *GetAwsServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetAwsServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAwsServiceDiscoveryResult

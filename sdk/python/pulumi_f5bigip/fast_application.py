@@ -143,7 +143,6 @@ class FastApplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -153,7 +152,6 @@ class FastApplication(pulumi.CustomResource):
             template="examples/simple_http",
             fast_json=std.file(input="new_fast_app.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +169,6 @@ class FastApplication(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -181,7 +178,6 @@ class FastApplication(pulumi.CustomResource):
             template="examples/simple_http",
             fast_json=std.file(input="new_fast_app.json").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param FastApplicationArgs args: The arguments to use to populate this resource's properties.

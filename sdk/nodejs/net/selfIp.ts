@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -32,10 +31,8 @@ import * as utilities from "../utilities";
  *     dependsOn: [vlan1],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  * ### Example usage with `portLockdown`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -54,11 +51,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [vlan1],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example usage with `portLockdown` set to `["none"]`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -73,11 +68,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [vlan1],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example usage with route domain embedded in the `ip`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -92,7 +85,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [vlan1],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class SelfIp extends pulumi.CustomResource {
     /**

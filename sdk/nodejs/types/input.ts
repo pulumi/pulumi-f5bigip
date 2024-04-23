@@ -287,15 +287,15 @@ export interface WafPolicyFileType {
 
 export interface WafPolicyGraphqlProfile {
     /**
-     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
      */
     attackSignaturesCheck?: pulumi.Input<boolean>;
     /**
-     * `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * defense_attributes settings for policy
      */
     defenseAttributes?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfileDefenseAttribute>[]>;
     /**
-     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
      */
     metacharElementcheck?: pulumi.Input<boolean>;
     /**
@@ -945,6 +945,9 @@ export namespace ltm {
         clonePool?: pulumi.Input<string>;
         code?: pulumi.Input<number>;
         compress?: pulumi.Input<boolean>;
+        /**
+         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+         */
         connection?: pulumi.Input<boolean>;
         content?: pulumi.Input<string>;
         cookieHash?: pulumi.Input<boolean>;
@@ -962,6 +965,9 @@ export namespace ltm {
         expression?: pulumi.Input<string>;
         extension?: pulumi.Input<string>;
         facility?: pulumi.Input<string>;
+        /**
+         * This action will affect forwarding.
+         */
         forward?: pulumi.Input<boolean>;
         fromProfile?: pulumi.Input<string>;
         hash?: pulumi.Input<boolean>;
@@ -996,6 +1002,9 @@ export namespace ltm {
         persist?: pulumi.Input<boolean>;
         pin?: pulumi.Input<boolean>;
         policy?: pulumi.Input<string>;
+        /**
+         * This action will direct the stream to this pool.
+         */
         pool?: pulumi.Input<string>;
         port?: pulumi.Input<number>;
         priority?: pulumi.Input<string>;
@@ -1222,7 +1231,7 @@ export namespace ltm {
          */
         insertXfwdProtocol?: pulumi.Input<string>;
         /**
-         * Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+         * Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
          */
         rewriteHeaders?: pulumi.Input<string>;
     }

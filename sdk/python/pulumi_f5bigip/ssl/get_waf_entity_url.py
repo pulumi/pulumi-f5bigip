@@ -144,7 +144,6 @@ def get_waf_entity_url(description: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -169,11 +168,10 @@ def get_waf_entity_url(description: Optional[str] = None,
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description of the URL.
-    :param str method: Specifies an HTTP method.
+    :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.
@@ -221,7 +219,6 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_f5bigip as f5bigip
@@ -246,11 +243,10 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str description: A description of the URL.
-    :param str method: Specifies an HTTP method.
+    :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.

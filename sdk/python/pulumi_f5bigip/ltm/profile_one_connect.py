@@ -369,14 +369,12 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
         test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -412,14 +410,12 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
         test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

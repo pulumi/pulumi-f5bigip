@@ -402,7 +402,6 @@ class ProfileFastHttp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -420,7 +419,6 @@ class ProfileFastHttp(pulumi.CustomResource):
             forcehttp10response="disabled",
             maxheader_size=32768)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -449,7 +447,6 @@ class ProfileFastHttp(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -467,7 +464,6 @@ class ProfileFastHttp(pulumi.CustomResource):
             forcehttp10response="disabled",
             maxheader_size=32768)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ProfileFastHttpArgs args: The arguments to use to populate this resource's properties.

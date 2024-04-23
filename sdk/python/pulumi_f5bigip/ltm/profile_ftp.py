@@ -33,13 +33,14 @@ class ProfileFtpArgs:
         """
         The set of arguments for constructing a ProfileFtp resource.
         :param pulumi.Input[str] name: Name of the profile_ftp
-        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
-        :param pulumi.Input[str] allow_ftps: Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
+        :param pulumi.Input[str] allow_ftps: Allows explicit FTPS negotiation
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defined description
-        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
-        :param pulumi.Input[str] ftps_mode: Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+               value is unchecked (disabled).
+        :param pulumi.Input[str] ftps_mode: Allows explicit FTPS negotiation
         :param pulumi.Input[str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
                FastL4 only.
         :param pulumi.Input[str] inherit_vlan_list: inherent vlan list
@@ -49,7 +50,8 @@ class ProfileFtpArgs:
         :param pulumi.Input[int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         :param pulumi.Input[str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        :param pulumi.Input[str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+               and PORT when communicating with IPv4 servers.
         """
         pulumi.set(__self__, "name", name)
         if allow_active_mode is not None:
@@ -99,7 +101,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="allowActiveMode")
     def allow_active_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         """
         return pulumi.get(self, "allow_active_mode")
 
@@ -111,7 +113,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="allowFtps")
     def allow_ftps(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "allow_ftps")
 
@@ -159,7 +161,8 @@ class ProfileFtpArgs:
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -171,7 +174,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="ftpsMode")
     def ftps_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "ftps_mode")
 
@@ -269,7 +272,8 @@ class ProfileFtpArgs:
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
@@ -299,13 +303,14 @@ class _ProfileFtpState:
                  translate_extended: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProfileFtp resources.
-        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
-        :param pulumi.Input[str] allow_ftps: Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
+        :param pulumi.Input[str] allow_ftps: Allows explicit FTPS negotiation
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defined description
-        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
-        :param pulumi.Input[str] ftps_mode: Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+               value is unchecked (disabled).
+        :param pulumi.Input[str] ftps_mode: Allows explicit FTPS negotiation
         :param pulumi.Input[str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
                FastL4 only.
         :param pulumi.Input[str] inherit_vlan_list: inherent vlan list
@@ -316,7 +321,8 @@ class _ProfileFtpState:
         :param pulumi.Input[int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         :param pulumi.Input[str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        :param pulumi.Input[str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+               and PORT when communicating with IPv4 servers.
         """
         if allow_active_mode is not None:
             pulumi.set(__self__, "allow_active_mode", allow_active_mode)
@@ -355,7 +361,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="allowActiveMode")
     def allow_active_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         """
         return pulumi.get(self, "allow_active_mode")
 
@@ -367,7 +373,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="allowFtps")
     def allow_ftps(self) -> Optional[pulumi.Input[str]]:
         """
-        Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "allow_ftps")
 
@@ -415,7 +421,8 @@ class _ProfileFtpState:
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -427,7 +434,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="ftpsMode")
     def ftps_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "ftps_mode")
 
@@ -537,7 +544,8 @@ class _ProfileFtpState:
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
@@ -577,7 +585,6 @@ class ProfileFtp(pulumi.CustomResource):
 
         ### For Bigip versions (14.x - 16.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -591,11 +598,9 @@ class ProfileFtp(pulumi.CustomResource):
             enforce_tlssession_reuse="enabled",
             allow_active_mode="enabled")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ### For Bigip versions (12.x - 13.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -608,7 +613,6 @@ class ProfileFtp(pulumi.CustomResource):
             allow_ftps="enabled",
             translate_extended="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Common Arguments for all versions
 
@@ -626,13 +630,14 @@ class ProfileFtp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
-        :param pulumi.Input[str] allow_ftps: Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
+        :param pulumi.Input[str] allow_ftps: Allows explicit FTPS negotiation
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defined description
-        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
-        :param pulumi.Input[str] ftps_mode: Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+               value is unchecked (disabled).
+        :param pulumi.Input[str] ftps_mode: Allows explicit FTPS negotiation
         :param pulumi.Input[str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
                FastL4 only.
         :param pulumi.Input[str] inherit_vlan_list: inherent vlan list
@@ -643,7 +648,8 @@ class ProfileFtp(pulumi.CustomResource):
         :param pulumi.Input[int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         :param pulumi.Input[str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        :param pulumi.Input[str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+               and PORT when communicating with IPv4 servers.
         """
         ...
     @overload
@@ -660,7 +666,6 @@ class ProfileFtp(pulumi.CustomResource):
 
         ### For Bigip versions (14.x - 16.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -674,11 +679,9 @@ class ProfileFtp(pulumi.CustomResource):
             enforce_tlssession_reuse="enabled",
             allow_active_mode="enabled")
         ```
-        <!--End PulumiCodeChooser -->      
 
         ### For Bigip versions (12.x - 13.x)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -691,7 +694,6 @@ class ProfileFtp(pulumi.CustomResource):
             allow_ftps="enabled",
             translate_extended="enabled")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Common Arguments for all versions
 
@@ -798,13 +800,14 @@ class ProfileFtp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
-        :param pulumi.Input[str] allow_ftps: Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        :param pulumi.Input[str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
+        :param pulumi.Input[str] allow_ftps: Allows explicit FTPS negotiation
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defined description
-        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
-        :param pulumi.Input[str] ftps_mode: Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        :param pulumi.Input[str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+               value is unchecked (disabled).
+        :param pulumi.Input[str] ftps_mode: Allows explicit FTPS negotiation
         :param pulumi.Input[str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
                FastL4 only.
         :param pulumi.Input[str] inherit_vlan_list: inherent vlan list
@@ -815,7 +818,8 @@ class ProfileFtp(pulumi.CustomResource):
         :param pulumi.Input[int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         :param pulumi.Input[str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        :param pulumi.Input[str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+               and PORT when communicating with IPv4 servers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -843,7 +847,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="allowActiveMode")
     def allow_active_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+        Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         """
         return pulumi.get(self, "allow_active_mode")
 
@@ -851,7 +855,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="allowFtps")
     def allow_ftps(self) -> pulumi.Output[Optional[str]]:
         """
-        Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "allow_ftps")
 
@@ -883,7 +887,8 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+        value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -891,7 +896,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="ftpsMode")
     def ftps_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+        Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "ftps_mode")
 
@@ -965,7 +970,8 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+        and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 

@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<bool?> Internal { get; private set; } = null!;
 
         /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+        /// Name of the datagroup
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+        /// Name of the datagroup
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<bool>? Internal { get; set; }
 
         /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+        /// Name of the datagroup
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

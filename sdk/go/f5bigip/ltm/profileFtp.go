@@ -20,7 +20,6 @@ import (
 //
 // ### For Bigip versions (14.x - 16.x)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### For Bigip versions (12.x - 13.x)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,7 +80,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Common Arguments for all versions
 //
@@ -101,9 +97,9 @@ import (
 type ProfileFtp struct {
 	pulumi.CustomResourceState
 
-	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode pulumi.StringPtrOutput `pulumi:"allowActiveMode"`
-	// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+	// Allows explicit FTPS negotiation
 	AllowFtps pulumi.StringPtrOutput `pulumi:"allowFtps"`
 	// The application service to which the object belongs.
 	AppService pulumi.StringPtrOutput `pulumi:"appService"`
@@ -111,9 +107,10 @@ type ProfileFtp struct {
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// User defined description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+	// value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrOutput `pulumi:"enforceTlssessionReuse"`
-	// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrOutput `pulumi:"ftpsMode"`
 	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
 	// FastL4 only.
@@ -133,7 +130,8 @@ type ProfileFtp struct {
 	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
 	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringOutput `pulumi:"security"`
-	// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+	// and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrOutput `pulumi:"translateExtended"`
 }
 
@@ -170,9 +168,9 @@ func GetProfileFtp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfileFtp resources.
 type profileFtpState struct {
-	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode *string `pulumi:"allowActiveMode"`
-	// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+	// Allows explicit FTPS negotiation
 	AllowFtps *string `pulumi:"allowFtps"`
 	// The application service to which the object belongs.
 	AppService *string `pulumi:"appService"`
@@ -180,9 +178,10 @@ type profileFtpState struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description
 	Description *string `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+	// value is unchecked (disabled).
 	EnforceTlssessionReuse *string `pulumi:"enforceTlssessionReuse"`
-	// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+	// Allows explicit FTPS negotiation
 	FtpsMode *string `pulumi:"ftpsMode"`
 	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
 	// FastL4 only.
@@ -202,14 +201,15 @@ type profileFtpState struct {
 	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
 	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security *string `pulumi:"security"`
-	// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+	// and PORT when communicating with IPv4 servers.
 	TranslateExtended *string `pulumi:"translateExtended"`
 }
 
 type ProfileFtpState struct {
-	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode pulumi.StringPtrInput
-	// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+	// Allows explicit FTPS negotiation
 	AllowFtps pulumi.StringPtrInput
 	// The application service to which the object belongs.
 	AppService pulumi.StringPtrInput
@@ -217,9 +217,10 @@ type ProfileFtpState struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description
 	Description pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+	// value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrInput
-	// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrInput
 	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
 	// FastL4 only.
@@ -239,7 +240,8 @@ type ProfileFtpState struct {
 	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
 	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+	// and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrInput
 }
 
@@ -248,9 +250,9 @@ func (ProfileFtpState) ElementType() reflect.Type {
 }
 
 type profileFtpArgs struct {
-	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode *string `pulumi:"allowActiveMode"`
-	// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+	// Allows explicit FTPS negotiation
 	AllowFtps *string `pulumi:"allowFtps"`
 	// The application service to which the object belongs.
 	AppService *string `pulumi:"appService"`
@@ -258,9 +260,10 @@ type profileFtpArgs struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description
 	Description *string `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+	// value is unchecked (disabled).
 	EnforceTlssessionReuse *string `pulumi:"enforceTlssessionReuse"`
-	// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+	// Allows explicit FTPS negotiation
 	FtpsMode *string `pulumi:"ftpsMode"`
 	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
 	// FastL4 only.
@@ -280,15 +283,16 @@ type profileFtpArgs struct {
 	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
 	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security *string `pulumi:"security"`
-	// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+	// and PORT when communicating with IPv4 servers.
 	TranslateExtended *string `pulumi:"translateExtended"`
 }
 
 // The set of arguments for constructing a ProfileFtp resource.
 type ProfileFtpArgs struct {
-	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode pulumi.StringPtrInput
-	// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+	// Allows explicit FTPS negotiation
 	AllowFtps pulumi.StringPtrInput
 	// The application service to which the object belongs.
 	AppService pulumi.StringPtrInput
@@ -296,9 +300,10 @@ type ProfileFtpArgs struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description
 	Description pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+	// value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrInput
-	// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrInput
 	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
 	// FastL4 only.
@@ -318,7 +323,8 @@ type ProfileFtpArgs struct {
 	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
 	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+	// and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrInput
 }
 
@@ -409,12 +415,12 @@ func (o ProfileFtpOutput) ToProfileFtpOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
-// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 func (o ProfileFtpOutput) AllowActiveMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.AllowActiveMode }).(pulumi.StringPtrOutput)
 }
 
-// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+// Allows explicit FTPS negotiation
 func (o ProfileFtpOutput) AllowFtps() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.AllowFtps }).(pulumi.StringPtrOutput)
 }
@@ -434,12 +440,13 @@ func (o ProfileFtpOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
+// value is unchecked (disabled).
 func (o ProfileFtpOutput) EnforceTlssessionReuse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.EnforceTlssessionReuse }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+// Allows explicit FTPS negotiation
 func (o ProfileFtpOutput) FtpsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.FtpsMode }).(pulumi.StringPtrOutput)
 }
@@ -486,7 +493,8 @@ func (o ProfileFtpOutput) Security() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.Security }).(pulumi.StringOutput)
 }
 
-// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
+// and PORT when communicating with IPv4 servers.
 func (o ProfileFtpOutput) TranslateExtended() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.TranslateExtended }).(pulumi.StringPtrOutput)
 }

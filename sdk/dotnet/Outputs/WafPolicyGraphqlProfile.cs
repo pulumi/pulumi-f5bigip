@@ -14,15 +14,15 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicyGraphqlProfile
     {
         /// <summary>
-        /// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        /// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
         /// </summary>
         public readonly bool? AttackSignaturesCheck;
         /// <summary>
-        /// `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        /// defense_attributes settings for policy
         /// </summary>
         public readonly ImmutableArray<Outputs.WafPolicyGraphqlProfileDefenseAttribute> DefenseAttributes;
         /// <summary>
-        /// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        /// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
         /// </summary>
         public readonly bool? MetacharElementcheck;
         /// <summary>
