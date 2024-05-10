@@ -23,7 +23,10 @@ class GetWafEntityUrlResult:
     """
     A collection of values returned by getWafEntityUrl.
     """
-    def __init__(__self__, description=None, id=None, json=None, method=None, method_overrides=None, name=None, perform_staging=None, protocol=None, signature_overrides_disables=None, type=None):
+    def __init__(__self__, cross_origin_requests_enforcements=None, description=None, id=None, json=None, method=None, method_overrides=None, name=None, perform_staging=None, protocol=None, signature_overrides_disables=None, type=None):
+        if cross_origin_requests_enforcements and not isinstance(cross_origin_requests_enforcements, list):
+            raise TypeError("Expected argument 'cross_origin_requests_enforcements' to be a list")
+        pulumi.set(__self__, "cross_origin_requests_enforcements", cross_origin_requests_enforcements)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -54,6 +57,11 @@ class GetWafEntityUrlResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="crossOriginRequestsEnforcements")
+    def cross_origin_requests_enforcements(self) -> Optional[Sequence['outputs.GetWafEntityUrlCrossOriginRequestsEnforcementResult']]:
+        return pulumi.get(self, "cross_origin_requests_enforcements")
 
     @property
     @pulumi.getter
@@ -118,6 +126,7 @@ class AwaitableGetWafEntityUrlResult(GetWafEntityUrlResult):
         if False:
             yield self
         return GetWafEntityUrlResult(
+            cross_origin_requests_enforcements=self.cross_origin_requests_enforcements,
             description=self.description,
             id=self.id,
             json=self.json,
@@ -130,7 +139,8 @@ class AwaitableGetWafEntityUrlResult(GetWafEntityUrlResult):
             type=self.type)
 
 
-def get_waf_entity_url(description: Optional[str] = None,
+def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']]] = None,
+                       description: Optional[str] = None,
                        method: Optional[str] = None,
                        method_overrides: Optional[Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']]] = None,
                        name: Optional[str] = None,
@@ -166,10 +176,26 @@ def get_waf_entity_url(description: Optional[str] = None,
                 allow=True,
                 method="BDELETE",
             ),
+        ],
+        cross_origin_requests_enforcements=[
+            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
+                include_subdomains=True,
+                origin_name="app1.com",
+                origin_port="80",
+                origin_protocol="http",
+            ),
+            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
+                include_subdomains=True,
+                origin_name="app2.com",
+                origin_port="443",
+                origin_protocol="http",
+            ),
         ])
     ```
 
 
+    :param Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
+           different domain.
     :param str description: A description of the URL.
     :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
@@ -180,6 +206,7 @@ def get_waf_entity_url(description: Optional[str] = None,
     :param str type: Specifies whether the parameter is an 'explicit' or a 'wildcard' attribute. Default is: wildcard.
     """
     __args__ = dict()
+    __args__['crossOriginRequestsEnforcements'] = cross_origin_requests_enforcements
     __args__['description'] = description
     __args__['method'] = method
     __args__['methodOverrides'] = method_overrides
@@ -192,6 +219,7 @@ def get_waf_entity_url(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafEntityUrl:getWafEntityUrl', __args__, opts=opts, typ=GetWafEntityUrlResult).value
 
     return AwaitableGetWafEntityUrlResult(
+        cross_origin_requests_enforcements=pulumi.get(__ret__, 'cross_origin_requests_enforcements'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
@@ -205,7 +233,8 @@ def get_waf_entity_url(description: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_waf_entity_url)
-def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]] = None,
+def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']]]]] = None,
+                              description: Optional[pulumi.Input[Optional[str]]] = None,
                               method: Optional[pulumi.Input[Optional[str]]] = None,
                               method_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']]]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
@@ -241,10 +270,26 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
                 allow=True,
                 method="BDELETE",
             ),
+        ],
+        cross_origin_requests_enforcements=[
+            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
+                include_subdomains=True,
+                origin_name="app1.com",
+                origin_port="80",
+                origin_protocol="http",
+            ),
+            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
+                include_subdomains=True,
+                origin_name="app2.com",
+                origin_port="443",
+                origin_protocol="http",
+            ),
         ])
     ```
 
 
+    :param Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
+           different domain.
     :param str description: A description of the URL.
     :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
     :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.

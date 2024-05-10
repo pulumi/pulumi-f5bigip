@@ -88,7 +88,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Type a passphrase for cookie encryption.
+     * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
     public readonly encryptCookieSecret!: pulumi.Output<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface ProfileHttpState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Type a passphrase for cookie encryption.
+     * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
     encryptCookieSecret?: pulumi.Input<string>;
     /**
@@ -415,7 +415,7 @@ export interface ProfileHttpArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Type a passphrase for cookie encryption.
+     * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
     encryptCookieSecret?: pulumi.Input<string>;
     /**

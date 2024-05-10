@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_cert = new Certificate(&#34;test-cert&#34;, CertificateArgs.builder()        
- *             .name(&#34;servercert.crt&#34;)
+ *         var test_cert = new Certificate("test-cert", CertificateArgs.builder()        
+ *             .name("servercert.crt")
  *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;servercert.crt&#34;)
+ *                 .input("servercert.crt")
  *                 .build()).result())
- *             .partition(&#34;Common&#34;)
+ *             .partition("Common")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

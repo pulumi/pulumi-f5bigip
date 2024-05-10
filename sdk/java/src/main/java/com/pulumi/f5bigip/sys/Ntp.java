@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ntp1 = new Ntp(&#34;ntp1&#34;, NtpArgs.builder()        
- *             .description(&#34;/Common/NTP1&#34;)
- *             .servers(&#34;time.facebook.com&#34;)
- *             .timezone(&#34;America/Los_Angeles&#34;)
+ *         var ntp1 = new Ntp("ntp1", NtpArgs.builder()        
+ *             .description("/Common/NTP1")
+ *             .servers("time.facebook.com")
+ *             .timezone("America/Los_Angeles")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

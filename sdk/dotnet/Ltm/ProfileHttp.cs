@@ -84,7 +84,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Type a passphrase for cookie encryption.
+        /// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         /// </summary>
         [Output("encryptCookieSecret")]
         public Output<string?> EncryptCookieSecret { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Type a passphrase for cookie encryption.
+        /// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         /// </summary>
         [Input("encryptCookieSecret")]
         public Input<string>? EncryptCookieSecret { get; set; }
@@ -524,7 +524,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Type a passphrase for cookie encryption.
+        /// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         /// </summary>
         [Input("encryptCookieSecret")]
         public Input<string>? EncryptCookieSecret { get; set; }

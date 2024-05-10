@@ -95,14 +95,14 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type a passphrase for cookie encryption.
+     * Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
      * 
      */
     @Import(name="encryptCookieSecret")
     private @Nullable Output<String> encryptCookieSecret;
 
     /**
-     * @return Type a passphrase for cookie encryption.
+     * @return Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
      * 
      */
     public Optional<Output<String>> encryptCookieSecret() {
@@ -614,7 +614,7 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptCookieSecret Type a passphrase for cookie encryption.
+         * @param encryptCookieSecret Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptCookieSecret Type a passphrase for cookie encryption.
+         * @param encryptCookieSecret Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
          * 
          * @return builder
          * 

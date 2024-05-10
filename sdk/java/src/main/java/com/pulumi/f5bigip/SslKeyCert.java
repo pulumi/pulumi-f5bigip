@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testkeycert = new SslKeyCert(&#34;testkeycert&#34;, SslKeyCertArgs.builder()        
- *             .partition(&#34;Common&#34;)
- *             .keyName(&#34;ssl-test-key&#34;)
+ *         var testkeycert = new SslKeyCert("testkeycert", SslKeyCertArgs.builder()        
+ *             .partition("Common")
+ *             .keyName("ssl-test-key")
  *             .keyContent(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;key.pem&#34;)
+ *                 .input("key.pem")
  *                 .build()).result())
- *             .certName(&#34;ssl-test-cert&#34;)
+ *             .certName("ssl-test-cert")
  *             .certContent(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;certificate.pem&#34;)
+ *                 .input("certificate.pem")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

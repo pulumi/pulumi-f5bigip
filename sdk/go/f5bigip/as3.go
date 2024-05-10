@@ -13,7 +13,13 @@ import (
 
 // `As3` provides details about bigip as3 resource
 //
-// This resource is helpful to configure as3 declarative JSON on BIG-IP.
+// This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+//
+// > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+//
+// > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+//
+// > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenantName to be passed to add application on specified tenant, else random tenant name will be generated.
 //
 // ## Import
 //
@@ -377,7 +383,7 @@ import (
 type As3 struct {
 	pulumi.CustomResourceState
 
-	// Application deployed through AS3 Declaration
+	// List of applications currently deployed on the Big-Ip
 	ApplicationList pulumi.StringOutput `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
@@ -386,17 +392,16 @@ type As3 struct {
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
-	// Will define Perapp mode enabled on BIG-IP or not
+	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolOutput `pulumi:"perAppMode"`
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringOutput `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-	TenantFilter pulumi.StringPtrOutput `pulumi:"tenantFilter"`
-	// Name of Tenant
+	TenantFilter pulumi.StringOutput `pulumi:"tenantFilter"`
+	// List of tenants currently deployed on the Big-Ip
 	TenantList pulumi.StringOutput `pulumi:"tenantList"`
-	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-	// name would be generated.
-	TenantName pulumi.StringPtrOutput `pulumi:"tenantName"`
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
+	TenantName pulumi.StringOutput `pulumi:"tenantName"`
 }
 
 // NewAs3 registers a new resource with the given unique name, arguments, and options.
@@ -429,7 +434,7 @@ func GetAs3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering As3 resources.
 type as3State struct {
-	// Application deployed through AS3 Declaration
+	// List of applications currently deployed on the Big-Ip
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
@@ -438,21 +443,20 @@ type as3State struct {
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
-	// Will define Perapp mode enabled on BIG-IP or not
+	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode *bool `pulumi:"perAppMode"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter *string `pulumi:"tenantFilter"`
-	// Name of Tenant
+	// List of tenants currently deployed on the Big-Ip
 	TenantList *string `pulumi:"tenantList"`
-	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-	// name would be generated.
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
 	TenantName *string `pulumi:"tenantName"`
 }
 
 type As3State struct {
-	// Application deployed through AS3 Declaration
+	// List of applications currently deployed on the Big-Ip
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
@@ -461,16 +465,15 @@ type As3State struct {
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	IgnoreMetadata pulumi.BoolPtrInput
-	// Will define Perapp mode enabled on BIG-IP or not
+	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter pulumi.StringPtrInput
-	// Name of Tenant
+	// List of tenants currently deployed on the Big-Ip
 	TenantList pulumi.StringPtrInput
-	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-	// name would be generated.
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
 	TenantName pulumi.StringPtrInput
 }
 
@@ -479,7 +482,7 @@ func (As3State) ElementType() reflect.Type {
 }
 
 type as3Args struct {
-	// Application deployed through AS3 Declaration
+	// List of applications currently deployed on the Big-Ip
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
@@ -492,16 +495,15 @@ type as3Args struct {
 	TaskId *string `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter *string `pulumi:"tenantFilter"`
-	// Name of Tenant
+	// List of tenants currently deployed on the Big-Ip
 	TenantList *string `pulumi:"tenantList"`
-	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-	// name would be generated.
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
 	TenantName *string `pulumi:"tenantName"`
 }
 
 // The set of arguments for constructing a As3 resource.
 type As3Args struct {
-	// Application deployed through AS3 Declaration
+	// List of applications currently deployed on the Big-Ip
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
@@ -514,10 +516,9 @@ type As3Args struct {
 	TaskId pulumi.StringPtrInput
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter pulumi.StringPtrInput
-	// Name of Tenant
+	// List of tenants currently deployed on the Big-Ip
 	TenantList pulumi.StringPtrInput
-	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-	// name would be generated.
+	// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
 	TenantName pulumi.StringPtrInput
 }
 
@@ -608,7 +609,7 @@ func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return o
 }
 
-// Application deployed through AS3 Declaration
+// List of applications currently deployed on the Big-Ip
 func (o As3Output) ApplicationList() pulumi.StringOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.ApplicationList }).(pulumi.StringOutput)
 }
@@ -626,7 +627,7 @@ func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }
 
-// Will define Perapp mode enabled on BIG-IP or not
+// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 func (o As3Output) PerAppMode() pulumi.BoolOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolOutput { return v.PerAppMode }).(pulumi.BoolOutput)
 }
@@ -637,19 +638,18 @@ func (o As3Output) TaskId() pulumi.StringOutput {
 }
 
 // If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-func (o As3Output) TenantFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.TenantFilter }).(pulumi.StringPtrOutput)
+func (o As3Output) TenantFilter() pulumi.StringOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TenantFilter }).(pulumi.StringOutput)
 }
 
-// Name of Tenant
+// List of tenants currently deployed on the Big-Ip
 func (o As3Output) TenantList() pulumi.StringOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TenantList }).(pulumi.StringOutput)
 }
 
-// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-// name would be generated.
-func (o As3Output) TenantName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.TenantName }).(pulumi.StringPtrOutput)
+// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
+func (o As3Output) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
 }
 
 type As3ArrayOutput struct{ *pulumi.OutputState }

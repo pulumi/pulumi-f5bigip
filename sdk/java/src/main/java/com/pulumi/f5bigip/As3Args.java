@@ -17,14 +17,14 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
     public static final As3Args Empty = new As3Args();
 
     /**
-     * Application deployed through AS3 Declaration
+     * List of applications currently deployed on the Big-Ip
      * 
      */
     @Import(name="applicationList")
     private @Nullable Output<String> applicationList;
 
     /**
-     * @return Application deployed through AS3 Declaration
+     * @return List of applications currently deployed on the Big-Ip
      * 
      */
     public Optional<Output<String>> applicationList() {
@@ -98,14 +98,14 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of Tenant
+     * List of tenants currently deployed on the Big-Ip
      * 
      */
     @Import(name="tenantList")
     private @Nullable Output<String> tenantList;
 
     /**
-     * @return Name of Tenant
+     * @return List of tenants currently deployed on the Big-Ip
      * 
      */
     public Optional<Output<String>> tenantList() {
@@ -113,16 +113,14 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      * 
      */
     @Import(name="tenantName")
     private @Nullable Output<String> tenantName;
 
     /**
-     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      * 
      */
     public Optional<Output<String>> tenantName() {
@@ -160,7 +158,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Application deployed through AS3 Declaration
+         * @param applicationList List of applications currently deployed on the Big-Ip
          * 
          * @return builder
          * 
@@ -171,7 +169,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationList Application deployed through AS3 Declaration
+         * @param applicationList List of applications currently deployed on the Big-Ip
          * 
          * @return builder
          * 
@@ -271,7 +269,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantList Name of Tenant
+         * @param tenantList List of tenants currently deployed on the Big-Ip
          * 
          * @return builder
          * 
@@ -282,7 +280,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantList Name of Tenant
+         * @param tenantList List of tenants currently deployed on the Big-Ip
          * 
          * @return builder
          * 
@@ -292,8 +290,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-         * name would be generated.
+         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
          * 
          * @return builder
          * 
@@ -304,8 +301,7 @@ public final class As3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-         * name would be generated.
+         * @param tenantName Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
          * 
          * @return builder
          * 

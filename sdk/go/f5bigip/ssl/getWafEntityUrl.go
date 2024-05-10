@@ -46,6 +46,20 @@ import (
 // Method: "BDELETE",
 // },
 // },
+// CrossOriginRequestsEnforcements: []ssl.GetWafEntityUrlCrossOriginRequestsEnforcement{
+// {
+// IncludeSubdomains: pulumi.BoolRef(true),
+// OriginName: "app1.com",
+// OriginPort: "80",
+// OriginProtocol: "http",
+// },
+// {
+// IncludeSubdomains: pulumi.BoolRef(true),
+// OriginName: "app2.com",
+// OriginPort: "443",
+// OriginProtocol: "http",
+// },
+// },
 // }, nil);
 // if err != nil {
 // return err
@@ -66,6 +80,9 @@ func GetWafEntityUrl(ctx *pulumi.Context, args *GetWafEntityUrlArgs, opts ...pul
 
 // A collection of arguments for invoking getWafEntityUrl.
 type GetWafEntityUrlArgs struct {
+	// A list of options that enables your web-application to share data with a website hosted on a
+	// different domain.
+	CrossOriginRequestsEnforcements []GetWafEntityUrlCrossOriginRequestsEnforcement `pulumi:"crossOriginRequestsEnforcements"`
 	// A description of the URL.
 	Description *string `pulumi:"description"`
 	// Select a Method for the URL to create an API endpoint. Default is : *.
@@ -86,7 +103,8 @@ type GetWafEntityUrlArgs struct {
 
 // A collection of values returned by getWafEntityUrl.
 type GetWafEntityUrlResult struct {
-	Description *string `pulumi:"description"`
+	CrossOriginRequestsEnforcements []GetWafEntityUrlCrossOriginRequestsEnforcement `pulumi:"crossOriginRequestsEnforcements"`
+	Description                     *string                                         `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Json string representing created WAF entity URL declaration in JSON format
@@ -115,6 +133,9 @@ func GetWafEntityUrlOutput(ctx *pulumi.Context, args GetWafEntityUrlOutputArgs, 
 
 // A collection of arguments for invoking getWafEntityUrl.
 type GetWafEntityUrlOutputArgs struct {
+	// A list of options that enables your web-application to share data with a website hosted on a
+	// different domain.
+	CrossOriginRequestsEnforcements GetWafEntityUrlCrossOriginRequestsEnforcementArrayInput `pulumi:"crossOriginRequestsEnforcements"`
 	// A description of the URL.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Select a Method for the URL to create an API endpoint. Default is : *.
@@ -150,6 +171,12 @@ func (o GetWafEntityUrlResultOutput) ToGetWafEntityUrlResultOutput() GetWafEntit
 
 func (o GetWafEntityUrlResultOutput) ToGetWafEntityUrlResultOutputWithContext(ctx context.Context) GetWafEntityUrlResultOutput {
 	return o
+}
+
+func (o GetWafEntityUrlResultOutput) CrossOriginRequestsEnforcements() GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput {
+	return o.ApplyT(func(v GetWafEntityUrlResult) []GetWafEntityUrlCrossOriginRequestsEnforcement {
+		return v.CrossOriginRequestsEnforcements
+	}).(GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput)
 }
 
 func (o GetWafEntityUrlResultOutput) Description() pulumi.StringPtrOutput {

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,52 +46,53 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/terraform_monitor&#34;)
- *             .parent(&#34;/Common/http&#34;)
- *             .send(&#34;&#34;&#34;
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .name("/Common/terraform_monitor")
+ *             .parent("/Common/http")
+ *             .send("""
  * GET /some/path
- *             &#34;&#34;&#34;)
- *             .timeout(&#34;999&#34;)
- *             .interval(&#34;998&#34;)
- *             .destination(&#34;1.2.3.4:1234&#34;)
+ *             """)
+ *             .timeout("999")
+ *             .interval("998")
+ *             .destination("1.2.3.4:1234")
  *             .build());
  * 
- *         var test_https_monitor = new Monitor(&#34;test-https-monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/terraform_monitor&#34;)
- *             .parent(&#34;/Common/http&#34;)
- *             .sslProfile(&#34;/Common/serverssl&#34;)
- *             .send(&#34;&#34;&#34;
+ *         var test_https_monitor = new Monitor("test-https-monitor", MonitorArgs.builder()        
+ *             .name("/Common/terraform_monitor")
+ *             .parent("/Common/http")
+ *             .sslProfile("/Common/serverssl")
+ *             .send("""
  * GET /some/path
- *             &#34;&#34;&#34;)
- *             .interval(&#34;999&#34;)
- *             .timeout(&#34;1000&#34;)
+ *             """)
+ *             .interval("999")
+ *             .timeout("1000")
  *             .build());
  * 
- *         var test_ftp_monitor = new Monitor(&#34;test-ftp-monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/ftp-test&#34;)
- *             .parent(&#34;/Common/ftp&#34;)
+ *         var test_ftp_monitor = new Monitor("test-ftp-monitor", MonitorArgs.builder()        
+ *             .name("/Common/ftp-test")
+ *             .parent("/Common/ftp")
  *             .interval(5)
  *             .timeUntilUp(0)
  *             .timeout(16)
- *             .destination(&#34;*:8008&#34;)
- *             .filename(&#34;somefile&#34;)
+ *             .destination("*:8008")
+ *             .filename("somefile")
  *             .build());
  * 
- *         var test_postgresql_monitor = new Monitor(&#34;test-postgresql-monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/test-postgresql-monitor&#34;)
- *             .parent(&#34;/Common/postgresql&#34;)
- *             .send(&#34;SELECT &#39;Test&#39;;&#34;)
- *             .receive(&#34;Test&#34;)
+ *         var test_postgresql_monitor = new Monitor("test-postgresql-monitor", MonitorArgs.builder()        
+ *             .name("/Common/test-postgresql-monitor")
+ *             .parent("/Common/postgresql")
+ *             .send("SELECT 'Test';")
+ *             .receive("Test")
  *             .interval(5)
  *             .timeout(16)
- *             .username(&#34;abcd&#34;)
- *             .password(&#34;abcd1234&#34;)
+ *             .username("abcd")
+ *             .password("abcd1234")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ## Importing

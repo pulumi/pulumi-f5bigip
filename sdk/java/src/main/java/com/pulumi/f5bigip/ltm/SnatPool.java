@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,16 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var snatpoolSanjose = new SnatPool(&#34;snatpoolSanjose&#34;, SnatPoolArgs.builder()        
- *             .name(&#34;/Common/snatpool_sanjose&#34;)
+ *         var snatpoolSanjose = new SnatPool("snatpoolSanjose", SnatPoolArgs.builder()        
+ *             .name("/Common/snatpool_sanjose")
  *             .members(            
- *                 &#34;191.1.1.1&#34;,
- *                 &#34;194.2.2.2&#34;)
+ *                 "191.1.1.1",
+ *                 "194.2.2.2")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

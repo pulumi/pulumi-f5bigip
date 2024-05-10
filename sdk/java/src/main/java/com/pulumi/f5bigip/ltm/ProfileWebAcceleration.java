@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,16 +45,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample_resource = new ProfileWebAcceleration(&#34;sample-resource&#34;, ProfileWebAccelerationArgs.builder()        
- *             .name(&#34;/Common/sample-resource&#34;)
- *             .defaultsFrom(&#34;/Common/test2&#34;)
+ *         var sample_resource = new ProfileWebAcceleration("sample-resource", ProfileWebAccelerationArgs.builder()        
+ *             .name("/Common/sample-resource")
+ *             .defaultsFrom("/Common/test2")
  *             .cacheSize(101)
  *             .cacheMaxEntries(201)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

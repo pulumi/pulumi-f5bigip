@@ -30,7 +30,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -52,24 +53,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fastHttpsApp = new FastHttpsApp(&#34;fastHttpsApp&#34;, FastHttpsAppArgs.builder()        
- *             .tenant(&#34;fasthttpstenant&#34;)
- *             .application(&#34;fasthttpsapp&#34;)
+ *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()        
+ *             .tenant("fasthttpstenant")
+ *             .application("fasthttpsapp")
  *             .virtualServer(FastHttpsAppVirtualServerArgs.builder()
- *                 .ip(&#34;10.30.40.44&#34;)
+ *                 .ip("10.30.40.44")
  *                 .port(443)
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Service Discovery
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -96,40 +99,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
- *             .resourceGroup(&#34;testazurerg&#34;)
- *             .subscriptionId(&#34;testazuresid&#34;)
- *             .tagKey(&#34;testazuretag&#34;)
- *             .tagValue(&#34;testazurevalue&#34;)
+ *             .resourceGroup("testazurerg")
+ *             .subscriptionId("testazuresid")
+ *             .tagKey("testazuretag")
+ *             .tagValue("testazurevalue")
  *             .build());
  * 
  *         final var TC3GetGceServiceDiscovery = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
- *             .tagKey(&#34;testgcetag&#34;)
- *             .tagValue(&#34;testgcevalue&#34;)
- *             .region(&#34;testgceregion&#34;)
+ *             .tagKey("testgcetag")
+ *             .tagValue("testgcevalue")
+ *             .region("testgceregion")
  *             .build());
  * 
- *         var fastHttpsApp = new FastHttpsApp(&#34;fastHttpsApp&#34;, FastHttpsAppArgs.builder()        
- *             .tenant(&#34;fasthttpstenant&#34;)
- *             .application(&#34;fasthttpsapp&#34;)
+ *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()        
+ *             .tenant("fasthttpstenant")
+ *             .application("fasthttpsapp")
  *             .virtualServer(FastHttpsAppVirtualServerArgs.builder()
- *                 .ip(&#34;10.30.40.44&#34;)
+ *                 .ip("10.30.40.44")
  *                 .port(443)
  *                 .build())
  *             .poolMembers(FastHttpsAppPoolMemberArgs.builder()
  *                 .addresses(                
- *                     &#34;10.11.40.120&#34;,
- *                     &#34;10.11.30.121&#34;,
- *                     &#34;10.11.30.122&#34;)
+ *                     "10.11.40.120",
+ *                     "10.11.30.121",
+ *                     "10.11.30.122")
  *                 .port(80)
  *                 .build())
  *             .serviceDiscoveries(            
- *                 TC3GetGceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -&gt; getGceServiceDiscoveryResult.gceSdJson()),
- *                 TC3.applyValue(getAzureServiceDiscoveryResult -&gt; getAzureServiceDiscoveryResult.azureSdJson()))
+ *                 TC3GetGceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -> getGceServiceDiscoveryResult.gceSdJson()),
+ *                 TC3.applyValue(getAzureServiceDiscoveryResult -> getAzureServiceDiscoveryResult.azureSdJson()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -45,14 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vsVa = new VirtualAddress(&#34;vsVa&#34;, VirtualAddressArgs.builder()        
- *             .name(&#34;/Common/xxxxx&#34;)
- *             .advertizeRoute(&#34;enabled&#34;)
+ *         var vsVa = new VirtualAddress("vsVa", VirtualAddressArgs.builder()        
+ *             .name("/Common/xxxxx")
+ *             .advertizeRoute("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,19 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_http = new ProfileHttp(&#34;sanjose-http&#34;, ProfileHttpArgs.builder()        
- *             .name(&#34;/Common/sanjose-http&#34;)
- *             .defaultsFrom(&#34;/Common/http&#34;)
- *             .fallbackHost(&#34;titanic&#34;)
+ *         var sanjose_http = new ProfileHttp("sanjose-http", ProfileHttpArgs.builder()        
+ *             .name("/Common/sanjose-http")
+ *             .defaultsFrom("/Common/http")
+ *             .fallbackHost("titanic")
  *             .fallbackStatusCodes(            
- *                 &#34;400&#34;,
- *                 &#34;500&#34;,
- *                 &#34;300&#34;)
+ *                 "400",
+ *                 "500",
+ *                 "300")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -146,14 +148,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Type a passphrase for cookie encryption.
+     * Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
      * 
      */
     @Export(name="encryptCookieSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptCookieSecret;
 
     /**
-     * @return Type a passphrase for cookie encryption.
+     * @return Type a passphrase for cookie encryption. Note: Since it&#39;s a sensitive entity idempotency will fail for it in the update call.
      * 
      */
     public Output<Optional<String>> encryptCookieSecret() {

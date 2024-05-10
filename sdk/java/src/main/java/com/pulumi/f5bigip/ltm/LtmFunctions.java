@@ -35,7 +35,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -57,13 +58,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
-     *             .name(&#34;test-dg&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-dg")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -76,7 +78,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -98,13 +101,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
-     *             .name(&#34;test-dg&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-dg")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -117,7 +121,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -139,13 +144,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
-     *             .name(&#34;test-dg&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-dg")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -158,7 +164,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -180,13 +187,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var DG-TC3 = LtmFunctions.getDataGroup(GetDataGroupArgs.builder()
-     *             .name(&#34;test-dg&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-dg")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -199,7 +207,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -221,14 +230,15 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getIrule(GetIruleArgs.builder()
-     *             .name(&#34;terraform_irule&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_irule")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipIrule&#34;, test.applyValue(getIruleResult -&gt; getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -241,7 +251,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -263,14 +274,15 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getIrule(GetIruleArgs.builder()
-     *             .name(&#34;terraform_irule&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_irule")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipIrule&#34;, test.applyValue(getIruleResult -&gt; getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -283,7 +295,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -305,14 +318,15 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getIrule(GetIruleArgs.builder()
-     *             .name(&#34;terraform_irule&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_irule")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipIrule&#34;, test.applyValue(getIruleResult -&gt; getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -325,7 +339,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -347,14 +362,15 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getIrule(GetIruleArgs.builder()
-     *             .name(&#34;terraform_irule&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_irule")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipIrule&#34;, test.applyValue(getIruleResult -&gt; getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -367,7 +383,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -389,13 +406,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var monitor-TC1 = LtmFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;test-monitor&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-monitor")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -408,7 +426,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -430,13 +449,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var monitor-TC1 = LtmFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;test-monitor&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-monitor")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -449,7 +469,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -471,13 +492,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var monitor-TC1 = LtmFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;test-monitor&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-monitor")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -490,7 +512,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -512,13 +535,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var monitor-TC1 = LtmFunctions.getMonitor(GetMonitorArgs.builder()
-     *             .name(&#34;test-monitor&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("test-monitor")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -559,7 +583,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -581,13 +606,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;/Common/test-policy&#34;)
+     *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipPolicy&#34;, test.applyValue(getPolicyResult -&gt; getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -600,7 +626,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -622,13 +649,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;/Common/test-policy&#34;)
+     *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipPolicy&#34;, test.applyValue(getPolicyResult -&gt; getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -641,7 +669,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -663,13 +692,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;/Common/test-policy&#34;)
+     *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipPolicy&#34;, test.applyValue(getPolicyResult -&gt; getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -682,7 +712,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -704,13 +735,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = LtmFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .name(&#34;/Common/test-policy&#34;)
+     *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipPolicy&#34;, test.applyValue(getPolicyResult -&gt; getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -723,7 +755,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -745,13 +778,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var pool-Example = LtmFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("example-pool")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -764,7 +798,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -786,13 +821,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var pool-Example = LtmFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("example-pool")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -805,7 +841,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -827,13 +864,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var pool-Example = LtmFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("example-pool")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -846,7 +884,8 @@ public final class LtmFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -868,13 +907,14 @@ public final class LtmFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var pool-Example = LtmFunctions.getPool(GetPoolArgs.builder()
-     *             .name(&#34;example-pool&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("example-pool")
+     *             .partition("Common")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

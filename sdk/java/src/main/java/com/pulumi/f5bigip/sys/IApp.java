@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simplehttp = new IApp(&#34;simplehttp&#34;, IAppArgs.builder()        
- *             .name(&#34;simplehttp&#34;)
+ *         var simplehttp = new IApp("simplehttp", IAppArgs.builder()        
+ *             .name("simplehttp")
  *             .jsonfile(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;simplehttp.json&#34;)
+ *                 .input("simplehttp.json")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Json File

@@ -50,6 +50,23 @@ namespace Pulumi.F5BigIP.Ssl
         ///                 Method = "BDELETE",
         ///             },
         ///         },
+        ///         CrossOriginRequestsEnforcements = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app1.com",
+        ///                 OriginPort = "80",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app2.com",
+        ///                 OriginPort = "443",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///         },
         ///     });
         /// 
         /// });
@@ -97,6 +114,23 @@ namespace Pulumi.F5BigIP.Ssl
         ///                 Method = "BDELETE",
         ///             },
         ///         },
+        ///         CrossOriginRequestsEnforcements = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app1.com",
+        ///                 OriginPort = "80",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app2.com",
+        ///                 OriginPort = "443",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///         },
         ///     });
         /// 
         /// });
@@ -109,6 +143,19 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class GetWafEntityUrlArgs : global::Pulumi.InvokeArgs
     {
+        [Input("crossOriginRequestsEnforcements")]
+        private List<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs>? _crossOriginRequestsEnforcements;
+
+        /// <summary>
+        /// A list of options that enables your web-application to share data with a website hosted on a
+        /// different domain.
+        /// </summary>
+        public List<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs> CrossOriginRequestsEnforcements
+        {
+            get => _crossOriginRequestsEnforcements ?? (_crossOriginRequestsEnforcements = new List<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs>());
+            set => _crossOriginRequestsEnforcements = value;
+        }
+
         /// <summary>
         /// A description of the URL.
         /// </summary>
@@ -177,6 +224,19 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class GetWafEntityUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("crossOriginRequestsEnforcements")]
+        private InputList<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs>? _crossOriginRequestsEnforcements;
+
+        /// <summary>
+        /// A list of options that enables your web-application to share data with a website hosted on a
+        /// different domain.
+        /// </summary>
+        public InputList<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs> CrossOriginRequestsEnforcements
+        {
+            get => _crossOriginRequestsEnforcements ?? (_crossOriginRequestsEnforcements = new InputList<Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs>());
+            set => _crossOriginRequestsEnforcements = value;
+        }
+
         /// <summary>
         /// A description of the URL.
         /// </summary>
@@ -247,6 +307,7 @@ namespace Pulumi.F5BigIP.Ssl
     [OutputType]
     public sealed class GetWafEntityUrlResult
     {
+        public readonly ImmutableArray<Outputs.GetWafEntityUrlCrossOriginRequestsEnforcementResult> CrossOriginRequestsEnforcements;
         public readonly string? Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -266,6 +327,8 @@ namespace Pulumi.F5BigIP.Ssl
 
         [OutputConstructor]
         private GetWafEntityUrlResult(
+            ImmutableArray<Outputs.GetWafEntityUrlCrossOriginRequestsEnforcementResult> crossOriginRequestsEnforcements,
+
             string? description,
 
             string id,
@@ -286,6 +349,7 @@ namespace Pulumi.F5BigIP.Ssl
 
             string? type)
         {
+            CrossOriginRequestsEnforcements = crossOriginRequestsEnforcements;
             Description = description;
             Id = id;
             Json = json;

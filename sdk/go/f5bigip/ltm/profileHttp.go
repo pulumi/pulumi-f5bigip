@@ -71,7 +71,7 @@ type ProfileHttp struct {
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Specifies user-defined description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Type a passphrase for cookie encryption.
+	// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 	EncryptCookieSecret pulumi.StringPtrOutput `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayOutput `pulumi:"encryptCookies"`
@@ -165,7 +165,7 @@ type profileHttpState struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Specifies user-defined description.
 	Description *string `pulumi:"description"`
-	// Type a passphrase for cookie encryption.
+	// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies []string `pulumi:"encryptCookies"`
@@ -227,7 +227,7 @@ type ProfileHttpState struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// Specifies user-defined description.
 	Description pulumi.StringPtrInput
-	// Type a passphrase for cookie encryption.
+	// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 	EncryptCookieSecret pulumi.StringPtrInput
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayInput
@@ -293,7 +293,7 @@ type profileHttpArgs struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Specifies user-defined description.
 	Description *string `pulumi:"description"`
-	// Type a passphrase for cookie encryption.
+	// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies []string `pulumi:"encryptCookies"`
@@ -356,7 +356,7 @@ type ProfileHttpArgs struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// Specifies user-defined description.
 	Description pulumi.StringPtrInput
-	// Type a passphrase for cookie encryption.
+	// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 	EncryptCookieSecret pulumi.StringPtrInput
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayInput
@@ -519,7 +519,7 @@ func (o ProfileHttpOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Type a passphrase for cookie encryption.
+// Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
 func (o ProfileHttpOutput) EncryptCookieSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringPtrOutput { return v.EncryptCookieSecret }).(pulumi.StringPtrOutput)
 }

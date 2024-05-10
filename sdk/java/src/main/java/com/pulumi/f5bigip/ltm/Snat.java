@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,20 +48,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_snat = new Snat(&#34;test-snat&#34;, SnatArgs.builder()        
- *             .name(&#34;/Common/test-snat&#34;)
- *             .translation(&#34;/Common/136.1.1.2&#34;)
- *             .sourceport(&#34;preserve&#34;)
+ *         var test_snat = new Snat("test-snat", SnatArgs.builder()        
+ *             .name("/Common/test-snat")
+ *             .translation("/Common/136.1.1.2")
+ *             .sourceport("preserve")
  *             .origins(SnatOriginArgs.builder()
- *                 .name(&#34;0.0.0.0/0&#34;)
+ *                 .name("0.0.0.0/0")
  *                 .build())
- *             .vlans(&#34;/Common/internal&#34;)
+ *             .vlans("/Common/internal")
  *             .vlansdisabled(false)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

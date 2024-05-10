@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,45 +59,47 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/terraform_monitor&#34;)
- *             .parent(&#34;/Common/http&#34;)
- *             .send(&#34;&#34;&#34;
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .name("/Common/terraform_monitor")
+ *             .parent("/Common/http")
+ *             .send("""
  * GET /some/path
- *             &#34;&#34;&#34;)
- *             .timeout(&#34;999&#34;)
- *             .interval(&#34;998&#34;)
+ *             """)
+ *             .timeout("999")
+ *             .interval("998")
  *             .build());
  * 
- *         var pool = new Pool(&#34;pool&#34;, PoolArgs.builder()        
- *             .name(&#34;/Common/terraform-pool&#34;)
- *             .loadBalancingMode(&#34;round-robin&#34;)
+ *         var pool = new Pool("pool", PoolArgs.builder()        
+ *             .name("/Common/terraform-pool")
+ *             .loadBalancingMode("round-robin")
  *             .monitors(monitor.name())
- *             .allowSnat(&#34;yes&#34;)
- *             .allowNat(&#34;yes&#34;)
+ *             .allowSnat("yes")
+ *             .allowNat("yes")
  *             .build());
  * 
  *         // attaching ipv4 address with service port
- *         var ipv4NodeAttach = new PoolAttachment(&#34;ipv4NodeAttach&#34;, PoolAttachmentArgs.builder()        
+ *         var ipv4NodeAttach = new PoolAttachment("ipv4NodeAttach", PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
- *             .node(&#34;1.1.1.1:80&#34;)
+ *             .node("1.1.1.1:80")
  *             .build());
  * 
  *         // attaching ipv6 address with service port
- *         var ipv6NodeAttach = new PoolAttachment(&#34;ipv6NodeAttach&#34;, PoolAttachmentArgs.builder()        
+ *         var ipv6NodeAttach = new PoolAttachment("ipv6NodeAttach", PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
- *             .node(&#34;2003::4.80&#34;)
+ *             .node("2003::4.80")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -123,37 +126,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/terraform_monitor&#34;)
- *             .parent(&#34;/Common/http&#34;)
- *             .send(&#34;&#34;&#34;
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .name("/Common/terraform_monitor")
+ *             .parent("/Common/http")
+ *             .send("""
  * GET /some/path
- *             &#34;&#34;&#34;)
- *             .timeout(&#34;999&#34;)
- *             .interval(&#34;998&#34;)
+ *             """)
+ *             .timeout("999")
+ *             .interval("998")
  *             .build());
  * 
- *         var pool = new Pool(&#34;pool&#34;, PoolArgs.builder()        
- *             .name(&#34;/Common/terraform-pool&#34;)
- *             .loadBalancingMode(&#34;round-robin&#34;)
+ *         var pool = new Pool("pool", PoolArgs.builder()        
+ *             .name("/Common/terraform-pool")
+ *             .loadBalancingMode("round-robin")
  *             .monitors(monitor.name())
- *             .allowSnat(&#34;yes&#34;)
- *             .allowNat(&#34;yes&#34;)
+ *             .allowSnat("yes")
+ *             .allowNat("yes")
  *             .build());
  * 
- *         var node = new Node(&#34;node&#34;, NodeArgs.builder()        
- *             .name(&#34;/Common/terraform_node&#34;)
- *             .address(&#34;192.168.30.2&#34;)
+ *         var node = new Node("node", NodeArgs.builder()        
+ *             .name("/Common/terraform_node")
+ *             .address("192.168.30.2")
  *             .build());
  * 
- *         var attachNode = new PoolAttachment(&#34;attachNode&#34;, PoolAttachmentArgs.builder()        
+ *         var attachNode = new PoolAttachment("attachNode", PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
- *             .node(node.name().applyValue(name -&gt; String.format(&#34;%s:80&#34;, name)))
+ *             .node(node.name().applyValue(name -> String.format("%s:80", name)))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing

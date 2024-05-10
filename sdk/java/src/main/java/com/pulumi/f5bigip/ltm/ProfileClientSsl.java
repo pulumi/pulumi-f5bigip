@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,16 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_ClientSsl = new ProfileClientSsl(&#34;test-ClientSsl&#34;, ProfileClientSslArgs.builder()        
- *             .name(&#34;/Common/test-ClientSsl&#34;)
- *             .defaultsFrom(&#34;/Common/clientssl&#34;)
- *             .authenticate(&#34;always&#34;)
- *             .ciphers(&#34;DEFAULT&#34;)
+ *         var test_ClientSsl = new ProfileClientSsl("test-ClientSsl", ProfileClientSslArgs.builder()        
+ *             .name("/Common/test-ClientSsl")
+ *             .defaultsFrom("/Common/clientssl")
+ *             .authenticate("always")
+ *             .ciphers("DEFAULT")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ## Importing

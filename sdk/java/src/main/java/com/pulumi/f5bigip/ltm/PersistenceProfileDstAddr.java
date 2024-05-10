@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,22 +42,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dstaddr = new PersistenceProfileDstAddr(&#34;dstaddr&#34;, PersistenceProfileDstAddrArgs.builder()        
- *             .name(&#34;/Common/terraform_ppdstaddr&#34;)
- *             .defaultsFrom(&#34;/Common/dest_addr&#34;)
- *             .matchAcrossPools(&#34;enabled&#34;)
- *             .matchAcrossServices(&#34;enabled&#34;)
- *             .matchAcrossVirtuals(&#34;enabled&#34;)
- *             .mirror(&#34;enabled&#34;)
+ *         var dstaddr = new PersistenceProfileDstAddr("dstaddr", PersistenceProfileDstAddrArgs.builder()        
+ *             .name("/Common/terraform_ppdstaddr")
+ *             .defaultsFrom("/Common/dest_addr")
+ *             .matchAcrossPools("enabled")
+ *             .matchAcrossServices("enabled")
+ *             .matchAcrossVirtuals("enabled")
+ *             .mirror("enabled")
  *             .timeout(3600)
- *             .overrideConnLimit(&#34;enabled&#34;)
- *             .hashAlgorithm(&#34;carp&#34;)
- *             .mask(&#34;255.255.255.255&#34;)
+ *             .overrideConnLimit("enabled")
+ *             .hashAlgorithm("carp")
+ *             .mask("255.255.255.255")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,25 +42,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testPpcookie = new PersistenceProfileCookie(&#34;testPpcookie&#34;, PersistenceProfileCookieArgs.builder()        
- *             .name(&#34;/Common/terraform_cookie&#34;)
- *             .defaultsFrom(&#34;/Common/cookie&#34;)
- *             .matchAcrossPools(&#34;enabled&#34;)
- *             .matchAcrossServices(&#34;enabled&#34;)
- *             .matchAcrossVirtuals(&#34;enabled&#34;)
+ *         var testPpcookie = new PersistenceProfileCookie("testPpcookie", PersistenceProfileCookieArgs.builder()        
+ *             .name("/Common/terraform_cookie")
+ *             .defaultsFrom("/Common/cookie")
+ *             .matchAcrossPools("enabled")
+ *             .matchAcrossServices("enabled")
+ *             .matchAcrossVirtuals("enabled")
  *             .timeout(3600)
- *             .overrideConnLimit(&#34;enabled&#34;)
- *             .alwaysSend(&#34;enabled&#34;)
- *             .cookieEncryption(&#34;required&#34;)
- *             .cookieEncryptionPassphrase(&#34;iam&#34;)
- *             .cookieName(&#34;ham&#34;)
- *             .expiration(&#34;1:0:0&#34;)
+ *             .overrideConnLimit("enabled")
+ *             .alwaysSend("enabled")
+ *             .cookieEncryption("required")
+ *             .cookieEncryptionPassphrase("iam")
+ *             .cookieName("ham")
+ *             .expiration("1:0:0")
  *             .hashLength(0)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,16 +42,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_app = new FastApplication(&#34;foo-app&#34;, FastApplicationArgs.builder()        
- *             .template(&#34;examples/simple_http&#34;)
+ *         var foo_app = new FastApplication("foo-app", FastApplicationArgs.builder()        
+ *             .template("examples/simple_http")
  *             .fastJson(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;new_fast_app.json&#34;)
+ *                 .input("new_fast_app.json")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

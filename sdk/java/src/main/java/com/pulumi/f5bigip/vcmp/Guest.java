@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vcmp_test = new Guest(&#34;vcmp-test&#34;, GuestArgs.builder()        
- *             .name(&#34;tf_guest&#34;)
- *             .initialImage(&#34;12.1.2.iso&#34;)
- *             .mgmtNetwork(&#34;bridged&#34;)
- *             .mgmtAddress(&#34;10.1.1.1/24&#34;)
- *             .mgmtRoute(&#34;none&#34;)
- *             .state(&#34;provisioned&#34;)
+ *         var vcmp_test = new Guest("vcmp-test", GuestArgs.builder()        
+ *             .name("tf_guest")
+ *             .initialImage("12.1.2.iso")
+ *             .mgmtNetwork("bridged")
+ *             .mgmtAddress("10.1.1.1/24")
+ *             .mgmtRoute("none")
+ *             .state("provisioned")
  *             .coresPerSlot(2)
  *             .numberOfSlots(1)
  *             .minNumberOfSlots(1)
@@ -60,7 +61,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

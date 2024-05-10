@@ -6,6 +6,7 @@ package com.pulumi.f5bigip.ssl.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
 import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,6 +20,23 @@ import javax.annotation.Nullable;
 public final class GetWafEntityUrlArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWafEntityUrlArgs Empty = new GetWafEntityUrlArgs();
+
+    /**
+     * A list of options that enables your web-application to share data with a website hosted on a
+     * different domain.
+     * 
+     */
+    @Import(name="crossOriginRequestsEnforcements")
+    private @Nullable Output<List<GetWafEntityUrlCrossOriginRequestsEnforcementArgs>> crossOriginRequestsEnforcements;
+
+    /**
+     * @return A list of options that enables your web-application to share data with a website hosted on a
+     * different domain.
+     * 
+     */
+    public Optional<Output<List<GetWafEntityUrlCrossOriginRequestsEnforcementArgs>>> crossOriginRequestsEnforcements() {
+        return Optional.ofNullable(this.crossOriginRequestsEnforcements);
+    }
 
     /**
      * A description of the URL.
@@ -143,6 +161,7 @@ public final class GetWafEntityUrlArgs extends com.pulumi.resources.InvokeArgs {
     private GetWafEntityUrlArgs() {}
 
     private GetWafEntityUrlArgs(GetWafEntityUrlArgs $) {
+        this.crossOriginRequestsEnforcements = $.crossOriginRequestsEnforcements;
         this.description = $.description;
         this.method = $.method;
         this.methodOverrides = $.methodOverrides;
@@ -169,6 +188,40 @@ public final class GetWafEntityUrlArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetWafEntityUrlArgs defaults) {
             $ = new GetWafEntityUrlArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param crossOriginRequestsEnforcements A list of options that enables your web-application to share data with a website hosted on a
+         * different domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOriginRequestsEnforcements(@Nullable Output<List<GetWafEntityUrlCrossOriginRequestsEnforcementArgs>> crossOriginRequestsEnforcements) {
+            $.crossOriginRequestsEnforcements = crossOriginRequestsEnforcements;
+            return this;
+        }
+
+        /**
+         * @param crossOriginRequestsEnforcements A list of options that enables your web-application to share data with a website hosted on a
+         * different domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOriginRequestsEnforcements(List<GetWafEntityUrlCrossOriginRequestsEnforcementArgs> crossOriginRequestsEnforcements) {
+            return crossOriginRequestsEnforcements(Output.of(crossOriginRequestsEnforcements));
+        }
+
+        /**
+         * @param crossOriginRequestsEnforcements A list of options that enables your web-application to share data with a website hosted on a
+         * different domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossOriginRequestsEnforcements(GetWafEntityUrlCrossOriginRequestsEnforcementArgs... crossOriginRequestsEnforcements) {
+            return crossOriginRequestsEnforcements(List.of(crossOriginRequestsEnforcements));
         }
 
         /**

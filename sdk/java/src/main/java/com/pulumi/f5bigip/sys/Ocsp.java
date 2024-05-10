@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,17 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_ocsp = new Ocsp(&#34;test-ocsp&#34;, OcspArgs.builder()        
- *             .name(&#34;/Uncommon/test-ocsp&#34;)
- *             .proxyServerPool(&#34;/Common/test-poolxyz&#34;)
- *             .signerKey(&#34;/Common/le-ssl&#34;)
- *             .signerCert(&#34;/Common/le-ssl&#34;)
- *             .passphrase(&#34;testabcdef&#34;)
+ *         var test_ocsp = new Ocsp("test-ocsp", OcspArgs.builder()        
+ *             .name("/Uncommon/test-ocsp")
+ *             .proxyServerPool("/Common/test-poolxyz")
+ *             .signerKey("/Common/le-ssl")
+ *             .signerCert("/Common/le-ssl")
+ *             .passphrase("testabcdef")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing

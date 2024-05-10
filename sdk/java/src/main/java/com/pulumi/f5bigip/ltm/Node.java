@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,23 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node = new Node(&#34;node&#34;, NodeArgs.builder()        
- *             .name(&#34;/Common/terraform_node1&#34;)
- *             .address(&#34;192.168.30.1&#34;)
- *             .connectionLimit(&#34;0&#34;)
- *             .dynamicRatio(&#34;1&#34;)
- *             .monitor(&#34;/Common/icmp&#34;)
- *             .description(&#34;Test-Node&#34;)
- *             .rateLimit(&#34;disabled&#34;)
+ *         var node = new Node("node", NodeArgs.builder()        
+ *             .name("/Common/terraform_node1")
+ *             .address("192.168.30.1")
+ *             .connectionLimit("0")
+ *             .dynamicRatio("1")
+ *             .monitor("/Common/icmp")
+ *             .description("Test-Node")
+ *             .rateLimit("disabled")
  *             .fqdn(NodeFqdnArgs.builder()
- *                 .addressFamily(&#34;ipv4&#34;)
- *                 .interval(&#34;3000&#34;)
+ *                 .addressFamily("ipv4")
+ *                 .interval("3000")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ## Importing

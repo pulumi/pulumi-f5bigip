@@ -7,7 +7,13 @@ import * as utilities from "./utilities";
 /**
  * `f5bigip.As3` provides details about bigip as3 resource
  *
- * This resource is helpful to configure as3 declarative JSON on BIG-IP.
+ * This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+ *
+ * > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+ *
+ * > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+ *
+ * > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenantName to be passed to add application on specified tenant, else random tenant name will be generated.
  *
  * ## Import
  *
@@ -398,7 +404,7 @@ export class As3 extends pulumi.CustomResource {
     }
 
     /**
-     * Application deployed through AS3 Declaration
+     * List of applications currently deployed on the Big-Ip
      */
     public readonly applicationList!: pulumi.Output<string>;
     /**
@@ -537,7 +543,7 @@ export class As3 extends pulumi.CustomResource {
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
     /**
-     * Will define Perapp mode enabled on BIG-IP or not
+     * Will specify whether is deployment is done via Per-Application Way or Traditional Way
      */
     public /*out*/ readonly perAppMode!: pulumi.Output<boolean>;
     /**
@@ -547,16 +553,15 @@ export class As3 extends pulumi.CustomResource {
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
-    public readonly tenantFilter!: pulumi.Output<string | undefined>;
+    public readonly tenantFilter!: pulumi.Output<string>;
     /**
-     * Name of Tenant
+     * List of tenants currently deployed on the Big-Ip
      */
     public readonly tenantList!: pulumi.Output<string>;
     /**
-     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
-    public readonly tenantName!: pulumi.Output<string | undefined>;
+    public readonly tenantName!: pulumi.Output<string>;
 
     /**
      * Create a As3 resource with the given unique name, arguments, and options.
@@ -600,7 +605,7 @@ export class As3 extends pulumi.CustomResource {
  */
 export interface As3State {
     /**
-     * Application deployed through AS3 Declaration
+     * List of applications currently deployed on the Big-Ip
      */
     applicationList?: pulumi.Input<string>;
     /**
@@ -739,7 +744,7 @@ export interface As3State {
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**
-     * Will define Perapp mode enabled on BIG-IP or not
+     * Will specify whether is deployment is done via Per-Application Way or Traditional Way
      */
     perAppMode?: pulumi.Input<boolean>;
     /**
@@ -751,12 +756,11 @@ export interface As3State {
      */
     tenantFilter?: pulumi.Input<string>;
     /**
-     * Name of Tenant
+     * List of tenants currently deployed on the Big-Ip
      */
     tenantList?: pulumi.Input<string>;
     /**
-     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
     tenantName?: pulumi.Input<string>;
 }
@@ -766,7 +770,7 @@ export interface As3State {
  */
 export interface As3Args {
     /**
-     * Application deployed through AS3 Declaration
+     * List of applications currently deployed on the Big-Ip
      */
     applicationList?: pulumi.Input<string>;
     /**
@@ -913,12 +917,11 @@ export interface As3Args {
      */
     tenantFilter?: pulumi.Input<string>;
     /**
-     * Name of Tenant
+     * List of tenants currently deployed on the Big-Ip
      */
     tenantList?: pulumi.Input<string>;
     /**
-     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
     tenantName?: pulumi.Input<string>;
 }

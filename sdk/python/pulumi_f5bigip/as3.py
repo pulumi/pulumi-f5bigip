@@ -23,7 +23,7 @@ class As3Args:
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a As3 resource.
-        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
+        :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -155,9 +155,8 @@ class As3Args:
                ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-               name would be generated.
+        :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         if application_list is not None:
             pulumi.set(__self__, "application_list", application_list)
@@ -178,7 +177,7 @@ class As3Args:
     @pulumi.getter(name="applicationList")
     def application_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Application deployed through AS3 Declaration
+        List of applications currently deployed on the Big-Ip
         """
         return pulumi.get(self, "application_list")
 
@@ -365,7 +364,7 @@ class As3Args:
     @pulumi.getter(name="tenantList")
     def tenant_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant
+        List of tenants currently deployed on the Big-Ip
         """
         return pulumi.get(self, "tenant_list")
 
@@ -377,8 +376,7 @@ class As3Args:
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        name would be generated.
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         return pulumi.get(self, "tenant_name")
 
@@ -400,7 +398,7 @@ class _As3State:
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering As3 resources.
-        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
+        :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -530,12 +528,11 @@ class _As3State:
                }
                
                ```
-        :param pulumi.Input[bool] per_app_mode: Will define Perapp mode enabled on BIG-IP or not
+        :param pulumi.Input[bool] per_app_mode: Will specify whether is deployment is done via Per-Application Way or Traditional Way
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-               name would be generated.
+        :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         if application_list is not None:
             pulumi.set(__self__, "application_list", application_list)
@@ -558,7 +555,7 @@ class _As3State:
     @pulumi.getter(name="applicationList")
     def application_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Application deployed through AS3 Declaration
+        List of applications currently deployed on the Big-Ip
         """
         return pulumi.get(self, "application_list")
 
@@ -721,7 +718,7 @@ class _As3State:
     @pulumi.getter(name="perAppMode")
     def per_app_mode(self) -> Optional[pulumi.Input[bool]]:
         """
-        Will define Perapp mode enabled on BIG-IP or not
+        Will specify whether is deployment is done via Per-Application Way or Traditional Way
         """
         return pulumi.get(self, "per_app_mode")
 
@@ -757,7 +754,7 @@ class _As3State:
     @pulumi.getter(name="tenantList")
     def tenant_list(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant
+        List of tenants currently deployed on the Big-Ip
         """
         return pulumi.get(self, "tenant_list")
 
@@ -769,8 +766,7 @@ class _As3State:
     @pulumi.getter(name="tenantName")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        name would be generated.
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         return pulumi.get(self, "tenant_name")
 
@@ -795,7 +791,13 @@ class As3(pulumi.CustomResource):
         """
         `As3` provides details about bigip as3 resource
 
-        This resource is helpful to configure as3 declarative JSON on BIG-IP.
+        This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+
+        > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+
+        > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+
+        > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
 
         ## Import
 
@@ -1159,7 +1161,7 @@ class As3(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
+        :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -1291,9 +1293,8 @@ class As3(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-               name would be generated.
+        :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         ...
     @overload
@@ -1304,7 +1305,13 @@ class As3(pulumi.CustomResource):
         """
         `As3` provides details about bigip as3 resource
 
-        This resource is helpful to configure as3 declarative JSON on BIG-IP.
+        This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+
+        > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+
+        > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+
+        > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
 
         ## Import
 
@@ -1730,7 +1737,7 @@ class As3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_list: Application deployed through AS3 Declaration
+        :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
@@ -1860,12 +1867,11 @@ class As3(pulumi.CustomResource):
                }
                
                ```
-        :param pulumi.Input[bool] per_app_mode: Will define Perapp mode enabled on BIG-IP or not
+        :param pulumi.Input[bool] per_app_mode: Will specify whether is deployment is done via Per-Application Way or Traditional Way
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-               name would be generated.
+        :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
+        :param pulumi.Input[str] tenant_name: Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1885,7 +1891,7 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="applicationList")
     def application_list(self) -> pulumi.Output[str]:
         """
-        Application deployed through AS3 Declaration
+        List of applications currently deployed on the Big-Ip
         """
         return pulumi.get(self, "application_list")
 
@@ -2036,7 +2042,7 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="perAppMode")
     def per_app_mode(self) -> pulumi.Output[bool]:
         """
-        Will define Perapp mode enabled on BIG-IP or not
+        Will specify whether is deployment is done via Per-Application Way or Traditional Way
         """
         return pulumi.get(self, "per_app_mode")
 
@@ -2050,7 +2056,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantFilter")
-    def tenant_filter(self) -> pulumi.Output[Optional[str]]:
+    def tenant_filter(self) -> pulumi.Output[str]:
         """
         If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         """
@@ -2060,16 +2066,15 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="tenantList")
     def tenant_list(self) -> pulumi.Output[str]:
         """
-        Name of Tenant
+        List of tenants currently deployed on the Big-Ip
         """
         return pulumi.get(self, "tenant_list")
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> pulumi.Output[Optional[str]]:
+    def tenant_name(self) -> pulumi.Output[str]:
         """
-        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        name would be generated.
+        Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         return pulumi.get(self, "tenant_name")
 

@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,17 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_template = new FastTemplate(&#34;foo-template&#34;, FastTemplateArgs.builder()        
- *             .name(&#34;foo_template&#34;)
- *             .source(&#34;foo_template.zip&#34;)
+ *         var foo_template = new FastTemplate("foo-template", FastTemplateArgs.builder()        
+ *             .name("foo_template")
+ *             .source("foo_template.zip")
  *             .md5Hash(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input(&#34;foo_template.zip&#34;)
+ *                 .input("foo_template.zip")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

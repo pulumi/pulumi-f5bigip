@@ -191,6 +191,130 @@ func (o GetWafEntityParameterUrlPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetWafEntityUrlCrossOriginRequestsEnforcement struct {
+	// Determines whether the subdomains are allowed to receive data from the web application.
+	IncludeSubdomains *bool `pulumi:"includeSubdomains"`
+	// Specifies the name of the origin with which you want to share your data.
+	OriginName string `pulumi:"originName"`
+	// Specifies the port that other web applications are allowed to use to request data from your web application.
+	OriginPort string `pulumi:"originPort"`
+	// Specifies the protocol that other web applications are allowed to use to request data from your web application.
+	OriginProtocol string `pulumi:"originProtocol"`
+}
+
+// GetWafEntityUrlCrossOriginRequestsEnforcementInput is an input type that accepts GetWafEntityUrlCrossOriginRequestsEnforcementArgs and GetWafEntityUrlCrossOriginRequestsEnforcementOutput values.
+// You can construct a concrete instance of `GetWafEntityUrlCrossOriginRequestsEnforcementInput` via:
+//
+//	GetWafEntityUrlCrossOriginRequestsEnforcementArgs{...}
+type GetWafEntityUrlCrossOriginRequestsEnforcementInput interface {
+	pulumi.Input
+
+	ToGetWafEntityUrlCrossOriginRequestsEnforcementOutput() GetWafEntityUrlCrossOriginRequestsEnforcementOutput
+	ToGetWafEntityUrlCrossOriginRequestsEnforcementOutputWithContext(context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementOutput
+}
+
+type GetWafEntityUrlCrossOriginRequestsEnforcementArgs struct {
+	// Determines whether the subdomains are allowed to receive data from the web application.
+	IncludeSubdomains pulumi.BoolPtrInput `pulumi:"includeSubdomains"`
+	// Specifies the name of the origin with which you want to share your data.
+	OriginName pulumi.StringInput `pulumi:"originName"`
+	// Specifies the port that other web applications are allowed to use to request data from your web application.
+	OriginPort pulumi.StringInput `pulumi:"originPort"`
+	// Specifies the protocol that other web applications are allowed to use to request data from your web application.
+	OriginProtocol pulumi.StringInput `pulumi:"originProtocol"`
+}
+
+func (GetWafEntityUrlCrossOriginRequestsEnforcementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWafEntityUrlCrossOriginRequestsEnforcement)(nil)).Elem()
+}
+
+func (i GetWafEntityUrlCrossOriginRequestsEnforcementArgs) ToGetWafEntityUrlCrossOriginRequestsEnforcementOutput() GetWafEntityUrlCrossOriginRequestsEnforcementOutput {
+	return i.ToGetWafEntityUrlCrossOriginRequestsEnforcementOutputWithContext(context.Background())
+}
+
+func (i GetWafEntityUrlCrossOriginRequestsEnforcementArgs) ToGetWafEntityUrlCrossOriginRequestsEnforcementOutputWithContext(ctx context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityUrlCrossOriginRequestsEnforcementOutput)
+}
+
+// GetWafEntityUrlCrossOriginRequestsEnforcementArrayInput is an input type that accepts GetWafEntityUrlCrossOriginRequestsEnforcementArray and GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput values.
+// You can construct a concrete instance of `GetWafEntityUrlCrossOriginRequestsEnforcementArrayInput` via:
+//
+//	GetWafEntityUrlCrossOriginRequestsEnforcementArray{ GetWafEntityUrlCrossOriginRequestsEnforcementArgs{...} }
+type GetWafEntityUrlCrossOriginRequestsEnforcementArrayInput interface {
+	pulumi.Input
+
+	ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput() GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput
+	ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutputWithContext(context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput
+}
+
+type GetWafEntityUrlCrossOriginRequestsEnforcementArray []GetWafEntityUrlCrossOriginRequestsEnforcementInput
+
+func (GetWafEntityUrlCrossOriginRequestsEnforcementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWafEntityUrlCrossOriginRequestsEnforcement)(nil)).Elem()
+}
+
+func (i GetWafEntityUrlCrossOriginRequestsEnforcementArray) ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput() GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput {
+	return i.ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutputWithContext(context.Background())
+}
+
+func (i GetWafEntityUrlCrossOriginRequestsEnforcementArray) ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutputWithContext(ctx context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput)
+}
+
+type GetWafEntityUrlCrossOriginRequestsEnforcementOutput struct{ *pulumi.OutputState }
+
+func (GetWafEntityUrlCrossOriginRequestsEnforcementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWafEntityUrlCrossOriginRequestsEnforcement)(nil)).Elem()
+}
+
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) ToGetWafEntityUrlCrossOriginRequestsEnforcementOutput() GetWafEntityUrlCrossOriginRequestsEnforcementOutput {
+	return o
+}
+
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) ToGetWafEntityUrlCrossOriginRequestsEnforcementOutputWithContext(ctx context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementOutput {
+	return o
+}
+
+// Determines whether the subdomains are allowed to receive data from the web application.
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) IncludeSubdomains() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetWafEntityUrlCrossOriginRequestsEnforcement) *bool { return v.IncludeSubdomains }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the name of the origin with which you want to share your data.
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) OriginName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityUrlCrossOriginRequestsEnforcement) string { return v.OriginName }).(pulumi.StringOutput)
+}
+
+// Specifies the port that other web applications are allowed to use to request data from your web application.
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) OriginPort() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityUrlCrossOriginRequestsEnforcement) string { return v.OriginPort }).(pulumi.StringOutput)
+}
+
+// Specifies the protocol that other web applications are allowed to use to request data from your web application.
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementOutput) OriginProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityUrlCrossOriginRequestsEnforcement) string { return v.OriginProtocol }).(pulumi.StringOutput)
+}
+
+type GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWafEntityUrlCrossOriginRequestsEnforcement)(nil)).Elem()
+}
+
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput) ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput() GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput {
+	return o
+}
+
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput) ToGetWafEntityUrlCrossOriginRequestsEnforcementArrayOutputWithContext(ctx context.Context) GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput {
+	return o
+}
+
+func (o GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput) Index(i pulumi.IntInput) GetWafEntityUrlCrossOriginRequestsEnforcementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWafEntityUrlCrossOriginRequestsEnforcement {
+		return vs[0].([]GetWafEntityUrlCrossOriginRequestsEnforcement)[vs[1].(int)]
+	}).(GetWafEntityUrlCrossOriginRequestsEnforcementOutput)
+}
+
 type GetWafEntityUrlMethodOverride struct {
 	// Specifies that the system allows or disallows a method for this URL
 	Allow bool `pulumi:"allow"`
@@ -300,10 +424,14 @@ func (o GetWafEntityUrlMethodOverrideArrayOutput) Index(i pulumi.IntInput) GetWa
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityParameterUrlInput)(nil)).Elem(), GetWafEntityParameterUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityParameterUrlPtrInput)(nil)).Elem(), GetWafEntityParameterUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlCrossOriginRequestsEnforcementInput)(nil)).Elem(), GetWafEntityUrlCrossOriginRequestsEnforcementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlCrossOriginRequestsEnforcementArrayInput)(nil)).Elem(), GetWafEntityUrlCrossOriginRequestsEnforcementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlMethodOverrideInput)(nil)).Elem(), GetWafEntityUrlMethodOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlMethodOverrideArrayInput)(nil)).Elem(), GetWafEntityUrlMethodOverrideArray{})
 	pulumi.RegisterOutputType(GetWafEntityParameterUrlOutput{})
 	pulumi.RegisterOutputType(GetWafEntityParameterUrlPtrOutput{})
+	pulumi.RegisterOutputType(GetWafEntityUrlCrossOriginRequestsEnforcementOutput{})
+	pulumi.RegisterOutputType(GetWafEntityUrlCrossOriginRequestsEnforcementArrayOutput{})
 	pulumi.RegisterOutputType(GetWafEntityUrlMethodOverrideOutput{})
 	pulumi.RegisterOutputType(GetWafEntityUrlMethodOverrideArrayOutput{})
 }

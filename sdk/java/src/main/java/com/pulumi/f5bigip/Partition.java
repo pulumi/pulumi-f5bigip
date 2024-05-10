@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,15 +43,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_partition = new Partition(&#34;test-partition&#34;, PartitionArgs.builder()        
- *             .name(&#34;test-partition&#34;)
- *             .description(&#34;created by terraform&#34;)
+ *         var test_partition = new Partition("test-partition", PartitionArgs.builder()        
+ *             .name("test-partition")
+ *             .description("created by terraform")
  *             .routeDomainId(2)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing

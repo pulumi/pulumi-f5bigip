@@ -38,7 +38,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -60,14 +61,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SslFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;terraform_ssl_certificate&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_ssl_certificate")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipSslCertificateName&#34;, test.applyValue(getCertificateResult -&gt; getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -80,7 +82,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -102,14 +105,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SslFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;terraform_ssl_certificate&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_ssl_certificate")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipSslCertificateName&#34;, test.applyValue(getCertificateResult -&gt; getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -122,7 +126,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -144,14 +149,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SslFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;terraform_ssl_certificate&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_ssl_certificate")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipSslCertificateName&#34;, test.applyValue(getCertificateResult -&gt; getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -164,7 +170,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -186,14 +193,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = SslFunctions.getCertificate(GetCertificateArgs.builder()
-     *             .name(&#34;terraform_ssl_certificate&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .name("terraform_ssl_certificate")
+     *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export(&#34;bigipSslCertificateName&#34;, test.applyValue(getCertificateResult -&gt; getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -206,7 +214,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -228,14 +237,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
-     *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
+     *             .azureVwanResourcegroup("azurevwan-bigip-rg-9c8d")
+     *             .azureVwanName("azurevwan-bigip-vwan-9c8d")
+     *             .azureVwanVpnsite("azurevwan-bigip-vsite-9c8d")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;      
      * 
      * ## Pre-required Environment Settings:
@@ -262,7 +272,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -284,14 +295,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
-     *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
+     *             .azureVwanResourcegroup("azurevwan-bigip-rg-9c8d")
+     *             .azureVwanName("azurevwan-bigip-vwan-9c8d")
+     *             .azureVwanVpnsite("azurevwan-bigip-vsite-9c8d")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;      
      * 
      * ## Pre-required Environment Settings:
@@ -318,7 +330,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -340,14 +353,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
-     *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
+     *             .azureVwanResourcegroup("azurevwan-bigip-rg-9c8d")
+     *             .azureVwanName("azurevwan-bigip-vwan-9c8d")
+     *             .azureVwanVpnsite("azurevwan-bigip-vsite-9c8d")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;      
      * 
      * ## Pre-required Environment Settings:
@@ -374,7 +388,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -396,14 +411,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var vwanconfig = SslFunctions.getVWanConfig(GetVWanConfigArgs.builder()
-     *             .azureVwanResourcegroup(&#34;azurevwan-bigip-rg-9c8d&#34;)
-     *             .azureVwanName(&#34;azurevwan-bigip-vwan-9c8d&#34;)
-     *             .azureVwanVpnsite(&#34;azurevwan-bigip-vsite-9c8d&#34;)
+     *             .azureVwanResourcegroup("azurevwan-bigip-rg-9c8d")
+     *             .azureVwanName("azurevwan-bigip-vwan-9c8d")
+     *             .azureVwanVpnsite("azurevwan-bigip-vsite-9c8d")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;      
      * 
      * ## Pre-required Environment Settings:
@@ -442,7 +458,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -464,10 +481,10 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name(&#34;/foobar&#34;)
-     *             .description(&#34;this is a test&#34;)
-     *             .type(&#34;explicit&#34;)
-     *             .protocol(&#34;HTTP&#34;)
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
      *             .performStaging(true)
      *             .signatureOverridesDisables(            
      *                 12345678,
@@ -475,17 +492,31 @@ public final class SslFunctions {
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
-     *                     .method(&#34;BCOPY&#34;)
+     *                     .method("BCOPY")
      *                     .build(),
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(true)
-     *                     .method(&#34;BDELETE&#34;)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .crossOriginRequestsEnforcements(            
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app1.com")
+     *                     .originPort("80")
+     *                     .originProtocol("http")
+     *                     .build(),
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app2.com")
+     *                     .originPort("443")
+     *                     .originProtocol("http")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -498,7 +529,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -520,10 +552,10 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name(&#34;/foobar&#34;)
-     *             .description(&#34;this is a test&#34;)
-     *             .type(&#34;explicit&#34;)
-     *             .protocol(&#34;HTTP&#34;)
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
      *             .performStaging(true)
      *             .signatureOverridesDisables(            
      *                 12345678,
@@ -531,17 +563,31 @@ public final class SslFunctions {
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
-     *                     .method(&#34;BCOPY&#34;)
+     *                     .method("BCOPY")
      *                     .build(),
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(true)
-     *                     .method(&#34;BDELETE&#34;)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .crossOriginRequestsEnforcements(            
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app1.com")
+     *                     .originPort("80")
+     *                     .originProtocol("http")
+     *                     .build(),
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app2.com")
+     *                     .originPort("443")
+     *                     .originProtocol("http")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -554,7 +600,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -576,10 +623,10 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name(&#34;/foobar&#34;)
-     *             .description(&#34;this is a test&#34;)
-     *             .type(&#34;explicit&#34;)
-     *             .protocol(&#34;HTTP&#34;)
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
      *             .performStaging(true)
      *             .signatureOverridesDisables(            
      *                 12345678,
@@ -587,17 +634,31 @@ public final class SslFunctions {
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
-     *                     .method(&#34;BCOPY&#34;)
+     *                     .method("BCOPY")
      *                     .build(),
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(true)
-     *                     .method(&#34;BDELETE&#34;)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .crossOriginRequestsEnforcements(            
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app1.com")
+     *                     .originPort("80")
+     *                     .originProtocol("http")
+     *                     .build(),
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app2.com")
+     *                     .originPort("443")
+     *                     .originProtocol("http")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -610,7 +671,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -632,10 +694,10 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name(&#34;/foobar&#34;)
-     *             .description(&#34;this is a test&#34;)
-     *             .type(&#34;explicit&#34;)
-     *             .protocol(&#34;HTTP&#34;)
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
      *             .performStaging(true)
      *             .signatureOverridesDisables(            
      *                 12345678,
@@ -643,17 +705,31 @@ public final class SslFunctions {
      *             .methodOverrides(            
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(false)
-     *                     .method(&#34;BCOPY&#34;)
+     *                     .method("BCOPY")
      *                     .build(),
      *                 GetWafEntityUrlMethodOverrideArgs.builder()
      *                     .allow(true)
-     *                     .method(&#34;BDELETE&#34;)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .crossOriginRequestsEnforcements(            
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app1.com")
+     *                     .originPort("80")
+     *                     .originProtocol("http")
+     *                     .build(),
+     *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
+     *                     .includeSubdomains(true)
+     *                     .originName("app2.com")
+     *                     .originPort("443")
+     *                     .originProtocol("http")
      *                     .build())
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -666,7 +742,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -688,14 +765,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .policyName(&#34;protect_me_policy&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .policyName("protect_me_policy")
+     *             .partition("Common")
      *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -708,7 +786,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -730,14 +809,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .policyName(&#34;protect_me_policy&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .policyName("protect_me_policy")
+     *             .partition("Common")
      *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -750,7 +830,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -772,14 +853,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .policyName(&#34;protect_me_policy&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .policyName("protect_me_policy")
+     *             .partition("Common")
      *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -792,7 +874,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -814,14 +897,15 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var PBWAF1 = SslFunctions.getWafPbSuggestions(GetWafPbSuggestionsArgs.builder()
-     *             .policyName(&#34;protect_me_policy&#34;)
-     *             .partition(&#34;Common&#34;)
+     *             .policyName("protect_me_policy")
+     *             .partition("Common")
      *             .minimumLearningScore(20)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -834,7 +918,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -856,12 +941,13 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existpolicy = SslFunctions.getWafPolicy(GetWafPolicyArgs.builder()
-     *             .policyId(&#34;xxxxx&#34;)
+     *             .policyId("xxxxx")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -874,7 +960,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -896,12 +983,13 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existpolicy = SslFunctions.getWafPolicy(GetWafPolicyArgs.builder()
-     *             .policyId(&#34;xxxxx&#34;)
+     *             .policyId("xxxxx")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -914,7 +1002,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -936,12 +1025,13 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existpolicy = SslFunctions.getWafPolicy(GetWafPolicyArgs.builder()
-     *             .policyId(&#34;xxxxx&#34;)
+     *             .policyId("xxxxx")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -954,7 +1044,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -976,12 +1067,13 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var existpolicy = SslFunctions.getWafPolicy(GetWafPolicyArgs.builder()
-     *             .policyId(&#34;xxxxx&#34;)
+     *             .policyId("xxxxx")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -994,7 +1086,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1021,7 +1114,8 @@ public final class SslFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1034,7 +1128,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1061,7 +1156,8 @@ public final class SslFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1074,7 +1170,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1101,7 +1198,8 @@ public final class SslFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1114,7 +1212,8 @@ public final class SslFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -1141,7 +1240,8 @@ public final class SslFunctions {
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

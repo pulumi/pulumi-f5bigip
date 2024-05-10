@@ -53,7 +53,7 @@ class ProfileHttpArgs:
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: Specifies user-defined description.
-        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
+        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -212,7 +212,7 @@ class ProfileHttpArgs:
     @pulumi.getter(name="encryptCookieSecret")
     def encrypt_cookie_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Type a passphrase for cookie encryption.
+        Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         """
         return pulumi.get(self, "encrypt_cookie_secret")
 
@@ -525,7 +525,7 @@ class _ProfileHttpState:
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: Specifies user-defined description.
-        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
+        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -674,7 +674,7 @@ class _ProfileHttpState:
     @pulumi.getter(name="encryptCookieSecret")
     def encrypt_cookie_secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Type a passphrase for cookie encryption.
+        Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         """
         return pulumi.get(self, "encrypt_cookie_secret")
 
@@ -1034,7 +1034,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: Specifies user-defined description.
-        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
+        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -1233,7 +1233,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: Specifies user-defined description.
-        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
+        :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -1338,7 +1338,7 @@ class ProfileHttp(pulumi.CustomResource):
     @pulumi.getter(name="encryptCookieSecret")
     def encrypt_cookie_secret(self) -> pulumi.Output[Optional[str]]:
         """
-        Type a passphrase for cookie encryption.
+        Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         """
         return pulumi.get(self, "encrypt_cookie_secret")
 
