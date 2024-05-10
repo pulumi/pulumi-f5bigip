@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,18 +47,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Usage for json file
- *         var exampletask = new BigIqAs3(&#34;exampletask&#34;, BigIqAs3Args.builder()        
- *             .bigiqAddress(&#34;xx.xx.xxx.xx&#34;)
- *             .bigiqUser(&#34;xxxxx&#34;)
- *             .bigiqPassword(&#34;xxxxxxxxx&#34;)
+ *         var exampletask = new BigIqAs3("exampletask", BigIqAs3Args.builder()        
+ *             .bigiqAddress("xx.xx.xxx.xx")
+ *             .bigiqUser("xxxxx")
+ *             .bigiqPassword("xxxxxxxxx")
  *             .as3Json(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;bigiq_example.json&#34;)
+ *                 .input("bigiq_example.json")
  *                 .build()).result())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

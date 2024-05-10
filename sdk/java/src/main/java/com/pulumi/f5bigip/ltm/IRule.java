@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,25 +44,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Loading from a file is the preferred method
- *         var rule = new IRule(&#34;rule&#34;, IRuleArgs.builder()        
- *             .name(&#34;/Common/terraform_irule&#34;)
+ *         var rule = new IRule("rule", IRuleArgs.builder()        
+ *             .name("/Common/terraform_irule")
  *             .irule(StdFunctions.file(FileArgs.builder()
- *                 .input(&#34;myirule.tcl&#34;)
+ *                 .input("myirule.tcl")
  *                 .build()).result())
  *             .build());
  * 
- *         var rule2 = new IRule(&#34;rule2&#34;, IRuleArgs.builder()        
- *             .name(&#34;/Common/terraform_irule2&#34;)
- *             .irule(&#34;&#34;&#34;
+ *         var rule2 = new IRule("rule2", IRuleArgs.builder()        
+ *             .name("/Common/terraform_irule2")
+ *             .irule("""
  * when CLIENT_ACCEPTED {
- *      log local0. &#34;test&#34;
+ *      log local0. "test"
  *    }
- *             &#34;&#34;&#34;)
+ *             """)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ##myirule.tcl

@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,21 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor(&#34;monitor&#34;, MonitorArgs.builder()        
- *             .name(&#34;/Common/terraform_monitor&#34;)
- *             .parent(&#34;/Common/http&#34;)
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *             .name("/Common/terraform_monitor")
+ *             .parent("/Common/http")
  *             .build());
  * 
- *         var pool = new Pool(&#34;pool&#34;, PoolArgs.builder()        
- *             .name(&#34;/Common/Axiom_Environment_APP1_Pool&#34;)
- *             .loadBalancingMode(&#34;round-robin&#34;)
+ *         var pool = new Pool("pool", PoolArgs.builder()        
+ *             .name("/Common/Axiom_Environment_APP1_Pool")
+ *             .loadBalancingMode("round-robin")
  *             .minimumActiveMembers(1)
  *             .monitors(monitor.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ## Importing

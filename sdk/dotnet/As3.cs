@@ -12,7 +12,13 @@ namespace Pulumi.F5BigIP
     /// <summary>
     /// `f5bigip.As3` provides details about bigip as3 resource
     /// 
-    /// This resource is helpful to configure as3 declarative JSON on BIG-IP.
+    /// This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+    /// 
+    /// &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+    /// 
+    /// &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
+    /// 
+    /// &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
     /// 
     /// ## Import
     /// 
@@ -378,7 +384,7 @@ namespace Pulumi.F5BigIP
     public partial class As3 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Application deployed through AS3 Declaration
+        /// List of applications currently deployed on the Big-Ip
         /// </summary>
         [Output("applicationList")]
         public Output<string> ApplicationList { get; private set; } = null!;
@@ -523,7 +529,7 @@ namespace Pulumi.F5BigIP
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// Will define Perapp mode enabled on BIG-IP or not
+        /// Will specify whether is deployment is done via Per-Application Way or Traditional Way
         /// </summary>
         [Output("perAppMode")]
         public Output<bool> PerAppMode { get; private set; } = null!;
@@ -538,20 +544,19 @@ namespace Pulumi.F5BigIP
         /// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         /// </summary>
         [Output("tenantFilter")]
-        public Output<string?> TenantFilter { get; private set; } = null!;
+        public Output<string> TenantFilter { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Tenant
+        /// List of tenants currently deployed on the Big-Ip
         /// </summary>
         [Output("tenantList")]
         public Output<string> TenantList { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        /// name would be generated.
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         /// </summary>
         [Output("tenantName")]
-        public Output<string?> TenantName { get; private set; } = null!;
+        public Output<string> TenantName { get; private set; } = null!;
 
 
         /// <summary>
@@ -600,7 +605,7 @@ namespace Pulumi.F5BigIP
     public sealed class As3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Application deployed through AS3 Declaration
+        /// List of applications currently deployed on the Big-Ip
         /// </summary>
         [Input("applicationList")]
         public Input<string>? ApplicationList { get; set; }
@@ -757,14 +762,13 @@ namespace Pulumi.F5BigIP
         public Input<string>? TenantFilter { get; set; }
 
         /// <summary>
-        /// Name of Tenant
+        /// List of tenants currently deployed on the Big-Ip
         /// </summary>
         [Input("tenantList")]
         public Input<string>? TenantList { get; set; }
 
         /// <summary>
-        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        /// name would be generated.
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
@@ -778,7 +782,7 @@ namespace Pulumi.F5BigIP
     public sealed class As3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Application deployed through AS3 Declaration
+        /// List of applications currently deployed on the Big-Ip
         /// </summary>
         [Input("applicationList")]
         public Input<string>? ApplicationList { get; set; }
@@ -923,7 +927,7 @@ namespace Pulumi.F5BigIP
         public Input<bool>? IgnoreMetadata { get; set; }
 
         /// <summary>
-        /// Will define Perapp mode enabled on BIG-IP or not
+        /// Will specify whether is deployment is done via Per-Application Way or Traditional Way
         /// </summary>
         [Input("perAppMode")]
         public Input<bool>? PerAppMode { get; set; }
@@ -941,14 +945,13 @@ namespace Pulumi.F5BigIP
         public Input<string>? TenantFilter { get; set; }
 
         /// <summary>
-        /// Name of Tenant
+        /// List of tenants currently deployed on the Big-Ip
         /// </summary>
         [Input("tenantList")]
         public Input<string>? TenantList { get; set; }
 
         /// <summary>
-        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-        /// name would be generated.
+        /// Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }

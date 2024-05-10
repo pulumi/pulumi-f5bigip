@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,22 +44,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_policy = new IpsecPolicy(&#34;test-policy&#34;, IpsecPolicyArgs.builder()        
- *             .name(&#34;/Common/test-policy&#34;)
- *             .description(&#34;created by terraform provider&#34;)
- *             .protocol(&#34;esp&#34;)
- *             .mode(&#34;tunnel&#34;)
- *             .tunnelLocalAddress(&#34;192.168.1.1&#34;)
- *             .tunnelRemoteAddress(&#34;10.10.1.1&#34;)
- *             .authAlgorithm(&#34;sha1&#34;)
- *             .encryptAlgorithm(&#34;3des&#34;)
+ *         var test_policy = new IpsecPolicy("test-policy", IpsecPolicyArgs.builder()        
+ *             .name("/Common/test-policy")
+ *             .description("created by terraform provider")
+ *             .protocol("esp")
+ *             .mode("tunnel")
+ *             .tunnelLocalAddress("192.168.1.1")
+ *             .tunnelRemoteAddress("10.10.1.1")
+ *             .authAlgorithm("sha1")
+ *             .encryptAlgorithm("3des")
  *             .lifetime(3)
- *             .ipcomp(&#34;deflate&#34;)
+ *             .ipcomp("deflate")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

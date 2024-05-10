@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,20 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ppssl = new PersistenceProfileSsl(&#34;ppssl&#34;, PersistenceProfileSslArgs.builder()        
- *             .name(&#34;/Common/terraform_ssl&#34;)
- *             .defaultsFrom(&#34;/Common/ssl&#34;)
- *             .matchAcrossPools(&#34;enabled&#34;)
- *             .matchAcrossServices(&#34;enabled&#34;)
- *             .matchAcrossVirtuals(&#34;enabled&#34;)
- *             .mirror(&#34;enabled&#34;)
+ *         var ppssl = new PersistenceProfileSsl("ppssl", PersistenceProfileSslArgs.builder()        
+ *             .name("/Common/terraform_ssl")
+ *             .defaultsFrom("/Common/ssl")
+ *             .matchAcrossPools("enabled")
+ *             .matchAcrossServices("enabled")
+ *             .matchAcrossVirtuals("enabled")
+ *             .mirror("enabled")
  *             .timeout(3600)
- *             .overrideConnLimit(&#34;enabled&#34;)
+ *             .overrideConnLimit("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Reference

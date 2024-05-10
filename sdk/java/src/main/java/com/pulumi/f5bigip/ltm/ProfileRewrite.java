@@ -26,7 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -50,54 +51,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_profile = new ProfileRewrite(&#34;test-profile&#34;, ProfileRewriteArgs.builder()        
- *             .name(&#34;/Common/tf_profile&#34;)
- *             .defaultsFrom(&#34;/Common/rewrite&#34;)
- *             .bypassLists(&#34;http://notouch.com&#34;)
- *             .rewriteLists(&#34;http://some.com&#34;)
- *             .rewriteMode(&#34;portal&#34;)
- *             .cacheType(&#34;cache-img-css-js&#34;)
- *             .caFile(&#34;/Common/ca-bundle.crt&#34;)
- *             .crlFile(&#34;none&#34;)
- *             .signingCert(&#34;/Common/default.crt&#34;)
- *             .signingKey(&#34;/Common/default.key&#34;)
- *             .splitTunneling(&#34;true&#34;)
+ *         var test_profile = new ProfileRewrite("test-profile", ProfileRewriteArgs.builder()        
+ *             .name("/Common/tf_profile")
+ *             .defaultsFrom("/Common/rewrite")
+ *             .bypassLists("http://notouch.com")
+ *             .rewriteLists("http://some.com")
+ *             .rewriteMode("portal")
+ *             .cacheType("cache-img-css-js")
+ *             .caFile("/Common/ca-bundle.crt")
+ *             .crlFile("none")
+ *             .signingCert("/Common/default.crt")
+ *             .signingKey("/Common/default.key")
+ *             .splitTunneling("true")
  *             .build());
  * 
- *         var test_profile2 = new ProfileRewrite(&#34;test-profile2&#34;, ProfileRewriteArgs.builder()        
- *             .name(&#34;/Common/tf_profile_translate&#34;)
- *             .defaultsFrom(&#34;/Common/rewrite&#34;)
- *             .rewriteMode(&#34;uri-translation&#34;)
+ *         var test_profile2 = new ProfileRewrite("test-profile2", ProfileRewriteArgs.builder()        
+ *             .name("/Common/tf_profile_translate")
+ *             .defaultsFrom("/Common/rewrite")
+ *             .rewriteMode("uri-translation")
  *             .requests(ProfileRewriteRequestArgs.builder()
- *                 .insertXfwdFor(&#34;enabled&#34;)
- *                 .insertXfwdHost(&#34;disabled&#34;)
- *                 .insertXfwdProtocol(&#34;enabled&#34;)
- *                 .rewriteHeaders(&#34;disabled&#34;)
+ *                 .insertXfwdFor("enabled")
+ *                 .insertXfwdHost("disabled")
+ *                 .insertXfwdProtocol("enabled")
+ *                 .rewriteHeaders("disabled")
  *                 .build())
  *             .responses(ProfileRewriteResponseArgs.builder()
- *                 .rewriteContent(&#34;enabled&#34;)
- *                 .rewriteHeaders(&#34;disabled&#34;)
+ *                 .rewriteContent("enabled")
+ *                 .rewriteHeaders("disabled")
  *                 .build())
  *             .cookieRules(            
  *                 ProfileRewriteCookieRuleArgs.builder()
- *                     .ruleName(&#34;cookie1&#34;)
- *                     .clientDomain(&#34;wrong.com&#34;)
- *                     .clientPath(&#34;/this/&#34;)
- *                     .serverDomain(&#34;wrong.com&#34;)
- *                     .serverPath(&#34;/this/&#34;)
+ *                     .ruleName("cookie1")
+ *                     .clientDomain("wrong.com")
+ *                     .clientPath("/this/")
+ *                     .serverDomain("wrong.com")
+ *                     .serverPath("/this/")
  *                     .build(),
  *                 ProfileRewriteCookieRuleArgs.builder()
- *                     .ruleName(&#34;cookie2&#34;)
- *                     .clientDomain(&#34;incorrect.com&#34;)
- *                     .clientPath(&#34;/this/&#34;)
- *                     .serverDomain(&#34;absolute.com&#34;)
- *                     .serverPath(&#34;/this/&#34;)
+ *                     .ruleName("cookie2")
+ *                     .clientDomain("incorrect.com")
+ *                     .clientPath("/this/")
+ *                     .serverDomain("absolute.com")
+ *                     .serverPath("/this/")
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

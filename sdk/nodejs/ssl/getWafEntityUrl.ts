@@ -35,6 +35,20 @@ import * as utilities from "../utilities";
  *             method: "BDELETE",
  *         },
  *     ],
+ *     crossOriginRequestsEnforcements: [
+ *         {
+ *             includeSubdomains: true,
+ *             originName: "app1.com",
+ *             originPort: "80",
+ *             originProtocol: "http",
+ *         },
+ *         {
+ *             includeSubdomains: true,
+ *             originName: "app2.com",
+ *             originPort: "443",
+ *             originProtocol: "http",
+ *         },
+ *     ],
  * });
  * ```
  */
@@ -42,6 +56,7 @@ export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", {
+        "crossOriginRequestsEnforcements": args.crossOriginRequestsEnforcements,
         "description": args.description,
         "method": args.method,
         "methodOverrides": args.methodOverrides,
@@ -57,6 +72,11 @@ export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getWafEntityUrl.
  */
 export interface GetWafEntityUrlArgs {
+    /**
+     * A list of options that enables your web-application to share data with a website hosted on a
+     * different domain.
+     */
+    crossOriginRequestsEnforcements?: inputs.ssl.GetWafEntityUrlCrossOriginRequestsEnforcement[];
     /**
      * A description of the URL.
      */
@@ -95,6 +115,7 @@ export interface GetWafEntityUrlArgs {
  * A collection of values returned by getWafEntityUrl.
  */
 export interface GetWafEntityUrlResult {
+    readonly crossOriginRequestsEnforcements?: outputs.ssl.GetWafEntityUrlCrossOriginRequestsEnforcement[];
     readonly description?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -141,6 +162,20 @@ export interface GetWafEntityUrlResult {
  *             method: "BDELETE",
  *         },
  *     ],
+ *     crossOriginRequestsEnforcements: [
+ *         {
+ *             includeSubdomains: true,
+ *             originName: "app1.com",
+ *             originPort: "80",
+ *             originProtocol: "http",
+ *         },
+ *         {
+ *             includeSubdomains: true,
+ *             originName: "app2.com",
+ *             originPort: "443",
+ *             originProtocol: "http",
+ *         },
+ *     ],
  * });
  * ```
  */
@@ -152,6 +187,11 @@ export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pu
  * A collection of arguments for invoking getWafEntityUrl.
  */
 export interface GetWafEntityUrlOutputArgs {
+    /**
+     * A list of options that enables your web-application to share data with a website hosted on a
+     * different domain.
+     */
+    crossOriginRequestsEnforcements?: pulumi.Input<pulumi.Input<inputs.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs>[]>;
     /**
      * A description of the URL.
      */

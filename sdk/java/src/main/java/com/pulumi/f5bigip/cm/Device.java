@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,16 +43,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myNewDevice = new Device(&#34;myNewDevice&#34;, DeviceArgs.builder()        
- *             .name(&#34;bigip300.f5.com&#34;)
- *             .configsyncIp(&#34;2.2.2.2&#34;)
- *             .mirrorIp(&#34;10.10.10.10&#34;)
- *             .mirrorSecondaryIp(&#34;11.11.11.11&#34;)
+ *         var myNewDevice = new Device("myNewDevice", DeviceArgs.builder()        
+ *             .name("bigip300.f5.com")
+ *             .configsyncIp("2.2.2.2")
+ *             .mirrorIp("10.10.10.10")
+ *             .mirrorSecondaryIp("11.11.11.11")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

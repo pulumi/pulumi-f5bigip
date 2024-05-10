@@ -29,7 +29,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -51,13 +52,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testawstagkey&#34;)
-     *             .tagValue(&#34;testawstagvalue&#34;)
+     *             .tagKey("testawstagkey")
+     *             .tagValue("testawstagvalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -70,7 +72,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -92,13 +95,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testawstagkey&#34;)
-     *             .tagValue(&#34;testawstagvalue&#34;)
+     *             .tagKey("testawstagkey")
+     *             .tagValue("testawstagvalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -111,7 +115,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -133,13 +138,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testawstagkey&#34;)
-     *             .tagValue(&#34;testawstagvalue&#34;)
+     *             .tagKey("testawstagkey")
+     *             .tagValue("testawstagvalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -152,7 +158,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -174,13 +181,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getAwsServiceDiscovery(GetAwsServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testawstagkey&#34;)
-     *             .tagValue(&#34;testawstagvalue&#34;)
+     *             .tagKey("testawstagkey")
+     *             .tagValue("testawstagvalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -193,7 +201,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -215,15 +224,16 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
-     *             .resourceGroup(&#34;testazurerg&#34;)
-     *             .subscriptionId(&#34;testazuresid&#34;)
-     *             .tagKey(&#34;testazuretag&#34;)
-     *             .tagValue(&#34;testazurevalue&#34;)
+     *             .resourceGroup("testazurerg")
+     *             .subscriptionId("testazuresid")
+     *             .tagKey("testazuretag")
+     *             .tagValue("testazurevalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -236,7 +246,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -258,15 +269,16 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
-     *             .resourceGroup(&#34;testazurerg&#34;)
-     *             .subscriptionId(&#34;testazuresid&#34;)
-     *             .tagKey(&#34;testazuretag&#34;)
-     *             .tagValue(&#34;testazurevalue&#34;)
+     *             .resourceGroup("testazurerg")
+     *             .subscriptionId("testazuresid")
+     *             .tagKey("testazuretag")
+     *             .tagValue("testazurevalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -279,7 +291,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -301,15 +314,16 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
-     *             .resourceGroup(&#34;testazurerg&#34;)
-     *             .subscriptionId(&#34;testazuresid&#34;)
-     *             .tagKey(&#34;testazuretag&#34;)
-     *             .tagValue(&#34;testazurevalue&#34;)
+     *             .resourceGroup("testazurerg")
+     *             .subscriptionId("testazuresid")
+     *             .tagKey("testazuretag")
+     *             .tagValue("testazurevalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -322,7 +336,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -344,15 +359,16 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
-     *             .resourceGroup(&#34;testazurerg&#34;)
-     *             .subscriptionId(&#34;testazuresid&#34;)
-     *             .tagKey(&#34;testazuretag&#34;)
-     *             .tagValue(&#34;testazurevalue&#34;)
+     *             .resourceGroup("testazurerg")
+     *             .subscriptionId("testazuresid")
+     *             .tagKey("testazuretag")
+     *             .tagValue("testazurevalue")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -365,7 +381,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -387,13 +404,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .uri("https://192.0.2.100:8500/v1/catalog/nodes")
      *             .port(8080)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -406,7 +424,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -428,13 +447,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .uri("https://192.0.2.100:8500/v1/catalog/nodes")
      *             .port(8080)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -447,7 +467,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -469,13 +490,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .uri("https://192.0.2.100:8500/v1/catalog/nodes")
      *             .port(8080)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -488,7 +510,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -510,13 +533,14 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC2 = FastFunctions.getConsulServiceDiscovery(GetConsulServiceDiscoveryArgs.builder()
-     *             .uri(&#34;https://192.0.2.100:8500/v1/catalog/nodes&#34;)
+     *             .uri("https://192.0.2.100:8500/v1/catalog/nodes")
      *             .port(8080)
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -529,7 +553,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -551,14 +576,15 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testgcetag&#34;)
-     *             .tagValue(&#34;testgcevalue&#34;)
-     *             .region(&#34;testgceregion&#34;)
+     *             .tagKey("testgcetag")
+     *             .tagValue("testgcevalue")
+     *             .region("testgceregion")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -571,7 +597,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -593,14 +620,15 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testgcetag&#34;)
-     *             .tagValue(&#34;testgcevalue&#34;)
-     *             .region(&#34;testgceregion&#34;)
+     *             .tagKey("testgcetag")
+     *             .tagValue("testgcevalue")
+     *             .region("testgceregion")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -613,7 +641,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -635,14 +664,15 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testgcetag&#34;)
-     *             .tagValue(&#34;testgcevalue&#34;)
-     *             .region(&#34;testgceregion&#34;)
+     *             .tagKey("testgcetag")
+     *             .tagValue("testgcevalue")
+     *             .region("testgceregion")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -655,7 +685,8 @@ public final class FastFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * ```java
+     * <pre>
+     * {@code
      * package generated_program;
      * 
      * import com.pulumi.Context;
@@ -677,14 +708,15 @@ public final class FastFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var TC3 = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
-     *             .tagKey(&#34;testgcetag&#34;)
-     *             .tagValue(&#34;testgcevalue&#34;)
-     *             .region(&#34;testgceregion&#34;)
+     *             .tagKey("testgcetag")
+     *             .tagValue("testgcevalue")
+     *             .region("testgceregion")
      *             .build());
      * 
      *     }
      * }
-     * ```
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

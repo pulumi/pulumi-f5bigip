@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dns1 = new Dns(&#34;dns1&#34;, DnsArgs.builder()        
- *             .description(&#34;/Common/DNS1&#34;)
- *             .nameServers(&#34;1.1.1.1&#34;)
- *             .searches(&#34;f5.com&#34;)
+ *         var dns1 = new Dns("dns1", DnsArgs.builder()        
+ *             .description("/Common/DNS1")
+ *             .nameServers("1.1.1.1")
+ *             .searches("f5.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

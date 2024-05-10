@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'GetWafEntityParameterUrlResult',
+    'GetWafEntityUrlCrossOriginRequestsEnforcementResult',
     'GetWafEntityUrlMethodOverrideResult',
 ]
 
@@ -45,6 +46,58 @@ class GetWafEntityParameterUrlResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetWafEntityUrlCrossOriginRequestsEnforcementResult(dict):
+    def __init__(__self__, *,
+                 origin_name: str,
+                 origin_port: str,
+                 origin_protocol: str,
+                 include_subdomains: Optional[bool] = None):
+        """
+        :param str origin_name: Specifies the name of the origin with which you want to share your data.
+        :param str origin_port: Specifies the port that other web applications are allowed to use to request data from your web application.
+        :param str origin_protocol: Specifies the protocol that other web applications are allowed to use to request data from your web application.
+        :param bool include_subdomains: Determines whether the subdomains are allowed to receive data from the web application.
+        """
+        pulumi.set(__self__, "origin_name", origin_name)
+        pulumi.set(__self__, "origin_port", origin_port)
+        pulumi.set(__self__, "origin_protocol", origin_protocol)
+        if include_subdomains is not None:
+            pulumi.set(__self__, "include_subdomains", include_subdomains)
+
+    @property
+    @pulumi.getter(name="originName")
+    def origin_name(self) -> str:
+        """
+        Specifies the name of the origin with which you want to share your data.
+        """
+        return pulumi.get(self, "origin_name")
+
+    @property
+    @pulumi.getter(name="originPort")
+    def origin_port(self) -> str:
+        """
+        Specifies the port that other web applications are allowed to use to request data from your web application.
+        """
+        return pulumi.get(self, "origin_port")
+
+    @property
+    @pulumi.getter(name="originProtocol")
+    def origin_protocol(self) -> str:
+        """
+        Specifies the protocol that other web applications are allowed to use to request data from your web application.
+        """
+        return pulumi.get(self, "origin_protocol")
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> Optional[bool]:
+        """
+        Determines whether the subdomains are allowed to receive data from the web application.
+        """
+        return pulumi.get(self, "include_subdomains")
 
 
 @pulumi.output_type

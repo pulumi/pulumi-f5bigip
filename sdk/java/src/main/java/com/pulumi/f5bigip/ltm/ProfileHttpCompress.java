@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sjhttpcompression = new ProfileHttpCompress(&#34;sjhttpcompression&#34;, ProfileHttpCompressArgs.builder()        
- *             .name(&#34;/Common/sjhttpcompression2&#34;)
- *             .defaultsFrom(&#34;/Common/httpcompression&#34;)
+ *         var sjhttpcompression = new ProfileHttpCompress("sjhttpcompression", ProfileHttpCompressArgs.builder()        
+ *             .name("/Common/sjhttpcompression2")
+ *             .defaultsFrom("/Common/httpcompression")
  *             .uriExcludes(            
- *                 &#34;www.abc.f5.com&#34;,
- *                 &#34;www.abc2.f5.com&#34;)
- *             .uriIncludes(&#34;www.xyzbc.cisco.com&#34;)
- *             .contentTypeIncludes(&#34;nicecontent.com&#34;)
- *             .contentTypeExcludes(&#34;nicecontentexclude.com&#34;)
+ *                 "www.abc.f5.com",
+ *                 "www.abc2.f5.com")
+ *             .uriIncludes("www.xyzbc.cisco.com")
+ *             .contentTypeIncludes("nicecontent.com")
+ *             .contentTypeExcludes("nicecontentexclude.com")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

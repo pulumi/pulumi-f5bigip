@@ -24,7 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -49,20 +50,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mypool = new Pool(&#34;mypool&#34;, PoolArgs.builder()        
- *             .name(&#34;/Common/test-pool&#34;)
- *             .allowNat(&#34;yes&#34;)
- *             .allowSnat(&#34;yes&#34;)
- *             .loadBalancingMode(&#34;round-robin&#34;)
+ *         var mypool = new Pool("mypool", PoolArgs.builder()        
+ *             .name("/Common/test-pool")
+ *             .allowNat("yes")
+ *             .allowSnat("yes")
+ *             .loadBalancingMode("round-robin")
  *             .build());
  * 
- *         var test_policy = new Policy(&#34;test-policy&#34;, PolicyArgs.builder()        
- *             .name(&#34;/Common/test-policy&#34;)
- *             .strategy(&#34;first-match&#34;)
- *             .requires(&#34;http&#34;)
- *             .controls(&#34;forwarding&#34;)
+ *         var test_policy = new Policy("test-policy", PolicyArgs.builder()        
+ *             .name("/Common/test-policy")
+ *             .strategy("first-match")
+ *             .requires("http")
+ *             .controls("forwarding")
  *             .rules(PolicyRuleArgs.builder()
- *                 .name(&#34;rule6&#34;)
+ *                 .name("rule6")
  *                 .actions(PolicyRuleActionArgs.builder()
  *                     .forward(true)
  *                     .connection(false)
@@ -75,7 +76,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,15 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_selector = new TrafficSelector(&#34;test-selector&#34;, TrafficSelectorArgs.builder()        
- *             .name(&#34;/Common/test-selector&#34;)
- *             .destinationAddress(&#34;3.10.11.2/32&#34;)
- *             .sourceAddress(&#34;2.10.11.12/32&#34;)
+ *         var test_selector = new TrafficSelector("test-selector", TrafficSelectorArgs.builder()        
+ *             .name("/Common/test-selector")
+ *             .destinationAddress("3.10.11.2/32")
+ *             .sourceAddress("2.10.11.12/32")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

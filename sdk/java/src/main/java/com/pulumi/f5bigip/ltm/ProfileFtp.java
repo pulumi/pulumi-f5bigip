@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ### For Bigip versions (14.x - 16.x)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -46,25 +47,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_ftp_profile = new ProfileFtp(&#34;sanjose-ftp-profile&#34;, ProfileFtpArgs.builder()        
- *             .name(&#34;/Common/sanjose-ftp-profile&#34;)
- *             .defaultsFrom(&#34;/Common/ftp&#34;)
+ *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()        
+ *             .name("/Common/sanjose-ftp-profile")
+ *             .defaultsFrom("/Common/ftp")
  *             .port(2020)
- *             .description(&#34;test-tftp-profile&#34;)
- *             .ftpsMode(&#34;allow&#34;)
- *             .enforceTlssessionReuse(&#34;enabled&#34;)
- *             .allowActiveMode(&#34;enabled&#34;)
+ *             .description("test-tftp-profile")
+ *             .ftpsMode("allow")
+ *             .enforceTlssessionReuse("enabled")
+ *             .allowActiveMode("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ### For Bigip versions (12.x - 13.x)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -85,18 +88,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_ftp_profile = new ProfileFtp(&#34;sanjose-ftp-profile&#34;, ProfileFtpArgs.builder()        
- *             .name(&#34;/Common/sanjose-ftp-profile&#34;)
- *             .defaultsFrom(&#34;/Common/ftp&#34;)
+ *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()        
+ *             .name("/Common/sanjose-ftp-profile")
+ *             .defaultsFrom("/Common/ftp")
  *             .port(2020)
- *             .description(&#34;test-tftp-profile&#34;)
- *             .allowFtps(&#34;enabled&#34;)
- *             .translateExtended(&#34;enabled&#34;)
+ *             .description("test-tftp-profile")
+ *             .allowFtps("enabled")
+ *             .translateExtended("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Common Arguments for all versions

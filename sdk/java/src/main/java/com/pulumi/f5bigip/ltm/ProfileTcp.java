@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,20 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_tcp_lan_profile = new ProfileTcp(&#34;sanjose-tcp-lan-profile&#34;, ProfileTcpArgs.builder()        
- *             .name(&#34;/Common/sanjose-tcp-lan-profile&#34;)
+ *         var sanjose_tcp_lan_profile = new ProfileTcp("sanjose-tcp-lan-profile", ProfileTcpArgs.builder()        
+ *             .name("/Common/sanjose-tcp-lan-profile")
  *             .idleTimeout(200)
  *             .closeWaitTimeout(5)
  *             .finwait2timeout(5)
  *             .finwaitTimeout(300)
  *             .keepaliveInterval(1700)
- *             .deferredAccept(&#34;enabled&#34;)
- *             .fastOpen(&#34;enabled&#34;)
+ *             .deferredAccept("enabled")
+ *             .fastOpen("enabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;      
  * 
  * ## Importing

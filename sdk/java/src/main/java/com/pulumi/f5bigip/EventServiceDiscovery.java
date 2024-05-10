@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -42,24 +43,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventServiceDiscovery(&#34;test&#34;, EventServiceDiscoveryArgs.builder()        
- *             .taskid(&#34;~Sample_event_sd~My_app~My_pool&#34;)
+ *         var test = new EventServiceDiscovery("test", EventServiceDiscoveryArgs.builder()        
+ *             .taskid("~Sample_event_sd~My_app~My_pool")
  *             .nodes(            
  *                 EventServiceDiscoveryNodeArgs.builder()
- *                     .id(&#34;newNode1&#34;)
- *                     .ip(&#34;192.168.2.3&#34;)
+ *                     .id("newNode1")
+ *                     .ip("192.168.2.3")
  *                     .port(8080)
  *                     .build(),
  *                 EventServiceDiscoveryNodeArgs.builder()
- *                     .id(&#34;newNode2&#34;)
- *                     .ip(&#34;192.168.2.4&#34;)
+ *                     .id("newNode2")
+ *                     .ip("192.168.2.4")
  *                     .port(8080)
  *                     .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

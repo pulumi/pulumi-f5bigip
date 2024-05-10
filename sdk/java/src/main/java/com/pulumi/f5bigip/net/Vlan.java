@@ -25,7 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -47,8 +48,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vlan1 = new Vlan(&#34;vlan1&#34;, VlanArgs.builder()        
- *             .name(&#34;/Common/Internal&#34;)
+ *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()        
+ *             .name("/Common/Internal")
  *             .tag(101)
  *             .interfaces(VlanInterfaceArgs.builder()
  *                 .vlanport(1.2)
@@ -58,7 +59,8 @@ import javax.annotation.Nullable;
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

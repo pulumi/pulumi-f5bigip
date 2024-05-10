@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,17 +42,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var snmpTraps = new SnmpTraps(&#34;snmpTraps&#34;, SnmpTrapsArgs.builder()        
- *             .name(&#34;snmptraps&#34;)
- *             .community(&#34;f5community&#34;)
- *             .host(&#34;195.10.10.1&#34;)
- *             .description(&#34;Setup snmp traps&#34;)
+ *         var snmpTraps = new SnmpTraps("snmpTraps", SnmpTrapsArgs.builder()        
+ *             .name("snmptraps")
+ *             .community("f5community")
+ *             .host("195.10.10.1")
+ *             .description("Setup snmp traps")
  *             .port(111)
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

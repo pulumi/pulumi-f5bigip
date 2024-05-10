@@ -1081,6 +1081,25 @@ export namespace ssl {
         type: string;
     }
 
+    export interface GetWafEntityUrlCrossOriginRequestsEnforcement {
+        /**
+         * Determines whether the subdomains are allowed to receive data from the web application.
+         */
+        includeSubdomains?: boolean;
+        /**
+         * Specifies the name of the origin with which you want to share your data.
+         */
+        originName: string;
+        /**
+         * Specifies the port that other web applications are allowed to use to request data from your web application.
+         */
+        originPort: string;
+        /**
+         * Specifies the protocol that other web applications are allowed to use to request data from your web application.
+         */
+        originProtocol: string;
+    }
+
     export interface GetWafEntityUrlMethodOverride {
         /**
          * Specifies that the system allows or disallows a method for this URL

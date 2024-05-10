@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,8 +49,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vlan1 = new Vlan(&#34;vlan1&#34;, VlanArgs.builder()        
- *             .name(&#34;/Common/Internal&#34;)
+ *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()        
+ *             .name("/Common/Internal")
  *             .tag(101)
  *             .interfaces(VlanInterfaceArgs.builder()
  *                 .vlanport(1.2)
@@ -57,22 +58,24 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var selfip1 = new SelfIp(&#34;selfip1&#34;, SelfIpArgs.builder()        
- *             .name(&#34;/Common/internalselfIP&#34;)
- *             .ip(&#34;11.1.1.1/24&#34;)
- *             .vlan(&#34;/Common/internal&#34;)
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *             .name("/Common/internalselfIP")
+ *             .ip("11.1.1.1/24")
+ *             .vlan("/Common/internal")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * ### Example usage with `port_lockdown`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -94,28 +97,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp(&#34;selfip1&#34;, SelfIpArgs.builder()        
- *             .name(&#34;/Common/internalselfIP&#34;)
- *             .ip(&#34;11.1.1.1/24&#34;)
- *             .vlan(&#34;/Common/internal&#34;)
- *             .trafficGroup(&#34;traffic-group-1&#34;)
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *             .name("/Common/internalselfIP")
+ *             .ip("11.1.1.1/24")
+ *             .vlan("/Common/internal")
+ *             .trafficGroup("traffic-group-1")
  *             .portLockdowns(            
- *                 &#34;tcp:4040&#34;,
- *                 &#34;udp:5050&#34;,
- *                 &#34;egp:0&#34;)
+ *                 "tcp:4040",
+ *                 "udp:5050",
+ *                 "egp:0")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example usage with `port_lockdown` set to `[&#34;none&#34;]`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -137,25 +142,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp(&#34;selfip1&#34;, SelfIpArgs.builder()        
- *             .name(&#34;/Common/internalselfIP&#34;)
- *             .ip(&#34;11.1.1.1/24&#34;)
- *             .vlan(&#34;/Common/internal&#34;)
- *             .trafficGroup(&#34;traffic-group-1&#34;)
- *             .portLockdowns(&#34;none&#34;)
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *             .name("/Common/internalselfIP")
+ *             .ip("11.1.1.1/24")
+ *             .vlan("/Common/internal")
+ *             .trafficGroup("traffic-group-1")
+ *             .portLockdowns("none")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example usage with route domain embedded in the `ip`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -177,19 +184,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp(&#34;selfip1&#34;, SelfIpArgs.builder()        
- *             .name(&#34;/Common/internalselfIP&#34;)
- *             .ip(&#34;11.1.1.1%4/24&#34;)
- *             .vlan(&#34;/Common/internal&#34;)
- *             .trafficGroup(&#34;traffic-group-1&#34;)
- *             .portLockdowns(&#34;none&#34;)
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *             .name("/Common/internalselfIP")
+ *             .ip("11.1.1.1%4/24")
+ *             .vlan("/Common/internal")
+ *             .trafficGroup("traffic-group-1")
+ *             .portLockdowns("none")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(vlan1)
  *                 .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,13 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_oneconnect = new ProfileOneConnect(&#34;test-oneconnect&#34;, ProfileOneConnectArgs.builder()        
- *             .name(&#34;/Common/test-oneconnect&#34;)
+ *         var test_oneconnect = new ProfileOneConnect("test-oneconnect", ProfileOneConnectArgs.builder()        
+ *             .name("/Common/test-oneconnect")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -43,21 +44,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var profileFastl4 = new ProfileFastL4(&#34;profileFastl4&#34;, ProfileFastL4Args.builder()        
- *             .name(&#34;/Common/sjfastl4profile&#34;)
- *             .defaultsFrom(&#34;/Common/fastL4&#34;)
+ *         var profileFastl4 = new ProfileFastL4("profileFastl4", ProfileFastL4Args.builder()        
+ *             .name("/Common/sjfastl4profile")
+ *             .defaultsFrom("/Common/fastL4")
  *             .clientTimeout(40)
- *             .explicitflowMigration(&#34;enabled&#34;)
- *             .hardwareSyncookie(&#34;enabled&#34;)
- *             .idleTimeout(&#34;200&#34;)
- *             .iptosToclient(&#34;pass-through&#34;)
- *             .iptosToserver(&#34;pass-through&#34;)
- *             .keepaliveInterval(&#34;disabled&#34;)
+ *             .explicitflowMigration("enabled")
+ *             .hardwareSyncookie("enabled")
+ *             .idleTimeout("200")
+ *             .iptosToclient("pass-through")
+ *             .iptosToserver("pass-through")
+ *             .keepaliveInterval("disabled")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

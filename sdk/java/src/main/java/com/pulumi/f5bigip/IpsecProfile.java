@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,15 +42,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azurevWANProfile = new IpsecProfile(&#34;azurevWANProfile&#34;, IpsecProfileArgs.builder()        
- *             .name(&#34;/Common/Mytestipsecprofile&#34;)
- *             .description(&#34;mytestipsecprofile&#34;)
- *             .trafficSelector(&#34;test-trafficselector&#34;)
+ *         var azurevWANProfile = new IpsecProfile("azurevWANProfile", IpsecProfileArgs.builder()        
+ *             .name("/Common/Mytestipsecprofile")
+ *             .description("mytestipsecprofile")
+ *             .trafficSelector("test-trafficselector")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

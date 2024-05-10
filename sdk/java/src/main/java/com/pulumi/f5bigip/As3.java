@@ -18,7 +18,13 @@ import javax.annotation.Nullable;
 /**
  * `f5bigip.As3` provides details about bigip as3 resource
  * 
- * This resource is helpful to configure as3 declarative JSON on BIG-IP.
+ * This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+ * 
+ * &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+ * 
+ * &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
+ * 
+ * &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
  * 
  * ## Import
  * 
@@ -384,14 +390,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:index/as3:As3")
 public class As3 extends com.pulumi.resources.CustomResource {
     /**
-     * Application deployed through AS3 Declaration
+     * List of applications currently deployed on the Big-Ip
      * 
      */
     @Export(name="applicationList", refs={String.class}, tree="[0]")
     private Output<String> applicationList;
 
     /**
-     * @return Application deployed through AS3 Declaration
+     * @return List of applications currently deployed on the Big-Ip
      * 
      */
     public Output<String> applicationList() {
@@ -432,14 +438,14 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ignoreMetadata);
     }
     /**
-     * Will define Perapp mode enabled on BIG-IP or not
+     * Will specify whether is deployment is done via Per-Application Way or Traditional Way
      * 
      */
     @Export(name="perAppMode", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> perAppMode;
 
     /**
-     * @return Will define Perapp mode enabled on BIG-IP or not
+     * @return Will specify whether is deployment is done via Per-Application Way or Traditional Way
      * 
      */
     public Output<Boolean> perAppMode() {
@@ -464,44 +470,42 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tenantFilter", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tenantFilter;
+    private Output<String> tenantFilter;
 
     /**
      * @return If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      * 
      */
-    public Output<Optional<String>> tenantFilter() {
-        return Codegen.optional(this.tenantFilter);
+    public Output<String> tenantFilter() {
+        return this.tenantFilter;
     }
     /**
-     * Name of Tenant
+     * List of tenants currently deployed on the Big-Ip
      * 
      */
     @Export(name="tenantList", refs={String.class}, tree="[0]")
     private Output<String> tenantList;
 
     /**
-     * @return Name of Tenant
+     * @return List of tenants currently deployed on the Big-Ip
      * 
      */
     public Output<String> tenantList() {
         return this.tenantList;
     }
     /**
-     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      * 
      */
     @Export(name="tenantName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tenantName;
+    private Output<String> tenantName;
 
     /**
-     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random
-     * name would be generated.
+     * @return Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      * 
      */
-    public Output<Optional<String>> tenantName() {
-        return Codegen.optional(this.tenantName);
+    public Output<String> tenantName() {
+        return this.tenantName;
     }
 
     /**

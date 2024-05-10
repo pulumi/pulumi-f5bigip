@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -41,21 +42,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var request_log_profile_tc1_child = new RequestLogProfile(&#34;request-log-profile-tc1-child&#34;, RequestLogProfileArgs.builder()        
- *             .name(&#34;/Common/request-log-profile-tc1-child&#34;)
+ *         var request_log_profile_tc1_child = new RequestLogProfile("request-log-profile-tc1-child", RequestLogProfileArgs.builder()        
+ *             .name("/Common/request-log-profile-tc1-child")
  *             .defaultsFrom(request_log_profile_tc1.name())
- *             .requestLogging(&#34;disabled&#34;)
- *             .requestlogPool(&#34;/Common/pool2&#34;)
- *             .requestlogErrorPool(&#34;/Common/pool1&#34;)
- *             .requestlogProtocol(&#34;mds-tcp&#34;)
- *             .requestlogErrorProtocol(&#34;mds-tcp&#34;)
- *             .responselogProtocol(&#34;mds-tcp&#34;)
- *             .responselogErrorProtocol(&#34;mds-tcp&#34;)
+ *             .requestLogging("disabled")
+ *             .requestlogPool("/Common/pool2")
+ *             .requestlogErrorPool("/Common/pool1")
+ *             .requestlogProtocol("mds-tcp")
+ *             .requestlogErrorProtocol("mds-tcp")
+ *             .responselogProtocol("mds-tcp")
+ *             .responselogErrorProtocol("mds-tcp")
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

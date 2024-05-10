@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -48,47 +49,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new ProfileRewrite(&#34;tftest&#34;, ProfileRewriteArgs.builder()        
- *             .name(&#34;/Common/tf_profile&#34;)
- *             .defaultsFrom(&#34;/Common/rewrite&#34;)
- *             .rewriteMode(&#34;uri-translation&#34;)
+ *         var tftest = new ProfileRewrite("tftest", ProfileRewriteArgs.builder()        
+ *             .name("/Common/tf_profile")
+ *             .defaultsFrom("/Common/rewrite")
+ *             .rewriteMode("uri-translation")
  *             .build());
  * 
- *         var tftestrule1 = new ProfileRewriteUriRules(&#34;tftestrule1&#34;, ProfileRewriteUriRulesArgs.builder()        
+ *         var tftestrule1 = new ProfileRewriteUriRules("tftestrule1", ProfileRewriteUriRulesArgs.builder()        
  *             .profileName(tftest.name())
- *             .ruleName(&#34;tf_rule&#34;)
- *             .ruleType(&#34;request&#34;)
+ *             .ruleName("tf_rule")
+ *             .ruleType("request")
  *             .clients(ProfileRewriteUriRulesClientArgs.builder()
- *                 .host(&#34;www.foo.com&#34;)
- *                 .scheme(&#34;https&#34;)
+ *                 .host("www.foo.com")
+ *                 .scheme("https")
  *                 .build())
  *             .servers(ProfileRewriteUriRulesServerArgs.builder()
- *                 .host(&#34;www.bar.com&#34;)
- *                 .path(&#34;/this/&#34;)
- *                 .scheme(&#34;https&#34;)
- *                 .port(&#34;8888&#34;)
+ *                 .host("www.bar.com")
+ *                 .path("/this/")
+ *                 .scheme("https")
+ *                 .port("8888")
  *                 .build())
  *             .build());
  * 
- *         var tftestrule2 = new ProfileRewriteUriRules(&#34;tftestrule2&#34;, ProfileRewriteUriRulesArgs.builder()        
+ *         var tftestrule2 = new ProfileRewriteUriRules("tftestrule2", ProfileRewriteUriRulesArgs.builder()        
  *             .profileName(tftest.name())
- *             .ruleName(&#34;tf_rule2&#34;)
+ *             .ruleName("tf_rule2")
  *             .clients(ProfileRewriteUriRulesClientArgs.builder()
- *                 .host(&#34;www.baz.com&#34;)
- *                 .path(&#34;/that/&#34;)
- *                 .scheme(&#34;ftp&#34;)
- *                 .port(&#34;8888&#34;)
+ *                 .host("www.baz.com")
+ *                 .path("/that/")
+ *                 .scheme("ftp")
+ *                 .port("8888")
  *                 .build())
  *             .servers(ProfileRewriteUriRulesServerArgs.builder()
- *                 .host(&#34;www.buz.com&#34;)
- *                 .path(&#34;/those/&#34;)
- *                 .scheme(&#34;ftps&#34;)
+ *                 .host("www.buz.com")
+ *                 .path("/those/")
+ *                 .scheme("ftps")
  *                 .build())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

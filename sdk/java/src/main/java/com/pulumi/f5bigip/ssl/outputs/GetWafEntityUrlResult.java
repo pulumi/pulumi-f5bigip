@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.f5bigip.ssl.outputs.GetWafEntityUrlCrossOriginRequestsEnforcement;
 import com.pulumi.f5bigip.ssl.outputs.GetWafEntityUrlMethodOverride;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -16,6 +17,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWafEntityUrlResult {
+    private @Nullable List<GetWafEntityUrlCrossOriginRequestsEnforcement> crossOriginRequestsEnforcements;
     private @Nullable String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -36,6 +38,9 @@ public final class GetWafEntityUrlResult {
     private @Nullable String type;
 
     private GetWafEntityUrlResult() {}
+    public List<GetWafEntityUrlCrossOriginRequestsEnforcement> crossOriginRequestsEnforcements() {
+        return this.crossOriginRequestsEnforcements == null ? List.of() : this.crossOriginRequestsEnforcements;
+    }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -84,6 +89,7 @@ public final class GetWafEntityUrlResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GetWafEntityUrlCrossOriginRequestsEnforcement> crossOriginRequestsEnforcements;
         private @Nullable String description;
         private String id;
         private String json;
@@ -97,6 +103,7 @@ public final class GetWafEntityUrlResult {
         public Builder() {}
         public Builder(GetWafEntityUrlResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossOriginRequestsEnforcements = defaults.crossOriginRequestsEnforcements;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.json = defaults.json;
@@ -109,6 +116,15 @@ public final class GetWafEntityUrlResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder crossOriginRequestsEnforcements(@Nullable List<GetWafEntityUrlCrossOriginRequestsEnforcement> crossOriginRequestsEnforcements) {
+
+            this.crossOriginRequestsEnforcements = crossOriginRequestsEnforcements;
+            return this;
+        }
+        public Builder crossOriginRequestsEnforcements(GetWafEntityUrlCrossOriginRequestsEnforcement... crossOriginRequestsEnforcements) {
+            return crossOriginRequestsEnforcements(List.of(crossOriginRequestsEnforcements));
+        }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
 
@@ -183,6 +199,7 @@ public final class GetWafEntityUrlResult {
         }
         public GetWafEntityUrlResult build() {
             final var _resultValue = new GetWafEntityUrlResult();
+            _resultValue.crossOriginRequestsEnforcements = crossOriginRequestsEnforcements;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.json = json;

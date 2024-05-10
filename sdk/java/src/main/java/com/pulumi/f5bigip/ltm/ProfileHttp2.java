@@ -23,7 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -44,29 +45,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nyhttp2 = new ProfileHttp2(&#34;nyhttp2&#34;, ProfileHttp2Args.builder()        
- *             .name(&#34;/Common/test-profile-http2&#34;)
+ *         var nyhttp2 = new ProfileHttp2("nyhttp2", ProfileHttp2Args.builder()        
+ *             .name("/Common/test-profile-http2")
  *             .frameSize(2021)
  *             .receiveWindow(31)
  *             .writeSize(16380)
  *             .headerTableSize(4092)
- *             .includeContentLength(&#34;enabled&#34;)
- *             .enforceTlsRequirements(&#34;enabled&#34;)
- *             .insertHeader(&#34;disabled&#34;)
+ *             .includeContentLength("enabled")
+ *             .enforceTlsRequirements("enabled")
+ *             .insertHeader("disabled")
  *             .concurrentStreamsPerConnection(30)
  *             .connectionIdleTimeout(100)
- *             .activationModes(&#34;always&#34;)
+ *             .activationModes("always")
  *             .build());
  * 
  *         //Child Profile which inherits parent http2 profile
- *         var nyhttp2_child = new ProfileHttp2(&#34;nyhttp2-child&#34;, ProfileHttp2Args.builder()        
- *             .name(&#34;/Common/test-profile-http2-child&#34;)
+ *         var nyhttp2_child = new ProfileHttp2("nyhttp2-child", ProfileHttp2Args.builder()        
+ *             .name("/Common/test-profile-http2-child")
  *             .defaultsFrom(nyhttp2.name())
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

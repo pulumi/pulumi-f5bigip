@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
+ * <pre>
+ * {@code
  * package generated_program;
  * 
  * import com.pulumi.Context;
@@ -58,49 +59,50 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var param1 = SslFunctions.getWafEntityParameter(GetWafEntityParameterArgs.builder()
- *             .name(&#34;Param1&#34;)
- *             .type(&#34;explicit&#34;)
- *             .dataType(&#34;alpha-numeric&#34;)
+ *             .name("Param1")
+ *             .type("explicit")
+ *             .dataType("alpha-numeric")
  *             .performStaging(true)
  *             .build());
  * 
  *         final var param2 = SslFunctions.getWafEntityParameter(GetWafEntityParameterArgs.builder()
- *             .name(&#34;Param2&#34;)
- *             .type(&#34;explicit&#34;)
- *             .dataType(&#34;alpha-numeric&#34;)
+ *             .name("Param2")
+ *             .type("explicit")
+ *             .dataType("alpha-numeric")
  *             .performStaging(true)
  *             .build());
  * 
  *         final var URL = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
- *             .name(&#34;URL1&#34;)
- *             .protocol(&#34;http&#34;)
+ *             .name("URL1")
+ *             .protocol("http")
  *             .build());
  * 
  *         final var URL2 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
- *             .name(&#34;URL2&#34;)
+ *             .name("URL2")
  *             .build());
  * 
- *         var test_awaf = new WafPolicy(&#34;test-awaf&#34;, WafPolicyArgs.builder()        
- *             .name(&#34;testpolicyravi&#34;)
- *             .partition(&#34;Common&#34;)
- *             .templateName(&#34;POLICY_TEMPLATE_RAPID_DEPLOYMENT&#34;)
- *             .applicationLanguage(&#34;utf-8&#34;)
- *             .enforcementMode(&#34;blocking&#34;)
+ *         var test_awaf = new WafPolicy("test-awaf", WafPolicyArgs.builder()        
+ *             .name("testpolicyravi")
+ *             .partition("Common")
+ *             .templateName("POLICY_TEMPLATE_RAPID_DEPLOYMENT")
+ *             .applicationLanguage("utf-8")
+ *             .enforcementMode("blocking")
  *             .serverTechnologies(            
- *                 &#34;MySQL&#34;,
- *                 &#34;Unix/Linux&#34;,
- *                 &#34;MongoDB&#34;)
+ *                 "MySQL",
+ *                 "Unix/Linux",
+ *                 "MongoDB")
  *             .parameters(            
- *                 param1.applyValue(getWafEntityParameterResult -&gt; getWafEntityParameterResult.json()),
- *                 param2.applyValue(getWafEntityParameterResult -&gt; getWafEntityParameterResult.json()))
+ *                 param1.applyValue(getWafEntityParameterResult -> getWafEntityParameterResult.json()),
+ *                 param2.applyValue(getWafEntityParameterResult -> getWafEntityParameterResult.json()))
  *             .urls(            
- *                 URL.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()),
- *                 URL2.applyValue(getWafEntityUrlResult -&gt; getWafEntityUrlResult.json()))
+ *                 URL.applyValue(getWafEntityUrlResult -> getWafEntityUrlResult.json()),
+ *                 URL2.applyValue(getWafEntityUrlResult -> getWafEntityUrlResult.json()))
  *             .build());
  * 
  *     }
  * }
- * ```
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
