@@ -767,6 +767,9 @@
             "bigip_waf_entity_url": {
                 "current": "f5bigip:ssl/getWafEntityUrl:getWafEntityUrl",
                 "fields": {
+                    "cross_origin_requests_enforcement": {
+                        "maxItemsOne": false
+                    },
                     "method_overrides": {
                         "maxItemsOne": false
                     },
