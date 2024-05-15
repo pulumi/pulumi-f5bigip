@@ -391,6 +391,8 @@ type As3 struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolOutput `pulumi:"perAppMode"`
@@ -442,6 +444,8 @@ type as3State struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode *bool `pulumi:"perAppMode"`
@@ -464,6 +468,8 @@ type As3State struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 	IgnoreMetadata pulumi.BoolPtrInput
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolPtrInput
@@ -490,6 +496,8 @@ type as3Args struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -511,6 +519,8 @@ type As3Args struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -623,6 +633,8 @@ func (o As3Output) As3Json() pulumi.StringPtrOutput {
 //
 // * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 // * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+//
+// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

@@ -153,6 +153,58 @@ class As3Args:
                }
                
                ```
+               
+               * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+               
+               ```json
+               {
+               "schemaVersion": "3.50.1",
+               "Application1": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.1.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.1.10",
+               "192.0.1.20"
+               ]
+               }
+               ]
+               }
+               },
+               "Application2": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.2.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.2.10",
+               "192.0.2.20"
+               ]
+               }
+               ]
+               }
+               }
+               }
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
@@ -328,6 +380,58 @@ class As3Args:
         }
         }
 
+        ```
+
+        * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+
+        ```json
+        {
+        "schemaVersion": "3.50.1",
+        "Application1": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.1.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.1.10",
+        "192.0.1.20"
+        ]
+        }
+        ]
+        }
+        },
+        "Application2": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.2.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.2.10",
+        "192.0.2.20"
+        ]
+        }
+        ]
+        }
+        }
+        }
         ```
         """
         return pulumi.get(self, "ignore_metadata")
@@ -528,6 +632,58 @@ class _As3State:
                }
                
                ```
+               
+               * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+               
+               ```json
+               {
+               "schemaVersion": "3.50.1",
+               "Application1": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.1.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.1.10",
+               "192.0.1.20"
+               ]
+               }
+               ]
+               }
+               },
+               "Application2": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.2.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.2.10",
+               "192.0.2.20"
+               ]
+               }
+               ]
+               }
+               }
+               }
+               ```
         :param pulumi.Input[bool] per_app_mode: Will specify whether is deployment is done via Per-Application Way or Traditional Way
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -706,6 +862,58 @@ class _As3State:
         }
         }
 
+        ```
+
+        * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+
+        ```json
+        {
+        "schemaVersion": "3.50.1",
+        "Application1": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.1.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.1.10",
+        "192.0.1.20"
+        ]
+        }
+        ]
+        }
+        },
+        "Application2": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.2.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.2.10",
+        "192.0.2.20"
+        ]
+        }
+        ]
+        }
+        }
+        }
         ```
         """
         return pulumi.get(self, "ignore_metadata")
@@ -1291,6 +1499,58 @@ class As3(pulumi.CustomResource):
                }
                
                ```
+               
+               * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+               
+               ```json
+               {
+               "schemaVersion": "3.50.1",
+               "Application1": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.1.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.1.10",
+               "192.0.1.20"
+               ]
+               }
+               ]
+               }
+               },
+               "Application2": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.2.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.2.10",
+               "192.0.2.20"
+               ]
+               }
+               ]
+               }
+               }
+               }
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: List of tenants currently deployed on the Big-Ip
@@ -1867,6 +2127,58 @@ class As3(pulumi.CustomResource):
                }
                
                ```
+               
+               * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+               
+               ```json
+               {
+               "schemaVersion": "3.50.1",
+               "Application1": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.1.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.1.10",
+               "192.0.1.20"
+               ]
+               }
+               ]
+               }
+               },
+               "Application2": {
+               "class": "Application",
+               "service": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+               "192.1.2.1"
+               ],
+               "pool": "pool"
+               },
+               "pool": {
+               "class": "Pool",
+               "members": [
+               {
+               "servicePort": 80,
+               "serverAddresses": [
+               "192.0.2.10",
+               "192.0.2.20"
+               ]
+               }
+               ]
+               }
+               }
+               }
+               ```
         :param pulumi.Input[bool] per_app_mode: Will specify whether is deployment is done via Per-Application Way or Traditional Way
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -2034,6 +2346,58 @@ class As3(pulumi.CustomResource):
         }
         }
 
+        ```
+
+        * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+
+        ```json
+        {
+        "schemaVersion": "3.50.1",
+        "Application1": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.1.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.1.10",
+        "192.0.1.20"
+        ]
+        }
+        ]
+        }
+        },
+        "Application2": {
+        "class": "Application",
+        "service": {
+        "class": "Service_HTTP",
+        "virtualAddresses": [
+        "192.1.2.1"
+        ],
+        "pool": "pool"
+        },
+        "pool": {
+        "class": "Pool",
+        "members": [
+        {
+        "servicePort": 80,
+        "serverAddresses": [
+        "192.0.2.10",
+        "192.0.2.20"
+        ]
+        }
+        ]
+        }
+        }
+        }
         ```
         """
         return pulumi.get(self, "ignore_metadata")
