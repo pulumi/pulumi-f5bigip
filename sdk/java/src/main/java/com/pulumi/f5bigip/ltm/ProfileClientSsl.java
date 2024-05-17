@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_ClientSsl = new ProfileClientSsl("test-ClientSsl", ProfileClientSslArgs.builder()        
+ *         var test_ClientSsl = new ProfileClientSsl("test-ClientSsl", ProfileClientSslArgs.builder()
  *             .name("/Common/test-ClientSsl")
  *             .defaultsFrom("/Common/clientssl")
  *             .authenticate("always")

@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new EventServiceDiscovery("test", EventServiceDiscoveryArgs.builder()        
+ *         var test = new EventServiceDiscovery("test", EventServiceDiscoveryArgs.builder()
  *             .taskid("~Sample_event_sd~My_app~My_pool")
  *             .nodes(            
  *                 EventServiceDiscoveryNodeArgs.builder()

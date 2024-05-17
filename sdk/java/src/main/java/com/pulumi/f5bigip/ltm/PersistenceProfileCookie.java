@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testPpcookie = new PersistenceProfileCookie("testPpcookie", PersistenceProfileCookieArgs.builder()        
+ *         var testPpcookie = new PersistenceProfileCookie("testPpcookie", PersistenceProfileCookieArgs.builder()
  *             .name("/Common/terraform_cookie")
  *             .defaultsFrom("/Common/cookie")
  *             .matchAcrossPools("enabled")

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .name("/Common/terraform_monitor")
  *             .parent("/Common/http")
  *             .send("""
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .interval("998")
  *             .build());
  * 
- *         var pool = new Pool("pool", PoolArgs.builder()        
+ *         var pool = new Pool("pool", PoolArgs.builder()
  *             .name("/Common/terraform-pool")
  *             .loadBalancingMode("round-robin")
  *             .monitors(monitor.name())
@@ -78,13 +78,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // attaching ipv4 address with service port
- *         var ipv4NodeAttach = new PoolAttachment("ipv4NodeAttach", PoolAttachmentArgs.builder()        
+ *         var ipv4NodeAttach = new PoolAttachment("ipv4NodeAttach", PoolAttachmentArgs.builder()
  *             .pool(pool.name())
  *             .node("1.1.1.1:80")
  *             .build());
  * 
  *         // attaching ipv6 address with service port
- *         var ipv6NodeAttach = new PoolAttachment("ipv6NodeAttach", PoolAttachmentArgs.builder()        
+ *         var ipv6NodeAttach = new PoolAttachment("ipv6NodeAttach", PoolAttachmentArgs.builder()
  *             .pool(pool.name())
  *             .node("2003::4.80")
  *             .build());
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .name("/Common/terraform_monitor")
  *             .parent("/Common/http")
  *             .send("""
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .interval("998")
  *             .build());
  * 
- *         var pool = new Pool("pool", PoolArgs.builder()        
+ *         var pool = new Pool("pool", PoolArgs.builder()
  *             .name("/Common/terraform-pool")
  *             .loadBalancingMode("round-robin")
  *             .monitors(monitor.name())
@@ -144,12 +144,12 @@ import javax.annotation.Nullable;
  *             .allowNat("yes")
  *             .build());
  * 
- *         var node = new Node("node", NodeArgs.builder()        
+ *         var node = new Node("node", NodeArgs.builder()
  *             .name("/Common/terraform_node")
  *             .address("192.168.30.2")
  *             .build());
  * 
- *         var attachNode = new PoolAttachment("attachNode", PoolAttachmentArgs.builder()        
+ *         var attachNode = new PoolAttachment("attachNode", PoolAttachmentArgs.builder()
  *             .pool(pool.name())
  *             .node(node.name().applyValue(name -> String.format("%s:80", name)))
  *             .build());

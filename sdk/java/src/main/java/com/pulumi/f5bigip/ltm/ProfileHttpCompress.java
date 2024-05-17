@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sjhttpcompression = new ProfileHttpCompress("sjhttpcompression", ProfileHttpCompressArgs.builder()        
+ *         var sjhttpcompression = new ProfileHttpCompress("sjhttpcompression", ProfileHttpCompressArgs.builder()
  *             .name("/Common/sjhttpcompression2")
  *             .defaultsFrom("/Common/httpcompression")
  *             .uriExcludes(            

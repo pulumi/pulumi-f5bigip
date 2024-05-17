@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_key = new Key("test-key", KeyArgs.builder()        
+ *         var test_key = new Key("test-key", KeyArgs.builder()
  *             .name("serverkey.key")
  *             .content(StdFunctions.file(FileArgs.builder()
  *                 .input("serverkey.key")

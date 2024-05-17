@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var request_log_profile_tc1_child = new RequestLogProfile("request-log-profile-tc1-child", RequestLogProfileArgs.builder()        
+ *         var request_log_profile_tc1_child = new RequestLogProfile("request-log-profile-tc1-child", RequestLogProfileArgs.builder()
  *             .name("/Common/request-log-profile-tc1-child")
  *             .defaultsFrom(request_log_profile_tc1.name())
  *             .requestLogging("disabled")

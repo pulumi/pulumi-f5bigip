@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_cipher_group = new CipherGroup("test-cipher-group", CipherGroupArgs.builder()        
+ *         var test_cipher_group = new CipherGroup("test-cipher-group", CipherGroupArgs.builder()
  *             .name("/Common/test-cipher-group-01")
  *             .allows("/Common/f5-aes")
  *             .requires("/Common/f5-quic")

@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .name("URL2")
  *             .build());
  * 
- *         var test_awaf = new WafPolicy("test-awaf", WafPolicyArgs.builder()        
+ *         var test_awaf = new WafPolicy("test-awaf", WafPolicyArgs.builder()
  *             .name("testpolicyravi")
  *             .partition("Common")
  *             .templateName("POLICY_TEMPLATE_RAPID_DEPLOYMENT")

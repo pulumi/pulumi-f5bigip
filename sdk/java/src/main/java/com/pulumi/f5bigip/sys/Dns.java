@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dns1 = new Dns("dns1", DnsArgs.builder()        
+ *         var dns1 = new Dns("dns1", DnsArgs.builder()
  *             .description("/Common/DNS1")
  *             .nameServers("1.1.1.1")
  *             .searches("f5.com")

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()        
+ *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()
  *             .tenant("fasthttpstenant")
  *             .application("fasthttpsapp")
  *             .virtualServer(FastHttpsAppVirtualServerArgs.builder()
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *             .region("testgceregion")
  *             .build());
  * 
- *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()        
+ *         var fastHttpsApp = new FastHttpsApp("fastHttpsApp", FastHttpsAppArgs.builder()
  *             .tenant("fasthttpstenant")
  *             .application("fasthttpsapp")
  *             .virtualServer(FastHttpsAppVirtualServerArgs.builder()

@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sample_resource = new ProfileWebAcceleration("sample-resource", ProfileWebAccelerationArgs.builder()        
+ *         var sample_resource = new ProfileWebAcceleration("sample-resource", ProfileWebAccelerationArgs.builder()
  *             .name("/Common/sample-resource")
  *             .defaultsFrom("/Common/test2")
  *             .cacheSize(101)

@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .name("/Common/terraform_monitor")
  *             .parent("/Common/http")
  *             .build());
  * 
- *         var pool = new Pool("pool", PoolArgs.builder()        
+ *         var pool = new Pool("pool", PoolArgs.builder()
  *             .name("/Common/Axiom_Environment_APP1_Pool")
  *             .loadBalancingMode("round-robin")
  *             .minimumActiveMembers(1)

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var snmp = new Snmp("snmp", SnmpArgs.builder()        
+ *         var snmp = new Snmp("snmp", SnmpArgs.builder()
  *             .sysContact(" NetOPsAdmin s.shitole{@literal @}f5.com")
  *             .sysLocation("SeattleHQ")
  *             .allowedaddresses("202.10.10.2")

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var monitor = new Monitor("monitor", MonitorArgs.builder()        
+ *         var monitor = new Monitor("monitor", MonitorArgs.builder()
  *             .name("/Common/terraform_monitor")
  *             .parent("/Common/http")
  *             .send("""
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .destination("1.2.3.4:1234")
  *             .build());
  * 
- *         var test_https_monitor = new Monitor("test-https-monitor", MonitorArgs.builder()        
+ *         var test_https_monitor = new Monitor("test-https-monitor", MonitorArgs.builder()
  *             .name("/Common/terraform_monitor")
  *             .parent("/Common/http")
  *             .sslProfile("/Common/serverssl")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .timeout("1000")
  *             .build());
  * 
- *         var test_ftp_monitor = new Monitor("test-ftp-monitor", MonitorArgs.builder()        
+ *         var test_ftp_monitor = new Monitor("test-ftp-monitor", MonitorArgs.builder()
  *             .name("/Common/ftp-test")
  *             .parent("/Common/ftp")
  *             .interval(5)
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .filename("somefile")
  *             .build());
  * 
- *         var test_postgresql_monitor = new Monitor("test-postgresql-monitor", MonitorArgs.builder()        
+ *         var test_postgresql_monitor = new Monitor("test-postgresql-monitor", MonitorArgs.builder()
  *             .name("/Common/test-postgresql-monitor")
  *             .parent("/Common/postgresql")
  *             .send("SELECT 'Test';")

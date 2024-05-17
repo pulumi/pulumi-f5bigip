@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example1 = new NetTunnel("example1", NetTunnelArgs.builder()        
+ *         var example1 = new NetTunnel("example1", NetTunnelArgs.builder()
  *             .name("example1")
  *             .localAddress("192.16.81.240")
  *             .profile("/Common/dslite")

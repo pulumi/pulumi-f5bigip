@@ -44,14 +44,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Loading from a file is the preferred method
- *         var rule = new IRule("rule", IRuleArgs.builder()        
+ *         var rule = new IRule("rule", IRuleArgs.builder()
  *             .name("/Common/terraform_irule")
  *             .irule(StdFunctions.file(FileArgs.builder()
  *                 .input("myirule.tcl")
  *                 .build()).result())
  *             .build());
  * 
- *         var rule2 = new IRule("rule2", IRuleArgs.builder()        
+ *         var rule2 = new IRule("rule2", IRuleArgs.builder()
  *             .name("/Common/terraform_irule2")
  *             .irule("""
  * when CLIENT_ACCEPTED {

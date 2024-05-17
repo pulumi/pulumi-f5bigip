@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ppssl = new PersistenceProfileSsl("ppssl", PersistenceProfileSslArgs.builder()        
+ *         var ppssl = new PersistenceProfileSsl("ppssl", PersistenceProfileSslArgs.builder()
  *             .name("/Common/terraform_ssl")
  *             .defaultsFrom("/Common/ssl")
  *             .matchAcrossPools("enabled")
