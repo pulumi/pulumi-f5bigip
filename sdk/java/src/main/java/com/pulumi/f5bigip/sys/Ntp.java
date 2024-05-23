@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var ntp1 = new Ntp("ntp1", NtpArgs.builder()        
+ *         var ntp1 = new Ntp("ntp1", NtpArgs.builder()
  *             .description("/Common/NTP1")
  *             .servers("time.facebook.com")
  *             .timezone("America/Los_Angeles")

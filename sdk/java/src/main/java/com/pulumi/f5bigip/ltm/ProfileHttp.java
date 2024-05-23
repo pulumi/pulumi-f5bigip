@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_http = new ProfileHttp("sanjose-http", ProfileHttpArgs.builder()        
+ *         var sanjose_http = new ProfileHttp("sanjose-http", ProfileHttpArgs.builder()
  *             .name("/Common/sanjose-http")
  *             .defaultsFrom("/Common/http")
  *             .fallbackHost("titanic")

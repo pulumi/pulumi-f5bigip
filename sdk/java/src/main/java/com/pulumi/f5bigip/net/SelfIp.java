@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()        
+ *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()
  *             .name("/Common/Internal")
  *             .tag(101)
  *             .interfaces(VlanInterfaceArgs.builder()
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()
  *             .name("/Common/internalselfIP")
  *             .ip("11.1.1.1/24")
  *             .vlan("/Common/internal")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()
  *             .name("/Common/internalselfIP")
  *             .ip("11.1.1.1/24")
  *             .vlan("/Common/internal")
@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()
  *             .name("/Common/internalselfIP")
  *             .ip("11.1.1.1/24")
  *             .vlan("/Common/internal")
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()        
+ *         var selfip1 = new SelfIp("selfip1", SelfIpArgs.builder()
  *             .name("/Common/internalselfIP")
  *             .ip("11.1.1.1%4/24")
  *             .vlan("/Common/internal")

@@ -423,6 +423,8 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
      * 
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     * 
      */
     @Export(name="ignoreMetadata", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMetadata;
@@ -432,6 +434,8 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * 
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+     * 
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
      * 
      */
     public Output<Optional<Boolean>> ignoreMetadata() {

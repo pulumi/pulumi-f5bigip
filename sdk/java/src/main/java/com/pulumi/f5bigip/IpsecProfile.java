@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var azurevWANProfile = new IpsecProfile("azurevWANProfile", IpsecProfileArgs.builder()        
+ *         var azurevWANProfile = new IpsecProfile("azurevWANProfile", IpsecProfileArgs.builder()
  *             .name("/Common/Mytestipsecprofile")
  *             .description("mytestipsecprofile")
  *             .trafficSelector("test-trafficselector")

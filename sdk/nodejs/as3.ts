@@ -540,6 +540,58 @@ export class As3 extends pulumi.CustomResource {
      * }
      *
      * ```
+     *
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     *
+     * ```json
+     * {
+     * "schemaVersion": "3.50.1",
+     * "Application1": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.1.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.1.10",
+     * "192.0.1.20"
+     * ]
+     * }
+     * ]
+     * }
+     * },
+     * "Application2": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.2.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.10",
+     * "192.0.2.20"
+     * ]
+     * }
+     * ]
+     * }
+     * }
+     * }
+     * ```
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
     /**
@@ -741,6 +793,58 @@ export interface As3State {
      * }
      *
      * ```
+     *
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     *
+     * ```json
+     * {
+     * "schemaVersion": "3.50.1",
+     * "Application1": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.1.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.1.10",
+     * "192.0.1.20"
+     * ]
+     * }
+     * ]
+     * }
+     * },
+     * "Application2": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.2.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.10",
+     * "192.0.2.20"
+     * ]
+     * }
+     * ]
+     * }
+     * }
+     * }
+     * ```
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**
@@ -905,6 +1009,58 @@ export interface As3Args {
      * }
      * }
      *
+     * ```
+     *
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     *
+     * ```json
+     * {
+     * "schemaVersion": "3.50.1",
+     * "Application1": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.1.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.1.10",
+     * "192.0.1.20"
+     * ]
+     * }
+     * ]
+     * }
+     * },
+     * "Application2": {
+     * "class": "Application",
+     * "service": {
+     * "class": "Service_HTTP",
+     * "virtualAddresses": [
+     * "192.1.2.1"
+     * ],
+     * "pool": "pool"
+     * },
+     * "pool": {
+     * "class": "Pool",
+     * "members": [
+     * {
+     * "servicePort": 80,
+     * "serverAddresses": [
+     * "192.0.2.10",
+     * "192.0.2.20"
+     * ]
+     * }
+     * ]
+     * }
+     * }
+     * }
      * ```
      */
     ignoreMetadata?: pulumi.Input<boolean>;

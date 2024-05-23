@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myNewDevice = new Device("myNewDevice", DeviceArgs.builder()        
+ *         var myNewDevice = new Device("myNewDevice", DeviceArgs.builder()
  *             .name("bigip300.f5.com")
  *             .configsyncIp("2.2.2.2")
  *             .mirrorIp("10.10.10.10")

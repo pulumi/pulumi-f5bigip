@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var profileFastl4 = new ProfileFastL4("profileFastl4", ProfileFastL4Args.builder()        
+ *         var profileFastl4 = new ProfileFastL4("profileFastl4", ProfileFastL4Args.builder()
  *             .name("/Common/sjfastl4profile")
  *             .defaultsFrom("/Common/fastL4")
  *             .clientTimeout(40)

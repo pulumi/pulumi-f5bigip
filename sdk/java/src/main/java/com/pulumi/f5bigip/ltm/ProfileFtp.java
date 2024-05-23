@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()        
+ *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()
  *             .name("/Common/sanjose-ftp-profile")
  *             .defaultsFrom("/Common/ftp")
  *             .port(2020)
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()        
+ *         var sanjose_ftp_profile = new ProfileFtp("sanjose-ftp-profile", ProfileFtpArgs.builder()
  *             .name("/Common/sanjose-ftp-profile")
  *             .defaultsFrom("/Common/ftp")
  *             .port(2020)

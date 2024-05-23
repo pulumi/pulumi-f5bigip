@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var myNewDevicegroup = new DeviceGroup("myNewDevicegroup", DeviceGroupArgs.builder()        
+ *         var myNewDevicegroup = new DeviceGroup("myNewDevicegroup", DeviceGroupArgs.builder()
  *             .name("sanjose_devicegroup")
  *             .autoSync("enabled")
  *             .fullLoadOnSync("true")

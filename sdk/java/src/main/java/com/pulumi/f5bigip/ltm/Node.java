@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var node = new Node("node", NodeArgs.builder()        
+ *         var node = new Node("node", NodeArgs.builder()
  *             .name("/Common/terraform_node1")
  *             .address("192.168.30.1")
  *             .connectionLimit("0")

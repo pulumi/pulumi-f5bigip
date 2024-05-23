@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var snatpoolSanjose = new SnatPool("snatpoolSanjose", SnatPoolArgs.builder()        
+ *         var snatpoolSanjose = new SnatPool("snatpoolSanjose", SnatPoolArgs.builder()
  *             .name("/Common/snatpool_sanjose")
  *             .members(            
  *                 "191.1.1.1",
