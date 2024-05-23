@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_profile = new ProfileRewrite("test-profile", ProfileRewriteArgs.builder()        
+ *         var test_profile = new ProfileRewrite("test-profile", ProfileRewriteArgs.builder()
  *             .name("/Common/tf_profile")
  *             .defaultsFrom("/Common/rewrite")
  *             .bypassLists("http://notouch.com")
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .splitTunneling("true")
  *             .build());
  * 
- *         var test_profile2 = new ProfileRewrite("test-profile2", ProfileRewriteArgs.builder()        
+ *         var test_profile2 = new ProfileRewrite("test-profile2", ProfileRewriteArgs.builder()
  *             .name("/Common/tf_profile_translate")
  *             .defaultsFrom("/Common/rewrite")
  *             .rewriteMode("uri-translation")

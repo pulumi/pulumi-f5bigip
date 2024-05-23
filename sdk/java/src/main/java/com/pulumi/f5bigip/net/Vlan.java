@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()        
+ *         var vlan1 = new Vlan("vlan1", VlanArgs.builder()
  *             .name("/Common/Internal")
  *             .tag(101)
  *             .interfaces(VlanInterfaceArgs.builder()

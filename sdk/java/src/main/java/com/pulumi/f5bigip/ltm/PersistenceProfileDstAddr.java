@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var dstaddr = new PersistenceProfileDstAddr("dstaddr", PersistenceProfileDstAddrArgs.builder()        
+ *         var dstaddr = new PersistenceProfileDstAddr("dstaddr", PersistenceProfileDstAddrArgs.builder()
  *             .name("/Common/terraform_ppdstaddr")
  *             .defaultsFrom("/Common/dest_addr")
  *             .matchAcrossPools("enabled")

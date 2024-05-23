@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_policy = new IpsecPolicy("test-policy", IpsecPolicyArgs.builder()        
+ *         var test_policy = new IpsecPolicy("test-policy", IpsecPolicyArgs.builder()
  *             .name("/Common/test-policy")
  *             .description("created by terraform provider")
  *             .protocol("esp")

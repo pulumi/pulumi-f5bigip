@@ -524,6 +524,58 @@ namespace Pulumi.F5BigIP
         /// }
         /// 
         /// ```
+        /// 
+        /// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+        /// 
+        /// ```json
+        /// {
+        /// "schemaVersion": "3.50.1",
+        /// "Application1": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.1.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.1.10",
+        /// "192.0.1.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.2.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.10",
+        /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
+        /// ```
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
@@ -745,6 +797,58 @@ namespace Pulumi.F5BigIP
         /// }
         /// 
         /// ```
+        /// 
+        /// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+        /// 
+        /// ```json
+        /// {
+        /// "schemaVersion": "3.50.1",
+        /// "Application1": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.1.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.1.10",
+        /// "192.0.1.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.2.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.10",
+        /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
+        /// ```
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
@@ -921,6 +1025,58 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// 
+        /// ```
+        /// 
+        /// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+        /// 
+        /// ```json
+        /// {
+        /// "schemaVersion": "3.50.1",
+        /// "Application1": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.1.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.1.10",
+        /// "192.0.1.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.1.2.1"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.2.10",
+        /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// }
+        /// }
         /// ```
         /// </summary>
         [Input("ignoreMetadata")]

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testCipherRule = new CipherRule("testCipherRule", CipherRuleArgs.builder()        
+ *         var testCipherRule = new CipherRule("testCipherRule", CipherRuleArgs.builder()
  *             .name("/Common/test_cipher_rule")
  *             .cipher("TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384")
  *             .dhGroups("P256:P384:FFDHE2048:FFDHE3072:FFDHE4096")

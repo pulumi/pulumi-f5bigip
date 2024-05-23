@@ -50,14 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mypool = new Pool("mypool", PoolArgs.builder()        
+ *         var mypool = new Pool("mypool", PoolArgs.builder()
  *             .name("/Common/test-pool")
  *             .allowNat("yes")
  *             .allowSnat("yes")
  *             .loadBalancingMode("round-robin")
  *             .build());
  * 
- *         var test_policy = new Policy("test-policy", PolicyArgs.builder()        
+ *         var test_policy = new Policy("test-policy", PolicyArgs.builder()
  *             .name("/Common/test-policy")
  *             .strategy("first-match")
  *             .requires("http")

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testkeycert = new SslKeyCert("testkeycert", SslKeyCertArgs.builder()        
+ *         var testkeycert = new SslKeyCert("testkeycert", SslKeyCertArgs.builder()
  *             .partition("Common")
  *             .keyName("ssl-test-key")
  *             .keyContent(StdFunctions.file(FileArgs.builder()
