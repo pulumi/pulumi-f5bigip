@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var tftest = new ProfileRewrite("tftest", ProfileRewriteArgs.builder()        
+ *         var tftest = new ProfileRewrite("tftest", ProfileRewriteArgs.builder()
  *             .name("/Common/tf_profile")
  *             .defaultsFrom("/Common/rewrite")
  *             .rewriteMode("uri-translation")
  *             .build());
  * 
- *         var tftestrule1 = new ProfileRewriteUriRules("tftestrule1", ProfileRewriteUriRulesArgs.builder()        
+ *         var tftestrule1 = new ProfileRewriteUriRules("tftestrule1", ProfileRewriteUriRulesArgs.builder()
  *             .profileName(tftest.name())
  *             .ruleName("tf_rule")
  *             .ruleType("request")
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var tftestrule2 = new ProfileRewriteUriRules("tftestrule2", ProfileRewriteUriRulesArgs.builder()        
+ *         var tftestrule2 = new ProfileRewriteUriRules("tftestrule2", ProfileRewriteUriRulesArgs.builder()
  *             .profileName(tftest.name())
  *             .ruleName("tf_rule2")
  *             .clients(ProfileRewriteUriRulesClientArgs.builder()

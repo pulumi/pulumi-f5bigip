@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_template = new FastTemplate("foo-template", FastTemplateArgs.builder()        
+ *         var foo_template = new FastTemplate("foo-template", FastTemplateArgs.builder()
  *             .name("foo_template")
  *             .source("foo_template.zip")
  *             .md5Hash(StdFunctions.filemd5(Filemd5Args.builder()

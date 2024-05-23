@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_ocsp = new Ocsp("test-ocsp", OcspArgs.builder()        
+ *         var test_ocsp = new Ocsp("test-ocsp", OcspArgs.builder()
  *             .name("/Uncommon/test-ocsp")
  *             .proxyServerPool("/Common/test-poolxyz")
  *             .signerKey("/Common/le-ssl")

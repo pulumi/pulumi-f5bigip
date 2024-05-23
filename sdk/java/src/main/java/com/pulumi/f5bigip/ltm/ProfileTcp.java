@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sanjose_tcp_lan_profile = new ProfileTcp("sanjose-tcp-lan-profile", ProfileTcpArgs.builder()        
+ *         var sanjose_tcp_lan_profile = new ProfileTcp("sanjose-tcp-lan-profile", ProfileTcpArgs.builder()
  *             .name("/Common/sanjose-tcp-lan-profile")
  *             .idleTimeout(200)
  *             .closeWaitTimeout(5)

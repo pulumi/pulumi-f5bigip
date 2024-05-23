@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sjfasthttpprofile = new ProfileFastHttp("sjfasthttpprofile", ProfileFastHttpArgs.builder()        
+ *         var sjfasthttpprofile = new ProfileFastHttp("sjfasthttpprofile", ProfileFastHttpArgs.builder()
  *             .name("/Common/sjfasthttpprofile")
  *             .defaultsFrom("/Common/fasthttp")
  *             .idleTimeout(300)

@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_oneconnect = new ProfileOneConnect("test-oneconnect", ProfileOneConnectArgs.builder()        
+ *         var test_oneconnect = new ProfileOneConnect("test-oneconnect", ProfileOneConnectArgs.builder()
  *             .name("/Common/test-oneconnect")
  *             .build());
  * 
