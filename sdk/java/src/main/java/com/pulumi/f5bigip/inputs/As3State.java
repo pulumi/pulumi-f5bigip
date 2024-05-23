@@ -52,6 +52,8 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
      * 
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     * 
      */
     @Import(name="ignoreMetadata")
     private @Nullable Output<Boolean> ignoreMetadata;
@@ -61,6 +63,8 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
      * 
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+     * 
+     * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
      * 
      */
     public Optional<Output<Boolean>> ignoreMetadata() {
@@ -221,6 +225,8 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
          * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
          * 
+         * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+         * 
          * @return builder
          * 
          */
@@ -234,6 +240,8 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          * 
          * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
          * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+         * 
+         * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
          * 
          * @return builder
          * 

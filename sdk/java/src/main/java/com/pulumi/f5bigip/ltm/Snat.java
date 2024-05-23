@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test_snat = new Snat("test-snat", SnatArgs.builder()        
+ *         var test_snat = new Snat("test-snat", SnatArgs.builder()
  *             .name("/Common/test-snat")
  *             .translation("/Common/136.1.1.2")
  *             .sourceport("preserve")

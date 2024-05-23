@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var vcmp_test = new Guest("vcmp-test", GuestArgs.builder()        
+ *         var vcmp_test = new Guest("vcmp-test", GuestArgs.builder()
  *             .name("tf_guest")
  *             .initialImage("12.1.2.iso")
  *             .mgmtNetwork("bridged")

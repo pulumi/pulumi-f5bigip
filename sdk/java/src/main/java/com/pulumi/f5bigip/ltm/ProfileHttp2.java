@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nyhttp2 = new ProfileHttp2("nyhttp2", ProfileHttp2Args.builder()        
+ *         var nyhttp2 = new ProfileHttp2("nyhttp2", ProfileHttp2Args.builder()
  *             .name("/Common/test-profile-http2")
  *             .frameSize(2021)
  *             .receiveWindow(31)
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         //Child Profile which inherits parent http2 profile
- *         var nyhttp2_child = new ProfileHttp2("nyhttp2-child", ProfileHttp2Args.builder()        
+ *         var nyhttp2_child = new ProfileHttp2("nyhttp2-child", ProfileHttp2Args.builder()
  *             .name("/Common/test-profile-http2-child")
  *             .defaultsFrom(nyhttp2.name())
  *             .build());

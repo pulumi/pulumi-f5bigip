@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Example Usage for json file
- *         var exampletask = new BigIqAs3("exampletask", BigIqAs3Args.builder()        
+ *         var exampletask = new BigIqAs3("exampletask", BigIqAs3Args.builder()
  *             .bigiqAddress("xx.xx.xxx.xx")
  *             .bigiqUser("xxxxx")
  *             .bigiqPassword("xxxxxxxxx")

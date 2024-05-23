@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var simplehttp = new IApp("simplehttp", IAppArgs.builder()        
+ *         var simplehttp = new IApp("simplehttp", IAppArgs.builder()
  *             .name("simplehttp")
  *             .jsonfile(StdFunctions.file(FileArgs.builder()
  *                 .input("simplehttp.json")

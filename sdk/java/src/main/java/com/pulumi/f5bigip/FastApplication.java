@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foo_app = new FastApplication("foo-app", FastApplicationArgs.builder()        
+ *         var foo_app = new FastApplication("foo-app", FastApplicationArgs.builder()
  *             .template("examples/simple_http")
  *             .fastJson(StdFunctions.file(FileArgs.builder()
  *                 .input("new_fast_app.json")
