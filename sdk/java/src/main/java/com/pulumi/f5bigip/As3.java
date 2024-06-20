@@ -16,16 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.As3` provides details about bigip as3 resource
- * 
- * This resource is helpful to configure AS3 declarative JSON on BIG-IP.
- * 
- * &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
- * 
- * &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
- * 
- * &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
- * 
  * ## Import
  * 
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )

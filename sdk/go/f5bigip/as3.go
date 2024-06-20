@@ -11,16 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `As3` provides details about bigip as3 resource
-//
-// This resource is helpful to configure AS3 declarative JSON on BIG-IP.
-//
-// > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
-//
-// > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
-//
-// > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenantName to be passed to add application on specified tenant, else random tenant name will be generated.
-//
 // ## Import
 //
 // As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
