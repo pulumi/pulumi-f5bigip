@@ -217,7 +217,7 @@ class SelfIp(pulumi.CustomResource):
             name="/Common/internalselfIP",
             ip="11.1.1.1/24",
             vlan="/Common/internal",
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         ### Example usage with `port_lockdown`
 
@@ -235,7 +235,7 @@ class SelfIp(pulumi.CustomResource):
                 "udp:5050",
                 "egp:0",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         ### Example usage with `port_lockdown` set to `["none"]`
@@ -250,7 +250,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         ### Example usage with route domain embedded in the `ip`
@@ -265,7 +265,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -304,7 +304,7 @@ class SelfIp(pulumi.CustomResource):
             name="/Common/internalselfIP",
             ip="11.1.1.1/24",
             vlan="/Common/internal",
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
         ### Example usage with `port_lockdown`
 
@@ -322,7 +322,7 @@ class SelfIp(pulumi.CustomResource):
                 "udp:5050",
                 "egp:0",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         ### Example usage with `port_lockdown` set to `["none"]`
@@ -337,7 +337,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         ### Example usage with route domain embedded in the `ip`
@@ -352,7 +352,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
             port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+            opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
         :param str resource_name: The name of the resource.
