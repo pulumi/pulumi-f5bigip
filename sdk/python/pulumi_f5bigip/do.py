@@ -132,13 +132,11 @@ class DoArgs:
 
     @property
     @pulumi.getter(name="tenantName")
+    @_utilities.deprecated("""this attribute is no longer in use""")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
         unique identifier for DO resource
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -280,13 +278,11 @@ class _DoState:
 
     @property
     @pulumi.getter(name="tenantName")
+    @_utilities.deprecated("""this attribute is no longer in use""")
     def tenant_name(self) -> Optional[pulumi.Input[str]]:
         """
         unique identifier for DO resource
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -492,13 +488,11 @@ class Do(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
+    @_utilities.deprecated("""this attribute is no longer in use""")
     def tenant_name(self) -> pulumi.Output[Optional[str]]:
         """
         unique identifier for DO resource
         """
-        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-
         return pulumi.get(self, "tenant_name")
 
     @property

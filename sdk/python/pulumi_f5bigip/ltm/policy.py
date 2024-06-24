@@ -88,13 +88,11 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="publishedCopy")
+    @_utilities.deprecated("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
     def published_copy(self) -> Optional[pulumi.Input[str]]:
         """
         If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
-        warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
-        pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
-
         return pulumi.get(self, "published_copy")
 
     @published_copy.setter
@@ -214,13 +212,11 @@ class _PolicyState:
 
     @property
     @pulumi.getter(name="publishedCopy")
+    @_utilities.deprecated("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
     def published_copy(self) -> Optional[pulumi.Input[str]]:
         """
         If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
-        warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
-        pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
-
         return pulumi.get(self, "published_copy")
 
     @published_copy.setter
@@ -306,7 +302,7 @@ class Policy(pulumi.CustomResource):
                     pool=mypool.name,
                 )],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[mypool]))
+            opts = pulumi.ResourceOptions(depends_on=[mypool]))
         ```
 
         ## Importing
@@ -362,7 +358,7 @@ class Policy(pulumi.CustomResource):
                     pool=mypool.name,
                 )],
             )],
-            opts=pulumi.ResourceOptions(depends_on=[mypool]))
+            opts = pulumi.ResourceOptions(depends_on=[mypool]))
         ```
 
         ## Importing
@@ -484,13 +480,11 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishedCopy")
+    @_utilities.deprecated("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
     def published_copy(self) -> pulumi.Output[Optional[str]]:
         """
         If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         """
-        warnings.warn("""This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""", DeprecationWarning)
-        pulumi.log.warn("""published_copy is deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.""")
-
         return pulumi.get(self, "published_copy")
 
     @property
