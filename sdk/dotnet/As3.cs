@@ -10,16 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
-    /// `f5bigip.As3` provides details about bigip as3 resource
-    /// 
-    /// This resource is helpful to configure AS3 declarative JSON on BIG-IP.
-    /// 
-    /// &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
-    /// 
-    /// &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
-    /// 
-    /// &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
-    /// 
     /// ## Import
     /// 
     /// As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
@@ -529,35 +519,12 @@ namespace Pulumi.F5BigIP
         /// 
         /// ```json
         /// {
-        /// "schemaVersion": "3.50.1",
         /// "Application1": {
         /// "class": "Application",
         /// "service": {
         /// "class": "Service_HTTP",
         /// "virtualAddresses": [
-        /// "192.1.1.1"
-        /// ],
-        /// "pool": "pool"
-        /// },
-        /// "pool": {
-        /// "class": "Pool",
-        /// "members": [
-        /// {
-        /// "servicePort": 80,
-        /// "serverAddresses": [
-        /// "192.0.1.10",
-        /// "192.0.1.20"
-        /// ]
-        /// }
-        /// ]
-        /// }
-        /// },
-        /// "Application2": {
-        /// "class": "Application",
-        /// "service": {
-        /// "class": "Service_HTTP",
-        /// "virtualAddresses": [
-        /// "192.1.2.1"
+        /// "192.0.2.1"
         /// ],
         /// "pool": "pool"
         /// },
@@ -569,6 +536,28 @@ namespace Pulumi.F5BigIP
         /// "serverAddresses": [
         /// "192.0.2.10",
         /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.0.3.2"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.3.30",
+        /// "192.0.3.40"
         /// ]
         /// }
         /// ]
@@ -802,35 +791,12 @@ namespace Pulumi.F5BigIP
         /// 
         /// ```json
         /// {
-        /// "schemaVersion": "3.50.1",
         /// "Application1": {
         /// "class": "Application",
         /// "service": {
         /// "class": "Service_HTTP",
         /// "virtualAddresses": [
-        /// "192.1.1.1"
-        /// ],
-        /// "pool": "pool"
-        /// },
-        /// "pool": {
-        /// "class": "Pool",
-        /// "members": [
-        /// {
-        /// "servicePort": 80,
-        /// "serverAddresses": [
-        /// "192.0.1.10",
-        /// "192.0.1.20"
-        /// ]
-        /// }
-        /// ]
-        /// }
-        /// },
-        /// "Application2": {
-        /// "class": "Application",
-        /// "service": {
-        /// "class": "Service_HTTP",
-        /// "virtualAddresses": [
-        /// "192.1.2.1"
+        /// "192.0.2.1"
         /// ],
         /// "pool": "pool"
         /// },
@@ -842,6 +808,28 @@ namespace Pulumi.F5BigIP
         /// "serverAddresses": [
         /// "192.0.2.10",
         /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.0.3.2"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.3.30",
+        /// "192.0.3.40"
         /// ]
         /// }
         /// ]
@@ -1031,35 +1019,12 @@ namespace Pulumi.F5BigIP
         /// 
         /// ```json
         /// {
-        /// "schemaVersion": "3.50.1",
         /// "Application1": {
         /// "class": "Application",
         /// "service": {
         /// "class": "Service_HTTP",
         /// "virtualAddresses": [
-        /// "192.1.1.1"
-        /// ],
-        /// "pool": "pool"
-        /// },
-        /// "pool": {
-        /// "class": "Pool",
-        /// "members": [
-        /// {
-        /// "servicePort": 80,
-        /// "serverAddresses": [
-        /// "192.0.1.10",
-        /// "192.0.1.20"
-        /// ]
-        /// }
-        /// ]
-        /// }
-        /// },
-        /// "Application2": {
-        /// "class": "Application",
-        /// "service": {
-        /// "class": "Service_HTTP",
-        /// "virtualAddresses": [
-        /// "192.1.2.1"
+        /// "192.0.2.1"
         /// ],
         /// "pool": "pool"
         /// },
@@ -1071,6 +1036,28 @@ namespace Pulumi.F5BigIP
         /// "serverAddresses": [
         /// "192.0.2.10",
         /// "192.0.2.20"
+        /// ]
+        /// }
+        /// ]
+        /// }
+        /// },
+        /// "Application2": {
+        /// "class": "Application",
+        /// "service": {
+        /// "class": "Service_HTTP",
+        /// "virtualAddresses": [
+        /// "192.0.3.2"
+        /// ],
+        /// "pool": "pool"
+        /// },
+        /// "pool": {
+        /// "class": "Pool",
+        /// "members": [
+        /// {
+        /// "servicePort": 80,
+        /// "serverAddresses": [
+        /// "192.0.3.30",
+        /// "192.0.3.40"
         /// ]
         /// }
         /// ]
