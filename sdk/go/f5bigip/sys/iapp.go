@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
 //				Name:     pulumi.String("simplehttp"),
-//				Jsonfile: invokeFile.Result,
+//				Jsonfile: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

@@ -45,9 +45,9 @@ import (
 //			_, err = f5bigip.NewSslKeyCert(ctx, "testkeycert", &f5bigip.SslKeyCertArgs{
 //				Partition:   pulumi.String("Common"),
 //				KeyName:     pulumi.String("ssl-test-key"),
-//				KeyContent:  invokeFile.Result,
+//				KeyContent:  pulumi.String(invokeFile.Result),
 //				CertName:    pulumi.String("ssl-test-cert"),
-//				CertContent: invokeFile1.Result,
+//				CertContent: pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err

@@ -40,7 +40,7 @@ import (
 //			// Loading from a file is the preferred method
 //			_, err = ltm.NewIRule(ctx, "rule", &ltm.IRuleArgs{
 //				Name:  pulumi.String("/Common/terraform_irule"),
-//				Irule: invokeFile.Result,
+//				Irule: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

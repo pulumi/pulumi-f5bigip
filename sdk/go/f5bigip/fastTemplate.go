@@ -39,7 +39,7 @@ import (
 //			_, err = f5bigip.NewFastTemplate(ctx, "foo-template", &f5bigip.FastTemplateArgs{
 //				Name:    pulumi.String("foo_template"),
 //				Source:  pulumi.String("foo_template.zip"),
-//				Md5Hash: invokeFilemd5.Result,
+//				Md5Hash: pulumi.String(invokeFilemd5.Result),
 //			})
 //			if err != nil {
 //				return err

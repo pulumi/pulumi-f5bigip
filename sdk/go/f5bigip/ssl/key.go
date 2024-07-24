@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = ssl.NewKey(ctx, "test-key", &ssl.KeyArgs{
 //				Name:      pulumi.String("serverkey.key"),
-//				Content:   invokeFile.Result,
+//				Content:   pulumi.String(invokeFile.Result),
 //				Partition: pulumi.String("Common"),
 //			})
 //			if err != nil {
