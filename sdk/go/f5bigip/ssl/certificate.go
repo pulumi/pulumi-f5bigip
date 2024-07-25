@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = ssl.NewCertificate(ctx, "test-cert", &ssl.CertificateArgs{
 //				Name:      pulumi.String("servercert.crt"),
-//				Content:   invokeFile.Result,
+//				Content:   pulumi.String(invokeFile.Result),
 //				Partition: pulumi.String("Common"),
 //			})
 //			if err != nil {

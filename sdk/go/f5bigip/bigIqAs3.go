@@ -42,7 +42,7 @@ import (
 //				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
 //				BigiqUser:     pulumi.String("xxxxx"),
 //				BigiqPassword: pulumi.String("xxxxxxxxx"),
-//				As3Json:       invokeFile.Result,
+//				As3Json:       pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
