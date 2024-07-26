@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
 //				Template: pulumi.String("examples/simple_http"),
-//				FastJson: invokeFile.Result,
+//				FastJson: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err
