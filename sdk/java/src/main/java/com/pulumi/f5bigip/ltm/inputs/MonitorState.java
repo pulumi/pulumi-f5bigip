@@ -47,6 +47,36 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the location in the LDAP tree from which the monitor starts the health check
+     * 
+     */
+    @Import(name="base")
+    private @Nullable Output<String> base;
+
+    /**
+     * @return Specifies the location in the LDAP tree from which the monitor starts the health check
+     * 
+     */
+    public Optional<Output<String>> base() {
+        return Optional.ofNullable(this.base);
+    }
+
+    /**
+     * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     * 
+     */
+    @Import(name="chaseReferrals")
+    private @Nullable Output<String> chaseReferrals;
+
+    /**
+     * @return Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     * 
+     */
+    public Optional<Output<String>> chaseReferrals() {
+        return Optional.ofNullable(this.chaseReferrals);
+    }
+
+    /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts &#39;enabled&#39; or &#39;disabled&#39; values, the default value is &#39;enabled&#39;.
      * 
      */
@@ -122,6 +152,21 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies an LDAP key for which the monitor searches
+     * 
+     */
+    @Import(name="filter")
+    private @Nullable Output<String> filter;
+
+    /**
+     * @return Specifies an LDAP key for which the monitor searches
+     * 
+     */
+    public Optional<Output<String>> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+
+    /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      * 
      */
@@ -149,6 +194,27 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> ipDscp() {
         return Optional.ofNullable(this.ipDscp);
+    }
+
+    /**
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     * 
+     */
+    @Import(name="mandatoryAttributes")
+    private @Nullable Output<String> mandatoryAttributes;
+
+    /**
+     * @return Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     * 
+     */
+    public Optional<Output<String>> mandatoryAttributes() {
+        return Optional.ofNullable(this.mandatoryAttributes);
     }
 
     /**
@@ -272,6 +338,27 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     * 
+     */
+    @Import(name="security")
+    private @Nullable Output<String> security;
+
+    /**
+     * @return Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     * 
+     */
+    public Optional<Output<String>> security() {
+        return Optional.ofNullable(this.security);
+    }
+
+    /**
      * Specifies the text string that the monitor sends to the target object.
      * 
      */
@@ -381,13 +468,17 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     private MonitorState(MonitorState $) {
         this.adaptive = $.adaptive;
         this.adaptiveLimit = $.adaptiveLimit;
+        this.base = $.base;
+        this.chaseReferrals = $.chaseReferrals;
         this.compatibility = $.compatibility;
         this.customParent = $.customParent;
         this.database = $.database;
         this.destination = $.destination;
         this.filename = $.filename;
+        this.filter = $.filter;
         this.interval = $.interval;
         this.ipDscp = $.ipDscp;
+        this.mandatoryAttributes = $.mandatoryAttributes;
         this.manualResume = $.manualResume;
         this.mode = $.mode;
         this.name = $.name;
@@ -396,6 +487,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         this.receive = $.receive;
         this.receiveDisable = $.receiveDisable;
         this.reverse = $.reverse;
+        this.security = $.security;
         this.send = $.send;
         this.sslProfile = $.sslProfile;
         this.timeUntilUp = $.timeUntilUp;
@@ -463,6 +555,48 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder adaptiveLimit(Integer adaptiveLimit) {
             return adaptiveLimit(Output.of(adaptiveLimit));
+        }
+
+        /**
+         * @param base Specifies the location in the LDAP tree from which the monitor starts the health check
+         * 
+         * @return builder
+         * 
+         */
+        public Builder base(@Nullable Output<String> base) {
+            $.base = base;
+            return this;
+        }
+
+        /**
+         * @param base Specifies the location in the LDAP tree from which the monitor starts the health check
+         * 
+         * @return builder
+         * 
+         */
+        public Builder base(String base) {
+            return base(Output.of(base));
+        }
+
+        /**
+         * @param chaseReferrals Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chaseReferrals(@Nullable Output<String> chaseReferrals) {
+            $.chaseReferrals = chaseReferrals;
+            return this;
+        }
+
+        /**
+         * @param chaseReferrals Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chaseReferrals(String chaseReferrals) {
+            return chaseReferrals(Output.of(chaseReferrals));
         }
 
         /**
@@ -571,6 +705,27 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param filter Specifies an LDAP key for which the monitor searches
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(@Nullable Output<String> filter) {
+            $.filter = filter;
+            return this;
+        }
+
+        /**
+         * @param filter Specifies an LDAP key for which the monitor searches
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(String filter) {
+            return filter(Output.of(filter));
+        }
+
+        /**
          * @param interval Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
          * 
          * @return builder
@@ -610,6 +765,33 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipDscp(Integer ipDscp) {
             return ipDscp(Output.of(ipDscp));
+        }
+
+        /**
+         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+         * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+         * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+         * attributes, the target is considered down.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mandatoryAttributes(@Nullable Output<String> mandatoryAttributes) {
+            $.mandatoryAttributes = mandatoryAttributes;
+            return this;
+        }
+
+        /**
+         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+         * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+         * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+         * attributes, the target is considered down.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mandatoryAttributes(String mandatoryAttributes) {
+            return mandatoryAttributes(Output.of(mandatoryAttributes));
         }
 
         /**
@@ -778,6 +960,33 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder reverse(String reverse) {
             return reverse(Output.of(reverse));
+        }
+
+        /**
+         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+         * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+         * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+         * protocol for communications with the target.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(@Nullable Output<String> security) {
+            $.security = security;
+            return this;
+        }
+
+        /**
+         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+         * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+         * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+         * protocol for communications with the target.)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder security(String security) {
+            return security(Output.of(security));
         }
 
         /**

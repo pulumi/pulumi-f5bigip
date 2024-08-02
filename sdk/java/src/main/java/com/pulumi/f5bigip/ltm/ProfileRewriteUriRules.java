@@ -189,11 +189,18 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileRewriteUriRules(String name, ProfileRewriteUriRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, args == null ? ProfileRewriteUriRulesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileRewriteUriRules(String name, Output<String> id, @Nullable ProfileRewriteUriRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileRewriteUriRulesArgs makeArgs(ProfileRewriteUriRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileRewriteUriRulesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

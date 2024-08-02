@@ -902,11 +902,18 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileClientSsl(String name, ProfileClientSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, args == null ? ProfileClientSslArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileClientSsl(String name, Output<String> id, @Nullable ProfileClientSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileClientSslArgs makeArgs(ProfileClientSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileClientSslArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

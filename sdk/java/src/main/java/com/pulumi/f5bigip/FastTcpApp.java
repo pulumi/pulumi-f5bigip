@@ -264,11 +264,18 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FastTcpApp(String name, FastTcpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastTcpApp:FastTcpApp", name, args == null ? FastTcpAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/fastTcpApp:FastTcpApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FastTcpApp(String name, Output<String> id, @Nullable FastTcpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/fastTcpApp:FastTcpApp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FastTcpAppArgs makeArgs(FastTcpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FastTcpAppArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

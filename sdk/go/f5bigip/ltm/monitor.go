@@ -97,6 +97,10 @@ type Monitor struct {
 	Adaptive pulumi.StringOutput `pulumi:"adaptive"`
 	// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
 	AdaptiveLimit pulumi.IntOutput `pulumi:"adaptiveLimit"`
+	// Specifies the location in the LDAP tree from which the monitor starts the health check
+	Base pulumi.StringPtrOutput `pulumi:"base"`
+	// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+	ChaseReferrals pulumi.StringOutput `pulumi:"chaseReferrals"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrOutput `pulumi:"compatibility"`
 	// Custom parent monitor for the system to use for setting initial values for the new monitor.
@@ -107,10 +111,17 @@ type Monitor struct {
 	Destination pulumi.StringOutput `pulumi:"destination"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrOutput `pulumi:"filename"`
+	// Specifies an LDAP key for which the monitor searches
+	Filter pulumi.StringPtrOutput `pulumi:"filter"`
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 	Interval pulumi.IntOutput `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntOutput `pulumi:"ipDscp"`
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+	// attributes, the target is considered down.)
+	MandatoryAttributes pulumi.StringPtrOutput `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringOutput `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
@@ -127,6 +138,11 @@ type Monitor struct {
 	ReceiveDisable pulumi.StringPtrOutput `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringOutput `pulumi:"reverse"`
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+	// protocol for communications with the target.)
+	Security pulumi.StringPtrOutput `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringOutput `pulumi:"send"`
 	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
@@ -190,6 +206,10 @@ type monitorState struct {
 	Adaptive *string `pulumi:"adaptive"`
 	// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
+	// Specifies the location in the LDAP tree from which the monitor starts the health check
+	Base *string `pulumi:"base"`
+	// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+	ChaseReferrals *string `pulumi:"chaseReferrals"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
 	// Custom parent monitor for the system to use for setting initial values for the new monitor.
@@ -200,10 +220,17 @@ type monitorState struct {
 	Destination *string `pulumi:"destination"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
+	// Specifies an LDAP key for which the monitor searches
+	Filter *string `pulumi:"filter"`
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 	Interval *int `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp *int `pulumi:"ipDscp"`
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+	// attributes, the target is considered down.)
+	MandatoryAttributes *string `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
@@ -220,6 +247,11 @@ type monitorState struct {
 	ReceiveDisable *string `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse *string `pulumi:"reverse"`
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+	// protocol for communications with the target.)
+	Security *string `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
 	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
@@ -241,6 +273,10 @@ type MonitorState struct {
 	Adaptive pulumi.StringPtrInput
 	// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
 	AdaptiveLimit pulumi.IntPtrInput
+	// Specifies the location in the LDAP tree from which the monitor starts the health check
+	Base pulumi.StringPtrInput
+	// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+	ChaseReferrals pulumi.StringPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
 	// Custom parent monitor for the system to use for setting initial values for the new monitor.
@@ -251,10 +287,17 @@ type MonitorState struct {
 	Destination pulumi.StringPtrInput
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
+	// Specifies an LDAP key for which the monitor searches
+	Filter pulumi.StringPtrInput
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 	Interval pulumi.IntPtrInput
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntPtrInput
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+	// attributes, the target is considered down.)
+	MandatoryAttributes pulumi.StringPtrInput
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
@@ -271,6 +314,11 @@ type MonitorState struct {
 	ReceiveDisable pulumi.StringPtrInput
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringPtrInput
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+	// protocol for communications with the target.)
+	Security pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
 	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
@@ -296,6 +344,10 @@ type monitorArgs struct {
 	Adaptive *string `pulumi:"adaptive"`
 	// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
+	// Specifies the location in the LDAP tree from which the monitor starts the health check
+	Base *string `pulumi:"base"`
+	// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+	ChaseReferrals *string `pulumi:"chaseReferrals"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
 	// Custom parent monitor for the system to use for setting initial values for the new monitor.
@@ -306,10 +358,17 @@ type monitorArgs struct {
 	Destination *string `pulumi:"destination"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
+	// Specifies an LDAP key for which the monitor searches
+	Filter *string `pulumi:"filter"`
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 	Interval *int `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp *int `pulumi:"ipDscp"`
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+	// attributes, the target is considered down.)
+	MandatoryAttributes *string `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
@@ -326,6 +385,11 @@ type monitorArgs struct {
 	ReceiveDisable *string `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse *string `pulumi:"reverse"`
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+	// protocol for communications with the target.)
+	Security *string `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
 	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
@@ -348,6 +412,10 @@ type MonitorArgs struct {
 	Adaptive pulumi.StringPtrInput
 	// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
 	AdaptiveLimit pulumi.IntPtrInput
+	// Specifies the location in the LDAP tree from which the monitor starts the health check
+	Base pulumi.StringPtrInput
+	// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+	ChaseReferrals pulumi.StringPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
 	// Custom parent monitor for the system to use for setting initial values for the new monitor.
@@ -358,10 +426,17 @@ type MonitorArgs struct {
 	Destination pulumi.StringPtrInput
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
+	// Specifies an LDAP key for which the monitor searches
+	Filter pulumi.StringPtrInput
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 	Interval pulumi.IntPtrInput
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntPtrInput
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+	// attributes, the target is considered down.)
+	MandatoryAttributes pulumi.StringPtrInput
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
@@ -378,6 +453,11 @@ type MonitorArgs struct {
 	ReceiveDisable pulumi.StringPtrInput
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringPtrInput
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+	// protocol for communications with the target.)
+	Security pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
 	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
@@ -491,6 +571,16 @@ func (o MonitorOutput) AdaptiveLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AdaptiveLimit }).(pulumi.IntOutput)
 }
 
+// Specifies the location in the LDAP tree from which the monitor starts the health check
+func (o MonitorOutput) Base() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Base }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+func (o MonitorOutput) ChaseReferrals() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.ChaseReferrals }).(pulumi.StringOutput)
+}
+
 // Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 func (o MonitorOutput) Compatibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Compatibility }).(pulumi.StringPtrOutput)
@@ -516,6 +606,11 @@ func (o MonitorOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Filename }).(pulumi.StringPtrOutput)
 }
 
+// Specifies an LDAP key for which the monitor searches
+func (o MonitorOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
 // Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
 func (o MonitorOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.Interval }).(pulumi.IntOutput)
@@ -524,6 +619,14 @@ func (o MonitorOutput) Interval() pulumi.IntOutput {
 // Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 func (o MonitorOutput) IpDscp() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.IpDscp }).(pulumi.IntOutput)
+}
+
+// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+// attributes, the target is considered down.)
+func (o MonitorOutput) MandatoryAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.MandatoryAttributes }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -564,6 +667,14 @@ func (o MonitorOutput) ReceiveDisable() pulumi.StringPtrOutput {
 // Instructs the system to mark the target resource down when the test is successful.
 func (o MonitorOutput) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Reverse }).(pulumi.StringOutput)
+}
+
+// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+// protocol for communications with the target.)
+func (o MonitorOutput) Security() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Security }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the text string that the monitor sends to the target object.

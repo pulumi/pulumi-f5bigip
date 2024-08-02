@@ -526,11 +526,18 @@ public class NetIkePeer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetIkePeer(String name, NetIkePeerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/netIkePeer:NetIkePeer", name, args == null ? NetIkePeerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/netIkePeer:NetIkePeer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetIkePeer(String name, Output<String> id, @Nullable NetIkePeerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/netIkePeer:NetIkePeer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetIkePeerArgs makeArgs(NetIkePeerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetIkePeerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

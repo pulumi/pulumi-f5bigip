@@ -164,11 +164,18 @@ public class Do extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Do(String name, DoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/do:Do", name, args == null ? DoArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/do:Do", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Do(String name, Output<String> id, @Nullable DoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/do:Do", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DoArgs makeArgs(DoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DoArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -310,11 +310,18 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IApp(String name, IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/iApp:IApp", name, args == null ? IAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:sys/iApp:IApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IApp(String name, Output<String> id, @Nullable IAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:sys/iApp:IApp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IAppArgs makeArgs(IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IAppArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

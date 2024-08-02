@@ -120,11 +120,18 @@ public class DataGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataGroup(String name, DataGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/dataGroup:DataGroup", name, args == null ? DataGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/dataGroup:DataGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataGroup(String name, Output<String> id, @Nullable DataGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/dataGroup:DataGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataGroupArgs makeArgs(DataGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -306,11 +306,18 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileFastL4(String name, ProfileFastL4Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileFastL4:ProfileFastL4", name, args == null ? ProfileFastL4Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileFastL4:ProfileFastL4", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileFastL4(String name, Output<String> id, @Nullable ProfileFastL4State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileFastL4:ProfileFastL4", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileFastL4Args makeArgs(ProfileFastL4Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileFastL4Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -80,11 +80,18 @@ public class Command extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Command(String name, CommandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/command:Command", name, args == null ? CommandArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/command:Command", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Command(String name, Output<String> id, @Nullable CommandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/command:Command", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CommandArgs makeArgs(CommandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CommandArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

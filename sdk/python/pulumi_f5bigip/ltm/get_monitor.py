@@ -21,13 +21,19 @@ class GetMonitorResult:
     """
     A collection of values returned by getMonitor.
     """
-    def __init__(__self__, adaptive=None, adaptive_limit=None, database=None, defaults_from=None, destination=None, filename=None, id=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, partition=None, receive_disable=None, reverse=None, time_until_up=None, timeout=None, transparent=None, username=None):
+    def __init__(__self__, adaptive=None, adaptive_limit=None, base=None, chase_referrals=None, database=None, defaults_from=None, destination=None, filename=None, filter=None, id=None, interval=None, ip_dscp=None, mandatory_attributes=None, manual_resume=None, mode=None, name=None, partition=None, receive_disable=None, reverse=None, security=None, time_until_up=None, timeout=None, transparent=None, username=None):
         if adaptive and not isinstance(adaptive, str):
             raise TypeError("Expected argument 'adaptive' to be a str")
         pulumi.set(__self__, "adaptive", adaptive)
         if adaptive_limit and not isinstance(adaptive_limit, int):
             raise TypeError("Expected argument 'adaptive_limit' to be a int")
         pulumi.set(__self__, "adaptive_limit", adaptive_limit)
+        if base and not isinstance(base, str):
+            raise TypeError("Expected argument 'base' to be a str")
+        pulumi.set(__self__, "base", base)
+        if chase_referrals and not isinstance(chase_referrals, str):
+            raise TypeError("Expected argument 'chase_referrals' to be a str")
+        pulumi.set(__self__, "chase_referrals", chase_referrals)
         if database and not isinstance(database, str):
             raise TypeError("Expected argument 'database' to be a str")
         pulumi.set(__self__, "database", database)
@@ -40,6 +46,9 @@ class GetMonitorResult:
         if filename and not isinstance(filename, str):
             raise TypeError("Expected argument 'filename' to be a str")
         pulumi.set(__self__, "filename", filename)
+        if filter and not isinstance(filter, str):
+            raise TypeError("Expected argument 'filter' to be a str")
+        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +58,9 @@ class GetMonitorResult:
         if ip_dscp and not isinstance(ip_dscp, int):
             raise TypeError("Expected argument 'ip_dscp' to be a int")
         pulumi.set(__self__, "ip_dscp", ip_dscp)
+        if mandatory_attributes and not isinstance(mandatory_attributes, str):
+            raise TypeError("Expected argument 'mandatory_attributes' to be a str")
+        pulumi.set(__self__, "mandatory_attributes", mandatory_attributes)
         if manual_resume and not isinstance(manual_resume, str):
             raise TypeError("Expected argument 'manual_resume' to be a str")
         pulumi.set(__self__, "manual_resume", manual_resume)
@@ -67,6 +79,9 @@ class GetMonitorResult:
         if reverse and not isinstance(reverse, str):
             raise TypeError("Expected argument 'reverse' to be a str")
         pulumi.set(__self__, "reverse", reverse)
+        if security and not isinstance(security, str):
+            raise TypeError("Expected argument 'security' to be a str")
+        pulumi.set(__self__, "security", security)
         if time_until_up and not isinstance(time_until_up, int):
             raise TypeError("Expected argument 'time_until_up' to be a int")
         pulumi.set(__self__, "time_until_up", time_until_up)
@@ -98,6 +113,16 @@ class GetMonitorResult:
 
     @property
     @pulumi.getter
+    def base(self) -> str:
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter(name="chaseReferrals")
+    def chase_referrals(self) -> str:
+        return pulumi.get(self, "chase_referrals")
+
+    @property
+    @pulumi.getter
     def database(self) -> str:
         return pulumi.get(self, "database")
 
@@ -118,6 +143,11 @@ class GetMonitorResult:
     @pulumi.getter
     def filename(self) -> str:
         return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> str:
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -142,6 +172,11 @@ class GetMonitorResult:
         Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
         """
         return pulumi.get(self, "ip_dscp")
+
+    @property
+    @pulumi.getter(name="mandatoryAttributes")
+    def mandatory_attributes(self) -> str:
+        return pulumi.get(self, "mandatory_attributes")
 
     @property
     @pulumi.getter(name="manualResume")
@@ -180,6 +215,11 @@ class GetMonitorResult:
         return pulumi.get(self, "reverse")
 
     @property
+    @pulumi.getter
+    def security(self) -> str:
+        return pulumi.get(self, "security")
+
+    @property
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> int:
         return pulumi.get(self, "time_until_up")
@@ -211,19 +251,24 @@ class AwaitableGetMonitorResult(GetMonitorResult):
         return GetMonitorResult(
             adaptive=self.adaptive,
             adaptive_limit=self.adaptive_limit,
+            base=self.base,
+            chase_referrals=self.chase_referrals,
             database=self.database,
             defaults_from=self.defaults_from,
             destination=self.destination,
             filename=self.filename,
+            filter=self.filter,
             id=self.id,
             interval=self.interval,
             ip_dscp=self.ip_dscp,
+            mandatory_attributes=self.mandatory_attributes,
             manual_resume=self.manual_resume,
             mode=self.mode,
             name=self.name,
             partition=self.partition,
             receive_disable=self.receive_disable,
             reverse=self.reverse,
+            security=self.security,
             time_until_up=self.time_until_up,
             timeout=self.timeout,
             transparent=self.transparent,
@@ -259,19 +304,24 @@ def get_monitor(name: Optional[str] = None,
     return AwaitableGetMonitorResult(
         adaptive=pulumi.get(__ret__, 'adaptive'),
         adaptive_limit=pulumi.get(__ret__, 'adaptive_limit'),
+        base=pulumi.get(__ret__, 'base'),
+        chase_referrals=pulumi.get(__ret__, 'chase_referrals'),
         database=pulumi.get(__ret__, 'database'),
         defaults_from=pulumi.get(__ret__, 'defaults_from'),
         destination=pulumi.get(__ret__, 'destination'),
         filename=pulumi.get(__ret__, 'filename'),
+        filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         interval=pulumi.get(__ret__, 'interval'),
         ip_dscp=pulumi.get(__ret__, 'ip_dscp'),
+        mandatory_attributes=pulumi.get(__ret__, 'mandatory_attributes'),
         manual_resume=pulumi.get(__ret__, 'manual_resume'),
         mode=pulumi.get(__ret__, 'mode'),
         name=pulumi.get(__ret__, 'name'),
         partition=pulumi.get(__ret__, 'partition'),
         receive_disable=pulumi.get(__ret__, 'receive_disable'),
         reverse=pulumi.get(__ret__, 'reverse'),
+        security=pulumi.get(__ret__, 'security'),
         time_until_up=pulumi.get(__ret__, 'time_until_up'),
         timeout=pulumi.get(__ret__, 'timeout'),
         transparent=pulumi.get(__ret__, 'transparent'),

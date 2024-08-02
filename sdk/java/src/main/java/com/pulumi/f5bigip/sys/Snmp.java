@@ -122,11 +122,18 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Snmp(String name, @Nullable SnmpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/snmp:Snmp", name, args == null ? SnmpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:sys/snmp:Snmp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Snmp(String name, Output<String> id, @Nullable SnmpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:sys/snmp:Snmp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnmpArgs makeArgs(@Nullable SnmpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnmpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

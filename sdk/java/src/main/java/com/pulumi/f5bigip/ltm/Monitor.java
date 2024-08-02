@@ -135,6 +135,34 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.adaptiveLimit;
     }
     /**
+     * Specifies the location in the LDAP tree from which the monitor starts the health check
+     * 
+     */
+    @Export(name="base", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> base;
+
+    /**
+     * @return Specifies the location in the LDAP tree from which the monitor starts the health check
+     * 
+     */
+    public Output<Optional<String>> base() {
+        return Codegen.optional(this.base);
+    }
+    /**
+     * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     * 
+     */
+    @Export(name="chaseReferrals", refs={String.class}, tree="[0]")
+    private Output<String> chaseReferrals;
+
+    /**
+     * @return Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     * 
+     */
+    public Output<String> chaseReferrals() {
+        return this.chaseReferrals;
+    }
+    /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts &#39;enabled&#39; or &#39;disabled&#39; values, the default value is &#39;enabled&#39;.
      * 
      */
@@ -205,6 +233,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filename);
     }
     /**
+     * Specifies an LDAP key for which the monitor searches
+     * 
+     */
+    @Export(name="filter", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> filter;
+
+    /**
+     * @return Specifies an LDAP key for which the monitor searches
+     * 
+     */
+    public Output<Optional<String>> filter() {
+        return Codegen.optional(this.filter);
+    }
+    /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      * 
      */
@@ -231,6 +273,26 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> ipDscp() {
         return this.ipDscp;
+    }
+    /**
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     * 
+     */
+    @Export(name="mandatoryAttributes", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> mandatoryAttributes;
+
+    /**
+     * @return Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     * 
+     */
+    public Output<Optional<String>> mandatoryAttributes() {
+        return Codegen.optional(this.mandatoryAttributes);
     }
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -343,6 +405,26 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> reverse() {
         return this.reverse;
+    }
+    /**
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     * 
+     */
+    @Export(name="security", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> security;
+
+    /**
+     * @return Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     * 
+     */
+    public Output<Optional<String>> security() {
+        return Codegen.optional(this.security);
     }
     /**
      * Specifies the text string that the monitor sends to the target object.
@@ -465,11 +547,18 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Monitor(String name, MonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/monitor:Monitor", name, args == null ? MonitorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/monitor:Monitor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Monitor(String name, Output<String> id, @Nullable MonitorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/monitor:Monitor", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MonitorArgs makeArgs(MonitorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

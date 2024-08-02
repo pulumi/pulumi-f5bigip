@@ -263,11 +263,18 @@ public class PersistenceProfileDstAddr extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public PersistenceProfileDstAddr(String name, PersistenceProfileDstAddrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, args == null ? PersistenceProfileDstAddrArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PersistenceProfileDstAddr(String name, Output<String> id, @Nullable PersistenceProfileDstAddrState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PersistenceProfileDstAddrArgs makeArgs(PersistenceProfileDstAddrArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PersistenceProfileDstAddrArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

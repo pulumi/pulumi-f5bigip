@@ -518,11 +518,18 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FastHttpsApp(String name, FastHttpsAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastHttpsApp:FastHttpsApp", name, args == null ? FastHttpsAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/fastHttpsApp:FastHttpsApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FastHttpsApp(String name, Output<String> id, @Nullable FastHttpsAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/fastHttpsApp:FastHttpsApp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FastHttpsAppArgs makeArgs(FastHttpsAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FastHttpsAppArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

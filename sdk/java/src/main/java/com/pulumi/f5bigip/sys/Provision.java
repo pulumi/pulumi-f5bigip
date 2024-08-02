@@ -205,11 +205,18 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Provision(String name, ProvisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/provision:Provision", name, args == null ? ProvisionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:sys/provision:Provision", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Provision(String name, Output<String> id, @Nullable ProvisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:sys/provision:Provision", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProvisionArgs makeArgs(ProvisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProvisionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

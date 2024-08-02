@@ -54,6 +54,8 @@ export interface GetMonitorResult {
      * Displays whether adaptive response time monitoring is enabled for this monitor.
      */
     readonly adaptiveLimit: number;
+    readonly base: string;
+    readonly chaseReferrals: string;
     readonly database: string;
     readonly defaultsFrom: string;
     /**
@@ -61,6 +63,7 @@ export interface GetMonitorResult {
      */
     readonly destination: string;
     readonly filename: string;
+    readonly filter: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -73,6 +76,7 @@ export interface GetMonitorResult {
      * Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
      */
     readonly ipDscp: number;
+    readonly mandatoryAttributes: string;
     /**
      * Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
@@ -85,6 +89,7 @@ export interface GetMonitorResult {
      * Instructs the system to mark the target resource down when the test is successful.
      */
     readonly reverse: string;
+    readonly security: string;
     readonly timeUntilUp: number;
     readonly timeout: number;
     /**

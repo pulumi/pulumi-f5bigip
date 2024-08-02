@@ -111,11 +111,18 @@ public class SnatPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SnatPool(String name, SnatPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/snatPool:SnatPool", name, args == null ? SnatPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/snatPool:SnatPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SnatPool(String name, Output<String> id, @Nullable SnatPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/snatPool:SnatPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnatPoolArgs makeArgs(SnatPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnatPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
