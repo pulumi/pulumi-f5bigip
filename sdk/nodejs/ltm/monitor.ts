@@ -97,6 +97,14 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly adaptiveLimit!: pulumi.Output<number>;
     /**
+     * Specifies the location in the LDAP tree from which the monitor starts the health check
+     */
+    public readonly base!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     */
+    public readonly chaseReferrals!: pulumi.Output<string>;
+    /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
     public readonly compatibility!: pulumi.Output<string | undefined>;
@@ -117,6 +125,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly filename!: pulumi.Output<string | undefined>;
     /**
+     * Specifies an LDAP key for which the monitor searches
+     */
+    public readonly filter!: pulumi.Output<string | undefined>;
+    /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     public readonly interval!: pulumi.Output<number>;
@@ -124,6 +136,13 @@ export class Monitor extends pulumi.CustomResource {
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
     public readonly ipDscp!: pulumi.Output<number>;
+    /**
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     */
+    public readonly mandatoryAttributes!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
@@ -156,6 +175,13 @@ export class Monitor extends pulumi.CustomResource {
      * Instructs the system to mark the target resource down when the test is successful.
      */
     public readonly reverse!: pulumi.Output<string>;
+    /**
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     */
+    public readonly security!: pulumi.Output<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */
@@ -200,13 +226,17 @@ export class Monitor extends pulumi.CustomResource {
             const state = argsOrState as MonitorState | undefined;
             resourceInputs["adaptive"] = state ? state.adaptive : undefined;
             resourceInputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
+            resourceInputs["base"] = state ? state.base : undefined;
+            resourceInputs["chaseReferrals"] = state ? state.chaseReferrals : undefined;
             resourceInputs["compatibility"] = state ? state.compatibility : undefined;
             resourceInputs["customParent"] = state ? state.customParent : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["interval"] = state ? state.interval : undefined;
             resourceInputs["ipDscp"] = state ? state.ipDscp : undefined;
+            resourceInputs["mandatoryAttributes"] = state ? state.mandatoryAttributes : undefined;
             resourceInputs["manualResume"] = state ? state.manualResume : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -215,6 +245,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["receive"] = state ? state.receive : undefined;
             resourceInputs["receiveDisable"] = state ? state.receiveDisable : undefined;
             resourceInputs["reverse"] = state ? state.reverse : undefined;
+            resourceInputs["security"] = state ? state.security : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
             resourceInputs["sslProfile"] = state ? state.sslProfile : undefined;
             resourceInputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
@@ -232,13 +263,17 @@ export class Monitor extends pulumi.CustomResource {
             }
             resourceInputs["adaptive"] = args ? args.adaptive : undefined;
             resourceInputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
+            resourceInputs["base"] = args ? args.base : undefined;
+            resourceInputs["chaseReferrals"] = args ? args.chaseReferrals : undefined;
             resourceInputs["compatibility"] = args ? args.compatibility : undefined;
             resourceInputs["customParent"] = args ? args.customParent : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["ipDscp"] = args ? args.ipDscp : undefined;
+            resourceInputs["mandatoryAttributes"] = args ? args.mandatoryAttributes : undefined;
             resourceInputs["manualResume"] = args ? args.manualResume : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -247,6 +282,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["receive"] = args ? args.receive : undefined;
             resourceInputs["receiveDisable"] = args ? args.receiveDisable : undefined;
             resourceInputs["reverse"] = args ? args.reverse : undefined;
+            resourceInputs["security"] = args ? args.security : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
             resourceInputs["sslProfile"] = args ? args.sslProfile : undefined;
             resourceInputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
@@ -275,6 +311,14 @@ export interface MonitorState {
      */
     adaptiveLimit?: pulumi.Input<number>;
     /**
+     * Specifies the location in the LDAP tree from which the monitor starts the health check
+     */
+    base?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     */
+    chaseReferrals?: pulumi.Input<string>;
+    /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
     compatibility?: pulumi.Input<string>;
@@ -295,6 +339,10 @@ export interface MonitorState {
      */
     filename?: pulumi.Input<string>;
     /**
+     * Specifies an LDAP key for which the monitor searches
+     */
+    filter?: pulumi.Input<string>;
+    /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     interval?: pulumi.Input<number>;
@@ -302,6 +350,13 @@ export interface MonitorState {
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
     ipDscp?: pulumi.Input<number>;
+    /**
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     */
+    mandatoryAttributes?: pulumi.Input<string>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
@@ -334,6 +389,13 @@ export interface MonitorState {
      * Instructs the system to mark the target resource down when the test is successful.
      */
     reverse?: pulumi.Input<string>;
+    /**
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     */
+    security?: pulumi.Input<string>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */
@@ -377,6 +439,14 @@ export interface MonitorArgs {
      */
     adaptiveLimit?: pulumi.Input<number>;
     /**
+     * Specifies the location in the LDAP tree from which the monitor starts the health check
+     */
+    base?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+     */
+    chaseReferrals?: pulumi.Input<string>;
+    /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
     compatibility?: pulumi.Input<string>;
@@ -397,6 +467,10 @@ export interface MonitorArgs {
      */
     filename?: pulumi.Input<string>;
     /**
+     * Specifies an LDAP key for which the monitor searches
+     */
+    filter?: pulumi.Input<string>;
+    /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     interval?: pulumi.Input<number>;
@@ -404,6 +478,13 @@ export interface MonitorArgs {
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
     ipDscp?: pulumi.Input<number>;
+    /**
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+     * attributes, the target is considered down.)
+     */
+    mandatoryAttributes?: pulumi.Input<string>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
@@ -436,6 +517,13 @@ export interface MonitorArgs {
      * Instructs the system to mark the target resource down when the test is successful.
      */
     reverse?: pulumi.Input<string>;
+    /**
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+     * protocol for communications with the target.)
+     */
+    security?: pulumi.Input<string>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */

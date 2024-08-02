@@ -18,19 +18,24 @@ class MonitorArgs:
                  parent: pulumi.Input[str],
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 base: Optional[pulumi.Input[str]] = None,
+                 chase_referrals: Optional[pulumi.Input[str]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  ip_dscp: Optional[pulumi.Input[int]] = None,
+                 mandatory_attributes: Optional[pulumi.Input[str]] = None,
                  manual_resume: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  receive: Optional[pulumi.Input[str]] = None,
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
                  ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
@@ -44,19 +49,30 @@ class MonitorArgs:
         :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
+        :param pulumi.Input[str] base: Specifies the location in the LDAP tree from which the monitor starts the health check
+        :param pulumi.Input[str] chase_referrals: Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+               attributes, the target is considered down.)
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+               protocol for communications with the target.)
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -71,6 +87,10 @@ class MonitorArgs:
             pulumi.set(__self__, "adaptive", adaptive)
         if adaptive_limit is not None:
             pulumi.set(__self__, "adaptive_limit", adaptive_limit)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if chase_referrals is not None:
+            pulumi.set(__self__, "chase_referrals", chase_referrals)
         if compatibility is not None:
             pulumi.set(__self__, "compatibility", compatibility)
         if custom_parent is not None:
@@ -81,10 +101,14 @@ class MonitorArgs:
             pulumi.set(__self__, "destination", destination)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if ip_dscp is not None:
             pulumi.set(__self__, "ip_dscp", ip_dscp)
+        if mandatory_attributes is not None:
+            pulumi.set(__self__, "mandatory_attributes", mandatory_attributes)
         if manual_resume is not None:
             pulumi.set(__self__, "manual_resume", manual_resume)
         if mode is not None:
@@ -97,6 +121,8 @@ class MonitorArgs:
             pulumi.set(__self__, "receive_disable", receive_disable)
         if reverse is not None:
             pulumi.set(__self__, "reverse", reverse)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if send is not None:
             pulumi.set(__self__, "send", send)
         if ssl_profile is not None:
@@ -162,6 +188,30 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location in the LDAP tree from which the monitor starts the health check
+        """
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base", value)
+
+    @property
+    @pulumi.getter(name="chaseReferrals")
+    def chase_referrals(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        """
+        return pulumi.get(self, "chase_referrals")
+
+    @chase_referrals.setter
+    def chase_referrals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chase_referrals", value)
+
+    @property
+    @pulumi.getter
     def compatibility(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
@@ -222,6 +272,18 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an LDAP key for which the monitor searches
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -243,6 +305,21 @@ class MonitorArgs:
     @ip_dscp.setter
     def ip_dscp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ip_dscp", value)
+
+    @property
+    @pulumi.getter(name="mandatoryAttributes")
+    def mandatory_attributes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        attributes, the target is considered down.)
+        """
+        return pulumi.get(self, "mandatory_attributes")
+
+    @mandatory_attributes.setter
+    def mandatory_attributes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mandatory_attributes", value)
 
     @property
     @pulumi.getter(name="manualResume")
@@ -315,6 +392,21 @@ class MonitorArgs:
     @reverse.setter
     def reverse(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reverse", value)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        protocol for communications with the target.)
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security", value)
 
     @property
     @pulumi.getter
@@ -406,13 +498,17 @@ class _MonitorState:
     def __init__(__self__, *,
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 base: Optional[pulumi.Input[str]] = None,
+                 chase_referrals: Optional[pulumi.Input[str]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  ip_dscp: Optional[pulumi.Input[int]] = None,
+                 mandatory_attributes: Optional[pulumi.Input[str]] = None,
                  manual_resume: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -421,6 +517,7 @@ class _MonitorState:
                  receive: Optional[pulumi.Input[str]] = None,
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
                  ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
@@ -432,13 +529,20 @@ class _MonitorState:
         Input properties used for looking up and filtering Monitor resources.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
+        :param pulumi.Input[str] base: Specifies the location in the LDAP tree from which the monitor starts the health check
+        :param pulumi.Input[str] chase_referrals: Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+               attributes, the target is considered down.)
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -447,6 +551,10 @@ class _MonitorState:
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+               protocol for communications with the target.)
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -459,6 +567,10 @@ class _MonitorState:
             pulumi.set(__self__, "adaptive", adaptive)
         if adaptive_limit is not None:
             pulumi.set(__self__, "adaptive_limit", adaptive_limit)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+        if chase_referrals is not None:
+            pulumi.set(__self__, "chase_referrals", chase_referrals)
         if compatibility is not None:
             pulumi.set(__self__, "compatibility", compatibility)
         if custom_parent is not None:
@@ -469,10 +581,14 @@ class _MonitorState:
             pulumi.set(__self__, "destination", destination)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
         if ip_dscp is not None:
             pulumi.set(__self__, "ip_dscp", ip_dscp)
+        if mandatory_attributes is not None:
+            pulumi.set(__self__, "mandatory_attributes", mandatory_attributes)
         if manual_resume is not None:
             pulumi.set(__self__, "manual_resume", manual_resume)
         if mode is not None:
@@ -489,6 +605,8 @@ class _MonitorState:
             pulumi.set(__self__, "receive_disable", receive_disable)
         if reverse is not None:
             pulumi.set(__self__, "reverse", reverse)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
         if send is not None:
             pulumi.set(__self__, "send", send)
         if ssl_profile is not None:
@@ -527,6 +645,30 @@ class _MonitorState:
     @adaptive_limit.setter
     def adaptive_limit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "adaptive_limit", value)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location in the LDAP tree from which the monitor starts the health check
+        """
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base", value)
+
+    @property
+    @pulumi.getter(name="chaseReferrals")
+    def chase_referrals(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        """
+        return pulumi.get(self, "chase_referrals")
+
+    @chase_referrals.setter
+    def chase_referrals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chase_referrals", value)
 
     @property
     @pulumi.getter
@@ -590,6 +732,18 @@ class _MonitorState:
 
     @property
     @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an LDAP key for which the monitor searches
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -611,6 +765,21 @@ class _MonitorState:
     @ip_dscp.setter
     def ip_dscp(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ip_dscp", value)
+
+    @property
+    @pulumi.getter(name="mandatoryAttributes")
+    def mandatory_attributes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        attributes, the target is considered down.)
+        """
+        return pulumi.get(self, "mandatory_attributes")
+
+    @mandatory_attributes.setter
+    def mandatory_attributes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mandatory_attributes", value)
 
     @property
     @pulumi.getter(name="manualResume")
@@ -710,6 +879,21 @@ class _MonitorState:
 
     @property
     @pulumi.getter
+    def security(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        protocol for communications with the target.)
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security", value)
+
+    @property
+    @pulumi.getter
     def send(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the text string that the monitor sends to the target object.
@@ -800,13 +984,17 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 base: Optional[pulumi.Input[str]] = None,
+                 chase_referrals: Optional[pulumi.Input[str]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  ip_dscp: Optional[pulumi.Input[int]] = None,
+                 mandatory_attributes: Optional[pulumi.Input[str]] = None,
                  manual_resume: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -815,6 +1003,7 @@ class Monitor(pulumi.CustomResource):
                  receive: Optional[pulumi.Input[str]] = None,
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
                  ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
@@ -879,13 +1068,20 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
+        :param pulumi.Input[str] base: Specifies the location in the LDAP tree from which the monitor starts the health check
+        :param pulumi.Input[str] chase_referrals: Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+               attributes, the target is considered down.)
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -894,6 +1090,10 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+               protocol for communications with the target.)
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -977,13 +1177,17 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 base: Optional[pulumi.Input[str]] = None,
+                 chase_referrals: Optional[pulumi.Input[str]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  ip_dscp: Optional[pulumi.Input[int]] = None,
+                 mandatory_attributes: Optional[pulumi.Input[str]] = None,
                  manual_resume: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -992,6 +1196,7 @@ class Monitor(pulumi.CustomResource):
                  receive: Optional[pulumi.Input[str]] = None,
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
                  ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
@@ -1010,13 +1215,17 @@ class Monitor(pulumi.CustomResource):
 
             __props__.__dict__["adaptive"] = adaptive
             __props__.__dict__["adaptive_limit"] = adaptive_limit
+            __props__.__dict__["base"] = base
+            __props__.__dict__["chase_referrals"] = chase_referrals
             __props__.__dict__["compatibility"] = compatibility
             __props__.__dict__["custom_parent"] = custom_parent
             __props__.__dict__["database"] = database
             __props__.__dict__["destination"] = destination
             __props__.__dict__["filename"] = filename
+            __props__.__dict__["filter"] = filter
             __props__.__dict__["interval"] = interval
             __props__.__dict__["ip_dscp"] = ip_dscp
+            __props__.__dict__["mandatory_attributes"] = mandatory_attributes
             __props__.__dict__["manual_resume"] = manual_resume
             __props__.__dict__["mode"] = mode
             if name is None and not opts.urn:
@@ -1029,6 +1238,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["receive"] = receive
             __props__.__dict__["receive_disable"] = receive_disable
             __props__.__dict__["reverse"] = reverse
+            __props__.__dict__["security"] = security
             __props__.__dict__["send"] = send
             __props__.__dict__["ssl_profile"] = ssl_profile
             __props__.__dict__["time_until_up"] = time_until_up
@@ -1050,13 +1260,17 @@ class Monitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             adaptive: Optional[pulumi.Input[str]] = None,
             adaptive_limit: Optional[pulumi.Input[int]] = None,
+            base: Optional[pulumi.Input[str]] = None,
+            chase_referrals: Optional[pulumi.Input[str]] = None,
             compatibility: Optional[pulumi.Input[str]] = None,
             custom_parent: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             filename: Optional[pulumi.Input[str]] = None,
+            filter: Optional[pulumi.Input[str]] = None,
             interval: Optional[pulumi.Input[int]] = None,
             ip_dscp: Optional[pulumi.Input[int]] = None,
+            mandatory_attributes: Optional[pulumi.Input[str]] = None,
             manual_resume: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1065,6 +1279,7 @@ class Monitor(pulumi.CustomResource):
             receive: Optional[pulumi.Input[str]] = None,
             receive_disable: Optional[pulumi.Input[str]] = None,
             reverse: Optional[pulumi.Input[str]] = None,
+            security: Optional[pulumi.Input[str]] = None,
             send: Optional[pulumi.Input[str]] = None,
             ssl_profile: Optional[pulumi.Input[str]] = None,
             time_until_up: Optional[pulumi.Input[int]] = None,
@@ -1081,13 +1296,20 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
+        :param pulumi.Input[str] base: Specifies the location in the LDAP tree from which the monitor starts the health check
+        :param pulumi.Input[str] chase_referrals: Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+               attributes, the target is considered down.)
         :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -1096,6 +1318,10 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+               protocol for communications with the target.)
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -1110,13 +1336,17 @@ class Monitor(pulumi.CustomResource):
 
         __props__.__dict__["adaptive"] = adaptive
         __props__.__dict__["adaptive_limit"] = adaptive_limit
+        __props__.__dict__["base"] = base
+        __props__.__dict__["chase_referrals"] = chase_referrals
         __props__.__dict__["compatibility"] = compatibility
         __props__.__dict__["custom_parent"] = custom_parent
         __props__.__dict__["database"] = database
         __props__.__dict__["destination"] = destination
         __props__.__dict__["filename"] = filename
+        __props__.__dict__["filter"] = filter
         __props__.__dict__["interval"] = interval
         __props__.__dict__["ip_dscp"] = ip_dscp
+        __props__.__dict__["mandatory_attributes"] = mandatory_attributes
         __props__.__dict__["manual_resume"] = manual_resume
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
@@ -1125,6 +1355,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["receive"] = receive
         __props__.__dict__["receive_disable"] = receive_disable
         __props__.__dict__["reverse"] = reverse
+        __props__.__dict__["security"] = security
         __props__.__dict__["send"] = send
         __props__.__dict__["ssl_profile"] = ssl_profile
         __props__.__dict__["time_until_up"] = time_until_up
@@ -1149,6 +1380,22 @@ class Monitor(pulumi.CustomResource):
         Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
+
+    @property
+    @pulumi.getter
+    def base(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the location in the LDAP tree from which the monitor starts the health check
+        """
+        return pulumi.get(self, "base")
+
+    @property
+    @pulumi.getter(name="chaseReferrals")
+    def chase_referrals(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        """
+        return pulumi.get(self, "chase_referrals")
 
     @property
     @pulumi.getter
@@ -1192,6 +1439,14 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def filter(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies an LDAP key for which the monitor searches
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
     def interval(self) -> pulumi.Output[int]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -1205,6 +1460,17 @@ class Monitor(pulumi.CustomResource):
         Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         """
         return pulumi.get(self, "ip_dscp")
+
+    @property
+    @pulumi.getter(name="mandatoryAttributes")
+    def mandatory_attributes(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        attributes, the target is considered down.)
+        """
+        return pulumi.get(self, "mandatory_attributes")
 
     @property
     @pulumi.getter(name="manualResume")
@@ -1269,6 +1535,17 @@ class Monitor(pulumi.CustomResource):
         Instructs the system to mark the target resource down when the test is successful.
         """
         return pulumi.get(self, "reverse")
+
+    @property
+    @pulumi.getter
+    def security(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        protocol for communications with the target.)
+        """
+        return pulumi.get(self, "security")
 
     @property
     @pulumi.getter

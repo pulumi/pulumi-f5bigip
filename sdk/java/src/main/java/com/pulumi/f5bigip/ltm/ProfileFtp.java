@@ -375,11 +375,18 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileFtp(String name, ProfileFtpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileFtp:ProfileFtp", name, args == null ? ProfileFtpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileFtp:ProfileFtp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileFtp(String name, Output<String> id, @Nullable ProfileFtpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileFtp:ProfileFtp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileFtpArgs makeArgs(ProfileFtpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileFtpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

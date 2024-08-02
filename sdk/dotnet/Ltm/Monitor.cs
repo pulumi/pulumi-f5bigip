@@ -96,6 +96,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> AdaptiveLimit { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the location in the LDAP tree from which the monitor starts the health check
+        /// </summary>
+        [Output("base")]
+        public Output<string?> Base { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        /// </summary>
+        [Output("chaseReferrals")]
+        public Output<string> ChaseReferrals { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         /// </summary>
         [Output("compatibility")]
@@ -126,6 +138,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Filename { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies an LDAP key for which the monitor searches
+        /// </summary>
+        [Output("filter")]
+        public Output<string?> Filter { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Output("interval")]
@@ -136,6 +154,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("ipDscp")]
         public Output<int> IpDscp { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        /// attributes, the target is considered down.)
+        /// </summary>
+        [Output("mandatoryAttributes")]
+        public Output<string?> MandatoryAttributes { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -184,6 +211,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("reverse")]
         public Output<string> Reverse { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        /// protocol for communications with the target.)
+        /// </summary>
+        [Output("security")]
+        public Output<string?> Security { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the text string that the monitor sends to the target object.
@@ -290,6 +326,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? AdaptiveLimit { get; set; }
 
         /// <summary>
+        /// Specifies the location in the LDAP tree from which the monitor starts the health check
+        /// </summary>
+        [Input("base")]
+        public Input<string>? Base { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        /// </summary>
+        [Input("chaseReferrals")]
+        public Input<string>? ChaseReferrals { get; set; }
+
+        /// <summary>
         /// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         /// </summary>
         [Input("compatibility")]
@@ -320,6 +368,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
+        /// Specifies an LDAP key for which the monitor searches
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
         /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
@@ -330,6 +384,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("ipDscp")]
         public Input<int>? IpDscp { get; set; }
+
+        /// <summary>
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        /// attributes, the target is considered down.)
+        /// </summary>
+        [Input("mandatoryAttributes")]
+        public Input<string>? MandatoryAttributes { get; set; }
 
         /// <summary>
         /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -388,6 +451,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("reverse")]
         public Input<string>? Reverse { get; set; }
+
+        /// <summary>
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        /// protocol for communications with the target.)
+        /// </summary>
+        [Input("security")]
+        public Input<string>? Security { get; set; }
 
         /// <summary>
         /// Specifies the text string that the monitor sends to the target object.
@@ -452,6 +524,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? AdaptiveLimit { get; set; }
 
         /// <summary>
+        /// Specifies the location in the LDAP tree from which the monitor starts the health check
+        /// </summary>
+        [Input("base")]
+        public Input<string>? Base { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
+        /// </summary>
+        [Input("chaseReferrals")]
+        public Input<string>? ChaseReferrals { get; set; }
+
+        /// <summary>
         /// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         /// </summary>
         [Input("compatibility")]
@@ -482,6 +566,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
+        /// Specifies an LDAP key for which the monitor searches
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
         /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
@@ -492,6 +582,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("ipDscp")]
         public Input<int>? IpDscp { get; set; }
+
+        /// <summary>
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
+        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
+        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
+        /// attributes, the target is considered down.)
+        /// </summary>
+        [Input("mandatoryAttributes")]
+        public Input<string>? MandatoryAttributes { get; set; }
 
         /// <summary>
         /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -550,6 +649,15 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("reverse")]
         public Input<string>? Reverse { get; set; }
+
+        /// <summary>
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
+        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
+        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
+        /// protocol for communications with the target.)
+        /// </summary>
+        [Input("security")]
+        public Input<string>? Security { get; set; }
 
         /// <summary>
         /// Specifies the text string that the monitor sends to the target object.

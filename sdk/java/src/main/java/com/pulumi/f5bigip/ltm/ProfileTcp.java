@@ -404,11 +404,18 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileTcp(String name, ProfileTcpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileTcp:ProfileTcp", name, args == null ? ProfileTcpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileTcp:ProfileTcp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileTcp(String name, Output<String> id, @Nullable ProfileTcpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileTcp:ProfileTcp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileTcpArgs makeArgs(ProfileTcpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileTcpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

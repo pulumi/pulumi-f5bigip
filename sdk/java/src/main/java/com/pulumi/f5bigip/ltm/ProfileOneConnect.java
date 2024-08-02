@@ -228,11 +228,18 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileOneConnect(String name, ProfileOneConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, args == null ? ProfileOneConnectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileOneConnect(String name, Output<String> id, @Nullable ProfileOneConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileOneConnectArgs makeArgs(ProfileOneConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileOneConnectArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

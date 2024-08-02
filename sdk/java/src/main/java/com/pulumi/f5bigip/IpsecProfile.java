@@ -136,11 +136,18 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IpsecProfile(String name, IpsecProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/ipsecProfile:IpsecProfile", name, args == null ? IpsecProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/ipsecProfile:IpsecProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IpsecProfile(String name, Output<String> id, @Nullable IpsecProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/ipsecProfile:IpsecProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IpsecProfileArgs makeArgs(IpsecProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IpsecProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

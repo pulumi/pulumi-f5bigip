@@ -232,11 +232,18 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DeviceGroup(String name, @Nullable DeviceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:cm/deviceGroup:DeviceGroup", name, args == null ? DeviceGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:cm/deviceGroup:DeviceGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DeviceGroup(String name, Output<String> id, @Nullable DeviceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:cm/deviceGroup:DeviceGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DeviceGroupArgs makeArgs(@Nullable DeviceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DeviceGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -62,18 +62,22 @@ type LookupMonitorResult struct {
 	// Displays whether adaptive response time monitoring is enabled for this monitor.
 	Adaptive string `pulumi:"adaptive"`
 	// Displays whether adaptive response time monitoring is enabled for this monitor.
-	AdaptiveLimit int    `pulumi:"adaptiveLimit"`
-	Database      string `pulumi:"database"`
-	DefaultsFrom  string `pulumi:"defaultsFrom"`
+	AdaptiveLimit  int    `pulumi:"adaptiveLimit"`
+	Base           string `pulumi:"base"`
+	ChaseReferrals string `pulumi:"chaseReferrals"`
+	Database       string `pulumi:"database"`
+	DefaultsFrom   string `pulumi:"defaultsFrom"`
 	// id will be full path name of ltm monitor.
 	Destination string `pulumi:"destination"`
 	Filename    string `pulumi:"filename"`
+	Filter      string `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
 	Interval int `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
-	IpDscp int `pulumi:"ipDscp"`
+	IpDscp              int    `pulumi:"ipDscp"`
+	MandatoryAttributes string `pulumi:"mandatoryAttributes"`
 	// Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume   string `pulumi:"manualResume"`
 	Mode           string `pulumi:"mode"`
@@ -82,6 +86,7 @@ type LookupMonitorResult struct {
 	ReceiveDisable string `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse     string `pulumi:"reverse"`
+	Security    string `pulumi:"security"`
 	TimeUntilUp int    `pulumi:"timeUntilUp"`
 	Timeout     int    `pulumi:"timeout"`
 	// Displays whether the monitor operates in transparent mode.
@@ -139,6 +144,14 @@ func (o LookupMonitorResultOutput) AdaptiveLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.AdaptiveLimit }).(pulumi.IntOutput)
 }
 
+func (o LookupMonitorResultOutput) Base() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Base }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) ChaseReferrals() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.ChaseReferrals }).(pulumi.StringOutput)
+}
+
 func (o LookupMonitorResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -156,6 +169,10 @@ func (o LookupMonitorResultOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+func (o LookupMonitorResultOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Filter }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Id }).(pulumi.StringOutput)
@@ -169,6 +186,10 @@ func (o LookupMonitorResultOutput) Interval() pulumi.IntOutput {
 // Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
 func (o LookupMonitorResultOutput) IpDscp() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupMonitorResult) int { return v.IpDscp }).(pulumi.IntOutput)
+}
+
+func (o LookupMonitorResultOutput) MandatoryAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.MandatoryAttributes }).(pulumi.StringOutput)
 }
 
 // Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -195,6 +216,10 @@ func (o LookupMonitorResultOutput) ReceiveDisable() pulumi.StringOutput {
 // Instructs the system to mark the target resource down when the test is successful.
 func (o LookupMonitorResultOutput) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMonitorResult) string { return v.Reverse }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Security() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Security }).(pulumi.StringOutput)
 }
 
 func (o LookupMonitorResultOutput) TimeUntilUp() pulumi.IntOutput {

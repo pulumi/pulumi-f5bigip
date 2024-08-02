@@ -161,11 +161,18 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CipherGroup(String name, CipherGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/cipherGroup:CipherGroup", name, args == null ? CipherGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/cipherGroup:CipherGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CipherGroup(String name, Output<String> id, @Nullable CipherGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/cipherGroup:CipherGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CipherGroupArgs makeArgs(CipherGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CipherGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

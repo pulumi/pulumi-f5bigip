@@ -279,11 +279,18 @@ public class ProfileHttp2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProfileHttp2(String name, ProfileHttp2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileHttp2:ProfileHttp2", name, args == null ? ProfileHttp2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/profileHttp2:ProfileHttp2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProfileHttp2(String name, Output<String> id, @Nullable ProfileHttp2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/profileHttp2:ProfileHttp2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProfileHttp2Args makeArgs(ProfileHttp2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProfileHttp2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -531,11 +531,18 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WafPolicy(String name, WafPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/wafPolicy:WafPolicy", name, args == null ? WafPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:index/wafPolicy:WafPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WafPolicy(String name, Output<String> id, @Nullable WafPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:index/wafPolicy:WafPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WafPolicyArgs makeArgs(WafPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WafPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

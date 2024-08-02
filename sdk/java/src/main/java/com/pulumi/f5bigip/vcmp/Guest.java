@@ -301,11 +301,18 @@ public class Guest extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Guest(String name, GuestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:vcmp/guest:Guest", name, args == null ? GuestArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:vcmp/guest:Guest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Guest(String name, Output<String> id, @Nullable GuestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:vcmp/guest:Guest", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GuestArgs makeArgs(GuestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GuestArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

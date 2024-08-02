@@ -335,11 +335,18 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PoolAttachment(String name, PoolAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, args == null ? PoolAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PoolAttachment(String name, Output<String> id, @Nullable PoolAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/poolAttachment:PoolAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PoolAttachmentArgs makeArgs(PoolAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PoolAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

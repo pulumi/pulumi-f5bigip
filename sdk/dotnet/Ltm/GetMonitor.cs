@@ -117,6 +117,8 @@ namespace Pulumi.F5BigIP.Ltm
         /// Displays whether adaptive response time monitoring is enabled for this monitor.
         /// </summary>
         public readonly int AdaptiveLimit;
+        public readonly string Base;
+        public readonly string ChaseReferrals;
         public readonly string Database;
         public readonly string DefaultsFrom;
         /// <summary>
@@ -124,6 +126,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public readonly string Destination;
         public readonly string Filename;
+        public readonly string Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -136,6 +139,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
         /// </summary>
         public readonly int IpDscp;
+        public readonly string MandatoryAttributes;
         /// <summary>
         /// Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         /// </summary>
@@ -148,6 +152,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Instructs the system to mark the target resource down when the test is successful.
         /// </summary>
         public readonly string Reverse;
+        public readonly string Security;
         public readonly int TimeUntilUp;
         public readonly int Timeout;
         /// <summary>
@@ -162,6 +167,10 @@ namespace Pulumi.F5BigIP.Ltm
 
             int adaptiveLimit,
 
+            string @base,
+
+            string chaseReferrals,
+
             string database,
 
             string defaultsFrom,
@@ -170,11 +179,15 @@ namespace Pulumi.F5BigIP.Ltm
 
             string filename,
 
+            string filter,
+
             string id,
 
             int interval,
 
             int ipDscp,
+
+            string mandatoryAttributes,
 
             string manualResume,
 
@@ -188,6 +201,8 @@ namespace Pulumi.F5BigIP.Ltm
 
             string reverse,
 
+            string security,
+
             int timeUntilUp,
 
             int timeout,
@@ -198,19 +213,24 @@ namespace Pulumi.F5BigIP.Ltm
         {
             Adaptive = adaptive;
             AdaptiveLimit = adaptiveLimit;
+            Base = @base;
+            ChaseReferrals = chaseReferrals;
             Database = database;
             DefaultsFrom = defaultsFrom;
             Destination = destination;
             Filename = filename;
+            Filter = filter;
             Id = id;
             Interval = interval;
             IpDscp = ipDscp;
+            MandatoryAttributes = mandatoryAttributes;
             ManualResume = manualResume;
             Mode = mode;
             Name = name;
             Partition = partition;
             ReceiveDisable = receiveDisable;
             Reverse = reverse;
+            Security = security;
             TimeUntilUp = timeUntilUp;
             Timeout = timeout;
             Transparent = transparent;

@@ -195,11 +195,18 @@ public class VirtualAddress extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualAddress(String name, VirtualAddressArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/virtualAddress:VirtualAddress", name, args == null ? VirtualAddressArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/virtualAddress:VirtualAddress", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualAddress(String name, Output<String> id, @Nullable VirtualAddressState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/virtualAddress:VirtualAddress", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualAddressArgs makeArgs(VirtualAddressArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualAddressArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

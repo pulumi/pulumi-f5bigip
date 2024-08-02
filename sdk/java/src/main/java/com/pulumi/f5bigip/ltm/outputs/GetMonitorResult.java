@@ -21,6 +21,8 @@ public final class GetMonitorResult {
      * 
      */
     private Integer adaptiveLimit;
+    private String base;
+    private String chaseReferrals;
     private String database;
     private String defaultsFrom;
     /**
@@ -29,6 +31,7 @@ public final class GetMonitorResult {
      */
     private String destination;
     private String filename;
+    private String filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -44,6 +47,7 @@ public final class GetMonitorResult {
      * 
      */
     private Integer ipDscp;
+    private String mandatoryAttributes;
     /**
      * @return Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      * 
@@ -58,6 +62,7 @@ public final class GetMonitorResult {
      * 
      */
     private String reverse;
+    private String security;
     private Integer timeUntilUp;
     private Integer timeout;
     /**
@@ -82,6 +87,12 @@ public final class GetMonitorResult {
     public Integer adaptiveLimit() {
         return this.adaptiveLimit;
     }
+    public String base() {
+        return this.base;
+    }
+    public String chaseReferrals() {
+        return this.chaseReferrals;
+    }
     public String database() {
         return this.database;
     }
@@ -97,6 +108,9 @@ public final class GetMonitorResult {
     }
     public String filename() {
         return this.filename;
+    }
+    public String filter() {
+        return this.filter;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -118,6 +132,9 @@ public final class GetMonitorResult {
      */
     public Integer ipDscp() {
         return this.ipDscp;
+    }
+    public String mandatoryAttributes() {
+        return this.mandatoryAttributes;
     }
     /**
      * @return Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
@@ -144,6 +161,9 @@ public final class GetMonitorResult {
      */
     public String reverse() {
         return this.reverse;
+    }
+    public String security() {
+        return this.security;
     }
     public Integer timeUntilUp() {
         return this.timeUntilUp;
@@ -173,19 +193,24 @@ public final class GetMonitorResult {
     public static final class Builder {
         private String adaptive;
         private Integer adaptiveLimit;
+        private String base;
+        private String chaseReferrals;
         private String database;
         private String defaultsFrom;
         private String destination;
         private String filename;
+        private String filter;
         private String id;
         private Integer interval;
         private Integer ipDscp;
+        private String mandatoryAttributes;
         private String manualResume;
         private String mode;
         private String name;
         private String partition;
         private String receiveDisable;
         private String reverse;
+        private String security;
         private Integer timeUntilUp;
         private Integer timeout;
         private String transparent;
@@ -195,19 +220,24 @@ public final class GetMonitorResult {
     	      Objects.requireNonNull(defaults);
     	      this.adaptive = defaults.adaptive;
     	      this.adaptiveLimit = defaults.adaptiveLimit;
+    	      this.base = defaults.base;
+    	      this.chaseReferrals = defaults.chaseReferrals;
     	      this.database = defaults.database;
     	      this.defaultsFrom = defaults.defaultsFrom;
     	      this.destination = defaults.destination;
     	      this.filename = defaults.filename;
+    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.interval = defaults.interval;
     	      this.ipDscp = defaults.ipDscp;
+    	      this.mandatoryAttributes = defaults.mandatoryAttributes;
     	      this.manualResume = defaults.manualResume;
     	      this.mode = defaults.mode;
     	      this.name = defaults.name;
     	      this.partition = defaults.partition;
     	      this.receiveDisable = defaults.receiveDisable;
     	      this.reverse = defaults.reverse;
+    	      this.security = defaults.security;
     	      this.timeUntilUp = defaults.timeUntilUp;
     	      this.timeout = defaults.timeout;
     	      this.transparent = defaults.transparent;
@@ -228,6 +258,22 @@ public final class GetMonitorResult {
               throw new MissingRequiredPropertyException("GetMonitorResult", "adaptiveLimit");
             }
             this.adaptiveLimit = adaptiveLimit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder base(String base) {
+            if (base == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "base");
+            }
+            this.base = base;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder chaseReferrals(String chaseReferrals) {
+            if (chaseReferrals == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "chaseReferrals");
+            }
+            this.chaseReferrals = chaseReferrals;
             return this;
         }
         @CustomType.Setter
@@ -263,6 +309,14 @@ public final class GetMonitorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder filter(String filter) {
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "filter");
+            }
+            this.filter = filter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetMonitorResult", "id");
@@ -284,6 +338,14 @@ public final class GetMonitorResult {
               throw new MissingRequiredPropertyException("GetMonitorResult", "ipDscp");
             }
             this.ipDscp = ipDscp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mandatoryAttributes(String mandatoryAttributes) {
+            if (mandatoryAttributes == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "mandatoryAttributes");
+            }
+            this.mandatoryAttributes = mandatoryAttributes;
             return this;
         }
         @CustomType.Setter
@@ -335,6 +397,14 @@ public final class GetMonitorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder security(String security) {
+            if (security == null) {
+              throw new MissingRequiredPropertyException("GetMonitorResult", "security");
+            }
+            this.security = security;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeUntilUp(Integer timeUntilUp) {
             if (timeUntilUp == null) {
               throw new MissingRequiredPropertyException("GetMonitorResult", "timeUntilUp");
@@ -370,19 +440,24 @@ public final class GetMonitorResult {
             final var _resultValue = new GetMonitorResult();
             _resultValue.adaptive = adaptive;
             _resultValue.adaptiveLimit = adaptiveLimit;
+            _resultValue.base = base;
+            _resultValue.chaseReferrals = chaseReferrals;
             _resultValue.database = database;
             _resultValue.defaultsFrom = defaultsFrom;
             _resultValue.destination = destination;
             _resultValue.filename = filename;
+            _resultValue.filter = filter;
             _resultValue.id = id;
             _resultValue.interval = interval;
             _resultValue.ipDscp = ipDscp;
+            _resultValue.mandatoryAttributes = mandatoryAttributes;
             _resultValue.manualResume = manualResume;
             _resultValue.mode = mode;
             _resultValue.name = name;
             _resultValue.partition = partition;
             _resultValue.receiveDisable = receiveDisable;
             _resultValue.reverse = reverse;
+            _resultValue.security = security;
             _resultValue.timeUntilUp = timeUntilUp;
             _resultValue.timeout = timeout;
             _resultValue.transparent = transparent;

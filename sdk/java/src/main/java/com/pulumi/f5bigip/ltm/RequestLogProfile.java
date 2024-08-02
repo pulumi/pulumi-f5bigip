@@ -376,11 +376,18 @@ public class RequestLogProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RequestLogProfile(String name, RequestLogProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/requestLogProfile:RequestLogProfile", name, args == null ? RequestLogProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("f5bigip:ltm/requestLogProfile:RequestLogProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RequestLogProfile(String name, Output<String> id, @Nullable RequestLogProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:ltm/requestLogProfile:RequestLogProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RequestLogProfileArgs makeArgs(RequestLogProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RequestLogProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
