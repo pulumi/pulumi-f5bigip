@@ -214,7 +214,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DeviceGroup(String name) {
+    public DeviceGroup(java.lang.String name) {
         this(name, DeviceGroupArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DeviceGroup(String name, @Nullable DeviceGroupArgs args) {
+    public DeviceGroup(java.lang.String name, @Nullable DeviceGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,12 +231,12 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DeviceGroup(String name, @Nullable DeviceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:cm/deviceGroup:DeviceGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DeviceGroup(java.lang.String name, @Nullable DeviceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:cm/deviceGroup:DeviceGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DeviceGroup(String name, Output<String> id, @Nullable DeviceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:cm/deviceGroup:DeviceGroup", name, state, makeResourceOptions(options, id));
+    private DeviceGroup(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:cm/deviceGroup:DeviceGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DeviceGroupArgs makeArgs(@Nullable DeviceGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -246,7 +246,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
         return args == null ? DeviceGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -262,7 +262,7 @@ public class DeviceGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DeviceGroup get(String name, Output<String> id, @Nullable DeviceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DeviceGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable DeviceGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DeviceGroup(name, id, state, options);
     }
 }

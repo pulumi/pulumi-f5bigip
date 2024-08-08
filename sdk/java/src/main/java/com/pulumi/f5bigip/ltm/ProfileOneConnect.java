@@ -210,7 +210,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileOneConnect(String name) {
+    public ProfileOneConnect(java.lang.String name) {
         this(name, ProfileOneConnectArgs.Empty);
     }
     /**
@@ -218,7 +218,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileOneConnect(String name, ProfileOneConnectArgs args) {
+    public ProfileOneConnect(java.lang.String name, ProfileOneConnectArgs args) {
         this(name, args, null);
     }
     /**
@@ -227,12 +227,12 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileOneConnect(String name, ProfileOneConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileOneConnect(java.lang.String name, ProfileOneConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileOneConnect(String name, Output<String> id, @Nullable ProfileOneConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, state, makeResourceOptions(options, id));
+    private ProfileOneConnect(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileOneConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileOneConnectArgs makeArgs(ProfileOneConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -242,7 +242,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileOneConnectArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -258,7 +258,7 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileOneConnect get(String name, Output<String> id, @Nullable ProfileOneConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileOneConnect get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileOneConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileOneConnect(name, id, state, options);
     }
 }

@@ -884,7 +884,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileClientSsl(String name) {
+    public ProfileClientSsl(java.lang.String name) {
         this(name, ProfileClientSslArgs.Empty);
     }
     /**
@@ -892,7 +892,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileClientSsl(String name, ProfileClientSslArgs args) {
+    public ProfileClientSsl(java.lang.String name, ProfileClientSslArgs args) {
         this(name, args, null);
     }
     /**
@@ -901,12 +901,12 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileClientSsl(String name, ProfileClientSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileClientSsl(java.lang.String name, ProfileClientSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileClientSsl(String name, Output<String> id, @Nullable ProfileClientSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, state, makeResourceOptions(options, id));
+    private ProfileClientSsl(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileClientSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileClientSslArgs makeArgs(ProfileClientSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -916,7 +916,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileClientSslArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -935,7 +935,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileClientSsl get(String name, Output<String> id, @Nullable ProfileClientSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileClientSsl get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileClientSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileClientSsl(name, id, state, options);
     }
 }

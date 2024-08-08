@@ -118,7 +118,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IpsecProfile(String name) {
+    public IpsecProfile(java.lang.String name) {
         this(name, IpsecProfileArgs.Empty);
     }
     /**
@@ -126,7 +126,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IpsecProfile(String name, IpsecProfileArgs args) {
+    public IpsecProfile(java.lang.String name, IpsecProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -135,12 +135,12 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IpsecProfile(String name, IpsecProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/ipsecProfile:IpsecProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IpsecProfile(java.lang.String name, IpsecProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/ipsecProfile:IpsecProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IpsecProfile(String name, Output<String> id, @Nullable IpsecProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/ipsecProfile:IpsecProfile", name, state, makeResourceOptions(options, id));
+    private IpsecProfile(java.lang.String name, Output<java.lang.String> id, @Nullable IpsecProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/ipsecProfile:IpsecProfile", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IpsecProfileArgs makeArgs(IpsecProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -150,7 +150,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
         return args == null ? IpsecProfileArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -166,7 +166,7 @@ public class IpsecProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IpsecProfile get(String name, Output<String> id, @Nullable IpsecProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IpsecProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable IpsecProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IpsecProfile(name, id, state, options);
     }
 }

@@ -90,7 +90,7 @@ class AwaitableGetDataGroupResult(GetDataGroupResult):
 
 def get_data_group(name: Optional[str] = None,
                    partition: Optional[str] = None,
-                   records: Optional[Sequence[pulumi.InputType['GetDataGroupRecordArgs']]] = None,
+                   records: Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]] = None,
                    type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataGroupResult:
     """
@@ -109,7 +109,7 @@ def get_data_group(name: Optional[str] = None,
 
     :param str name: Name of the datagroup
     :param str partition: partition of the datagroup
-    :param Sequence[pulumi.InputType['GetDataGroupRecordArgs']] records: Specifies record of type (string/ip/integer)
+    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']] records: Specifies record of type (string/ip/integer)
     :param str type: The Data Group type (string, ip, integer)"
     """
     __args__ = dict()
@@ -131,7 +131,7 @@ def get_data_group(name: Optional[str] = None,
 @_utilities.lift_output_func(get_data_group)
 def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
                           partition: Optional[pulumi.Input[str]] = None,
-                          records: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataGroupRecordArgs']]]]] = None,
+                          records: Optional[pulumi.Input[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]]]] = None,
                           type: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataGroupResult]:
     """
@@ -150,7 +150,7 @@ def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the datagroup
     :param str partition: partition of the datagroup
-    :param Sequence[pulumi.InputType['GetDataGroupRecordArgs']] records: Specifies record of type (string/ip/integer)
+    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']] records: Specifies record of type (string/ip/integer)
     :param str type: The Data Group type (string, ip, integer)"
     """
     ...

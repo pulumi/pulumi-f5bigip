@@ -139,10 +139,10 @@ class AwaitableGetWafEntityUrlResult(GetWafEntityUrlResult):
             type=self.type)
 
 
-def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']]] = None,
+def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']]] = None,
                        description: Optional[str] = None,
                        method: Optional[str] = None,
-                       method_overrides: Optional[Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']]] = None,
+                       method_overrides: Optional[Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']]] = None,
                        name: Optional[str] = None,
                        perform_staging: Optional[bool] = None,
                        protocol: Optional[str] = None,
@@ -168,37 +168,37 @@ def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[pul
             87654321,
         ],
         method_overrides=[
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=False,
-                method="BCOPY",
-            ),
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=True,
-                method="BDELETE",
-            ),
+            {
+                "allow": False,
+                "method": "BCOPY",
+            },
+            {
+                "allow": True,
+                "method": "BDELETE",
+            },
         ],
         cross_origin_requests_enforcements=[
-            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
-                include_subdomains=True,
-                origin_name="app1.com",
-                origin_port="80",
-                origin_protocol="http",
-            ),
-            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
-                include_subdomains=True,
-                origin_name="app2.com",
-                origin_port="443",
-                origin_protocol="http",
-            ),
+            {
+                "include_subdomains": True,
+                "origin_name": "app1.com",
+                "origin_port": "80",
+                "origin_protocol": "http",
+            },
+            {
+                "include_subdomains": True,
+                "origin_name": "app2.com",
+                "origin_port": "443",
+                "origin_protocol": "http",
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
+    :param Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
            different domain.
     :param str description: A description of the URL.
     :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
-    :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
+    :param Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.
     :param str protocol: Specifies whether the protocol for the URL is 'http' or 'https'. Default is: http.
@@ -233,10 +233,10 @@ def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[pul
 
 
 @_utilities.lift_output_func(get_waf_entity_url)
-def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']]]]] = None,
+def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulumi.Input[Optional[Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']]]]] = None,
                               description: Optional[pulumi.Input[Optional[str]]] = None,
                               method: Optional[pulumi.Input[Optional[str]]] = None,
-                              method_overrides: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']]]]] = None,
+                              method_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']]]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               perform_staging: Optional[pulumi.Input[Optional[bool]]] = None,
                               protocol: Optional[pulumi.Input[Optional[str]]] = None,
@@ -262,37 +262,37 @@ def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulum
             87654321,
         ],
         method_overrides=[
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=False,
-                method="BCOPY",
-            ),
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=True,
-                method="BDELETE",
-            ),
+            {
+                "allow": False,
+                "method": "BCOPY",
+            },
+            {
+                "allow": True,
+                "method": "BDELETE",
+            },
         ],
         cross_origin_requests_enforcements=[
-            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
-                include_subdomains=True,
-                origin_name="app1.com",
-                origin_port="80",
-                origin_protocol="http",
-            ),
-            f5bigip.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs(
-                include_subdomains=True,
-                origin_name="app2.com",
-                origin_port="443",
-                origin_protocol="http",
-            ),
+            {
+                "include_subdomains": True,
+                "origin_name": "app1.com",
+                "origin_port": "80",
+                "origin_protocol": "http",
+            },
+            {
+                "include_subdomains": True,
+                "origin_name": "app2.com",
+                "origin_port": "443",
+                "origin_protocol": "http",
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetWafEntityUrlCrossOriginRequestsEnforcementArgs']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
+    :param Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']] cross_origin_requests_enforcements: A list of options that enables your web-application to share data with a website hosted on a
            different domain.
     :param str description: A description of the URL.
     :param str method: Select a Method for the URL to create an API endpoint. Default is : *.
-    :param Sequence[pulumi.InputType['GetWafEntityUrlMethodOverrideArgs']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
+    :param Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']] method_overrides: A list of methods that are allowed or disallowed for a specific URL.
     :param str name: WAF entity URL name.
     :param bool perform_staging: If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.
     :param str protocol: Specifies whether the protocol for the URL is 'http' or 'https'. Default is: http.

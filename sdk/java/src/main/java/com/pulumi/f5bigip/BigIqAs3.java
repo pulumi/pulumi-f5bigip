@@ -208,7 +208,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BigIqAs3(String name) {
+    public BigIqAs3(java.lang.String name) {
         this(name, BigIqAs3Args.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BigIqAs3(String name, BigIqAs3Args args) {
+    public BigIqAs3(java.lang.String name, BigIqAs3Args args) {
         this(name, args, null);
     }
     /**
@@ -225,12 +225,12 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BigIqAs3(String name, BigIqAs3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/bigIqAs3:BigIqAs3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BigIqAs3(java.lang.String name, BigIqAs3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/bigIqAs3:BigIqAs3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BigIqAs3(String name, Output<String> id, @Nullable BigIqAs3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/bigIqAs3:BigIqAs3", name, state, makeResourceOptions(options, id));
+    private BigIqAs3(java.lang.String name, Output<java.lang.String> id, @Nullable BigIqAs3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/bigIqAs3:BigIqAs3", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BigIqAs3Args makeArgs(BigIqAs3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -240,7 +240,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
         return args == null ? BigIqAs3Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -263,7 +263,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BigIqAs3 get(String name, Output<String> id, @Nullable BigIqAs3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BigIqAs3 get(java.lang.String name, Output<java.lang.String> id, @Nullable BigIqAs3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BigIqAs3(name, id, state, options);
     }
 }

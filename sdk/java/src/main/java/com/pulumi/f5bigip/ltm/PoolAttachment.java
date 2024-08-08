@@ -317,7 +317,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PoolAttachment(String name) {
+    public PoolAttachment(java.lang.String name) {
         this(name, PoolAttachmentArgs.Empty);
     }
     /**
@@ -325,7 +325,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PoolAttachment(String name, PoolAttachmentArgs args) {
+    public PoolAttachment(java.lang.String name, PoolAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -334,12 +334,12 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PoolAttachment(String name, PoolAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PoolAttachment(java.lang.String name, PoolAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PoolAttachment(String name, Output<String> id, @Nullable PoolAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, state, makeResourceOptions(options, id));
+    private PoolAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable PoolAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PoolAttachmentArgs makeArgs(PoolAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -349,7 +349,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
         return args == null ? PoolAttachmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -365,7 +365,7 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PoolAttachment get(String name, Output<String> id, @Nullable PoolAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PoolAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable PoolAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PoolAttachment(name, id, state, options);
     }
 }
