@@ -331,7 +331,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FastUdpApp(String name) {
+    public FastUdpApp(java.lang.String name) {
         this(name, FastUdpAppArgs.Empty);
     }
     /**
@@ -339,7 +339,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FastUdpApp(String name, FastUdpAppArgs args) {
+    public FastUdpApp(java.lang.String name, FastUdpAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -348,12 +348,12 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FastUdpApp(String name, FastUdpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastUdpApp:FastUdpApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FastUdpApp(java.lang.String name, FastUdpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastUdpApp:FastUdpApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FastUdpApp(String name, Output<String> id, @Nullable FastUdpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastUdpApp:FastUdpApp", name, state, makeResourceOptions(options, id));
+    private FastUdpApp(java.lang.String name, Output<java.lang.String> id, @Nullable FastUdpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastUdpApp:FastUdpApp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FastUdpAppArgs makeArgs(FastUdpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -363,7 +363,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
         return args == null ? FastUdpAppArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -379,7 +379,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FastUdpApp get(String name, Output<String> id, @Nullable FastUdpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FastUdpApp get(java.lang.String name, Output<java.lang.String> id, @Nullable FastUdpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FastUdpApp(name, id, state, options);
     }
 }

@@ -294,7 +294,7 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
                              sensitive_parameter: Optional[bool] = None,
                              signature_overrides_disables: Optional[Sequence[int]] = None,
                              type: Optional[str] = None,
-                             url: Optional[pulumi.InputType['GetWafEntityParameterUrlArgs']] = None,
+                             url: Optional[Union['GetWafEntityParameterUrlArgs', 'GetWafEntityParameterUrlArgsDict']] = None,
                              value_type: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafEntityParameterResult:
     """
@@ -382,7 +382,7 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
                                     sensitive_parameter: Optional[pulumi.Input[Optional[bool]]] = None,
                                     signature_overrides_disables: Optional[pulumi.Input[Optional[Sequence[int]]]] = None,
                                     type: Optional[pulumi.Input[Optional[str]]] = None,
-                                    url: Optional[pulumi.Input[Optional[pulumi.InputType['GetWafEntityParameterUrlArgs']]]] = None,
+                                    url: Optional[pulumi.Input[Optional[Union['GetWafEntityParameterUrlArgs', 'GetWafEntityParameterUrlArgsDict']]]] = None,
                                     value_type: Optional[pulumi.Input[Optional[str]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityParameterResult]:
     """

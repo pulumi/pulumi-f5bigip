@@ -206,7 +206,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrafficSelector(String name) {
+    public TrafficSelector(java.lang.String name) {
         this(name, TrafficSelectorArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrafficSelector(String name, TrafficSelectorArgs args) {
+    public TrafficSelector(java.lang.String name, TrafficSelectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrafficSelector(String name, TrafficSelectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/trafficSelector:TrafficSelector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TrafficSelector(java.lang.String name, TrafficSelectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/trafficSelector:TrafficSelector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrafficSelector(String name, Output<String> id, @Nullable TrafficSelectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/trafficSelector:TrafficSelector", name, state, makeResourceOptions(options, id));
+    private TrafficSelector(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficSelectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/trafficSelector:TrafficSelector", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TrafficSelectorArgs makeArgs(TrafficSelectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
         return args == null ? TrafficSelectorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +254,7 @@ public class TrafficSelector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrafficSelector get(String name, Output<String> id, @Nullable TrafficSelectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrafficSelector get(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficSelectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrafficSelector(name, id, state, options);
     }
 }

@@ -566,17 +566,17 @@ class IApp(pulumi.CustomResource):
                  inherited_devicegroup: Optional[pulumi.Input[str]] = None,
                  inherited_traffic_group: Optional[pulumi.Input[str]] = None,
                  jsonfile: Optional[pulumi.Input[str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
+                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  strict_updates: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
                  template: Optional[pulumi.Input[str]] = None,
                  template_modified: Optional[pulumi.Input[str]] = None,
                  template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
                  traffic_group: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
@@ -603,8 +603,8 @@ class IApp(pulumi.CustomResource):
         :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]] lists: string values
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
         :param pulumi.Input[str] name: Name of the iApp.
         :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
         :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
@@ -657,17 +657,17 @@ class IApp(pulumi.CustomResource):
                  inherited_devicegroup: Optional[pulumi.Input[str]] = None,
                  inherited_traffic_group: Optional[pulumi.Input[str]] = None,
                  jsonfile: Optional[pulumi.Input[str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
+                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  strict_updates: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
                  template: Optional[pulumi.Input[str]] = None,
                  template_modified: Optional[pulumi.Input[str]] = None,
                  template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
                  traffic_group: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -714,17 +714,17 @@ class IApp(pulumi.CustomResource):
             inherited_devicegroup: Optional[pulumi.Input[str]] = None,
             inherited_traffic_group: Optional[pulumi.Input[str]] = None,
             jsonfile: Optional[pulumi.Input[str]] = None,
-            lists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
-            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
+            lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition: Optional[pulumi.Input[str]] = None,
             strict_updates: Optional[pulumi.Input[str]] = None,
-            tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
+            tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
             template: Optional[pulumi.Input[str]] = None,
             template_modified: Optional[pulumi.Input[str]] = None,
             template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
             traffic_group: Optional[pulumi.Input[str]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None) -> 'IApp':
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None) -> 'IApp':
         """
         Get an existing IApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -738,8 +738,8 @@ class IApp(pulumi.CustomResource):
         :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]] lists: string values
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
         :param pulumi.Input[str] name: Name of the iApp.
         :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
         :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
