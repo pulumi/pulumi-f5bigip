@@ -515,12 +515,12 @@ class ProfileRewrite(pulumi.CustomResource):
                  bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
                  cache_type: Optional[pulumi.Input[str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteCookieRuleArgs']]]]] = None,
+                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteRequestArgs']]]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteResponseArgs']]]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
                  rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rewrite_mode: Optional[pulumi.Input[str]] = None,
                  signing_cert: Optional[pulumi.Input[str]] = None,
@@ -555,31 +555,31 @@ class ProfileRewrite(pulumi.CustomResource):
             name="/Common/tf_profile_translate",
             defaults_from="/Common/rewrite",
             rewrite_mode="uri-translation",
-            requests=[f5bigip.ltm.ProfileRewriteRequestArgs(
-                insert_xfwd_for="enabled",
-                insert_xfwd_host="disabled",
-                insert_xfwd_protocol="enabled",
-                rewrite_headers="disabled",
-            )],
-            responses=[f5bigip.ltm.ProfileRewriteResponseArgs(
-                rewrite_content="enabled",
-                rewrite_headers="disabled",
-            )],
+            requests=[{
+                "insert_xfwd_for": "enabled",
+                "insert_xfwd_host": "disabled",
+                "insert_xfwd_protocol": "enabled",
+                "rewrite_headers": "disabled",
+            }],
+            responses=[{
+                "rewrite_content": "enabled",
+                "rewrite_headers": "disabled",
+            }],
             cookie_rules=[
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    rule_name="cookie1",
-                    client_domain="wrong.com",
-                    client_path="/this/",
-                    server_domain="wrong.com",
-                    server_path="/this/",
-                ),
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    rule_name="cookie2",
-                    client_domain="incorrect.com",
-                    client_path="/this/",
-                    server_domain="absolute.com",
-                    server_path="/this/",
-                ),
+                {
+                    "rule_name": "cookie1",
+                    "client_domain": "wrong.com",
+                    "client_path": "/this/",
+                    "server_domain": "wrong.com",
+                    "server_path": "/this/",
+                },
+                {
+                    "rule_name": "cookie2",
+                    "client_domain": "incorrect.com",
+                    "client_path": "/this/",
+                    "server_domain": "absolute.com",
+                    "server_path": "/this/",
+                },
             ])
         ```
 
@@ -588,12 +588,12 @@ class ProfileRewrite(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypass_lists: Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
         :param pulumi.Input[str] ca_file: Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
         :param pulumi.Input[str] cache_type: Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteCookieRuleArgs']]]] cookie_rules: Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]] cookie_rules: Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
         :param pulumi.Input[str] crl_file: Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
         :param pulumi.Input[str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
         :param pulumi.Input[str] name: Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteRequestArgs']]]] requests: Block type. Each request is block type with following arguments.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteResponseArgs']]]] responses: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]] requests: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]] responses: Block type. Each request is block type with following arguments.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rewrite_lists: Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
         :param pulumi.Input[str] rewrite_mode: Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
         :param pulumi.Input[str] signing_cert: Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )
@@ -634,31 +634,31 @@ class ProfileRewrite(pulumi.CustomResource):
             name="/Common/tf_profile_translate",
             defaults_from="/Common/rewrite",
             rewrite_mode="uri-translation",
-            requests=[f5bigip.ltm.ProfileRewriteRequestArgs(
-                insert_xfwd_for="enabled",
-                insert_xfwd_host="disabled",
-                insert_xfwd_protocol="enabled",
-                rewrite_headers="disabled",
-            )],
-            responses=[f5bigip.ltm.ProfileRewriteResponseArgs(
-                rewrite_content="enabled",
-                rewrite_headers="disabled",
-            )],
+            requests=[{
+                "insert_xfwd_for": "enabled",
+                "insert_xfwd_host": "disabled",
+                "insert_xfwd_protocol": "enabled",
+                "rewrite_headers": "disabled",
+            }],
+            responses=[{
+                "rewrite_content": "enabled",
+                "rewrite_headers": "disabled",
+            }],
             cookie_rules=[
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    rule_name="cookie1",
-                    client_domain="wrong.com",
-                    client_path="/this/",
-                    server_domain="wrong.com",
-                    server_path="/this/",
-                ),
-                f5bigip.ltm.ProfileRewriteCookieRuleArgs(
-                    rule_name="cookie2",
-                    client_domain="incorrect.com",
-                    client_path="/this/",
-                    server_domain="absolute.com",
-                    server_path="/this/",
-                ),
+                {
+                    "rule_name": "cookie1",
+                    "client_domain": "wrong.com",
+                    "client_path": "/this/",
+                    "server_domain": "wrong.com",
+                    "server_path": "/this/",
+                },
+                {
+                    "rule_name": "cookie2",
+                    "client_domain": "incorrect.com",
+                    "client_path": "/this/",
+                    "server_domain": "absolute.com",
+                    "server_path": "/this/",
+                },
             ])
         ```
 
@@ -680,12 +680,12 @@ class ProfileRewrite(pulumi.CustomResource):
                  bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
                  cache_type: Optional[pulumi.Input[str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteCookieRuleArgs']]]]] = None,
+                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteRequestArgs']]]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteResponseArgs']]]]] = None,
+                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
                  rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rewrite_mode: Optional[pulumi.Input[str]] = None,
                  signing_cert: Optional[pulumi.Input[str]] = None,
@@ -735,12 +735,12 @@ class ProfileRewrite(pulumi.CustomResource):
             bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ca_file: Optional[pulumi.Input[str]] = None,
             cache_type: Optional[pulumi.Input[str]] = None,
-            cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteCookieRuleArgs']]]]] = None,
+            cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
             crl_file: Optional[pulumi.Input[str]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            requests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteRequestArgs']]]]] = None,
-            responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteResponseArgs']]]]] = None,
+            requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+            responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
             rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             rewrite_mode: Optional[pulumi.Input[str]] = None,
             signing_cert: Optional[pulumi.Input[str]] = None,
@@ -757,12 +757,12 @@ class ProfileRewrite(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypass_lists: Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
         :param pulumi.Input[str] ca_file: Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
         :param pulumi.Input[str] cache_type: Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteCookieRuleArgs']]]] cookie_rules: Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]] cookie_rules: Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
         :param pulumi.Input[str] crl_file: Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
         :param pulumi.Input[str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
         :param pulumi.Input[str] name: Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteRequestArgs']]]] requests: Block type. Each request is block type with following arguments.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteResponseArgs']]]] responses: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]] requests: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]] responses: Block type. Each request is block type with following arguments.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rewrite_lists: Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
         :param pulumi.Input[str] rewrite_mode: Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
         :param pulumi.Input[str] signing_cert: Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )

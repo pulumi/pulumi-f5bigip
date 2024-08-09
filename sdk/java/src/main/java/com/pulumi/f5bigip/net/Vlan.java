@@ -141,7 +141,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Vlan(String name) {
+    public Vlan(java.lang.String name) {
         this(name, VlanArgs.Empty);
     }
     /**
@@ -149,7 +149,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Vlan(String name, VlanArgs args) {
+    public Vlan(java.lang.String name, VlanArgs args) {
         this(name, args, null);
     }
     /**
@@ -158,12 +158,12 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Vlan(String name, VlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:net/vlan:Vlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Vlan(java.lang.String name, VlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:net/vlan:Vlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Vlan(String name, Output<String> id, @Nullable VlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:net/vlan:Vlan", name, state, makeResourceOptions(options, id));
+    private Vlan(java.lang.String name, Output<java.lang.String> id, @Nullable VlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:net/vlan:Vlan", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VlanArgs makeArgs(VlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -173,7 +173,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
         return args == null ? VlanArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +189,7 @@ public class Vlan extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Vlan get(String name, Output<String> id, @Nullable VlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Vlan get(java.lang.String name, Output<java.lang.String> id, @Nullable VlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Vlan(name, id, state, options);
     }
 }

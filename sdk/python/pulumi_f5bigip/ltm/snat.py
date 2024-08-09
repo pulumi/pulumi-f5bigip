@@ -388,7 +388,7 @@ class Snat(pulumi.CustomResource):
                  full_path: Optional[pulumi.Input[str]] = None,
                  mirror: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  sourceport: Optional[pulumi.Input[str]] = None,
@@ -411,9 +411,9 @@ class Snat(pulumi.CustomResource):
             name="/Common/test-snat",
             translation="/Common/136.1.1.2",
             sourceport="preserve",
-            origins=[f5bigip.ltm.SnatOriginArgs(
-                name="0.0.0.0/0",
-            )],
+            origins=[{
+                "name": "0.0.0.0/0",
+            }],
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
@@ -424,7 +424,7 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
         :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
@@ -453,9 +453,9 @@ class Snat(pulumi.CustomResource):
             name="/Common/test-snat",
             translation="/Common/136.1.1.2",
             sourceport="preserve",
-            origins=[f5bigip.ltm.SnatOriginArgs(
-                name="0.0.0.0/0",
-            )],
+            origins=[{
+                "name": "0.0.0.0/0",
+            }],
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
@@ -479,7 +479,7 @@ class Snat(pulumi.CustomResource):
                  full_path: Optional[pulumi.Input[str]] = None,
                  mirror: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  sourceport: Optional[pulumi.Input[str]] = None,
@@ -524,7 +524,7 @@ class Snat(pulumi.CustomResource):
             full_path: Optional[pulumi.Input[str]] = None,
             mirror: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]]] = None,
+            origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
             partition: Optional[pulumi.Input[str]] = None,
             snatpool: Optional[pulumi.Input[str]] = None,
             sourceport: Optional[pulumi.Input[str]] = None,
@@ -542,7 +542,7 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
         :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.

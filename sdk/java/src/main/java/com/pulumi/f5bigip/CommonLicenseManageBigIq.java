@@ -251,7 +251,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CommonLicenseManageBigIq(String name) {
+    public CommonLicenseManageBigIq(java.lang.String name) {
         this(name, CommonLicenseManageBigIqArgs.Empty);
     }
     /**
@@ -259,7 +259,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CommonLicenseManageBigIq(String name, CommonLicenseManageBigIqArgs args) {
+    public CommonLicenseManageBigIq(java.lang.String name, CommonLicenseManageBigIqArgs args) {
         this(name, args, null);
     }
     /**
@@ -268,12 +268,12 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CommonLicenseManageBigIq(String name, CommonLicenseManageBigIqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CommonLicenseManageBigIq(java.lang.String name, CommonLicenseManageBigIqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CommonLicenseManageBigIq(String name, Output<String> id, @Nullable CommonLicenseManageBigIqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, state, makeResourceOptions(options, id));
+    private CommonLicenseManageBigIq(java.lang.String name, Output<java.lang.String> id, @Nullable CommonLicenseManageBigIqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CommonLicenseManageBigIqArgs makeArgs(CommonLicenseManageBigIqArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -283,7 +283,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
         return args == null ? CommonLicenseManageBigIqArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -306,7 +306,7 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CommonLicenseManageBigIq get(String name, Output<String> id, @Nullable CommonLicenseManageBigIqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CommonLicenseManageBigIq get(java.lang.String name, Output<java.lang.String> id, @Nullable CommonLicenseManageBigIqState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CommonLicenseManageBigIq(name, id, state, options);
     }
 }

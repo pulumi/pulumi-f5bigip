@@ -198,7 +198,7 @@ class DataGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
                  records_src: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -211,7 +211,7 @@ class DataGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] internal: Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
         :param pulumi.Input[str] name: Name of the datagroup
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         :param pulumi.Input[str] records_src: Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
                This should be used in conjunction with `internal` attribute set `false`
         :param pulumi.Input[str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
@@ -244,7 +244,7 @@ class DataGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
                  records_src: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -277,7 +277,7 @@ class DataGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             internal: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
             records_src: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DataGroup':
         """
@@ -289,7 +289,7 @@ class DataGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] internal: Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
         :param pulumi.Input[str] name: Name of the datagroup
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         :param pulumi.Input[str] records_src: Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
                This should be used in conjunction with `internal` attribute set `false`
         :param pulumi.Input[str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`

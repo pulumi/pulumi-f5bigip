@@ -506,7 +506,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public As3(String name) {
+    public As3(java.lang.String name) {
         this(name, As3Args.Empty);
     }
     /**
@@ -514,7 +514,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public As3(String name, @Nullable As3Args args) {
+    public As3(java.lang.String name, @Nullable As3Args args) {
         this(name, args, null);
     }
     /**
@@ -523,12 +523,12 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public As3(String name, @Nullable As3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/as3:As3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public As3(java.lang.String name, @Nullable As3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/as3:As3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private As3(String name, Output<String> id, @Nullable As3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/as3:As3", name, state, makeResourceOptions(options, id));
+    private As3(java.lang.String name, Output<java.lang.String> id, @Nullable As3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/as3:As3", name, state, makeResourceOptions(options, id), false);
     }
 
     private static As3Args makeArgs(@Nullable As3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -538,7 +538,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return args == null ? As3Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -554,7 +554,7 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static As3 get(String name, Output<String> id, @Nullable As3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static As3 get(java.lang.String name, Output<java.lang.String> id, @Nullable As3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new As3(name, id, state, options);
     }
 }

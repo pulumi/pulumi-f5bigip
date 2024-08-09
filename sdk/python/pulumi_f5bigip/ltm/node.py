@@ -388,7 +388,7 @@ class Node(pulumi.CustomResource):
                  connection_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
-                 fqdn: Optional[pulumi.Input[pulumi.InputType['NodeFqdnArgs']]] = None,
+                 fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
                  monitor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
@@ -416,10 +416,10 @@ class Node(pulumi.CustomResource):
             monitor="/Common/icmp",
             description="Test-Node",
             rate_limit="disabled",
-            fqdn=f5bigip.ltm.NodeFqdnArgs(
-                address_family="ipv4",
-                interval="3000",
-            ))
+            fqdn={
+                "address_family": "ipv4",
+                "interval": "3000",
+            })
         ```
 
         ## Importing
@@ -474,10 +474,10 @@ class Node(pulumi.CustomResource):
             monitor="/Common/icmp",
             description="Test-Node",
             rate_limit="disabled",
-            fqdn=f5bigip.ltm.NodeFqdnArgs(
-                address_family="ipv4",
-                interval="3000",
-            ))
+            fqdn={
+                "address_family": "ipv4",
+                "interval": "3000",
+            })
         ```
 
         ## Importing
@@ -510,7 +510,7 @@ class Node(pulumi.CustomResource):
                  connection_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
-                 fqdn: Optional[pulumi.Input[pulumi.InputType['NodeFqdnArgs']]] = None,
+                 fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
                  monitor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
@@ -555,7 +555,7 @@ class Node(pulumi.CustomResource):
             connection_limit: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             dynamic_ratio: Optional[pulumi.Input[int]] = None,
-            fqdn: Optional[pulumi.Input[pulumi.InputType['NodeFqdnArgs']]] = None,
+            fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
             monitor: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rate_limit: Optional[pulumi.Input[str]] = None,

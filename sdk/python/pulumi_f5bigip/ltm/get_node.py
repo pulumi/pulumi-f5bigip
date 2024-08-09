@@ -192,7 +192,7 @@ class AwaitableGetNodeResult(GetNodeResult):
 
 def get_node(address: Optional[str] = None,
              description: Optional[str] = None,
-             fqdn: Optional[pulumi.InputType['GetNodeFqdnArgs']] = None,
+             fqdn: Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict']] = None,
              full_path: Optional[str] = None,
              name: Optional[str] = None,
              partition: Optional[str] = None,
@@ -237,7 +237,7 @@ def get_node(address: Optional[str] = None,
 @_utilities.lift_output_func(get_node)
 def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
                     description: Optional[pulumi.Input[Optional[str]]] = None,
-                    fqdn: Optional[pulumi.Input[Optional[pulumi.InputType['GetNodeFqdnArgs']]]] = None,
+                    fqdn: Optional[pulumi.Input[Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict']]]] = None,
                     full_path: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     partition: Optional[pulumi.Input[str]] = None,

@@ -190,11 +190,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesClientArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_type: Optional[pulumi.Input[str]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesServerArgs']]]]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
                  __props__=None):
         """
         `ltm.ProfileRewriteUriRules` Configures uri rewrite rules attached to the ltm rewrite profile
@@ -213,39 +213,39 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
             profile_name=tftest.name,
             rule_name="tf_rule",
             rule_type="request",
-            clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(
-                host="www.foo.com",
-                scheme="https",
-            )],
-            servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(
-                host="www.bar.com",
-                path="/this/",
-                scheme="https",
-                port="8888",
-            )])
+            clients=[{
+                "host": "www.foo.com",
+                "scheme": "https",
+            }],
+            servers=[{
+                "host": "www.bar.com",
+                "path": "/this/",
+                "scheme": "https",
+                "port": "8888",
+            }])
         tftestrule2 = f5bigip.ltm.ProfileRewriteUriRules("tftestrule2",
             profile_name=tftest.name,
             rule_name="tf_rule2",
-            clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(
-                host="www.baz.com",
-                path="/that/",
-                scheme="ftp",
-                port="8888",
-            )],
-            servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(
-                host="www.buz.com",
-                path="/those/",
-                scheme="ftps",
-            )])
+            clients=[{
+                "host": "www.baz.com",
+                "path": "/that/",
+                "scheme": "ftp",
+                "port": "8888",
+            }],
+            servers=[{
+                "host": "www.buz.com",
+                "path": "/those/",
+                "scheme": "ftps",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesClientArgs']]]] clients: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]] clients: Block type. Each request is block type with following arguments.
         :param pulumi.Input[str] profile_name: Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[str] rule_name: Specifies the name of the uri rule.
         :param pulumi.Input[str] rule_type: Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesServerArgs']]]] servers: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]] servers: Block type. Each request is block type with following arguments.
         """
         ...
     @overload
@@ -270,30 +270,30 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
             profile_name=tftest.name,
             rule_name="tf_rule",
             rule_type="request",
-            clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(
-                host="www.foo.com",
-                scheme="https",
-            )],
-            servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(
-                host="www.bar.com",
-                path="/this/",
-                scheme="https",
-                port="8888",
-            )])
+            clients=[{
+                "host": "www.foo.com",
+                "scheme": "https",
+            }],
+            servers=[{
+                "host": "www.bar.com",
+                "path": "/this/",
+                "scheme": "https",
+                "port": "8888",
+            }])
         tftestrule2 = f5bigip.ltm.ProfileRewriteUriRules("tftestrule2",
             profile_name=tftest.name,
             rule_name="tf_rule2",
-            clients=[f5bigip.ltm.ProfileRewriteUriRulesClientArgs(
-                host="www.baz.com",
-                path="/that/",
-                scheme="ftp",
-                port="8888",
-            )],
-            servers=[f5bigip.ltm.ProfileRewriteUriRulesServerArgs(
-                host="www.buz.com",
-                path="/those/",
-                scheme="ftps",
-            )])
+            clients=[{
+                "host": "www.baz.com",
+                "path": "/that/",
+                "scheme": "ftp",
+                "port": "8888",
+            }],
+            servers=[{
+                "host": "www.buz.com",
+                "path": "/those/",
+                "scheme": "ftps",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,11 +311,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesClientArgs']]]]] = None,
+                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  rule_type: Optional[pulumi.Input[str]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesServerArgs']]]]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -348,11 +348,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            clients: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesClientArgs']]]]] = None,
+            clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
             profile_name: Optional[pulumi.Input[str]] = None,
             rule_name: Optional[pulumi.Input[str]] = None,
             rule_type: Optional[pulumi.Input[str]] = None,
-            servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesServerArgs']]]]] = None) -> 'ProfileRewriteUriRules':
+            servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None) -> 'ProfileRewriteUriRules':
         """
         Get an existing ProfileRewriteUriRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -360,11 +360,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesClientArgs']]]] clients: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]] clients: Block type. Each request is block type with following arguments.
         :param pulumi.Input[str] profile_name: Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[str] rule_name: Specifies the name of the uri rule.
         :param pulumi.Input[str] rule_type: Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileRewriteUriRulesServerArgs']]]] servers: Block type. Each request is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]] servers: Block type. Each request is block type with following arguments.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

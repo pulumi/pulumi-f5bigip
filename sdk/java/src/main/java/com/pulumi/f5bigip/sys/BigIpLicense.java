@@ -48,7 +48,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BigIpLicense(String name) {
+    public BigIpLicense(java.lang.String name) {
         this(name, BigIpLicenseArgs.Empty);
     }
     /**
@@ -56,7 +56,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BigIpLicense(String name, BigIpLicenseArgs args) {
+    public BigIpLicense(java.lang.String name, BigIpLicenseArgs args) {
         this(name, args, null);
     }
     /**
@@ -65,12 +65,12 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BigIpLicense(String name, BigIpLicenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/bigIpLicense:BigIpLicense", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BigIpLicense(java.lang.String name, BigIpLicenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/bigIpLicense:BigIpLicense", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BigIpLicense(String name, Output<String> id, @Nullable BigIpLicenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/bigIpLicense:BigIpLicense", name, state, makeResourceOptions(options, id));
+    private BigIpLicense(java.lang.String name, Output<java.lang.String> id, @Nullable BigIpLicenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/bigIpLicense:BigIpLicense", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BigIpLicenseArgs makeArgs(BigIpLicenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -80,7 +80,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
         return args == null ? BigIpLicenseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -96,7 +96,7 @@ public class BigIpLicense extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BigIpLicense get(String name, Output<String> id, @Nullable BigIpLicenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BigIpLicense get(java.lang.String name, Output<java.lang.String> id, @Nullable BigIpLicenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BigIpLicense(name, id, state, options);
     }
 }

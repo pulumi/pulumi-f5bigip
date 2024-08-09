@@ -95,7 +95,7 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileBotDefense(String name) {
+    public ProfileBotDefense(java.lang.String name) {
         this(name, ProfileBotDefenseArgs.Empty);
     }
     /**
@@ -103,7 +103,7 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileBotDefense(String name, ProfileBotDefenseArgs args) {
+    public ProfileBotDefense(java.lang.String name, ProfileBotDefenseArgs args) {
         this(name, args, null);
     }
     /**
@@ -112,12 +112,12 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileBotDefense(String name, ProfileBotDefenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileBotDefense:ProfileBotDefense", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileBotDefense(java.lang.String name, ProfileBotDefenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileBotDefense:ProfileBotDefense", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileBotDefense(String name, Output<String> id, @Nullable ProfileBotDefenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileBotDefense:ProfileBotDefense", name, state, makeResourceOptions(options, id));
+    private ProfileBotDefense(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileBotDefenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileBotDefense:ProfileBotDefense", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileBotDefenseArgs makeArgs(ProfileBotDefenseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -127,7 +127,7 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileBotDefenseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -143,7 +143,7 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileBotDefense get(String name, Output<String> id, @Nullable ProfileBotDefenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileBotDefense get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileBotDefenseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileBotDefense(name, id, state, options);
     }
 }

@@ -909,23 +909,23 @@ class WafPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_passivemode: Optional[pulumi.Input[bool]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
+                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]]] = None,
+                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_import_json: Optional[pulumi.Input[str]] = None,
                  protocol_independent: Optional[pulumi.Input[bool]] = None,
                  server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
                  template_link: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -994,12 +994,12 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -1008,7 +1008,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         :param pulumi.Input[str] policy_import_json: The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
@@ -1016,7 +1016,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_technologies: The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]] signatures_settings: bulk signature setting
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]] signatures_settings: bulk signature setting
         :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
@@ -1104,23 +1104,23 @@ class WafPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_passivemode: Optional[pulumi.Input[bool]] = None,
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
+                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]]] = None,
+                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_import_json: Optional[pulumi.Input[str]] = None,
                  protocol_independent: Optional[pulumi.Input[bool]] = None,
                  server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
                  template_link: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -1180,16 +1180,16 @@ class WafPolicy(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enable_passivemode: Optional[pulumi.Input[bool]] = None,
             enforcement_mode: Optional[pulumi.Input[str]] = None,
-            file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
-            graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
-            host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
-            ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
+            file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+            graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+            host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+            ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
             modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             partition: Optional[pulumi.Input[str]] = None,
-            policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]]] = None,
+            policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
             policy_export_json: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             policy_import_json: Optional[pulumi.Input[str]] = None,
@@ -1197,7 +1197,7 @@ class WafPolicy(pulumi.CustomResource):
             server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+            signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
             template_link: Optional[pulumi.Input[str]] = None,
             template_name: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -1214,12 +1214,12 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies the description of the policy.
         :param pulumi.Input[bool] enable_passivemode: Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         :param pulumi.Input[str] enforcement_mode: How the system processes a request that triggers a security policy violation
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]] file_types: `file_types` takes list of file-types options to be used for policy builder.
                See file types below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -1228,7 +1228,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
         :param pulumi.Input[str] policy_export_json: Exported WAF policy deployed on BIGIP.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
@@ -1237,7 +1237,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_technologies: The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]] signatures_settings: bulk signature setting
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]] signatures_settings: bulk signature setting
         :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.

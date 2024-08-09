@@ -227,7 +227,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileFastHttp(String name) {
+    public ProfileFastHttp(java.lang.String name) {
         this(name, ProfileFastHttpArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileFastHttp(String name, ProfileFastHttpArgs args) {
+    public ProfileFastHttp(java.lang.String name, ProfileFastHttpArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,12 +244,12 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileFastHttp(String name, ProfileFastHttpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileFastHttp(java.lang.String name, ProfileFastHttpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileFastHttp(String name, Output<String> id, @Nullable ProfileFastHttpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, state, makeResourceOptions(options, id));
+    private ProfileFastHttp(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileFastHttpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileFastHttpArgs makeArgs(ProfileFastHttpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -259,7 +259,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileFastHttpArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +275,7 @@ public class ProfileFastHttp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileFastHttp get(String name, Output<String> id, @Nullable ProfileFastHttpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileFastHttp get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileFastHttpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileFastHttp(name, id, state, options);
     }
 }

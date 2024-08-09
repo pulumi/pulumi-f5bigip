@@ -292,7 +292,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IApp(String name) {
+    public IApp(java.lang.String name) {
         this(name, IAppArgs.Empty);
     }
     /**
@@ -300,7 +300,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IApp(String name, IAppArgs args) {
+    public IApp(java.lang.String name, IAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,12 +309,12 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IApp(String name, IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/iApp:IApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IApp(java.lang.String name, IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/iApp:IApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IApp(String name, Output<String> id, @Nullable IAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/iApp:IApp", name, state, makeResourceOptions(options, id));
+    private IApp(java.lang.String name, Output<java.lang.String> id, @Nullable IAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/iApp:IApp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IAppArgs makeArgs(IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -324,7 +324,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
         return args == null ? IAppArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -340,7 +340,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IApp get(String name, Output<String> id, @Nullable IAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IApp get(java.lang.String name, Output<java.lang.String> id, @Nullable IAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IApp(name, id, state, options);
     }
 }

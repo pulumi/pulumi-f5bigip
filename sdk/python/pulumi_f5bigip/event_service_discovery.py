@@ -277,7 +277,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
                  taskid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -290,22 +290,22 @@ class EventServiceDiscovery(pulumi.CustomResource):
         test = f5bigip.EventServiceDiscovery("test",
             taskid="~Sample_event_sd~My_app~My_pool",
             nodes=[
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode1",
-                    ip="192.168.2.3",
-                    port=8080,
-                ),
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode2",
-                    ip="192.168.2.4",
-                    port=8080,
-                ),
+                {
+                    "id": "newNode1",
+                    "ip": "192.168.2.3",
+                    "port": 8080,
+                },
+                {
+                    "id": "newNode2",
+                    "ip": "192.168.2.4",
+                    "port": 8080,
+                },
             ])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
                
                For more information, please refer below document
                https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery
@@ -369,16 +369,16 @@ class EventServiceDiscovery(pulumi.CustomResource):
         test = f5bigip.EventServiceDiscovery("test",
             taskid="~Sample_event_sd~My_app~My_pool",
             nodes=[
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode1",
-                    ip="192.168.2.3",
-                    port=8080,
-                ),
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode2",
-                    ip="192.168.2.4",
-                    port=8080,
-                ),
+                {
+                    "id": "newNode1",
+                    "ip": "192.168.2.3",
+                    "port": 8080,
+                },
+                {
+                    "id": "newNode2",
+                    "ip": "192.168.2.4",
+                    "port": 8080,
+                },
             ])
         ```
 
@@ -397,7 +397,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
                  taskid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -422,7 +422,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]]] = None,
+            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
             taskid: Optional[pulumi.Input[str]] = None) -> 'EventServiceDiscovery':
         """
         Get an existing EventServiceDiscovery resource's state with the given name, id, and optional extra
@@ -431,7 +431,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
                
                For more information, please refer below document
                https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery

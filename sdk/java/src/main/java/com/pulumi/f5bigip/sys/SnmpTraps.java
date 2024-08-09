@@ -260,7 +260,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnmpTraps(String name) {
+    public SnmpTraps(java.lang.String name) {
         this(name, SnmpTrapsArgs.Empty);
     }
     /**
@@ -268,7 +268,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnmpTraps(String name, @Nullable SnmpTrapsArgs args) {
+    public SnmpTraps(java.lang.String name, @Nullable SnmpTrapsArgs args) {
         this(name, args, null);
     }
     /**
@@ -277,12 +277,12 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnmpTraps(String name, @Nullable SnmpTrapsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/snmpTraps:SnmpTraps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SnmpTraps(java.lang.String name, @Nullable SnmpTrapsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/snmpTraps:SnmpTraps", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnmpTraps(String name, Output<String> id, @Nullable SnmpTrapsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/snmpTraps:SnmpTraps", name, state, makeResourceOptions(options, id));
+    private SnmpTraps(java.lang.String name, Output<java.lang.String> id, @Nullable SnmpTrapsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/snmpTraps:SnmpTraps", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SnmpTrapsArgs makeArgs(@Nullable SnmpTrapsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -292,7 +292,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
         return args == null ? SnmpTrapsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +308,7 @@ public class SnmpTraps extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnmpTraps get(String name, Output<String> id, @Nullable SnmpTrapsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnmpTraps get(java.lang.String name, Output<java.lang.String> id, @Nullable SnmpTrapsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnmpTraps(name, id, state, options);
     }
 }

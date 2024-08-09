@@ -188,7 +188,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventServiceDiscovery(String name) {
+    public EventServiceDiscovery(java.lang.String name) {
         this(name, EventServiceDiscoveryArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventServiceDiscovery(String name, EventServiceDiscoveryArgs args) {
+    public EventServiceDiscovery(java.lang.String name, EventServiceDiscoveryArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,12 +205,12 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventServiceDiscovery(String name, EventServiceDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventServiceDiscovery(java.lang.String name, EventServiceDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventServiceDiscovery(String name, Output<String> id, @Nullable EventServiceDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, state, makeResourceOptions(options, id));
+    private EventServiceDiscovery(java.lang.String name, Output<java.lang.String> id, @Nullable EventServiceDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventServiceDiscoveryArgs makeArgs(EventServiceDiscoveryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -220,7 +220,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
         return args == null ? EventServiceDiscoveryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -236,7 +236,7 @@ public class EventServiceDiscovery extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventServiceDiscovery get(String name, Output<String> id, @Nullable EventServiceDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventServiceDiscovery get(java.lang.String name, Output<java.lang.String> id, @Nullable EventServiceDiscoveryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventServiceDiscovery(name, id, state, options);
     }
 }

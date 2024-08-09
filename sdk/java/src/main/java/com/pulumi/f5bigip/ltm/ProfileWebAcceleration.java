@@ -262,7 +262,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileWebAcceleration(String name) {
+    public ProfileWebAcceleration(java.lang.String name) {
         this(name, ProfileWebAccelerationArgs.Empty);
     }
     /**
@@ -270,7 +270,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileWebAcceleration(String name, ProfileWebAccelerationArgs args) {
+    public ProfileWebAcceleration(java.lang.String name, ProfileWebAccelerationArgs args) {
         this(name, args, null);
     }
     /**
@@ -279,12 +279,12 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileWebAcceleration(String name, ProfileWebAccelerationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileWebAcceleration(java.lang.String name, ProfileWebAccelerationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileWebAcceleration(String name, Output<String> id, @Nullable ProfileWebAccelerationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration", name, state, makeResourceOptions(options, id));
+    private ProfileWebAcceleration(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileWebAccelerationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileWebAccelerationArgs makeArgs(ProfileWebAccelerationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -294,7 +294,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
         return args == null ? ProfileWebAccelerationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -310,7 +310,7 @@ public class ProfileWebAcceleration extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileWebAcceleration get(String name, Output<String> id, @Nullable ProfileWebAccelerationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileWebAcceleration get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileWebAccelerationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileWebAcceleration(name, id, state, options);
     }
 }

@@ -227,7 +227,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Snat(String name) {
+    public Snat(java.lang.String name) {
         this(name, SnatArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Snat(String name, SnatArgs args) {
+    public Snat(java.lang.String name, SnatArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,12 +244,12 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Snat(String name, SnatArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/snat:Snat", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Snat(java.lang.String name, SnatArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/snat:Snat", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Snat(String name, Output<String> id, @Nullable SnatState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/snat:Snat", name, state, makeResourceOptions(options, id));
+    private Snat(java.lang.String name, Output<java.lang.String> id, @Nullable SnatState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/snat:Snat", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SnatArgs makeArgs(SnatArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -259,7 +259,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
         return args == null ? SnatArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +275,7 @@ public class Snat extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Snat get(String name, Output<String> id, @Nullable SnatState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Snat get(java.lang.String name, Output<java.lang.String> id, @Nullable SnatState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Snat(name, id, state, options);
     }
 }

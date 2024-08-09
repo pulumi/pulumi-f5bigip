@@ -36,20 +36,20 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var snmp = new Snmp("snmp", SnmpArgs.builder()
- *             .sysContact(" NetOPsAdmin s.shitole{@literal @}f5.com")
+ *             .sysContact(" NetOPsAdmin s.shitole}{@literal @}{@code f5.com")
  *             .sysLocation("SeattleHQ")
  *             .allowedaddresses("202.10.10.2")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -104,7 +104,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Snmp(String name) {
+    public Snmp(java.lang.String name) {
         this(name, SnmpArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Snmp(String name, @Nullable SnmpArgs args) {
+    public Snmp(java.lang.String name, @Nullable SnmpArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,12 +121,12 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Snmp(String name, @Nullable SnmpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/snmp:Snmp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Snmp(java.lang.String name, @Nullable SnmpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/snmp:Snmp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Snmp(String name, Output<String> id, @Nullable SnmpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/snmp:Snmp", name, state, makeResourceOptions(options, id));
+    private Snmp(java.lang.String name, Output<java.lang.String> id, @Nullable SnmpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/snmp:Snmp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SnmpArgs makeArgs(@Nullable SnmpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -136,7 +136,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
         return args == null ? SnmpArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -152,7 +152,7 @@ public class Snmp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Snmp get(String name, Output<String> id, @Nullable SnmpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Snmp get(java.lang.String name, Output<java.lang.String> id, @Nullable SnmpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Snmp(name, id, state, options);
     }
 }

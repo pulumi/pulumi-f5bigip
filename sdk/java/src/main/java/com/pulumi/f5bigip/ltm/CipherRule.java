@@ -141,7 +141,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CipherRule(String name) {
+    public CipherRule(java.lang.String name) {
         this(name, CipherRuleArgs.Empty);
     }
     /**
@@ -149,7 +149,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CipherRule(String name, CipherRuleArgs args) {
+    public CipherRule(java.lang.String name, CipherRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -158,12 +158,12 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CipherRule(String name, CipherRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/cipherRule:CipherRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CipherRule(java.lang.String name, CipherRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/cipherRule:CipherRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CipherRule(String name, Output<String> id, @Nullable CipherRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/cipherRule:CipherRule", name, state, makeResourceOptions(options, id));
+    private CipherRule(java.lang.String name, Output<java.lang.String> id, @Nullable CipherRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/cipherRule:CipherRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CipherRuleArgs makeArgs(CipherRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -173,7 +173,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
         return args == null ? CipherRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +189,7 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CipherRule get(String name, Output<String> id, @Nullable CipherRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CipherRule get(java.lang.String name, Output<java.lang.String> id, @Nullable CipherRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CipherRule(name, id, state, options);
     }
 }
