@@ -146,7 +146,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Do(String name) {
+    public Do(java.lang.String name) {
         this(name, DoArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Do(String name, DoArgs args) {
+    public Do(java.lang.String name, DoArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,12 +163,12 @@ public class Do extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Do(String name, DoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/do:Do", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Do(java.lang.String name, DoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/do:Do", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Do(String name, Output<String> id, @Nullable DoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/do:Do", name, state, makeResourceOptions(options, id));
+    private Do(java.lang.String name, Output<java.lang.String> id, @Nullable DoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/do:Do", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DoArgs makeArgs(DoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -178,7 +178,7 @@ public class Do extends com.pulumi.resources.CustomResource {
         return args == null ? DoArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -198,7 +198,7 @@ public class Do extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Do get(String name, Output<String> id, @Nullable DoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Do get(java.lang.String name, Output<java.lang.String> id, @Nullable DoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Do(name, id, state, options);
     }
 }

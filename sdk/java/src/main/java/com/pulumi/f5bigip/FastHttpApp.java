@@ -430,7 +430,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FastHttpApp(String name) {
+    public FastHttpApp(java.lang.String name) {
         this(name, FastHttpAppArgs.Empty);
     }
     /**
@@ -438,7 +438,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FastHttpApp(String name, FastHttpAppArgs args) {
+    public FastHttpApp(java.lang.String name, FastHttpAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -447,12 +447,12 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FastHttpApp(String name, FastHttpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastHttpApp:FastHttpApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FastHttpApp(java.lang.String name, FastHttpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastHttpApp:FastHttpApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FastHttpApp(String name, Output<String> id, @Nullable FastHttpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastHttpApp:FastHttpApp", name, state, makeResourceOptions(options, id));
+    private FastHttpApp(java.lang.String name, Output<java.lang.String> id, @Nullable FastHttpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastHttpApp:FastHttpApp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FastHttpAppArgs makeArgs(FastHttpAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -462,7 +462,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return args == null ? FastHttpAppArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -478,7 +478,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FastHttpApp get(String name, Output<String> id, @Nullable FastHttpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FastHttpApp get(java.lang.String name, Output<java.lang.String> id, @Nullable FastHttpAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FastHttpApp(name, id, state, options);
     }
 }

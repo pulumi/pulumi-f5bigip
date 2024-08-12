@@ -301,7 +301,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetTunnel(String name) {
+    public NetTunnel(java.lang.String name) {
         this(name, NetTunnelArgs.Empty);
     }
     /**
@@ -309,7 +309,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetTunnel(String name, NetTunnelArgs args) {
+    public NetTunnel(java.lang.String name, NetTunnelArgs args) {
         this(name, args, null);
     }
     /**
@@ -318,12 +318,12 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetTunnel(String name, NetTunnelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/netTunnel:NetTunnel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetTunnel(java.lang.String name, NetTunnelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/netTunnel:NetTunnel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetTunnel(String name, Output<String> id, @Nullable NetTunnelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/netTunnel:NetTunnel", name, state, makeResourceOptions(options, id));
+    private NetTunnel(java.lang.String name, Output<java.lang.String> id, @Nullable NetTunnelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/netTunnel:NetTunnel", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetTunnelArgs makeArgs(NetTunnelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -333,7 +333,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
         return args == null ? NetTunnelArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -349,7 +349,7 @@ public class NetTunnel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetTunnel get(String name, Output<String> id, @Nullable NetTunnelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetTunnel get(java.lang.String name, Output<java.lang.String> id, @Nullable NetTunnelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetTunnel(name, id, state, options);
     }
 }

@@ -972,12 +972,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -1036,12 +1036,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.
@@ -1120,12 +1120,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -1199,12 +1199,12 @@ class ProfileHttp(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
+            enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
             fallback_host: Optional[pulumi.Input[str]] = None,
             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             head_erase: Optional[pulumi.Input[str]] = None,
             head_insert: Optional[pulumi.Input[str]] = None,
-            http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
+            http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
             lws_separator: Optional[pulumi.Input[str]] = None,
             lws_width: Optional[pulumi.Input[int]] = None,
@@ -1235,12 +1235,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.

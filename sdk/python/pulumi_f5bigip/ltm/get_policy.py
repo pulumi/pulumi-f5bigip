@@ -119,7 +119,7 @@ def get_policy(controls: Optional[Sequence[str]] = None,
                name: Optional[str] = None,
                published_copy: Optional[str] = None,
                requires: Optional[Sequence[str]] = None,
-               rules: Optional[Sequence[pulumi.InputType['GetPolicyRuleArgs']]] = None,
+               rules: Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]] = None,
                strategy: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
@@ -139,7 +139,7 @@ def get_policy(controls: Optional[Sequence[str]] = None,
     :param Sequence[str] controls: Specifies the controls.
     :param str name: Name of the policy which includes partion ( /partition/policy-name )
     :param Sequence[str] requires: Specifies the protocol.
-    :param Sequence[pulumi.InputType['GetPolicyRuleArgs']] rules: Rules defined in the policy.
+    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']] rules: Rules defined in the policy.
     :param str strategy: Specifies the match strategy.
     """
     __args__ = dict()
@@ -167,7 +167,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
                       name: Optional[pulumi.Input[str]] = None,
                       published_copy: Optional[pulumi.Input[Optional[str]]] = None,
                       requires: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                      rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPolicyRuleArgs']]]]] = None,
+                      rules: Optional[pulumi.Input[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]]]] = None,
                       strategy: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
@@ -187,7 +187,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
     :param Sequence[str] controls: Specifies the controls.
     :param str name: Name of the policy which includes partion ( /partition/policy-name )
     :param Sequence[str] requires: Specifies the protocol.
-    :param Sequence[pulumi.InputType['GetPolicyRuleArgs']] rules: Rules defined in the policy.
+    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']] rules: Rules defined in the policy.
     :param str strategy: Specifies the match strategy.
     """
     ...

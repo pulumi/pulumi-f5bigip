@@ -356,7 +356,7 @@ class DeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_sync: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
                  full_load_on_sync: Optional[pulumi.Input[str]] = None,
                  incremental_config: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -380,12 +380,12 @@ class DeviceGroup(pulumi.CustomResource):
             full_load_on_sync="true",
             type="sync-only",
             devices=[
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip1.cisco.com",
-                ),
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip200.f5.com",
-                ),
+                {
+                    "name": "bigip1.cisco.com",
+                },
+                {
+                    "name": "bigip200.f5.com",
+                },
             ])
         ```
 
@@ -393,7 +393,7 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[str] description: Description of Device group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
         :param pulumi.Input[int] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group
@@ -423,12 +423,12 @@ class DeviceGroup(pulumi.CustomResource):
             full_load_on_sync="true",
             type="sync-only",
             devices=[
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip1.cisco.com",
-                ),
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip200.f5.com",
-                ),
+                {
+                    "name": "bigip1.cisco.com",
+                },
+                {
+                    "name": "bigip200.f5.com",
+                },
             ])
         ```
 
@@ -449,7 +449,7 @@ class DeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_sync: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]]] = None,
+                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
                  full_load_on_sync: Optional[pulumi.Input[str]] = None,
                  incremental_config: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -488,7 +488,7 @@ class DeviceGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_sync: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]]] = None,
+            devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
             full_load_on_sync: Optional[pulumi.Input[str]] = None,
             incremental_config: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -505,7 +505,7 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[str] description: Description of Device group
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
         :param pulumi.Input[int] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group

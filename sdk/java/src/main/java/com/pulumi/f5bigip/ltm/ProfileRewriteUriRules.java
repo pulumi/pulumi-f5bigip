@@ -171,7 +171,7 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileRewriteUriRules(String name) {
+    public ProfileRewriteUriRules(java.lang.String name) {
         this(name, ProfileRewriteUriRulesArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileRewriteUriRules(String name, ProfileRewriteUriRulesArgs args) {
+    public ProfileRewriteUriRules(java.lang.String name, ProfileRewriteUriRulesArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,12 +188,12 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileRewriteUriRules(String name, ProfileRewriteUriRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileRewriteUriRules(java.lang.String name, ProfileRewriteUriRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileRewriteUriRules(String name, Output<String> id, @Nullable ProfileRewriteUriRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, state, makeResourceOptions(options, id));
+    private ProfileRewriteUriRules(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileRewriteUriRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileRewriteUriRulesArgs makeArgs(ProfileRewriteUriRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -203,7 +203,7 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
         return args == null ? ProfileRewriteUriRulesArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -219,7 +219,7 @@ public class ProfileRewriteUriRules extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileRewriteUriRules get(String name, Output<String> id, @Nullable ProfileRewriteUriRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileRewriteUriRules get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileRewriteUriRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileRewriteUriRules(name, id, state, options);
     }
 }
