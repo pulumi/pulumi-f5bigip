@@ -386,7 +386,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileTcp(String name) {
+    public ProfileTcp(java.lang.String name) {
         this(name, ProfileTcpArgs.Empty);
     }
     /**
@@ -394,7 +394,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileTcp(String name, ProfileTcpArgs args) {
+    public ProfileTcp(java.lang.String name, ProfileTcpArgs args) {
         this(name, args, null);
     }
     /**
@@ -403,12 +403,12 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileTcp(String name, ProfileTcpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileTcp:ProfileTcp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileTcp(java.lang.String name, ProfileTcpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileTcp:ProfileTcp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileTcp(String name, Output<String> id, @Nullable ProfileTcpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileTcp:ProfileTcp", name, state, makeResourceOptions(options, id));
+    private ProfileTcp(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileTcpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileTcp:ProfileTcp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileTcpArgs makeArgs(ProfileTcpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -418,7 +418,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileTcpArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -434,7 +434,7 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileTcp get(String name, Output<String> id, @Nullable ProfileTcpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileTcp get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileTcpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileTcp(name, id, state, options);
     }
 }

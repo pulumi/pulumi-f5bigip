@@ -107,7 +107,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FastTemplate(String name) {
+    public FastTemplate(java.lang.String name) {
         this(name, FastTemplateArgs.Empty);
     }
     /**
@@ -115,7 +115,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FastTemplate(String name, FastTemplateArgs args) {
+    public FastTemplate(java.lang.String name, FastTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -124,12 +124,12 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FastTemplate(String name, FastTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastTemplate:FastTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FastTemplate(java.lang.String name, FastTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastTemplate:FastTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FastTemplate(String name, Output<String> id, @Nullable FastTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:index/fastTemplate:FastTemplate", name, state, makeResourceOptions(options, id));
+    private FastTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable FastTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:index/fastTemplate:FastTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FastTemplateArgs makeArgs(FastTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -139,7 +139,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
         return args == null ? FastTemplateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -155,7 +155,7 @@ public class FastTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FastTemplate get(String name, Output<String> id, @Nullable FastTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FastTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable FastTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FastTemplate(name, id, state, options);
     }
 }

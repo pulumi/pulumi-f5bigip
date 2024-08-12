@@ -260,7 +260,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProfileHttpCompress(String name) {
+    public ProfileHttpCompress(java.lang.String name) {
         this(name, ProfileHttpCompressArgs.Empty);
     }
     /**
@@ -268,7 +268,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfileHttpCompress(String name, ProfileHttpCompressArgs args) {
+    public ProfileHttpCompress(java.lang.String name, ProfileHttpCompressArgs args) {
         this(name, args, null);
     }
     /**
@@ -277,12 +277,12 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfileHttpCompress(String name, ProfileHttpCompressArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProfileHttpCompress(java.lang.String name, ProfileHttpCompressArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProfileHttpCompress(String name, Output<String> id, @Nullable ProfileHttpCompressState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", name, state, makeResourceOptions(options, id));
+    private ProfileHttpCompress(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileHttpCompressState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileHttpCompressArgs makeArgs(ProfileHttpCompressArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -292,7 +292,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileHttpCompressArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -308,7 +308,7 @@ public class ProfileHttpCompress extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProfileHttpCompress get(String name, Output<String> id, @Nullable ProfileHttpCompressState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProfileHttpCompress get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileHttpCompressState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProfileHttpCompress(name, id, state, options);
     }
 }

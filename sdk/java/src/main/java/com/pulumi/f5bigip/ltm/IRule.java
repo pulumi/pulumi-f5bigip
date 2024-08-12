@@ -104,7 +104,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IRule(String name) {
+    public IRule(java.lang.String name) {
         this(name, IRuleArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IRule(String name, IRuleArgs args) {
+    public IRule(java.lang.String name, IRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,12 +121,12 @@ public class IRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IRule(String name, IRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/iRule:IRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IRule(java.lang.String name, IRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/iRule:IRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IRule(String name, Output<String> id, @Nullable IRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/iRule:IRule", name, state, makeResourceOptions(options, id));
+    private IRule(java.lang.String name, Output<java.lang.String> id, @Nullable IRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/iRule:IRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IRuleArgs makeArgs(IRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -136,7 +136,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
         return args == null ? IRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -152,7 +152,7 @@ public class IRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IRule get(String name, Output<String> id, @Nullable IRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IRule get(java.lang.String name, Output<java.lang.String> id, @Nullable IRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IRule(name, id, state, options);
     }
 }

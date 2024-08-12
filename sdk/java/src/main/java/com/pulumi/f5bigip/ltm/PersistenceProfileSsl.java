@@ -214,7 +214,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PersistenceProfileSsl(String name) {
+    public PersistenceProfileSsl(java.lang.String name) {
         this(name, PersistenceProfileSslArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PersistenceProfileSsl(String name, PersistenceProfileSslArgs args) {
+    public PersistenceProfileSsl(java.lang.String name, PersistenceProfileSslArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,12 +231,12 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PersistenceProfileSsl(String name, PersistenceProfileSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PersistenceProfileSsl(java.lang.String name, PersistenceProfileSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PersistenceProfileSsl(String name, Output<String> id, @Nullable PersistenceProfileSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, state, makeResourceOptions(options, id));
+    private PersistenceProfileSsl(java.lang.String name, Output<java.lang.String> id, @Nullable PersistenceProfileSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PersistenceProfileSslArgs makeArgs(PersistenceProfileSslArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -246,7 +246,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
         return args == null ? PersistenceProfileSslArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -262,7 +262,7 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PersistenceProfileSsl get(String name, Output<String> id, @Nullable PersistenceProfileSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PersistenceProfileSsl get(java.lang.String name, Output<java.lang.String> id, @Nullable PersistenceProfileSslState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PersistenceProfileSsl(name, id, state, options);
     }
 }

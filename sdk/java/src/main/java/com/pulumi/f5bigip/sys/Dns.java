@@ -120,7 +120,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Dns(String name) {
+    public Dns(java.lang.String name) {
         this(name, DnsArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Dns(String name, DnsArgs args) {
+    public Dns(java.lang.String name, DnsArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,12 +137,12 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Dns(String name, DnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/dns:Dns", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Dns(java.lang.String name, DnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/dns:Dns", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Dns(String name, Output<String> id, @Nullable DnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/dns:Dns", name, state, makeResourceOptions(options, id));
+    private Dns(java.lang.String name, Output<java.lang.String> id, @Nullable DnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/dns:Dns", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DnsArgs makeArgs(DnsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -152,7 +152,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
         return args == null ? DnsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -168,7 +168,7 @@ public class Dns extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Dns get(String name, Output<String> id, @Nullable DnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Dns get(java.lang.String name, Output<java.lang.String> id, @Nullable DnsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Dns(name, id, state, options);
     }
 }

@@ -187,7 +187,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Provision(String name) {
+    public Provision(java.lang.String name) {
         this(name, ProvisionArgs.Empty);
     }
     /**
@@ -195,7 +195,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Provision(String name, ProvisionArgs args) {
+    public Provision(java.lang.String name, ProvisionArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,12 +204,12 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Provision(String name, ProvisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/provision:Provision", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Provision(java.lang.String name, ProvisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/provision:Provision", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Provision(String name, Output<String> id, @Nullable ProvisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("f5bigip:sys/provision:Provision", name, state, makeResourceOptions(options, id));
+    private Provision(java.lang.String name, Output<java.lang.String> id, @Nullable ProvisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("f5bigip:sys/provision:Provision", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProvisionArgs makeArgs(ProvisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -219,7 +219,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
         return args == null ? ProvisionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -235,7 +235,7 @@ public class Provision extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Provision get(String name, Output<String> id, @Nullable ProvisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Provision get(java.lang.String name, Output<java.lang.String> id, @Nullable ProvisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Provision(name, id, state, options);
     }
 }
