@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
+    /// layout: "bigip"
+    /// page_title: "BIG-IP: f5bigip.ltm.PoolAttachment"
+    /// subcategory: "Local Traffic Manager(LTM)"
+    /// description: |-
+    /// Provides details about f5bigip.ltm.PoolAttachment resource
+    /// &lt;!-- yaml: line 6: could not find expected ':' --&gt;
+    /// 
+    /// # bigip\_ltm\_pool\_attachment
+    /// 
     /// `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
     /// 
     /// ## Example Usage

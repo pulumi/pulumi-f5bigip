@@ -219,6 +219,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
+
         ### Example usage with `port_lockdown`
 
         ```python
@@ -306,6 +307,7 @@ class SelfIp(pulumi.CustomResource):
             vlan="/Common/internal",
             opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
+
         ### Example usage with `port_lockdown`
 
         ```python

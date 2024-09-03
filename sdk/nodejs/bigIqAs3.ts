@@ -56,7 +56,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
     }
 
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     public readonly as3Json!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      * }
      * ```
      *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+     * * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
@@ -206,7 +206,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
  */
 export interface BigIqAs3State {
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     as3Json?: pulumi.Input<string>;
     /**
@@ -288,7 +288,7 @@ export interface BigIqAs3State {
      * }
      * ```
      *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+     * * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
@@ -304,7 +304,7 @@ export interface BigIqAs3State {
  */
 export interface BigIqAs3Args {
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     as3Json: pulumi.Input<string>;
     /**
@@ -386,7 +386,7 @@ export interface BigIqAs3Args {
      * }
      * ```
      *
-     * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+     * * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */

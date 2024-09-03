@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ssl
     {
         /// <summary>
         /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -43,8 +42,7 @@ namespace Pulumi.F5BigIP.Ssl
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

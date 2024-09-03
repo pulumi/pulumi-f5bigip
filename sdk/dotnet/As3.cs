@@ -368,7 +368,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// }
     /// 
-    /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+    /// * `AS3 documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html&gt;
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/as3:As3")]
     public partial class As3 : global::Pulumi.CustomResource
@@ -380,7 +380,7 @@ namespace Pulumi.F5BigIP
         public Output<string> ApplicationList { get; private set; } = null!;
 
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Output("as3Json")]
         public Output<string?> As3Json { get; private set; } = null!;
@@ -652,7 +652,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? ApplicationList { get; set; }
 
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
@@ -880,7 +880,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? ApplicationList { get; set; }
 
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }

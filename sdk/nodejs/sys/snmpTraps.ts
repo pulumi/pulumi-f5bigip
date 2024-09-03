@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
+ *
  * ## Example Usage
  *
  * ```typescript

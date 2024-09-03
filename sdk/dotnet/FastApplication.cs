@@ -41,15 +41,13 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// A FAST application name.
         /// 
-        /// 
-        /// 
-        /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+        /// * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
         /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
 
         /// <summary>
-        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
         /// </summary>
         [Output("fastJson")]
         public Output<string> FastJson { get; private set; } = null!;
@@ -113,7 +111,7 @@ namespace Pulumi.F5BigIP
     public sealed class FastApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("fastJson", required: true)]
         public Input<string> FastJson { get; set; } = null!;
@@ -135,15 +133,13 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// A FAST application name.
         /// 
-        /// 
-        /// 
-        /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+        /// * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
         /// </summary>
         [Input("application")]
         public Input<string>? Application { get; set; }
 
         /// <summary>
-        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("fastJson")]
         public Input<string>? FastJson { get; set; }

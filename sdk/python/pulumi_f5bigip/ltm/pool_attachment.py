@@ -362,6 +362,15 @@ class PoolAttachment(pulumi.CustomResource):
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        layout: "bigip"
+        page_title: "BIG-IP: ltm.PoolAttachment"
+        subcategory: "Local Traffic Manager(LTM)"
+        description: |-
+        Provides details about ltm.PoolAttachment resource
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # bigip\\_ltm\\_pool\\_attachment
+
         `ltm.PoolAttachment` Manages nodes membership in pools
 
         ## Example Usage
@@ -459,6 +468,15 @@ class PoolAttachment(pulumi.CustomResource):
                  args: PoolAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        layout: "bigip"
+        page_title: "BIG-IP: ltm.PoolAttachment"
+        subcategory: "Local Traffic Manager(LTM)"
+        description: |-
+        Provides details about ltm.PoolAttachment resource
+        <!-- yaml: line 6: could not find expected ':' -->
+
+        # bigip\\_ltm\\_pool\\_attachment
+
         `ltm.PoolAttachment` Manages nodes membership in pools
 
         ## Example Usage

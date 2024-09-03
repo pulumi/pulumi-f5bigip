@@ -48,7 +48,7 @@ import (
 //
 // ```
 //
-// ### Json File
+// ### Json file
 type IApp struct {
 	pulumi.CustomResourceState
 

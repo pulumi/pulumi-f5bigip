@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ssl
     {
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -33,7 +32,7 @@ namespace Pulumi.F5BigIP.Ssl
         ///     });
         /// 
         /// });
-        /// ```      
+        /// ```
         /// 
         /// ## Pre-required Environment Settings:
         /// 
@@ -54,8 +53,7 @@ namespace Pulumi.F5BigIP.Ssl
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -74,7 +72,7 @@ namespace Pulumi.F5BigIP.Ssl
         ///     });
         /// 
         /// });
-        /// ```      
+        /// ```
         /// 
         /// ## Pre-required Environment Settings:
         /// 

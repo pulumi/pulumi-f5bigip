@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Json File
+ * ### Json file
  */
 export class IApp extends pulumi.CustomResource {
     /**

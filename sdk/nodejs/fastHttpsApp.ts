@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
- * ### With Service Discovery
+ * ### with service discovery
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

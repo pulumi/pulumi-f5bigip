@@ -32,14 +32,14 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      * 
      */
     @Import(name="as3Json")
     private @Nullable Output<String> as3Json;
 
     /**
-     * @return Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * @return Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      * 
      */
     public Optional<Output<String>> as3Json() {
@@ -199,7 +199,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as3Json Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+         * @param as3Json Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as3Json Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+         * @param as3Json Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 

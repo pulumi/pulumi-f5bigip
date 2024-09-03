@@ -61,7 +61,7 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
     /**
      * A FAST application name.
      * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
      * 
      */
     @Export(name="application", refs={String.class}, tree="[0]")
@@ -70,21 +70,21 @@ public class FastApplication extends com.pulumi.resources.CustomResource {
     /**
      * @return A FAST application name.
      * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
      * 
      */
     public Output<String> application() {
         return this.application;
     }
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     @Export(name="fastJson", refs={String.class}, tree="[0]")
     private Output<String> fastJson;
 
     /**
-     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     public Output<String> fastJson() {

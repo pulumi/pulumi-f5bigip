@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
 
 /**
  * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

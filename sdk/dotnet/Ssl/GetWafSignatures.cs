@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ssl
     {
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -38,8 +37,7 @@ namespace Pulumi.F5BigIP.Ssl
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

@@ -16,6 +16,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * layout: &#34;bigip&#34;
+ * page_title: &#34;BIG-IP: f5bigip.ltm.PoolAttachment&#34;
+ * subcategory: &#34;Local Traffic Manager(LTM)&#34;
+ * description: |-
+ * Provides details about f5bigip.ltm.PoolAttachment resource
+ * &lt;!-- yaml: line 6: could not find expected &#39;:&#39; --&gt;
+ * 
+ * # bigip\_ltm\_pool\_attachment
+ * 
  * `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
  * 
  * ## Example Usage

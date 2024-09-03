@@ -55,7 +55,7 @@ import (
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 
-	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 	As3Json pulumi.StringOutput `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringOutput `pulumi:"bigiqAddress"`
@@ -73,7 +73,7 @@ type BigIqAs3 struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+	// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
@@ -146,7 +146,7 @@ func GetBigIqAs3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BigIqAs3 resources.
 type bigIqAs3State struct {
-	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 	As3Json *string `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress *string `pulumi:"bigiqAddress"`
@@ -164,7 +164,7 @@ type bigIqAs3State struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+	// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
@@ -173,7 +173,7 @@ type bigIqAs3State struct {
 }
 
 type BigIqAs3State struct {
-	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 	As3Json pulumi.StringPtrInput
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type BigIqAs3State struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+	// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrInput
@@ -204,7 +204,7 @@ func (BigIqAs3State) ElementType() reflect.Type {
 }
 
 type bigIqAs3Args struct {
-	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 	As3Json string `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress string `pulumi:"bigiqAddress"`
@@ -222,7 +222,7 @@ type bigIqAs3Args struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+	// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
@@ -232,7 +232,7 @@ type bigIqAs3Args struct {
 
 // The set of arguments for constructing a BigIqAs3 resource.
 type BigIqAs3Args struct {
-	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 	As3Json pulumi.StringInput
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringInput
@@ -250,7 +250,7 @@ type BigIqAs3Args struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+	// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 	IgnoreMetadata pulumi.BoolPtrInput
@@ -345,7 +345,7 @@ func (o BigIqAs3Output) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs
 	return o
 }
 
-// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
 func (o BigIqAs3Output) As3Json() pulumi.StringOutput {
 	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.As3Json }).(pulumi.StringOutput)
 }
@@ -384,7 +384,7 @@ func (o BigIqAs3Output) BigiqUser() pulumi.StringOutput {
 //
 // * `bigiq_example.json` - Example  AS3 Declarative JSON file
 //
-// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+// * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 //
 // >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
 func (o BigIqAs3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
