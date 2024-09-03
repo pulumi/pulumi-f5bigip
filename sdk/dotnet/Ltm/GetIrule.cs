@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ltm
     {
         /// <summary>
         /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -43,8 +42,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

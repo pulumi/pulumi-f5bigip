@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [vlan1],
  * });
  * ```
+ *
  * ### Example usage with `portLockdown`
  *
  * ```typescript

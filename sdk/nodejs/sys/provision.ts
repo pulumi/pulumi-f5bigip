@@ -74,7 +74,7 @@ export class Provision extends pulumi.CustomResource {
      */
     public readonly memoryRatio!: pulumi.Output<number | undefined>;
     /**
-     * Name of module to provision in BIG-IP. 
+     * Name of module to provision in BIG-IP.
      * possible options:
      * * afm
      * * am
@@ -159,7 +159,7 @@ export interface ProvisionState {
      */
     memoryRatio?: pulumi.Input<number>;
     /**
-     * Name of module to provision in BIG-IP. 
+     * Name of module to provision in BIG-IP.
      * possible options:
      * * afm
      * * am
@@ -209,7 +209,7 @@ export interface ProvisionArgs {
      */
     memoryRatio?: pulumi.Input<number>;
     /**
-     * Name of module to provision in BIG-IP. 
+     * Name of module to provision in BIG-IP.
      * possible options:
      * * afm
      * * am

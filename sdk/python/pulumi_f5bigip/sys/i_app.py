@@ -593,7 +593,7 @@ class IApp(pulumi.CustomResource):
             jsonfile=std.file(input="simplehttp.json").result)
         ```
 
-        ### Json File
+        ### Json file
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -634,7 +634,7 @@ class IApp(pulumi.CustomResource):
             jsonfile=std.file(input="simplehttp.json").result)
         ```
 
-        ### Json File
+        ### Json file
 
         :param str resource_name: The name of the resource.
         :param IAppArgs args: The arguments to use to populate this resource's properties.

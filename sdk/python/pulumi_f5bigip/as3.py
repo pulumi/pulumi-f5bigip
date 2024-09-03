@@ -24,7 +24,7 @@ class As3Args:
         """
         The set of arguments for constructing a As3 resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -240,7 +240,7 @@ class As3Args:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -501,7 +501,7 @@ class _As3State:
         """
         Input properties used for looking up and filtering As3 resources.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -720,7 +720,7 @@ class _As3State:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -1351,12 +1351,12 @@ class As3(pulumi.CustomResource):
 
         }
 
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+        * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -1906,7 +1906,7 @@ class As3(pulumi.CustomResource):
 
         }
 
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+        * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html>
 
         :param str resource_name: The name of the resource.
         :param As3Args args: The arguments to use to populate this resource's properties.
@@ -1973,7 +1973,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -2185,7 +2185,7 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 

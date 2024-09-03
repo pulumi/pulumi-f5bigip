@@ -53,13 +53,11 @@ export class FastApplication extends pulumi.CustomResource {
     /**
      * A FAST application name.
      *
-     *
-     *
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
      */
     public /*out*/ readonly application!: pulumi.Output<string>;
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      */
     public readonly fastJson!: pulumi.Output<string>;
     /**
@@ -110,13 +108,11 @@ export interface FastApplicationState {
     /**
      * A FAST application name.
      *
-     *
-     *
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
      */
     application?: pulumi.Input<string>;
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      */
     fastJson?: pulumi.Input<string>;
     /**
@@ -134,7 +130,7 @@ export interface FastApplicationState {
  */
 export interface FastApplicationArgs {
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      */
     fastJson: pulumi.Input<string>;
     /**

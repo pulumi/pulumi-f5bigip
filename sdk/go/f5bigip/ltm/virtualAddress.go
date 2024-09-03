@@ -45,7 +45,7 @@ import (
 type VirtualAddress struct {
 	pulumi.CustomResourceState
 
-	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 	AdvertizeRoute pulumi.StringPtrOutput `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrOutput `pulumi:"arp"`
@@ -96,7 +96,7 @@ func GetVirtualAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualAddress resources.
 type virtualAddressState struct {
-	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
@@ -115,7 +115,7 @@ type virtualAddressState struct {
 }
 
 type VirtualAddressState struct {
-	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
@@ -138,7 +138,7 @@ func (VirtualAddressState) ElementType() reflect.Type {
 }
 
 type virtualAddressArgs struct {
-	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
@@ -158,7 +158,7 @@ type virtualAddressArgs struct {
 
 // The set of arguments for constructing a VirtualAddress resource.
 type VirtualAddressArgs struct {
-	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
@@ -263,7 +263,7 @@ func (o VirtualAddressOutput) ToVirtualAddressOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
 func (o VirtualAddressOutput) AdvertizeRoute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualAddress) pulumi.StringPtrOutput { return v.AdvertizeRoute }).(pulumi.StringPtrOutput)
 }

@@ -25,7 +25,7 @@ class VirtualAddressArgs:
         """
         The set of arguments for constructing a VirtualAddress resource.
         :param pulumi.Input[str] name: Name of the virtual address
-        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -65,7 +65,7 @@ class VirtualAddressArgs:
     @pulumi.getter(name="advertizeRoute")
     def advertize_route(self) -> Optional[pulumi.Input[str]]:
         """
-        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         """
         return pulumi.get(self, "advertize_route")
 
@@ -159,7 +159,7 @@ class _VirtualAddressState:
                  traffic_group: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualAddress resources.
-        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -189,7 +189,7 @@ class _VirtualAddressState:
     @pulumi.getter(name="advertizeRoute")
     def advertize_route(self) -> Optional[pulumi.Input[str]]:
         """
-        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         """
         return pulumi.get(self, "advertize_route")
 
@@ -314,7 +314,7 @@ class VirtualAddress(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -412,7 +412,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -439,7 +439,7 @@ class VirtualAddress(pulumi.CustomResource):
     @pulumi.getter(name="advertizeRoute")
     def advertize_route(self) -> pulumi.Output[Optional[str]]:
         """
-        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+        Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article <https://support.f5.com/csp/article/K85543242> )
         """
         return pulumi.get(self, "advertize_route")
 

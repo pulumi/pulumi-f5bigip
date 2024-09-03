@@ -18,7 +18,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
     /**
      * A FAST application name.
      * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
      * 
      */
     @Import(name="application")
@@ -27,7 +27,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
     /**
      * @return A FAST application name.
      * 
-     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
      * 
      */
     public Optional<Output<String>> application() {
@@ -35,14 +35,14 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     @Import(name="fastJson")
     private @Nullable Output<String> fastJson;
 
     /**
-     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     public Optional<Output<String>> fastJson() {
@@ -109,7 +109,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
         /**
          * @param application A FAST application name.
          * 
-         * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+         * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
         /**
          * @param application A FAST application name.
          * 
-         * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+         * * `FAST documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/&gt;
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 

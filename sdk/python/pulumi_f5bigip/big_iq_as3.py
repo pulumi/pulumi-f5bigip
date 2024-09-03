@@ -25,7 +25,7 @@ class BigIqAs3Args:
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BigIqAs3 resource.
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
@@ -86,7 +86,7 @@ class BigIqAs3Args:
                }
                ```
                
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+               * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
                
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -110,7 +110,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Input[str]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -248,7 +248,7 @@ class BigIqAs3Args:
         }
         ```
 
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 
         >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """
@@ -285,7 +285,7 @@ class _BigIqAs3State:
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BigIqAs3 resources.
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
@@ -346,7 +346,7 @@ class _BigIqAs3State:
                }
                ```
                
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+               * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
                
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -374,7 +374,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -512,7 +512,7 @@ class _BigIqAs3State:
         }
         ```
 
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 
         >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """
@@ -572,7 +572,7 @@ class BigIqAs3(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
@@ -633,7 +633,7 @@ class BigIqAs3(pulumi.CustomResource):
                }
                ```
                
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+               * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
                
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -742,7 +742,7 @@ class BigIqAs3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
@@ -803,7 +803,7 @@ class BigIqAs3(pulumi.CustomResource):
                }
                ```
                
-               * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+               * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
                
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -827,7 +827,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Output[str]:
         """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -937,7 +937,7 @@ class BigIqAs3(pulumi.CustomResource):
         }
         ```
 
-        * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html>
 
         >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         """

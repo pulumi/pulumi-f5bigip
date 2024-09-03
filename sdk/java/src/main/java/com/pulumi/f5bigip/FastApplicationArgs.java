@@ -17,14 +17,14 @@ public final class FastApplicationArgs extends com.pulumi.resources.ResourceArgs
     public static final FastApplicationArgs Empty = new FastApplicationArgs();
 
     /**
-     * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     @Import(name="fastJson", required=true)
     private Output<String> fastJson;
 
     /**
-     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+     * @return Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
      * 
      */
     public Output<String> fastJson() {
@@ -72,7 +72,7 @@ public final class FastApplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FastApplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+         * @param fastJson Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
          * 
          * @return builder
          * 

@@ -52,9 +52,9 @@ type FastApplication struct {
 
 	// A FAST application name.
 	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+	// * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
 	Application pulumi.StringOutput `pulumi:"application"`
-	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 	FastJson pulumi.StringOutput `pulumi:"fastJson"`
 	// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
 	Template pulumi.StringPtrOutput `pulumi:"template"`
@@ -97,9 +97,9 @@ func GetFastApplication(ctx *pulumi.Context,
 type fastApplicationState struct {
 	// A FAST application name.
 	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+	// * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
 	Application *string `pulumi:"application"`
-	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 	FastJson *string `pulumi:"fastJson"`
 	// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
 	Template *string `pulumi:"template"`
@@ -110,9 +110,9 @@ type fastApplicationState struct {
 type FastApplicationState struct {
 	// A FAST application name.
 	//
-	// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+	// * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
 	Application pulumi.StringPtrInput
-	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 	FastJson pulumi.StringPtrInput
 	// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
 	Template pulumi.StringPtrInput
@@ -125,7 +125,7 @@ func (FastApplicationState) ElementType() reflect.Type {
 }
 
 type fastApplicationArgs struct {
-	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 	FastJson string `pulumi:"fastJson"`
 	// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
 	Template *string `pulumi:"template"`
@@ -133,7 +133,7 @@ type fastApplicationArgs struct {
 
 // The set of arguments for constructing a FastApplication resource.
 type FastApplicationArgs struct {
-	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+	// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 	FastJson pulumi.StringInput
 	// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
 	Template pulumi.StringPtrInput
@@ -228,12 +228,12 @@ func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Co
 
 // A FAST application name.
 //
-// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+// * `FAST documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/>
 func (o FastApplicationOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
-// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+// Path/Filename of Declarative FAST JSON which is a json file used with builtin `file` function
 func (o FastApplicationOutput) FastJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.FastJson }).(pulumi.StringOutput)
 }

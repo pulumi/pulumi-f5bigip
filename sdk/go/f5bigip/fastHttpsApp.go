@@ -47,7 +47,7 @@ import (
 //
 // ```
 //
-// ### With Service Discovery
+// ### with service discovery
 //
 // ```go
 // package main

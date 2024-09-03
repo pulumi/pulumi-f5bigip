@@ -44,7 +44,7 @@ namespace Pulumi.F5BigIP
     public partial class BigIqAs3 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Output("as3Json")]
         public Output<string> As3Json { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.F5BigIP
         /// }
         /// ```
         /// 
-        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// * `AS3 documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html&gt;
         /// 
         /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("as3Json", required: true)]
         public Input<string> As3Json { get; set; } = null!;
@@ -354,7 +354,7 @@ namespace Pulumi.F5BigIP
         /// }
         /// ```
         /// 
-        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// * `AS3 documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html&gt;
         /// 
         /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>
@@ -376,7 +376,7 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.F5BigIP
         /// }
         /// ```
         /// 
-        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// * `AS3 documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html&gt;
         /// 
         /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>

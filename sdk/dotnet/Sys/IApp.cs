@@ -35,7 +35,7 @@ namespace Pulumi.F5BigIP.Sys
     /// });
     /// ```
     /// 
-    /// ### Json File
+    /// ### Json file
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
     public partial class IApp : global::Pulumi.CustomResource

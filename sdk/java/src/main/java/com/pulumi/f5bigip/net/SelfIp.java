@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example usage with `port_lockdown`
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

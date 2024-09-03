@@ -374,7 +374,7 @@ import javax.annotation.Nullable;
  * 
  * }
  * 
- * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+ * * `AS3 documentation` - &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html&gt;
  * 
  */
 @ResourceType(type="f5bigip:index/as3:As3")
@@ -394,14 +394,14 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return this.applicationList;
     }
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      * 
      */
     @Export(name="as3Json", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> as3Json;
 
     /**
-     * @return Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * @return Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      * 
      */
     public Output<Optional<String>> as3Json() {

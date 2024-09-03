@@ -868,7 +868,7 @@ class FastHttpsApp(pulumi.CustomResource):
             })
         ```
 
-        ### With Service Discovery
+        ### with service discovery
 
         ```python
         import pulumi
@@ -964,7 +964,7 @@ class FastHttpsApp(pulumi.CustomResource):
             })
         ```
 
-        ### With Service Discovery
+        ### with service discovery
 
         ```python
         import pulumi

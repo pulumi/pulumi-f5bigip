@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ltm
     {
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -39,8 +38,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
-        ///  
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

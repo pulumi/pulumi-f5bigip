@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;      
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing
  * 

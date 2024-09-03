@@ -363,7 +363,7 @@ import * as utilities from "./utilities";
  *
  * }
  *
- * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+ * * `AS3 documentation` - <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html>
  */
 export class As3 extends pulumi.CustomResource {
     /**
@@ -398,7 +398,7 @@ export class As3 extends pulumi.CustomResource {
      */
     public readonly applicationList!: pulumi.Output<string>;
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     public readonly as3Json!: pulumi.Output<string | undefined>;
     /**
@@ -650,7 +650,7 @@ export interface As3State {
      */
     applicationList?: pulumi.Input<string>;
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     as3Json?: pulumi.Input<string>;
     /**
@@ -866,7 +866,7 @@ export interface As3Args {
      */
     applicationList?: pulumi.Input<string>;
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin `file` function
      */
     as3Json?: pulumi.Input<string>;
     /**

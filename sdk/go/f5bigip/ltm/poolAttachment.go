@@ -12,6 +12,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// layout: "bigip"
+// page_title: "BIG-IP: ltm.PoolAttachment"
+// subcategory: "Local Traffic Manager(LTM)"
+// description: |-
+// Provides details about ltm.PoolAttachment resource
+// <!-- yaml: line 6: could not find expected ':' -->
+//
+// # bigip\_ltm\_pool\_attachment
+//
 // `ltm.PoolAttachment` Manages nodes membership in pools
 //
 // ## Example Usage

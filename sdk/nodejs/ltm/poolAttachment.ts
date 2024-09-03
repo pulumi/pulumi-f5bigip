@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * layout: "bigip"
+ * page_title: "BIG-IP: f5bigip.ltm.PoolAttachment"
+ * subcategory: "Local Traffic Manager(LTM)"
+ * description: |-
+ * Provides details about f5bigip.ltm.PoolAttachment resource
+ * <!-- yaml: line 6: could not find expected ':' -->
+ *
+ * # bigip\_ltm\_pool\_attachment
+ *
  * `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
  *
  * ## Example Usage

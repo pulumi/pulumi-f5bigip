@@ -167,6 +167,7 @@ class Device(pulumi.CustomResource):
         `cm.Device` provides details about a specific bigip
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+
         ## Example Usage
 
         ```python
@@ -197,6 +198,7 @@ class Device(pulumi.CustomResource):
         `cm.Device` provides details about a specific bigip
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+
         ## Example Usage
 
         ```python

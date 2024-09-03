@@ -12,6 +12,7 @@ import (
 )
 
 // `sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
+//
 // ## Example Usage
 //
 // ```go

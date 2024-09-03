@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### With Service Discovery
+ * ### with service discovery
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

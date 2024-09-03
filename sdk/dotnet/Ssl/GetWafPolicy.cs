@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Ssl
     {
         /// <summary>
         /// Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Ssl
 
         /// <summary>
         /// Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
-        ///  
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

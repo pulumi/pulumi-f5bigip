@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP
     /// });
     /// ```
     /// 
-    /// ### With Service Discovery
+    /// ### with service discovery
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

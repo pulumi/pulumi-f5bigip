@@ -73,7 +73,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// * `log_publisher` - (Optional)Configures the log publisher that handles events logging for this profile
     /// 
-    /// *  `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
+    /// * `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
     /// 
     /// * `description` - (Optional)User defined description for FTP profile
     /// </summary>

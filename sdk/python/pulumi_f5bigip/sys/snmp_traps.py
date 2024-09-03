@@ -497,6 +497,7 @@ class SnmpTraps(pulumi.CustomResource):
                  __props__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+
         ## Example Usage
 
         ```python
@@ -536,6 +537,7 @@ class SnmpTraps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+
         ## Example Usage
 
         ```python

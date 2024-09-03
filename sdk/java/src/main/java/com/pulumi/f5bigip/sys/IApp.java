@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Json File
+ * ### Json file
  * 
  */
 @ResourceType(type="f5bigip:sys/iApp:IApp")
