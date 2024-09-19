@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWafSignatures(args: GetWafSignaturesArgs, opts?: pulumi.InvokeOptions): Promise<GetWafSignaturesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafSignatures:getWafSignatures", {
         "accuracy": args.accuracy,
@@ -128,7 +127,19 @@ export interface GetWafSignaturesResult {
  * ```
  */
 export function getWafSignaturesOutput(args: GetWafSignaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafSignaturesResult> {
-    return pulumi.output(args).apply((a: any) => getWafSignatures(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafSignatures:getWafSignatures", {
+        "accuracy": args.accuracy,
+        "description": args.description,
+        "enabled": args.enabled,
+        "name": args.name,
+        "performStaging": args.performStaging,
+        "risk": args.risk,
+        "signatureId": args.signatureId,
+        "systemSignatureId": args.systemSignatureId,
+        "tag": args.tag,
+        "type": args.type,
+    }, opts);
 }
 
 /**

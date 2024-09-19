@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promise<GetIruleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getIrule:getIrule", {
         "irule": args.irule,
@@ -86,7 +85,12 @@ export interface GetIruleResult {
  * ```
  */
 export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
-    return pulumi.output(args).apply((a: any) => getIrule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ltm/getIrule:getIrule", {
+        "irule": args.irule,
+        "name": args.name,
+        "partition": args.partition,
+    }, opts);
 }
 
 /**

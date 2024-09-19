@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConsulServiceDiscovery(args: GetConsulServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetConsulServiceDiscoveryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", {
         "addressRealm": args.addressRealm,
@@ -127,7 +126,21 @@ export interface GetConsulServiceDiscoveryResult {
  * ```
  */
 export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsulServiceDiscoveryResult> {
-    return pulumi.output(args).apply((a: any) => getConsulServiceDiscovery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", {
+        "addressRealm": args.addressRealm,
+        "credentialUpdate": args.credentialUpdate,
+        "encodedToken": args.encodedToken,
+        "jmesPathQuery": args.jmesPathQuery,
+        "minimumMonitors": args.minimumMonitors,
+        "port": args.port,
+        "rejectUnauthorized": args.rejectUnauthorized,
+        "trustCa": args.trustCa,
+        "type": args.type,
+        "undetectableAction": args.undetectableAction,
+        "updateInterval": args.updateInterval,
+        "uri": args.uri,
+    }, opts);
 }
 
 /**

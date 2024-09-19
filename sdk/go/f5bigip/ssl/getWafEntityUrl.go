@@ -120,14 +120,20 @@ type GetWafEntityUrlResult struct {
 
 func GetWafEntityUrlOutput(ctx *pulumi.Context, args GetWafEntityUrlOutputArgs, opts ...pulumi.InvokeOption) GetWafEntityUrlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetWafEntityUrlResult, error) {
+		ApplyT(func(v interface{}) (GetWafEntityUrlResultOutput, error) {
 			args := v.(GetWafEntityUrlArgs)
-			r, err := GetWafEntityUrl(ctx, &args, opts...)
-			var s GetWafEntityUrlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetWafEntityUrlResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args, &rv, "", opts...)
+			if err != nil {
+				return GetWafEntityUrlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetWafEntityUrlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetWafEntityUrlResultOutput), nil
+			}
+			return output, nil
 		}).(GetWafEntityUrlResultOutput)
 }
 

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGceServiceDiscovery(args: GetGceServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetGceServiceDiscoveryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", {
         "addressRealm": args.addressRealm,
@@ -132,7 +131,21 @@ export interface GetGceServiceDiscoveryResult {
  * ```
  */
 export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGceServiceDiscoveryResult> {
-    return pulumi.output(args).apply((a: any) => getGceServiceDiscovery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", {
+        "addressRealm": args.addressRealm,
+        "credentialUpdate": args.credentialUpdate,
+        "encodedCredentials": args.encodedCredentials,
+        "minimumMonitors": args.minimumMonitors,
+        "port": args.port,
+        "projectId": args.projectId,
+        "region": args.region,
+        "tagKey": args.tagKey,
+        "tagValue": args.tagValue,
+        "type": args.type,
+        "undetectableAction": args.undetectableAction,
+        "updateInterval": args.updateInterval,
+    }, opts);
 }
 
 /**

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getMonitor:getMonitor", {
         "name": args.name,
@@ -114,7 +113,11 @@ export interface GetMonitorResult {
  * ```
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ltm/getMonitor:getMonitor", {
+        "name": args.name,
+        "partition": args.partition,
+    }, opts);
 }
 
 /**
