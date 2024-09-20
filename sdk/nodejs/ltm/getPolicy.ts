@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getPolicy:getPolicy", {
         "controls": args.controls,
@@ -107,7 +106,15 @@ export interface GetPolicyResult {
  * ```
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ltm/getPolicy:getPolicy", {
+        "controls": args.controls,
+        "name": args.name,
+        "publishedCopy": args.publishedCopy,
+        "requires": args.requires,
+        "rules": args.rules,
+        "strategy": args.strategy,
+    }, opts);
 }
 
 /**

@@ -67,14 +67,20 @@ type LookupNodeResult struct {
 
 func LookupNodeOutput(ctx *pulumi.Context, args LookupNodeOutputArgs, opts ...pulumi.InvokeOption) LookupNodeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNodeResult, error) {
+		ApplyT(func(v interface{}) (LookupNodeResultOutput, error) {
 			args := v.(LookupNodeArgs)
-			r, err := LookupNode(ctx, &args, opts...)
-			var s LookupNodeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNodeResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ltm/getNode:getNode", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNodeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNodeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNodeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNodeResultOutput)
 }
 

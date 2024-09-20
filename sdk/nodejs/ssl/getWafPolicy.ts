@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWafPolicy(args: GetWafPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafPolicy:getWafPolicy", {
         "policyId": args.policyId,
@@ -70,7 +69,11 @@ export interface GetWafPolicyResult {
  * ```
  */
 export function getWafPolicyOutput(args: GetWafPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getWafPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafPolicy:getWafPolicy", {
+        "policyId": args.policyId,
+        "policyJson": args.policyJson,
+    }, opts);
 }
 
 /**

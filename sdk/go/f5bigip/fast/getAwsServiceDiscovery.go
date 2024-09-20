@@ -104,14 +104,20 @@ type GetAwsServiceDiscoveryResult struct {
 
 func GetAwsServiceDiscoveryOutput(ctx *pulumi.Context, args GetAwsServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetAwsServiceDiscoveryResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAwsServiceDiscoveryResult, error) {
+		ApplyT(func(v interface{}) (GetAwsServiceDiscoveryResultOutput, error) {
 			args := v.(GetAwsServiceDiscoveryArgs)
-			r, err := GetAwsServiceDiscovery(ctx, &args, opts...)
-			var s GetAwsServiceDiscoveryResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAwsServiceDiscoveryResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args, &rv, "", opts...)
+			if err != nil {
+				return GetAwsServiceDiscoveryResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAwsServiceDiscoveryResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAwsServiceDiscoveryResultOutput), nil
+			}
+			return output, nil
 		}).(GetAwsServiceDiscoveryResultOutput)
 }
 

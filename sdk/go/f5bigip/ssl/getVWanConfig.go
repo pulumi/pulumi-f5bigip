@@ -95,14 +95,20 @@ type GetVWanConfigResult struct {
 
 func GetVWanConfigOutput(ctx *pulumi.Context, args GetVWanConfigOutputArgs, opts ...pulumi.InvokeOption) GetVWanConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVWanConfigResult, error) {
+		ApplyT(func(v interface{}) (GetVWanConfigResultOutput, error) {
 			args := v.(GetVWanConfigArgs)
-			r, err := GetVWanConfig(ctx, &args, opts...)
-			var s GetVWanConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVWanConfigResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ssl/getVWanConfig:getVWanConfig", args, &rv, "", opts...)
+			if err != nil {
+				return GetVWanConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVWanConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVWanConfigResultOutput), nil
+			}
+			return output, nil
 		}).(GetVWanConfigResultOutput)
 }
 

@@ -67,14 +67,20 @@ type GetWafPolicyResult struct {
 
 func GetWafPolicyOutput(ctx *pulumi.Context, args GetWafPolicyOutputArgs, opts ...pulumi.InvokeOption) GetWafPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetWafPolicyResult, error) {
+		ApplyT(func(v interface{}) (GetWafPolicyResultOutput, error) {
 			args := v.(GetWafPolicyArgs)
-			r, err := GetWafPolicy(ctx, &args, opts...)
-			var s GetWafPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetWafPolicyResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ssl/getWafPolicy:getWafPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return GetWafPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetWafPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetWafPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(GetWafPolicyResultOutput)
 }
 

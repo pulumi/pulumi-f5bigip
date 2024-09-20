@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getDataGroup:getDataGroup", {
         "name": args.name,
@@ -89,7 +88,13 @@ export interface GetDataGroupResult {
  * ```
  */
 export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataGroupResult> {
-    return pulumi.output(args).apply((a: any) => getDataGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ltm/getDataGroup:getDataGroup", {
+        "name": args.name,
+        "partition": args.partition,
+        "records": args.records,
+        "type": args.type,
+    }, opts);
 }
 
 /**

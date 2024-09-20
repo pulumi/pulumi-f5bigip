@@ -75,14 +75,20 @@ type LookupDataGroupResult struct {
 
 func LookupDataGroupOutput(ctx *pulumi.Context, args LookupDataGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupDataGroupResultOutput, error) {
 			args := v.(LookupDataGroupArgs)
-			r, err := LookupDataGroup(ctx, &args, opts...)
-			var s LookupDataGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataGroupResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ltm/getDataGroup:getDataGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataGroupResultOutput)
 }
 
