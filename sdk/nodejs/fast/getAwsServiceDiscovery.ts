@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAwsServiceDiscovery(args: GetAwsServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsServiceDiscoveryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", {
         "addressRealm": args.addressRealm,
@@ -142,7 +141,23 @@ export interface GetAwsServiceDiscoveryResult {
  * ```
  */
 export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsServiceDiscoveryResult> {
-    return pulumi.output(args).apply((a: any) => getAwsServiceDiscovery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", {
+        "addressRealm": args.addressRealm,
+        "awsAccessKey": args.awsAccessKey,
+        "awsRegion": args.awsRegion,
+        "awsSecretAccessKey": args.awsSecretAccessKey,
+        "credentialUpdate": args.credentialUpdate,
+        "externalId": args.externalId,
+        "minimumMonitors": args.minimumMonitors,
+        "port": args.port,
+        "roleArn": args.roleArn,
+        "tagKey": args.tagKey,
+        "tagValue": args.tagValue,
+        "type": args.type,
+        "undetectableAction": args.undetectableAction,
+        "updateInterval": args.updateInterval,
+    }, opts);
 }
 
 /**

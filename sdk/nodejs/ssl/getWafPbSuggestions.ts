@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWafPbSuggestions(args: GetWafPbSuggestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPbSuggestionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", {
         "minimumLearningScore": args.minimumLearningScore,
@@ -90,7 +89,13 @@ export interface GetWafPbSuggestionsResult {
  * ```
  */
 export function getWafPbSuggestionsOutput(args: GetWafPbSuggestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPbSuggestionsResult> {
-    return pulumi.output(args).apply((a: any) => getWafPbSuggestions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", {
+        "minimumLearningScore": args.minimumLearningScore,
+        "partition": args.partition,
+        "policyId": args.policyId,
+        "policyName": args.policyName,
+    }, opts);
 }
 
 /**

@@ -7,7 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 export function getWafEntityParameter(args: GetWafEntityParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityParameterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", {
         "allowEmptyType": args.allowEmptyType,
@@ -104,7 +103,34 @@ export interface GetWafEntityParameterResult {
     readonly valueType?: string;
 }
 export function getWafEntityParameterOutput(args: GetWafEntityParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityParameterResult> {
-    return pulumi.output(args).apply((a: any) => getWafEntityParameter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", {
+        "allowEmptyType": args.allowEmptyType,
+        "allowRepeatedParameterName": args.allowRepeatedParameterName,
+        "attackSignaturesCheck": args.attackSignaturesCheck,
+        "checkMaxValueLength": args.checkMaxValueLength,
+        "checkMinValueLength": args.checkMinValueLength,
+        "dataType": args.dataType,
+        "description": args.description,
+        "enableRegularExpression": args.enableRegularExpression,
+        "isBase64": args.isBase64,
+        "isCookie": args.isCookie,
+        "isHeader": args.isHeader,
+        "json": args.json,
+        "level": args.level,
+        "mandatory": args.mandatory,
+        "maxValueLength": args.maxValueLength,
+        "metacharsOnParameterValueCheck": args.metacharsOnParameterValueCheck,
+        "minValueLength": args.minValueLength,
+        "name": args.name,
+        "parameterLocation": args.parameterLocation,
+        "performStaging": args.performStaging,
+        "sensitiveParameter": args.sensitiveParameter,
+        "signatureOverridesDisables": args.signatureOverridesDisables,
+        "type": args.type,
+        "url": args.url,
+        "valueType": args.valueType,
+    }, opts);
 }
 
 /**

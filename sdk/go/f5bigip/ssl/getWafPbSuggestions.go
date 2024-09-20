@@ -77,14 +77,20 @@ type GetWafPbSuggestionsResult struct {
 
 func GetWafPbSuggestionsOutput(ctx *pulumi.Context, args GetWafPbSuggestionsOutputArgs, opts ...pulumi.InvokeOption) GetWafPbSuggestionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetWafPbSuggestionsResult, error) {
+		ApplyT(func(v interface{}) (GetWafPbSuggestionsResultOutput, error) {
 			args := v.(GetWafPbSuggestionsArgs)
-			r, err := GetWafPbSuggestions(ctx, &args, opts...)
-			var s GetWafPbSuggestionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetWafPbSuggestionsResult
+			secret, err := ctx.InvokePackageRaw("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args, &rv, "", opts...)
+			if err != nil {
+				return GetWafPbSuggestionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetWafPbSuggestionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetWafPbSuggestionsResultOutput), nil
+			}
+			return output, nil
 		}).(GetWafPbSuggestionsResultOutput)
 }
 

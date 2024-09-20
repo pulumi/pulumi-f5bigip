@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  * * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
  */
 export function getVWanConfig(args: GetVWanConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetVWanConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getVWanConfig:getVWanConfig", {
         "azureVwanName": args.azureVwanName,
@@ -125,7 +124,12 @@ export interface GetVWanConfigResult {
  * * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
  */
 export function getVWanConfigOutput(args: GetVWanConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVWanConfigResult> {
-    return pulumi.output(args).apply((a: any) => getVWanConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getVWanConfig:getVWanConfig", {
+        "azureVwanName": args.azureVwanName,
+        "azureVwanResourcegroup": args.azureVwanResourcegroup,
+        "azureVwanVpnsite": args.azureVwanVpnsite,
+    }, opts);
 }
 
 /**

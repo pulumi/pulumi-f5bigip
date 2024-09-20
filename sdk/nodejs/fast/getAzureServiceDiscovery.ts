@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAzureServiceDiscovery(args: GetAzureServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureServiceDiscoveryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", {
         "addressRealm": args.addressRealm,
@@ -128,7 +127,20 @@ export interface GetAzureServiceDiscoveryResult {
  * ```
  */
 export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServiceDiscoveryResult> {
-    return pulumi.output(args).apply((a: any) => getAzureServiceDiscovery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", {
+        "addressRealm": args.addressRealm,
+        "credentialUpdate": args.credentialUpdate,
+        "minimumMonitors": args.minimumMonitors,
+        "port": args.port,
+        "resourceGroup": args.resourceGroup,
+        "subscriptionId": args.subscriptionId,
+        "tagKey": args.tagKey,
+        "tagValue": args.tagValue,
+        "type": args.type,
+        "undetectableAction": args.undetectableAction,
+        "updateInterval": args.updateInterval,
+    }, opts);
 }
 
 /**

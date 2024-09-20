@@ -53,7 +53,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityUrlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", {
         "crossOriginRequestsEnforcements": args.crossOriginRequestsEnforcements,
@@ -180,7 +179,18 @@ export interface GetWafEntityUrlResult {
  * ```
  */
 export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
-    return pulumi.output(args).apply((a: any) => getWafEntityUrl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", {
+        "crossOriginRequestsEnforcements": args.crossOriginRequestsEnforcements,
+        "description": args.description,
+        "method": args.method,
+        "methodOverrides": args.methodOverrides,
+        "name": args.name,
+        "performStaging": args.performStaging,
+        "protocol": args.protocol,
+        "signatureOverridesDisables": args.signatureOverridesDisables,
+        "type": args.type,
+    }, opts);
 }
 
 /**
