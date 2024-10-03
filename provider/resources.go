@@ -178,9 +178,6 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_waf_signatures":     {Tok: makeDataSource(sslMod, "getWafSignatures")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^3.0.0",
-			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 			},
@@ -189,9 +186,6 @@ func Provider() tfbridge.ProviderInfo {
 		Python: (func() *tfbridge.PythonInfo {
 			i := &tfbridge.PythonInfo{
 				RespectSchemaVersion: true,
-				Requires: map[string]string{
-					"pulumi": ">=3.0.0,<4.0.0",
-				},
 			}
 			i.PyProject.Enabled = true
 			return i
