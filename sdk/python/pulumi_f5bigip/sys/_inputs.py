@@ -4,18 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'IAppListArgs',
+    'IAppListArgsDict',
     'IAppMetadataArgs',
+    'IAppMetadataArgsDict',
     'IAppTableArgs',
+    'IAppTableArgsDict',
     'IAppTableRowArgs',
+    'IAppTableRowArgsDict',
     'IAppVariableArgs',
+    'IAppVariableArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IAppListArgsDict(TypedDict):
+        encrypted: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+elif False:
+    IAppListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IAppListArgs:
@@ -56,6 +81,19 @@ class IAppListArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class IAppMetadataArgsDict(TypedDict):
+        persists: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+elif False:
+    IAppMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IAppMetadataArgs:
     def __init__(__self__, *,
@@ -94,6 +132,21 @@ class IAppMetadataArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class IAppTableArgsDict(TypedDict):
+        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        encrypted_columns: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the iApp.
+        """
+        rows: NotRequired[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgsDict']]]]
+elif False:
+    IAppTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IAppTableArgs:
@@ -158,6 +211,12 @@ class IAppTableArgs:
         pulumi.set(self, "rows", value)
 
 
+if not MYPY:
+    class IAppTableRowArgsDict(TypedDict):
+        rows: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    IAppTableRowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IAppTableRowArgs:
     def __init__(__self__, *,
@@ -174,6 +233,23 @@ class IAppTableRowArgs:
     def rows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "rows", value)
 
+
+if not MYPY:
+    class IAppVariableArgsDict(TypedDict):
+        encrypted: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the iApp.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Name of origin
+        """
+elif False:
+    IAppVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IAppVariableArgs:

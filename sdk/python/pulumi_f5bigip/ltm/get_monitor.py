@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -326,9 +331,6 @@ def get_monitor(name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         transparent=pulumi.get(__ret__, 'transparent'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_monitor)
 def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
                        partition: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
@@ -349,4 +351,33 @@ def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the ltm monitor
     :param str partition: partition of the ltm monitor
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['partition'] = partition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
+    return __ret__.apply(lambda __response__: GetMonitorResult(
+        adaptive=pulumi.get(__response__, 'adaptive'),
+        adaptive_limit=pulumi.get(__response__, 'adaptive_limit'),
+        base=pulumi.get(__response__, 'base'),
+        chase_referrals=pulumi.get(__response__, 'chase_referrals'),
+        database=pulumi.get(__response__, 'database'),
+        defaults_from=pulumi.get(__response__, 'defaults_from'),
+        destination=pulumi.get(__response__, 'destination'),
+        filename=pulumi.get(__response__, 'filename'),
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        interval=pulumi.get(__response__, 'interval'),
+        ip_dscp=pulumi.get(__response__, 'ip_dscp'),
+        mandatory_attributes=pulumi.get(__response__, 'mandatory_attributes'),
+        manual_resume=pulumi.get(__response__, 'manual_resume'),
+        mode=pulumi.get(__response__, 'mode'),
+        name=pulumi.get(__response__, 'name'),
+        partition=pulumi.get(__response__, 'partition'),
+        receive_disable=pulumi.get(__response__, 'receive_disable'),
+        reverse=pulumi.get(__response__, 'reverse'),
+        security=pulumi.get(__response__, 'security'),
+        time_until_up=pulumi.get(__response__, 'time_until_up'),
+        timeout=pulumi.get(__response__, 'timeout'),
+        transparent=pulumi.get(__response__, 'transparent'),
+        username=pulumi.get(__response__, 'username')))

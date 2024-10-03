@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'VlanInterfaceArgs',
+    'VlanInterfaceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class VlanInterfaceArgsDict(TypedDict):
+        tagged: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
+        """
+        vlanport: NotRequired[pulumi.Input[str]]
+        """
+        Physical or virtual port used for traffic
+        """
+elif False:
+    VlanInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VlanInterfaceArgs:
