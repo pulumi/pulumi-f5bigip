@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -230,9 +235,6 @@ def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[Uni
         protocol=pulumi.get(__ret__, 'protocol'),
         signature_overrides_disables=pulumi.get(__ret__, 'signature_overrides_disables'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_waf_entity_url)
 def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulumi.Input[Optional[Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']]]]] = None,
                               description: Optional[pulumi.Input[Optional[str]]] = None,
                               method: Optional[pulumi.Input[Optional[str]]] = None,
@@ -299,4 +301,27 @@ def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulum
     :param Sequence[int] signature_overrides_disables: List of Attack Signature Ids which are disabled for this particular URL.
     :param str type: Specifies whether the parameter is an 'explicit' or a 'wildcard' attribute. Default is: wildcard.
     """
-    ...
+    __args__ = dict()
+    __args__['crossOriginRequestsEnforcements'] = cross_origin_requests_enforcements
+    __args__['description'] = description
+    __args__['method'] = method
+    __args__['methodOverrides'] = method_overrides
+    __args__['name'] = name
+    __args__['performStaging'] = perform_staging
+    __args__['protocol'] = protocol
+    __args__['signatureOverridesDisables'] = signature_overrides_disables
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafEntityUrl:getWafEntityUrl', __args__, opts=opts, typ=GetWafEntityUrlResult)
+    return __ret__.apply(lambda __response__: GetWafEntityUrlResult(
+        cross_origin_requests_enforcements=pulumi.get(__response__, 'cross_origin_requests_enforcements'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        method=pulumi.get(__response__, 'method'),
+        method_overrides=pulumi.get(__response__, 'method_overrides'),
+        name=pulumi.get(__response__, 'name'),
+        perform_staging=pulumi.get(__response__, 'perform_staging'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        signature_overrides_disables=pulumi.get(__response__, 'signature_overrides_disables'),
+        type=pulumi.get(__response__, 'type')))

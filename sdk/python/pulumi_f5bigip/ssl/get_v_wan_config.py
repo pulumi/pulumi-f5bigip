@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -185,9 +190,6 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         preshared_key=pulumi.get(__ret__, 'preshared_key'),
         vwan_gw_addresses=pulumi.get(__ret__, 'vwan_gw_addresses'))
-
-
-@_utilities.lift_output_func(get_v_wan_config)
 def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
                             azure_vwan_resourcegroup: Optional[pulumi.Input[str]] = None,
                             azure_vwan_vpnsite: Optional[pulumi.Input[str]] = None,
@@ -225,4 +227,19 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
     :param str azure_vwan_resourcegroup: Name of the Azure vWAN resource group
     :param str azure_vwan_vpnsite: Name of the Azure vWAN VPN site from which configuration to be download
     """
-    ...
+    __args__ = dict()
+    __args__['azureVwanName'] = azure_vwan_name
+    __args__['azureVwanResourcegroup'] = azure_vwan_resourcegroup
+    __args__['azureVwanVpnsite'] = azure_vwan_vpnsite
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getVWanConfig:getVWanConfig', __args__, opts=opts, typ=GetVWanConfigResult)
+    return __ret__.apply(lambda __response__: GetVWanConfigResult(
+        azure_vwan_name=pulumi.get(__response__, 'azure_vwan_name'),
+        azure_vwan_resourcegroup=pulumi.get(__response__, 'azure_vwan_resourcegroup'),
+        azure_vwan_vpnsite=pulumi.get(__response__, 'azure_vwan_vpnsite'),
+        bigip_gw_ip=pulumi.get(__response__, 'bigip_gw_ip'),
+        hub_address_space=pulumi.get(__response__, 'hub_address_space'),
+        hub_connected_subnets=pulumi.get(__response__, 'hub_connected_subnets'),
+        id=pulumi.get(__response__, 'id'),
+        preshared_key=pulumi.get(__response__, 'preshared_key'),
+        vwan_gw_addresses=pulumi.get(__response__, 'vwan_gw_addresses')))

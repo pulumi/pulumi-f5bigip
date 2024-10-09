@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -231,9 +236,6 @@ def get_consul_service_discovery(address_realm: Optional[str] = None,
         undetectable_action=pulumi.get(__ret__, 'undetectable_action'),
         update_interval=pulumi.get(__ret__, 'update_interval'),
         uri=pulumi.get(__ret__, 'uri'))
-
-
-@_utilities.lift_output_func(get_consul_service_discovery)
 def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Optional[str]]] = None,
                                         credential_update: Optional[pulumi.Input[Optional[bool]]] = None,
                                         encoded_token: Optional[pulumi.Input[Optional[str]]] = None,
@@ -273,4 +275,33 @@ def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Opt
     :param str update_interval: Update interval for service discovery.
     :param str uri: The location of the node data.
     """
-    ...
+    __args__ = dict()
+    __args__['addressRealm'] = address_realm
+    __args__['credentialUpdate'] = credential_update
+    __args__['encodedToken'] = encoded_token
+    __args__['jmesPathQuery'] = jmes_path_query
+    __args__['minimumMonitors'] = minimum_monitors
+    __args__['port'] = port
+    __args__['rejectUnauthorized'] = reject_unauthorized
+    __args__['trustCa'] = trust_ca
+    __args__['type'] = type
+    __args__['undetectableAction'] = undetectable_action
+    __args__['updateInterval'] = update_interval
+    __args__['uri'] = uri
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery', __args__, opts=opts, typ=GetConsulServiceDiscoveryResult)
+    return __ret__.apply(lambda __response__: GetConsulServiceDiscoveryResult(
+        address_realm=pulumi.get(__response__, 'address_realm'),
+        consul_sd_json=pulumi.get(__response__, 'consul_sd_json'),
+        credential_update=pulumi.get(__response__, 'credential_update'),
+        encoded_token=pulumi.get(__response__, 'encoded_token'),
+        id=pulumi.get(__response__, 'id'),
+        jmes_path_query=pulumi.get(__response__, 'jmes_path_query'),
+        minimum_monitors=pulumi.get(__response__, 'minimum_monitors'),
+        port=pulumi.get(__response__, 'port'),
+        reject_unauthorized=pulumi.get(__response__, 'reject_unauthorized'),
+        trust_ca=pulumi.get(__response__, 'trust_ca'),
+        type=pulumi.get(__response__, 'type'),
+        undetectable_action=pulumi.get(__response__, 'undetectable_action'),
+        update_interval=pulumi.get(__response__, 'update_interval'),
+        uri=pulumi.get(__response__, 'uri')))
