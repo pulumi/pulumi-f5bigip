@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -126,9 +131,6 @@ def get_data_group(name: Optional[str] = None,
         partition=pulumi.get(__ret__, 'partition'),
         records=pulumi.get(__ret__, 'records'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_data_group)
 def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
                           partition: Optional[pulumi.Input[str]] = None,
                           records: Optional[pulumi.Input[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]]]] = None,
@@ -153,4 +155,16 @@ def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
     :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']] records: Specifies record of type (string/ip/integer)
     :param str type: The Data Group type (string, ip, integer)"
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['partition'] = partition
+    __args__['records'] = records
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getDataGroup:getDataGroup', __args__, opts=opts, typ=GetDataGroupResult)
+    return __ret__.apply(lambda __response__: GetDataGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        partition=pulumi.get(__response__, 'partition'),
+        records=pulumi.get(__response__, 'records'),
+        type=pulumi.get(__response__, 'type')))

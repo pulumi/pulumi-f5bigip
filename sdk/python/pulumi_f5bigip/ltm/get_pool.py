@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -105,9 +110,6 @@ def get_pool(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         partition=pulumi.get(__ret__, 'partition'))
-
-
-@_utilities.lift_output_func(get_pool)
 def get_pool_output(name: Optional[pulumi.Input[str]] = None,
                     partition: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
@@ -128,4 +130,13 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the ltm monitor
     :param str partition: partition of the ltm monitor
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['partition'] = partition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
+    return __ret__.apply(lambda __response__: GetPoolResult(
+        full_path=pulumi.get(__response__, 'full_path'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        partition=pulumi.get(__response__, 'partition')))

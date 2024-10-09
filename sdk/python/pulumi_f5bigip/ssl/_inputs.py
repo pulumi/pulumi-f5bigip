@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GetWafEntityParameterUrlArgs',
+    'GetWafEntityParameterUrlArgsDict',
     'GetWafEntityUrlCrossOriginRequestsEnforcementArgs',
+    'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict',
     'GetWafEntityUrlMethodOverrideArgs',
+    'GetWafEntityUrlMethodOverrideArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GetWafEntityParameterUrlArgsDict(TypedDict):
+        method: str
+        name: str
+        protocol: str
+        type: str
+elif False:
+    GetWafEntityParameterUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetWafEntityParameterUrlArgs:
@@ -63,6 +82,27 @@ class GetWafEntityParameterUrlArgs:
     def type(self, value: str):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict(TypedDict):
+        origin_name: str
+        """
+        Specifies the name of the origin with which you want to share your data.
+        """
+        origin_port: str
+        """
+        Specifies the port that other web applications are allowed to use to request data from your web application.
+        """
+        origin_protocol: str
+        """
+        Specifies the protocol that other web applications are allowed to use to request data from your web application.
+        """
+        include_subdomains: NotRequired[bool]
+        """
+        Determines whether the subdomains are allowed to receive data from the web application.
+        """
+elif False:
+    GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetWafEntityUrlCrossOriginRequestsEnforcementArgs:
@@ -131,6 +171,19 @@ class GetWafEntityUrlCrossOriginRequestsEnforcementArgs:
     def include_subdomains(self, value: Optional[bool]):
         pulumi.set(self, "include_subdomains", value)
 
+
+if not MYPY:
+    class GetWafEntityUrlMethodOverrideArgsDict(TypedDict):
+        allow: bool
+        """
+        Specifies that the system allows or disallows a method for this URL
+        """
+        method: str
+        """
+        Specifies an HTTP method.
+        """
+elif False:
+    GetWafEntityUrlMethodOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetWafEntityUrlMethodOverrideArgs:

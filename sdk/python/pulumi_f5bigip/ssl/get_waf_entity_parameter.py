@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -356,9 +361,6 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'),
         value_type=pulumi.get(__ret__, 'value_type'))
-
-
-@_utilities.lift_output_func(get_waf_entity_parameter)
 def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Optional[bool]]] = None,
                                     allow_repeated_parameter_name: Optional[pulumi.Input[Optional[bool]]] = None,
                                     attack_signatures_check: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -388,4 +390,58 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    __args__['allowEmptyType'] = allow_empty_type
+    __args__['allowRepeatedParameterName'] = allow_repeated_parameter_name
+    __args__['attackSignaturesCheck'] = attack_signatures_check
+    __args__['checkMaxValueLength'] = check_max_value_length
+    __args__['checkMinValueLength'] = check_min_value_length
+    __args__['dataType'] = data_type
+    __args__['description'] = description
+    __args__['enableRegularExpression'] = enable_regular_expression
+    __args__['isBase64'] = is_base64
+    __args__['isCookie'] = is_cookie
+    __args__['isHeader'] = is_header
+    __args__['json'] = json
+    __args__['level'] = level
+    __args__['mandatory'] = mandatory
+    __args__['maxValueLength'] = max_value_length
+    __args__['metacharsOnParameterValueCheck'] = metachars_on_parameter_value_check
+    __args__['minValueLength'] = min_value_length
+    __args__['name'] = name
+    __args__['parameterLocation'] = parameter_location
+    __args__['performStaging'] = perform_staging
+    __args__['sensitiveParameter'] = sensitive_parameter
+    __args__['signatureOverridesDisables'] = signature_overrides_disables
+    __args__['type'] = type
+    __args__['url'] = url
+    __args__['valueType'] = value_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafEntityParameter:getWafEntityParameter', __args__, opts=opts, typ=GetWafEntityParameterResult)
+    return __ret__.apply(lambda __response__: GetWafEntityParameterResult(
+        allow_empty_type=pulumi.get(__response__, 'allow_empty_type'),
+        allow_repeated_parameter_name=pulumi.get(__response__, 'allow_repeated_parameter_name'),
+        attack_signatures_check=pulumi.get(__response__, 'attack_signatures_check'),
+        check_max_value_length=pulumi.get(__response__, 'check_max_value_length'),
+        check_min_value_length=pulumi.get(__response__, 'check_min_value_length'),
+        data_type=pulumi.get(__response__, 'data_type'),
+        description=pulumi.get(__response__, 'description'),
+        enable_regular_expression=pulumi.get(__response__, 'enable_regular_expression'),
+        id=pulumi.get(__response__, 'id'),
+        is_base64=pulumi.get(__response__, 'is_base64'),
+        is_cookie=pulumi.get(__response__, 'is_cookie'),
+        is_header=pulumi.get(__response__, 'is_header'),
+        json=pulumi.get(__response__, 'json'),
+        level=pulumi.get(__response__, 'level'),
+        mandatory=pulumi.get(__response__, 'mandatory'),
+        max_value_length=pulumi.get(__response__, 'max_value_length'),
+        metachars_on_parameter_value_check=pulumi.get(__response__, 'metachars_on_parameter_value_check'),
+        min_value_length=pulumi.get(__response__, 'min_value_length'),
+        name=pulumi.get(__response__, 'name'),
+        parameter_location=pulumi.get(__response__, 'parameter_location'),
+        perform_staging=pulumi.get(__response__, 'perform_staging'),
+        sensitive_parameter=pulumi.get(__response__, 'sensitive_parameter'),
+        signature_overrides_disables=pulumi.get(__response__, 'signature_overrides_disables'),
+        type=pulumi.get(__response__, 'type'),
+        url=pulumi.get(__response__, 'url'),
+        value_type=pulumi.get(__response__, 'value_type')))

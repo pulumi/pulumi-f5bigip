@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -223,9 +228,6 @@ def get_azure_service_discovery(address_realm: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         undetectable_action=pulumi.get(__ret__, 'undetectable_action'),
         update_interval=pulumi.get(__ret__, 'update_interval'))
-
-
-@_utilities.lift_output_func(get_azure_service_discovery)
 def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Optional[str]]] = None,
                                        credential_update: Optional[pulumi.Input[Optional[bool]]] = None,
                                        minimum_monitors: Optional[pulumi.Input[Optional[str]]] = None,
@@ -265,4 +267,31 @@ def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Opti
     :param str undetectable_action: Action to take when node cannot be detected,default `remove`.
     :param str update_interval: Update interval for service discovery.
     """
-    ...
+    __args__ = dict()
+    __args__['addressRealm'] = address_realm
+    __args__['credentialUpdate'] = credential_update
+    __args__['minimumMonitors'] = minimum_monitors
+    __args__['port'] = port
+    __args__['resourceGroup'] = resource_group
+    __args__['subscriptionId'] = subscription_id
+    __args__['tagKey'] = tag_key
+    __args__['tagValue'] = tag_value
+    __args__['type'] = type
+    __args__['undetectableAction'] = undetectable_action
+    __args__['updateInterval'] = update_interval
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery', __args__, opts=opts, typ=GetAzureServiceDiscoveryResult)
+    return __ret__.apply(lambda __response__: GetAzureServiceDiscoveryResult(
+        address_realm=pulumi.get(__response__, 'address_realm'),
+        azure_sd_json=pulumi.get(__response__, 'azure_sd_json'),
+        credential_update=pulumi.get(__response__, 'credential_update'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_monitors=pulumi.get(__response__, 'minimum_monitors'),
+        port=pulumi.get(__response__, 'port'),
+        resource_group=pulumi.get(__response__, 'resource_group'),
+        subscription_id=pulumi.get(__response__, 'subscription_id'),
+        tag_key=pulumi.get(__response__, 'tag_key'),
+        tag_value=pulumi.get(__response__, 'tag_value'),
+        type=pulumi.get(__response__, 'type'),
+        undetectable_action=pulumi.get(__response__, 'undetectable_action'),
+        update_interval=pulumi.get(__response__, 'update_interval')))

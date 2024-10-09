@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -223,9 +228,6 @@ def get_waf_signatures(accuracy: Optional[str] = None,
         system_signature_id=pulumi.get(__ret__, 'system_signature_id'),
         tag=pulumi.get(__ret__, 'tag'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_waf_signatures)
 def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = None,
                               description: Optional[pulumi.Input[Optional[str]]] = None,
                               enabled: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -258,4 +260,29 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
     :param str system_signature_id: System generated ID of the signature.
     :param str type: Type of the signature.
     """
-    ...
+    __args__ = dict()
+    __args__['accuracy'] = accuracy
+    __args__['description'] = description
+    __args__['enabled'] = enabled
+    __args__['name'] = name
+    __args__['performStaging'] = perform_staging
+    __args__['risk'] = risk
+    __args__['signatureId'] = signature_id
+    __args__['systemSignatureId'] = system_signature_id
+    __args__['tag'] = tag
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafSignatures:getWafSignatures', __args__, opts=opts, typ=GetWafSignaturesResult)
+    return __ret__.apply(lambda __response__: GetWafSignaturesResult(
+        accuracy=pulumi.get(__response__, 'accuracy'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        name=pulumi.get(__response__, 'name'),
+        perform_staging=pulumi.get(__response__, 'perform_staging'),
+        risk=pulumi.get(__response__, 'risk'),
+        signature_id=pulumi.get(__response__, 'signature_id'),
+        system_signature_id=pulumi.get(__response__, 'system_signature_id'),
+        tag=pulumi.get(__response__, 'tag'),
+        type=pulumi.get(__response__, 'type')))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -160,9 +165,6 @@ def get_policy(controls: Optional[Sequence[str]] = None,
         requires=pulumi.get(__ret__, 'requires'),
         rules=pulumi.get(__ret__, 'rules'),
         strategy=pulumi.get(__ret__, 'strategy'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       published_copy: Optional[pulumi.Input[Optional[str]]] = None,
@@ -190,4 +192,20 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
     :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']] rules: Rules defined in the policy.
     :param str strategy: Specifies the match strategy.
     """
-    ...
+    __args__ = dict()
+    __args__['controls'] = controls
+    __args__['name'] = name
+    __args__['publishedCopy'] = published_copy
+    __args__['requires'] = requires
+    __args__['rules'] = rules
+    __args__['strategy'] = strategy
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        controls=pulumi.get(__response__, 'controls'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        published_copy=pulumi.get(__response__, 'published_copy'),
+        requires=pulumi.get(__response__, 'requires'),
+        rules=pulumi.get(__response__, 'rules'),
+        strategy=pulumi.get(__response__, 'strategy')))

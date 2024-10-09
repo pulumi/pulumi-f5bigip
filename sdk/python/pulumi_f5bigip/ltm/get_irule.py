@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -115,9 +120,6 @@ def get_irule(irule: Optional[str] = None,
         irule=pulumi.get(__ret__, 'irule'),
         name=pulumi.get(__ret__, 'name'),
         partition=pulumi.get(__ret__, 'partition'))
-
-
-@_utilities.lift_output_func(get_irule)
 def get_irule_output(irule: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      partition: Optional[pulumi.Input[str]] = None,
@@ -141,4 +143,14 @@ def get_irule_output(irule: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the irule
     :param str partition: partition of the ltm irule
     """
-    ...
+    __args__ = dict()
+    __args__['irule'] = irule
+    __args__['name'] = name
+    __args__['partition'] = partition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getIrule:getIrule', __args__, opts=opts, typ=GetIruleResult)
+    return __ret__.apply(lambda __response__: GetIruleResult(
+        id=pulumi.get(__response__, 'id'),
+        irule=pulumi.get(__response__, 'irule'),
+        name=pulumi.get(__response__, 'name'),
+        partition=pulumi.get(__response__, 'partition')))

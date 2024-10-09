@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DeviceGroupDeviceArgs',
+    'DeviceGroupDeviceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DeviceGroupDeviceArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Is the name of the device Group
+        """
+        set_sync_leader: NotRequired[pulumi.Input[bool]]
+        """
+        Name of origin
+        """
+elif False:
+    DeviceGroupDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeviceGroupDeviceArgs:
