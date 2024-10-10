@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -232,9 +237,6 @@ def get_node(address: Optional[str] = None,
         ratio=pulumi.get(__ret__, 'ratio'),
         session=pulumi.get(__ret__, 'session'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_node)
 def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
                     description: Optional[pulumi.Input[Optional[str]]] = None,
                     fqdn: Optional[pulumi.Input[Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict']]]] = None,
@@ -252,4 +254,27 @@ def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the node.
     :param str partition: partition of the node.
     """
-    ...
+    __args__ = dict()
+    __args__['address'] = address
+    __args__['description'] = description
+    __args__['fqdn'] = fqdn
+    __args__['fullPath'] = full_path
+    __args__['name'] = name
+    __args__['partition'] = partition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getNode:getNode', __args__, opts=opts, typ=GetNodeResult)
+    return __ret__.apply(lambda __response__: GetNodeResult(
+        address=pulumi.get(__response__, 'address'),
+        connection_limit=pulumi.get(__response__, 'connection_limit'),
+        description=pulumi.get(__response__, 'description'),
+        dynamic_ratio=pulumi.get(__response__, 'dynamic_ratio'),
+        fqdn=pulumi.get(__response__, 'fqdn'),
+        full_path=pulumi.get(__response__, 'full_path'),
+        id=pulumi.get(__response__, 'id'),
+        monitor=pulumi.get(__response__, 'monitor'),
+        name=pulumi.get(__response__, 'name'),
+        partition=pulumi.get(__response__, 'partition'),
+        rate_limit=pulumi.get(__response__, 'rate_limit'),
+        ratio=pulumi.get(__response__, 'ratio'),
+        session=pulumi.get(__response__, 'session'),
+        state=pulumi.get(__response__, 'state')))
