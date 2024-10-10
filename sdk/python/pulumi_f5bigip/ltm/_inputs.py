@@ -4,32 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DataGroupRecordArgs',
+    'DataGroupRecordArgsDict',
     'NodeFqdnArgs',
+    'NodeFqdnArgsDict',
     'PolicyRuleArgs',
+    'PolicyRuleArgsDict',
     'PolicyRuleActionArgs',
+    'PolicyRuleActionArgsDict',
     'PolicyRuleConditionArgs',
+    'PolicyRuleConditionArgsDict',
     'ProfileClientSslCertKeyChainArgs',
+    'ProfileClientSslCertKeyChainArgsDict',
     'ProfileHttpEnforcementArgs',
+    'ProfileHttpEnforcementArgsDict',
     'ProfileHttpHttpStrictTransportSecurityArgs',
+    'ProfileHttpHttpStrictTransportSecurityArgsDict',
     'ProfileRewriteCookieRuleArgs',
+    'ProfileRewriteCookieRuleArgsDict',
     'ProfileRewriteRequestArgs',
+    'ProfileRewriteRequestArgsDict',
     'ProfileRewriteResponseArgs',
+    'ProfileRewriteResponseArgsDict',
     'ProfileRewriteUriRulesClientArgs',
+    'ProfileRewriteUriRulesClientArgsDict',
     'ProfileRewriteUriRulesServerArgs',
+    'ProfileRewriteUriRulesServerArgsDict',
     'SnatOriginArgs',
+    'SnatOriginArgsDict',
     'GetDataGroupRecordArgs',
+    'GetDataGroupRecordArgsDict',
     'GetNodeFqdnArgs',
+    'GetNodeFqdnArgsDict',
     'GetPolicyRuleArgs',
+    'GetPolicyRuleArgsDict',
     'GetPolicyRuleActionArgs',
+    'GetPolicyRuleActionArgsDict',
     'GetPolicyRuleConditionArgs',
+    'GetPolicyRuleConditionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataGroupRecordArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+        """
+        data: NotRequired[pulumi.Input[str]]
+        """
+        , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
+        """
+elif False:
+    DataGroupRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataGroupRecordArgs:
@@ -68,6 +107,31 @@ class DataGroupRecordArgs:
     def data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class NodeFqdnArgsDict(TypedDict):
+        address_family: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+        """
+        autopopulate: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the node should scale to the IP address set returned by DNS.
+        """
+        downinterval: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of attempts to resolve a domain name. The default is 5.
+        """
+        interval: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the node
+        """
+elif False:
+    NodeFqdnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeFqdnArgs:
@@ -156,6 +220,27 @@ class NodeFqdnArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class PolicyRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of Rule to be applied in policy.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgsDict']]]]
+        """
+        Block type. See action block for more details.
+        """
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgsDict']]]]
+        """
+        Block type. See condition block for more details.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+elif False:
+    PolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyRuleArgs:
     def __init__(__self__, *,
@@ -225,6 +310,124 @@ class PolicyRuleArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class PolicyRuleActionArgsDict(TypedDict):
+        app_service: NotRequired[pulumi.Input[str]]
+        application: NotRequired[pulumi.Input[str]]
+        asm: NotRequired[pulumi.Input[bool]]
+        avr: NotRequired[pulumi.Input[bool]]
+        cache: NotRequired[pulumi.Input[bool]]
+        carp: NotRequired[pulumi.Input[bool]]
+        category: NotRequired[pulumi.Input[str]]
+        classify: NotRequired[pulumi.Input[bool]]
+        clone_pool: NotRequired[pulumi.Input[str]]
+        code: NotRequired[pulumi.Input[int]]
+        compress: NotRequired[pulumi.Input[bool]]
+        connection: NotRequired[pulumi.Input[bool]]
+        """
+        This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        cookie_hash: NotRequired[pulumi.Input[bool]]
+        cookie_insert: NotRequired[pulumi.Input[bool]]
+        cookie_passive: NotRequired[pulumi.Input[bool]]
+        cookie_rewrite: NotRequired[pulumi.Input[bool]]
+        decompress: NotRequired[pulumi.Input[bool]]
+        defer: NotRequired[pulumi.Input[bool]]
+        destination_address: NotRequired[pulumi.Input[bool]]
+        disable: NotRequired[pulumi.Input[bool]]
+        domain: NotRequired[pulumi.Input[str]]
+        enable: NotRequired[pulumi.Input[bool]]
+        expiry: NotRequired[pulumi.Input[str]]
+        expiry_secs: NotRequired[pulumi.Input[int]]
+        expression: NotRequired[pulumi.Input[str]]
+        extension: NotRequired[pulumi.Input[str]]
+        facility: NotRequired[pulumi.Input[str]]
+        forward: NotRequired[pulumi.Input[bool]]
+        """
+        This action will affect forwarding.
+        """
+        from_profile: NotRequired[pulumi.Input[str]]
+        hash: NotRequired[pulumi.Input[bool]]
+        host: NotRequired[pulumi.Input[str]]
+        http: NotRequired[pulumi.Input[bool]]
+        http_basic_auth: NotRequired[pulumi.Input[bool]]
+        http_cookie: NotRequired[pulumi.Input[bool]]
+        http_header: NotRequired[pulumi.Input[bool]]
+        http_host: NotRequired[pulumi.Input[bool]]
+        http_referer: NotRequired[pulumi.Input[bool]]
+        http_reply: NotRequired[pulumi.Input[bool]]
+        http_set_cookie: NotRequired[pulumi.Input[bool]]
+        http_uri: NotRequired[pulumi.Input[bool]]
+        ifile: NotRequired[pulumi.Input[str]]
+        insert: NotRequired[pulumi.Input[bool]]
+        internal_virtual: NotRequired[pulumi.Input[str]]
+        ip_address: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+        l7dos: NotRequired[pulumi.Input[bool]]
+        length: NotRequired[pulumi.Input[int]]
+        location: NotRequired[pulumi.Input[str]]
+        log: NotRequired[pulumi.Input[bool]]
+        ltm_policy: NotRequired[pulumi.Input[bool]]
+        member: NotRequired[pulumi.Input[str]]
+        message: NotRequired[pulumi.Input[str]]
+        netmask: NotRequired[pulumi.Input[str]]
+        nexthop: NotRequired[pulumi.Input[str]]
+        node: NotRequired[pulumi.Input[str]]
+        offset: NotRequired[pulumi.Input[int]]
+        path: NotRequired[pulumi.Input[str]]
+        pem: NotRequired[pulumi.Input[bool]]
+        persist: NotRequired[pulumi.Input[bool]]
+        pin: NotRequired[pulumi.Input[bool]]
+        policy: NotRequired[pulumi.Input[str]]
+        pool: NotRequired[pulumi.Input[str]]
+        """
+        This action will direct the stream to this pool.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        priority: NotRequired[pulumi.Input[str]]
+        profile: NotRequired[pulumi.Input[str]]
+        protocol: NotRequired[pulumi.Input[str]]
+        query_string: NotRequired[pulumi.Input[str]]
+        rateclass: NotRequired[pulumi.Input[str]]
+        redirect: NotRequired[pulumi.Input[bool]]
+        remove: NotRequired[pulumi.Input[bool]]
+        replace: NotRequired[pulumi.Input[bool]]
+        request: NotRequired[pulumi.Input[bool]]
+        request_adapt: NotRequired[pulumi.Input[bool]]
+        reset: NotRequired[pulumi.Input[bool]]
+        response: NotRequired[pulumi.Input[bool]]
+        response_adapt: NotRequired[pulumi.Input[bool]]
+        scheme: NotRequired[pulumi.Input[str]]
+        script: NotRequired[pulumi.Input[str]]
+        select: NotRequired[pulumi.Input[bool]]
+        server_ssl: NotRequired[pulumi.Input[bool]]
+        set_variable: NotRequired[pulumi.Input[bool]]
+        shutdown: NotRequired[pulumi.Input[bool]]
+        snat: NotRequired[pulumi.Input[str]]
+        snatpool: NotRequired[pulumi.Input[str]]
+        source_address: NotRequired[pulumi.Input[bool]]
+        ssl_client_hello: NotRequired[pulumi.Input[bool]]
+        ssl_server_handshake: NotRequired[pulumi.Input[bool]]
+        ssl_server_hello: NotRequired[pulumi.Input[bool]]
+        ssl_session_id: NotRequired[pulumi.Input[bool]]
+        status: NotRequired[pulumi.Input[int]]
+        tcl: NotRequired[pulumi.Input[bool]]
+        tcp_nagle: NotRequired[pulumi.Input[bool]]
+        text: NotRequired[pulumi.Input[str]]
+        timeout: NotRequired[pulumi.Input[int]]
+        tm_name: NotRequired[pulumi.Input[str]]
+        uie: NotRequired[pulumi.Input[bool]]
+        universal: NotRequired[pulumi.Input[bool]]
+        value: NotRequired[pulumi.Input[str]]
+        virtual: NotRequired[pulumi.Input[str]]
+        vlan: NotRequired[pulumi.Input[str]]
+        vlan_id: NotRequired[pulumi.Input[int]]
+        wam: NotRequired[pulumi.Input[bool]]
+        write: NotRequired[pulumi.Input[bool]]
+elif False:
+    PolicyRuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyRuleActionArgs:
@@ -1493,6 +1696,104 @@ class PolicyRuleActionArgs:
         pulumi.set(self, "write", value)
 
 
+if not MYPY:
+    class PolicyRuleConditionArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[bool]]
+        all: NotRequired[pulumi.Input[bool]]
+        app_service: NotRequired[pulumi.Input[str]]
+        browser_type: NotRequired[pulumi.Input[bool]]
+        browser_version: NotRequired[pulumi.Input[bool]]
+        case_insensitive: NotRequired[pulumi.Input[bool]]
+        case_sensitive: NotRequired[pulumi.Input[bool]]
+        cipher: NotRequired[pulumi.Input[bool]]
+        cipher_bits: NotRequired[pulumi.Input[bool]]
+        client_accepted: NotRequired[pulumi.Input[bool]]
+        client_ssl: NotRequired[pulumi.Input[bool]]
+        code: NotRequired[pulumi.Input[bool]]
+        common_name: NotRequired[pulumi.Input[bool]]
+        contains: NotRequired[pulumi.Input[bool]]
+        continent: NotRequired[pulumi.Input[bool]]
+        country_code: NotRequired[pulumi.Input[bool]]
+        country_name: NotRequired[pulumi.Input[bool]]
+        cpu_usage: NotRequired[pulumi.Input[bool]]
+        datagroup: NotRequired[pulumi.Input[str]]
+        device_make: NotRequired[pulumi.Input[bool]]
+        device_model: NotRequired[pulumi.Input[bool]]
+        domain: NotRequired[pulumi.Input[bool]]
+        ends_with: NotRequired[pulumi.Input[bool]]
+        equals: NotRequired[pulumi.Input[bool]]
+        exists: NotRequired[pulumi.Input[bool]]
+        expiry: NotRequired[pulumi.Input[bool]]
+        extension: NotRequired[pulumi.Input[bool]]
+        external: NotRequired[pulumi.Input[bool]]
+        geoip: NotRequired[pulumi.Input[bool]]
+        greater: NotRequired[pulumi.Input[bool]]
+        greater_or_equal: NotRequired[pulumi.Input[bool]]
+        host: NotRequired[pulumi.Input[bool]]
+        http_basic_auth: NotRequired[pulumi.Input[bool]]
+        http_cookie: NotRequired[pulumi.Input[bool]]
+        http_header: NotRequired[pulumi.Input[bool]]
+        http_host: NotRequired[pulumi.Input[bool]]
+        http_method: NotRequired[pulumi.Input[bool]]
+        http_referer: NotRequired[pulumi.Input[bool]]
+        http_set_cookie: NotRequired[pulumi.Input[bool]]
+        http_status: NotRequired[pulumi.Input[bool]]
+        http_uri: NotRequired[pulumi.Input[bool]]
+        http_user_agent: NotRequired[pulumi.Input[bool]]
+        http_version: NotRequired[pulumi.Input[bool]]
+        index: NotRequired[pulumi.Input[int]]
+        internal: NotRequired[pulumi.Input[bool]]
+        isp: NotRequired[pulumi.Input[bool]]
+        last15secs: NotRequired[pulumi.Input[bool]]
+        last1min: NotRequired[pulumi.Input[bool]]
+        last5mins: NotRequired[pulumi.Input[bool]]
+        less: NotRequired[pulumi.Input[bool]]
+        less_or_equal: NotRequired[pulumi.Input[bool]]
+        local: NotRequired[pulumi.Input[bool]]
+        major: NotRequired[pulumi.Input[bool]]
+        matches: NotRequired[pulumi.Input[bool]]
+        minor: NotRequired[pulumi.Input[bool]]
+        missing: NotRequired[pulumi.Input[bool]]
+        mss: NotRequired[pulumi.Input[bool]]
+        not_: NotRequired[pulumi.Input[bool]]
+        org: NotRequired[pulumi.Input[bool]]
+        password: NotRequired[pulumi.Input[bool]]
+        path: NotRequired[pulumi.Input[bool]]
+        path_segment: NotRequired[pulumi.Input[bool]]
+        port: NotRequired[pulumi.Input[bool]]
+        present: NotRequired[pulumi.Input[bool]]
+        protocol: NotRequired[pulumi.Input[bool]]
+        query_parameter: NotRequired[pulumi.Input[bool]]
+        query_string: NotRequired[pulumi.Input[bool]]
+        region_code: NotRequired[pulumi.Input[bool]]
+        region_name: NotRequired[pulumi.Input[bool]]
+        remote: NotRequired[pulumi.Input[bool]]
+        request: NotRequired[pulumi.Input[bool]]
+        response: NotRequired[pulumi.Input[bool]]
+        route_domain: NotRequired[pulumi.Input[bool]]
+        rtt: NotRequired[pulumi.Input[bool]]
+        scheme: NotRequired[pulumi.Input[bool]]
+        server_name: NotRequired[pulumi.Input[bool]]
+        ssl_cert: NotRequired[pulumi.Input[bool]]
+        ssl_client_hello: NotRequired[pulumi.Input[bool]]
+        ssl_extension: NotRequired[pulumi.Input[bool]]
+        ssl_server_handshake: NotRequired[pulumi.Input[bool]]
+        ssl_server_hello: NotRequired[pulumi.Input[bool]]
+        starts_with: NotRequired[pulumi.Input[bool]]
+        tcp: NotRequired[pulumi.Input[bool]]
+        text: NotRequired[pulumi.Input[bool]]
+        tm_name: NotRequired[pulumi.Input[str]]
+        unnamed_query_parameter: NotRequired[pulumi.Input[bool]]
+        user_agent_token: NotRequired[pulumi.Input[bool]]
+        username: NotRequired[pulumi.Input[bool]]
+        value: NotRequired[pulumi.Input[bool]]
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        version: NotRequired[pulumi.Input[bool]]
+        vlan: NotRequired[pulumi.Input[bool]]
+        vlan_id: NotRequired[pulumi.Input[bool]]
+elif False:
+    PolicyRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyRuleConditionArgs:
     def __init__(__self__, *,
@@ -2614,6 +2915,31 @@ class PolicyRuleConditionArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+if not MYPY:
+    class ProfileClientSslCertKeyChainArgsDict(TypedDict):
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a cert name for use.
+        """
+        chain: NotRequired[pulumi.Input[str]]
+        """
+        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Contains a key name
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        """
+        passphrase: NotRequired[pulumi.Input[str]]
+        """
+        Key passphrase
+        """
+elif False:
+    ProfileClientSslCertKeyChainArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileClientSslCertKeyChainArgs:
     def __init__(__self__, *,
@@ -2701,6 +3027,27 @@ class ProfileClientSslCertKeyChainArgs:
         pulumi.set(self, "passphrase", value)
 
 
+if not MYPY:
+    class ProfileHttpEnforcementArgsDict(TypedDict):
+        known_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
+        """
+        max_header_count: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
+        """
+        max_header_size: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
+        """
+        unknown_method: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
+        """
+elif False:
+    ProfileHttpEnforcementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileHttpEnforcementArgs:
     def __init__(__self__, *,
@@ -2771,6 +3118,27 @@ class ProfileHttpEnforcementArgs:
     def unknown_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unknown_method", value)
 
+
+if not MYPY:
+    class ProfileHttpHttpStrictTransportSecurityArgsDict(TypedDict):
+        include_subdomains: NotRequired[pulumi.Input[str]]
+        """
+        The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
+        """
+        maximum_age: NotRequired[pulumi.Input[int]]
+        """
+        The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
+        """
+        preload: NotRequired[pulumi.Input[str]]
+        """
+        An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
+        """
+elif False:
+    ProfileHttpHttpStrictTransportSecurityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfileHttpHttpStrictTransportSecurityArgs:
@@ -2843,6 +3211,19 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
         pulumi.set(self, "preload", value)
 
 
+if not MYPY:
+    class ProfileRewriteCookieRuleArgsDict(TypedDict):
+        client_domain: pulumi.Input[str]
+        client_path: pulumi.Input[str]
+        rule_name: pulumi.Input[str]
+        """
+        Name of the cookie rewrite rule.
+        """
+        server_domain: pulumi.Input[str]
+        server_path: pulumi.Input[str]
+elif False:
+    ProfileRewriteCookieRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileRewriteCookieRuleArgs:
     def __init__(__self__, *,
@@ -2908,6 +3289,27 @@ class ProfileRewriteCookieRuleArgs:
     def server_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_path", value)
 
+
+if not MYPY:
+    class ProfileRewriteRequestArgsDict(TypedDict):
+        insert_xfwd_for: NotRequired[pulumi.Input[str]]
+        """
+        Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+        """
+        insert_xfwd_host: NotRequired[pulumi.Input[str]]
+        """
+        Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+        """
+        insert_xfwd_protocol: NotRequired[pulumi.Input[str]]
+        """
+        Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+        """
+        rewrite_headers: NotRequired[pulumi.Input[str]]
+        """
+        Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
+        """
+elif False:
+    ProfileRewriteRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfileRewriteRequestArgs:
@@ -2980,6 +3382,19 @@ class ProfileRewriteRequestArgs:
         pulumi.set(self, "rewrite_headers", value)
 
 
+if not MYPY:
+    class ProfileRewriteResponseArgsDict(TypedDict):
+        rewrite_content: NotRequired[pulumi.Input[str]]
+        """
+        Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+        """
+        rewrite_headers: NotRequired[pulumi.Input[str]]
+        """
+        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+        """
+elif False:
+    ProfileRewriteResponseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileRewriteResponseArgs:
     def __init__(__self__, *,
@@ -3018,6 +3433,27 @@ class ProfileRewriteResponseArgs:
     def rewrite_headers(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rewrite_headers", value)
 
+
+if not MYPY:
+    class ProfileRewriteUriRulesClientArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        Host part of the uri, e.g. `www.foo.com`.
+        """
+        scheme: pulumi.Input[str]
+        """
+        Scheme part of the uri, e.g. `https`, `ftp`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path part of the uri, must always end with `/`. Default value is: `/`
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Port part of the uri. Default value is: `none`
+        """
+elif False:
+    ProfileRewriteUriRulesClientArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfileRewriteUriRulesClientArgs:
@@ -3088,6 +3524,27 @@ class ProfileRewriteUriRulesClientArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class ProfileRewriteUriRulesServerArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        Host part of the uri, e.g. `www.foo.com`.
+        """
+        scheme: pulumi.Input[str]
+        """
+        Scheme part of the uri, e.g. `https`, `ftp`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Path part of the uri, must always end with `/`. Default value is: `/`
+        """
+        port: NotRequired[pulumi.Input[str]]
+        """
+        Port part of the uri. Default value is: `none`
+        """
+elif False:
+    ProfileRewriteUriRulesServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProfileRewriteUriRulesServerArgs:
     def __init__(__self__, *,
@@ -3157,6 +3614,19 @@ class ProfileRewriteUriRulesServerArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class SnatOriginArgsDict(TypedDict):
+        app_service: NotRequired[pulumi.Input[str]]
+        """
+        app service
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+        """
+elif False:
+    SnatOriginArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnatOriginArgs:
     def __init__(__self__, *,
@@ -3196,6 +3666,16 @@ class SnatOriginArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class GetDataGroupRecordArgsDict(TypedDict):
+        name: str
+        """
+        Name of the datagroup
+        """
+        data: NotRequired[str]
+elif False:
+    GetDataGroupRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetDataGroupRecordArgs:
     def __init__(__self__, *,
@@ -3229,6 +3709,31 @@ class GetDataGroupRecordArgs:
     def data(self, value: Optional[str]):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class GetNodeFqdnArgsDict(TypedDict):
+        autopopulate: str
+        """
+        Specifies if the node should scale to the IP address set returned by DNS.
+        """
+        downinterval: int
+        """
+        The number of attempts to resolve a domain name.
+        """
+        interval: str
+        """
+        The amount of time before sending the next DNS query.
+        """
+        address_family: NotRequired[str]
+        """
+        The FQDN node's address family.
+        """
+        name: NotRequired[str]
+        """
+        Name of the node.
+        """
+elif False:
+    GetNodeFqdnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNodeFqdnArgs:
@@ -3314,6 +3819,17 @@ class GetNodeFqdnArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class GetPolicyRuleArgsDict(TypedDict):
+        name: str
+        """
+        Name of the policy which includes partion ( /partition/policy-name )
+        """
+        actions: NotRequired[Sequence['GetPolicyRuleActionArgsDict']]
+        conditions: NotRequired[Sequence['GetPolicyRuleConditionArgsDict']]
+elif False:
+    GetPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPolicyRuleArgs:
     def __init__(__self__, *,
@@ -3359,6 +3875,115 @@ class GetPolicyRuleArgs:
     def conditions(self, value: Optional[Sequence['GetPolicyRuleConditionArgs']]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class GetPolicyRuleActionArgsDict(TypedDict):
+        app_service: str
+        application: str
+        asm: bool
+        avr: bool
+        cache: bool
+        carp: bool
+        category: str
+        classify: bool
+        clone_pool: str
+        code: int
+        compress: bool
+        connection: bool
+        content: str
+        cookie_hash: bool
+        cookie_insert: bool
+        cookie_passive: bool
+        cookie_rewrite: bool
+        decompress: bool
+        defer: bool
+        destination_address: bool
+        disable: bool
+        domain: str
+        enable: bool
+        expiry: str
+        expiry_secs: int
+        expression: str
+        extension: str
+        facility: str
+        from_profile: str
+        hash: bool
+        host: str
+        http: bool
+        http_basic_auth: bool
+        http_cookie: bool
+        http_header: bool
+        http_referer: bool
+        http_reply: bool
+        http_set_cookie: bool
+        http_uri: bool
+        ifile: str
+        insert: bool
+        internal_virtual: str
+        ip_address: str
+        key: str
+        l7dos: bool
+        length: int
+        location: str
+        log: bool
+        ltm_policy: bool
+        member: str
+        message: str
+        netmask: str
+        nexthop: str
+        node: str
+        offset: int
+        path: str
+        pem: bool
+        persist: bool
+        pin: bool
+        policy: str
+        pool: str
+        port: int
+        priority: str
+        profile: str
+        protocol: str
+        query_string: str
+        rateclass: str
+        redirect: bool
+        remove: bool
+        replace: bool
+        request: bool
+        request_adapt: bool
+        reset: bool
+        response: bool
+        response_adapt: bool
+        scheme: str
+        script: str
+        select: bool
+        server_ssl: bool
+        set_variable: bool
+        shutdown: bool
+        snat: str
+        snatpool: str
+        source_address: bool
+        ssl_client_hello: bool
+        ssl_server_handshake: bool
+        ssl_server_hello: bool
+        ssl_session_id: bool
+        status: int
+        tcl: bool
+        tcp_nagle: bool
+        text: str
+        timeout: int
+        tm_name: str
+        uie: bool
+        universal: bool
+        value: str
+        virtual: str
+        vlan: str
+        vlan_id: int
+        wam: bool
+        write: bool
+        forward: NotRequired[bool]
+        http_host: NotRequired[bool]
+elif False:
+    GetPolicyRuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPolicyRuleActionArgs:
@@ -4510,6 +5135,102 @@ class GetPolicyRuleActionArgs:
     def http_host(self, value: Optional[bool]):
         pulumi.set(self, "http_host", value)
 
+
+if not MYPY:
+    class GetPolicyRuleConditionArgsDict(TypedDict):
+        address: bool
+        all: bool
+        app_service: str
+        browser_type: bool
+        browser_version: bool
+        case_insensitive: bool
+        case_sensitive: bool
+        cipher: bool
+        cipher_bits: bool
+        client_ssl: bool
+        code: bool
+        common_name: bool
+        contains: bool
+        continent: bool
+        country_code: bool
+        country_name: bool
+        cpu_usage: bool
+        datagroup: str
+        device_make: bool
+        device_model: bool
+        domain: bool
+        ends_with: bool
+        equals: bool
+        expiry: bool
+        extension: bool
+        external: bool
+        geoip: bool
+        greater: bool
+        greater_or_equal: bool
+        host: bool
+        http_basic_auth: bool
+        http_cookie: bool
+        http_header: bool
+        http_host: bool
+        http_method: bool
+        http_referer: bool
+        http_set_cookie: bool
+        http_status: bool
+        http_uri: bool
+        http_user_agent: bool
+        http_version: bool
+        index: int
+        internal: bool
+        isp: bool
+        last15secs: bool
+        last1min: bool
+        last5mins: bool
+        less: bool
+        less_or_equal: bool
+        local: bool
+        major: bool
+        matches: bool
+        minor: bool
+        missing: bool
+        mss: bool
+        not_: bool
+        org: bool
+        password: bool
+        path: bool
+        path_segment: bool
+        port: bool
+        present: bool
+        protocol: bool
+        query_parameter: bool
+        query_string: bool
+        region_code: bool
+        region_name: bool
+        remote: bool
+        request: bool
+        response: bool
+        route_domain: bool
+        rtt: bool
+        scheme: bool
+        server_name: bool
+        ssl_cert: bool
+        ssl_client_hello: bool
+        ssl_extension: bool
+        ssl_server_handshake: bool
+        ssl_server_hello: bool
+        starts_with: bool
+        tcp: bool
+        text: bool
+        tm_name: str
+        unnamed_query_parameter: bool
+        user_agent_token: bool
+        username: bool
+        value: bool
+        values: Sequence[str]
+        version: bool
+        vlan: bool
+        vlan_id: bool
+elif False:
+    GetPolicyRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPolicyRuleConditionArgs:
