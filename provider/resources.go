@@ -16,7 +16,7 @@ package f5bigip
 
 import (
 	"fmt"
-	"path/filepath"
+	"path"
 	"strings"
 	"unicode"
 
@@ -45,6 +45,16 @@ const (
 	mainMod    = "Index" // Index
 
 )
+
+var moduleMap = map[string]string{
+	"cm":   strings.ToLower(cmMod),
+	"ltm":  strings.ToLower(ltmMod),
+	"net":  strings.ToLower(netMod),
+	"sys":  strings.ToLower(sysMod),
+	"ssk":  strings.ToLower(sslMod),
+	"vcmp": strings.ToLower(vcmpMod),
+	"fast": "fast",
+}
 
 var namespaceMap = map[string]string{
 	f5BigIPPkg: "F5BigIP",
@@ -77,14 +87,16 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 // Provider returns additional overlaid schema and metadata associated with the F5 BigIP package.
 func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
-		P:           shimv2.NewProvider(bigip.Provider()),
-		Name:        "bigip",
-		Description: "A Pulumi package for creating and managing F5 BigIP resources.",
-		Keywords:    []string{"pulumi", "f5", "bigip"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-f5bigip",
-		GitHubOrg:   "F5Networks",
+		P:            shimv2.NewProvider(bigip.Provider()),
+		Name:         "bigip",
+		Description:  "A Pulumi package for creating and managing F5 BigIP resources.",
+		Keywords:     []string{"pulumi", "f5", "bigip"},
+		License:      "Apache-2.0",
+		Homepage:     "https://pulumi.io",
+		Repository:   "https://github.com/pulumi/pulumi-f5bigip",
+		GitHubOrg:    "F5Networks",
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"bigip_cm_device":                       {Tok: makeResource(cmMod, "Device")},
 			"bigip_cm_devicegroup":                  {Tok: makeResource(cmMod, "DeviceGroup")},
@@ -125,9 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_sys_bigiplicense": {
 				Tok: makeResource(sysMod, "BigIpLicense"),
 				// No upstream docs for this resource exist:
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			// VCMP
@@ -183,16 +193,12 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			RespectSchemaVersion: true,
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				RespectSchemaVersion: true,
-			}
-			i.PyProject.Enabled = true
-			return i
-		})(),
-
+		Python: &tfbridge.PythonInfo{
+			RespectSchemaVersion: true,
+			PyProject:            struct{ Enabled bool }{true},
+		},
 		Golang: &tfbridge.GolangInfo{
-			ImportBasePath: filepath.Join(
+			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", f5BigIPPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
@@ -208,31 +214,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
-	// The set of modules that x.TokensKnownModules is aware of.
-	mappedMods := map[string]string{
-		"cm":   cmMod,
-		"ltm":  ltmMod,
-		"net":  netMod,
-		"sys":  sysMod,
-		"ssk":  sslMod,
-		"vcmp": vcmpMod,
-		"fast": "Fast",
-	}
-
-	mappedModKeys := make([]string, 0, len(mappedMods))
-	for k := range mappedMods {
-		mappedModKeys = append(mappedModKeys, k)
-	}
-
-	moduleNameMap := make(map[string]string, len(mappedMods))
-	for _, v := range mappedMods {
-		moduleNameMap[strings.ToLower(v)] = v
-	}
-
-	prov.MustComputeTokens(tfbridgetokens.KnownModules("bigip_", "index", mappedModKeys,
+	prov.MustComputeTokens(tfbridgetokens.MappedModules("bigip_", "index", moduleMap,
 		tfbridgetokens.MakeStandard(f5BigIPPkg)))
 	prov.MustApplyAutoAliases()
 

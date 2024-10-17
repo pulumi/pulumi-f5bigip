@@ -39,7 +39,7 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions() integration.ProgramTestOptions {
+func getBaseOptions(*testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 	}
