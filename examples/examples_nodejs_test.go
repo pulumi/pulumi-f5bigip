@@ -15,10 +15,6 @@ func TestAccVirtualAppliance(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: path.Join(getCwd(t), "virtualappliance"),
-			// TODO[pulumi/pulumi-f5bigip#21]: Can we get this to a state where the empty preview and update actually
-			// have no changes?
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
 		})
 
 	integration.ProgramTest(t, &test)
