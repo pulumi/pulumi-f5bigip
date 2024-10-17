@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -24,11 +25,9 @@ func TestAccVirtualAppliance(t *testing.T) {
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	region := getRegion(t)
-	base := getBaseOptions()
-	baseJS := base.With(integration.ProgramTestOptions{
+	return getBaseOptions(t).With(integration.ProgramTestOptions{
 		Config: map[string]string{
-			"aws:region":       region,
+			"aws:region":       getRegion(t),
 			"f5bigip:address":  "",
 			"f5bigip:password": "",
 			"f5bigip:username": "",
@@ -37,6 +36,4 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 			"@pulumi/f5bigip",
 		},
 	})
-
-	return baseJS
 }
