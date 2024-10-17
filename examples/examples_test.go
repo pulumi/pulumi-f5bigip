@@ -39,7 +39,13 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func getBaseOptions(*testing.T) integration.ProgramTestOptions {
+func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skip(`Testing for pulumi-f5bigip needs to be robust to resource leaks (#556).
+
+In the past, we have leaked resources here. Our normal ec2 reaper did not catch those
+leaks. Until and unless we ensure that testing here will not cost an unexpectedly large
+amount, we have chosen to discontinue testing pulumi-f5bigip in CI.`)
+
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 	}
