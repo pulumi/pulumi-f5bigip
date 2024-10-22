@@ -3378,14 +3378,14 @@
             }
         },
         "f5bigip:index/command:Command": {
-            "description": "`f5bigip.Command` Run TMSH commands on F5 devices\n\nThis resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device\n",
+            "description": "`f5bigip.Command` Run TMSH commands on F5 devices\n\nThis resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device\n\n",
             "properties": {
                 "commandResults": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The resulting output from the `commands` executed\n"
+                    "description": "The resulting output from the `commands` executed.\n"
                 },
                 "commands": {
                     "type": "array",
@@ -3408,7 +3408,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The resulting output from the `commands` executed\n"
+                    "description": "The resulting output from the `commands` executed.\n"
                 },
                 "commands": {
                     "type": "array",
@@ -3432,7 +3432,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The resulting output from the `commands` executed\n"
+                        "description": "The resulting output from the `commands` executed.\n"
                     },
                     "commands": {
                         "type": "array",
@@ -9122,6 +9122,10 @@
                     "type": "string",
                     "description": "Alert time out\n"
                 },
+                "allowExpiredCrl": {
+                    "type": "string",
+                    "description": "Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.\n"
+                },
                 "allowNonSsl": {
                     "type": "string",
                     "description": "Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile\n"
@@ -9199,7 +9203,7 @@
                 },
                 "crlFile": {
                     "type": "string",
-                    "description": "Certificate revocation file name\n"
+                    "description": "Specifies the name of a file containing a list of revoked client certificates. The default is `None`.\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
@@ -9356,6 +9360,7 @@
             },
             "required": [
                 "alertTimeout",
+                "allowExpiredCrl",
                 "allowNonSsl",
                 "authenticate",
                 "authenticateDepth",
@@ -9414,6 +9419,10 @@
                 "alertTimeout": {
                     "type": "string",
                     "description": "Alert time out\n"
+                },
+                "allowExpiredCrl": {
+                    "type": "string",
+                    "description": "Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.\n"
                 },
                 "allowNonSsl": {
                     "type": "string",
@@ -9492,7 +9501,7 @@
                 },
                 "crlFile": {
                     "type": "string",
-                    "description": "Certificate revocation file name\n"
+                    "description": "Specifies the name of a file containing a list of revoked client certificates. The default is `None`.\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
@@ -9658,6 +9667,10 @@
                         "type": "string",
                         "description": "Alert time out\n"
                     },
+                    "allowExpiredCrl": {
+                        "type": "string",
+                        "description": "Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.\n"
+                    },
                     "allowNonSsl": {
                         "type": "string",
                         "description": "Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile\n"
@@ -9735,7 +9748,7 @@
                     },
                     "crlFile": {
                         "type": "string",
-                        "description": "Certificate revocation file name\n"
+                        "description": "Specifies the name of a file containing a list of revoked client certificates. The default is `None`.\n"
                     },
                     "defaultsFrom": {
                         "type": "string",
