@@ -24,14 +24,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:index/command:Command")
 public class Command extends com.pulumi.resources.CustomResource {
     /**
-     * The resulting output from the `commands` executed
+     * The resulting output from the `commands` executed.
      * 
      */
     @Export(name="commandResults", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> commandResults;
 
     /**
-     * @return The resulting output from the `commands` executed
+     * @return The resulting output from the `commands` executed.
      * 
      */
     public Output<List<String>> commandResults() {

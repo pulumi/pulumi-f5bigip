@@ -57,6 +57,8 @@ type ProfileClientSsl struct {
 
 	// Alert time out
 	AlertTimeout pulumi.StringOutput `pulumi:"alertTimeout"`
+	// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+	AllowExpiredCrl pulumi.StringOutput `pulumi:"allowExpiredCrl"`
 	// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 	AllowNonSsl pulumi.StringOutput `pulumi:"allowNonSsl"`
 	// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
@@ -94,7 +96,7 @@ type ProfileClientSsl struct {
 	Ciphers pulumi.StringOutput `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringOutput `pulumi:"clientCertCa"`
-	// Certificate revocation file name
+	// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 	CrlFile pulumi.StringOutput `pulumi:"crlFile"`
 	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
@@ -219,6 +221,8 @@ func GetProfileClientSsl(ctx *pulumi.Context,
 type profileClientSslState struct {
 	// Alert time out
 	AlertTimeout *string `pulumi:"alertTimeout"`
+	// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+	AllowExpiredCrl *string `pulumi:"allowExpiredCrl"`
 	// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 	AllowNonSsl *string `pulumi:"allowNonSsl"`
 	// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
@@ -256,7 +260,7 @@ type profileClientSslState struct {
 	Ciphers *string `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
-	// Certificate revocation file name
+	// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 	CrlFile *string `pulumi:"crlFile"`
 	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
@@ -342,6 +346,8 @@ type profileClientSslState struct {
 type ProfileClientSslState struct {
 	// Alert time out
 	AlertTimeout pulumi.StringPtrInput
+	// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+	AllowExpiredCrl pulumi.StringPtrInput
 	// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 	AllowNonSsl pulumi.StringPtrInput
 	// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
@@ -379,7 +385,7 @@ type ProfileClientSslState struct {
 	Ciphers pulumi.StringPtrInput
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
-	// Certificate revocation file name
+	// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 	CrlFile pulumi.StringPtrInput
 	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrInput
@@ -469,6 +475,8 @@ func (ProfileClientSslState) ElementType() reflect.Type {
 type profileClientSslArgs struct {
 	// Alert time out
 	AlertTimeout *string `pulumi:"alertTimeout"`
+	// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+	AllowExpiredCrl *string `pulumi:"allowExpiredCrl"`
 	// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 	AllowNonSsl *string `pulumi:"allowNonSsl"`
 	// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
@@ -506,7 +514,7 @@ type profileClientSslArgs struct {
 	Ciphers *string `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
-	// Certificate revocation file name
+	// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 	CrlFile *string `pulumi:"crlFile"`
 	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
@@ -593,6 +601,8 @@ type profileClientSslArgs struct {
 type ProfileClientSslArgs struct {
 	// Alert time out
 	AlertTimeout pulumi.StringPtrInput
+	// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+	AllowExpiredCrl pulumi.StringPtrInput
 	// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 	AllowNonSsl pulumi.StringPtrInput
 	// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
@@ -630,7 +640,7 @@ type ProfileClientSslArgs struct {
 	Ciphers pulumi.StringPtrInput
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
-	// Certificate revocation file name
+	// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 	CrlFile pulumi.StringPtrInput
 	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrInput
@@ -805,6 +815,11 @@ func (o ProfileClientSslOutput) AlertTimeout() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.AlertTimeout }).(pulumi.StringOutput)
 }
 
+// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+func (o ProfileClientSslOutput) AllowExpiredCrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.AllowExpiredCrl }).(pulumi.StringOutput)
+}
+
 // Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
 func (o ProfileClientSslOutput) AllowNonSsl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.AllowNonSsl }).(pulumi.StringOutput)
@@ -896,7 +911,7 @@ func (o ProfileClientSslOutput) ClientCertCa() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ClientCertCa }).(pulumi.StringOutput)
 }
 
-// Certificate revocation file name
+// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
 func (o ProfileClientSslOutput) CrlFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CrlFile }).(pulumi.StringOutput)
 }

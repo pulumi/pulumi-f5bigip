@@ -25,7 +25,7 @@ class CommandArgs:
         """
         The set of arguments for constructing a Command resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed.
         """
         pulumi.set(__self__, "commands", commands)
         if command_results is not None:
@@ -49,7 +49,7 @@ class CommandArgs:
     @pulumi.getter(name="commandResults")
     def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The resulting output from the `commands` executed
+        The resulting output from the `commands` executed.
         """
         return pulumi.get(self, "command_results")
 
@@ -75,7 +75,7 @@ class _CommandState:
                  when: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Command resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         if command_results is not None:
@@ -89,7 +89,7 @@ class _CommandState:
     @pulumi.getter(name="commandResults")
     def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The resulting output from the `commands` executed
+        The resulting output from the `commands` executed.
         """
         return pulumi.get(self, "command_results")
 
@@ -135,7 +135,7 @@ class Command(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         ...
@@ -201,7 +201,7 @@ class Command(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -217,7 +217,7 @@ class Command(pulumi.CustomResource):
     @pulumi.getter(name="commandResults")
     def command_results(self) -> pulumi.Output[Sequence[str]]:
         """
-        The resulting output from the `commands` executed
+        The resulting output from the `commands` executed.
         """
         return pulumi.get(self, "command_results")
 

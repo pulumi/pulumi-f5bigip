@@ -18,7 +18,7 @@ import (
 type Command struct {
 	pulumi.CustomResourceState
 
-	// The resulting output from the `commands` executed
+	// The resulting output from the `commands` executed.
 	CommandResults pulumi.StringArrayOutput `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayOutput `pulumi:"commands"`
@@ -58,7 +58,7 @@ func GetCommand(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Command resources.
 type commandState struct {
-	// The resulting output from the `commands` executed
+	// The resulting output from the `commands` executed.
 	CommandResults []string `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands []string `pulumi:"commands"`
@@ -66,7 +66,7 @@ type commandState struct {
 }
 
 type CommandState struct {
-	// The resulting output from the `commands` executed
+	// The resulting output from the `commands` executed.
 	CommandResults pulumi.StringArrayInput
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayInput
@@ -78,7 +78,7 @@ func (CommandState) ElementType() reflect.Type {
 }
 
 type commandArgs struct {
-	// The resulting output from the `commands` executed
+	// The resulting output from the `commands` executed.
 	CommandResults []string `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands []string `pulumi:"commands"`
@@ -87,7 +87,7 @@ type commandArgs struct {
 
 // The set of arguments for constructing a Command resource.
 type CommandArgs struct {
-	// The resulting output from the `commands` executed
+	// The resulting output from the `commands` executed.
 	CommandResults pulumi.StringArrayInput
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayInput
@@ -181,7 +181,7 @@ func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOu
 	return o
 }
 
-// The resulting output from the `commands` executed
+// The resulting output from the `commands` executed.
 func (o CommandOutput) CommandResults() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.CommandResults }).(pulumi.StringArrayOutput)
 }
