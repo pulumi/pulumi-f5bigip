@@ -18,7 +18,7 @@ namespace Pulumi.F5BigIP
     public partial class Command : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resulting output from the `commands` executed
+        /// The resulting output from the `commands` executed.
         /// </summary>
         [Output("commandResults")]
         public Output<ImmutableArray<string>> CommandResults { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commandResults;
 
         /// <summary>
-        /// The resulting output from the `commands` executed
+        /// The resulting output from the `commands` executed.
         /// </summary>
         public InputList<string> CommandResults
         {
@@ -117,7 +117,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commandResults;
 
         /// <summary>
-        /// The resulting output from the `commands` executed
+        /// The resulting output from the `commands` executed.
         /// </summary>
         public InputList<string> CommandResults
         {

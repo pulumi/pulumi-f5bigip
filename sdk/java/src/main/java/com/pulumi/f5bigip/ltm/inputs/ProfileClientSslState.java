@@ -34,6 +34,21 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+     * 
+     */
+    @Import(name="allowExpiredCrl")
+    private @Nullable Output<String> allowExpiredCrl;
+
+    /**
+     * @return Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+     * 
+     */
+    public Optional<Output<String>> allowExpiredCrl() {
+        return Optional.ofNullable(this.allowExpiredCrl);
+    }
+
+    /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      * 
      */
@@ -310,14 +325,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate revocation file name
+     * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      * 
      */
     @Import(name="crlFile")
     private @Nullable Output<String> crlFile;
 
     /**
-     * @return Certificate revocation file name
+     * @return Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      * 
      */
     public Optional<Output<String>> crlFile() {
@@ -893,6 +908,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
     private ProfileClientSslState(ProfileClientSslState $) {
         this.alertTimeout = $.alertTimeout;
+        this.allowExpiredCrl = $.allowExpiredCrl;
         this.allowNonSsl = $.allowNonSsl;
         this.authenticate = $.authenticate;
         this.authenticateDepth = $.authenticateDepth;
@@ -988,6 +1004,27 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
          */
         public Builder alertTimeout(String alertTimeout) {
             return alertTimeout(Output.of(alertTimeout));
+        }
+
+        /**
+         * @param allowExpiredCrl Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowExpiredCrl(@Nullable Output<String> allowExpiredCrl) {
+            $.allowExpiredCrl = allowExpiredCrl;
+            return this;
+        }
+
+        /**
+         * @param allowExpiredCrl Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowExpiredCrl(String allowExpiredCrl) {
+            return allowExpiredCrl(Output.of(allowExpiredCrl));
         }
 
         /**
@@ -1385,7 +1422,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param crlFile Certificate revocation file name
+         * @param crlFile Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
          * 
          * @return builder
          * 
@@ -1396,7 +1433,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param crlFile Certificate revocation file name
+         * @param crlFile Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
          * 
          * @return builder
          * 

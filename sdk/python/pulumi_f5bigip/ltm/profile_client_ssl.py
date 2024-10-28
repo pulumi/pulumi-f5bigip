@@ -23,6 +23,7 @@ class ProfileClientSslArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  alert_timeout: Optional[pulumi.Input[str]] = None,
+                 allow_expired_crl: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
@@ -82,6 +83,7 @@ class ProfileClientSslArgs:
         The set of arguments for constructing a ProfileClientSsl resource.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         :param pulumi.Input[str] alert_timeout: Alert time out
+        :param pulumi.Input[str] allow_expired_crl: Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
@@ -100,7 +102,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
-        :param pulumi.Input[str] crl_file: Certificate revocation file name
+        :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
@@ -146,6 +148,8 @@ class ProfileClientSslArgs:
         pulumi.set(__self__, "name", name)
         if alert_timeout is not None:
             pulumi.set(__self__, "alert_timeout", alert_timeout)
+        if allow_expired_crl is not None:
+            pulumi.set(__self__, "allow_expired_crl", allow_expired_crl)
         if allow_non_ssl is not None:
             pulumi.set(__self__, "allow_non_ssl", allow_non_ssl)
         if authenticate is not None:
@@ -283,6 +287,18 @@ class ProfileClientSslArgs:
     @alert_timeout.setter
     def alert_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alert_timeout", value)
+
+    @property
+    @pulumi.getter(name="allowExpiredCrl")
+    def allow_expired_crl(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        """
+        return pulumi.get(self, "allow_expired_crl")
+
+    @allow_expired_crl.setter
+    def allow_expired_crl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_expired_crl", value)
 
     @property
     @pulumi.getter(name="allowNonSsl")
@@ -503,7 +519,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="crlFile")
     def crl_file(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate revocation file name
+        Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         """
         return pulumi.get(self, "crl_file")
 
@@ -953,6 +969,7 @@ class ProfileClientSslArgs:
 class _ProfileClientSslState:
     def __init__(__self__, *,
                  alert_timeout: Optional[pulumi.Input[str]] = None,
+                 allow_expired_crl: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
@@ -1012,6 +1029,7 @@ class _ProfileClientSslState:
         """
         Input properties used for looking up and filtering ProfileClientSsl resources.
         :param pulumi.Input[str] alert_timeout: Alert time out
+        :param pulumi.Input[str] allow_expired_crl: Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
@@ -1030,7 +1048,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
-        :param pulumi.Input[str] crl_file: Certificate revocation file name
+        :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
@@ -1076,6 +1094,8 @@ class _ProfileClientSslState:
         """
         if alert_timeout is not None:
             pulumi.set(__self__, "alert_timeout", alert_timeout)
+        if allow_expired_crl is not None:
+            pulumi.set(__self__, "allow_expired_crl", allow_expired_crl)
         if allow_non_ssl is not None:
             pulumi.set(__self__, "allow_non_ssl", allow_non_ssl)
         if authenticate is not None:
@@ -1203,6 +1223,18 @@ class _ProfileClientSslState:
     @alert_timeout.setter
     def alert_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alert_timeout", value)
+
+    @property
+    @pulumi.getter(name="allowExpiredCrl")
+    def allow_expired_crl(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        """
+        return pulumi.get(self, "allow_expired_crl")
+
+    @allow_expired_crl.setter
+    def allow_expired_crl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allow_expired_crl", value)
 
     @property
     @pulumi.getter(name="allowNonSsl")
@@ -1423,7 +1455,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="crlFile")
     def crl_file(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate revocation file name
+        Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         """
         return pulumi.get(self, "crl_file")
 
@@ -1887,6 +1919,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_timeout: Optional[pulumi.Input[str]] = None,
+                 allow_expired_crl: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
@@ -1973,6 +2006,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
+        :param pulumi.Input[str] allow_expired_crl: Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
@@ -1991,7 +2025,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
-        :param pulumi.Input[str] crl_file: Certificate revocation file name
+        :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
@@ -2083,6 +2117,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_timeout: Optional[pulumi.Input[str]] = None,
+                 allow_expired_crl: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
@@ -2149,6 +2184,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__ = ProfileClientSslArgs.__new__(ProfileClientSslArgs)
 
             __props__.__dict__["alert_timeout"] = alert_timeout
+            __props__.__dict__["allow_expired_crl"] = allow_expired_crl
             __props__.__dict__["allow_non_ssl"] = allow_non_ssl
             __props__.__dict__["authenticate"] = authenticate
             __props__.__dict__["authenticate_depth"] = authenticate_depth
@@ -2220,6 +2256,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alert_timeout: Optional[pulumi.Input[str]] = None,
+            allow_expired_crl: Optional[pulumi.Input[str]] = None,
             allow_non_ssl: Optional[pulumi.Input[str]] = None,
             authenticate: Optional[pulumi.Input[str]] = None,
             authenticate_depth: Optional[pulumi.Input[int]] = None,
@@ -2284,6 +2321,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
+        :param pulumi.Input[str] allow_expired_crl: Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
@@ -2302,7 +2340,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
-        :param pulumi.Input[str] crl_file: Certificate revocation file name
+        :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
@@ -2351,6 +2389,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         __props__ = _ProfileClientSslState.__new__(_ProfileClientSslState)
 
         __props__.__dict__["alert_timeout"] = alert_timeout
+        __props__.__dict__["allow_expired_crl"] = allow_expired_crl
         __props__.__dict__["allow_non_ssl"] = allow_non_ssl
         __props__.__dict__["authenticate"] = authenticate
         __props__.__dict__["authenticate_depth"] = authenticate_depth
@@ -2416,6 +2455,14 @@ class ProfileClientSsl(pulumi.CustomResource):
         Alert time out
         """
         return pulumi.get(self, "alert_timeout")
+
+    @property
+    @pulumi.getter(name="allowExpiredCrl")
+    def allow_expired_crl(self) -> pulumi.Output[str]:
+        """
+        Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        """
+        return pulumi.get(self, "allow_expired_crl")
 
     @property
     @pulumi.getter(name="allowNonSsl")
@@ -2564,7 +2611,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="crlFile")
     def crl_file(self) -> pulumi.Output[str]:
         """
-        Certificate revocation file name
+        Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         """
         return pulumi.get(self, "crl_file")
 

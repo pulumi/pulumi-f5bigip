@@ -17,14 +17,14 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
     public static final CommandState Empty = new CommandState();
 
     /**
-     * The resulting output from the `commands` executed
+     * The resulting output from the `commands` executed.
      * 
      */
     @Import(name="commandResults")
     private @Nullable Output<List<String>> commandResults;
 
     /**
-     * @return The resulting output from the `commands` executed
+     * @return The resulting output from the `commands` executed.
      * 
      */
     public Optional<Output<List<String>>> commandResults() {
@@ -80,7 +80,7 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commandResults The resulting output from the `commands` executed
+         * @param commandResults The resulting output from the `commands` executed.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commandResults The resulting output from the `commands` executed
+         * @param commandResults The resulting output from the `commands` executed.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commandResults The resulting output from the `commands` executed
+         * @param commandResults The resulting output from the `commands` executed.
          * 
          * @return builder
          * 

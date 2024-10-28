@@ -38,7 +38,7 @@ export class Command extends pulumi.CustomResource {
     }
 
     /**
-     * The resulting output from the `commands` executed
+     * The resulting output from the `commands` executed.
      */
     public readonly commandResults!: pulumi.Output<string[]>;
     /**
@@ -82,7 +82,7 @@ export class Command extends pulumi.CustomResource {
  */
 export interface CommandState {
     /**
-     * The resulting output from the `commands` executed
+     * The resulting output from the `commands` executed.
      */
     commandResults?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -97,7 +97,7 @@ export interface CommandState {
  */
 export interface CommandArgs {
     /**
-     * The resulting output from the `commands` executed
+     * The resulting output from the `commands` executed.
      */
     commandResults?: pulumi.Input<pulumi.Input<string>[]>;
     /**

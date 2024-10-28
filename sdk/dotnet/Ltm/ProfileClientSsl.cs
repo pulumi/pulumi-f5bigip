@@ -53,6 +53,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AlertTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// </summary>
+        [Output("allowExpiredCrl")]
+        public Output<string> AllowExpiredCrl { get; private set; } = null!;
+
+        /// <summary>
         /// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Output("allowNonSsl")]
@@ -159,7 +165,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> ClientCertCa { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate revocation file name
+        /// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         /// </summary>
         [Output("crlFile")]
         public Output<string> CrlFile { get; private set; } = null!;
@@ -448,6 +454,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// </summary>
+        [Input("allowExpiredCrl")]
+        public Input<string>? AllowExpiredCrl { get; set; }
+
+        /// <summary>
         /// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("allowNonSsl")]
@@ -560,7 +572,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ClientCertCa { get; set; }
 
         /// <summary>
-        /// Certificate revocation file name
+        /// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         /// </summary>
         [Input("crlFile")]
         public Input<string>? CrlFile { get; set; }
@@ -823,6 +835,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// </summary>
+        [Input("allowExpiredCrl")]
+        public Input<string>? AllowExpiredCrl { get; set; }
+
+        /// <summary>
         /// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("allowNonSsl")]
@@ -935,7 +953,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ClientCertCa { get; set; }
 
         /// <summary>
-        /// Certificate revocation file name
+        /// Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         /// </summary>
         [Input("crlFile")]
         public Input<string>? CrlFile { get; set; }

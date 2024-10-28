@@ -66,6 +66,10 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly alertTimeout!: pulumi.Output<string>;
     /**
+     * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+     */
+    public readonly allowExpiredCrl!: pulumi.Output<string>;
+    /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      */
     public readonly allowNonSsl!: pulumi.Output<string>;
@@ -139,7 +143,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly clientCertCa!: pulumi.Output<string>;
     /**
-     * Certificate revocation file name
+     * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      */
     public readonly crlFile!: pulumi.Output<string>;
     /**
@@ -310,6 +314,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ProfileClientSslState | undefined;
             resourceInputs["alertTimeout"] = state ? state.alertTimeout : undefined;
+            resourceInputs["allowExpiredCrl"] = state ? state.allowExpiredCrl : undefined;
             resourceInputs["allowNonSsl"] = state ? state.allowNonSsl : undefined;
             resourceInputs["authenticate"] = state ? state.authenticate : undefined;
             resourceInputs["authenticateDepth"] = state ? state.authenticateDepth : undefined;
@@ -372,6 +377,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["alertTimeout"] = args ? args.alertTimeout : undefined;
+            resourceInputs["allowExpiredCrl"] = args ? args.allowExpiredCrl : undefined;
             resourceInputs["allowNonSsl"] = args ? args.allowNonSsl : undefined;
             resourceInputs["authenticate"] = args ? args.authenticate : undefined;
             resourceInputs["authenticateDepth"] = args ? args.authenticateDepth : undefined;
@@ -444,6 +450,10 @@ export interface ProfileClientSslState {
      * Alert time out
      */
     alertTimeout?: pulumi.Input<string>;
+    /**
+     * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+     */
+    allowExpiredCrl?: pulumi.Input<string>;
     /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      */
@@ -518,7 +528,7 @@ export interface ProfileClientSslState {
      */
     clientCertCa?: pulumi.Input<string>;
     /**
-     * Certificate revocation file name
+     * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      */
     crlFile?: pulumi.Input<string>;
     /**
@@ -685,6 +695,10 @@ export interface ProfileClientSslArgs {
      */
     alertTimeout?: pulumi.Input<string>;
     /**
+     * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+     */
+    allowExpiredCrl?: pulumi.Input<string>;
+    /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      */
     allowNonSsl?: pulumi.Input<string>;
@@ -758,7 +772,7 @@ export interface ProfileClientSslArgs {
      */
     clientCertCa?: pulumi.Input<string>;
     /**
-     * Certificate revocation file name
+     * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      */
     crlFile?: pulumi.Input<string>;
     /**
