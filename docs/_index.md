@@ -6,7 +6,7 @@ layout: package
 ---
 ## Installation
 
-The f5bigip provider is available as a package in all Pulumi languages:
+The F5bigip provider is available as a package in all Pulumi languages:
 
 * JavaScript/TypeScript: [`@pulumi/f5bigip`](https://www.npmjs.com/package/@pulumi/f5bigip)
 * Python: [`pulumi-f5bigip`](https://pypi.org/project/pulumi-f5bigip/)
