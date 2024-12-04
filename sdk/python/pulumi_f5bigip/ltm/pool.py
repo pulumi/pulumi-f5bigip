@@ -35,7 +35,7 @@ class PoolArgs:
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
-        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[int] reselect_tries: Specifies the number of times the system tries to contact a new pool member after a passive failure.
@@ -114,7 +114,7 @@ class PoolArgs:
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the load balancing method. The default is Round Robin.
+        Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         """
         return pulumi.get(self, "load_balancing_mode")
 
@@ -201,7 +201,7 @@ class _PoolState:
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
-        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
@@ -270,7 +270,7 @@ class _PoolState:
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the load balancing method. The default is Round Robin.
+        Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         """
         return pulumi.get(self, "load_balancing_mode")
 
@@ -403,7 +403,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
-        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
@@ -524,7 +524,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
-        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
@@ -576,7 +576,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> pulumi.Output[str]:
         """
-        Specifies the load balancing method. The default is Round Robin.
+        Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         """
         return pulumi.get(self, "load_balancing_mode")
 

@@ -72,7 +72,7 @@ type Pool struct {
 	AllowSnat pulumi.StringOutput `pulumi:"allowSnat"`
 	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the load balancing method. The default is Round Robin.
+	// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 	LoadBalancingMode pulumi.StringOutput `pulumi:"loadBalancingMode"`
 	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
 	MinimumActiveMembers pulumi.IntOutput `pulumi:"minimumActiveMembers"`
@@ -127,7 +127,7 @@ type poolState struct {
 	AllowSnat *string `pulumi:"allowSnat"`
 	// Specifies descriptive text that identifies the pool.
 	Description *string `pulumi:"description"`
-	// Specifies the load balancing method. The default is Round Robin.
+	// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
 	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
 	MinimumActiveMembers *int `pulumi:"minimumActiveMembers"`
@@ -150,7 +150,7 @@ type PoolState struct {
 	AllowSnat pulumi.StringPtrInput
 	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrInput
-	// Specifies the load balancing method. The default is Round Robin.
+	// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 	LoadBalancingMode pulumi.StringPtrInput
 	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
 	MinimumActiveMembers pulumi.IntPtrInput
@@ -177,7 +177,7 @@ type poolArgs struct {
 	AllowSnat *string `pulumi:"allowSnat"`
 	// Specifies descriptive text that identifies the pool.
 	Description *string `pulumi:"description"`
-	// Specifies the load balancing method. The default is Round Robin.
+	// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
 	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
 	MinimumActiveMembers *int `pulumi:"minimumActiveMembers"`
@@ -201,7 +201,7 @@ type PoolArgs struct {
 	AllowSnat pulumi.StringPtrInput
 	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrInput
-	// Specifies the load balancing method. The default is Round Robin.
+	// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 	LoadBalancingMode pulumi.StringPtrInput
 	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
 	MinimumActiveMembers pulumi.IntPtrInput
@@ -319,7 +319,7 @@ func (o PoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the load balancing method. The default is Round Robin.
+// Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
 func (o PoolOutput) LoadBalancingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.LoadBalancingMode }).(pulumi.StringOutput)
 }
