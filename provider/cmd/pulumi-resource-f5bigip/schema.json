@@ -8736,7 +8736,7 @@
                 },
                 "loadBalancingMode": {
                     "type": "string",
-                    "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                    "description": "Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]\n"
                 },
                 "minimumActiveMembers": {
                     "type": "integer",
@@ -8792,7 +8792,7 @@
                 },
                 "loadBalancingMode": {
                     "type": "string",
-                    "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                    "description": "Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]\n"
                 },
                 "minimumActiveMembers": {
                     "type": "integer",
@@ -8843,7 +8843,7 @@
                     },
                     "loadBalancingMode": {
                         "type": "string",
-                        "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                        "description": "Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]\n"
                     },
                     "minimumActiveMembers": {
                         "type": "integer",
