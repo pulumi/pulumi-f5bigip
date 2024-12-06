@@ -238,7 +238,7 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
                               system_signature_id: Optional[pulumi.Input[Optional[str]]] = None,
                               tag: Optional[pulumi.Input[Optional[str]]] = None,
                               type: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafSignaturesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafSignaturesResult]:
     """
     Use this data source (`ssl_get_waf_signatures`) to get the details of attack signatures available on BIG-IP WAF
 
@@ -271,7 +271,7 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
     __args__['systemSignatureId'] = system_signature_id
     __args__['tag'] = tag
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafSignatures:getWafSignatures', __args__, opts=opts, typ=GetWafSignaturesResult)
     return __ret__.apply(lambda __response__: GetWafSignaturesResult(
         accuracy=pulumi.get(__response__, 'accuracy'),

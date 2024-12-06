@@ -386,7 +386,7 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
                                     type: Optional[pulumi.Input[Optional[str]]] = None,
                                     url: Optional[pulumi.Input[Optional[Union['GetWafEntityParameterUrlArgs', 'GetWafEntityParameterUrlArgsDict']]]] = None,
                                     value_type: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityParameterResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafEntityParameterResult]:
     """
     Use this data source to access information about an existing resource.
     """
@@ -416,7 +416,7 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
     __args__['type'] = type
     __args__['url'] = url
     __args__['valueType'] = value_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafEntityParameter:getWafEntityParameter', __args__, opts=opts, typ=GetWafEntityParameterResult)
     return __ret__.apply(lambda __response__: GetWafEntityParameterResult(
         allow_empty_type=pulumi.get(__response__, 'allow_empty_type'),

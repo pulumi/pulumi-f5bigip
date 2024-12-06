@@ -193,7 +193,7 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
 def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
                             azure_vwan_resourcegroup: Optional[pulumi.Input[str]] = None,
                             azure_vwan_vpnsite: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVWanConfigResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVWanConfigResult]:
     """
     Use this data source (`ssl_get_v_wan_config`) to get the vWAN site config from Azure VWAN Site
 
@@ -231,7 +231,7 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
     __args__['azureVwanName'] = azure_vwan_name
     __args__['azureVwanResourcegroup'] = azure_vwan_resourcegroup
     __args__['azureVwanVpnsite'] = azure_vwan_vpnsite
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getVWanConfig:getVWanConfig', __args__, opts=opts, typ=GetVWanConfigResult)
     return __ret__.apply(lambda __response__: GetVWanConfigResult(
         azure_vwan_name=pulumi.get(__response__, 'azure_vwan_name'),

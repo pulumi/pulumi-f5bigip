@@ -123,7 +123,7 @@ export interface GetVWanConfigResult {
  *
  * * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
  */
-export function getVWanConfigOutput(args: GetVWanConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVWanConfigResult> {
+export function getVWanConfigOutput(args: GetVWanConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVWanConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ssl/getVWanConfig:getVWanConfig", {
         "azureVwanName": args.azureVwanName,
