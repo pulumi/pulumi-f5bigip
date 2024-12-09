@@ -171,7 +171,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
                       requires: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       rules: Optional[pulumi.Input[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]]]] = None,
                       strategy: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
 
@@ -199,7 +199,7 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
     __args__['requires'] = requires
     __args__['rules'] = rules
     __args__['strategy'] = strategy
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         controls=pulumi.get(__response__, 'controls'),

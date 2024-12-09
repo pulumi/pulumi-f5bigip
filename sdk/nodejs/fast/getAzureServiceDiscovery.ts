@@ -126,7 +126,7 @@ export interface GetAzureServiceDiscoveryResult {
  * });
  * ```
  */
-export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServiceDiscoveryResult> {
+export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureServiceDiscoveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", {
         "addressRealm": args.addressRealm,

@@ -178,7 +178,7 @@ export interface GetWafEntityUrlResult {
  * });
  * ```
  */
-export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
+export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafEntityUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", {
         "crossOriginRequestsEnforcements": args.crossOriginRequestsEnforcements,

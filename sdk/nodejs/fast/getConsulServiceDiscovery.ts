@@ -125,7 +125,7 @@ export interface GetConsulServiceDiscoveryResult {
  * });
  * ```
  */
-export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsulServiceDiscoveryResult> {
+export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsulServiceDiscoveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", {
         "addressRealm": args.addressRealm,
