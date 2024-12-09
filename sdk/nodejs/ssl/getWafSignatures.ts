@@ -126,7 +126,7 @@ export interface GetWafSignaturesResult {
  * });
  * ```
  */
-export function getWafSignaturesOutput(args: GetWafSignaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafSignaturesResult> {
+export function getWafSignaturesOutput(args: GetWafSignaturesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafSignaturesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafSignatures:getWafSignatures", {
         "accuracy": args.accuracy,

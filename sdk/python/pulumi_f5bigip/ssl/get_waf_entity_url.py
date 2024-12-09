@@ -244,7 +244,7 @@ def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulum
                               protocol: Optional[pulumi.Input[Optional[str]]] = None,
                               signature_overrides_disables: Optional[pulumi.Input[Optional[Sequence[int]]]] = None,
                               type: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityUrlResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafEntityUrlResult]:
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
 
@@ -311,7 +311,7 @@ def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulum
     __args__['protocol'] = protocol
     __args__['signatureOverridesDisables'] = signature_overrides_disables
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafEntityUrl:getWafEntityUrl', __args__, opts=opts, typ=GetWafEntityUrlResult)
     return __ret__.apply(lambda __response__: GetWafEntityUrlResult(
         cross_origin_requests_enforcements=pulumi.get(__response__, 'cross_origin_requests_enforcements'),

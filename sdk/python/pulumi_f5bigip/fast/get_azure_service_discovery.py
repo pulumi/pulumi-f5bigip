@@ -239,7 +239,7 @@ def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Opti
                                        type: Optional[pulumi.Input[Optional[str]]] = None,
                                        undetectable_action: Optional[pulumi.Input[Optional[str]]] = None,
                                        update_interval: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureServiceDiscoveryResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureServiceDiscoveryResult]:
     """
     Use this data source (`fast_get_azure_service_discovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
 
@@ -279,7 +279,7 @@ def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Opti
     __args__['type'] = type
     __args__['undetectableAction'] = undetectable_action
     __args__['updateInterval'] = update_interval
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery', __args__, opts=opts, typ=GetAzureServiceDiscoveryResult)
     return __ret__.apply(lambda __response__: GetAzureServiceDiscoveryResult(
         address_realm=pulumi.get(__response__, 'address_realm'),

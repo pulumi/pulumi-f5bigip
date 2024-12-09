@@ -112,7 +112,7 @@ def get_pool(name: Optional[str] = None,
         partition=pulumi.get(__ret__, 'partition'))
 def get_pool_output(name: Optional[pulumi.Input[str]] = None,
                     partition: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP
 
@@ -133,7 +133,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['partition'] = partition
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getPool:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         full_path=pulumi.get(__response__, 'full_path'),

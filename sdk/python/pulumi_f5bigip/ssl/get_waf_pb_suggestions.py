@@ -144,7 +144,7 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
                                   partition: Optional[pulumi.Input[str]] = None,
                                   policy_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   policy_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafPbSuggestionsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafPbSuggestionsResult]:
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to export PB suggestions from an existing WAF policy.
 
@@ -170,7 +170,7 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
     __args__['partition'] = partition
     __args__['policyId'] = policy_id
     __args__['policyName'] = policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions', __args__, opts=opts, typ=GetWafPbSuggestionsResult)
     return __ret__.apply(lambda __response__: GetWafPbSuggestionsResult(
         id=pulumi.get(__response__, 'id'),
