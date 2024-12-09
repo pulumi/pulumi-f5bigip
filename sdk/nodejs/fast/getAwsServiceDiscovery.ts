@@ -140,7 +140,7 @@ export interface GetAwsServiceDiscoveryResult {
  * });
  * ```
  */
-export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsServiceDiscoveryResult> {
+export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsServiceDiscoveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", {
         "addressRealm": args.addressRealm,

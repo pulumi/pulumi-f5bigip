@@ -243,7 +243,7 @@ def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
                     full_path: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     partition: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeResult]:
     """
     Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
 
@@ -261,7 +261,7 @@ def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['fullPath'] = full_path
     __args__['name'] = name
     __args__['partition'] = partition
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getNode:getNode', __args__, opts=opts, typ=GetNodeResult)
     return __ret__.apply(lambda __response__: GetNodeResult(
         address=pulumi.get(__response__, 'address'),

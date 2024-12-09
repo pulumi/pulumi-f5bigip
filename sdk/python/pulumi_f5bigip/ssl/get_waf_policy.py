@@ -101,7 +101,7 @@ def get_waf_policy(policy_id: Optional[str] = None,
         policy_json=pulumi.get(__ret__, 'policy_json'))
 def get_waf_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                           policy_json: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafPolicyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafPolicyResult]:
     """
     Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.
 
@@ -121,7 +121,7 @@ def get_waf_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['policyId'] = policy_id
     __args__['policyJson'] = policy_json
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getWafPolicy:getWafPolicy', __args__, opts=opts, typ=GetWafPolicyResult)
     return __ret__.apply(lambda __response__: GetWafPolicyResult(
         id=pulumi.get(__response__, 'id'),
