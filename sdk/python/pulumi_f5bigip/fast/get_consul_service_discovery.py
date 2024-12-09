@@ -248,7 +248,7 @@ def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Opt
                                         undetectable_action: Optional[pulumi.Input[Optional[str]]] = None,
                                         update_interval: Optional[pulumi.Input[Optional[str]]] = None,
                                         uri: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsulServiceDiscoveryResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsulServiceDiscoveryResult]:
     """
     Use this data source (`fast_get_consul_service_discovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
 
@@ -288,7 +288,7 @@ def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Opt
     __args__['undetectableAction'] = undetectable_action
     __args__['updateInterval'] = update_interval
     __args__['uri'] = uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery', __args__, opts=opts, typ=GetConsulServiceDiscoveryResult)
     return __ret__.apply(lambda __response__: GetConsulServiceDiscoveryResult(
         address_realm=pulumi.get(__response__, 'address_realm'),

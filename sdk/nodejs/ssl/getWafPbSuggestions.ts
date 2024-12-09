@@ -88,7 +88,7 @@ export interface GetWafPbSuggestionsResult {
  * });
  * ```
  */
-export function getWafPbSuggestionsOutput(args: GetWafPbSuggestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPbSuggestionsResult> {
+export function getWafPbSuggestionsOutput(args: GetWafPbSuggestionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafPbSuggestionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", {
         "minimumLearningScore": args.minimumLearningScore,

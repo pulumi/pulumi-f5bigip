@@ -84,7 +84,7 @@ export interface GetIruleResult {
  * export const bigipIrule = test.then(test => test.irule);
  * ```
  */
-export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
+export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIruleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ltm/getIrule:getIrule", {
         "irule": args.irule,
