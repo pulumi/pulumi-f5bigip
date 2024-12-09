@@ -87,7 +87,7 @@ export interface GetDataGroupResult {
  * });
  * ```
  */
-export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataGroupResult> {
+export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ltm/getDataGroup:getDataGroup", {
         "name": args.name,

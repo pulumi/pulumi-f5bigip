@@ -116,7 +116,7 @@ def get_certificate(name: Optional[str] = None,
         partition=pulumi.get(__ret__, 'partition'))
 def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            partition: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
 
@@ -138,7 +138,7 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['partition'] = partition
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ssl/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         certificate=pulumi.get(__response__, 'certificate'),

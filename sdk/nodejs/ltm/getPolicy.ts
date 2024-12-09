@@ -105,7 +105,7 @@ export interface GetPolicyResult {
  * export const bigipPolicy = test.then(test => test.rules);
  * ```
  */
-export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ltm/getPolicy:getPolicy", {
         "controls": args.controls,

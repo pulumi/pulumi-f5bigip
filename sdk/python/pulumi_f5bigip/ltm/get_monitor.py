@@ -333,7 +333,7 @@ def get_monitor(name: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
                        partition: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
 
@@ -354,7 +354,7 @@ def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['partition'] = partition
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('f5bigip:ltm/getMonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         adaptive=pulumi.get(__response__, 'adaptive'),

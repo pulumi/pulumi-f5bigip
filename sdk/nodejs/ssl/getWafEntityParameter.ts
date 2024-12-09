@@ -102,7 +102,7 @@ export interface GetWafEntityParameterResult {
     readonly url?: outputs.ssl.GetWafEntityParameterUrl;
     readonly valueType?: string;
 }
-export function getWafEntityParameterOutput(args: GetWafEntityParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityParameterResult> {
+export function getWafEntityParameterOutput(args: GetWafEntityParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafEntityParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", {
         "allowEmptyType": args.allowEmptyType,

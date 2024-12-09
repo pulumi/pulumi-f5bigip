@@ -130,7 +130,7 @@ export interface GetGceServiceDiscoveryResult {
  * });
  * ```
  */
-export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGceServiceDiscoveryResult> {
+export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGceServiceDiscoveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", {
         "addressRealm": args.addressRealm,
