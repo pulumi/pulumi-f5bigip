@@ -70,6 +70,36 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
+        ///  
+        ///  
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = F5BigIP.Ltm.GetIrule.Invoke(new()
+        ///     {
+        ///         Name = "terraform_irule",
+        ///         Partition = "Common",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipIrule"] = test.Apply(getIruleResult =&gt; getIruleResult.Irule),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithDefaults());
     }
 
 

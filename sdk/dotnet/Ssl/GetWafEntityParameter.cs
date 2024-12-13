@@ -16,6 +16,9 @@ namespace Pulumi.F5BigIP.Ssl
 
         public static Output<GetWafEntityParameterResult> Invoke(GetWafEntityParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetWafEntityParameterResult> Invoke(GetWafEntityParameterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterInvokeArgs(), options.WithDefaults());
     }
 
 

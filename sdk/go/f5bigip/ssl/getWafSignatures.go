@@ -94,21 +94,11 @@ type GetWafSignaturesResult struct {
 }
 
 func GetWafSignaturesOutput(ctx *pulumi.Context, args GetWafSignaturesOutputArgs, opts ...pulumi.InvokeOption) GetWafSignaturesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetWafSignaturesResultOutput, error) {
 			args := v.(GetWafSignaturesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetWafSignaturesResult
-			secret, err := ctx.InvokePackageRaw("f5bigip:ssl/getWafSignatures:getWafSignatures", args, &rv, "", opts...)
-			if err != nil {
-				return GetWafSignaturesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetWafSignaturesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetWafSignaturesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("f5bigip:ssl/getWafSignatures:getWafSignatures", args, GetWafSignaturesResultOutput{}, options).(GetWafSignaturesResultOutput), nil
 		}).(GetWafSignaturesResultOutput)
 }
 

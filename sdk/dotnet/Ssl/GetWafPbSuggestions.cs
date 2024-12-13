@@ -64,6 +64,33 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public static Output<GetWafPbSuggestionsResult> Invoke(GetWafPbSuggestionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafPbSuggestionsResult>("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args ?? new GetWafPbSuggestionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
+        ///  
+        ///  
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var PBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
+        ///     {
+        ///         PolicyName = "protect_me_policy",
+        ///         Partition = "Common",
+        ///         MinimumLearningScore = 20,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWafPbSuggestionsResult> Invoke(GetWafPbSuggestionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafPbSuggestionsResult>("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args ?? new GetWafPbSuggestionsInvokeArgs(), options.WithDefaults());
     }
 
 
