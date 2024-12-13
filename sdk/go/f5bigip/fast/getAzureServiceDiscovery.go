@@ -96,21 +96,11 @@ type GetAzureServiceDiscoveryResult struct {
 }
 
 func GetAzureServiceDiscoveryOutput(ctx *pulumi.Context, args GetAzureServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetAzureServiceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAzureServiceDiscoveryResultOutput, error) {
 			args := v.(GetAzureServiceDiscoveryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAzureServiceDiscoveryResult
-			secret, err := ctx.InvokePackageRaw("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args, &rv, "", opts...)
-			if err != nil {
-				return GetAzureServiceDiscoveryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAzureServiceDiscoveryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAzureServiceDiscoveryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args, GetAzureServiceDiscoveryResultOutput{}, options).(GetAzureServiceDiscoveryResultOutput), nil
 		}).(GetAzureServiceDiscoveryResultOutput)
 }
 

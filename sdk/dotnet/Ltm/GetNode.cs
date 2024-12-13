@@ -22,6 +22,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
+        /// </summary>
+        public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
     }
 
 

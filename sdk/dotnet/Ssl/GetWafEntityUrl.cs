@@ -138,6 +138,70 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public static Output<GetWafEntityUrlResult> Invoke(GetWafEntityUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
+        /// 
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var WAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
+        ///     {
+        ///         Name = "/foobar",
+        ///         Description = "this is a test",
+        ///         Type = "explicit",
+        ///         Protocol = "HTTP",
+        ///         PerformStaging = true,
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
+        ///         },
+        ///         MethodOverrides = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
+        ///             },
+        ///         },
+        ///         CrossOriginRequestsEnforcements = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app1.com",
+        ///                 OriginPort = "80",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
+        ///             {
+        ///                 IncludeSubdomains = true,
+        ///                 OriginName = "app2.com",
+        ///                 OriginPort = "443",
+        ///                 OriginProtocol = "http",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWafEntityUrlResult> Invoke(GetWafEntityUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());
     }
 
 

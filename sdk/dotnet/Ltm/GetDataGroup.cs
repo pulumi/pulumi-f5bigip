@@ -62,6 +62,32 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Output<GetDataGroupResult> Invoke(GetDataGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
+        ///  
+        ///  
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var DG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
+        ///     {
+        ///         Name = "test-dg",
+        ///         Partition = "Common",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDataGroupResult> Invoke(GetDataGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupInvokeArgs(), options.WithDefaults());
     }
 
 

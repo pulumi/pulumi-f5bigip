@@ -60,6 +60,31 @@ namespace Pulumi.F5BigIP.Fast
         /// </summary>
         public static Output<GetConsulServiceDiscoveryResult> Invoke(GetConsulServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var TC2 = F5BigIP.Fast.GetConsulServiceDiscovery.Invoke(new()
+        ///     {
+        ///         Uri = "https://192.0.2.100:8500/v1/catalog/nodes",
+        ///         Port = 8080,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConsulServiceDiscoveryResult> Invoke(GetConsulServiceDiscoveryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryInvokeArgs(), options.WithDefaults());
     }
 
 

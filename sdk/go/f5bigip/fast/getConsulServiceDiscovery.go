@@ -96,21 +96,11 @@ type GetConsulServiceDiscoveryResult struct {
 }
 
 func GetConsulServiceDiscoveryOutput(ctx *pulumi.Context, args GetConsulServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetConsulServiceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConsulServiceDiscoveryResultOutput, error) {
 			args := v.(GetConsulServiceDiscoveryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetConsulServiceDiscoveryResult
-			secret, err := ctx.InvokePackageRaw("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args, &rv, "", opts...)
-			if err != nil {
-				return GetConsulServiceDiscoveryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetConsulServiceDiscoveryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetConsulServiceDiscoveryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args, GetConsulServiceDiscoveryResultOutput{}, options).(GetConsulServiceDiscoveryResultOutput), nil
 		}).(GetConsulServiceDiscoveryResultOutput)
 }
 
