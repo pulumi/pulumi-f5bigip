@@ -92,6 +92,47 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public static Output<GetVWanConfigResult> Invoke(GetVWanConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
+        ///  
+        ///  
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
+        ///     {
+        ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
+        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
+        ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
+        ///     });
+        /// 
+        /// });
+        /// ```      
+        /// 
+        /// ## Pre-required Environment Settings:
+        /// 
+        /// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
+        /// 
+        /// * `AZURE_CLIENT_SECRET` - (Required) Set this environment variable with the Azure app secret to use.
+        /// 
+        /// * `AZURE_SUBSCRIPTION_ID` - (Required) Set this environment variable with the Azure subscription ID to use.
+        /// 
+        /// * `AZURE_TENANT_ID` - (Required) Set this environment variable with the Tenant ID to which to authenticate.
+        /// 
+        /// * `STORAGE_ACCOUNT_NAME` - (Required) Set this environment variable with the storage account for download config.
+        /// 
+        /// * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
+        /// </summary>
+        public static Output<GetVWanConfigResult> Invoke(GetVWanConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigInvokeArgs(), options.WithDefaults());
     }
 
 

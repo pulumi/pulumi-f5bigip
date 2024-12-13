@@ -62,6 +62,32 @@ namespace Pulumi.F5BigIP.Fast
         /// </summary>
         public static Output<GetGceServiceDiscoveryResult> Invoke(GetGceServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var TC3 = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+        ///     {
+        ///         TagKey = "testgcetag",
+        ///         TagValue = "testgcevalue",
+        ///         Region = "testgceregion",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGceServiceDiscoveryResult> Invoke(GetGceServiceDiscoveryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryInvokeArgs(), options.WithDefaults());
     }
 
 

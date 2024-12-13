@@ -98,21 +98,11 @@ type GetGceServiceDiscoveryResult struct {
 }
 
 func GetGceServiceDiscoveryOutput(ctx *pulumi.Context, args GetGceServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetGceServiceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGceServiceDiscoveryResultOutput, error) {
 			args := v.(GetGceServiceDiscoveryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetGceServiceDiscoveryResult
-			secret, err := ctx.InvokePackageRaw("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args, &rv, "", opts...)
-			if err != nil {
-				return GetGceServiceDiscoveryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetGceServiceDiscoveryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetGceServiceDiscoveryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args, GetGceServiceDiscoveryResultOutput{}, options).(GetGceServiceDiscoveryResultOutput), nil
 		}).(GetGceServiceDiscoveryResultOutput)
 }
 

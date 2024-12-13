@@ -58,6 +58,30 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public static Output<GetWafPolicyResult> Invoke(GetWafPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
+        ///  
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var existpolicy = F5BigIP.Ssl.GetWafPolicy.Invoke(new()
+        ///     {
+        ///         PolicyId = "xxxxx",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWafPolicyResult> Invoke(GetWafPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
