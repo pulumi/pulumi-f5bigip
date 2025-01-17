@@ -499,6 +499,50 @@
                 "port"
             ]
         },
+        "f5bigip:index/SaasBotDefenseProfileProtectedEndpoint:SaasBotDefenseProfileProtectedEndpoint": {
+            "properties": {
+                "endpoint": {
+                    "type": "string",
+                    "description": "Specifies the path to the web page to be protected by BD. For example, `/login`.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "hostname or IP address of the web page to be protected by the Bot Defense\n"
+                },
+                "mitigationAction": {
+                    "type": "string",
+                    "description": "Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the protected endpoint\n"
+                },
+                "post": {
+                    "type": "string",
+                    "description": "POST field to protect the path when it has a POST method, `enabled` or `disabled`\n"
+                },
+                "put": {
+                    "type": "string",
+                    "description": "PUT field to protect the path when it has a PUT method,`enabled` or `disabled`\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "endpoint",
+                        "host",
+                        "mitigationAction",
+                        "name",
+                        "post",
+                        "put"
+                    ]
+                }
+            }
+        },
         "f5bigip:index/WafPolicyFileType:WafPolicyFileType": {
             "properties": {
                 "allowed": {
@@ -3126,6 +3170,13 @@
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
+                "controls": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
+                },
                 "ignoreMetadata": {
                     "type": "boolean",
                     "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n"
@@ -3168,6 +3219,13 @@
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
+                "controls": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
+                },
                 "ignoreMetadata": {
                     "type": "boolean",
                     "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n"
@@ -3199,6 +3257,13 @@
                     "as3Json": {
                         "type": "string",
                         "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    },
+                    "controls": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
                     },
                     "ignoreMetadata": {
                         "type": "boolean",
@@ -6201,6 +6266,162 @@
                     "routeDomainId": {
                         "type": "integer",
                         "description": "Route domain id of the partition.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile": {
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "description": "Specifies the API key, enter the value provided by F5 Support.\n",
+                    "secret": true
+                },
+                "applicationId": {
+                    "type": "string",
+                    "description": "Specifies the Bot Defense API application ID, enter the value provided by F5 Support\n",
+                    "secret": true
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the BD profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the Distributed Cloud Services Bot Defense profile\n"
+                },
+                "protectedEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/SaasBotDefenseProfileProtectedEndpoint:SaasBotDefenseProfileProtectedEndpoint"
+                    },
+                    "description": "Use these settings to configure which pages on the website will be protected by BD\n"
+                },
+                "shapeProtectionPool": {
+                    "type": "string",
+                    "description": "Specifies the web hostname to which API requests are made\n"
+                },
+                "sslProfile": {
+                    "type": "string",
+                    "description": "Specifies a server-side SSL profile that is different from what the application pool uses\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Specifies the tenant ID, enter the value provided by F5 Support\n"
+                }
+            },
+            "required": [
+                "apiKey",
+                "applicationId",
+                "description",
+                "name",
+                "protectedEndpoints",
+                "shapeProtectionPool",
+                "sslProfile",
+                "tenantId"
+            ],
+            "inputProperties": {
+                "apiKey": {
+                    "type": "string",
+                    "description": "Specifies the API key, enter the value provided by F5 Support.\n",
+                    "secret": true
+                },
+                "applicationId": {
+                    "type": "string",
+                    "description": "Specifies the Bot Defense API application ID, enter the value provided by F5 Support\n",
+                    "secret": true
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the BD profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Unique name for the Distributed Cloud Services Bot Defense profile\n",
+                    "willReplaceOnChanges": true
+                },
+                "protectedEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/SaasBotDefenseProfileProtectedEndpoint:SaasBotDefenseProfileProtectedEndpoint"
+                    },
+                    "description": "Use these settings to configure which pages on the website will be protected by BD\n"
+                },
+                "shapeProtectionPool": {
+                    "type": "string",
+                    "description": "Specifies the web hostname to which API requests are made\n"
+                },
+                "sslProfile": {
+                    "type": "string",
+                    "description": "Specifies a server-side SSL profile that is different from what the application pool uses\n"
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "Specifies the tenant ID, enter the value provided by F5 Support\n"
+                }
+            },
+            "requiredInputs": [
+                "apiKey",
+                "applicationId",
+                "name",
+                "protectedEndpoints",
+                "shapeProtectionPool",
+                "sslProfile",
+                "tenantId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SaasBotDefenseProfile resources.\n",
+                "properties": {
+                    "apiKey": {
+                        "type": "string",
+                        "description": "Specifies the API key, enter the value provided by F5 Support.\n",
+                        "secret": true
+                    },
+                    "applicationId": {
+                        "type": "string",
+                        "description": "Specifies the Bot Defense API application ID, enter the value provided by F5 Support\n",
+                        "secret": true
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies descriptive text that identifies the BD profile.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Unique name for the Distributed Cloud Services Bot Defense profile\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "protectedEndpoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:index/SaasBotDefenseProfileProtectedEndpoint:SaasBotDefenseProfileProtectedEndpoint"
+                        },
+                        "description": "Use these settings to configure which pages on the website will be protected by BD\n"
+                    },
+                    "shapeProtectionPool": {
+                        "type": "string",
+                        "description": "Specifies the web hostname to which API requests are made\n"
+                    },
+                    "sslProfile": {
+                        "type": "string",
+                        "description": "Specifies a server-side SSL profile that is different from what the application pool uses\n"
+                    },
+                    "tenantId": {
+                        "type": "string",
+                        "description": "Specifies the tenant ID, enter the value provided by F5 Support\n"
                     }
                 },
                 "type": "object"
@@ -10844,7 +11065,6 @@
                 "defaultsFrom",
                 "description",
                 "enforcements",
-                "fallbackHost",
                 "headErase",
                 "headInsert",
                 "httpStrictTransportSecurities",
