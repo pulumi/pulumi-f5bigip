@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -44,6 +45,21 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> as3Json() {
         return Optional.ofNullable(this.as3Json);
+    }
+
+    /**
+     * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     * 
+     */
+    @Import(name="controls")
+    private @Nullable Output<Map<String,String>> controls;
+
+    /**
+     * @return A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> controls() {
+        return Optional.ofNullable(this.controls);
     }
 
     /**
@@ -151,6 +167,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     private As3State(As3State $) {
         this.applicationList = $.applicationList;
         this.as3Json = $.as3Json;
+        this.controls = $.controls;
         this.ignoreMetadata = $.ignoreMetadata;
         this.perAppMode = $.perAppMode;
         this.taskId = $.taskId;
@@ -217,6 +234,27 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          */
         public Builder as3Json(String as3Json) {
             return as3Json(Output.of(as3Json));
+        }
+
+        /**
+         * @param controls A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controls(@Nullable Output<Map<String,String>> controls) {
+            $.controls = controls;
+            return this;
+        }
+
+        /**
+         * @param controls A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controls(Map<String,String> controls) {
+            return controls(Output.of(controls));
         }
 
         /**

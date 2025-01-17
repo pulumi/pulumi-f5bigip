@@ -386,6 +386,12 @@ namespace Pulumi.F5BigIP
         public Output<string?> As3Json { get; private set; } = null!;
 
         /// <summary>
+        /// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        /// </summary>
+        [Output("controls")]
+        public Output<ImmutableDictionary<string, string>?> Controls { get; private set; } = null!;
+
+        /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// 
         /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -657,6 +663,18 @@ namespace Pulumi.F5BigIP
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
 
+        [Input("controls")]
+        private InputMap<string>? _controls;
+
+        /// <summary>
+        /// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        /// </summary>
+        public InputMap<string> Controls
+        {
+            get => _controls ?? (_controls = new InputMap<string>());
+            set => _controls = value;
+        }
+
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// 
@@ -884,6 +902,18 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
+
+        [Input("controls")]
+        private InputMap<string>? _controls;
+
+        /// <summary>
+        /// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        /// </summary>
+        public InputMap<string> Controls
+        {
+            get => _controls ?? (_controls = new InputMap<string>());
+            set => _controls = value;
+        }
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false

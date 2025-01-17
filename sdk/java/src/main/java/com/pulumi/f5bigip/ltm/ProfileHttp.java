@@ -194,14 +194,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="fallbackHost", refs={String.class}, tree="[0]")
-    private Output<String> fallbackHost;
+    private Output</* @Nullable */ String> fallbackHost;
 
     /**
      * @return Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      * 
      */
-    public Output<String> fallbackHost() {
-        return this.fallbackHost;
+    public Output<Optional<String>> fallbackHost() {
+        return Codegen.optional(this.fallbackHost);
     }
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.

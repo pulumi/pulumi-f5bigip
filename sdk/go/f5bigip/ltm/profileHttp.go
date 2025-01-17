@@ -78,7 +78,7 @@ type ProfileHttp struct {
 	// See Enforcement below for more details.
 	Enforcements ProfileHttpEnforcementArrayOutput `pulumi:"enforcements"`
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
-	FallbackHost pulumi.StringOutput `pulumi:"fallbackHost"`
+	FallbackHost pulumi.StringPtrOutput `pulumi:"fallbackHost"`
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
 	FallbackStatusCodes pulumi.StringArrayOutput `pulumi:"fallbackStatusCodes"`
 	// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
@@ -535,8 +535,8 @@ func (o ProfileHttpOutput) Enforcements() ProfileHttpEnforcementArrayOutput {
 }
 
 // Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
-func (o ProfileHttpOutput) FallbackHost() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.FallbackHost }).(pulumi.StringOutput)
+func (o ProfileHttpOutput) FallbackHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringPtrOutput { return v.FallbackHost }).(pulumi.StringPtrOutput)
 }
 
 // Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.

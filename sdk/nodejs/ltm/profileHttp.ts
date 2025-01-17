@@ -102,7 +102,7 @@ export class ProfileHttp extends pulumi.CustomResource {
     /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
-    public readonly fallbackHost!: pulumi.Output<string>;
+    public readonly fallbackHost!: pulumi.Output<string | undefined>;
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */

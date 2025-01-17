@@ -33,6 +33,7 @@ __all__ = [
     'FastUdpAppMonitor',
     'FastUdpAppPoolMember',
     'FastUdpAppVirtualServer',
+    'SaasBotDefenseProfileProtectedEndpoint',
     'WafPolicyFileType',
     'WafPolicyGraphqlProfile',
     'WafPolicyGraphqlProfileDefenseAttribute',
@@ -956,6 +957,101 @@ class FastUdpAppVirtualServer(dict):
         Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class SaasBotDefenseProfileProtectedEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mitigationAction":
+            suggest = "mitigation_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SaasBotDefenseProfileProtectedEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SaasBotDefenseProfileProtectedEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SaasBotDefenseProfileProtectedEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 endpoint: Optional[str] = None,
+                 host: Optional[str] = None,
+                 mitigation_action: Optional[str] = None,
+                 post: Optional[str] = None,
+                 put: Optional[str] = None):
+        """
+        :param str name: Unique name for the protected endpoint
+        :param str endpoint: Specifies the path to the web page to be protected by BD. For example, `/login`.
+        :param str host: hostname or IP address of the web page to be protected by the Bot Defense
+        :param str mitigation_action: Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+        :param str post: POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        :param str put: PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        """
+        pulumi.set(__self__, "name", name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if mitigation_action is not None:
+            pulumi.set(__self__, "mitigation_action", mitigation_action)
+        if post is not None:
+            pulumi.set(__self__, "post", post)
+        if put is not None:
+            pulumi.set(__self__, "put", put)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Unique name for the protected endpoint
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        Specifies the path to the web page to be protected by BD. For example, `/login`.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        hostname or IP address of the web page to be protected by the Bot Defense
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="mitigationAction")
+    def mitigation_action(self) -> Optional[str]:
+        """
+        Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+        """
+        return pulumi.get(self, "mitigation_action")
+
+    @property
+    @pulumi.getter
+    def post(self) -> Optional[str]:
+        """
+        POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        """
+        return pulumi.get(self, "post")
+
+    @property
+    @pulumi.getter
+    def put(self) -> Optional[str]:
+        """
+        PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        """
+        return pulumi.get(self, "put")
 
 
 @pulumi.output_type

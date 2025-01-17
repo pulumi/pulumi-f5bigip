@@ -2646,6 +2646,148 @@ func (o FastUdpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type SaasBotDefenseProfileProtectedEndpoint struct {
+	// Specifies the path to the web page to be protected by BD. For example, `/login`.
+	Endpoint *string `pulumi:"endpoint"`
+	// hostname or IP address of the web page to be protected by the Bot Defense
+	Host *string `pulumi:"host"`
+	// Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+	MitigationAction *string `pulumi:"mitigationAction"`
+	// Unique name for the protected endpoint
+	Name string `pulumi:"name"`
+	// POST field to protect the path when it has a POST method, `enabled` or `disabled`
+	Post *string `pulumi:"post"`
+	// PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+	Put *string `pulumi:"put"`
+}
+
+// SaasBotDefenseProfileProtectedEndpointInput is an input type that accepts SaasBotDefenseProfileProtectedEndpointArgs and SaasBotDefenseProfileProtectedEndpointOutput values.
+// You can construct a concrete instance of `SaasBotDefenseProfileProtectedEndpointInput` via:
+//
+//	SaasBotDefenseProfileProtectedEndpointArgs{...}
+type SaasBotDefenseProfileProtectedEndpointInput interface {
+	pulumi.Input
+
+	ToSaasBotDefenseProfileProtectedEndpointOutput() SaasBotDefenseProfileProtectedEndpointOutput
+	ToSaasBotDefenseProfileProtectedEndpointOutputWithContext(context.Context) SaasBotDefenseProfileProtectedEndpointOutput
+}
+
+type SaasBotDefenseProfileProtectedEndpointArgs struct {
+	// Specifies the path to the web page to be protected by BD. For example, `/login`.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// hostname or IP address of the web page to be protected by the Bot Defense
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+	MitigationAction pulumi.StringPtrInput `pulumi:"mitigationAction"`
+	// Unique name for the protected endpoint
+	Name pulumi.StringInput `pulumi:"name"`
+	// POST field to protect the path when it has a POST method, `enabled` or `disabled`
+	Post pulumi.StringPtrInput `pulumi:"post"`
+	// PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+	Put pulumi.StringPtrInput `pulumi:"put"`
+}
+
+func (SaasBotDefenseProfileProtectedEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpoint)(nil)).Elem()
+}
+
+func (i SaasBotDefenseProfileProtectedEndpointArgs) ToSaasBotDefenseProfileProtectedEndpointOutput() SaasBotDefenseProfileProtectedEndpointOutput {
+	return i.ToSaasBotDefenseProfileProtectedEndpointOutputWithContext(context.Background())
+}
+
+func (i SaasBotDefenseProfileProtectedEndpointArgs) ToSaasBotDefenseProfileProtectedEndpointOutputWithContext(ctx context.Context) SaasBotDefenseProfileProtectedEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasBotDefenseProfileProtectedEndpointOutput)
+}
+
+// SaasBotDefenseProfileProtectedEndpointArrayInput is an input type that accepts SaasBotDefenseProfileProtectedEndpointArray and SaasBotDefenseProfileProtectedEndpointArrayOutput values.
+// You can construct a concrete instance of `SaasBotDefenseProfileProtectedEndpointArrayInput` via:
+//
+//	SaasBotDefenseProfileProtectedEndpointArray{ SaasBotDefenseProfileProtectedEndpointArgs{...} }
+type SaasBotDefenseProfileProtectedEndpointArrayInput interface {
+	pulumi.Input
+
+	ToSaasBotDefenseProfileProtectedEndpointArrayOutput() SaasBotDefenseProfileProtectedEndpointArrayOutput
+	ToSaasBotDefenseProfileProtectedEndpointArrayOutputWithContext(context.Context) SaasBotDefenseProfileProtectedEndpointArrayOutput
+}
+
+type SaasBotDefenseProfileProtectedEndpointArray []SaasBotDefenseProfileProtectedEndpointInput
+
+func (SaasBotDefenseProfileProtectedEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SaasBotDefenseProfileProtectedEndpoint)(nil)).Elem()
+}
+
+func (i SaasBotDefenseProfileProtectedEndpointArray) ToSaasBotDefenseProfileProtectedEndpointArrayOutput() SaasBotDefenseProfileProtectedEndpointArrayOutput {
+	return i.ToSaasBotDefenseProfileProtectedEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i SaasBotDefenseProfileProtectedEndpointArray) ToSaasBotDefenseProfileProtectedEndpointArrayOutputWithContext(ctx context.Context) SaasBotDefenseProfileProtectedEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasBotDefenseProfileProtectedEndpointArrayOutput)
+}
+
+type SaasBotDefenseProfileProtectedEndpointOutput struct{ *pulumi.OutputState }
+
+func (SaasBotDefenseProfileProtectedEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpoint)(nil)).Elem()
+}
+
+func (o SaasBotDefenseProfileProtectedEndpointOutput) ToSaasBotDefenseProfileProtectedEndpointOutput() SaasBotDefenseProfileProtectedEndpointOutput {
+	return o
+}
+
+func (o SaasBotDefenseProfileProtectedEndpointOutput) ToSaasBotDefenseProfileProtectedEndpointOutputWithContext(ctx context.Context) SaasBotDefenseProfileProtectedEndpointOutput {
+	return o
+}
+
+// Specifies the path to the web page to be protected by BD. For example, `/login`.
+func (o SaasBotDefenseProfileProtectedEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// hostname or IP address of the web page to be protected by the Bot Defense
+func (o SaasBotDefenseProfileProtectedEndpointOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+func (o SaasBotDefenseProfileProtectedEndpointOutput) MitigationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) *string { return v.MitigationAction }).(pulumi.StringPtrOutput)
+}
+
+// Unique name for the protected endpoint
+func (o SaasBotDefenseProfileProtectedEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// POST field to protect the path when it has a POST method, `enabled` or `disabled`
+func (o SaasBotDefenseProfileProtectedEndpointOutput) Post() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) *string { return v.Post }).(pulumi.StringPtrOutput)
+}
+
+// PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+func (o SaasBotDefenseProfileProtectedEndpointOutput) Put() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasBotDefenseProfileProtectedEndpoint) *string { return v.Put }).(pulumi.StringPtrOutput)
+}
+
+type SaasBotDefenseProfileProtectedEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (SaasBotDefenseProfileProtectedEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SaasBotDefenseProfileProtectedEndpoint)(nil)).Elem()
+}
+
+func (o SaasBotDefenseProfileProtectedEndpointArrayOutput) ToSaasBotDefenseProfileProtectedEndpointArrayOutput() SaasBotDefenseProfileProtectedEndpointArrayOutput {
+	return o
+}
+
+func (o SaasBotDefenseProfileProtectedEndpointArrayOutput) ToSaasBotDefenseProfileProtectedEndpointArrayOutputWithContext(ctx context.Context) SaasBotDefenseProfileProtectedEndpointArrayOutput {
+	return o
+}
+
+func (o SaasBotDefenseProfileProtectedEndpointArrayOutput) Index(i pulumi.IntInput) SaasBotDefenseProfileProtectedEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SaasBotDefenseProfileProtectedEndpoint {
+		return vs[0].([]SaasBotDefenseProfileProtectedEndpoint)[vs[1].(int)]
+	}).(SaasBotDefenseProfileProtectedEndpointOutput)
+}
+
 type WafPolicyFileType struct {
 	// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
 	// * No allowed file type matched the file type of the request.
@@ -3519,6 +3661,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppPoolMemberArrayInput)(nil)).Elem(), FastUdpAppPoolMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerPtrInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpointInput)(nil)).Elem(), SaasBotDefenseProfileProtectedEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpointArrayInput)(nil)).Elem(), SaasBotDefenseProfileProtectedEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeInput)(nil)).Elem(), WafPolicyFileTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeArrayInput)(nil)).Elem(), WafPolicyFileTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileInput)(nil)).Elem(), WafPolicyGraphqlProfileArgs{})
@@ -3567,6 +3711,8 @@ func init() {
 	pulumi.RegisterOutputType(FastUdpAppPoolMemberArrayOutput{})
 	pulumi.RegisterOutputType(FastUdpAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastUdpAppVirtualServerPtrOutput{})
+	pulumi.RegisterOutputType(SaasBotDefenseProfileProtectedEndpointOutput{})
+	pulumi.RegisterOutputType(SaasBotDefenseProfileProtectedEndpointArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyFileTypeOutput{})
 	pulumi.RegisterOutputType(WafPolicyFileTypeArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileOutput{})

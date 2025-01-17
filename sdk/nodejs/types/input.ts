@@ -268,6 +268,33 @@ export interface FastUdpAppVirtualServer {
     port: pulumi.Input<number>;
 }
 
+export interface SaasBotDefenseProfileProtectedEndpoint {
+    /**
+     * Specifies the path to the web page to be protected by BD. For example, `/login`.
+     */
+    endpoint?: pulumi.Input<string>;
+    /**
+     * hostname or IP address of the web page to be protected by the Bot Defense
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+     */
+    mitigationAction?: pulumi.Input<string>;
+    /**
+     * Unique name for the protected endpoint
+     */
+    name: pulumi.Input<string>;
+    /**
+     * POST field to protect the path when it has a POST method, `enabled` or `disabled`
+     */
+    post?: pulumi.Input<string>;
+    /**
+     * PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+     */
+    put?: pulumi.Input<string>;
+}
+
 export interface WafPolicyFileType {
     /**
      * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 

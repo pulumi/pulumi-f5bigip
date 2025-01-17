@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetTunnel{}
 	case "f5bigip:index/partition:Partition":
 		r = &Partition{}
+	case "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile":
+		r = &SaasBotDefenseProfile{}
 	case "f5bigip:index/sslKeyCert:SslKeyCert":
 		r = &SslKeyCert{}
 	case "f5bigip:index/trafficSelector:TrafficSelector":
@@ -175,6 +177,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/partition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/saasBotDefenseProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
