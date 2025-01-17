@@ -1365,7 +1365,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fallbackHost")
-    def fallback_host(self) -> pulumi.Output[str]:
+    def fallback_host(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         """

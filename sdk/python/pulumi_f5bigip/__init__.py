@@ -23,6 +23,7 @@ from .net_ike_peer import *
 from .net_tunnel import *
 from .partition import *
 from .provider import *
+from .saas_bot_defense_profile import *
 from .ssl_key_cert import *
 from .traffic_selector import *
 from .waf_policy import *
@@ -210,6 +211,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/partition:Partition": "Partition"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/saasBotDefenseProfile",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile": "SaasBotDefenseProfile"
   }
  },
  {

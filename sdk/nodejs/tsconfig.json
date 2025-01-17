@@ -85,6 +85,7 @@
         "netTunnel.ts",
         "partition.ts",
         "provider.ts",
+        "saasBotDefenseProfile.ts",
         "ssl/certificate.ts",
         "ssl/getCertificate.ts",
         "ssl/getVWanConfig.ts",

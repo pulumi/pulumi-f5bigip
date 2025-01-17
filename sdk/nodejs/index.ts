@@ -95,6 +95,11 @@ export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
+export { SaasBotDefenseProfileArgs, SaasBotDefenseProfileState } from "./saasBotDefenseProfile";
+export type SaasBotDefenseProfile = import("./saasBotDefenseProfile").SaasBotDefenseProfile;
+export const SaasBotDefenseProfile: typeof import("./saasBotDefenseProfile").SaasBotDefenseProfile = null as any;
+utilities.lazyLoad(exports, ["SaasBotDefenseProfile"], () => require("./saasBotDefenseProfile"));
+
 export { SslKeyCertArgs, SslKeyCertState } from "./sslKeyCert";
 export type SslKeyCert = import("./sslKeyCert").SslKeyCert;
 export const SslKeyCert: typeof import("./sslKeyCert").SslKeyCert = null as any;
@@ -172,6 +177,8 @@ const _module = {
                 return new NetTunnel(name, <any>undefined, { urn })
             case "f5bigip:index/partition:Partition":
                 return new Partition(name, <any>undefined, { urn })
+            case "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile":
+                return new SaasBotDefenseProfile(name, <any>undefined, { urn })
             case "f5bigip:index/sslKeyCert:SslKeyCert":
                 return new SslKeyCert(name, <any>undefined, { urn })
             case "f5bigip:index/trafficSelector:TrafficSelector":
@@ -200,6 +207,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/partition", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/saasBotDefenseProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/sslKeyCert", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/wafPolicy", _module)

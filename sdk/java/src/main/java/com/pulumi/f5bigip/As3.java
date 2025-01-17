@@ -12,6 +12,7 @@ import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.As3State;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -406,6 +407,20 @@ public class As3 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> as3Json() {
         return Codegen.optional(this.as3Json);
+    }
+    /**
+     * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     * 
+     */
+    @Export(name="controls", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> controls;
+
+    /**
+     * @return A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> controls() {
+        return Codegen.optional(this.controls);
     }
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false

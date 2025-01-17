@@ -402,6 +402,10 @@ export class As3 extends pulumi.CustomResource {
      */
     public readonly as3Json!: pulumi.Output<string | undefined>;
     /**
+     * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     */
+    public readonly controls!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -619,6 +623,7 @@ export class As3 extends pulumi.CustomResource {
             const state = argsOrState as As3State | undefined;
             resourceInputs["applicationList"] = state ? state.applicationList : undefined;
             resourceInputs["as3Json"] = state ? state.as3Json : undefined;
+            resourceInputs["controls"] = state ? state.controls : undefined;
             resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
             resourceInputs["perAppMode"] = state ? state.perAppMode : undefined;
             resourceInputs["taskId"] = state ? state.taskId : undefined;
@@ -629,6 +634,7 @@ export class As3 extends pulumi.CustomResource {
             const args = argsOrState as As3Args | undefined;
             resourceInputs["applicationList"] = args ? args.applicationList : undefined;
             resourceInputs["as3Json"] = args ? args.as3Json : undefined;
+            resourceInputs["controls"] = args ? args.controls : undefined;
             resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
             resourceInputs["taskId"] = args ? args.taskId : undefined;
             resourceInputs["tenantFilter"] = args ? args.tenantFilter : undefined;
@@ -653,6 +659,10 @@ export interface As3State {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     as3Json?: pulumi.Input<string>;
+    /**
+     * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     */
+    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *
@@ -869,6 +879,10 @@ export interface As3Args {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     as3Json?: pulumi.Input<string>;
+    /**
+     * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+     */
+    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *

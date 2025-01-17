@@ -105,7 +105,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         /// </summary>
         [Output("fallbackHost")]
-        public Output<string> FallbackHost { get; private set; } = null!;
+        public Output<string?> FallbackHost { get; private set; } = null!;
 
         /// <summary>
         /// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.

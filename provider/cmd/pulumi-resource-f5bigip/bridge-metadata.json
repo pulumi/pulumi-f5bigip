@@ -522,6 +522,14 @@
             "bigip_partition": {
                 "current": "f5bigip:index/partition:Partition"
             },
+            "bigip_saas_bot_defense_profile": {
+                "current": "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile",
+                "fields": {
+                    "protected_endpoints": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "bigip_ssl_certificate": {
                 "current": "f5bigip:ssl/certificate:Certificate"
             },

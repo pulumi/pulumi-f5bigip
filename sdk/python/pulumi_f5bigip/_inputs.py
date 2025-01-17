@@ -49,6 +49,8 @@ __all__ = [
     'FastUdpAppPoolMemberArgsDict',
     'FastUdpAppVirtualServerArgs',
     'FastUdpAppVirtualServerArgsDict',
+    'SaasBotDefenseProfileProtectedEndpointArgs',
+    'SaasBotDefenseProfileProtectedEndpointArgsDict',
     'WafPolicyFileTypeArgs',
     'WafPolicyFileTypeArgsDict',
     'WafPolicyGraphqlProfileArgs',
@@ -1311,6 +1313,137 @@ class FastUdpAppVirtualServerArgs:
     @port.setter
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Unique name for the protected endpoint
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path to the web page to be protected by BD. For example, `/login`.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        hostname or IP address of the web page to be protected by the Bot Defense
+        """
+        mitigation_action: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+        """
+        post: NotRequired[pulumi.Input[str]]
+        """
+        POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        """
+        put: NotRequired[pulumi.Input[str]]
+        """
+        PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        """
+elif False:
+    SaasBotDefenseProfileProtectedEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SaasBotDefenseProfileProtectedEndpointArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
+                 mitigation_action: Optional[pulumi.Input[str]] = None,
+                 post: Optional[pulumi.Input[str]] = None,
+                 put: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Unique name for the protected endpoint
+        :param pulumi.Input[str] endpoint: Specifies the path to the web page to be protected by BD. For example, `/login`.
+        :param pulumi.Input[str] host: hostname or IP address of the web page to be protected by the Bot Defense
+        :param pulumi.Input[str] mitigation_action: Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+        :param pulumi.Input[str] post: POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        :param pulumi.Input[str] put: PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        """
+        pulumi.set(__self__, "name", name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if mitigation_action is not None:
+            pulumi.set(__self__, "mitigation_action", mitigation_action)
+        if post is not None:
+            pulumi.set(__self__, "post", post)
+        if put is not None:
+            pulumi.set(__self__, "put", put)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Unique name for the protected endpoint
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the path to the web page to be protected by BD. For example, `/login`.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        hostname or IP address of the web page to be protected by the Bot Defense
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="mitigationAction")
+    def mitigation_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+        """
+        return pulumi.get(self, "mitigation_action")
+
+    @mitigation_action.setter
+    def mitigation_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mitigation_action", value)
+
+    @property
+    @pulumi.getter
+    def post(self) -> Optional[pulumi.Input[str]]:
+        """
+        POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        """
+        return pulumi.get(self, "post")
+
+    @post.setter
+    def post(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post", value)
+
+    @property
+    @pulumi.getter
+    def put(self) -> Optional[pulumi.Input[str]]:
+        """
+        PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        """
+        return pulumi.get(self, "put")
+
+    @put.setter
+    def put(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "put", value)
 
 
 if not MYPY:

@@ -377,6 +377,8 @@ type As3 struct {
 	ApplicationList pulumi.StringOutput `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
+	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+	Controls pulumi.StringMapOutput `pulumi:"controls"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -430,6 +432,8 @@ type as3State struct {
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
+	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+	Controls map[string]string `pulumi:"controls"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -454,6 +458,8 @@ type As3State struct {
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
+	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+	Controls pulumi.StringMapInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -482,6 +488,8 @@ type as3Args struct {
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
+	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+	Controls map[string]string `pulumi:"controls"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -505,6 +513,8 @@ type As3Args struct {
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
+	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+	Controls pulumi.StringMapInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -617,6 +627,11 @@ func (o As3Output) ApplicationList() pulumi.StringOutput {
 // Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 func (o As3Output) As3Json() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.As3Json }).(pulumi.StringPtrOutput)
+}
+
+// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+func (o As3Output) Controls() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringMapOutput { return v.Controls }).(pulumi.StringMapOutput)
 }
 
 // Set True if you want to ignore metadata changes during update. By default it is set to false

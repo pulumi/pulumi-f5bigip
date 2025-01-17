@@ -165,7 +165,8 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_traffic_selector":            {Tok: makeResource(mainMod, "TrafficSelector")},
 			"bigip_waf_policy":                  {Tok: makeResource(mainMod, "WafPolicy")},
 
-			"bigip_ltm_profile_bot_defense": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"bigip_ltm_profile_bot_defense":  {Docs: &tfbridge.DocInfo{AllowMissing: true}},
+			"bigip_saas_bot_defense_profile": {Docs: &tfbridge.DocInfo{AllowMissing: true}},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},

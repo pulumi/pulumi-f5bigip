@@ -21,6 +21,7 @@ class As3Args:
     def __init__(__self__, *,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
+                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class As3Args:
         The set of arguments for constructing a As3 resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -218,6 +220,8 @@ class As3Args:
             pulumi.set(__self__, "application_list", application_list)
         if as3_json is not None:
             pulumi.set(__self__, "as3_json", as3_json)
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
         if ignore_metadata is not None:
             pulumi.set(__self__, "ignore_metadata", ignore_metadata)
         if task_id is not None:
@@ -252,6 +256,18 @@ class As3Args:
     @as3_json.setter
     def as3_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "as3_json", value)
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        """
+        return pulumi.get(self, "controls")
+
+    @controls.setter
+    def controls(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "controls", value)
 
     @property
     @pulumi.getter(name="ignoreMetadata")
@@ -497,6 +513,7 @@ class _As3State:
     def __init__(__self__, *,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
+                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  per_app_mode: Optional[pulumi.Input[bool]] = None,
                  task_id: Optional[pulumi.Input[str]] = None,
@@ -507,6 +524,7 @@ class _As3State:
         Input properties used for looking up and filtering As3 resources.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -696,6 +714,8 @@ class _As3State:
             pulumi.set(__self__, "application_list", application_list)
         if as3_json is not None:
             pulumi.set(__self__, "as3_json", as3_json)
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
         if ignore_metadata is not None:
             pulumi.set(__self__, "ignore_metadata", ignore_metadata)
         if per_app_mode is not None:
@@ -732,6 +752,18 @@ class _As3State:
     @as3_json.setter
     def as3_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "as3_json", value)
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        """
+        return pulumi.get(self, "controls")
+
+    @controls.setter
+    def controls(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "controls", value)
 
     @property
     @pulumi.getter(name="ignoreMetadata")
@@ -991,6 +1023,7 @@ class As3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
+                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
@@ -1362,6 +1395,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -1930,6 +1964,7 @@ class As3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
+                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
@@ -1946,6 +1981,7 @@ class As3(pulumi.CustomResource):
 
             __props__.__dict__["application_list"] = application_list
             __props__.__dict__["as3_json"] = as3_json
+            __props__.__dict__["controls"] = controls
             __props__.__dict__["ignore_metadata"] = ignore_metadata
             __props__.__dict__["task_id"] = task_id
             __props__.__dict__["tenant_filter"] = tenant_filter
@@ -1964,6 +2000,7 @@ class As3(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_list: Optional[pulumi.Input[str]] = None,
             as3_json: Optional[pulumi.Input[str]] = None,
+            controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ignore_metadata: Optional[pulumi.Input[bool]] = None,
             per_app_mode: Optional[pulumi.Input[bool]] = None,
             task_id: Optional[pulumi.Input[str]] = None,
@@ -1979,6 +2016,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -2170,6 +2208,7 @@ class As3(pulumi.CustomResource):
 
         __props__.__dict__["application_list"] = application_list
         __props__.__dict__["as3_json"] = as3_json
+        __props__.__dict__["controls"] = controls
         __props__.__dict__["ignore_metadata"] = ignore_metadata
         __props__.__dict__["per_app_mode"] = per_app_mode
         __props__.__dict__["task_id"] = task_id
@@ -2193,6 +2232,14 @@ class As3(pulumi.CustomResource):
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
+
+    @property
+    @pulumi.getter
+    def controls(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
+        """
+        return pulumi.get(self, "controls")
 
     @property
     @pulumi.getter(name="ignoreMetadata")
