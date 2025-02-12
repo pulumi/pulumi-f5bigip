@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const DG-TC3 = f5bigip.ltm.getDataGroup({
+ * const DG_TC3 = f5bigip.ltm.getDataGroup({
  *     name: "test-dg",
  *     partition: "Common",
  * });
@@ -81,7 +81,7 @@ export interface GetDataGroupResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const DG-TC3 = f5bigip.ltm.getDataGroup({
+ * const DG_TC3 = f5bigip.ltm.getDataGroup({
  *     name: "test-dg",
  *     partition: "Common",
  * });
