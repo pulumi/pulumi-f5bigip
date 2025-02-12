@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const pool-Example = f5bigip.ltm.getPool({
+ * const pool_Example = f5bigip.ltm.getPool({
  *     name: "example-pool",
  *     partition: "Common",
  * });
@@ -65,7 +65,7 @@ export interface GetPoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const pool-Example = f5bigip.ltm.getPool({
+ * const pool_Example = f5bigip.ltm.getPool({
  *     name: "example-pool",
  *     partition: "Common",
  * });

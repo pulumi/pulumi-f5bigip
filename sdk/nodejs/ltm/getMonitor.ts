@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const monitor-TC1 = f5bigip.ltm.getMonitor({
+ * const monitor_TC1 = f5bigip.ltm.getMonitor({
  *     name: "test-monitor",
  *     partition: "Common",
  * });
@@ -106,7 +106,7 @@ export interface GetMonitorResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const monitor-TC1 = f5bigip.ltm.getMonitor({
+ * const monitor_TC1 = f5bigip.ltm.getMonitor({
  *     name: "test-monitor",
  *     partition: "Common",
  * });
