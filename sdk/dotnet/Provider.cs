@@ -131,7 +131,7 @@ namespace Pulumi.F5BigIP
         public Input<bool>? TeemDisable { get; set; }
 
         /// <summary>
-        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         /// </summary>
         [Input("tokenAuth", json: true)]
         public Input<bool>? TokenAuth { get; set; }

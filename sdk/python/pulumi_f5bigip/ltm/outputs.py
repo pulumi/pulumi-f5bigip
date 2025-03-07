@@ -2002,11 +2002,11 @@ class ProfileClientSslCertKeyChain(dict):
                  name: Optional[str] = None,
                  passphrase: Optional[str] = None):
         """
-        :param str cert: Specifies a cert name for use.
-        :param str chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-        :param str key: Contains a key name
-        :param str name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
-        :param str passphrase: Key passphrase
+        :param str cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        :param str chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
+        :param str key: Specifies the file name of the SSL key. The default is `default`
+        :param str name: Name of Cert-key-chain
+        :param str passphrase: Type the name of the pass phrase used to encrypt the key.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -2023,7 +2023,7 @@ class ProfileClientSslCertKeyChain(dict):
     @pulumi.getter
     def cert(self) -> Optional[str]:
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
@@ -2031,7 +2031,7 @@ class ProfileClientSslCertKeyChain(dict):
     @pulumi.getter
     def chain(self) -> Optional[str]:
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
@@ -2039,7 +2039,7 @@ class ProfileClientSslCertKeyChain(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 
@@ -2047,7 +2047,7 @@ class ProfileClientSslCertKeyChain(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        Name of Cert-key-chain
         """
         return pulumi.get(self, "name")
 
@@ -2055,7 +2055,7 @@ class ProfileClientSslCertKeyChain(dict):
     @pulumi.getter
     def passphrase(self) -> Optional[str]:
         """
-        Key passphrase
+        Type the name of the pass phrase used to encrypt the key.
         """
         return pulumi.get(self, "passphrase")
 

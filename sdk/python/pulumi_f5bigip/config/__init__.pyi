@@ -51,7 +51,7 @@ If this flag set to true,sending telemetry data to TEEM will be disabled
 
 tokenAuth: Optional[bool]
 """
-Enable to use an external authentication source (LDAP, TACACS, etc)
+Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
 """
 
 tokenTimeout: Optional[int]

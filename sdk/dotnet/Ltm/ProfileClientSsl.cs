@@ -114,7 +114,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> CacheTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a cert name for use.
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         /// </summary>
         [Output("cert")]
         public Output<string> Cert { get; private set; } = null!;
@@ -125,6 +125,12 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("certExtensionIncludes")]
         public Output<ImmutableArray<string>> CertExtensionIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// See Cert Key Chain below for more details.
+        /// 
+        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// </summary>
         [Output("certKeyChain")]
         public Output<Outputs.ProfileClientSslCertKeyChain?> CertKeyChain { get; private set; } = null!;
 
@@ -141,7 +147,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> CertLookupByIpaddrPort { get; private set; } = null!;
 
         /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        /// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         /// </summary>
         [Output("chain")]
         public Output<string> Chain { get; private set; } = null!;
@@ -153,7 +159,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> CipherGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        /// BigIP Cipher string.
         /// </summary>
         [Output("ciphers")]
         public Output<string> Ciphers { get; private set; } = null!;
@@ -213,7 +219,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> InheritCertKeychain { get; private set; } = null!;
 
         /// <summary>
-        /// Contains a key name
+        /// Specifies the file name of the SSL key. The default is `default`
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -515,7 +521,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheTimeout { get; set; }
 
         /// <summary>
-        /// Specifies a cert name for use.
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
@@ -532,6 +538,12 @@ namespace Pulumi.F5BigIP.Ltm
             set => _certExtensionIncludes = value;
         }
 
+        /// <summary>
+        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// See Cert Key Chain below for more details.
+        /// 
+        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// </summary>
         [Input("certKeyChain")]
         public Input<Inputs.ProfileClientSslCertKeyChainArgs>? CertKeyChain { get; set; }
 
@@ -548,7 +560,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CertLookupByIpaddrPort { get; set; }
 
         /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        /// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
@@ -560,7 +572,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CipherGroup { get; set; }
 
         /// <summary>
-        /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        /// BigIP Cipher string.
         /// </summary>
         [Input("ciphers")]
         public Input<string>? Ciphers { get; set; }
@@ -620,7 +632,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InheritCertKeychain { get; set; }
 
         /// <summary>
-        /// Contains a key name
+        /// Specifies the file name of the SSL key. The default is `default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -896,7 +908,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheTimeout { get; set; }
 
         /// <summary>
-        /// Specifies a cert name for use.
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
@@ -913,6 +925,12 @@ namespace Pulumi.F5BigIP.Ltm
             set => _certExtensionIncludes = value;
         }
 
+        /// <summary>
+        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// See Cert Key Chain below for more details.
+        /// 
+        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// </summary>
         [Input("certKeyChain")]
         public Input<Inputs.ProfileClientSslCertKeyChainGetArgs>? CertKeyChain { get; set; }
 
@@ -929,7 +947,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CertLookupByIpaddrPort { get; set; }
 
         /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        /// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
@@ -941,7 +959,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CipherGroup { get; set; }
 
         /// <summary>
-        /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        /// BigIP Cipher string.
         /// </summary>
         [Input("ciphers")]
         public Input<string>? Ciphers { get; set; }
@@ -1001,7 +1019,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InheritCertKeychain { get; set; }
 
         /// <summary>
-        /// Contains a key name
+        /// Specifies the file name of the SSL key. The default is `default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

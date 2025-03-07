@@ -2919,23 +2919,23 @@ if not MYPY:
     class ProfileClientSslCertKeyChainArgsDict(TypedDict):
         cert: NotRequired[pulumi.Input[str]]
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         chain: NotRequired[pulumi.Input[str]]
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         key: NotRequired[pulumi.Input[str]]
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         name: NotRequired[pulumi.Input[str]]
         """
-        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        Name of Cert-key-chain
         """
         passphrase: NotRequired[pulumi.Input[str]]
         """
-        Key passphrase
+        Type the name of the pass phrase used to encrypt the key.
         """
 elif False:
     ProfileClientSslCertKeyChainArgsDict: TypeAlias = Mapping[str, Any]
@@ -2949,11 +2949,11 @@ class ProfileClientSslCertKeyChainArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] cert: Specifies a cert name for use.
-        :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-        :param pulumi.Input[str] key: Contains a key name
-        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
-        :param pulumi.Input[str] passphrase: Key passphrase
+        :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        :param pulumi.Input[str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
+        :param pulumi.Input[str] key: Specifies the file name of the SSL key. The default is `default`
+        :param pulumi.Input[str] name: Name of Cert-key-chain
+        :param pulumi.Input[str] passphrase: Type the name of the pass phrase used to encrypt the key.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -2970,7 +2970,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def cert(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
@@ -2982,7 +2982,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def chain(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
@@ -2994,7 +2994,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 
@@ -3006,7 +3006,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        Name of Cert-key-chain
         """
         return pulumi.get(self, "name")
 
@@ -3018,7 +3018,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
         """
-        Key passphrase
+        Type the name of the pass phrase used to encrypt the key.
         """
         return pulumi.get(self, "passphrase")
 

@@ -72,7 +72,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def token_auth(self) -> Optional[bool]:
         """
-        Enable to use an external authentication source (LDAP, TACACS, etc)
+        Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         """
         return __config__.get_bool('tokenAuth')
 

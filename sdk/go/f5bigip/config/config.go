@@ -46,7 +46,7 @@ func GetTeemDisable(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:teemDisable")
 }
 
-// Enable to use an external authentication source (LDAP, TACACS, etc)
+// Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
 func GetTokenAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:tokenAuth")
 }

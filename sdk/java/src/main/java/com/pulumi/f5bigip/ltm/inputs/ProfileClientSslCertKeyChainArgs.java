@@ -16,14 +16,14 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
     public static final ProfileClientSslCertKeyChainArgs Empty = new ProfileClientSslCertKeyChainArgs();
 
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     @Import(name="cert")
     private @Nullable Output<String> cert;
 
     /**
-     * @return Specifies a cert name for use.
+     * @return Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     public Optional<Output<String>> cert() {
@@ -31,14 +31,14 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
     }
 
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     @Import(name="chain")
     private @Nullable Output<String> chain;
 
     /**
-     * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * @return Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     public Optional<Output<String>> chain() {
@@ -46,14 +46,14 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
     }
 
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Contains a key name
+     * @return Specifies the file name of the SSL key. The default is `default`
      * 
      */
     public Optional<Output<String>> key() {
@@ -61,14 +61,14 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
     }
 
     /**
-     * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+     * Name of Cert-key-chain
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+     * @return Name of Cert-key-chain
      * 
      */
     public Optional<Output<String>> name() {
@@ -76,14 +76,14 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
     }
 
     /**
-     * Key passphrase
+     * Type the name of the pass phrase used to encrypt the key.
      * 
      */
     @Import(name="passphrase")
     private @Nullable Output<String> passphrase;
 
     /**
-     * @return Key passphrase
+     * @return Type the name of the pass phrase used to encrypt the key.
      * 
      */
     public Optional<Output<String>> passphrase() {
@@ -119,7 +119,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cert Specifies a cert name for use.
+         * @param cert Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cert Specifies a cert name for use.
+         * @param cert Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param chain Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         * @param chain Specifies a certificate chain file that a server can use for authentication. The default is `None`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param chain Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         * @param chain Specifies a certificate chain file that a server can use for authentication. The default is `None`.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param key Contains a key name
+         * @param key Specifies the file name of the SSL key. The default is `default`
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param key Contains a key name
+         * @param key Specifies the file name of the SSL key. The default is `default`
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+         * @param name Name of Cert-key-chain
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+         * @param name Name of Cert-key-chain
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param passphrase Key passphrase
+         * @param passphrase Type the name of the pass phrase used to encrypt the key.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ProfileClientSslCertKeyChainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param passphrase Key passphrase
+         * @param passphrase Type the name of the pass phrase used to encrypt the key.
          * 
          * @return builder
          * 

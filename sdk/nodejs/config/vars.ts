@@ -85,7 +85,7 @@ Object.defineProperty(exports, "teemDisable", {
 });
 
 /**
- * Enable to use an external authentication source (LDAP, TACACS, etc)
+ * Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
  */
 export declare const tokenAuth: boolean | undefined;
 Object.defineProperty(exports, "tokenAuth", {

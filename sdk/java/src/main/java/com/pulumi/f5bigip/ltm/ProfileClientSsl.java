@@ -228,14 +228,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.cacheTimeout;
     }
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     @Export(name="cert", refs={String.class}, tree="[0]")
     private Output<String> cert;
 
     /**
-     * @return Specifies a cert name for use.
+     * @return Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     public Output<String> cert() {
@@ -256,14 +256,22 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.certExtensionIncludes;
     }
     /**
-     * @deprecated
-     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     * 
+     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
-    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     @Export(name="certKeyChain", refs={ProfileClientSslCertKeyChain.class}, tree="[0]")
     private Output</* @Nullable */ ProfileClientSslCertKeyChain> certKeyChain;
 
+    /**
+     * @return `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     * 
+     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+     * 
+     */
     public Output<Optional<ProfileClientSslCertKeyChain>> certKeyChain() {
         return Codegen.optional(this.certKeyChain);
     }
@@ -296,14 +304,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.certLookupByIpaddrPort;
     }
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     @Export(name="chain", refs={String.class}, tree="[0]")
     private Output<String> chain;
 
     /**
-     * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * @return Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     public Output<String> chain() {
@@ -324,14 +332,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.cipherGroup;
     }
     /**
-     * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * BigIP Cipher string.
      * 
      */
     @Export(name="ciphers", refs={String.class}, tree="[0]")
     private Output<String> ciphers;
 
     /**
-     * @return Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * @return BigIP Cipher string.
      * 
      */
     public Output<String> ciphers() {
@@ -464,14 +472,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.inheritCertKeychain;
     }
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Contains a key name
+     * @return Specifies the file name of the SSL key. The default is `default`
      * 
      */
     public Output<String> key() {

@@ -41,7 +41,7 @@ class ProviderArgs:
         :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
-        :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[bool] token_auth: Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         :param pulumi.Input[int] token_timeout: A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path
@@ -163,7 +163,7 @@ class ProviderArgs:
     @pulumi.getter(name="tokenAuth")
     def token_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable to use an external authentication source (LDAP, TACACS, etc)
+        Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         """
         return pulumi.get(self, "token_auth")
 
@@ -266,7 +266,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
-        :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[bool] token_auth: Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         :param pulumi.Input[int] token_timeout: A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path

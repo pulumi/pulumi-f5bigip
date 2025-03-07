@@ -104,7 +104,7 @@ namespace Pulumi.F5BigIP
 
         private static readonly __Value<bool?> _tokenAuth = new __Value<bool?>(() => __config.GetBoolean("tokenAuth"));
         /// <summary>
-        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         /// </summary>
         public static bool? TokenAuth
         {

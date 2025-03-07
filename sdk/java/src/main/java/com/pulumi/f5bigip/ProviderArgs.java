@@ -123,14 +123,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     * Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
      * 
      */
     @Import(name="tokenAuth", json=true)
     private @Nullable Output<Boolean> tokenAuth;
 
     /**
-     * @return Enable to use an external authentication source (LDAP, TACACS, etc)
+     * @return Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
      * 
      */
     public Optional<Output<Boolean>> tokenAuth() {
@@ -396,7 +396,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenAuth Enable to use an external authentication source (LDAP, TACACS, etc)
+         * @param tokenAuth Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenAuth Enable to use an external authentication source (LDAP, TACACS, etc)
+         * @param tokenAuth Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
          * 
          * @return builder
          * 
