@@ -1373,8 +1373,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/F5Networks/terraform-provider-bigip v1.22.7 h1:oDiKdf4J45d6ByeRjTlBPkXUHcrkhPSeq1SqI3m6++Q=
-github.com/F5Networks/terraform-provider-bigip v1.22.7/go.mod h1:V8x6hjXyp0LccbYRTgCcimHx6OwmCCjQlV9V5Yn/xCY=
+github.com/F5Networks/terraform-provider-bigip v1.22.8 h1:s6Pq5cjuDtBC7xxi5U8oLaFS77348kd6JQVmFMTQjrQ=
+github.com/F5Networks/terraform-provider-bigip v1.22.8/go.mod h1:V8x6hjXyp0LccbYRTgCcimHx6OwmCCjQlV9V5Yn/xCY=
 github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.24.2/go.mod h1:itPGVDKf9cC/ov4MdvJ2QZ0khw4bfoo9jzwTJlaxy2k=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2 h1:5IcZpTvzydCQeHzK4Ef/D5rrSqwxob0t8PQPMybUNFM=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2/go.mod h1:yDgFjdqOqDEKOvasDdhWNXYg9BVp4O+o5f6V/ehm6Oo=

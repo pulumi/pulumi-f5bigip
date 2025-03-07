@@ -88,7 +88,7 @@
             },
             "tokenAuth": {
                 "type": "boolean",
-                "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                "description": "Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable\n"
             },
             "tokenTimeout": {
                 "type": "integer",
@@ -1579,23 +1579,23 @@
             "properties": {
                 "cert": {
                     "type": "string",
-                    "description": "Specifies a cert name for use.\n"
+                    "description": "Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`\n"
                 },
                 "chain": {
                     "type": "string",
-                    "description": "Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional\n"
+                    "description": "Specifies a certificate chain file that a server can use for authentication. The default is `None`.\n"
                 },
                 "key": {
                     "type": "string",
-                    "description": "Contains a key name\n"
+                    "description": "Specifies the file name of the SSL key. The default is `default`\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n"
+                    "description": "Name of Cert-key-chain\n"
                 },
                 "passphrase": {
                     "type": "string",
-                    "description": "Key passphrase\n",
+                    "description": "Type the name of the pass phrase used to encrypt the key.\n",
                     "secret": true
                 }
             },
@@ -2869,7 +2869,7 @@
             },
             "tokenAuth": {
                 "type": "boolean",
-                "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                "description": "Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable\n"
             },
             "tokenTimeout": {
                 "type": "integer",
@@ -2923,7 +2923,7 @@
             },
             "tokenAuth": {
                 "type": "boolean",
-                "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                "description": "Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable\n"
             },
             "tokenTimeout": {
                 "type": "integer",
@@ -9385,7 +9385,7 @@
                 },
                 "cert": {
                     "type": "string",
-                    "description": "Specifies a cert name for use.\n"
+                    "description": "Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`\n"
                 },
                 "certExtensionIncludes": {
                     "type": "array",
@@ -9396,7 +9396,7 @@
                 },
                 "certKeyChain": {
                     "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                    "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                    "description": "`cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.\nSee Cert Key Chain below for more details.\n\n\u003e **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.\n"
                 },
                 "certLifeSpan": {
                     "type": "integer",
@@ -9408,7 +9408,7 @@
                 },
                 "chain": {
                     "type": "string",
-                    "description": "Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional\n"
+                    "description": "Specifies a certificate chain file that a server can use for authentication. The default is `None`.\n"
                 },
                 "cipherGroup": {
                     "type": "string",
@@ -9416,7 +9416,7 @@
                 },
                 "ciphers": {
                     "type": "string",
-                    "description": "Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.\n"
+                    "description": "BigIP Cipher string.\n"
                 },
                 "clientCertCa": {
                     "type": "string",
@@ -9456,7 +9456,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "Contains a key name\n"
+                    "description": "Specifies the file name of the SSL key. The default is `default`\n"
                 },
                 "modSslMethods": {
                     "type": "string",
@@ -9683,7 +9683,7 @@
                 },
                 "cert": {
                     "type": "string",
-                    "description": "Specifies a cert name for use.\n"
+                    "description": "Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`\n"
                 },
                 "certExtensionIncludes": {
                     "type": "array",
@@ -9694,7 +9694,7 @@
                 },
                 "certKeyChain": {
                     "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                    "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                    "description": "`cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.\nSee Cert Key Chain below for more details.\n\n\u003e **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.\n"
                 },
                 "certLifeSpan": {
                     "type": "integer",
@@ -9706,7 +9706,7 @@
                 },
                 "chain": {
                     "type": "string",
-                    "description": "Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional\n"
+                    "description": "Specifies a certificate chain file that a server can use for authentication. The default is `None`.\n"
                 },
                 "cipherGroup": {
                     "type": "string",
@@ -9714,7 +9714,7 @@
                 },
                 "ciphers": {
                     "type": "string",
-                    "description": "Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.\n"
+                    "description": "BigIP Cipher string.\n"
                 },
                 "clientCertCa": {
                     "type": "string",
@@ -9754,7 +9754,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "Contains a key name\n"
+                    "description": "Specifies the file name of the SSL key. The default is `default`\n"
                 },
                 "modSslMethods": {
                     "type": "string",
@@ -9930,7 +9930,7 @@
                     },
                     "cert": {
                         "type": "string",
-                        "description": "Specifies a cert name for use.\n"
+                        "description": "Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`\n"
                     },
                     "certExtensionIncludes": {
                         "type": "array",
@@ -9941,7 +9941,7 @@
                     },
                     "certKeyChain": {
                         "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                        "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                        "description": "`cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.\nSee Cert Key Chain below for more details.\n\n\u003e **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.\n"
                     },
                     "certLifeSpan": {
                         "type": "integer",
@@ -9953,7 +9953,7 @@
                     },
                     "chain": {
                         "type": "string",
-                        "description": "Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional\n"
+                        "description": "Specifies a certificate chain file that a server can use for authentication. The default is `None`.\n"
                     },
                     "cipherGroup": {
                         "type": "string",
@@ -9961,7 +9961,7 @@
                     },
                     "ciphers": {
                         "type": "string",
-                        "description": "Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.\n"
+                        "description": "BigIP Cipher string.\n"
                     },
                     "clientCertCa": {
                         "type": "string",
@@ -10001,7 +10001,7 @@
                     },
                     "key": {
                         "type": "string",
-                        "description": "Contains a key name\n"
+                        "description": "Specifies the file name of the SSL key. The default is `default`\n"
                     },
                     "modSslMethods": {
                         "type": "string",
