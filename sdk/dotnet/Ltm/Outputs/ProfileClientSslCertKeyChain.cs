@@ -14,23 +14,23 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     public sealed class ProfileClientSslCertKeyChain
     {
         /// <summary>
-        /// Specifies a cert name for use.
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         /// </summary>
         public readonly string? Cert;
         /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        /// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         /// </summary>
         public readonly string? Chain;
         /// <summary>
-        /// Contains a key name
+        /// Specifies the file name of the SSL key. The default is `default`
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        /// Name of Cert-key-chain
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Key passphrase
+        /// Type the name of the pass phrase used to encrypt the key.
         /// </summary>
         public readonly string? Passphrase;
 

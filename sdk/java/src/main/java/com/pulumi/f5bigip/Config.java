@@ -62,7 +62,7 @@ public final class Config {
         return Codegen.booleanProp("teemDisable").config(config).get();
     }
 /**
- * Enable to use an external authentication source (LDAP, TACACS, etc)
+ * Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
  * 
  */
     public Optional<Boolean> tokenAuth() {

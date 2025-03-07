@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProfileClientSslCertKeyChain {
     /**
-     * @return Specifies a cert name for use.
+     * @return Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     private @Nullable String cert;
     /**
-     * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * @return Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     private @Nullable String chain;
     /**
-     * @return Contains a key name
+     * @return Specifies the file name of the SSL key. The default is `default`
      * 
      */
     private @Nullable String key;
     /**
-     * @return Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+     * @return Name of Cert-key-chain
      * 
      */
     private @Nullable String name;
     /**
-     * @return Key passphrase
+     * @return Type the name of the pass phrase used to encrypt the key.
      * 
      */
     private @Nullable String passphrase;
 
     private ProfileClientSslCertKeyChain() {}
     /**
-     * @return Specifies a cert name for use.
+     * @return Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     public Optional<String> cert() {
         return Optional.ofNullable(this.cert);
     }
     /**
-     * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * @return Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     public Optional<String> chain() {
         return Optional.ofNullable(this.chain);
     }
     /**
-     * @return Contains a key name
+     * @return Specifies the file name of the SSL key. The default is `default`
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+     * @return Name of Cert-key-chain
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Key passphrase
+     * @return Type the name of the pass phrase used to encrypt the key.
      * 
      */
     public Optional<String> passphrase() {

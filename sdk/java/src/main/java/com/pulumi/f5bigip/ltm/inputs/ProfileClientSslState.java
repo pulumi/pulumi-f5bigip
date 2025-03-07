@@ -186,14 +186,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     @Import(name="cert")
     private @Nullable Output<String> cert;
 
     /**
-     * @return Specifies a cert name for use.
+     * @return Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      * 
      */
     public Optional<Output<String>> cert() {
@@ -216,20 +216,22 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * @deprecated
-     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     * 
+     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
-    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     @Import(name="certKeyChain")
     private @Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain;
 
     /**
-     * @deprecated
-     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * @return `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     * 
+     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
-    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     public Optional<Output<ProfileClientSslCertKeyChainArgs>> certKeyChain() {
         return Optional.ofNullable(this.certKeyChain);
     }
@@ -265,14 +267,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     @Import(name="chain")
     private @Nullable Output<String> chain;
 
     /**
-     * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * @return Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      * 
      */
     public Optional<Output<String>> chain() {
@@ -295,14 +297,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * BigIP Cipher string.
      * 
      */
     @Import(name="ciphers")
     private @Nullable Output<String> ciphers;
 
     /**
-     * @return Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * @return BigIP Cipher string.
      * 
      */
     public Optional<Output<String>> ciphers() {
@@ -445,14 +447,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Contains a key name
+     * @return Specifies the file name of the SSL key. The default is `default`
      * 
      */
     public Optional<Output<String>> key() {
@@ -1219,7 +1221,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cert Specifies a cert name for use.
+         * @param cert Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
          * 
          * @return builder
          * 
@@ -1230,7 +1232,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cert Specifies a cert name for use.
+         * @param cert Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
          * 
          * @return builder
          * 
@@ -1271,26 +1273,28 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param certKeyChain `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+         * See Cert Key Chain below for more details.
+         * 
+         * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
-         * 
          */
-        @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
         public Builder certKeyChain(@Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain) {
             $.certKeyChain = certKeyChain;
             return this;
         }
 
         /**
+         * @param certKeyChain `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+         * See Cert Key Chain below for more details.
+         * 
+         * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
-         * 
          */
-        @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
         public Builder certKeyChain(ProfileClientSslCertKeyChainArgs certKeyChain) {
             return certKeyChain(Output.of(certKeyChain));
         }
@@ -1338,7 +1342,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param chain Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         * @param chain Specifies a certificate chain file that a server can use for authentication. The default is `None`.
          * 
          * @return builder
          * 
@@ -1349,7 +1353,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param chain Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         * @param chain Specifies a certificate chain file that a server can use for authentication. The default is `None`.
          * 
          * @return builder
          * 
@@ -1380,7 +1384,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ciphers Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+         * @param ciphers BigIP Cipher string.
          * 
          * @return builder
          * 
@@ -1391,7 +1395,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ciphers Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+         * @param ciphers BigIP Cipher string.
          * 
          * @return builder
          * 
@@ -1590,7 +1594,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key Contains a key name
+         * @param key Specifies the file name of the SSL key. The default is `default`
          * 
          * @return builder
          * 
@@ -1601,7 +1605,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key Contains a key name
+         * @param key Specifies the file name of the SSL key. The default is `default`
          * 
          * @return builder
          * 

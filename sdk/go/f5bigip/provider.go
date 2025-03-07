@@ -65,7 +65,7 @@ type providerArgs struct {
 	Port *string `pulumi:"port"`
 	// If this flag set to true,sending telemetry data to TEEM will be disabled
 	TeemDisable *bool `pulumi:"teemDisable"`
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
 	TokenAuth *bool `pulumi:"tokenAuth"`
 	// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
 	TokenTimeout *int `pulumi:"tokenTimeout"`
@@ -95,7 +95,7 @@ type ProviderArgs struct {
 	Port pulumi.StringPtrInput
 	// If this flag set to true,sending telemetry data to TEEM will be disabled
 	TeemDisable pulumi.BoolPtrInput
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
 	TokenAuth pulumi.BoolPtrInput
 	// A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
 	TokenTimeout pulumi.IntPtrInput

@@ -94,13 +94,17 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
-        :param pulumi.Input[str] cert: Specifies a cert name for use.
+        :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input['ProfileClientSslCertKeyChainArgs'] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+               See Cert Key Chain below for more details.
+               
+               > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
-        :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-        :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        :param pulumi.Input[str] ciphers: BigIP Cipher string.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
@@ -110,7 +114,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
-        :param pulumi.Input[str] key: Contains a key name
+        :param pulumi.Input[str] key: Specifies the file name of the SSL key. The default is `default`
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
@@ -172,9 +176,6 @@ class ProfileClientSslArgs:
             pulumi.set(__self__, "cert", cert)
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
-        if cert_key_chain is not None:
-            warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-            pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
             pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
@@ -413,7 +414,7 @@ class ProfileClientSslArgs:
     @pulumi.getter
     def cert(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
@@ -435,8 +436,13 @@ class ProfileClientSslArgs:
 
     @property
     @pulumi.getter(name="certKeyChain")
-    @_utilities.deprecated("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
     def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        """
+        `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        See Cert Key Chain below for more details.
+
+        > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        """
         return pulumi.get(self, "cert_key_chain")
 
     @cert_key_chain.setter
@@ -471,7 +477,7 @@ class ProfileClientSslArgs:
     @pulumi.getter
     def chain(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
@@ -495,7 +501,7 @@ class ProfileClientSslArgs:
     @pulumi.getter
     def ciphers(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        BigIP Cipher string.
         """
         return pulumi.get(self, "ciphers")
 
@@ -615,7 +621,7 @@ class ProfileClientSslArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 
@@ -1040,13 +1046,17 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
-        :param pulumi.Input[str] cert: Specifies a cert name for use.
+        :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input['ProfileClientSslCertKeyChainArgs'] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+               See Cert Key Chain below for more details.
+               
+               > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
-        :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-        :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        :param pulumi.Input[str] ciphers: BigIP Cipher string.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
@@ -1056,7 +1066,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
-        :param pulumi.Input[str] key: Contains a key name
+        :param pulumi.Input[str] key: Specifies the file name of the SSL key. The default is `default`
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
@@ -1118,9 +1128,6 @@ class _ProfileClientSslState:
             pulumi.set(__self__, "cert", cert)
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
-        if cert_key_chain is not None:
-            warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-            pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
             pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
@@ -1349,7 +1356,7 @@ class _ProfileClientSslState:
     @pulumi.getter
     def cert(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
@@ -1371,8 +1378,13 @@ class _ProfileClientSslState:
 
     @property
     @pulumi.getter(name="certKeyChain")
-    @_utilities.deprecated("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
     def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        """
+        `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        See Cert Key Chain below for more details.
+
+        > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        """
         return pulumi.get(self, "cert_key_chain")
 
     @cert_key_chain.setter
@@ -1407,7 +1419,7 @@ class _ProfileClientSslState:
     @pulumi.getter
     def chain(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
@@ -1431,7 +1443,7 @@ class _ProfileClientSslState:
     @pulumi.getter
     def ciphers(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        BigIP Cipher string.
         """
         return pulumi.get(self, "ciphers")
 
@@ -1551,7 +1563,7 @@ class _ProfileClientSslState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 
@@ -2017,13 +2029,17 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
-        :param pulumi.Input[str] cert: Specifies a cert name for use.
+        :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+               See Cert Key Chain below for more details.
+               
+               > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
-        :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-        :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        :param pulumi.Input[str] ciphers: BigIP Cipher string.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
@@ -2033,7 +2049,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
-        :param pulumi.Input[str] key: Contains a key name
+        :param pulumi.Input[str] key: Specifies the file name of the SSL key. The default is `default`
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
@@ -2332,13 +2348,17 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] ca_file: (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
-        :param pulumi.Input[str] cert: Specifies a cert name for use.
+        :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+               See Cert Key Chain below for more details.
+               
+               > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
-        :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
-        :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        :param pulumi.Input[str] ciphers: BigIP Cipher string.
         :param pulumi.Input[str] client_cert_ca: (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
         :param pulumi.Input[str] crl_file: Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
         :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
@@ -2348,7 +2368,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
-        :param pulumi.Input[str] key: Contains a key name
+        :param pulumi.Input[str] key: Specifies the file name of the SSL key. The default is `default`
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
@@ -2541,7 +2561,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def cert(self) -> pulumi.Output[str]:
         """
-        Specifies a cert name for use.
+        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
@@ -2555,8 +2575,13 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certKeyChain")
-    @_utilities.deprecated("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
     def cert_key_chain(self) -> pulumi.Output[Optional['outputs.ProfileClientSslCertKeyChain']]:
+        """
+        `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        See Cert Key Chain below for more details.
+
+        > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        """
         return pulumi.get(self, "cert_key_chain")
 
     @property
@@ -2579,7 +2604,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def chain(self) -> pulumi.Output[str]:
         """
-        Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
@@ -2595,7 +2620,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def ciphers(self) -> pulumi.Output[str]:
         """
-        Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+        BigIP Cipher string.
         """
         return pulumi.get(self, "ciphers")
 
@@ -2675,7 +2700,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        Contains a key name
+        Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 

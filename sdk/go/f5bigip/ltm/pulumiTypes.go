@@ -1824,15 +1824,15 @@ func (o PolicyRuleConditionArrayOutput) Index(i pulumi.IntInput) PolicyRuleCondi
 }
 
 type ProfileClientSslCertKeyChain struct {
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert *string `pulumi:"cert"`
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain *string `pulumi:"chain"`
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key *string `pulumi:"key"`
-	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+	// Name of Cert-key-chain
 	Name *string `pulumi:"name"`
-	// Key passphrase
+	// Type the name of the pass phrase used to encrypt the key.
 	Passphrase *string `pulumi:"passphrase"`
 }
 
@@ -1848,15 +1848,15 @@ type ProfileClientSslCertKeyChainInput interface {
 }
 
 type ProfileClientSslCertKeyChainArgs struct {
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain pulumi.StringPtrInput `pulumi:"chain"`
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+	// Name of Cert-key-chain
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Key passphrase
+	// Type the name of the pass phrase used to encrypt the key.
 	Passphrase pulumi.StringPtrInput `pulumi:"passphrase"`
 }
 
@@ -1937,27 +1937,27 @@ func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainPtrOut
 	}).(ProfileClientSslCertKeyChainPtrOutput)
 }
 
-// Specifies a cert name for use.
+// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 func (o ProfileClientSslCertKeyChainOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 func (o ProfileClientSslCertKeyChainOutput) Chain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Chain }).(pulumi.StringPtrOutput)
 }
 
-// Contains a key name
+// Specifies the file name of the SSL key. The default is `default`
 func (o ProfileClientSslCertKeyChainOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+// Name of Cert-key-chain
 func (o ProfileClientSslCertKeyChainOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Key passphrase
+// Type the name of the pass phrase used to encrypt the key.
 func (o ProfileClientSslCertKeyChainOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
@@ -1986,7 +1986,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Elem() ProfileClientSslCertKeyCha
 	}).(ProfileClientSslCertKeyChainOutput)
 }
 
-// Specifies a cert name for use.
+// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 func (o ProfileClientSslCertKeyChainPtrOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {
@@ -1996,7 +1996,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Cert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 func (o ProfileClientSslCertKeyChainPtrOutput) Chain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {
@@ -2006,7 +2006,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Chain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains a key name
+// Specifies the file name of the SSL key. The default is `default`
 func (o ProfileClientSslCertKeyChainPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {
@@ -2016,7 +2016,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+// Name of Cert-key-chain
 func (o ProfileClientSslCertKeyChainPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {
@@ -2026,7 +2026,7 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key passphrase
+// Type the name of the pass phrase used to encrypt the key.
 func (o ProfileClientSslCertKeyChainPtrOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
 		if v == nil {

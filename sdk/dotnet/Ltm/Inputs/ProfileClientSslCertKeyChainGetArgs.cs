@@ -13,25 +13,25 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
     public sealed class ProfileClientSslCertKeyChainGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a cert name for use.
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
 
         /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        /// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         /// </summary>
         [Input("chain")]
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Contains a key name
+        /// Specifies the file name of the SSL key. The default is `default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        /// Name of Cert-key-chain
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         private Input<string>? _passphrase;
 
         /// <summary>
-        /// Key passphrase
+        /// Type the name of the pass phrase used to encrypt the key.
         /// </summary>
         public Input<string>? Passphrase
         {

@@ -107,7 +107,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly cacheTimeout!: pulumi.Output<number>;
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      */
     public readonly cert!: pulumi.Output<string>;
     /**
@@ -115,7 +115,10 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly certExtensionIncludes!: pulumi.Output<string[]>;
     /**
-     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     *
+     * > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      */
     public readonly certKeyChain!: pulumi.Output<outputs.ltm.ProfileClientSslCertKeyChain | undefined>;
     /**
@@ -127,7 +130,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly certLookupByIpaddrPort!: pulumi.Output<string>;
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      */
     public readonly chain!: pulumi.Output<string>;
     /**
@@ -135,7 +138,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly cipherGroup!: pulumi.Output<string>;
     /**
-     * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * BigIP Cipher string.
      */
     public readonly ciphers!: pulumi.Output<string>;
     /**
@@ -175,7 +178,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly inheritCertKeychain!: pulumi.Output<string>;
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -492,7 +495,7 @@ export interface ProfileClientSslState {
      */
     cacheTimeout?: pulumi.Input<number>;
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      */
     cert?: pulumi.Input<string>;
     /**
@@ -500,7 +503,10 @@ export interface ProfileClientSslState {
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     *
+     * > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      */
     certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**
@@ -512,7 +518,7 @@ export interface ProfileClientSslState {
      */
     certLookupByIpaddrPort?: pulumi.Input<string>;
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      */
     chain?: pulumi.Input<string>;
     /**
@@ -520,7 +526,7 @@ export interface ProfileClientSslState {
      */
     cipherGroup?: pulumi.Input<string>;
     /**
-     * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * BigIP Cipher string.
      */
     ciphers?: pulumi.Input<string>;
     /**
@@ -560,7 +566,7 @@ export interface ProfileClientSslState {
      */
     inheritCertKeychain?: pulumi.Input<string>;
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      */
     key?: pulumi.Input<string>;
     /**
@@ -736,7 +742,7 @@ export interface ProfileClientSslArgs {
      */
     cacheTimeout?: pulumi.Input<number>;
     /**
-     * Specifies a cert name for use.
+     * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      */
     cert?: pulumi.Input<string>;
     /**
@@ -744,7 +750,10 @@ export interface ProfileClientSslArgs {
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * See Cert Key Chain below for more details.
+     *
+     * > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      */
     certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**
@@ -756,7 +765,7 @@ export interface ProfileClientSslArgs {
      */
     certLookupByIpaddrPort?: pulumi.Input<string>;
     /**
-     * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+     * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      */
     chain?: pulumi.Input<string>;
     /**
@@ -764,7 +773,7 @@ export interface ProfileClientSslArgs {
      */
     cipherGroup?: pulumi.Input<string>;
     /**
-     * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+     * BigIP Cipher string.
      */
     ciphers?: pulumi.Input<string>;
     /**
@@ -804,7 +813,7 @@ export interface ProfileClientSslArgs {
      */
     inheritCertKeychain?: pulumi.Input<string>;
     /**
-     * Contains a key name
+     * Specifies the file name of the SSL key. The default is `default`
      */
     key?: pulumi.Input<string>;
     /**

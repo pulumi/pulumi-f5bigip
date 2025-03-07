@@ -1174,23 +1174,23 @@ export namespace ltm {
 
     export interface ProfileClientSslCertKeyChain {
         /**
-         * Specifies a cert name for use.
+         * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
          */
         cert?: pulumi.Input<string>;
         /**
-         * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
          */
         chain?: pulumi.Input<string>;
         /**
-         * Contains a key name
+         * Specifies the file name of the SSL key. The default is `default`
          */
         key?: pulumi.Input<string>;
         /**
-         * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+         * Name of Cert-key-chain
          */
         name?: pulumi.Input<string>;
         /**
-         * Key passphrase
+         * Type the name of the pass phrase used to encrypt the key.
          */
         passphrase?: pulumi.Input<string>;
     }

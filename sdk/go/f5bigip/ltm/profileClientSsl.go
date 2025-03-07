@@ -78,21 +78,24 @@ type ProfileClientSsl struct {
 	CacheSize pulumi.IntOutput `pulumi:"cacheSize"`
 	// Cache time out
 	CacheTimeout pulumi.IntOutput `pulumi:"cacheTimeout"`
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert pulumi.StringOutput `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayOutput `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+	// See Cert Key Chain below for more details.
+	//
+	// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 	CertKeyChain ProfileClientSslCertKeyChainPtrOutput `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntOutput `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort pulumi.StringOutput `pulumi:"certLookupByIpaddrPort"`
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain pulumi.StringOutput `pulumi:"chain"`
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup pulumi.StringOutput `pulumi:"cipherGroup"`
-	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+	// BigIP Cipher string.
 	Ciphers pulumi.StringOutput `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringOutput `pulumi:"clientCertCa"`
@@ -112,7 +115,7 @@ type ProfileClientSsl struct {
 	HandshakeTimeout pulumi.StringOutput `pulumi:"handshakeTimeout"`
 	// Inherit cert key chain
 	InheritCertKeychain pulumi.StringOutput `pulumi:"inheritCertKeychain"`
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringOutput `pulumi:"key"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
@@ -242,21 +245,24 @@ type profileClientSslState struct {
 	CacheSize *int `pulumi:"cacheSize"`
 	// Cache time out
 	CacheTimeout *int `pulumi:"cacheTimeout"`
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+	// See Cert Key Chain below for more details.
+	//
+	// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 	CertKeyChain *ProfileClientSslCertKeyChain `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort *string `pulumi:"certLookupByIpaddrPort"`
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain *string `pulumi:"chain"`
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup *string `pulumi:"cipherGroup"`
-	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+	// BigIP Cipher string.
 	Ciphers *string `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
@@ -276,7 +282,7 @@ type profileClientSslState struct {
 	HandshakeTimeout *string `pulumi:"handshakeTimeout"`
 	// Inherit cert key chain
 	InheritCertKeychain *string `pulumi:"inheritCertKeychain"`
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key *string `pulumi:"key"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
@@ -367,21 +373,24 @@ type ProfileClientSslState struct {
 	CacheSize pulumi.IntPtrInput
 	// Cache time out
 	CacheTimeout pulumi.IntPtrInput
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+	// See Cert Key Chain below for more details.
+	//
+	// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 	CertKeyChain ProfileClientSslCertKeyChainPtrInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort pulumi.StringPtrInput
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain pulumi.StringPtrInput
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup pulumi.StringPtrInput
-	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+	// BigIP Cipher string.
 	Ciphers pulumi.StringPtrInput
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
@@ -401,7 +410,7 @@ type ProfileClientSslState struct {
 	HandshakeTimeout pulumi.StringPtrInput
 	// Inherit cert key chain
 	InheritCertKeychain pulumi.StringPtrInput
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
@@ -496,21 +505,24 @@ type profileClientSslArgs struct {
 	CacheSize *int `pulumi:"cacheSize"`
 	// Cache time out
 	CacheTimeout *int `pulumi:"cacheTimeout"`
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+	// See Cert Key Chain below for more details.
+	//
+	// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 	CertKeyChain *ProfileClientSslCertKeyChain `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort *string `pulumi:"certLookupByIpaddrPort"`
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain *string `pulumi:"chain"`
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup *string `pulumi:"cipherGroup"`
-	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+	// BigIP Cipher string.
 	Ciphers *string `pulumi:"ciphers"`
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa *string `pulumi:"clientCertCa"`
@@ -530,7 +542,7 @@ type profileClientSslArgs struct {
 	HandshakeTimeout *string `pulumi:"handshakeTimeout"`
 	// Inherit cert key chain
 	InheritCertKeychain *string `pulumi:"inheritCertKeychain"`
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key *string `pulumi:"key"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
@@ -622,21 +634,24 @@ type ProfileClientSslArgs struct {
 	CacheSize pulumi.IntPtrInput
 	// Cache time out
 	CacheTimeout pulumi.IntPtrInput
-	// Specifies a cert name for use.
+	// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+	// See Cert Key Chain below for more details.
+	//
+	// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 	CertKeyChain ProfileClientSslCertKeyChainPtrInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort pulumi.StringPtrInput
-	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 	Chain pulumi.StringPtrInput
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup pulumi.StringPtrInput
-	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+	// BigIP Cipher string.
 	Ciphers pulumi.StringPtrInput
 	// (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
 	ClientCertCa pulumi.StringPtrInput
@@ -656,7 +671,7 @@ type ProfileClientSslArgs struct {
 	HandshakeTimeout pulumi.StringPtrInput
 	// Inherit cert key chain
 	InheritCertKeychain pulumi.StringPtrInput
-	// Contains a key name
+	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
@@ -866,7 +881,7 @@ func (o ProfileClientSslOutput) CacheTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.CacheTimeout }).(pulumi.IntOutput)
 }
 
-// Specifies a cert name for use.
+// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
 func (o ProfileClientSslOutput) Cert() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Cert }).(pulumi.StringOutput)
 }
@@ -876,7 +891,10 @@ func (o ProfileClientSslOutput) CertExtensionIncludes() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringArrayOutput { return v.CertExtensionIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+// `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
+// See Cert Key Chain below for more details.
+//
+// > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
 func (o ProfileClientSslOutput) CertKeyChain() ProfileClientSslCertKeyChainPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) ProfileClientSslCertKeyChainPtrOutput { return v.CertKeyChain }).(ProfileClientSslCertKeyChainPtrOutput)
 }
@@ -891,7 +909,7 @@ func (o ProfileClientSslOutput) CertLookupByIpaddrPort() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CertLookupByIpaddrPort }).(pulumi.StringOutput)
 }
 
-// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+// Specifies a certificate chain file that a server can use for authentication. The default is `None`.
 func (o ProfileClientSslOutput) Chain() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
 }
@@ -901,7 +919,7 @@ func (o ProfileClientSslOutput) CipherGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CipherGroup }).(pulumi.StringOutput)
 }
 
-// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+// BigIP Cipher string.
 func (o ProfileClientSslOutput) Ciphers() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Ciphers }).(pulumi.StringOutput)
 }
@@ -951,7 +969,7 @@ func (o ProfileClientSslOutput) InheritCertKeychain() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.InheritCertKeychain }).(pulumi.StringOutput)
 }
 
-// Contains a key name
+// Specifies the file name of the SSL key. The default is `default`
 func (o ProfileClientSslOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

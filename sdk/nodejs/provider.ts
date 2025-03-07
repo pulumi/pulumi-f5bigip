@@ -117,7 +117,7 @@ export interface ProviderArgs {
      */
     teemDisable?: pulumi.Input<boolean>;
     /**
-     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     * Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
      */
     tokenAuth?: pulumi.Input<boolean>;
     /**
