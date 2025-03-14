@@ -6,8 +6,8 @@ toolchain go1.22.7
 
 require (
 	github.com/F5Networks/terraform-provider-bigip v1.22.8
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.104.0
-	github.com/pulumi/pulumi/sdk/v3 v3.153.1
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.104.1-0.20250313230758-27d43d67cd0c
+	github.com/pulumi/pulumi/sdk/v3 v3.156.0
 )
 
 // Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
@@ -147,7 +147,7 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.19.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.12.0 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.153.1 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.156.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
