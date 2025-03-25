@@ -10,11 +10,11 @@ import * as utilities from "./utilities";
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
  *
  * ```sh
- * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01
+ * $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01
  * ```
  *
  * ```sh
- * $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01
+ * $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01,Sample_non_http_01
  * ```
  *
  * #### Import examples ( single and multiple partitions )
