@@ -23,13 +23,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
- * It outputs an up-to-date WAF Policy in a JSON format
- * 
- * * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
- * 
- * &gt; **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
