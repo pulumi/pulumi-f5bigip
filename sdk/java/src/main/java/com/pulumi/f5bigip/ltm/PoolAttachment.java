@@ -65,8 +65,8 @@ import javax.annotation.Nullable;
  *             .send("""
  * GET /some/path
  *             """)
- *             .timeout("999")
- *             .interval("998")
+ *             .timeout(999)
+ *             .interval(998)
  *             .build());
  * 
  *         var pool = new Pool("pool", PoolArgs.builder()
@@ -132,8 +132,8 @@ import javax.annotation.Nullable;
  *             .send("""
  * GET /some/path
  *             """)
- *             .timeout("999")
- *             .interval("998")
+ *             .timeout(999)
+ *             .interval(998)
  *             .build());
  * 
  *         var pool = new Pool("pool", PoolArgs.builder()
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var attachNode = new PoolAttachment("attachNode", PoolAttachmentArgs.builder()
  *             .pool(pool.name())
- *             .node(node.name().applyValue(name -> String.format("%s:80", name)))
+ *             .node(node.name().applyValue(_name -> String.format("%s:80", _name)))
  *             .build());
  * 
  *     }
