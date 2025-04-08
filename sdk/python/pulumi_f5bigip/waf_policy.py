@@ -937,13 +937,6 @@ class WafPolicy(pulumi.CustomResource):
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        `WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
-        It outputs an up-to-date WAF Policy in a JSON format
-
-        * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
-
-        > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
-
         ## Example Usage
 
         ```python
@@ -1034,13 +1027,6 @@ class WafPolicy(pulumi.CustomResource):
                  args: WafPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
-        It outputs an up-to-date WAF Policy in a JSON format
-
-        * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
-
-        > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
-
         ## Example Usage
 
         ```python

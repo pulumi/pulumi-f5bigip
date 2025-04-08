@@ -1,11 +1,11 @@
 module github.com/pulumi/pulumi-f5bigip/provider/v3
 
-go 1.22.3
+go 1.23.0
 
-toolchain go1.22.7
+toolchain go1.23.8
 
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.22.8
+	github.com/F5Networks/terraform-provider-bigip v1.22.9
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.105.0
 	github.com/pulumi/pulumi/sdk/v3 v3.156.0
 )
@@ -62,8 +62,8 @@ require (
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/f5devcentral/go-bigip v0.0.0-20250116053057-6ba73c2361f0 // indirect
-	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20250116053057-6ba73c2361f0 // indirect
+	github.com/f5devcentral/go-bigip v0.0.0-20250406171612-0155600180da // indirect
+	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20250406171612-0155600180da // indirect
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
@@ -182,10 +182,10 @@ require (
 	go.opentelemetry.io/otel/metric v1.31.0 // indirect
 	go.opentelemetry.io/otel/trace v1.31.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
-	golang.org/x/crypto v0.33.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
 	golang.org/x/mod v0.22.0 // indirect
-	golang.org/x/net v0.34.0 // indirect
+	golang.org/x/net v0.36.0 // indirect
 	golang.org/x/oauth2 v0.23.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
