@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .name("/Common/Internal")
  *             .tag(101)
  *             .interfaces(VlanInterfaceArgs.builder()
- *                 .vlanport(1.2)
+ *                 .vlanport("1.2")
  *                 .tagged(false)
  *                 .build())
  *             .build());

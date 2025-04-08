@@ -52,8 +52,8 @@ import javax.annotation.Nullable;
  *             .send("""
  * GET /some/path
  *             """)
- *             .timeout("999")
- *             .interval("998")
+ *             .timeout(999)
+ *             .interval(998)
  *             .destination("1.2.3.4:1234")
  *             .build());
  * 
@@ -64,8 +64,8 @@ import javax.annotation.Nullable;
  *             .send("""
  * GET /some/path
  *             """)
- *             .interval("999")
- *             .timeout("1000")
+ *             .interval(999)
+ *             .timeout(1000)
  *             .build());
  * 
  *         var test_ftp_monitor = new Monitor("test-ftp-monitor", MonitorArgs.builder()
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;      
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing
  * 

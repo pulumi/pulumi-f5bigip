@@ -278,7 +278,7 @@ public final class LtmFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.irule());
      *     }
      * }
      * }
@@ -322,7 +322,7 @@ public final class LtmFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.irule());
      *     }
      * }
      * }
@@ -366,7 +366,7 @@ public final class LtmFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.irule());
      *     }
      * }
      * }
@@ -410,7 +410,7 @@ public final class LtmFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.irule());
      *     }
      * }
      * }
@@ -454,7 +454,7 @@ public final class LtmFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipIrule", test.applyValue(getIruleResult -> getIruleResult.irule()));
+     *         ctx.export("bigipIrule", test.irule());
      *     }
      * }
      * }
@@ -747,7 +747,7 @@ public final class LtmFunctions {
      *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.rules());
      *     }
      * }
      * }
@@ -790,7 +790,7 @@ public final class LtmFunctions {
      *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.rules());
      *     }
      * }
      * }
@@ -833,7 +833,7 @@ public final class LtmFunctions {
      *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.rules());
      *     }
      * }
      * }
@@ -876,7 +876,7 @@ public final class LtmFunctions {
      *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.rules());
      *     }
      * }
      * }
@@ -919,7 +919,7 @@ public final class LtmFunctions {
      *             .name("/Common/test-policy")
      *             .build());
      * 
-     *         ctx.export("bigipPolicy", test.applyValue(getPolicyResult -> getPolicyResult.rules()));
+     *         ctx.export("bigipPolicy", test.rules());
      *     }
      * }
      * }
