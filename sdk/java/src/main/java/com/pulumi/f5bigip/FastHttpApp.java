@@ -124,8 +124,8 @@ import javax.annotation.Nullable;
  *                 .port(80)
  *                 .build())
  *             .serviceDiscoveries(            
- *                 TC3GetGceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -> getGceServiceDiscoveryResult.gceSdJson()),
- *                 TC3.applyValue(getAzureServiceDiscoveryResult -> getAzureServiceDiscoveryResult.azureSdJson()))
+ *                 TC3GetGceServiceDiscovery.gceSdJson(),
+ *                 TC3.azureSdJson())
  *             .build());
  * 
  *     }

@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.f5bigip.FastTemplate;
  * import com.pulumi.f5bigip.FastTemplateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filemd5Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

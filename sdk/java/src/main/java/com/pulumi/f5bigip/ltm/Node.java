@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *         var node = new Node("node", NodeArgs.builder()
  *             .name("/Common/terraform_node1")
  *             .address("192.168.30.1")
- *             .connectionLimit("0")
- *             .dynamicRatio("1")
+ *             .connectionLimit(0)
+ *             .dynamicRatio(1)
  *             .monitor("/Common/icmp")
  *             .description("Test-Node")
  *             .rateLimit("disabled")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;      
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Importing
  * 

@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  *                 "Unix/Linux",
  *                 "MongoDB")
  *             .parameters(            
- *                 param1.applyValue(getWafEntityParameterResult -> getWafEntityParameterResult.json()),
- *                 param2.applyValue(getWafEntityParameterResult -> getWafEntityParameterResult.json()))
+ *                 param1.json(),
+ *                 param2.json())
  *             .urls(            
- *                 URL.applyValue(getWafEntityUrlResult -> getWafEntityUrlResult.json()),
- *                 URL2.applyValue(getWafEntityUrlResult -> getWafEntityUrlResult.json()))
+ *                 URL.json(),
+ *                 URL2.json())
  *             .build());
  * 
  *     }

@@ -66,7 +66,7 @@ public final class SslFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.name());
      *     }
      * }
      * }
@@ -110,7 +110,7 @@ public final class SslFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.name());
      *     }
      * }
      * }
@@ -154,7 +154,7 @@ public final class SslFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.name());
      *     }
      * }
      * }
@@ -198,7 +198,7 @@ public final class SslFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.name());
      *     }
      * }
      * }
@@ -242,7 +242,7 @@ public final class SslFunctions {
      *             .partition("Common")
      *             .build());
      * 
-     *         ctx.export("bigipSslCertificateName", test.applyValue(getCertificateResult -> getCertificateResult.name()));
+     *         ctx.export("bigipSslCertificateName", test.name());
      *     }
      * }
      * }
@@ -291,7 +291,7 @@ public final class SslFunctions {
      * }
      * }
      * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;      
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Pre-required Environment Settings:
      * 
@@ -349,7 +349,7 @@ public final class SslFunctions {
      * }
      * }
      * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;      
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Pre-required Environment Settings:
      * 
@@ -407,7 +407,7 @@ public final class SslFunctions {
      * }
      * }
      * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;      
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Pre-required Environment Settings:
      * 
@@ -465,7 +465,7 @@ public final class SslFunctions {
      * }
      * }
      * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;      
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Pre-required Environment Settings:
      * 
@@ -523,7 +523,7 @@ public final class SslFunctions {
      * }
      * }
      * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;      
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * ## Pre-required Environment Settings:
      * 
