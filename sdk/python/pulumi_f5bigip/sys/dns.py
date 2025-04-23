@@ -160,6 +160,9 @@ class _DnsState:
 
 
 class Dns(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:sys/dns:Dns"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

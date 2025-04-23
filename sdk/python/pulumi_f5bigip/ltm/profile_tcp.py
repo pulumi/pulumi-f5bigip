@@ -737,6 +737,9 @@ class _ProfileTcpState:
 
 
 class ProfileTcp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileTcp:ProfileTcp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

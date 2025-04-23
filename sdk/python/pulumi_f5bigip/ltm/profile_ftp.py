@@ -561,6 +561,9 @@ class _ProfileFtpState:
 
 
 class ProfileFtp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileFtp:ProfileFtp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -317,6 +317,9 @@ class _SaasBotDefenseProfileState:
 
 
 class SaasBotDefenseProfile(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

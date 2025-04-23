@@ -967,6 +967,9 @@ class _ProfileHttpState:
 
 
 class ProfileHttp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileHttp:ProfileHttp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

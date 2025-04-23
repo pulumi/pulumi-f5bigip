@@ -289,6 +289,9 @@ class _VirtualAddressState:
 
 
 class VirtualAddress(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/virtualAddress:VirtualAddress"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

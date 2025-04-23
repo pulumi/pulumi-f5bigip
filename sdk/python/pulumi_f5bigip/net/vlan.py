@@ -195,6 +195,9 @@ class _VlanState:
 
 
 class Vlan(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:net/vlan:Vlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,6 +128,9 @@ class _NtpState:
 
 
 class Ntp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:sys/ntp:Ntp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
