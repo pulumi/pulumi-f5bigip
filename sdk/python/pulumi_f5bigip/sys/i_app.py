@@ -562,6 +562,9 @@ class _IAppState:
 
 
 class IApp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:sys/iApp:IApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

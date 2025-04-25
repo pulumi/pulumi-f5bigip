@@ -160,6 +160,9 @@ class _DeviceState:
 
 
 class Device(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:cm/device:Device"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

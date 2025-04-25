@@ -137,6 +137,9 @@ class _FastApplicationState:
 
 
 class FastApplication(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/fastApplication:FastApplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

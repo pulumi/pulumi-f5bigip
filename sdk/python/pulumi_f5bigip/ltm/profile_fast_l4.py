@@ -513,6 +513,9 @@ class _ProfileFastL4State:
 
 
 class ProfileFastL4(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileFastL4:ProfileFastL4"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -192,6 +192,9 @@ class _ProfileRewriteUriRulesState:
 
 
 class ProfileRewriteUriRules(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

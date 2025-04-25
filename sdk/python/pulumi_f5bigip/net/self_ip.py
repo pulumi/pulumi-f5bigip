@@ -191,6 +191,9 @@ class _SelfIpState:
 
 
 class SelfIp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:net/selfIp:SelfIp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

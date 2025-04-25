@@ -429,6 +429,9 @@ class _IpsecPolicyState:
 
 
 class IpsecPolicy(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/ipsecPolicy:IpsecPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

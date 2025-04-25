@@ -193,6 +193,9 @@ class _CipherGroupState:
 
 
 class CipherGroup(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/cipherGroup:CipherGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

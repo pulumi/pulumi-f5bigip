@@ -161,6 +161,9 @@ class _IpsecProfileState:
 
 
 class IpsecProfile(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/ipsecProfile:IpsecProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

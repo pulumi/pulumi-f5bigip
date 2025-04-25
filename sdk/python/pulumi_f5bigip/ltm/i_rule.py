@@ -96,6 +96,9 @@ class _IRuleState:
 
 
 class IRule(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/iRule:IRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
