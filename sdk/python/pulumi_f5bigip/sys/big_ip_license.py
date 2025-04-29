@@ -96,6 +96,9 @@ class _BigIpLicenseState:
 
 
 class BigIpLicense(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:sys/bigIpLicense:BigIpLicense"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

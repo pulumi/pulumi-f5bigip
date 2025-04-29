@@ -279,6 +279,9 @@ class _EventServiceDiscoveryState:
 
 
 class EventServiceDiscovery(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

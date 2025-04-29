@@ -309,6 +309,9 @@ class _DoState:
 
 
 class Do(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/do:Do"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

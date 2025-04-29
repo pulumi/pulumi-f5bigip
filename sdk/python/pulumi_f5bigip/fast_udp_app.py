@@ -702,6 +702,9 @@ class _FastUdpAppState:
 
 
 class FastUdpApp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/fastUdpApp:FastUdpApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

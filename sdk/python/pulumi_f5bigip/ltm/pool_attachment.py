@@ -352,6 +352,9 @@ class _PoolAttachmentState:
 
 
 class PoolAttachment(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/poolAttachment:PoolAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

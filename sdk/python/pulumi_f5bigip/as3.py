@@ -1018,6 +1018,9 @@ class _As3State:
 
 
 class As3(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/as3:As3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -449,6 +449,9 @@ class _ProfileHttpCompressState:
 
 
 class ProfileHttpCompress(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -917,6 +917,9 @@ class _VirtualServerState:
 
 
 class VirtualServer(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/virtualServer:VirtualServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

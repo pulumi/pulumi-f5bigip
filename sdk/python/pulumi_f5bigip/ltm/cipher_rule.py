@@ -192,6 +192,9 @@ class _CipherRuleState:
 
 
 class CipherRule(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/cipherRule:CipherRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

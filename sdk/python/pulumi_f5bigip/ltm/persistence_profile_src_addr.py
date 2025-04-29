@@ -416,6 +416,9 @@ class _PersistenceProfileSrcAddrState:
 
 
 class PersistenceProfileSrcAddr(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

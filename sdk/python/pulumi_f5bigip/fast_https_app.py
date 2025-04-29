@@ -826,6 +826,9 @@ class _FastHttpsAppState:
 
 
 class FastHttpsApp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/fastHttpsApp:FastHttpsApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
