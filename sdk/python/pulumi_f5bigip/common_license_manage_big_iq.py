@@ -541,6 +541,9 @@ class _CommonLicenseManageBigIqState:
 
 
 class CommonLicenseManageBigIq(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

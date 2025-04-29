@@ -201,6 +201,9 @@ class _ProfileBotDefenseState:
 
 
 class ProfileBotDefense(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileBotDefense:ProfileBotDefense"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

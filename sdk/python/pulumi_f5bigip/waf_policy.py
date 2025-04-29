@@ -906,6 +906,9 @@ class _WafPolicyState:
 
 
 class WafPolicy(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/wafPolicy:WafPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

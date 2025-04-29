@@ -353,6 +353,9 @@ class _ProfileOneConnectState:
 
 
 class ProfileOneConnect(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileOneConnect:ProfileOneConnect"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

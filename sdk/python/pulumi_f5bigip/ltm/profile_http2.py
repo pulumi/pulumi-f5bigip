@@ -449,6 +449,9 @@ class _ProfileHttp2State:
 
 
 class ProfileHttp2(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileHttp2:ProfileHttp2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

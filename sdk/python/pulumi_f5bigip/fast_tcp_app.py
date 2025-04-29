@@ -510,6 +510,9 @@ class _FastTcpAppState:
 
 
 class FastTcpApp(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/fastTcpApp:FastTcpApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

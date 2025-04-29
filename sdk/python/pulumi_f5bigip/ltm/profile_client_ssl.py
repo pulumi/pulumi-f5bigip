@@ -1927,6 +1927,9 @@ class _ProfileClientSslState:
 
 
 class ProfileClientSsl(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/profileClientSsl:ProfileClientSsl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

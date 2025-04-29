@@ -355,6 +355,9 @@ class _TrafficSelectorState:
 
 
 class TrafficSelector(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/trafficSelector:TrafficSelector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

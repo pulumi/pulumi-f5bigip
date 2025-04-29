@@ -542,6 +542,9 @@ class _BigIqAs3State:
 
 
 class BigIqAs3(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:index/bigIqAs3:BigIqAs3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

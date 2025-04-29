@@ -96,6 +96,9 @@ class _SnatPoolState:
 
 
 class SnatPool(pulumi.CustomResource):
+
+    pulumi_type = "f5bigip:ltm/snatPool:SnatPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
