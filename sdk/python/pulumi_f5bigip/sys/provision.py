@@ -308,10 +308,8 @@ class _ProvisionState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("f5bigip:sys/provision:Provision")
 class Provision(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/provision:Provision"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

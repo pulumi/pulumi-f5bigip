@@ -381,10 +381,8 @@ class _SslKeyCertState:
         pulumi.set(self, "passphrase", value)
 
 
+@pulumi.type_token("f5bigip:index/sslKeyCert:SslKeyCert")
 class SslKeyCert(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/sslKeyCert:SslKeyCert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

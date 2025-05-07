@@ -355,10 +355,8 @@ class _DeviceGroupState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("f5bigip:cm/deviceGroup:DeviceGroup")
 class DeviceGroup(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:cm/deviceGroup:DeviceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

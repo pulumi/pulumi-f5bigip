@@ -127,10 +127,8 @@ class _FastTemplateState:
         pulumi.set(self, "source", value)
 
 
+@pulumi.type_token("f5bigip:index/fastTemplate:FastTemplate")
 class FastTemplate(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/fastTemplate:FastTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

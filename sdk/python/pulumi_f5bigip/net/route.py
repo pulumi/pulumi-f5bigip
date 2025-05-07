@@ -191,10 +191,8 @@ class _RouteState:
         pulumi.set(self, "tunnel_ref", value)
 
 
+@pulumi.type_token("f5bigip:net/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:net/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

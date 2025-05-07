@@ -1792,10 +1792,8 @@ class _ProfileServerSslState:
         pulumi.set(self, "untrusted_cert_response_control", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileServerSsl:ProfileServerSsl")
 class ProfileServerSsl(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileServerSsl:ProfileServerSsl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

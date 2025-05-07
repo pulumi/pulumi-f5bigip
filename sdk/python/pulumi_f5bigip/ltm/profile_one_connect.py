@@ -352,10 +352,8 @@ class _ProfileOneConnectState:
         pulumi.set(self, "source_mask", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileOneConnect:ProfileOneConnect")
 class ProfileOneConnect(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileOneConnect:ProfileOneConnect"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

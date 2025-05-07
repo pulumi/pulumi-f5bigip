@@ -352,10 +352,8 @@ class _PoolState:
         pulumi.set(self, "slow_ramp_time", value)
 
 
+@pulumi.type_token("f5bigip:ltm/pool:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/pool:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

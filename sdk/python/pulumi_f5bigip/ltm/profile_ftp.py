@@ -560,10 +560,8 @@ class _ProfileFtpState:
         pulumi.set(self, "translate_extended", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileFtp:ProfileFtp")
 class ProfileFtp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileFtp:ProfileFtp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

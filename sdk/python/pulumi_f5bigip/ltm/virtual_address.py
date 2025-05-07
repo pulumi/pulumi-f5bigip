@@ -288,10 +288,8 @@ class _VirtualAddressState:
         pulumi.set(self, "traffic_group", value)
 
 
+@pulumi.type_token("f5bigip:ltm/virtualAddress:VirtualAddress")
 class VirtualAddress(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/virtualAddress:VirtualAddress"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

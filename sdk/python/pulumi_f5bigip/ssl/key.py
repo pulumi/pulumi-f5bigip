@@ -191,10 +191,8 @@ class _KeyState:
         pulumi.set(self, "passphrase", value)
 
 
+@pulumi.type_token("f5bigip:ssl/key:Key")
 class Key(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ssl/key:Key"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

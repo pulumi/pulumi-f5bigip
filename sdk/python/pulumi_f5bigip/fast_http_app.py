@@ -673,10 +673,8 @@ class _FastHttpAppState:
         pulumi.set(self, "waf_security_policy", value)
 
 
+@pulumi.type_token("f5bigip:index/fastHttpApp:FastHttpApp")
 class FastHttpApp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/fastHttpApp:FastHttpApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

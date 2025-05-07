@@ -540,10 +540,8 @@ class _CommonLicenseManageBigIqState:
         pulumi.set(self, "unit_of_measure", value)
 
 
+@pulumi.type_token("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq")
 class CommonLicenseManageBigIq(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

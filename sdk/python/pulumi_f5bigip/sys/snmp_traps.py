@@ -481,10 +481,8 @@ class _SnmpTrapsState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("f5bigip:sys/snmpTraps:SnmpTraps")
 class SnmpTraps(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/snmpTraps:SnmpTraps"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

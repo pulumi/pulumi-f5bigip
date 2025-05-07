@@ -129,10 +129,8 @@ class _SnmpState:
         pulumi.set(self, "sys_location", value)
 
 
+@pulumi.type_token("f5bigip:sys/snmp:Snmp")
 class Snmp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/snmp:Snmp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

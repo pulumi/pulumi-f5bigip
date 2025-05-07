@@ -128,10 +128,8 @@ class _PartitionState:
         pulumi.set(self, "route_domain_id", value)
 
 
+@pulumi.type_token("f5bigip:index/partition:Partition")
 class Partition(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/partition:Partition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

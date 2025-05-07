@@ -672,10 +672,8 @@ class _RequestLogProfileState:
         pulumi.set(self, "responselog_template", value)
 
 
+@pulumi.type_token("f5bigip:ltm/requestLogProfile:RequestLogProfile")
 class RequestLogProfile(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/requestLogProfile:RequestLogProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

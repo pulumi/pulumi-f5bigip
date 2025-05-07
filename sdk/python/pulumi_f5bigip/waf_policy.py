@@ -905,10 +905,8 @@ class _WafPolicyState:
         pulumi.set(self, "urls", value)
 
 
+@pulumi.type_token("f5bigip:index/wafPolicy:WafPolicy")
 class WafPolicy(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/wafPolicy:WafPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
