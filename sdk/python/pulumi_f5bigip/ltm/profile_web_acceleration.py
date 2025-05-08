@@ -480,10 +480,8 @@ class _ProfileWebAccelerationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration")
 class ProfileWebAcceleration(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

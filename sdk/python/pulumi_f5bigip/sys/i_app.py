@@ -561,10 +561,8 @@ class _IAppState:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("f5bigip:sys/iApp:IApp")
 class IApp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/iApp:IApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

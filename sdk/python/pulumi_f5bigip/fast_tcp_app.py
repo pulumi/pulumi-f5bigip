@@ -509,10 +509,8 @@ class _FastTcpAppState:
         pulumi.set(self, "virtual_server", value)
 
 
+@pulumi.type_token("f5bigip:index/fastTcpApp:FastTcpApp")
 class FastTcpApp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/fastTcpApp:FastTcpApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

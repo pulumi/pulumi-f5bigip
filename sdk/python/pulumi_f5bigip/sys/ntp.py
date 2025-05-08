@@ -127,10 +127,8 @@ class _NtpState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("f5bigip:sys/ntp:Ntp")
 class Ntp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/ntp:Ntp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

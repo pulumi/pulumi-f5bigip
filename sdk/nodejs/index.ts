@@ -90,10 +90,8 @@ export type Partition = import("./partition").Partition;
 export const Partition: typeof import("./partition").Partition = null as any;
 utilities.lazyLoad(exports, ["Partition"], () => require("./partition"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { SaasBotDefenseProfileArgs, SaasBotDefenseProfileState } from "./saasBotDefenseProfile";
 export type SaasBotDefenseProfile = import("./saasBotDefenseProfile").SaasBotDefenseProfile;

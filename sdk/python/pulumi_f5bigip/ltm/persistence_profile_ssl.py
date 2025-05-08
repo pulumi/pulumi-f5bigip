@@ -315,10 +315,8 @@ class _PersistenceProfileSslState:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.type_token("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl")
 class PersistenceProfileSsl(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

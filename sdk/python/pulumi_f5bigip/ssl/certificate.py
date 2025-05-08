@@ -255,10 +255,8 @@ class _CertificateState:
         pulumi.set(self, "partition", value)
 
 
+@pulumi.type_token("f5bigip:ssl/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ssl/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

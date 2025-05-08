@@ -316,10 +316,8 @@ class _SaasBotDefenseProfileState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile")
 class SaasBotDefenseProfile(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

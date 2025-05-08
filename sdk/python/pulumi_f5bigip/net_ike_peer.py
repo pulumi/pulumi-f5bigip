@@ -1119,10 +1119,8 @@ class _NetIkePeerState:
         pulumi.set(self, "versions", value)
 
 
+@pulumi.type_token("f5bigip:index/netIkePeer:NetIkePeer")
 class NetIkePeer(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/netIkePeer:NetIkePeer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

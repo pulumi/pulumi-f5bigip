@@ -983,10 +983,8 @@ class _MonitorState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("f5bigip:ltm/monitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/monitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
