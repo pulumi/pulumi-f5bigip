@@ -574,10 +574,8 @@ class _NetTunnelState:
         pulumi.set(self, "use_pmtu", value)
 
 
+@pulumi.type_token("f5bigip:index/netTunnel:NetTunnel")
 class NetTunnel(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/netTunnel:NetTunnel"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

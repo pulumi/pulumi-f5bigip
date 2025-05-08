@@ -2945,6 +2945,9 @@
                 "type": "boolean",
                 "description": "If set to true, Disables TLS certificate check on BIG-IP. Default : True\n"
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:f5bigip/terraformConfig"
         }
     },
     "resources": {
@@ -17713,6 +17716,35 @@
                     "tag",
                     "type",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "pulumi:providers:f5bigip/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:f5bigip"
+                    }
+                },
+                "type": "pulumi:providers:f5bigip/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
                 ],
                 "type": "object"
             }

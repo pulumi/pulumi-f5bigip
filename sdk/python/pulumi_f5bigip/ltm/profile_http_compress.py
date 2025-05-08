@@ -448,10 +448,8 @@ class _ProfileHttpCompressState:
         pulumi.set(self, "vary_header", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress")
 class ProfileHttpCompress(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -428,10 +428,8 @@ class _IpsecPolicyState:
         pulumi.set(self, "tunnel_remote_address", value)
 
 
+@pulumi.type_token("f5bigip:index/ipsecPolicy:IpsecPolicy")
 class IpsecPolicy(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/ipsecPolicy:IpsecPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

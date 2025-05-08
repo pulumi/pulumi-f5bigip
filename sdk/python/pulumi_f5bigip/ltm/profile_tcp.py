@@ -736,10 +736,8 @@ class _ProfileTcpState:
         pulumi.set(self, "zerowindow_timeout", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileTcp:ProfileTcp")
 class ProfileTcp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileTcp:ProfileTcp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

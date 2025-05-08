@@ -916,10 +916,8 @@ class _VirtualServerState:
         pulumi.set(self, "vlans_enabled", value)
 
 
+@pulumi.type_token("f5bigip:ltm/virtualServer:VirtualServer")
 class VirtualServer(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/virtualServer:VirtualServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

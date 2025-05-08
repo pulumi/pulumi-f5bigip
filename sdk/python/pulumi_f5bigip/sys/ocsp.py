@@ -576,10 +576,8 @@ class _OcspState:
         pulumi.set(self, "trusted_responders", value)
 
 
+@pulumi.type_token("f5bigip:sys/ocsp:Ocsp")
 class Ocsp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/ocsp:Ocsp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

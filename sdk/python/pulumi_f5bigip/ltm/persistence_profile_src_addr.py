@@ -415,10 +415,8 @@ class _PersistenceProfileSrcAddrState:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.type_token("f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr")
 class PersistenceProfileSrcAddr(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,10 +191,8 @@ class _CipherRuleState:
         pulumi.set(self, "signature_algorithms", value)
 
 
+@pulumi.type_token("f5bigip:ltm/cipherRule:CipherRule")
 class CipherRule(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/cipherRule:CipherRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -95,10 +95,8 @@ class _BigIpLicenseState:
         pulumi.set(self, "registration_key", value)
 
 
+@pulumi.type_token("f5bigip:sys/bigIpLicense:BigIpLicense")
 class BigIpLicense(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:sys/bigIpLicense:BigIpLicense"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

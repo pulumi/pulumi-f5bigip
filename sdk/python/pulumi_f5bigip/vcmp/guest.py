@@ -480,10 +480,8 @@ class _GuestState:
         pulumi.set(self, "vlans", value)
 
 
+@pulumi.type_token("f5bigip:vcmp/guest:Guest")
 class Guest(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:vcmp/guest:Guest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

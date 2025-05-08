@@ -200,10 +200,8 @@ class _ProfileBotDefenseState:
         pulumi.set(self, "template", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileBotDefense:ProfileBotDefense")
 class ProfileBotDefense(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileBotDefense:ProfileBotDefense"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

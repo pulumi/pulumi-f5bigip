@@ -1017,10 +1017,8 @@ class _As3State:
         pulumi.set(self, "tenant_name", value)
 
 
+@pulumi.type_token("f5bigip:index/as3:As3")
 class As3(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/as3:As3"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

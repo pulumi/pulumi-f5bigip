@@ -385,10 +385,8 @@ class _NodeState:
         pulumi.set(self, "state", value)
 
 
+@pulumi.type_token("f5bigip:ltm/node:Node")
 class Node(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/node:Node"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

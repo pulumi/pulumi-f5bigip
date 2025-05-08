@@ -1926,10 +1926,8 @@ class _ProfileClientSslState:
         pulumi.set(self, "unclean_shutdown", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileClientSsl:ProfileClientSsl")
 class ProfileClientSsl(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileClientSsl:ProfileClientSsl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

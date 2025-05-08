@@ -120,10 +120,8 @@ class _CommandState:
         pulumi.set(self, "when", value)
 
 
+@pulumi.type_token("f5bigip:index/command:Command")
 class Command(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/command:Command"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

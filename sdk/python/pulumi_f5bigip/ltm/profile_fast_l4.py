@@ -512,10 +512,8 @@ class _ProfileFastL4State:
         pulumi.set(self, "tcp_handshake_timeout", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileFastL4:ProfileFastL4")
 class ProfileFastL4(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileFastL4:ProfileFastL4"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

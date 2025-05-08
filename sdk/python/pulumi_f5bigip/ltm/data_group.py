@@ -197,10 +197,8 @@ class _DataGroupState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("f5bigip:ltm/dataGroup:DataGroup")
 class DataGroup(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/dataGroup:DataGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

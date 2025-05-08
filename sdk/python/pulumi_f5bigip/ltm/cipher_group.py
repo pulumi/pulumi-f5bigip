@@ -192,10 +192,8 @@ class _CipherGroupState:
         pulumi.set(self, "requires", value)
 
 
+@pulumi.type_token("f5bigip:ltm/cipherGroup:CipherGroup")
 class CipherGroup(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/cipherGroup:CipherGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -513,10 +513,8 @@ class _ProfileRewriteState:
         pulumi.set(self, "split_tunneling", value)
 
 
+@pulumi.type_token("f5bigip:ltm/profileRewrite:ProfileRewrite")
 class ProfileRewrite(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/profileRewrite:ProfileRewrite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

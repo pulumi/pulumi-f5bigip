@@ -701,10 +701,8 @@ class _FastUdpAppState:
         pulumi.set(self, "vlans_rejecteds", value)
 
 
+@pulumi.type_token("f5bigip:index/fastUdpApp:FastUdpApp")
 class FastUdpApp(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:index/fastUdpApp:FastUdpApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

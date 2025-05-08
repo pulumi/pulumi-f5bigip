@@ -95,10 +95,8 @@ class _IRuleState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("f5bigip:ltm/iRule:IRule")
 class IRule(pulumi.CustomResource):
-
-    pulumi_type = "f5bigip:ltm/iRule:IRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
