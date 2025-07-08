@@ -22,6 +22,7 @@ class VirtualServerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_persistence_profile: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
@@ -52,6 +53,7 @@ class VirtualServerArgs:
         The set of arguments for constructing a VirtualServer resource.
         :param pulumi.Input[builtins.str] name: Name of the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
         :param pulumi.Input[builtins.str] description: Description of Virtual server
         :param pulumi.Input[builtins.str] destination: Destination IP
         :param pulumi.Input[builtins.str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -81,6 +83,8 @@ class VirtualServerArgs:
         pulumi.set(__self__, "name", name)
         if client_profiles is not None:
             pulumi.set(__self__, "client_profiles", client_profiles)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if default_persistence_profile is not None:
             pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
         if description is not None:
@@ -157,6 +161,18 @@ class VirtualServerArgs:
     @client_profiles.setter
     def client_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "client_profiles", value)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specifies the maximum number of connections allowed for the virtual server.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "connection_limit", value)
 
     @property
     @pulumi.getter(name="defaultPersistenceProfile")
@@ -470,6 +486,7 @@ class VirtualServerArgs:
 class _VirtualServerState:
     def __init__(__self__, *,
                  client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_persistence_profile: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
@@ -500,6 +517,7 @@ class _VirtualServerState:
         """
         Input properties used for looking up and filtering VirtualServer resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
         :param pulumi.Input[builtins.str] description: Description of Virtual server
         :param pulumi.Input[builtins.str] destination: Destination IP
         :param pulumi.Input[builtins.str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -529,6 +547,8 @@ class _VirtualServerState:
         """
         if client_profiles is not None:
             pulumi.set(__self__, "client_profiles", client_profiles)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if default_persistence_profile is not None:
             pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
         if description is not None:
@@ -595,6 +615,18 @@ class _VirtualServerState:
     @client_profiles.setter
     def client_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "client_profiles", value)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specifies the maximum number of connections allowed for the virtual server.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "connection_limit", value)
 
     @property
     @pulumi.getter(name="defaultPersistenceProfile")
@@ -923,6 +955,7 @@ class VirtualServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_persistence_profile: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
@@ -968,6 +1001,7 @@ class VirtualServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
         :param pulumi.Input[builtins.str] description: Description of Virtual server
         :param pulumi.Input[builtins.str] destination: Destination IP
         :param pulumi.Input[builtins.str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -1031,6 +1065,7 @@ class VirtualServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_persistence_profile: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
@@ -1068,6 +1103,7 @@ class VirtualServer(pulumi.CustomResource):
             __props__ = VirtualServerArgs.__new__(VirtualServerArgs)
 
             __props__.__dict__["client_profiles"] = client_profiles
+            __props__.__dict__["connection_limit"] = connection_limit
             __props__.__dict__["default_persistence_profile"] = default_persistence_profile
             __props__.__dict__["description"] = description
             __props__.__dict__["destination"] = destination
@@ -1108,6 +1144,7 @@ class VirtualServer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            connection_limit: Optional[pulumi.Input[builtins.int]] = None,
             default_persistence_profile: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             destination: Optional[pulumi.Input[builtins.str]] = None,
@@ -1143,6 +1180,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
         :param pulumi.Input[builtins.str] description: Description of Virtual server
         :param pulumi.Input[builtins.str] destination: Destination IP
         :param pulumi.Input[builtins.str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -1175,6 +1213,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__ = _VirtualServerState.__new__(_VirtualServerState)
 
         __props__.__dict__["client_profiles"] = client_profiles
+        __props__.__dict__["connection_limit"] = connection_limit
         __props__.__dict__["default_persistence_profile"] = default_persistence_profile
         __props__.__dict__["description"] = description
         __props__.__dict__["destination"] = destination
@@ -1211,6 +1250,14 @@ class VirtualServer(pulumi.CustomResource):
         List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         """
         return pulumi.get(self, "client_profiles")
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> pulumi.Output[builtins.int]:
+        """
+        Specifies the maximum number of connections allowed for the virtual server.
+        """
+        return pulumi.get(self, "connection_limit")
 
     @property
     @pulumi.getter(name="defaultPersistenceProfile")

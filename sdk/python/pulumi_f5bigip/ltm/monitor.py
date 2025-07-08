@@ -30,6 +30,7 @@ class MonitorArgs:
                  custom_parent: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
                  filename: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[builtins.str]] = None,
                  interval: Optional[pulumi.Input[builtins.int]] = None,
@@ -61,6 +62,7 @@ class MonitorArgs:
         :param pulumi.Input[builtins.str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[builtins.str] database: Specifies the database in which the user is created
         :param pulumi.Input[builtins.str] destination: Specify an alias address for monitoring
+        :param pulumi.Input[builtins.str] domain: Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         :param pulumi.Input[builtins.str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -105,6 +107,8 @@ class MonitorArgs:
             pulumi.set(__self__, "database", database)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -263,6 +267,18 @@ class MonitorArgs:
     @destination.setter
     def destination(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter
@@ -510,6 +526,7 @@ class _MonitorState:
                  custom_parent: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
                  filename: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[builtins.str]] = None,
                  interval: Optional[pulumi.Input[builtins.int]] = None,
@@ -541,6 +558,7 @@ class _MonitorState:
         :param pulumi.Input[builtins.str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[builtins.str] database: Specifies the database in which the user is created
         :param pulumi.Input[builtins.str] destination: Specify an alias address for monitoring
+        :param pulumi.Input[builtins.str] domain: Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         :param pulumi.Input[builtins.str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -585,6 +603,8 @@ class _MonitorState:
             pulumi.set(__self__, "database", database)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -723,6 +743,18 @@ class _MonitorState:
     @destination.setter
     def destination(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter
@@ -997,6 +1029,7 @@ class Monitor(pulumi.CustomResource):
                  custom_parent: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
                  filename: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[builtins.str]] = None,
                  interval: Optional[pulumi.Input[builtins.int]] = None,
@@ -1081,6 +1114,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[builtins.str] database: Specifies the database in which the user is created
         :param pulumi.Input[builtins.str] destination: Specify an alias address for monitoring
+        :param pulumi.Input[builtins.str] domain: Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         :param pulumi.Input[builtins.str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -1190,6 +1224,7 @@ class Monitor(pulumi.CustomResource):
                  custom_parent: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
+                 domain: Optional[pulumi.Input[builtins.str]] = None,
                  filename: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[builtins.str]] = None,
                  interval: Optional[pulumi.Input[builtins.int]] = None,
@@ -1228,6 +1263,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["custom_parent"] = custom_parent
             __props__.__dict__["database"] = database
             __props__.__dict__["destination"] = destination
+            __props__.__dict__["domain"] = domain
             __props__.__dict__["filename"] = filename
             __props__.__dict__["filter"] = filter
             __props__.__dict__["interval"] = interval
@@ -1273,6 +1309,7 @@ class Monitor(pulumi.CustomResource):
             custom_parent: Optional[pulumi.Input[builtins.str]] = None,
             database: Optional[pulumi.Input[builtins.str]] = None,
             destination: Optional[pulumi.Input[builtins.str]] = None,
+            domain: Optional[pulumi.Input[builtins.str]] = None,
             filename: Optional[pulumi.Input[builtins.str]] = None,
             filter: Optional[pulumi.Input[builtins.str]] = None,
             interval: Optional[pulumi.Input[builtins.int]] = None,
@@ -1309,6 +1346,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[builtins.str] database: Specifies the database in which the user is created
         :param pulumi.Input[builtins.str] destination: Specify an alias address for monitoring
+        :param pulumi.Input[builtins.str] domain: Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         :param pulumi.Input[builtins.str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
@@ -1349,6 +1387,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["custom_parent"] = custom_parent
         __props__.__dict__["database"] = database
         __props__.__dict__["destination"] = destination
+        __props__.__dict__["domain"] = domain
         __props__.__dict__["filename"] = filename
         __props__.__dict__["filter"] = filter
         __props__.__dict__["interval"] = interval
@@ -1435,6 +1474,14 @@ class Monitor(pulumi.CustomResource):
         Specify an alias address for monitoring
         """
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter

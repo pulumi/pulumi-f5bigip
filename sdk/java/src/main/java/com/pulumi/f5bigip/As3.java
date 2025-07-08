@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.f5bigip.As3Args;
 import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.As3State;
+import com.pulumi.f5bigip.outputs.As3DeleteApps;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -423,12 +424,34 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
+     * one of `delete_apps` or `as3_json` can be set in a resource block.
+     * 
+     */
+    @Export(name="deleteApps", refs={As3DeleteApps.class}, tree="[0]")
+    private Output</* @Nullable */ As3DeleteApps> deleteApps;
+
+    /**
+     * @return Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
+     * one of `delete_apps` or `as3_json` can be set in a resource block.
+     * 
+     */
+    public Output<Optional<As3DeleteApps>> deleteApps() {
+        return Codegen.optional(this.deleteApps);
+    }
+    /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      * 
      * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
      * 
      * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     * 
+     * # f5bigip.As3 delete one or more applications
+     * 
+     * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+     * 
+     * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      * 
      */
     @Export(name="ignoreMetadata", refs={Boolean.class}, tree="[0]")
@@ -441,6 +464,12 @@ public class As3 extends com.pulumi.resources.CustomResource {
      * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
      * 
      * * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+     * 
+     * # f5bigip.As3 delete one or more applications
+     * 
+     * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+     * 
+     * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      * 
      */
     public Output<Optional<Boolean>> ignoreMetadata() {

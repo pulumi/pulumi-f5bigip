@@ -132,6 +132,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Destination { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        /// </summary>
+        [Output("domain")]
+        public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         /// </summary>
         [Output("filename")]
@@ -362,6 +368,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Destination { get; set; }
 
         /// <summary>
+        /// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         /// </summary>
         [Input("filename")]
@@ -558,6 +570,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
+
+        /// <summary>
+        /// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
 
         /// <summary>
         /// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.

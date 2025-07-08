@@ -35,6 +35,7 @@
         "fastTcpApp.ts",
         "fastTemplate.ts",
         "fastUdpApp.ts",
+        "getAs3DeviceInformation.ts",
         "index.ts",
         "ipsecPolicy.ts",
         "ipsecProfile.ts",

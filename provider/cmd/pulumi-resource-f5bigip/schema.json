@@ -126,6 +126,26 @@
             },
             "type": "object"
         },
+        "f5bigip:index/As3DeleteApps:As3DeleteApps": {
+            "properties": {
+                "apps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of application names to delete from the specified tenant.\n\n\u003e `delete_apps` cannot be used together with `as3_json`.\n"
+                },
+                "tenantName": {
+                    "type": "string",
+                    "description": "Name of the tenant containing the apps to delete.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "apps",
+                "tenantName"
+            ]
+        },
         "f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode": {
             "properties": {
                 "id": {
@@ -3180,9 +3200,13 @@
                     },
                     "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
                 },
+                "deleteApps": {
+                    "$ref": "#/types/f5bigip:index/As3DeleteApps:As3DeleteApps",
+                    "description": "Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only\none of `delete_apps` or `as3_json` can be set in a resource block.\n"
+                },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n\n# f5bigip.As3 delete one or more applications\n\nThe `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.\n\n\u003e **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.\n"
                 },
                 "perAppMode": {
                     "type": "boolean",
@@ -3229,9 +3253,13 @@
                     },
                     "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
                 },
+                "deleteApps": {
+                    "$ref": "#/types/f5bigip:index/As3DeleteApps:As3DeleteApps",
+                    "description": "Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only\none of `delete_apps` or `as3_json` can be set in a resource block.\n"
+                },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n\n# f5bigip.As3 delete one or more applications\n\nThe `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.\n\n\u003e **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -3268,9 +3296,13 @@
                         },
                         "description": "A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.\n"
                     },
+                    "deleteApps": {
+                        "$ref": "#/types/f5bigip:index/As3DeleteApps:As3DeleteApps",
+                        "description": "Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only\none of `delete_apps` or `as3_json` can be set in a resource block.\n"
+                    },
                     "ignoreMetadata": {
                         "type": "boolean",
-                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n"
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_01\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_1\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.0.2.10\"\n],\n\"pool\": \"web_pool\"\n},\n\"web_pool\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.1.100\",\n\"192.0.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```json\n\n{\n\"class\": \"AS3\",\n\"action\": \"deploy\",\n\"persist\": true,\n\"declaration\": {\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.0.0\",\n\"id\": \"example-declaration-01\",\n\"label\": \"Sample 1\",\n\"remark\": \"Simple HTTP application with round robin pool\",\n\"Sample_02\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_2\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.2.2.10\"\n],\n\"pool\": \"web_pool2\"\n},\n\"web_pool2\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.2.1.100\",\n\"192.2.1.110\"\n]\n}\n]\n}\n}\n},\n\"Sample_03\": {\n\"class\": \"Tenant\",\n\"defaultRouteDomain\": 0,\n\"Application_3\": {\n\"class\": \"Application\",\n\"template\": \"http\",\n\"serviceMain\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"10.1.2.10\"\n],\n\"pool\": \"web_pool3\"\n},\n\"web_pool3\": {\n\"class\": \"Pool\",\n\"monitors\": [\n\"http\"\n],\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.3.1.100\",\n\"192.3.1.110\"\n]\n}\n]\n}\n}\n}\n}\n}\n\n```\n\n* `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)\n\n```json\n{\n\"Application1\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.2.1\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.2.10\",\n\"192.0.2.20\"\n]\n}\n]\n}\n},\n\"Application2\": {\n\"class\": \"Application\",\n\"service\": {\n\"class\": \"Service_HTTP\",\n\"virtualAddresses\": [\n\"192.0.3.2\"\n],\n\"pool\": \"pool\"\n},\n\"pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 80,\n\"serverAddresses\": [\n\"192.0.3.30\",\n\"192.0.3.40\"\n]\n}\n]\n}\n}\n}\n```\n\n# f5bigip.As3 delete one or more applications\n\nThe `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.\n\n\u003e **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.\n"
                     },
                     "perAppMode": {
                         "type": "boolean",
@@ -7579,6 +7611,10 @@
                     "type": "string",
                     "description": "Specify an alias address for monitoring\n"
                 },
+                "domain": {
+                    "type": "string",
+                    "description": "Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.\n"
+                },
                 "filename": {
                     "type": "string",
                     "description": "Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.\n"
@@ -7716,6 +7752,10 @@
                     "type": "string",
                     "description": "Specify an alias address for monitoring\n"
                 },
+                "domain": {
+                    "type": "string",
+                    "description": "Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.\n"
+                },
                 "filename": {
                     "type": "string",
                     "description": "Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.\n"
@@ -7842,6 +7882,10 @@
                     "destination": {
                         "type": "string",
                         "description": "Specify an alias address for monitoring\n"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.\n"
                     },
                     "filename": {
                         "type": "string",
@@ -13965,6 +14009,10 @@
                     },
                     "description": "List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles\n"
                 },
+                "connectionLimit": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of connections allowed for the virtual server.\n"
+                },
                 "defaultPersistenceProfile": {
                     "type": "string"
                 },
@@ -14094,6 +14142,7 @@
                 }
             },
             "required": [
+                "connectionLimit",
                 "defaultPersistenceProfile",
                 "fallbackPersistenceProfile",
                 "firewallEnforcedPolicy",
@@ -14115,6 +14164,10 @@
                         "type": "string"
                     },
                     "description": "List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles\n"
+                },
+                "connectionLimit": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of connections allowed for the virtual server.\n"
                 },
                 "defaultPersistenceProfile": {
                     "type": "string"
@@ -14257,6 +14310,10 @@
                             "type": "string"
                         },
                         "description": "List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles\n"
+                    },
+                    "connectionLimit": {
+                        "type": "integer",
+                        "description": "Specifies the maximum number of connections allowed for the virtual server.\n"
                     },
                     "defaultPersistenceProfile": {
                         "type": "string"
@@ -16574,6 +16631,53 @@
                     "region",
                     "tagKey",
                     "tagValue",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "f5bigip:index/getAs3DeviceInformation:getAs3DeviceInformation": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getAs3DeviceInformation.\n",
+                "properties": {
+                    "applications": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tenant": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "tenant"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAs3DeviceInformation.\n",
+                "properties": {
+                    "applications": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "as3Json": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The provider-assigned unique ID for this managed resource.\n",
+                        "type": "string"
+                    },
+                    "tenant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "as3Json",
+                    "tenant",
                     "id"
                 ],
                 "type": "object"

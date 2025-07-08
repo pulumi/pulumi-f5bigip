@@ -5,6 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface As3DeleteApps {
+    /**
+     * List of application names to delete from the specified tenant.
+     *
+     * > `deleteApps` cannot be used together with `as3Json`.
+     */
+    apps: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the tenant containing the apps to delete.
+     */
+    tenantName: pulumi.Input<string>;
+}
+
 export interface EventServiceDiscoveryNode {
     /**
      * name of node

@@ -50,6 +50,10 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     public readonly clientProfiles!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the maximum number of connections allowed for the virtual server.
+     */
+    public readonly connectionLimit!: pulumi.Output<number>;
     public readonly defaultPersistenceProfile!: pulumi.Output<string>;
     /**
      * Description of Virtual server
@@ -168,6 +172,7 @@ export class VirtualServer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
             resourceInputs["clientProfiles"] = state ? state.clientProfiles : undefined;
+            resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
             resourceInputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
@@ -201,6 +206,7 @@ export class VirtualServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["clientProfiles"] = args ? args.clientProfiles : undefined;
+            resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
             resourceInputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
@@ -242,6 +248,10 @@ export interface VirtualServerState {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the maximum number of connections allowed for the virtual server.
+     */
+    connectionLimit?: pulumi.Input<number>;
     defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server
@@ -355,6 +365,10 @@ export interface VirtualServerArgs {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the maximum number of connections allowed for the virtual server.
+     */
+    connectionLimit?: pulumi.Input<number>;
     defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server

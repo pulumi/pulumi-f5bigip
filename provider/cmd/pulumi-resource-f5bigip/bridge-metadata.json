@@ -2,7 +2,19 @@
     "auto-aliasing": {
         "resources": {
             "bigip_as3": {
-                "current": "f5bigip:index/as3:As3"
+                "current": "f5bigip:index/as3:As3",
+                "fields": {
+                    "delete_apps": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "apps": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "bigip_bigiq_as3": {
                 "current": "f5bigip:index/bigIqAs3:BigIqAs3"
@@ -679,6 +691,14 @@
             }
         },
         "datasources": {
+            "bigip_as3_device_information": {
+                "current": "f5bigip:index/getAs3DeviceInformation:getAs3DeviceInformation",
+                "fields": {
+                    "applications": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "bigip_fast_aws_service_discovery": {
                 "current": "f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery"
             },

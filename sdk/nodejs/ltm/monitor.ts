@@ -121,6 +121,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<string>;
     /**
+     * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
     public readonly filename!: pulumi.Output<string | undefined>;
@@ -232,6 +236,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["customParent"] = state ? state.customParent : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["filename"] = state ? state.filename : undefined;
             resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["interval"] = state ? state.interval : undefined;
@@ -269,6 +274,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["customParent"] = args ? args.customParent : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["filename"] = args ? args.filename : undefined;
             resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["interval"] = args ? args.interval : undefined;
@@ -334,6 +340,10 @@ export interface MonitorState {
      * Specify an alias address for monitoring
      */
     destination?: pulumi.Input<string>;
+    /**
+     * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     */
+    domain?: pulumi.Input<string>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
@@ -462,6 +472,10 @@ export interface MonitorArgs {
      * Specify an alias address for monitoring
      */
     destination?: pulumi.Input<string>;
+    /**
+     * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     */
+    domain?: pulumi.Input<string>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */

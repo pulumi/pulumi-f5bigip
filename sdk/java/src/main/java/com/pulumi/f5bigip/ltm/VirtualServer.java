@@ -48,6 +48,20 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> clientProfiles() {
         return Codegen.optional(this.clientProfiles);
     }
+    /**
+     * Specifies the maximum number of connections allowed for the virtual server.
+     * 
+     */
+    @Export(name="connectionLimit", refs={Integer.class}, tree="[0]")
+    private Output<Integer> connectionLimit;
+
+    /**
+     * @return Specifies the maximum number of connections allowed for the virtual server.
+     * 
+     */
+    public Output<Integer> connectionLimit() {
+        return this.connectionLimit;
+    }
     @Export(name="defaultPersistenceProfile", refs={String.class}, tree="[0]")
     private Output<String> defaultPersistenceProfile;
 

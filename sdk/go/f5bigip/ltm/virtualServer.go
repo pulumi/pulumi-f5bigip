@@ -28,8 +28,10 @@ type VirtualServer struct {
 	pulumi.CustomResourceState
 
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles            pulumi.StringArrayOutput `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile pulumi.StringOutput      `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles pulumi.StringArrayOutput `pulumi:"clientProfiles"`
+	// Specifies the maximum number of connections allowed for the virtual server.
+	ConnectionLimit           pulumi.IntOutput    `pulumi:"connectionLimit"`
+	DefaultPersistenceProfile pulumi.StringOutput `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination IP
@@ -118,8 +120,10 @@ func GetVirtualServer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualServer resources.
 type virtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles            []string `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile *string  `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles []string `pulumi:"clientProfiles"`
+	// Specifies the maximum number of connections allowed for the virtual server.
+	ConnectionLimit           *int    `pulumi:"connectionLimit"`
+	DefaultPersistenceProfile *string `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description *string `pulumi:"description"`
 	// Destination IP
@@ -176,7 +180,9 @@ type virtualServerState struct {
 
 type VirtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles            pulumi.StringArrayInput
+	ClientProfiles pulumi.StringArrayInput
+	// Specifies the maximum number of connections allowed for the virtual server.
+	ConnectionLimit           pulumi.IntPtrInput
 	DefaultPersistenceProfile pulumi.StringPtrInput
 	// Description of Virtual server
 	Description pulumi.StringPtrInput
@@ -238,8 +244,10 @@ func (VirtualServerState) ElementType() reflect.Type {
 
 type virtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles            []string `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile *string  `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles []string `pulumi:"clientProfiles"`
+	// Specifies the maximum number of connections allowed for the virtual server.
+	ConnectionLimit           *int    `pulumi:"connectionLimit"`
+	DefaultPersistenceProfile *string `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description *string `pulumi:"description"`
 	// Destination IP
@@ -297,7 +305,9 @@ type virtualServerArgs struct {
 // The set of arguments for constructing a VirtualServer resource.
 type VirtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles            pulumi.StringArrayInput
+	ClientProfiles pulumi.StringArrayInput
+	// Specifies the maximum number of connections allowed for the virtual server.
+	ConnectionLimit           pulumi.IntPtrInput
 	DefaultPersistenceProfile pulumi.StringPtrInput
 	// Description of Virtual server
 	Description pulumi.StringPtrInput
@@ -443,6 +453,11 @@ func (o VirtualServerOutput) ToVirtualServerOutputWithContext(ctx context.Contex
 // List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 func (o VirtualServerOutput) ClientProfiles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualServer) pulumi.StringArrayOutput { return v.ClientProfiles }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of connections allowed for the virtual server.
+func (o VirtualServerOutput) ConnectionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualServer) pulumi.IntOutput { return v.ConnectionLimit }).(pulumi.IntOutput)
 }
 
 func (o VirtualServerOutput) DefaultPersistenceProfile() pulumi.StringOutput {

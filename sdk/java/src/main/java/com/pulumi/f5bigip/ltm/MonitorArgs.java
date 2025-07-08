@@ -138,6 +138,21 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     * 
+     */
+    @Import(name="domain")
+    private @Nullable Output<String> domain;
+
+    /**
+     * @return Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     * 
+     */
+    public Optional<Output<String>> domain() {
+        return Optional.ofNullable(this.domain);
+    }
+
+    /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      * 
      */
@@ -475,6 +490,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.customParent = $.customParent;
         this.database = $.database;
         this.destination = $.destination;
+        this.domain = $.domain;
         this.filename = $.filename;
         this.filter = $.filter;
         this.interval = $.interval;
@@ -682,6 +698,27 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
+        }
+
+        /**
+         * @param domain Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(@Nullable Output<String> domain) {
+            $.domain = domain;
+            return this;
+        }
+
+        /**
+         * @param domain Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domain(String domain) {
+            return domain(Output.of(domain));
         }
 
         /**
