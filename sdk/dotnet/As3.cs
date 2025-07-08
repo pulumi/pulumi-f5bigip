@@ -392,6 +392,13 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableDictionary<string, string>?> Controls { get; private set; } = null!;
 
         /// <summary>
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
+        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// </summary>
+        [Output("deleteApps")]
+        public Output<Outputs.As3DeleteApps?> DeleteApps { get; private set; } = null!;
+
+        /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// 
         /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -571,6 +578,12 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// ```
+        /// 
+        /// # f5bigip.As3 delete one or more applications
+        /// 
+        /// The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+        /// 
+        /// &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
@@ -676,6 +689,13 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
+        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// </summary>
+        [Input("deleteApps")]
+        public Input<Inputs.As3DeleteAppsArgs>? DeleteApps { get; set; }
+
+        /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// 
         /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -855,6 +875,12 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// ```
+        /// 
+        /// # f5bigip.As3 delete one or more applications
+        /// 
+        /// The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+        /// 
+        /// &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
@@ -916,6 +942,13 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
+        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// </summary>
+        [Input("deleteApps")]
+        public Input<Inputs.As3DeleteAppsGetArgs>? DeleteApps { get; set; }
+
+        /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// 
         /// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -1095,6 +1128,12 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// ```
+        /// 
+        /// # f5bigip.As3 delete one or more applications
+        /// 
+        /// The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+        /// 
+        /// &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }

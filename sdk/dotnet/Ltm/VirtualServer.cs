@@ -32,6 +32,12 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("clientProfiles")]
         public Output<ImmutableArray<string>> ClientProfiles { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the maximum number of connections allowed for the virtual server.
+        /// </summary>
+        [Output("connectionLimit")]
+        public Output<int> ConnectionLimit { get; private set; } = null!;
+
         [Output("defaultPersistenceProfile")]
         public Output<string> DefaultPersistenceProfile { get; private set; } = null!;
 
@@ -246,6 +252,12 @@ namespace Pulumi.F5BigIP.Ltm
             get => _clientProfiles ?? (_clientProfiles = new InputList<string>());
             set => _clientProfiles = value;
         }
+
+        /// <summary>
+        /// Specifies the maximum number of connections allowed for the virtual server.
+        /// </summary>
+        [Input("connectionLimit")]
+        public Input<int>? ConnectionLimit { get; set; }
 
         [Input("defaultPersistenceProfile")]
         public Input<string>? DefaultPersistenceProfile { get; set; }
@@ -465,6 +477,12 @@ namespace Pulumi.F5BigIP.Ltm
             get => _clientProfiles ?? (_clientProfiles = new InputList<string>());
             set => _clientProfiles = value;
         }
+
+        /// <summary>
+        /// Specifies the maximum number of connections allowed for the virtual server.
+        /// </summary>
+        [Input("connectionLimit")]
+        public Input<int>? ConnectionLimit { get; set; }
 
         [Input("defaultPersistenceProfile")]
         public Input<string>? DefaultPersistenceProfile { get; set; }

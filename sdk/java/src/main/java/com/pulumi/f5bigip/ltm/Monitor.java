@@ -219,6 +219,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.destination;
     }
     /**
+     * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     * 
+     */
+    @Export(name="domain", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domain;
+
+    /**
+     * @return Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+     * 
+     */
+    public Output<Optional<String>> domain() {
+        return Codegen.optional(this.domain);
+    }
+    /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      * 
      */

@@ -17,6 +17,7 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'As3DeleteApps',
     'EventServiceDiscoveryNode',
     'FastHttpAppMonitor',
     'FastHttpAppPoolMember',
@@ -43,6 +44,56 @@ __all__ = [
     'WafPolicyPolicyBuilder',
     'WafPolicySignaturesSetting',
 ]
+
+@pulumi.output_type
+class As3DeleteApps(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantName":
+            suggest = "tenant_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in As3DeleteApps. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        As3DeleteApps.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        As3DeleteApps.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apps: Sequence[builtins.str],
+                 tenant_name: builtins.str):
+        """
+        :param Sequence[builtins.str] apps: List of application names to delete from the specified tenant.
+               
+               > `delete_apps` cannot be used together with `as3_json`.
+        :param builtins.str tenant_name: Name of the tenant containing the apps to delete.
+        """
+        pulumi.set(__self__, "apps", apps)
+        pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> Sequence[builtins.str]:
+        """
+        List of application names to delete from the specified tenant.
+
+        > `delete_apps` cannot be used together with `as3_json`.
+        """
+        return pulumi.get(self, "apps")
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> builtins.str:
+        """
+        Name of the tenant containing the apps to delete.
+        """
+        return pulumi.get(self, "tenant_name")
+
 
 @pulumi.output_type
 class EventServiceDiscoveryNode(dict):

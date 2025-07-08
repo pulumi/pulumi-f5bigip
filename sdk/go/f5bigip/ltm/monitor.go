@@ -109,6 +109,8 @@ type Monitor struct {
 	Database pulumi.StringPtrOutput `pulumi:"database"`
 	// Specify an alias address for monitoring
 	Destination pulumi.StringOutput `pulumi:"destination"`
+	// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrOutput `pulumi:"filename"`
 	// Specifies an LDAP key for which the monitor searches
@@ -218,6 +220,8 @@ type monitorState struct {
 	Database *string `pulumi:"database"`
 	// Specify an alias address for monitoring
 	Destination *string `pulumi:"destination"`
+	// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+	Domain *string `pulumi:"domain"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
 	// Specifies an LDAP key for which the monitor searches
@@ -285,6 +289,8 @@ type MonitorState struct {
 	Database pulumi.StringPtrInput
 	// Specify an alias address for monitoring
 	Destination pulumi.StringPtrInput
+	// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+	Domain pulumi.StringPtrInput
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
 	// Specifies an LDAP key for which the monitor searches
@@ -356,6 +362,8 @@ type monitorArgs struct {
 	Database *string `pulumi:"database"`
 	// Specify an alias address for monitoring
 	Destination *string `pulumi:"destination"`
+	// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+	Domain *string `pulumi:"domain"`
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
 	// Specifies an LDAP key for which the monitor searches
@@ -424,6 +432,8 @@ type MonitorArgs struct {
 	Database pulumi.StringPtrInput
 	// Specify an alias address for monitoring
 	Destination pulumi.StringPtrInput
+	// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+	Domain pulumi.StringPtrInput
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
 	// Specifies an LDAP key for which the monitor searches
@@ -599,6 +609,11 @@ func (o MonitorOutput) Database() pulumi.StringPtrOutput {
 // Specify an alias address for monitoring
 func (o MonitorOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
+func (o MonitorOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.

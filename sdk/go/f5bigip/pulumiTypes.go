@@ -13,6 +13,170 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type As3DeleteApps struct {
+	// List of application names to delete from the specified tenant.
+	//
+	// > `deleteApps` cannot be used together with `as3Json`.
+	Apps []string `pulumi:"apps"`
+	// Name of the tenant containing the apps to delete.
+	TenantName string `pulumi:"tenantName"`
+}
+
+// As3DeleteAppsInput is an input type that accepts As3DeleteAppsArgs and As3DeleteAppsOutput values.
+// You can construct a concrete instance of `As3DeleteAppsInput` via:
+//
+//	As3DeleteAppsArgs{...}
+type As3DeleteAppsInput interface {
+	pulumi.Input
+
+	ToAs3DeleteAppsOutput() As3DeleteAppsOutput
+	ToAs3DeleteAppsOutputWithContext(context.Context) As3DeleteAppsOutput
+}
+
+type As3DeleteAppsArgs struct {
+	// List of application names to delete from the specified tenant.
+	//
+	// > `deleteApps` cannot be used together with `as3Json`.
+	Apps pulumi.StringArrayInput `pulumi:"apps"`
+	// Name of the tenant containing the apps to delete.
+	TenantName pulumi.StringInput `pulumi:"tenantName"`
+}
+
+func (As3DeleteAppsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*As3DeleteApps)(nil)).Elem()
+}
+
+func (i As3DeleteAppsArgs) ToAs3DeleteAppsOutput() As3DeleteAppsOutput {
+	return i.ToAs3DeleteAppsOutputWithContext(context.Background())
+}
+
+func (i As3DeleteAppsArgs) ToAs3DeleteAppsOutputWithContext(ctx context.Context) As3DeleteAppsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3DeleteAppsOutput)
+}
+
+func (i As3DeleteAppsArgs) ToAs3DeleteAppsPtrOutput() As3DeleteAppsPtrOutput {
+	return i.ToAs3DeleteAppsPtrOutputWithContext(context.Background())
+}
+
+func (i As3DeleteAppsArgs) ToAs3DeleteAppsPtrOutputWithContext(ctx context.Context) As3DeleteAppsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3DeleteAppsOutput).ToAs3DeleteAppsPtrOutputWithContext(ctx)
+}
+
+// As3DeleteAppsPtrInput is an input type that accepts As3DeleteAppsArgs, As3DeleteAppsPtr and As3DeleteAppsPtrOutput values.
+// You can construct a concrete instance of `As3DeleteAppsPtrInput` via:
+//
+//	        As3DeleteAppsArgs{...}
+//
+//	or:
+//
+//	        nil
+type As3DeleteAppsPtrInput interface {
+	pulumi.Input
+
+	ToAs3DeleteAppsPtrOutput() As3DeleteAppsPtrOutput
+	ToAs3DeleteAppsPtrOutputWithContext(context.Context) As3DeleteAppsPtrOutput
+}
+
+type as3DeleteAppsPtrType As3DeleteAppsArgs
+
+func As3DeleteAppsPtr(v *As3DeleteAppsArgs) As3DeleteAppsPtrInput {
+	return (*as3DeleteAppsPtrType)(v)
+}
+
+func (*as3DeleteAppsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**As3DeleteApps)(nil)).Elem()
+}
+
+func (i *as3DeleteAppsPtrType) ToAs3DeleteAppsPtrOutput() As3DeleteAppsPtrOutput {
+	return i.ToAs3DeleteAppsPtrOutputWithContext(context.Background())
+}
+
+func (i *as3DeleteAppsPtrType) ToAs3DeleteAppsPtrOutputWithContext(ctx context.Context) As3DeleteAppsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3DeleteAppsPtrOutput)
+}
+
+type As3DeleteAppsOutput struct{ *pulumi.OutputState }
+
+func (As3DeleteAppsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*As3DeleteApps)(nil)).Elem()
+}
+
+func (o As3DeleteAppsOutput) ToAs3DeleteAppsOutput() As3DeleteAppsOutput {
+	return o
+}
+
+func (o As3DeleteAppsOutput) ToAs3DeleteAppsOutputWithContext(ctx context.Context) As3DeleteAppsOutput {
+	return o
+}
+
+func (o As3DeleteAppsOutput) ToAs3DeleteAppsPtrOutput() As3DeleteAppsPtrOutput {
+	return o.ToAs3DeleteAppsPtrOutputWithContext(context.Background())
+}
+
+func (o As3DeleteAppsOutput) ToAs3DeleteAppsPtrOutputWithContext(ctx context.Context) As3DeleteAppsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v As3DeleteApps) *As3DeleteApps {
+		return &v
+	}).(As3DeleteAppsPtrOutput)
+}
+
+// List of application names to delete from the specified tenant.
+//
+// > `deleteApps` cannot be used together with `as3Json`.
+func (o As3DeleteAppsOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v As3DeleteApps) []string { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+// Name of the tenant containing the apps to delete.
+func (o As3DeleteAppsOutput) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v As3DeleteApps) string { return v.TenantName }).(pulumi.StringOutput)
+}
+
+type As3DeleteAppsPtrOutput struct{ *pulumi.OutputState }
+
+func (As3DeleteAppsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**As3DeleteApps)(nil)).Elem()
+}
+
+func (o As3DeleteAppsPtrOutput) ToAs3DeleteAppsPtrOutput() As3DeleteAppsPtrOutput {
+	return o
+}
+
+func (o As3DeleteAppsPtrOutput) ToAs3DeleteAppsPtrOutputWithContext(ctx context.Context) As3DeleteAppsPtrOutput {
+	return o
+}
+
+func (o As3DeleteAppsPtrOutput) Elem() As3DeleteAppsOutput {
+	return o.ApplyT(func(v *As3DeleteApps) As3DeleteApps {
+		if v != nil {
+			return *v
+		}
+		var ret As3DeleteApps
+		return ret
+	}).(As3DeleteAppsOutput)
+}
+
+// List of application names to delete from the specified tenant.
+//
+// > `deleteApps` cannot be used together with `as3Json`.
+func (o As3DeleteAppsPtrOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *As3DeleteApps) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Apps
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the tenant containing the apps to delete.
+func (o As3DeleteAppsPtrOutput) TenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As3DeleteApps) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantName
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventServiceDiscoveryNode struct {
 	// name of node
 	Id *string `pulumi:"id"`
@@ -3627,6 +3791,8 @@ func (o WafPolicySignaturesSettingArrayOutput) Index(i pulumi.IntInput) WafPolic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*As3DeleteAppsInput)(nil)).Elem(), As3DeleteAppsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As3DeleteAppsPtrInput)(nil)).Elem(), As3DeleteAppsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeInput)(nil)).Elem(), EventServiceDiscoveryNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeArrayInput)(nil)).Elem(), EventServiceDiscoveryNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppMonitorInput)(nil)).Elem(), FastHttpAppMonitorArgs{})
@@ -3677,6 +3843,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyPolicyBuilderArrayInput)(nil)).Elem(), WafPolicyPolicyBuilderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicySignaturesSettingInput)(nil)).Elem(), WafPolicySignaturesSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicySignaturesSettingArrayInput)(nil)).Elem(), WafPolicySignaturesSettingArray{})
+	pulumi.RegisterOutputType(As3DeleteAppsOutput{})
+	pulumi.RegisterOutputType(As3DeleteAppsPtrOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeArrayOutput{})
 	pulumi.RegisterOutputType(FastHttpAppMonitorOutput{})

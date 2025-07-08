@@ -18,6 +18,7 @@ from .fast_https_app import *
 from .fast_tcp_app import *
 from .fast_template import *
 from .fast_udp_app import *
+from .get_as3_device_information import *
 from .ipsec_policy import *
 from .ipsec_profile import *
 from .net_ike_peer import *

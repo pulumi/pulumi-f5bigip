@@ -16,6 +16,8 @@ else:
 from . import _utilities
 
 __all__ = [
+    'As3DeleteAppsArgs',
+    'As3DeleteAppsArgsDict',
     'EventServiceDiscoveryNodeArgs',
     'EventServiceDiscoveryNodeArgsDict',
     'FastHttpAppMonitorArgs',
@@ -69,6 +71,62 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class As3DeleteAppsArgsDict(TypedDict):
+        apps: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        List of application names to delete from the specified tenant.
+
+        > `delete_apps` cannot be used together with `as3_json`.
+        """
+        tenant_name: pulumi.Input[builtins.str]
+        """
+        Name of the tenant containing the apps to delete.
+        """
+elif False:
+    As3DeleteAppsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class As3DeleteAppsArgs:
+    def __init__(__self__, *,
+                 apps: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 tenant_name: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] apps: List of application names to delete from the specified tenant.
+               
+               > `delete_apps` cannot be used together with `as3_json`.
+        :param pulumi.Input[builtins.str] tenant_name: Name of the tenant containing the apps to delete.
+        """
+        pulumi.set(__self__, "apps", apps)
+        pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter
+    def apps(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        List of application names to delete from the specified tenant.
+
+        > `delete_apps` cannot be used together with `as3_json`.
+        """
+        return pulumi.get(self, "apps")
+
+    @apps.setter
+    def apps(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "apps", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of the tenant containing the apps to delete.
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tenant_name", value)
+
 
 if not MYPY:
     class EventServiceDiscoveryNodeArgsDict(TypedDict):

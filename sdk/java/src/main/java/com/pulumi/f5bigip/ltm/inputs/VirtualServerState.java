@@ -33,6 +33,21 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.clientProfiles);
     }
 
+    /**
+     * Specifies the maximum number of connections allowed for the virtual server.
+     * 
+     */
+    @Import(name="connectionLimit")
+    private @Nullable Output<Integer> connectionLimit;
+
+    /**
+     * @return Specifies the maximum number of connections allowed for the virtual server.
+     * 
+     */
+    public Optional<Output<Integer>> connectionLimit() {
+        return Optional.ofNullable(this.connectionLimit);
+    }
+
     @Import(name="defaultPersistenceProfile")
     private @Nullable Output<String> defaultPersistenceProfile;
 
@@ -428,6 +443,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
 
     private VirtualServerState(VirtualServerState $) {
         this.clientProfiles = $.clientProfiles;
+        this.connectionLimit = $.connectionLimit;
         this.defaultPersistenceProfile = $.defaultPersistenceProfile;
         this.description = $.description;
         this.destination = $.destination;
@@ -504,6 +520,27 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder clientProfiles(String... clientProfiles) {
             return clientProfiles(List.of(clientProfiles));
+        }
+
+        /**
+         * @param connectionLimit Specifies the maximum number of connections allowed for the virtual server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionLimit(@Nullable Output<Integer> connectionLimit) {
+            $.connectionLimit = connectionLimit;
+            return this;
+        }
+
+        /**
+         * @param connectionLimit Specifies the maximum number of connections allowed for the virtual server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionLimit(Integer connectionLimit) {
+            return connectionLimit(Output.of(connectionLimit));
         }
 
         public Builder defaultPersistenceProfile(@Nullable Output<String> defaultPersistenceProfile) {

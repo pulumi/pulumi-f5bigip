@@ -379,12 +379,21 @@ type As3 struct {
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapOutput `pulumi:"controls"`
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+	// of `deleteApps` or `as3Json` can be set in a resource block.
+	DeleteApps As3DeleteAppsPtrOutput `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	//
 	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+	//
+	// # As3 delete one or more applications
+	//
+	// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+	//
+	// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolOutput `pulumi:"perAppMode"`
@@ -434,12 +443,21 @@ type as3State struct {
 	As3Json *string `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls map[string]string `pulumi:"controls"`
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+	// of `deleteApps` or `as3Json` can be set in a resource block.
+	DeleteApps *As3DeleteApps `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	//
 	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+	//
+	// # As3 delete one or more applications
+	//
+	// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+	//
+	// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode *bool `pulumi:"perAppMode"`
@@ -460,12 +478,21 @@ type As3State struct {
 	As3Json pulumi.StringPtrInput
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapInput
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+	// of `deleteApps` or `as3Json` can be set in a resource block.
+	DeleteApps As3DeleteAppsPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	//
 	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+	//
+	// # As3 delete one or more applications
+	//
+	// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+	//
+	// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 	IgnoreMetadata pulumi.BoolPtrInput
 	// Will specify whether is deployment is done via Per-Application Way or Traditional Way
 	PerAppMode pulumi.BoolPtrInput
@@ -490,12 +517,21 @@ type as3Args struct {
 	As3Json *string `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls map[string]string `pulumi:"controls"`
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+	// of `deleteApps` or `as3Json` can be set in a resource block.
+	DeleteApps *As3DeleteApps `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	//
 	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+	//
+	// # As3 delete one or more applications
+	//
+	// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+	//
+	// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -515,12 +551,21 @@ type As3Args struct {
 	As3Json pulumi.StringPtrInput
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapInput
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+	// of `deleteApps` or `as3Json` can be set in a resource block.
+	DeleteApps As3DeleteAppsPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 	//
 	// * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+	//
+	// # As3 delete one or more applications
+	//
+	// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+	//
+	// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -634,12 +679,24 @@ func (o As3Output) Controls() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringMapOutput { return v.Controls }).(pulumi.StringMapOutput)
 }
 
+// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
+// of `deleteApps` or `as3Json` can be set in a resource block.
+func (o As3Output) DeleteApps() As3DeleteAppsPtrOutput {
+	return o.ApplyT(func(v *As3) As3DeleteAppsPtrOutput { return v.DeleteApps }).(As3DeleteAppsPtrOutput)
+}
+
 // Set True if you want to ignore metadata changes during update. By default it is set to false
 //
 // * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 // * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
 //
 // * `perApplication_example` - Per Application Example - JSON file with multiple Applications (and no Tenant Details)
+//
+// # As3 delete one or more applications
+//
+// The `As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
+//
+// > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `As3` resource block.
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

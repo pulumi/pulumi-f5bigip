@@ -65,6 +65,11 @@ export type FastUdpApp = import("./fastUdpApp").FastUdpApp;
 export const FastUdpApp: typeof import("./fastUdpApp").FastUdpApp = null as any;
 utilities.lazyLoad(exports, ["FastUdpApp"], () => require("./fastUdpApp"));
 
+export { GetAs3DeviceInformationArgs, GetAs3DeviceInformationResult, GetAs3DeviceInformationOutputArgs } from "./getAs3DeviceInformation";
+export const getAs3DeviceInformation: typeof import("./getAs3DeviceInformation").getAs3DeviceInformation = null as any;
+export const getAs3DeviceInformationOutput: typeof import("./getAs3DeviceInformation").getAs3DeviceInformationOutput = null as any;
+utilities.lazyLoad(exports, ["getAs3DeviceInformation","getAs3DeviceInformationOutput"], () => require("./getAs3DeviceInformation"));
+
 export { IpsecPolicyArgs, IpsecPolicyState } from "./ipsecPolicy";
 export type IpsecPolicy = import("./ipsecPolicy").IpsecPolicy;
 export const IpsecPolicy: typeof import("./ipsecPolicy").IpsecPolicy = null as any;
