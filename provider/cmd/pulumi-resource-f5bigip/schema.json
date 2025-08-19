@@ -17830,7 +17830,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:f5bigip"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:f5bigip/terraformConfig",
