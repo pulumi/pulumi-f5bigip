@@ -53,12 +53,12 @@ export class Provision extends pulumi.CustomResource {
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    public readonly cpuRatio!: pulumi.Output<number | undefined>;
+    declare public readonly cpuRatio: pulumi.Output<number | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    public readonly diskRatio!: pulumi.Output<number | undefined>;
-    public readonly fullPath!: pulumi.Output<string>;
+    declare public readonly diskRatio: pulumi.Output<number | undefined>;
+    declare public readonly fullPath: pulumi.Output<string>;
     /**
      * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
      * default is `nominal`
@@ -68,11 +68,11 @@ export class Provision extends pulumi.CustomResource {
      * * none
      * * dedicated
      */
-    public readonly level!: pulumi.Output<string | undefined>;
+    declare public readonly level: pulumi.Output<string | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    public readonly memoryRatio!: pulumi.Output<number | undefined>;
+    declare public readonly memoryRatio: pulumi.Output<number | undefined>;
     /**
      * Name of module to provision in BIG-IP. 
      * possible options:
@@ -93,7 +93,7 @@ export class Provision extends pulumi.CustomResource {
      * * swg
      * * urldb
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Provision resource with the given unique name, arguments, and options.
@@ -108,23 +108,23 @@ export class Provision extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionState | undefined;
-            resourceInputs["cpuRatio"] = state ? state.cpuRatio : undefined;
-            resourceInputs["diskRatio"] = state ? state.diskRatio : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["level"] = state ? state.level : undefined;
-            resourceInputs["memoryRatio"] = state ? state.memoryRatio : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["cpuRatio"] = state?.cpuRatio;
+            resourceInputs["diskRatio"] = state?.diskRatio;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["level"] = state?.level;
+            resourceInputs["memoryRatio"] = state?.memoryRatio;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ProvisionArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["cpuRatio"] = args ? args.cpuRatio : undefined;
-            resourceInputs["diskRatio"] = args ? args.diskRatio : undefined;
-            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["memoryRatio"] = args ? args.memoryRatio : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cpuRatio"] = args?.cpuRatio;
+            resourceInputs["diskRatio"] = args?.diskRatio;
+            resourceInputs["fullPath"] = args?.fullPath;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["memoryRatio"] = args?.memoryRatio;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provision.__pulumiType, name, resourceInputs, opts);

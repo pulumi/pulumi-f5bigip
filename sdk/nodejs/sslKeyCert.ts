@@ -59,47 +59,47 @@ export class SslKeyCert extends pulumi.CustomResource {
     /**
      * The content of the cert.
      */
-    public readonly certContent!: pulumi.Output<string>;
+    declare public readonly certContent: pulumi.Output<string>;
     /**
      * full path of the SSL certificate on the BIGIP.
      */
-    public readonly certFullPath!: pulumi.Output<string>;
+    declare public readonly certFullPath: pulumi.Output<string>;
     /**
      * Specifies the type of monitoring used.
      */
-    public readonly certMonitoringType!: pulumi.Output<string | undefined>;
+    declare public readonly certMonitoringType: pulumi.Output<string | undefined>;
     /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
-    public readonly certName!: pulumi.Output<string>;
+    declare public readonly certName: pulumi.Output<string>;
     /**
      * Specifies the OCSP responder.
      */
-    public readonly certOcsp!: pulumi.Output<string | undefined>;
+    declare public readonly certOcsp: pulumi.Output<string | undefined>;
     /**
      * Specifies the issuer certificate.
      */
-    public readonly issuerCert!: pulumi.Output<string | undefined>;
+    declare public readonly issuerCert: pulumi.Output<string | undefined>;
     /**
      * The content of the key.
      */
-    public readonly keyContent!: pulumi.Output<string>;
+    declare public readonly keyContent: pulumi.Output<string>;
     /**
      * full path of the SSL key on the BIGIP.
      */
-    public readonly keyFullPath!: pulumi.Output<string>;
+    declare public readonly keyFullPath: pulumi.Output<string>;
     /**
      * Name of the SSL key to be Imported on to BIGIP.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * Partition on to SSL certificate and key to be imported.
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Passphrase on the SSL key.
      */
-    public readonly passphrase!: pulumi.Output<string | undefined>;
+    declare public readonly passphrase: pulumi.Output<string | undefined>;
 
     /**
      * Create a SslKeyCert resource with the given unique name, arguments, and options.
@@ -114,41 +114,41 @@ export class SslKeyCert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SslKeyCertState | undefined;
-            resourceInputs["certContent"] = state ? state.certContent : undefined;
-            resourceInputs["certFullPath"] = state ? state.certFullPath : undefined;
-            resourceInputs["certMonitoringType"] = state ? state.certMonitoringType : undefined;
-            resourceInputs["certName"] = state ? state.certName : undefined;
-            resourceInputs["certOcsp"] = state ? state.certOcsp : undefined;
-            resourceInputs["issuerCert"] = state ? state.issuerCert : undefined;
-            resourceInputs["keyContent"] = state ? state.keyContent : undefined;
-            resourceInputs["keyFullPath"] = state ? state.keyFullPath : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
+            resourceInputs["certContent"] = state?.certContent;
+            resourceInputs["certFullPath"] = state?.certFullPath;
+            resourceInputs["certMonitoringType"] = state?.certMonitoringType;
+            resourceInputs["certName"] = state?.certName;
+            resourceInputs["certOcsp"] = state?.certOcsp;
+            resourceInputs["issuerCert"] = state?.issuerCert;
+            resourceInputs["keyContent"] = state?.keyContent;
+            resourceInputs["keyFullPath"] = state?.keyFullPath;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["passphrase"] = state?.passphrase;
         } else {
             const args = argsOrState as SslKeyCertArgs | undefined;
-            if ((!args || args.certContent === undefined) && !opts.urn) {
+            if (args?.certContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certContent'");
             }
-            if ((!args || args.certName === undefined) && !opts.urn) {
+            if (args?.certName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certName'");
             }
-            if ((!args || args.keyContent === undefined) && !opts.urn) {
+            if (args?.keyContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyContent'");
             }
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
             resourceInputs["certContent"] = args?.certContent ? pulumi.secret(args.certContent) : undefined;
-            resourceInputs["certFullPath"] = args ? args.certFullPath : undefined;
-            resourceInputs["certMonitoringType"] = args ? args.certMonitoringType : undefined;
-            resourceInputs["certName"] = args ? args.certName : undefined;
-            resourceInputs["certOcsp"] = args ? args.certOcsp : undefined;
-            resourceInputs["issuerCert"] = args ? args.issuerCert : undefined;
+            resourceInputs["certFullPath"] = args?.certFullPath;
+            resourceInputs["certMonitoringType"] = args?.certMonitoringType;
+            resourceInputs["certName"] = args?.certName;
+            resourceInputs["certOcsp"] = args?.certOcsp;
+            resourceInputs["issuerCert"] = args?.issuerCert;
             resourceInputs["keyContent"] = args?.keyContent ? pulumi.secret(args.keyContent) : undefined;
-            resourceInputs["keyFullPath"] = args ? args.keyFullPath : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["keyFullPath"] = args?.keyFullPath;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["partition"] = args?.partition;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

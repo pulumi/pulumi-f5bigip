@@ -117,9 +117,9 @@ type ProfileClientSsl struct {
 	InheritCertKeychain pulumi.StringOutput `pulumi:"inheritCertKeychain"`
 	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringOutput `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -137,9 +137,9 @@ type ProfileClientSsl struct {
 	ProxyCaKey pulumi.StringOutput `pulumi:"proxyCaKey"`
 	// Proxy CA Passphrase
 	ProxyCaPassphrase pulumi.StringOutput `pulumi:"proxyCaPassphrase"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringOutput `pulumi:"proxySsl"`
-	// Proxy SSL passthrough enabled / disabled. Default is disabled.
+	// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 	ProxySslPassthrough pulumi.StringOutput `pulumi:"proxySslPassthrough"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringOutput `pulumi:"renegotiatePeriod"`
@@ -284,9 +284,9 @@ type profileClientSslState struct {
 	InheritCertKeychain *string `pulumi:"inheritCertKeychain"`
 	// Specifies the file name of the SSL key. The default is `default`
 	Key *string `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name *string `pulumi:"name"`
@@ -304,9 +304,9 @@ type profileClientSslState struct {
 	ProxyCaKey *string `pulumi:"proxyCaKey"`
 	// Proxy CA Passphrase
 	ProxyCaPassphrase *string `pulumi:"proxyCaPassphrase"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
-	// Proxy SSL passthrough enabled / disabled. Default is disabled.
+	// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 	ProxySslPassthrough *string `pulumi:"proxySslPassthrough"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod *string `pulumi:"renegotiatePeriod"`
@@ -412,9 +412,9 @@ type ProfileClientSslState struct {
 	InheritCertKeychain pulumi.StringPtrInput
 	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringPtrInput
@@ -432,9 +432,9 @@ type ProfileClientSslState struct {
 	ProxyCaKey pulumi.StringPtrInput
 	// Proxy CA Passphrase
 	ProxyCaPassphrase pulumi.StringPtrInput
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringPtrInput
-	// Proxy SSL passthrough enabled / disabled. Default is disabled.
+	// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 	ProxySslPassthrough pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringPtrInput
@@ -544,9 +544,9 @@ type profileClientSslArgs struct {
 	InheritCertKeychain *string `pulumi:"inheritCertKeychain"`
 	// Specifies the file name of the SSL key. The default is `default`
 	Key *string `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name string `pulumi:"name"`
@@ -564,9 +564,9 @@ type profileClientSslArgs struct {
 	ProxyCaKey *string `pulumi:"proxyCaKey"`
 	// Proxy CA Passphrase
 	ProxyCaPassphrase *string `pulumi:"proxyCaPassphrase"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
-	// Proxy SSL passthrough enabled / disabled. Default is disabled.
+	// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 	ProxySslPassthrough *string `pulumi:"proxySslPassthrough"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod *string `pulumi:"renegotiatePeriod"`
@@ -673,9 +673,9 @@ type ProfileClientSslArgs struct {
 	InheritCertKeychain pulumi.StringPtrInput
 	// Specifies the file name of the SSL key. The default is `default`
 	Key pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringInput
@@ -693,9 +693,9 @@ type ProfileClientSslArgs struct {
 	ProxyCaKey pulumi.StringPtrInput
 	// Proxy CA Passphrase
 	ProxyCaPassphrase pulumi.StringPtrInput
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringPtrInput
-	// Proxy SSL passthrough enabled / disabled. Default is disabled.
+	// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 	ProxySslPassthrough pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringPtrInput
@@ -974,12 +974,12 @@ func (o ProfileClientSslOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// ModSSL Methods enabled / disabled. Default is disabled.
+// ModSSL Methods enabled / disabled.  Default is disabled.
 func (o ProfileClientSslOutput) ModSslMethods() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ModSslMethods }).(pulumi.StringOutput)
 }
 
-// ModSSL Methods enabled / disabled. Default is disabled.
+// ModSSL Methods enabled / disabled.  Default is disabled.
 func (o ProfileClientSslOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -1024,12 +1024,12 @@ func (o ProfileClientSslOutput) ProxyCaPassphrase() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxyCaPassphrase }).(pulumi.StringOutput)
 }
 
-// Proxy SSL enabled / disabled. Default is disabled.
+// Proxy SSL enabled / disabled.  Default is disabled.
 func (o ProfileClientSslOutput) ProxySsl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxySsl }).(pulumi.StringOutput)
 }
 
-// Proxy SSL passthrough enabled / disabled. Default is disabled.
+// Proxy SSL passthrough enabled / disabled.  Default is disabled.
 func (o ProfileClientSslOutput) ProxySslPassthrough() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxySslPassthrough }).(pulumi.StringOutput)
 }

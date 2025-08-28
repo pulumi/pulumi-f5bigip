@@ -53,19 +53,19 @@ export class Device extends pulumi.CustomResource {
     /**
      * IP address used for config sync
      */
-    public readonly configsyncIp!: pulumi.Output<string>;
+    declare public readonly configsyncIp: pulumi.Output<string>;
     /**
      * IP address used for state mirroring
      */
-    public readonly mirrorIp!: pulumi.Output<string | undefined>;
+    declare public readonly mirrorIp: pulumi.Output<string | undefined>;
     /**
      * Secondary IP address used for state mirroring
      */
-    public readonly mirrorSecondaryIp!: pulumi.Output<string | undefined>;
+    declare public readonly mirrorSecondaryIp: pulumi.Output<string | undefined>;
     /**
      * Address of the Device which needs to be Deviceensed
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -80,22 +80,22 @@ export class Device extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceState | undefined;
-            resourceInputs["configsyncIp"] = state ? state.configsyncIp : undefined;
-            resourceInputs["mirrorIp"] = state ? state.mirrorIp : undefined;
-            resourceInputs["mirrorSecondaryIp"] = state ? state.mirrorSecondaryIp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["configsyncIp"] = state?.configsyncIp;
+            resourceInputs["mirrorIp"] = state?.mirrorIp;
+            resourceInputs["mirrorSecondaryIp"] = state?.mirrorSecondaryIp;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
-            if ((!args || args.configsyncIp === undefined) && !opts.urn) {
+            if (args?.configsyncIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configsyncIp'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["configsyncIp"] = args ? args.configsyncIp : undefined;
-            resourceInputs["mirrorIp"] = args ? args.mirrorIp : undefined;
-            resourceInputs["mirrorSecondaryIp"] = args ? args.mirrorSecondaryIp : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["configsyncIp"] = args?.configsyncIp;
+            resourceInputs["mirrorIp"] = args?.mirrorIp;
+            resourceInputs["mirrorSecondaryIp"] = args?.mirrorSecondaryIp;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Device.__pulumiType, name, resourceInputs, opts);

@@ -102,14 +102,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return this.authenticate;
     }
     /**
-     * Client certificate chain traversal depth. Default 9.
+     * Client certificate chain traversal depth.  Default 9.
      * 
      */
     @Export(name="authenticateDepth", refs={Integer.class}, tree="[0]")
     private Output<Integer> authenticateDepth;
 
     /**
-     * @return Client certificate chain traversal depth. Default 9.
+     * @return Client certificate chain traversal depth.  Default 9.
      * 
      */
     public Output<Integer> authenticateDepth() {
@@ -166,14 +166,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return this.c3dCaPassphrase;
     }
     /**
-     * Certificate Extensions List. Default
+     * Certificate Extensions List.  Default
      * 
      */
     @Export(name="c3dCertExtensionCustomOids", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> c3dCertExtensionCustomOids;
 
     /**
-     * @return Certificate Extensions List. Default
+     * @return Certificate Extensions List.  Default
      * 
      */
     public Output<Optional<List<String>>> c3dCertExtensionCustomOids() {
@@ -236,14 +236,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.c3dCertExtensionIncludes);
     }
     /**
-     * Certificate Lifespan. Default
+     * Certificate Lifespan.  Default
      * 
      */
     @Export(name="c3dCertLifespan", refs={Integer.class}, tree="[0]")
     private Output<Integer> c3dCertLifespan;
 
     /**
-     * @return Certificate Lifespan. Default
+     * @return Certificate Lifespan.  Default
      * 
      */
     public Output<Integer> c3dCertLifespan() {
@@ -264,14 +264,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return this.c3dCertificateExtensions;
     }
     /**
-     * Client certificate file path. Default None.
+     * Client certificate file path.  Default None.
      * 
      */
     @Export(name="caFile", refs={String.class}, tree="[0]")
     private Output<String> caFile;
 
     /**
-     * @return Client certificate file path. Default None.
+     * @return Client certificate file path.  Default None.
      * 
      */
     public Output<String> caFile() {
@@ -460,28 +460,28 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.key);
     }
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="modSslMethods", refs={String.class}, tree="[0]")
     private Output<String> modSslMethods;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> modSslMethods() {
         return this.modSslMethods;
     }
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> mode() {
@@ -572,14 +572,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return this.proxyCaKey;
     }
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="proxySsl", refs={String.class}, tree="[0]")
     private Output<String> proxySsl;
 
     /**
-     * @return Proxy SSL enabled / disabled. Default is disabled.
+     * @return Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> proxySsl() {

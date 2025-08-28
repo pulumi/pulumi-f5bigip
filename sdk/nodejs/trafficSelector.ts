@@ -53,44 +53,44 @@ export class TrafficSelector extends pulumi.CustomResource {
     /**
      * Description of the traffic selector.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
      */
-    public readonly destinationAddress!: pulumi.Output<string>;
+    declare public readonly destinationAddress: pulumi.Output<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`
      */
-    public readonly destinationPort!: pulumi.Output<number>;
+    declare public readonly destinationPort: pulumi.Output<number>;
     /**
      * Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
      */
-    public readonly direction!: pulumi.Output<string>;
+    declare public readonly direction: pulumi.Output<string>;
     /**
      * Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
      */
-    public readonly ipProtocol!: pulumi.Output<number>;
+    declare public readonly ipProtocol: pulumi.Output<number>;
     /**
      * Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
      */
-    public readonly ipsecPolicy!: pulumi.Output<string>;
+    declare public readonly ipsecPolicy: pulumi.Output<string>;
     /**
      * Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
      * When creating a new traffic selector, if this parameter is not specified, the default is `last`
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
      */
-    public readonly sourceAddress!: pulumi.Output<string>;
+    declare public readonly sourceAddress: pulumi.Output<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`.
      */
-    public readonly sourcePort!: pulumi.Output<number>;
+    declare public readonly sourcePort: pulumi.Output<number>;
 
     /**
      * Create a TrafficSelector resource with the given unique name, arguments, and options.
@@ -105,37 +105,37 @@ export class TrafficSelector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficSelectorState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationAddress"] = state ? state.destinationAddress : undefined;
-            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
-            resourceInputs["direction"] = state ? state.direction : undefined;
-            resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
-            resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["sourceAddress"] = state ? state.sourceAddress : undefined;
-            resourceInputs["sourcePort"] = state ? state.sourcePort : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationAddress"] = state?.destinationAddress;
+            resourceInputs["destinationPort"] = state?.destinationPort;
+            resourceInputs["direction"] = state?.direction;
+            resourceInputs["ipProtocol"] = state?.ipProtocol;
+            resourceInputs["ipsecPolicy"] = state?.ipsecPolicy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["sourceAddress"] = state?.sourceAddress;
+            resourceInputs["sourcePort"] = state?.sourcePort;
         } else {
             const args = argsOrState as TrafficSelectorArgs | undefined;
-            if ((!args || args.destinationAddress === undefined) && !opts.urn) {
+            if (args?.destinationAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationAddress'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.sourceAddress === undefined) && !opts.urn) {
+            if (args?.sourceAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceAddress'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationAddress"] = args ? args.destinationAddress : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["sourceAddress"] = args ? args.sourceAddress : undefined;
-            resourceInputs["sourcePort"] = args ? args.sourcePort : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationAddress"] = args?.destinationAddress;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["ipProtocol"] = args?.ipProtocol;
+            resourceInputs["ipsecPolicy"] = args?.ipsecPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["sourceAddress"] = args?.sourceAddress;
+            resourceInputs["sourcePort"] = args?.sourcePort;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficSelector.__pulumiType, name, resourceInputs, opts);

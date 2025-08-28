@@ -244,18 +244,14 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipExceptions);
     }
     /**
-     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      * 
      */
     @Export(name="modifications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> modifications;
 
     /**
-     * @return the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * @return the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      * 
      */
     public Output<Optional<List<String>>> modifications() {

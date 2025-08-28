@@ -61,7 +61,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Authenticate { get; private set; } = null!;
 
         /// <summary>
-        /// Client certificate chain traversal depth. Default 9.
+        /// Client certificate chain traversal depth.  Default 9.
         /// </summary>
         [Output("authenticateDepth")]
         public Output<int> AuthenticateDepth { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> C3dCaPassphrase { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate Extensions List. Default
+        /// Certificate Extensions List.  Default
         /// </summary>
         [Output("c3dCertExtensionCustomOids")]
         public Output<ImmutableArray<string>> C3dCertExtensionCustomOids { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> C3dCertExtensionIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate Lifespan. Default
+        /// Certificate Lifespan.  Default
         /// </summary>
         [Output("c3dCertLifespan")]
         public Output<int> C3dCertLifespan { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> C3dCertificateExtensions { get; private set; } = null!;
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// Client certificate file path.  Default None.
         /// </summary>
         [Output("caFile")]
         public Output<string> CaFile { get; private set; } = null!;
@@ -218,13 +218,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Key { get; private set; } = null!;
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("modSslMethods")]
         public Output<string> ModSslMethods { get; private set; } = null!;
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> ProxyCaKey { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("proxySsl")]
         public Output<string> ProxySsl { get; private set; } = null!;
@@ -449,7 +449,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Authenticate { get; set; }
 
         /// <summary>
-        /// Client certificate chain traversal depth. Default 9.
+        /// Client certificate chain traversal depth.  Default 9.
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _c3dCertExtensionCustomOids;
 
         /// <summary>
-        /// Certificate Extensions List. Default
+        /// Certificate Extensions List.  Default
         /// </summary>
         public InputList<string> C3dCertExtensionCustomOids
         {
@@ -522,7 +522,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Certificate Lifespan. Default
+        /// Certificate Lifespan.  Default
         /// </summary>
         [Input("c3dCertLifespan")]
         public Input<int>? C3dCertLifespan { get; set; }
@@ -534,7 +534,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? C3dCertificateExtensions { get; set; }
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// Client certificate file path.  Default None.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
@@ -618,13 +618,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("modSslMethods")]
         public Input<string>? ModSslMethods { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -676,7 +676,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyCaKey { get; set; }
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySsl")]
         public Input<string>? ProxySsl { get; set; }
@@ -823,7 +823,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Authenticate { get; set; }
 
         /// <summary>
-        /// Client certificate chain traversal depth. Default 9.
+        /// Client certificate chain traversal depth.  Default 9.
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
@@ -854,7 +854,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _c3dCertExtensionCustomOids;
 
         /// <summary>
-        /// Certificate Extensions List. Default
+        /// Certificate Extensions List.  Default
         /// </summary>
         public InputList<string> C3dCertExtensionCustomOids
         {
@@ -896,7 +896,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Certificate Lifespan. Default
+        /// Certificate Lifespan.  Default
         /// </summary>
         [Input("c3dCertLifespan")]
         public Input<int>? C3dCertLifespan { get; set; }
@@ -908,7 +908,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? C3dCertificateExtensions { get; set; }
 
         /// <summary>
-        /// Client certificate file path. Default None.
+        /// Client certificate file path.  Default None.
         /// </summary>
         [Input("caFile")]
         public Input<string>? CaFile { get; set; }
@@ -992,13 +992,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("modSslMethods")]
         public Input<string>? ModSslMethods { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -1050,7 +1050,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyCaKey { get; set; }
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySsl")]
         public Input<string>? ProxySsl { get; set; }

@@ -89,8 +89,7 @@ type ProfileHttp struct {
 	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayOutput `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringOutput `pulumi:"insertXforwardedFor"`
-	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-	// specify in the LWS Maximum Columns setting.
+	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsSeparator pulumi.StringOutput `pulumi:"lwsSeparator"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsWidth pulumi.IntOutput `pulumi:"lwsWidth"`
@@ -183,8 +182,7 @@ type profileHttpState struct {
 	HttpStrictTransportSecurities []ProfileHttpHttpStrictTransportSecurity `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor *string `pulumi:"insertXforwardedFor"`
-	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-	// specify in the LWS Maximum Columns setting.
+	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsSeparator *string `pulumi:"lwsSeparator"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsWidth *int `pulumi:"lwsWidth"`
@@ -245,8 +243,7 @@ type ProfileHttpState struct {
 	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayInput
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringPtrInput
-	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-	// specify in the LWS Maximum Columns setting.
+	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsSeparator pulumi.StringPtrInput
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsWidth pulumi.IntPtrInput
@@ -311,8 +308,7 @@ type profileHttpArgs struct {
 	HttpStrictTransportSecurities []ProfileHttpHttpStrictTransportSecurity `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor *string `pulumi:"insertXforwardedFor"`
-	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-	// specify in the LWS Maximum Columns setting.
+	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsSeparator *string `pulumi:"lwsSeparator"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsWidth *int `pulumi:"lwsWidth"`
@@ -374,8 +370,7 @@ type ProfileHttpArgs struct {
 	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayInput
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringPtrInput
-	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-	// specify in the LWS Maximum Columns setting.
+	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsSeparator pulumi.StringPtrInput
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 	LwsWidth pulumi.IntPtrInput
@@ -566,8 +561,7 @@ func (o ProfileHttpOutput) InsertXforwardedFor() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.InsertXforwardedFor }).(pulumi.StringOutput)
 }
 
-// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-// specify in the LWS Maximum Columns setting.
+// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
 func (o ProfileHttpOutput) LwsSeparator() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.LwsSeparator }).(pulumi.StringOutput)
 }

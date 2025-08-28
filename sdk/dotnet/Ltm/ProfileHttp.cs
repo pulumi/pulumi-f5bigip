@@ -138,8 +138,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> InsertXforwardedFor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        /// specify in the LWS Maximum Columns setting.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         /// </summary>
         [Output("lwsSeparator")]
         public Output<string> LwsSeparator { get; private set; } = null!;
@@ -383,8 +382,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InsertXforwardedFor { get; set; }
 
         /// <summary>
-        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        /// specify in the LWS Maximum Columns setting.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         /// </summary>
         [Input("lwsSeparator")]
         public Input<string>? LwsSeparator { get; set; }
@@ -602,8 +600,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InsertXforwardedFor { get; set; }
 
         /// <summary>
-        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        /// specify in the LWS Maximum Columns setting.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         /// </summary>
         [Input("lwsSeparator")]
         public Input<string>? LwsSeparator { get; set; }

@@ -60,47 +60,47 @@ export class Snat extends pulumi.CustomResource {
     /**
      * Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
-    public readonly autolasthop!: pulumi.Output<string>;
+    declare public readonly autolasthop: pulumi.Output<string>;
     /**
      * Fullpath
      */
-    public readonly fullPath!: pulumi.Output<string | undefined>;
+    declare public readonly fullPath: pulumi.Output<string | undefined>;
     /**
      * Enables or disables mirroring of SNAT connections.
      */
-    public readonly mirror!: pulumi.Output<string>;
+    declare public readonly mirror: pulumi.Output<string>;
     /**
      * Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
      */
-    public readonly origins!: pulumi.Output<outputs.ltm.SnatOrigin[]>;
+    declare public readonly origins: pulumi.Output<outputs.ltm.SnatOrigin[]>;
     /**
      * Partition or path to which the SNAT belongs
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
      */
-    public readonly snatpool!: pulumi.Output<string | undefined>;
+    declare public readonly snatpool: pulumi.Output<string | undefined>;
     /**
      * Specifies how the SNAT object handles the client's source port. The default is `preserve`.
      */
-    public readonly sourceport!: pulumi.Output<string | undefined>;
+    declare public readonly sourceport: pulumi.Output<string | undefined>;
     /**
      * Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
      */
-    public readonly translation!: pulumi.Output<string | undefined>;
+    declare public readonly translation: pulumi.Output<string | undefined>;
     /**
      * Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
      */
-    public readonly vlans!: pulumi.Output<string[] | undefined>;
+    declare public readonly vlans: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
      */
-    public readonly vlansdisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vlansdisabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Snat resource with the given unique name, arguments, and options.
@@ -115,36 +115,36 @@ export class Snat extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnatState | undefined;
-            resourceInputs["autolasthop"] = state ? state.autolasthop : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["mirror"] = state ? state.mirror : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["origins"] = state ? state.origins : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["snatpool"] = state ? state.snatpool : undefined;
-            resourceInputs["sourceport"] = state ? state.sourceport : undefined;
-            resourceInputs["translation"] = state ? state.translation : undefined;
-            resourceInputs["vlans"] = state ? state.vlans : undefined;
-            resourceInputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
+            resourceInputs["autolasthop"] = state?.autolasthop;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["mirror"] = state?.mirror;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["origins"] = state?.origins;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["snatpool"] = state?.snatpool;
+            resourceInputs["sourceport"] = state?.sourceport;
+            resourceInputs["translation"] = state?.translation;
+            resourceInputs["vlans"] = state?.vlans;
+            resourceInputs["vlansdisabled"] = state?.vlansdisabled;
         } else {
             const args = argsOrState as SnatArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.origins === undefined) && !opts.urn) {
+            if (args?.origins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            resourceInputs["autolasthop"] = args ? args.autolasthop : undefined;
-            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
-            resourceInputs["mirror"] = args ? args.mirror : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["snatpool"] = args ? args.snatpool : undefined;
-            resourceInputs["sourceport"] = args ? args.sourceport : undefined;
-            resourceInputs["translation"] = args ? args.translation : undefined;
-            resourceInputs["vlans"] = args ? args.vlans : undefined;
-            resourceInputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
+            resourceInputs["autolasthop"] = args?.autolasthop;
+            resourceInputs["fullPath"] = args?.fullPath;
+            resourceInputs["mirror"] = args?.mirror;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["snatpool"] = args?.snatpool;
+            resourceInputs["sourceport"] = args?.sourceport;
+            resourceInputs["translation"] = args?.translation;
+            resourceInputs["vlans"] = args?.vlans;
+            resourceInputs["vlansdisabled"] = args?.vlansdisabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Snat.__pulumiType, name, resourceInputs, opts);

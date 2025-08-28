@@ -162,10 +162,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> IpDscp { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        /// attributes, the target is considered down.)
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         /// </summary>
         [Output("mandatoryAttributes")]
         public Output<string?> MandatoryAttributes { get; private set; } = null!;
@@ -219,10 +216,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Reverse { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        /// protocol for communications with the target.)
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         /// </summary>
         [Output("security")]
         public Output<string?> Security { get; private set; } = null!;
@@ -398,10 +392,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? IpDscp { get; set; }
 
         /// <summary>
-        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        /// attributes, the target is considered down.)
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         /// </summary>
         [Input("mandatoryAttributes")]
         public Input<string>? MandatoryAttributes { get; set; }
@@ -465,10 +456,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Reverse { get; set; }
 
         /// <summary>
-        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        /// protocol for communications with the target.)
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         /// </summary>
         [Input("security")]
         public Input<string>? Security { get; set; }
@@ -602,10 +590,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? IpDscp { get; set; }
 
         /// <summary>
-        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        /// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        /// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        /// attributes, the target is considered down.)
+        /// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         /// </summary>
         [Input("mandatoryAttributes")]
         public Input<string>? MandatoryAttributes { get; set; }
@@ -669,10 +654,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Reverse { get; set; }
 
         /// <summary>
-        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        /// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        /// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        /// protocol for communications with the target.)
+        /// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         /// </summary>
         [Input("security")]
         public Input<string>? Security { get; set; }

@@ -63,9 +63,7 @@ class WafPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-               section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-               provided by the BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parameters: This section defines parameters that the security policy permits in requests.
         :param pulumi.Input[_builtins.str] partition: Specifies the partition of the policy. Default is `Common`
@@ -272,9 +270,7 @@ class WafPolicyArgs:
     @pulumi.getter
     def modifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        provided by the BIG-IP.
+        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         """
         return pulumi.get(self, "modifications")
 
@@ -496,9 +492,7 @@ class _WafPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-               section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-               provided by the BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parameters: This section defines parameters that the security policy permits in requests.
@@ -688,9 +682,7 @@ class _WafPolicyState:
     @pulumi.getter
     def modifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        provided by the BIG-IP.
+        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         """
         return pulumi.get(self, "modifications")
 
@@ -1000,9 +992,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-               section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-               provided by the BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parameters: This section defines parameters that the security policy permits in requests.
@@ -1213,9 +1203,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
                See IP Exceptions below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-               section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-               provided by the BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] open_api_files: This section defines the Link for open api files on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parameters: This section defines parameters that the security policy permits in requests.
@@ -1347,9 +1335,7 @@ class WafPolicy(pulumi.CustomResource):
     @pulumi.getter
     def modifications(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        provided by the BIG-IP.
+        the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         """
         return pulumi.get(self, "modifications")
 

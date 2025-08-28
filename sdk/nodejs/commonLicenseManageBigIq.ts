@@ -38,67 +38,67 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
     /**
      * The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
      */
-    public readonly assignmentType!: pulumi.Output<string>;
+    declare public readonly assignmentType: pulumi.Output<string>;
     /**
      * BIGIQ License Manager IP Address, variable type `string`
      */
-    public readonly bigiqAddress!: pulumi.Output<string>;
+    declare public readonly bigiqAddress: pulumi.Output<string>;
     /**
      * BIGIQ Login reference for token authentication
      */
-    public readonly bigiqLoginRef!: pulumi.Output<string | undefined>;
+    declare public readonly bigiqLoginRef: pulumi.Output<string | undefined>;
     /**
      * BIGIQ License Manager password.  variable type `string`
      */
-    public readonly bigiqPassword!: pulumi.Output<string>;
+    declare public readonly bigiqPassword: pulumi.Output<string>;
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    public readonly bigiqPort!: pulumi.Output<string | undefined>;
+    declare public readonly bigiqPort: pulumi.Output<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    public readonly bigiqTokenAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly bigiqTokenAuth: pulumi.Output<boolean | undefined>;
     /**
      * BIGIQ License Manager username, variable type `string`
      */
-    public readonly bigiqUser!: pulumi.Output<string>;
+    declare public readonly bigiqUser: pulumi.Output<string>;
     /**
      * Status of Licence Assignment
      */
-    public readonly deviceLicenseStatus!: pulumi.Output<string>;
+    declare public readonly deviceLicenseStatus: pulumi.Output<string>;
     /**
      * Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
      */
-    public readonly hypervisor!: pulumi.Output<string | undefined>;
+    declare public readonly hypervisor: pulumi.Output<string | undefined>;
     /**
      * License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
      */
-    public readonly key!: pulumi.Output<string | undefined>;
+    declare public readonly key: pulumi.Output<string | undefined>;
     /**
      * A name given to the license pool. type `string`
      */
-    public readonly licensePoolname!: pulumi.Output<string>;
+    declare public readonly licensePoolname: pulumi.Output<string>;
     /**
      * MAC address of the BIG-IP. type `string`
      */
-    public readonly macAddress!: pulumi.Output<string | undefined>;
+    declare public readonly macAddress: pulumi.Output<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    public readonly skukeyword1!: pulumi.Output<string | undefined>;
+    declare public readonly skukeyword1: pulumi.Output<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    public readonly skukeyword2!: pulumi.Output<string | undefined>;
+    declare public readonly skukeyword2: pulumi.Output<string | undefined>;
     /**
      * For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
      */
-    public readonly tenant!: pulumi.Output<string | undefined>;
+    declare public readonly tenant: pulumi.Output<string | undefined>;
     /**
      * The units used to measure billing. For example, “hourly” or “daily”. Type `string`
      */
-    public readonly unitOfMeasure!: pulumi.Output<string | undefined>;
+    declare public readonly unitOfMeasure: pulumi.Output<string | undefined>;
 
     /**
      * Create a CommonLicenseManageBigIq resource with the given unique name, arguments, and options.
@@ -113,55 +113,55 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CommonLicenseManageBigIqState | undefined;
-            resourceInputs["assignmentType"] = state ? state.assignmentType : undefined;
-            resourceInputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
-            resourceInputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
-            resourceInputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
-            resourceInputs["bigiqPort"] = state ? state.bigiqPort : undefined;
-            resourceInputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
-            resourceInputs["bigiqUser"] = state ? state.bigiqUser : undefined;
-            resourceInputs["deviceLicenseStatus"] = state ? state.deviceLicenseStatus : undefined;
-            resourceInputs["hypervisor"] = state ? state.hypervisor : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["licensePoolname"] = state ? state.licensePoolname : undefined;
-            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
-            resourceInputs["skukeyword1"] = state ? state.skukeyword1 : undefined;
-            resourceInputs["skukeyword2"] = state ? state.skukeyword2 : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["unitOfMeasure"] = state ? state.unitOfMeasure : undefined;
+            resourceInputs["assignmentType"] = state?.assignmentType;
+            resourceInputs["bigiqAddress"] = state?.bigiqAddress;
+            resourceInputs["bigiqLoginRef"] = state?.bigiqLoginRef;
+            resourceInputs["bigiqPassword"] = state?.bigiqPassword;
+            resourceInputs["bigiqPort"] = state?.bigiqPort;
+            resourceInputs["bigiqTokenAuth"] = state?.bigiqTokenAuth;
+            resourceInputs["bigiqUser"] = state?.bigiqUser;
+            resourceInputs["deviceLicenseStatus"] = state?.deviceLicenseStatus;
+            resourceInputs["hypervisor"] = state?.hypervisor;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["licensePoolname"] = state?.licensePoolname;
+            resourceInputs["macAddress"] = state?.macAddress;
+            resourceInputs["skukeyword1"] = state?.skukeyword1;
+            resourceInputs["skukeyword2"] = state?.skukeyword2;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["unitOfMeasure"] = state?.unitOfMeasure;
         } else {
             const args = argsOrState as CommonLicenseManageBigIqArgs | undefined;
-            if ((!args || args.assignmentType === undefined) && !opts.urn) {
+            if (args?.assignmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assignmentType'");
             }
-            if ((!args || args.bigiqAddress === undefined) && !opts.urn) {
+            if (args?.bigiqAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqAddress'");
             }
-            if ((!args || args.bigiqPassword === undefined) && !opts.urn) {
+            if (args?.bigiqPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqPassword'");
             }
-            if ((!args || args.bigiqUser === undefined) && !opts.urn) {
+            if (args?.bigiqUser === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
-            if ((!args || args.licensePoolname === undefined) && !opts.urn) {
+            if (args?.licensePoolname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licensePoolname'");
             }
-            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
-            resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
+            resourceInputs["assignmentType"] = args?.assignmentType;
+            resourceInputs["bigiqAddress"] = args?.bigiqAddress;
             resourceInputs["bigiqLoginRef"] = args?.bigiqLoginRef ? pulumi.secret(args.bigiqLoginRef) : undefined;
             resourceInputs["bigiqPassword"] = args?.bigiqPassword ? pulumi.secret(args.bigiqPassword) : undefined;
             resourceInputs["bigiqPort"] = args?.bigiqPort ? pulumi.secret(args.bigiqPort) : undefined;
             resourceInputs["bigiqTokenAuth"] = args?.bigiqTokenAuth ? pulumi.secret(args.bigiqTokenAuth) : undefined;
             resourceInputs["bigiqUser"] = args?.bigiqUser ? pulumi.secret(args.bigiqUser) : undefined;
-            resourceInputs["deviceLicenseStatus"] = args ? args.deviceLicenseStatus : undefined;
-            resourceInputs["hypervisor"] = args ? args.hypervisor : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["licensePoolname"] = args ? args.licensePoolname : undefined;
-            resourceInputs["macAddress"] = args ? args.macAddress : undefined;
-            resourceInputs["skukeyword1"] = args ? args.skukeyword1 : undefined;
-            resourceInputs["skukeyword2"] = args ? args.skukeyword2 : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["unitOfMeasure"] = args ? args.unitOfMeasure : undefined;
+            resourceInputs["deviceLicenseStatus"] = args?.deviceLicenseStatus;
+            resourceInputs["hypervisor"] = args?.hypervisor;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["licensePoolname"] = args?.licensePoolname;
+            resourceInputs["macAddress"] = args?.macAddress;
+            resourceInputs["skukeyword1"] = args?.skukeyword1;
+            resourceInputs["skukeyword2"] = args?.skukeyword2;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["unitOfMeasure"] = args?.unitOfMeasure;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"] };

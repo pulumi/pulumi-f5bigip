@@ -15,8 +15,7 @@ import (
 type ProfileBotDefense struct {
 	pulumi.CustomResourceState
 
-	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-	// profile
+	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
 	// User defined description for Bot Defense profile
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -24,8 +23,7 @@ type ProfileBotDefense struct {
 	EnforcementMode pulumi.StringOutput `pulumi:"enforcementMode"`
 	// Name of the Bot Defense profile
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-	// `strict`
+	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 	Template pulumi.StringOutput `pulumi:"template"`
 }
 
@@ -62,8 +60,7 @@ func GetProfileBotDefense(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfileBotDefense resources.
 type profileBotDefenseState struct {
-	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-	// profile
+	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description for Bot Defense profile
 	Description *string `pulumi:"description"`
@@ -71,14 +68,12 @@ type profileBotDefenseState struct {
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of the Bot Defense profile
 	Name *string `pulumi:"name"`
-	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-	// `strict`
+	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 	Template *string `pulumi:"template"`
 }
 
 type ProfileBotDefenseState struct {
-	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-	// profile
+	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description for Bot Defense profile
 	Description pulumi.StringPtrInput
@@ -86,8 +81,7 @@ type ProfileBotDefenseState struct {
 	EnforcementMode pulumi.StringPtrInput
 	// Name of the Bot Defense profile
 	Name pulumi.StringPtrInput
-	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-	// `strict`
+	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 	Template pulumi.StringPtrInput
 }
 
@@ -96,8 +90,7 @@ func (ProfileBotDefenseState) ElementType() reflect.Type {
 }
 
 type profileBotDefenseArgs struct {
-	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-	// profile
+	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description for Bot Defense profile
 	Description *string `pulumi:"description"`
@@ -105,15 +98,13 @@ type profileBotDefenseArgs struct {
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of the Bot Defense profile
 	Name string `pulumi:"name"`
-	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-	// `strict`
+	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 	Template *string `pulumi:"template"`
 }
 
 // The set of arguments for constructing a ProfileBotDefense resource.
 type ProfileBotDefenseArgs struct {
-	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-	// profile
+	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description for Bot Defense profile
 	Description pulumi.StringPtrInput
@@ -121,8 +112,7 @@ type ProfileBotDefenseArgs struct {
 	EnforcementMode pulumi.StringPtrInput
 	// Name of the Bot Defense profile
 	Name pulumi.StringInput
-	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-	// `strict`
+	// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 	Template pulumi.StringPtrInput
 }
 
@@ -213,8 +203,7 @@ func (o ProfileBotDefenseOutput) ToProfileBotDefenseOutputWithContext(ctx contex
 	return o
 }
 
-// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-// profile
+// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 func (o ProfileBotDefenseOutput) DefaultsFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileBotDefense) pulumi.StringPtrOutput { return v.DefaultsFrom }).(pulumi.StringPtrOutput)
 }
@@ -234,8 +223,7 @@ func (o ProfileBotDefenseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileBotDefense) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-// `strict`
+// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
 func (o ProfileBotDefenseOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileBotDefense) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }

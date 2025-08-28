@@ -70,120 +70,119 @@ export class ProfileHttp extends pulumi.CustomResource {
     /**
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
-    public readonly acceptXff!: pulumi.Output<string>;
+    declare public readonly acceptXff: pulumi.Output<string>;
     /**
      * The application service to which the object belongs.
      */
-    public readonly appService!: pulumi.Output<string | undefined>;
+    declare public readonly appService: pulumi.Output<string | undefined>;
     /**
      * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
-    public readonly basicAuthRealm!: pulumi.Output<string>;
+    declare public readonly basicAuthRealm: pulumi.Output<string>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Specifies user-defined description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
-    public readonly encryptCookieSecret!: pulumi.Output<string | undefined>;
+    declare public readonly encryptCookieSecret: pulumi.Output<string | undefined>;
     /**
      * Type the cookie names for the system to encrypt.
      */
-    public readonly encryptCookies!: pulumi.Output<string[] | undefined>;
+    declare public readonly encryptCookies: pulumi.Output<string[] | undefined>;
     /**
      * See Enforcement below for more details.
      */
-    public readonly enforcements!: pulumi.Output<outputs.ltm.ProfileHttpEnforcement[]>;
+    declare public readonly enforcements: pulumi.Output<outputs.ltm.ProfileHttpEnforcement[]>;
     /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
-    public readonly fallbackHost!: pulumi.Output<string | undefined>;
+    declare public readonly fallbackHost: pulumi.Output<string | undefined>;
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
-    public readonly fallbackStatusCodes!: pulumi.Output<string[] | undefined>;
+    declare public readonly fallbackStatusCodes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
-    public readonly headErase!: pulumi.Output<string>;
+    declare public readonly headErase: pulumi.Output<string>;
     /**
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
-    public readonly headInsert!: pulumi.Output<string>;
+    declare public readonly headInsert: pulumi.Output<string>;
     /**
      * See Http_Strict_Transport_Security below for more details.
      */
-    public readonly httpStrictTransportSecurities!: pulumi.Output<outputs.ltm.ProfileHttpHttpStrictTransportSecurity[]>;
+    declare public readonly httpStrictTransportSecurities: pulumi.Output<outputs.ltm.ProfileHttpHttpStrictTransportSecurity[]>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
-    public readonly insertXforwardedFor!: pulumi.Output<string>;
-    /**
-     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
-     */
-    public readonly lwsSeparator!: pulumi.Output<string>;
+    declare public readonly insertXforwardedFor: pulumi.Output<string>;
     /**
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
-    public readonly lwsWidth!: pulumi.Output<number>;
+    declare public readonly lwsSeparator: pulumi.Output<string>;
+    /**
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+     */
+    declare public readonly lwsWidth: pulumi.Output<number>;
     /**
      * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
      */
-    public readonly oneconnectTransformations!: pulumi.Output<string>;
+    declare public readonly oneconnectTransformations: pulumi.Output<string>;
     /**
      * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
-    public readonly proxyType!: pulumi.Output<string>;
+    declare public readonly proxyType: pulumi.Output<string>;
     /**
      * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
-    public readonly redirectRewrite!: pulumi.Output<string>;
+    declare public readonly redirectRewrite: pulumi.Output<string>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
-    public readonly requestChunking!: pulumi.Output<string>;
+    declare public readonly requestChunking: pulumi.Output<string>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
-    public readonly responseChunking!: pulumi.Output<string>;
+    declare public readonly responseChunking: pulumi.Output<string>;
     /**
      * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
-    public readonly responseHeadersPermitteds!: pulumi.Output<string[]>;
+    declare public readonly responseHeadersPermitteds: pulumi.Output<string[]>;
     /**
      * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
-    public readonly serverAgentName!: pulumi.Output<string>;
+    declare public readonly serverAgentName: pulumi.Output<string>;
     /**
      * Displays the administrative partition within which this profile resides.
      */
-    public readonly tmPartition!: pulumi.Output<string | undefined>;
+    declare public readonly tmPartition: pulumi.Output<string | undefined>;
     /**
      * Specifies the hostname to include into Via header
      */
-    public readonly viaHostName!: pulumi.Output<string>;
+    declare public readonly viaHostName: pulumi.Output<string>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    public readonly viaRequest!: pulumi.Output<string>;
+    declare public readonly viaRequest: pulumi.Output<string>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    public readonly viaResponse!: pulumi.Output<string>;
+    declare public readonly viaResponse: pulumi.Output<string>;
     /**
      * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
-    public readonly xffAlternativeNames!: pulumi.Output<string[]>;
+    declare public readonly xffAlternativeNames: pulumi.Output<string[]>;
 
     /**
      * Create a ProfileHttp resource with the given unique name, arguments, and options.
@@ -198,69 +197,69 @@ export class ProfileHttp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileHttpState | undefined;
-            resourceInputs["acceptXff"] = state ? state.acceptXff : undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["basicAuthRealm"] = state ? state.basicAuthRealm : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encryptCookieSecret"] = state ? state.encryptCookieSecret : undefined;
-            resourceInputs["encryptCookies"] = state ? state.encryptCookies : undefined;
-            resourceInputs["enforcements"] = state ? state.enforcements : undefined;
-            resourceInputs["fallbackHost"] = state ? state.fallbackHost : undefined;
-            resourceInputs["fallbackStatusCodes"] = state ? state.fallbackStatusCodes : undefined;
-            resourceInputs["headErase"] = state ? state.headErase : undefined;
-            resourceInputs["headInsert"] = state ? state.headInsert : undefined;
-            resourceInputs["httpStrictTransportSecurities"] = state ? state.httpStrictTransportSecurities : undefined;
-            resourceInputs["insertXforwardedFor"] = state ? state.insertXforwardedFor : undefined;
-            resourceInputs["lwsSeparator"] = state ? state.lwsSeparator : undefined;
-            resourceInputs["lwsWidth"] = state ? state.lwsWidth : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oneconnectTransformations"] = state ? state.oneconnectTransformations : undefined;
-            resourceInputs["proxyType"] = state ? state.proxyType : undefined;
-            resourceInputs["redirectRewrite"] = state ? state.redirectRewrite : undefined;
-            resourceInputs["requestChunking"] = state ? state.requestChunking : undefined;
-            resourceInputs["responseChunking"] = state ? state.responseChunking : undefined;
-            resourceInputs["responseHeadersPermitteds"] = state ? state.responseHeadersPermitteds : undefined;
-            resourceInputs["serverAgentName"] = state ? state.serverAgentName : undefined;
-            resourceInputs["tmPartition"] = state ? state.tmPartition : undefined;
-            resourceInputs["viaHostName"] = state ? state.viaHostName : undefined;
-            resourceInputs["viaRequest"] = state ? state.viaRequest : undefined;
-            resourceInputs["viaResponse"] = state ? state.viaResponse : undefined;
-            resourceInputs["xffAlternativeNames"] = state ? state.xffAlternativeNames : undefined;
+            resourceInputs["acceptXff"] = state?.acceptXff;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["basicAuthRealm"] = state?.basicAuthRealm;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encryptCookieSecret"] = state?.encryptCookieSecret;
+            resourceInputs["encryptCookies"] = state?.encryptCookies;
+            resourceInputs["enforcements"] = state?.enforcements;
+            resourceInputs["fallbackHost"] = state?.fallbackHost;
+            resourceInputs["fallbackStatusCodes"] = state?.fallbackStatusCodes;
+            resourceInputs["headErase"] = state?.headErase;
+            resourceInputs["headInsert"] = state?.headInsert;
+            resourceInputs["httpStrictTransportSecurities"] = state?.httpStrictTransportSecurities;
+            resourceInputs["insertXforwardedFor"] = state?.insertXforwardedFor;
+            resourceInputs["lwsSeparator"] = state?.lwsSeparator;
+            resourceInputs["lwsWidth"] = state?.lwsWidth;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oneconnectTransformations"] = state?.oneconnectTransformations;
+            resourceInputs["proxyType"] = state?.proxyType;
+            resourceInputs["redirectRewrite"] = state?.redirectRewrite;
+            resourceInputs["requestChunking"] = state?.requestChunking;
+            resourceInputs["responseChunking"] = state?.responseChunking;
+            resourceInputs["responseHeadersPermitteds"] = state?.responseHeadersPermitteds;
+            resourceInputs["serverAgentName"] = state?.serverAgentName;
+            resourceInputs["tmPartition"] = state?.tmPartition;
+            resourceInputs["viaHostName"] = state?.viaHostName;
+            resourceInputs["viaRequest"] = state?.viaRequest;
+            resourceInputs["viaResponse"] = state?.viaResponse;
+            resourceInputs["xffAlternativeNames"] = state?.xffAlternativeNames;
         } else {
             const args = argsOrState as ProfileHttpArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["acceptXff"] = args ? args.acceptXff : undefined;
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["basicAuthRealm"] = args ? args.basicAuthRealm : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptCookieSecret"] = args ? args.encryptCookieSecret : undefined;
-            resourceInputs["encryptCookies"] = args ? args.encryptCookies : undefined;
-            resourceInputs["enforcements"] = args ? args.enforcements : undefined;
-            resourceInputs["fallbackHost"] = args ? args.fallbackHost : undefined;
-            resourceInputs["fallbackStatusCodes"] = args ? args.fallbackStatusCodes : undefined;
-            resourceInputs["headErase"] = args ? args.headErase : undefined;
-            resourceInputs["headInsert"] = args ? args.headInsert : undefined;
-            resourceInputs["httpStrictTransportSecurities"] = args ? args.httpStrictTransportSecurities : undefined;
-            resourceInputs["insertXforwardedFor"] = args ? args.insertXforwardedFor : undefined;
-            resourceInputs["lwsSeparator"] = args ? args.lwsSeparator : undefined;
-            resourceInputs["lwsWidth"] = args ? args.lwsWidth : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oneconnectTransformations"] = args ? args.oneconnectTransformations : undefined;
-            resourceInputs["proxyType"] = args ? args.proxyType : undefined;
-            resourceInputs["redirectRewrite"] = args ? args.redirectRewrite : undefined;
-            resourceInputs["requestChunking"] = args ? args.requestChunking : undefined;
-            resourceInputs["responseChunking"] = args ? args.responseChunking : undefined;
-            resourceInputs["responseHeadersPermitteds"] = args ? args.responseHeadersPermitteds : undefined;
-            resourceInputs["serverAgentName"] = args ? args.serverAgentName : undefined;
-            resourceInputs["tmPartition"] = args ? args.tmPartition : undefined;
-            resourceInputs["viaHostName"] = args ? args.viaHostName : undefined;
-            resourceInputs["viaRequest"] = args ? args.viaRequest : undefined;
-            resourceInputs["viaResponse"] = args ? args.viaResponse : undefined;
-            resourceInputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
+            resourceInputs["acceptXff"] = args?.acceptXff;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["basicAuthRealm"] = args?.basicAuthRealm;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptCookieSecret"] = args?.encryptCookieSecret;
+            resourceInputs["encryptCookies"] = args?.encryptCookies;
+            resourceInputs["enforcements"] = args?.enforcements;
+            resourceInputs["fallbackHost"] = args?.fallbackHost;
+            resourceInputs["fallbackStatusCodes"] = args?.fallbackStatusCodes;
+            resourceInputs["headErase"] = args?.headErase;
+            resourceInputs["headInsert"] = args?.headInsert;
+            resourceInputs["httpStrictTransportSecurities"] = args?.httpStrictTransportSecurities;
+            resourceInputs["insertXforwardedFor"] = args?.insertXforwardedFor;
+            resourceInputs["lwsSeparator"] = args?.lwsSeparator;
+            resourceInputs["lwsWidth"] = args?.lwsWidth;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oneconnectTransformations"] = args?.oneconnectTransformations;
+            resourceInputs["proxyType"] = args?.proxyType;
+            resourceInputs["redirectRewrite"] = args?.redirectRewrite;
+            resourceInputs["requestChunking"] = args?.requestChunking;
+            resourceInputs["responseChunking"] = args?.responseChunking;
+            resourceInputs["responseHeadersPermitteds"] = args?.responseHeadersPermitteds;
+            resourceInputs["serverAgentName"] = args?.serverAgentName;
+            resourceInputs["tmPartition"] = args?.tmPartition;
+            resourceInputs["viaHostName"] = args?.viaHostName;
+            resourceInputs["viaRequest"] = args?.viaRequest;
+            resourceInputs["viaResponse"] = args?.viaResponse;
+            resourceInputs["xffAlternativeNames"] = args?.xffAlternativeNames;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileHttp.__pulumiType, name, resourceInputs, opts);
@@ -328,8 +327,7 @@ export interface ProfileHttpState {
      */
     insertXforwardedFor?: pulumi.Input<string>;
     /**
-     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
     lwsSeparator?: pulumi.Input<string>;
     /**
@@ -451,8 +449,7 @@ export interface ProfileHttpArgs {
      */
     insertXforwardedFor?: pulumi.Input<string>;
     /**
-     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
     lwsSeparator?: pulumi.Input<string>;
     /**

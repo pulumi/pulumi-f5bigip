@@ -120,9 +120,7 @@ type WafPolicy struct {
 	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayOutput `pulumi:"ipExceptions"`
-	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-	// provided by the BIG-IP.
+	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 	Modifications pulumi.StringArrayOutput `pulumi:"modifications"`
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -218,9 +216,7 @@ type wafPolicyState struct {
 	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
-	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-	// provided by the BIG-IP.
+	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 	Modifications []string `pulumi:"modifications"`
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name *string `pulumi:"name"`
@@ -281,9 +277,7 @@ type WafPolicyState struct {
 	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayInput
-	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-	// provided by the BIG-IP.
+	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 	Modifications pulumi.StringArrayInput
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringPtrInput
@@ -348,9 +342,7 @@ type wafPolicyArgs struct {
 	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
-	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-	// provided by the BIG-IP.
+	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 	Modifications []string `pulumi:"modifications"`
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name string `pulumi:"name"`
@@ -410,9 +402,7 @@ type WafPolicyArgs struct {
 	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
 	// See IP Exceptions below for more details.
 	IpExceptions WafPolicyIpExceptionArrayInput
-	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-	// provided by the BIG-IP.
+	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 	Modifications pulumi.StringArrayInput
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringInput
@@ -584,9 +574,7 @@ func (o WafPolicyOutput) IpExceptions() WafPolicyIpExceptionArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyIpExceptionArrayOutput { return v.IpExceptions }).(WafPolicyIpExceptionArrayOutput)
 }
 
-// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-// provided by the BIG-IP.
+// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
 func (o WafPolicyOutput) Modifications() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Modifications }).(pulumi.StringArrayOutput)
 }

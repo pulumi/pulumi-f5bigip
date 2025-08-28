@@ -61,47 +61,47 @@ export class ProfileFastHttp extends pulumi.CustomResource {
     /**
      * Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
      */
-    public readonly connpoolMaxreuse!: pulumi.Output<number>;
+    declare public readonly connpoolMaxreuse: pulumi.Output<number>;
     /**
      * Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
      */
-    public readonly connpoolMaxsize!: pulumi.Output<number>;
+    declare public readonly connpoolMaxsize: pulumi.Output<number>;
     /**
      * Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
      */
-    public readonly connpoolMinsize!: pulumi.Output<number>;
+    declare public readonly connpoolMinsize: pulumi.Output<number>;
     /**
      * The default value is enabled. When this option is enabled, the system replenishes the number of connections to a load balancing pool to the number of connections that existed when the server closed the connection to the pool. When disabled, the system replenishes the connection that was closed by the server, only when there are fewer connections to the pool than the number of connections set in the connpool-min-size connections option. Also see the connpool-min-size option..
      */
-    public readonly connpoolReplenish!: pulumi.Output<string>;
+    declare public readonly connpoolReplenish: pulumi.Output<string>;
     /**
      * Specifies the increment in which the system makes additional connections available, when all available connections are in use. The default value is 4.
      */
-    public readonly connpoolStep!: pulumi.Output<number>;
+    declare public readonly connpoolStep: pulumi.Output<number>;
     /**
      * Specifies the number of seconds after which a server-side connection in a OneConnect pool is eligible for deletion, when the connection has no traffic.The value of this option overrides the idle-timeout value that you specify. The default value is 0 (zero) seconds, which disables the override setting.
      */
-    public readonly connpoolidleTimeoutoverride!: pulumi.Output<number>;
+    declare public readonly connpoolidleTimeoutoverride: pulumi.Output<number>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
+    declare public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to rewrite the HTTP version in the status line of the server to HTTP 1.0 to discourage the client from pipelining or chunking data. The default value is disabled.
      */
-    public readonly forcehttp10response!: pulumi.Output<string>;
+    declare public readonly forcehttp10response: pulumi.Output<string>;
     /**
      * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
-    public readonly idleTimeout!: pulumi.Output<number>;
+    declare public readonly idleTimeout: pulumi.Output<number>;
     /**
      * Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
      */
-    public readonly maxheaderSize!: pulumi.Output<number>;
+    declare public readonly maxheaderSize: pulumi.Output<number>;
     /**
      * Name of the profile_fasthttp
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ProfileFastHttp resource with the given unique name, arguments, and options.
@@ -116,33 +116,33 @@ export class ProfileFastHttp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileFastHttpState | undefined;
-            resourceInputs["connpoolMaxreuse"] = state ? state.connpoolMaxreuse : undefined;
-            resourceInputs["connpoolMaxsize"] = state ? state.connpoolMaxsize : undefined;
-            resourceInputs["connpoolMinsize"] = state ? state.connpoolMinsize : undefined;
-            resourceInputs["connpoolReplenish"] = state ? state.connpoolReplenish : undefined;
-            resourceInputs["connpoolStep"] = state ? state.connpoolStep : undefined;
-            resourceInputs["connpoolidleTimeoutoverride"] = state ? state.connpoolidleTimeoutoverride : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["forcehttp10response"] = state ? state.forcehttp10response : undefined;
-            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            resourceInputs["maxheaderSize"] = state ? state.maxheaderSize : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["connpoolMaxreuse"] = state?.connpoolMaxreuse;
+            resourceInputs["connpoolMaxsize"] = state?.connpoolMaxsize;
+            resourceInputs["connpoolMinsize"] = state?.connpoolMinsize;
+            resourceInputs["connpoolReplenish"] = state?.connpoolReplenish;
+            resourceInputs["connpoolStep"] = state?.connpoolStep;
+            resourceInputs["connpoolidleTimeoutoverride"] = state?.connpoolidleTimeoutoverride;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["forcehttp10response"] = state?.forcehttp10response;
+            resourceInputs["idleTimeout"] = state?.idleTimeout;
+            resourceInputs["maxheaderSize"] = state?.maxheaderSize;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ProfileFastHttpArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["connpoolMaxreuse"] = args ? args.connpoolMaxreuse : undefined;
-            resourceInputs["connpoolMaxsize"] = args ? args.connpoolMaxsize : undefined;
-            resourceInputs["connpoolMinsize"] = args ? args.connpoolMinsize : undefined;
-            resourceInputs["connpoolReplenish"] = args ? args.connpoolReplenish : undefined;
-            resourceInputs["connpoolStep"] = args ? args.connpoolStep : undefined;
-            resourceInputs["connpoolidleTimeoutoverride"] = args ? args.connpoolidleTimeoutoverride : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["forcehttp10response"] = args ? args.forcehttp10response : undefined;
-            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            resourceInputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["connpoolMaxreuse"] = args?.connpoolMaxreuse;
+            resourceInputs["connpoolMaxsize"] = args?.connpoolMaxsize;
+            resourceInputs["connpoolMinsize"] = args?.connpoolMinsize;
+            resourceInputs["connpoolReplenish"] = args?.connpoolReplenish;
+            resourceInputs["connpoolStep"] = args?.connpoolStep;
+            resourceInputs["connpoolidleTimeoutoverride"] = args?.connpoolidleTimeoutoverride;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["forcehttp10response"] = args?.forcehttp10response;
+            resourceInputs["idleTimeout"] = args?.idleTimeout;
+            resourceInputs["maxheaderSize"] = args?.maxheaderSize;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileFastHttp.__pulumiType, name, resourceInputs, opts);

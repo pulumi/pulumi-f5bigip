@@ -50,14 +50,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Client certificate chain traversal depth. Default 9.
+     * Client certificate chain traversal depth.  Default 9.
      * 
      */
     @Import(name="authenticateDepth")
     private @Nullable Output<Integer> authenticateDepth;
 
     /**
-     * @return Client certificate chain traversal depth. Default 9.
+     * @return Client certificate chain traversal depth.  Default 9.
      * 
      */
     public Optional<Output<Integer>> authenticateDepth() {
@@ -118,14 +118,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate Extensions List. Default
+     * Certificate Extensions List.  Default
      * 
      */
     @Import(name="c3dCertExtensionCustomOids")
     private @Nullable Output<List<String>> c3dCertExtensionCustomOids;
 
     /**
-     * @return Certificate Extensions List. Default
+     * @return Certificate Extensions List.  Default
      * 
      */
     public Optional<Output<List<String>>> c3dCertExtensionCustomOids() {
@@ -190,14 +190,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Certificate Lifespan. Default
+     * Certificate Lifespan.  Default
      * 
      */
     @Import(name="c3dCertLifespan")
     private @Nullable Output<Integer> c3dCertLifespan;
 
     /**
-     * @return Certificate Lifespan. Default
+     * @return Certificate Lifespan.  Default
      * 
      */
     public Optional<Output<Integer>> c3dCertLifespan() {
@@ -220,14 +220,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Client certificate file path. Default None.
+     * Client certificate file path.  Default None.
      * 
      */
     @Import(name="caFile")
     private @Nullable Output<String> caFile;
 
     /**
-     * @return Client certificate file path. Default None.
+     * @return Client certificate file path.  Default None.
      * 
      */
     public Optional<Output<String>> caFile() {
@@ -430,14 +430,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="modSslMethods")
     private @Nullable Output<String> modSslMethods;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> modSslMethods() {
@@ -445,14 +445,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -550,14 +550,14 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="proxySsl")
     private @Nullable Output<String> proxySsl;
 
     /**
-     * @return Proxy SSL enabled / disabled. Default is disabled.
+     * @return Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> proxySsl() {
@@ -965,7 +965,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authenticateDepth Client certificate chain traversal depth. Default 9.
+         * @param authenticateDepth Client certificate chain traversal depth.  Default 9.
          * 
          * @return builder
          * 
@@ -976,7 +976,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authenticateDepth Client certificate chain traversal depth. Default 9.
+         * @param authenticateDepth Client certificate chain traversal depth.  Default 9.
          * 
          * @return builder
          * 
@@ -1057,7 +1057,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param c3dCertExtensionCustomOids Certificate Extensions List. Default
+         * @param c3dCertExtensionCustomOids Certificate Extensions List.  Default
          * 
          * @return builder
          * 
@@ -1068,7 +1068,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param c3dCertExtensionCustomOids Certificate Extensions List. Default
+         * @param c3dCertExtensionCustomOids Certificate Extensions List.  Default
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param c3dCertExtensionCustomOids Certificate Extensions List. Default
+         * @param c3dCertExtensionCustomOids Certificate Extensions List.  Default
          * 
          * @return builder
          * 
@@ -1182,7 +1182,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param c3dCertLifespan Certificate Lifespan. Default
+         * @param c3dCertLifespan Certificate Lifespan.  Default
          * 
          * @return builder
          * 
@@ -1193,7 +1193,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param c3dCertLifespan Certificate Lifespan. Default
+         * @param c3dCertLifespan Certificate Lifespan.  Default
          * 
          * @return builder
          * 
@@ -1224,7 +1224,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param caFile Client certificate file path. Default None.
+         * @param caFile Client certificate file path.  Default None.
          * 
          * @return builder
          * 
@@ -1235,7 +1235,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param caFile Client certificate file path. Default None.
+         * @param caFile Client certificate file path.  Default None.
          * 
          * @return builder
          * 
@@ -1518,7 +1518,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modSslMethods ModSSL Methods enabled / disabled. Default is disabled.
+         * @param modSslMethods ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1529,7 +1529,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modSslMethods ModSSL Methods enabled / disabled. Default is disabled.
+         * @param modSslMethods ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1539,7 +1539,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mode ModSSL Methods enabled / disabled. Default is disabled.
+         * @param mode ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1550,7 +1550,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mode ModSSL Methods enabled / disabled. Default is disabled.
+         * @param mode ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1686,7 +1686,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySsl Proxy SSL enabled / disabled. Default is disabled.
+         * @param proxySsl Proxy SSL enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1697,7 +1697,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySsl Proxy SSL enabled / disabled. Default is disabled.
+         * @param proxySsl Proxy SSL enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 

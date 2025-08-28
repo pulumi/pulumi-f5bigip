@@ -49,114 +49,114 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
-    public readonly clientProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientProfiles: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the maximum number of connections allowed for the virtual server.
      */
-    public readonly connectionLimit!: pulumi.Output<number>;
-    public readonly defaultPersistenceProfile!: pulumi.Output<string>;
+    declare public readonly connectionLimit: pulumi.Output<number>;
+    declare public readonly defaultPersistenceProfile: pulumi.Output<string>;
     /**
      * Description of Virtual server
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Destination IP
      */
-    public readonly destination!: pulumi.Output<string | undefined>;
+    declare public readonly destination: pulumi.Output<string | undefined>;
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
-    public readonly fallbackPersistenceProfile!: pulumi.Output<string>;
+    declare public readonly fallbackPersistenceProfile: pulumi.Output<string>;
     /**
      * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
      */
-    public readonly firewallEnforcedPolicy!: pulumi.Output<string>;
+    declare public readonly firewallEnforcedPolicy: pulumi.Output<string>;
     /**
      * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      */
-    public readonly ipProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly ipProtocol: pulumi.Output<string | undefined>;
     /**
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
      */
-    public readonly irules!: pulumi.Output<string[] | undefined>;
+    declare public readonly irules: pulumi.Output<string[] | undefined>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
-    public readonly mask!: pulumi.Output<string>;
+    declare public readonly mask: pulumi.Output<string>;
     /**
      * Name of the virtual server
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly perFlowRequestAccessPolicy!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly perFlowRequestAccessPolicy: pulumi.Output<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
-    public readonly persistenceProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly persistenceProfiles: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the policies for the virtual server.
      */
-    public readonly policies!: pulumi.Output<string[] | undefined>;
+    declare public readonly policies: pulumi.Output<string[] | undefined>;
     /**
      * Default pool name
      */
-    public readonly pool!: pulumi.Output<string | undefined>;
+    declare public readonly pool: pulumi.Output<string | undefined>;
     /**
      * Listen port for the virtual server
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
-    public readonly profiles!: pulumi.Output<string[]>;
+    declare public readonly profiles: pulumi.Output<string[]>;
     /**
      * Specifies the log profile applied to the virtual server.
      */
-    public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityLogProfiles: pulumi.Output<string[] | undefined>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
-    public readonly serverProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly serverProfiles: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      */
-    public readonly snatpool!: pulumi.Output<string>;
+    declare public readonly snatpool: pulumi.Output<string>;
     /**
      * Specifies an IP address or network from which the virtual server will accept traffic.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      */
-    public readonly sourceAddressTranslation!: pulumi.Output<string>;
+    declare public readonly sourceAddressTranslation: pulumi.Output<string>;
     /**
      * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
      */
-    public readonly sourcePort!: pulumi.Output<string>;
+    declare public readonly sourcePort: pulumi.Output<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Specifies destination traffic matching information to which the virtual server sends traffic
      */
-    public readonly trafficmatchingCriteria!: pulumi.Output<string>;
+    declare public readonly trafficmatchingCriteria: pulumi.Output<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
-    public readonly translateAddress!: pulumi.Output<string | undefined>;
+    declare public readonly translateAddress: pulumi.Output<string | undefined>;
     /**
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
-    public readonly translatePort!: pulumi.Output<string | undefined>;
+    declare public readonly translatePort: pulumi.Output<string | undefined>;
     /**
      * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      */
-    public readonly vlans!: pulumi.Output<string[] | undefined>;
+    declare public readonly vlans: pulumi.Output<string[] | undefined>;
     /**
      * Enables the virtual server on the VLANs specified by the `vlans` option.
      * By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
      */
-    public readonly vlansEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vlansEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualServer resource with the given unique name, arguments, and options.
@@ -171,69 +171,69 @@ export class VirtualServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
-            resourceInputs["clientProfiles"] = state ? state.clientProfiles : undefined;
-            resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
-            resourceInputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
-            resourceInputs["firewallEnforcedPolicy"] = state ? state.firewallEnforcedPolicy : undefined;
-            resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
-            resourceInputs["irules"] = state ? state.irules : undefined;
-            resourceInputs["mask"] = state ? state.mask : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["perFlowRequestAccessPolicy"] = state ? state.perFlowRequestAccessPolicy : undefined;
-            resourceInputs["persistenceProfiles"] = state ? state.persistenceProfiles : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
-            resourceInputs["pool"] = state ? state.pool : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["profiles"] = state ? state.profiles : undefined;
-            resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
-            resourceInputs["serverProfiles"] = state ? state.serverProfiles : undefined;
-            resourceInputs["snatpool"] = state ? state.snatpool : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["sourceAddressTranslation"] = state ? state.sourceAddressTranslation : undefined;
-            resourceInputs["sourcePort"] = state ? state.sourcePort : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["trafficmatchingCriteria"] = state ? state.trafficmatchingCriteria : undefined;
-            resourceInputs["translateAddress"] = state ? state.translateAddress : undefined;
-            resourceInputs["translatePort"] = state ? state.translatePort : undefined;
-            resourceInputs["vlans"] = state ? state.vlans : undefined;
-            resourceInputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
+            resourceInputs["clientProfiles"] = state?.clientProfiles;
+            resourceInputs["connectionLimit"] = state?.connectionLimit;
+            resourceInputs["defaultPersistenceProfile"] = state?.defaultPersistenceProfile;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["fallbackPersistenceProfile"] = state?.fallbackPersistenceProfile;
+            resourceInputs["firewallEnforcedPolicy"] = state?.firewallEnforcedPolicy;
+            resourceInputs["ipProtocol"] = state?.ipProtocol;
+            resourceInputs["irules"] = state?.irules;
+            resourceInputs["mask"] = state?.mask;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["perFlowRequestAccessPolicy"] = state?.perFlowRequestAccessPolicy;
+            resourceInputs["persistenceProfiles"] = state?.persistenceProfiles;
+            resourceInputs["policies"] = state?.policies;
+            resourceInputs["pool"] = state?.pool;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["profiles"] = state?.profiles;
+            resourceInputs["securityLogProfiles"] = state?.securityLogProfiles;
+            resourceInputs["serverProfiles"] = state?.serverProfiles;
+            resourceInputs["snatpool"] = state?.snatpool;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["sourceAddressTranslation"] = state?.sourceAddressTranslation;
+            resourceInputs["sourcePort"] = state?.sourcePort;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["trafficmatchingCriteria"] = state?.trafficmatchingCriteria;
+            resourceInputs["translateAddress"] = state?.translateAddress;
+            resourceInputs["translatePort"] = state?.translatePort;
+            resourceInputs["vlans"] = state?.vlans;
+            resourceInputs["vlansEnabled"] = state?.vlansEnabled;
         } else {
             const args = argsOrState as VirtualServerArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["clientProfiles"] = args ? args.clientProfiles : undefined;
-            resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
-            resourceInputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
-            resourceInputs["firewallEnforcedPolicy"] = args ? args.firewallEnforcedPolicy : undefined;
-            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            resourceInputs["irules"] = args ? args.irules : undefined;
-            resourceInputs["mask"] = args ? args.mask : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perFlowRequestAccessPolicy"] = args ? args.perFlowRequestAccessPolicy : undefined;
-            resourceInputs["persistenceProfiles"] = args ? args.persistenceProfiles : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["pool"] = args ? args.pool : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
-            resourceInputs["serverProfiles"] = args ? args.serverProfiles : undefined;
-            resourceInputs["snatpool"] = args ? args.snatpool : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceAddressTranslation"] = args ? args.sourceAddressTranslation : undefined;
-            resourceInputs["sourcePort"] = args ? args.sourcePort : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["trafficmatchingCriteria"] = args ? args.trafficmatchingCriteria : undefined;
-            resourceInputs["translateAddress"] = args ? args.translateAddress : undefined;
-            resourceInputs["translatePort"] = args ? args.translatePort : undefined;
-            resourceInputs["vlans"] = args ? args.vlans : undefined;
-            resourceInputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
+            resourceInputs["clientProfiles"] = args?.clientProfiles;
+            resourceInputs["connectionLimit"] = args?.connectionLimit;
+            resourceInputs["defaultPersistenceProfile"] = args?.defaultPersistenceProfile;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["fallbackPersistenceProfile"] = args?.fallbackPersistenceProfile;
+            resourceInputs["firewallEnforcedPolicy"] = args?.firewallEnforcedPolicy;
+            resourceInputs["ipProtocol"] = args?.ipProtocol;
+            resourceInputs["irules"] = args?.irules;
+            resourceInputs["mask"] = args?.mask;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perFlowRequestAccessPolicy"] = args?.perFlowRequestAccessPolicy;
+            resourceInputs["persistenceProfiles"] = args?.persistenceProfiles;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["pool"] = args?.pool;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["securityLogProfiles"] = args?.securityLogProfiles;
+            resourceInputs["serverProfiles"] = args?.serverProfiles;
+            resourceInputs["snatpool"] = args?.snatpool;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceAddressTranslation"] = args?.sourceAddressTranslation;
+            resourceInputs["sourcePort"] = args?.sourcePort;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["trafficmatchingCriteria"] = args?.trafficmatchingCriteria;
+            resourceInputs["translateAddress"] = args?.translateAddress;
+            resourceInputs["translatePort"] = args?.translatePort;
+            resourceInputs["vlans"] = args?.vlans;
+            resourceInputs["vlansEnabled"] = args?.vlansEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualServer.__pulumiType, name, resourceInputs, opts);

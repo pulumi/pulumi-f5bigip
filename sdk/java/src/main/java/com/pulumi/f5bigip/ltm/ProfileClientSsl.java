@@ -486,28 +486,28 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.key;
     }
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="modSslMethods", refs={String.class}, tree="[0]")
     private Output<String> modSslMethods;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> modSslMethods() {
         return this.modSslMethods;
     }
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> mode() {
@@ -626,28 +626,28 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.proxyCaPassphrase;
     }
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="proxySsl", refs={String.class}, tree="[0]")
     private Output<String> proxySsl;
 
     /**
-     * @return Proxy SSL enabled / disabled. Default is disabled.
+     * @return Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> proxySsl() {
         return this.proxySsl;
     }
     /**
-     * Proxy SSL passthrough enabled / disabled. Default is disabled.
+     * Proxy SSL passthrough enabled / disabled.  Default is disabled.
      * 
      */
     @Export(name="proxySslPassthrough", refs={String.class}, tree="[0]")
     private Output<String> proxySslPassthrough;
 
     /**
-     * @return Proxy SSL passthrough enabled / disabled. Default is disabled.
+     * @return Proxy SSL passthrough enabled / disabled.  Default is disabled.
      * 
      */
     public Output<String> proxySslPassthrough() {

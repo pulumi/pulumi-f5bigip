@@ -28,31 +28,31 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Domain name/IP of the BigIP
      */
-    public readonly address!: pulumi.Output<string | undefined>;
+    declare public readonly address: pulumi.Output<string | undefined>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
-    public readonly loginRef!: pulumi.Output<string | undefined>;
+    declare public readonly loginRef: pulumi.Output<string | undefined>;
     /**
      * The user's password. Leave empty if using token_value
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Management Port to connect to Bigip
      */
-    public readonly port!: pulumi.Output<string | undefined>;
+    declare public readonly port: pulumi.Output<string | undefined>;
     /**
      * A token generated outside the provider, in place of password
      */
-    public readonly tokenValue!: pulumi.Output<string | undefined>;
+    declare public readonly tokenValue: pulumi.Output<string | undefined>;
     /**
      * Valid Trusted Certificate path
      */
-    public readonly trustedCertPath!: pulumi.Output<string | undefined>;
+    declare public readonly trustedCertPath: pulumi.Output<string | undefined>;
     /**
      * Username with API access to the BigIP
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -65,19 +65,19 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["apiRetries"] = pulumi.output(args ? args.apiRetries : undefined).apply(JSON.stringify);
-            resourceInputs["apiTimeout"] = pulumi.output(args ? args.apiTimeout : undefined).apply(JSON.stringify);
-            resourceInputs["loginRef"] = args ? args.loginRef : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
-            resourceInputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
-            resourceInputs["tokenTimeout"] = pulumi.output(args ? args.tokenTimeout : undefined).apply(JSON.stringify);
-            resourceInputs["tokenValue"] = args ? args.tokenValue : undefined;
-            resourceInputs["trustedCertPath"] = args ? args.trustedCertPath : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["validateCertsDisable"] = pulumi.output(args ? args.validateCertsDisable : undefined).apply(JSON.stringify);
+            resourceInputs["address"] = args?.address;
+            resourceInputs["apiRetries"] = pulumi.output(args?.apiRetries).apply(JSON.stringify);
+            resourceInputs["apiTimeout"] = pulumi.output(args?.apiTimeout).apply(JSON.stringify);
+            resourceInputs["loginRef"] = args?.loginRef;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["teemDisable"] = pulumi.output(args?.teemDisable).apply(JSON.stringify);
+            resourceInputs["tokenAuth"] = pulumi.output(args?.tokenAuth).apply(JSON.stringify);
+            resourceInputs["tokenTimeout"] = pulumi.output(args?.tokenTimeout).apply(JSON.stringify);
+            resourceInputs["tokenValue"] = args?.tokenValue;
+            resourceInputs["trustedCertPath"] = args?.trustedCertPath;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["validateCertsDisable"] = pulumi.output(args?.validateCertsDisable).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);

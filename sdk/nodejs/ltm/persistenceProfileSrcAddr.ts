@@ -88,53 +88,51 @@ export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
         return obj['__pulumiType'] === PersistenceProfileSrcAddr.__pulumiType;
     }
 
-    public readonly appService!: pulumi.Output<string>;
+    declare public readonly appService: pulumi.Output<string>;
     /**
      * Inherit defaults from parent profile
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Specify the hash algorithm
      */
-    public readonly hashAlgorithm!: pulumi.Output<string>;
+    declare public readonly hashAlgorithm: pulumi.Output<string>;
     /**
      * To enable _ disable directs all to the same single pool member
      */
-    public readonly mapProxies!: pulumi.Output<string>;
+    declare public readonly mapProxies: pulumi.Output<string>;
     /**
-     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
-    public readonly mask!: pulumi.Output<string>;
+    declare public readonly mask: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string>;
+    declare public readonly matchAcrossPools: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string>;
+    declare public readonly matchAcrossServices: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
+    declare public readonly matchAcrossVirtuals: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string>;
+    declare public readonly mirror: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string>;
+    declare public readonly overrideConnLimit: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout!: pulumi.Output<number>;
+    declare public readonly timeout: pulumi.Output<number>;
 
     /**
      * Create a PersistenceProfileSrcAddr resource with the given unique name, arguments, and options.
@@ -149,38 +147,38 @@ export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PersistenceProfileSrcAddrState | undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["hashAlgorithm"] = state ? state.hashAlgorithm : undefined;
-            resourceInputs["mapProxies"] = state ? state.mapProxies : undefined;
-            resourceInputs["mask"] = state ? state.mask : undefined;
-            resourceInputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
-            resourceInputs["mirror"] = state ? state.mirror : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["hashAlgorithm"] = state?.hashAlgorithm;
+            resourceInputs["mapProxies"] = state?.mapProxies;
+            resourceInputs["mask"] = state?.mask;
+            resourceInputs["matchAcrossPools"] = state?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = state?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = state?.matchAcrossVirtuals;
+            resourceInputs["mirror"] = state?.mirror;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["overrideConnLimit"] = state?.overrideConnLimit;
+            resourceInputs["timeout"] = state?.timeout;
         } else {
             const args = argsOrState as PersistenceProfileSrcAddrArgs | undefined;
-            if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
+            if (args?.defaultsFrom === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["hashAlgorithm"] = args ? args.hashAlgorithm : undefined;
-            resourceInputs["mapProxies"] = args ? args.mapProxies : undefined;
-            resourceInputs["mask"] = args ? args.mask : undefined;
-            resourceInputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
-            resourceInputs["mirror"] = args ? args.mirror : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["hashAlgorithm"] = args?.hashAlgorithm;
+            resourceInputs["mapProxies"] = args?.mapProxies;
+            resourceInputs["mask"] = args?.mask;
+            resourceInputs["matchAcrossPools"] = args?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = args?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = args?.matchAcrossVirtuals;
+            resourceInputs["mirror"] = args?.mirror;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrideConnLimit"] = args?.overrideConnLimit;
+            resourceInputs["timeout"] = args?.timeout;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PersistenceProfileSrcAddr.__pulumiType, name, resourceInputs, opts);
@@ -205,8 +203,7 @@ export interface PersistenceProfileSrcAddrState {
      */
     mapProxies?: pulumi.Input<string>;
     /**
-     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
     mask?: pulumi.Input<string>;
     /**
@@ -230,8 +227,7 @@ export interface PersistenceProfileSrcAddrState {
      */
     name?: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**
@@ -258,8 +254,7 @@ export interface PersistenceProfileSrcAddrArgs {
      */
     mapProxies?: pulumi.Input<string>;
     /**
-     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
     mask?: pulumi.Input<string>;
     /**
@@ -283,8 +278,7 @@ export interface PersistenceProfileSrcAddrArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**

@@ -17,16 +17,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:ltm/profileBotDefense:ProfileBotDefense")
 public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      * 
      */
     @Export(name="defaultsFrom", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultsFrom;
 
     /**
-     * @return Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * @return Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      * 
      */
     public Output<Optional<String>> defaultsFrom() {
@@ -75,16 +73,14 @@ public class ProfileBotDefense extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**
-     * @return Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * @return Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      * 
      */
     public Output<String> template() {

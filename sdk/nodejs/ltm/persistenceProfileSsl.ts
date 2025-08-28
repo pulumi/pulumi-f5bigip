@@ -79,40 +79,39 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
         return obj['__pulumiType'] === PersistenceProfileSsl.__pulumiType;
     }
 
-    public readonly appService!: pulumi.Output<string | undefined>;
+    declare public readonly appService: pulumi.Output<string | undefined>;
     /**
      * Inherit defaults from parent profile
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string>;
+    declare public readonly matchAcrossPools: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string>;
+    declare public readonly matchAcrossServices: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
+    declare public readonly matchAcrossVirtuals: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string>;
+    declare public readonly mirror: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string>;
+    declare public readonly overrideConnLimit: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
 
     /**
      * Create a PersistenceProfileSsl resource with the given unique name, arguments, and options.
@@ -127,32 +126,32 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PersistenceProfileSslState | undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
-            resourceInputs["mirror"] = state ? state.mirror : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["matchAcrossPools"] = state?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = state?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = state?.matchAcrossVirtuals;
+            resourceInputs["mirror"] = state?.mirror;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["overrideConnLimit"] = state?.overrideConnLimit;
+            resourceInputs["timeout"] = state?.timeout;
         } else {
             const args = argsOrState as PersistenceProfileSslArgs | undefined;
-            if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
+            if (args?.defaultsFrom === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
-            resourceInputs["mirror"] = args ? args.mirror : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["matchAcrossPools"] = args?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = args?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = args?.matchAcrossVirtuals;
+            resourceInputs["mirror"] = args?.mirror;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrideConnLimit"] = args?.overrideConnLimit;
+            resourceInputs["timeout"] = args?.timeout;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PersistenceProfileSsl.__pulumiType, name, resourceInputs, opts);
@@ -189,8 +188,7 @@ export interface PersistenceProfileSslState {
      */
     name?: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**
@@ -229,8 +227,7 @@ export interface PersistenceProfileSslArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**

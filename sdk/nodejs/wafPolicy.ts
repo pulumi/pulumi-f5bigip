@@ -95,117 +95,115 @@ export class WafPolicy extends pulumi.CustomResource {
     /**
      * The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
      */
-    public readonly applicationLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly applicationLanguage: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
      */
-    public readonly caseInsensitive!: pulumi.Output<boolean | undefined>;
+    declare public readonly caseInsensitive: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the description of the policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
      */
-    public readonly enablePassivemode!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePassivemode: pulumi.Output<boolean | undefined>;
     /**
      * How the system processes a request that triggers a security policy violation
      */
-    public readonly enforcementMode!: pulumi.Output<string | undefined>;
+    declare public readonly enforcementMode: pulumi.Output<string | undefined>;
     /**
      * `fileTypes` takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
-    public readonly fileTypes!: pulumi.Output<outputs.WafPolicyFileType[] | undefined>;
+    declare public readonly fileTypes: pulumi.Output<outputs.WafPolicyFileType[] | undefined>;
     /**
      * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
-    public readonly graphqlProfiles!: pulumi.Output<outputs.WafPolicyGraphqlProfile[] | undefined>;
+    declare public readonly graphqlProfiles: pulumi.Output<outputs.WafPolicyGraphqlProfile[] | undefined>;
     /**
      * specify the list of host name that is used to access the application
      */
-    public readonly hostNames!: pulumi.Output<outputs.WafPolicyHostName[] | undefined>;
+    declare public readonly hostNames: pulumi.Output<outputs.WafPolicyHostName[] | undefined>;
     /**
      * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
-    public readonly ipExceptions!: pulumi.Output<outputs.WafPolicyIpException[] | undefined>;
+    declare public readonly ipExceptions: pulumi.Output<outputs.WafPolicyIpException[] | undefined>;
     /**
-     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      */
-    public readonly modifications!: pulumi.Output<string[] | undefined>;
+    declare public readonly modifications: pulumi.Output<string[] | undefined>;
     /**
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * This section defines the Link for open api files on the policy.
      */
-    public readonly openApiFiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly openApiFiles: pulumi.Output<string[] | undefined>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
-    public readonly parameters!: pulumi.Output<string[] | undefined>;
+    declare public readonly parameters: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the partition of the policy. Default is `Common`
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
-    public readonly policyBuilders!: pulumi.Output<outputs.WafPolicyPolicyBuilder[] | undefined>;
+    declare public readonly policyBuilders: pulumi.Output<outputs.WafPolicyPolicyBuilder[] | undefined>;
     /**
      * Exported WAF policy deployed on BIGIP.
      */
-    public /*out*/ readonly policyExportJson!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyExportJson: pulumi.Output<string>;
     /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
-    public readonly policyImportJson!: pulumi.Output<string | undefined>;
+    declare public readonly policyImportJson: pulumi.Output<string | undefined>;
     /**
      * When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
      */
-    public readonly protocolIndependent!: pulumi.Output<boolean | undefined>;
+    declare public readonly protocolIndependent: pulumi.Output<boolean | undefined>;
     /**
      * The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
      */
-    public readonly serverTechnologies!: pulumi.Output<string[] | undefined>;
+    declare public readonly serverTechnologies: pulumi.Output<string[] | undefined>;
     /**
      * Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
      */
-    public readonly signatureSets!: pulumi.Output<string[] | undefined>;
+    declare public readonly signatureSets: pulumi.Output<string[] | undefined>;
     /**
      * This section defines the properties of a signature on the policy.
      */
-    public readonly signatures!: pulumi.Output<string[] | undefined>;
+    declare public readonly signatures: pulumi.Output<string[] | undefined>;
     /**
      * bulk signature setting
      */
-    public readonly signaturesSettings!: pulumi.Output<outputs.WafPolicySignaturesSetting[] | undefined>;
+    declare public readonly signaturesSettings: pulumi.Output<outputs.WafPolicySignaturesSetting[] | undefined>;
     /**
      * Specifies the Link of the template used for the policy creation.
      */
-    public readonly templateLink!: pulumi.Output<string | undefined>;
+    declare public readonly templateLink: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the template used for the policy creation.
      */
-    public readonly templateName!: pulumi.Output<string>;
+    declare public readonly templateName: pulumi.Output<string>;
     /**
      * The type of policy you want to create. The default policy type is `security`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
      */
-    public readonly urls!: pulumi.Output<string[] | undefined>;
+    declare public readonly urls: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a WafPolicy resource with the given unique name, arguments, and options.
@@ -220,67 +218,67 @@ export class WafPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WafPolicyState | undefined;
-            resourceInputs["applicationLanguage"] = state ? state.applicationLanguage : undefined;
-            resourceInputs["caseInsensitive"] = state ? state.caseInsensitive : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enablePassivemode"] = state ? state.enablePassivemode : undefined;
-            resourceInputs["enforcementMode"] = state ? state.enforcementMode : undefined;
-            resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
-            resourceInputs["graphqlProfiles"] = state ? state.graphqlProfiles : undefined;
-            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
-            resourceInputs["ipExceptions"] = state ? state.ipExceptions : undefined;
-            resourceInputs["modifications"] = state ? state.modifications : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["openApiFiles"] = state ? state.openApiFiles : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["policyBuilders"] = state ? state.policyBuilders : undefined;
-            resourceInputs["policyExportJson"] = state ? state.policyExportJson : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["policyImportJson"] = state ? state.policyImportJson : undefined;
-            resourceInputs["protocolIndependent"] = state ? state.protocolIndependent : undefined;
-            resourceInputs["serverTechnologies"] = state ? state.serverTechnologies : undefined;
-            resourceInputs["signatureSets"] = state ? state.signatureSets : undefined;
-            resourceInputs["signatures"] = state ? state.signatures : undefined;
-            resourceInputs["signaturesSettings"] = state ? state.signaturesSettings : undefined;
-            resourceInputs["templateLink"] = state ? state.templateLink : undefined;
-            resourceInputs["templateName"] = state ? state.templateName : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["urls"] = state ? state.urls : undefined;
+            resourceInputs["applicationLanguage"] = state?.applicationLanguage;
+            resourceInputs["caseInsensitive"] = state?.caseInsensitive;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enablePassivemode"] = state?.enablePassivemode;
+            resourceInputs["enforcementMode"] = state?.enforcementMode;
+            resourceInputs["fileTypes"] = state?.fileTypes;
+            resourceInputs["graphqlProfiles"] = state?.graphqlProfiles;
+            resourceInputs["hostNames"] = state?.hostNames;
+            resourceInputs["ipExceptions"] = state?.ipExceptions;
+            resourceInputs["modifications"] = state?.modifications;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["openApiFiles"] = state?.openApiFiles;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["policyBuilders"] = state?.policyBuilders;
+            resourceInputs["policyExportJson"] = state?.policyExportJson;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["policyImportJson"] = state?.policyImportJson;
+            resourceInputs["protocolIndependent"] = state?.protocolIndependent;
+            resourceInputs["serverTechnologies"] = state?.serverTechnologies;
+            resourceInputs["signatureSets"] = state?.signatureSets;
+            resourceInputs["signatures"] = state?.signatures;
+            resourceInputs["signaturesSettings"] = state?.signaturesSettings;
+            resourceInputs["templateLink"] = state?.templateLink;
+            resourceInputs["templateName"] = state?.templateName;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["urls"] = state?.urls;
         } else {
             const args = argsOrState as WafPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.templateName === undefined) && !opts.urn) {
+            if (args?.templateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["applicationLanguage"] = args ? args.applicationLanguage : undefined;
-            resourceInputs["caseInsensitive"] = args ? args.caseInsensitive : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enablePassivemode"] = args ? args.enablePassivemode : undefined;
-            resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
-            resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
-            resourceInputs["graphqlProfiles"] = args ? args.graphqlProfiles : undefined;
-            resourceInputs["hostNames"] = args ? args.hostNames : undefined;
-            resourceInputs["ipExceptions"] = args ? args.ipExceptions : undefined;
-            resourceInputs["modifications"] = args ? args.modifications : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openApiFiles"] = args ? args.openApiFiles : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["policyBuilders"] = args ? args.policyBuilders : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["policyImportJson"] = args ? args.policyImportJson : undefined;
-            resourceInputs["protocolIndependent"] = args ? args.protocolIndependent : undefined;
-            resourceInputs["serverTechnologies"] = args ? args.serverTechnologies : undefined;
-            resourceInputs["signatureSets"] = args ? args.signatureSets : undefined;
-            resourceInputs["signatures"] = args ? args.signatures : undefined;
-            resourceInputs["signaturesSettings"] = args ? args.signaturesSettings : undefined;
-            resourceInputs["templateLink"] = args ? args.templateLink : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["urls"] = args ? args.urls : undefined;
+            resourceInputs["applicationLanguage"] = args?.applicationLanguage;
+            resourceInputs["caseInsensitive"] = args?.caseInsensitive;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enablePassivemode"] = args?.enablePassivemode;
+            resourceInputs["enforcementMode"] = args?.enforcementMode;
+            resourceInputs["fileTypes"] = args?.fileTypes;
+            resourceInputs["graphqlProfiles"] = args?.graphqlProfiles;
+            resourceInputs["hostNames"] = args?.hostNames;
+            resourceInputs["ipExceptions"] = args?.ipExceptions;
+            resourceInputs["modifications"] = args?.modifications;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openApiFiles"] = args?.openApiFiles;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["policyBuilders"] = args?.policyBuilders;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["policyImportJson"] = args?.policyImportJson;
+            resourceInputs["protocolIndependent"] = args?.protocolIndependent;
+            resourceInputs["serverTechnologies"] = args?.serverTechnologies;
+            resourceInputs["signatureSets"] = args?.signatureSets;
+            resourceInputs["signatures"] = args?.signatures;
+            resourceInputs["signaturesSettings"] = args?.signaturesSettings;
+            resourceInputs["templateLink"] = args?.templateLink;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["urls"] = args?.urls;
             resourceInputs["policyExportJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -332,9 +330,7 @@ export interface WafPolicyState {
      */
     ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
     /**
-     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      */
     modifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -452,9 +448,7 @@ export interface WafPolicyArgs {
      */
     ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
     /**
-     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      */
     modifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -54,16 +54,14 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
     }
 
     /**
-     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      * 
      */
     @Import(name="mask")
     private @Nullable Output<String> mask;
 
     /**
-     * @return Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * @return Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      * 
      */
     public Optional<Output<String>> mask() {
@@ -146,16 +144,14 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
     }
 
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     @Import(name="overrideConnLimit")
     private @Nullable Output<String> overrideConnLimit;
 
     /**
-     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     public Optional<Output<String>> overrideConnLimit() {
@@ -263,8 +259,7 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
         }
 
         /**
-         * @param mask Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-         * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+         * @param mask Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
          * 
          * @return builder
          * 
@@ -275,8 +270,7 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
         }
 
         /**
-         * @param mask Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-         * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+         * @param mask Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
          * 
          * @return builder
          * 
@@ -391,8 +385,7 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
         }
 
         /**
-         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-         * limits remain hard limits and are not overridden.
+         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
          * 
          * @return builder
          * 
@@ -403,8 +396,7 @@ public final class PersistenceProfileDstAddrState extends com.pulumi.resources.R
         }
 
         /**
-         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-         * limits remain hard limits and are not overridden.
+         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
          * 
          * @return builder
          * 

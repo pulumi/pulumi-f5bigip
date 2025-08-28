@@ -13,8 +13,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class ProfileBotDefense : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        /// profile
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         /// </summary>
         [Output("defaultsFrom")]
         public Output<string?> DefaultsFrom { get; private set; } = null!;
@@ -38,8 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        /// `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -91,8 +89,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileBotDefenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        /// profile
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -116,8 +113,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        /// `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -131,8 +127,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileBotDefenseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        /// profile
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -156,8 +151,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        /// `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

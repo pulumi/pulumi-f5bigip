@@ -57,19 +57,19 @@ export class FastApplication extends pulumi.CustomResource {
      *
      * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      */
-    public /*out*/ readonly application!: pulumi.Output<string>;
+    declare public /*out*/ readonly application: pulumi.Output<string>;
     /**
      * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
      */
-    public readonly fastJson!: pulumi.Output<string>;
+    declare public readonly fastJson: pulumi.Output<string>;
     /**
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      */
-    public readonly template!: pulumi.Output<string | undefined>;
+    declare public readonly template: pulumi.Output<string | undefined>;
     /**
      * A FAST tenant name on which you want to manage application.
      */
-    public /*out*/ readonly tenant!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenant: pulumi.Output<string>;
 
     /**
      * Create a FastApplication resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class FastApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastApplicationState | undefined;
-            resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["fastJson"] = state ? state.fastJson : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
+            resourceInputs["application"] = state?.application;
+            resourceInputs["fastJson"] = state?.fastJson;
+            resourceInputs["template"] = state?.template;
+            resourceInputs["tenant"] = state?.tenant;
         } else {
             const args = argsOrState as FastApplicationArgs | undefined;
-            if ((!args || args.fastJson === undefined) && !opts.urn) {
+            if (args?.fastJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fastJson'");
             }
-            resourceInputs["fastJson"] = args ? args.fastJson : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["fastJson"] = args?.fastJson;
+            resourceInputs["template"] = args?.template;
             resourceInputs["application"] = undefined /*out*/;
             resourceInputs["tenant"] = undefined /*out*/;
         }

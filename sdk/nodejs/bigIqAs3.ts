@@ -58,31 +58,31 @@ export class BigIqAs3 extends pulumi.CustomResource {
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    public readonly as3Json!: pulumi.Output<string>;
+    declare public readonly as3Json: pulumi.Output<string>;
     /**
      * Address of the BIG-IQ to which your targer BIG-IP is attached
      */
-    public readonly bigiqAddress!: pulumi.Output<string>;
+    declare public readonly bigiqAddress: pulumi.Output<string>;
     /**
      * BIGIQ Login reference for token authentication
      */
-    public readonly bigiqLoginRef!: pulumi.Output<string | undefined>;
+    declare public readonly bigiqLoginRef: pulumi.Output<string | undefined>;
     /**
      * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
-    public readonly bigiqPassword!: pulumi.Output<string>;
+    declare public readonly bigiqPassword: pulumi.Output<string>;
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    public readonly bigiqPort!: pulumi.Output<string | undefined>;
+    declare public readonly bigiqPort: pulumi.Output<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    public readonly bigiqTokenAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly bigiqTokenAuth: pulumi.Output<boolean | undefined>;
     /**
      * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
-    public readonly bigiqUser!: pulumi.Output<string>;
+    declare public readonly bigiqUser: pulumi.Output<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to `true`
      *
@@ -142,11 +142,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
-    public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreMetadata: pulumi.Output<boolean | undefined>;
     /**
      * Name of Tenant
      */
-    public readonly tenantList!: pulumi.Output<string>;
+    declare public readonly tenantList: pulumi.Output<string>;
 
     /**
      * Create a BigIqAs3 resource with the given unique name, arguments, and options.
@@ -161,38 +161,38 @@ export class BigIqAs3 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BigIqAs3State | undefined;
-            resourceInputs["as3Json"] = state ? state.as3Json : undefined;
-            resourceInputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
-            resourceInputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
-            resourceInputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
-            resourceInputs["bigiqPort"] = state ? state.bigiqPort : undefined;
-            resourceInputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
-            resourceInputs["bigiqUser"] = state ? state.bigiqUser : undefined;
-            resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
-            resourceInputs["tenantList"] = state ? state.tenantList : undefined;
+            resourceInputs["as3Json"] = state?.as3Json;
+            resourceInputs["bigiqAddress"] = state?.bigiqAddress;
+            resourceInputs["bigiqLoginRef"] = state?.bigiqLoginRef;
+            resourceInputs["bigiqPassword"] = state?.bigiqPassword;
+            resourceInputs["bigiqPort"] = state?.bigiqPort;
+            resourceInputs["bigiqTokenAuth"] = state?.bigiqTokenAuth;
+            resourceInputs["bigiqUser"] = state?.bigiqUser;
+            resourceInputs["ignoreMetadata"] = state?.ignoreMetadata;
+            resourceInputs["tenantList"] = state?.tenantList;
         } else {
             const args = argsOrState as BigIqAs3Args | undefined;
-            if ((!args || args.as3Json === undefined) && !opts.urn) {
+            if (args?.as3Json === undefined && !opts.urn) {
                 throw new Error("Missing required property 'as3Json'");
             }
-            if ((!args || args.bigiqAddress === undefined) && !opts.urn) {
+            if (args?.bigiqAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqAddress'");
             }
-            if ((!args || args.bigiqPassword === undefined) && !opts.urn) {
+            if (args?.bigiqPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqPassword'");
             }
-            if ((!args || args.bigiqUser === undefined) && !opts.urn) {
+            if (args?.bigiqUser === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
-            resourceInputs["as3Json"] = args ? args.as3Json : undefined;
-            resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
+            resourceInputs["as3Json"] = args?.as3Json;
+            resourceInputs["bigiqAddress"] = args?.bigiqAddress;
             resourceInputs["bigiqLoginRef"] = args?.bigiqLoginRef ? pulumi.secret(args.bigiqLoginRef) : undefined;
             resourceInputs["bigiqPassword"] = args?.bigiqPassword ? pulumi.secret(args.bigiqPassword) : undefined;
             resourceInputs["bigiqPort"] = args?.bigiqPort ? pulumi.secret(args.bigiqPort) : undefined;
             resourceInputs["bigiqTokenAuth"] = args?.bigiqTokenAuth ? pulumi.secret(args.bigiqTokenAuth) : undefined;
             resourceInputs["bigiqUser"] = args?.bigiqUser ? pulumi.secret(args.bigiqUser) : undefined;
-            resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
-            resourceInputs["tenantList"] = args ? args.tenantList : undefined;
+            resourceInputs["ignoreMetadata"] = args?.ignoreMetadata;
+            resourceInputs["tenantList"] = args?.tenantList;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"] };

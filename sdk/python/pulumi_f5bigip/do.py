@@ -32,7 +32,7 @@ class DoArgs:
         :param pulumi.Input[_builtins.str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
-        :param pulumi.Input[_builtins.str] bigip_password: Password of BIGIP host to be used for this resource
+        :param pulumi.Input[_builtins.str] bigip_password: Password of  BIGIP host to be used for this resource
         :param pulumi.Input[_builtins.str] bigip_port: Port number of BIGIP host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
         :param pulumi.Input[_builtins.bool] bigip_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -89,7 +89,7 @@ class DoArgs:
     @pulumi.getter(name="bigipPassword")
     def bigip_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Password of BIGIP host to be used for this resource
+        Password of  BIGIP host to be used for this resource
         """
         return pulumi.get(self, "bigip_password")
 
@@ -176,7 +176,7 @@ class _DoState:
         Input properties used for looking up and filtering Do resources.
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
-        :param pulumi.Input[_builtins.str] bigip_password: Password of BIGIP host to be used for this resource
+        :param pulumi.Input[_builtins.str] bigip_password: Password of  BIGIP host to be used for this resource
         :param pulumi.Input[_builtins.str] bigip_port: Port number of BIGIP host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
         :param pulumi.Input[_builtins.bool] bigip_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -223,7 +223,7 @@ class _DoState:
     @pulumi.getter(name="bigipPassword")
     def bigip_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Password of BIGIP host to be used for this resource
+        Password of  BIGIP host to be used for this resource
         """
         return pulumi.get(self, "bigip_password")
 
@@ -328,7 +328,7 @@ class Do(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
-        :param pulumi.Input[_builtins.str] bigip_password: Password of BIGIP host to be used for this resource
+        :param pulumi.Input[_builtins.str] bigip_password: Password of  BIGIP host to be used for this resource
         :param pulumi.Input[_builtins.str] bigip_port: Port number of BIGIP host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
         :param pulumi.Input[_builtins.bool] bigip_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -417,7 +417,7 @@ class Do(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
-        :param pulumi.Input[_builtins.str] bigip_password: Password of BIGIP host to be used for this resource
+        :param pulumi.Input[_builtins.str] bigip_password: Password of  BIGIP host to be used for this resource
         :param pulumi.Input[_builtins.str] bigip_port: Port number of BIGIP host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
         :param pulumi.Input[_builtins.bool] bigip_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -454,7 +454,7 @@ class Do(pulumi.CustomResource):
     @pulumi.getter(name="bigipPassword")
     def bigip_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Password of BIGIP host to be used for this resource
+        Password of  BIGIP host to be used for this resource
         """
         return pulumi.get(self, "bigip_password")
 

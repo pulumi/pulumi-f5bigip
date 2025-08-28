@@ -274,16 +274,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return this.insertXforwardedFor;
     }
     /**
-     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      * 
      */
     @Export(name="lwsSeparator", refs={String.class}, tree="[0]")
     private Output<String> lwsSeparator;
 
     /**
-     * @return Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * @return Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      * 
      */
     public Output<String> lwsSeparator() {

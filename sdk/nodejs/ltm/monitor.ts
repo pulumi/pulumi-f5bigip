@@ -91,129 +91,123 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
-    public readonly adaptive!: pulumi.Output<string>;
+    declare public readonly adaptive: pulumi.Output<string>;
     /**
      * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
-    public readonly adaptiveLimit!: pulumi.Output<number>;
+    declare public readonly adaptiveLimit: pulumi.Output<number>;
     /**
      * Specifies the location in the LDAP tree from which the monitor starts the health check
      */
-    public readonly base!: pulumi.Output<string | undefined>;
+    declare public readonly base: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
      */
-    public readonly chaseReferrals!: pulumi.Output<string>;
+    declare public readonly chaseReferrals: pulumi.Output<string>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    public readonly compatibility!: pulumi.Output<string | undefined>;
+    declare public readonly compatibility: pulumi.Output<string | undefined>;
     /**
      * Custom parent monitor for the system to use for setting initial values for the new monitor.
      */
-    public readonly customParent!: pulumi.Output<string | undefined>;
+    declare public readonly customParent: pulumi.Output<string | undefined>;
     /**
      * Specifies the database in which the user is created
      */
-    public readonly database!: pulumi.Output<string | undefined>;
+    declare public readonly database: pulumi.Output<string | undefined>;
     /**
      * Specify an alias address for monitoring
      */
-    public readonly destination!: pulumi.Output<string>;
+    declare public readonly destination: pulumi.Output<string>;
     /**
      * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    declare public readonly domain: pulumi.Output<string | undefined>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    public readonly filename!: pulumi.Output<string | undefined>;
+    declare public readonly filename: pulumi.Output<string | undefined>;
     /**
      * Specifies an LDAP key for which the monitor searches
      */
-    public readonly filter!: pulumi.Output<string | undefined>;
+    declare public readonly filter: pulumi.Output<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
-    public readonly interval!: pulumi.Output<number>;
+    declare public readonly interval: pulumi.Output<number>;
     /**
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
-    public readonly ipDscp!: pulumi.Output<number>;
+    declare public readonly ipDscp: pulumi.Output<number>;
     /**
-     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-     * attributes, the target is considered down.)
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      */
-    public readonly mandatoryAttributes!: pulumi.Output<string | undefined>;
+    declare public readonly mandatoryAttributes: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
-    public readonly manualResume!: pulumi.Output<string>;
+    declare public readonly manualResume: pulumi.Output<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Parent monitor for the system to use for setting initial values for the new monitor.
      */
-    public readonly parent!: pulumi.Output<string>;
+    declare public readonly parent: pulumi.Output<string>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
-    public readonly receive!: pulumi.Output<string | undefined>;
+    declare public readonly receive: pulumi.Output<string | undefined>;
     /**
      * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
-    public readonly receiveDisable!: pulumi.Output<string | undefined>;
+    declare public readonly receiveDisable: pulumi.Output<string | undefined>;
     /**
      * Instructs the system to mark the target resource down when the test is successful.
      */
-    public readonly reverse!: pulumi.Output<string>;
+    declare public readonly reverse: pulumi.Output<string>;
     /**
-     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-     * protocol for communications with the target.)
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      */
-    public readonly security!: pulumi.Output<string | undefined>;
+    declare public readonly security: pulumi.Output<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */
-    public readonly send!: pulumi.Output<string>;
+    declare public readonly send: pulumi.Output<string>;
     /**
      * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
      */
-    public readonly sslProfile!: pulumi.Output<string | undefined>;
+    declare public readonly sslProfile: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
-    public readonly timeUntilUp!: pulumi.Output<number>;
+    declare public readonly timeUntilUp: pulumi.Output<number>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
-    public readonly timeout!: pulumi.Output<number>;
+    declare public readonly timeout: pulumi.Output<number>;
     /**
      * Specifies whether the monitor operates in transparent mode.
      */
-    public readonly transparent!: pulumi.Output<string>;
+    declare public readonly transparent: pulumi.Output<string>;
     /**
      * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
      */
-    public readonly upInterval!: pulumi.Output<number>;
+    declare public readonly upInterval: pulumi.Output<number>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -228,74 +222,74 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            resourceInputs["adaptive"] = state ? state.adaptive : undefined;
-            resourceInputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
-            resourceInputs["base"] = state ? state.base : undefined;
-            resourceInputs["chaseReferrals"] = state ? state.chaseReferrals : undefined;
-            resourceInputs["compatibility"] = state ? state.compatibility : undefined;
-            resourceInputs["customParent"] = state ? state.customParent : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["domain"] = state ? state.domain : undefined;
-            resourceInputs["filename"] = state ? state.filename : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["ipDscp"] = state ? state.ipDscp : undefined;
-            resourceInputs["mandatoryAttributes"] = state ? state.mandatoryAttributes : undefined;
-            resourceInputs["manualResume"] = state ? state.manualResume : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parent"] = state ? state.parent : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["receive"] = state ? state.receive : undefined;
-            resourceInputs["receiveDisable"] = state ? state.receiveDisable : undefined;
-            resourceInputs["reverse"] = state ? state.reverse : undefined;
-            resourceInputs["security"] = state ? state.security : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
-            resourceInputs["sslProfile"] = state ? state.sslProfile : undefined;
-            resourceInputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["transparent"] = state ? state.transparent : undefined;
-            resourceInputs["upInterval"] = state ? state.upInterval : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["adaptive"] = state?.adaptive;
+            resourceInputs["adaptiveLimit"] = state?.adaptiveLimit;
+            resourceInputs["base"] = state?.base;
+            resourceInputs["chaseReferrals"] = state?.chaseReferrals;
+            resourceInputs["compatibility"] = state?.compatibility;
+            resourceInputs["customParent"] = state?.customParent;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["domain"] = state?.domain;
+            resourceInputs["filename"] = state?.filename;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["ipDscp"] = state?.ipDscp;
+            resourceInputs["mandatoryAttributes"] = state?.mandatoryAttributes;
+            resourceInputs["manualResume"] = state?.manualResume;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parent"] = state?.parent;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["receive"] = state?.receive;
+            resourceInputs["receiveDisable"] = state?.receiveDisable;
+            resourceInputs["reverse"] = state?.reverse;
+            resourceInputs["security"] = state?.security;
+            resourceInputs["send"] = state?.send;
+            resourceInputs["sslProfile"] = state?.sslProfile;
+            resourceInputs["timeUntilUp"] = state?.timeUntilUp;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["transparent"] = state?.transparent;
+            resourceInputs["upInterval"] = state?.upInterval;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.parent === undefined) && !opts.urn) {
+            if (args?.parent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parent'");
             }
-            resourceInputs["adaptive"] = args ? args.adaptive : undefined;
-            resourceInputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
-            resourceInputs["base"] = args ? args.base : undefined;
-            resourceInputs["chaseReferrals"] = args ? args.chaseReferrals : undefined;
-            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
-            resourceInputs["customParent"] = args ? args.customParent : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["filename"] = args ? args.filename : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["ipDscp"] = args ? args.ipDscp : undefined;
-            resourceInputs["mandatoryAttributes"] = args ? args.mandatoryAttributes : undefined;
-            resourceInputs["manualResume"] = args ? args.manualResume : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parent"] = args ? args.parent : undefined;
+            resourceInputs["adaptive"] = args?.adaptive;
+            resourceInputs["adaptiveLimit"] = args?.adaptiveLimit;
+            resourceInputs["base"] = args?.base;
+            resourceInputs["chaseReferrals"] = args?.chaseReferrals;
+            resourceInputs["compatibility"] = args?.compatibility;
+            resourceInputs["customParent"] = args?.customParent;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["domain"] = args?.domain;
+            resourceInputs["filename"] = args?.filename;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["ipDscp"] = args?.ipDscp;
+            resourceInputs["mandatoryAttributes"] = args?.mandatoryAttributes;
+            resourceInputs["manualResume"] = args?.manualResume;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parent"] = args?.parent;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["receive"] = args ? args.receive : undefined;
-            resourceInputs["receiveDisable"] = args ? args.receiveDisable : undefined;
-            resourceInputs["reverse"] = args ? args.reverse : undefined;
-            resourceInputs["security"] = args ? args.security : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
-            resourceInputs["sslProfile"] = args ? args.sslProfile : undefined;
-            resourceInputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["transparent"] = args ? args.transparent : undefined;
-            resourceInputs["upInterval"] = args ? args.upInterval : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["receive"] = args?.receive;
+            resourceInputs["receiveDisable"] = args?.receiveDisable;
+            resourceInputs["reverse"] = args?.reverse;
+            resourceInputs["security"] = args?.security;
+            resourceInputs["send"] = args?.send;
+            resourceInputs["sslProfile"] = args?.sslProfile;
+            resourceInputs["timeUntilUp"] = args?.timeUntilUp;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["transparent"] = args?.transparent;
+            resourceInputs["upInterval"] = args?.upInterval;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -361,10 +355,7 @@ export interface MonitorState {
      */
     ipDscp?: pulumi.Input<number>;
     /**
-     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-     * attributes, the target is considered down.)
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      */
     mandatoryAttributes?: pulumi.Input<string>;
     /**
@@ -400,10 +391,7 @@ export interface MonitorState {
      */
     reverse?: pulumi.Input<string>;
     /**
-     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-     * protocol for communications with the target.)
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      */
     security?: pulumi.Input<string>;
     /**
@@ -493,10 +481,7 @@ export interface MonitorArgs {
      */
     ipDscp?: pulumi.Input<number>;
     /**
-     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-     * attributes, the target is considered down.)
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      */
     mandatoryAttributes?: pulumi.Input<string>;
     /**
@@ -532,10 +517,7 @@ export interface MonitorArgs {
      */
     reverse?: pulumi.Input<string>;
     /**
-     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-     * protocol for communications with the target.)
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      */
     security?: pulumi.Input<string>;
     /**

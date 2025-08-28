@@ -35,11 +35,11 @@ export class BigIpLicense extends pulumi.CustomResource {
     /**
      * Tmsh command to execute tmsh commands like install
      */
-    public readonly command!: pulumi.Output<string>;
+    declare public readonly command: pulumi.Output<string>;
     /**
      * A unique Key F5 provides for Licensing BIG-IP
      */
-    public readonly registrationKey!: pulumi.Output<string>;
+    declare public readonly registrationKey: pulumi.Output<string>;
 
     /**
      * Create a BigIpLicense resource with the given unique name, arguments, and options.
@@ -54,18 +54,18 @@ export class BigIpLicense extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BigIpLicenseState | undefined;
-            resourceInputs["command"] = state ? state.command : undefined;
-            resourceInputs["registrationKey"] = state ? state.registrationKey : undefined;
+            resourceInputs["command"] = state?.command;
+            resourceInputs["registrationKey"] = state?.registrationKey;
         } else {
             const args = argsOrState as BigIpLicenseArgs | undefined;
-            if ((!args || args.command === undefined) && !opts.urn) {
+            if (args?.command === undefined && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.registrationKey === undefined) && !opts.urn) {
+            if (args?.registrationKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationKey'");
             }
-            resourceInputs["command"] = args ? args.command : undefined;
-            resourceInputs["registrationKey"] = args ? args.registrationKey : undefined;
+            resourceInputs["command"] = args?.command;
+            resourceInputs["registrationKey"] = args?.registrationKey;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BigIpLicense.__pulumiType, name, resourceInputs, opts);

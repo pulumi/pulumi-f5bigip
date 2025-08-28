@@ -55,31 +55,31 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Content of certificate on Disk
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * Full Path Name of ssl certificate
      */
-    public readonly fullPath!: pulumi.Output<string>;
+    declare public readonly fullPath: pulumi.Output<string>;
     /**
      * Specifies the issuer certificate.
      */
-    public readonly issuerCert!: pulumi.Output<string | undefined>;
+    declare public readonly issuerCert: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of monitoring used.
      */
-    public readonly monitoringType!: pulumi.Output<string | undefined>;
+    declare public readonly monitoringType: pulumi.Output<string | undefined>;
     /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the OCSP responder.
      */
-    public readonly ocsp!: pulumi.Output<string | undefined>;
+    declare public readonly ocsp: pulumi.Output<string | undefined>;
     /**
      * Partition of ssl certificate
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -94,28 +94,28 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["issuerCert"] = state ? state.issuerCert : undefined;
-            resourceInputs["monitoringType"] = state ? state.monitoringType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ocsp"] = state ? state.ocsp : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["issuerCert"] = state?.issuerCert;
+            resourceInputs["monitoringType"] = state?.monitoringType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ocsp"] = state?.ocsp;
+            resourceInputs["partition"] = state?.partition;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
-            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
-            resourceInputs["issuerCert"] = args ? args.issuerCert : undefined;
-            resourceInputs["monitoringType"] = args ? args.monitoringType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ocsp"] = args ? args.ocsp : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["fullPath"] = args?.fullPath;
+            resourceInputs["issuerCert"] = args?.issuerCert;
+            resourceInputs["monitoringType"] = args?.monitoringType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ocsp"] = args?.ocsp;
+            resourceInputs["partition"] = args?.partition;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["content"] };
