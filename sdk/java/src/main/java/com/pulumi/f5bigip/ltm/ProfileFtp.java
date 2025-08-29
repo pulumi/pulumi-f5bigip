@@ -191,16 +191,14 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      * 
      */
     @Export(name="enforceTlssessionReuse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enforceTlssessionReuse;
 
     /**
-     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      * 
      */
     public Output<Optional<String>> enforceTlssessionReuse() {
@@ -221,16 +219,14 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ftpsMode);
     }
     /**
-     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      * 
      */
     @Export(name="inheritParentProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inheritParentProfile;
 
     /**
-     * @return Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * @return Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      * 
      */
     public Output<Optional<String>> inheritParentProfile() {
@@ -321,32 +317,28 @@ public class ProfileFtp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.port);
     }
     /**
-     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      * 
      */
     @Export(name="security", refs={String.class}, tree="[0]")
     private Output<String> security;
 
     /**
-     * @return Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * @return Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      * 
      */
     public Output<String> security() {
         return this.security;
     }
     /**
-     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      * 
      */
     @Export(name="translateExtended", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> translateExtended;
 
     /**
-     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      * 
      */
     public Output<Optional<String>> translateExtended() {

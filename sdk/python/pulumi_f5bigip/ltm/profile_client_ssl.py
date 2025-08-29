@@ -115,8 +115,8 @@ class ProfileClientSslArgs:
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] inherit_cert_keychain: Inherit cert key chain
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key. The default is `default`
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[_builtins.str] partition: name of partition
         :param pulumi.Input[_builtins.str] passphrase: Client Certificate Constrained Delegation CA passphrase
@@ -124,8 +124,8 @@ class ProfileClientSslArgs:
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[_builtins.str] proxy_ca_passphrase: Proxy CA Passphrase
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -633,7 +633,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -645,7 +645,7 @@ class ProfileClientSslArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -741,7 +741,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
@@ -753,7 +753,7 @@ class ProfileClientSslArgs:
     @pulumi.getter(name="proxySslPassthrough")
     def proxy_ssl_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL passthrough enabled / disabled. Default is disabled.
+        Proxy SSL passthrough enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl_passthrough")
 
@@ -1067,8 +1067,8 @@ class _ProfileClientSslState:
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] inherit_cert_keychain: Inherit cert key chain
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key. The default is `default`
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         :param pulumi.Input[_builtins.str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[_builtins.str] partition: name of partition
@@ -1077,8 +1077,8 @@ class _ProfileClientSslState:
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[_builtins.str] proxy_ca_passphrase: Proxy CA Passphrase
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -1575,7 +1575,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -1587,7 +1587,7 @@ class _ProfileClientSslState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -1695,7 +1695,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
@@ -1707,7 +1707,7 @@ class _ProfileClientSslState:
     @pulumi.getter(name="proxySslPassthrough")
     def proxy_ssl_passthrough(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL passthrough enabled / disabled. Default is disabled.
+        Proxy SSL passthrough enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl_passthrough")
 
@@ -2051,8 +2051,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] inherit_cert_keychain: Inherit cert key chain
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key. The default is `default`
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         :param pulumi.Input[_builtins.str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[_builtins.str] partition: name of partition
@@ -2061,8 +2061,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[_builtins.str] proxy_ca_passphrase: Proxy CA Passphrase
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -2370,8 +2370,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] inherit_cert_keychain: Inherit cert key chain
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key. The default is `default`
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         :param pulumi.Input[_builtins.str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[_builtins.str] partition: name of partition
@@ -2380,8 +2380,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[_builtins.str] proxy_ca_passphrase: Proxy CA Passphrase
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl_passthrough: Proxy SSL passthrough enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -2709,7 +2709,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> pulumi.Output[_builtins.str]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -2717,7 +2717,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[_builtins.str]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -2789,7 +2789,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> pulumi.Output[_builtins.str]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
@@ -2797,7 +2797,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="proxySslPassthrough")
     def proxy_ssl_passthrough(self) -> pulumi.Output[_builtins.str]:
         """
-        Proxy SSL passthrough enabled / disabled. Default is disabled.
+        Proxy SSL passthrough enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl_passthrough")
 

@@ -63,20 +63,20 @@ export class ProfileServerSsl extends pulumi.CustomResource {
     /**
      * Alert time out
      */
-    public readonly alertTimeout!: pulumi.Output<string>;
+    declare public readonly alertTimeout: pulumi.Output<string>;
     /**
      * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
      * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
-    public readonly authenticate!: pulumi.Output<string>;
+    declare public readonly authenticate: pulumi.Output<string>;
     /**
-     * Client certificate chain traversal depth. Default 9.
+     * Client certificate chain traversal depth.  Default 9.
      */
-    public readonly authenticateDepth!: pulumi.Output<number>;
+    declare public readonly authenticateDepth: pulumi.Output<number>;
     /**
      * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
      */
-    public readonly c3dCaCert!: pulumi.Output<string | undefined>;
+    declare public readonly c3dCaCert: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
      *
@@ -84,15 +84,15 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      *
      * * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
      */
-    public readonly c3dCaKey!: pulumi.Output<string | undefined>;
+    declare public readonly c3dCaKey: pulumi.Output<string | undefined>;
     /**
      * CA Passphrase. Default
      */
-    public readonly c3dCaPassphrase!: pulumi.Output<string>;
+    declare public readonly c3dCaPassphrase: pulumi.Output<string>;
     /**
-     * Certificate Extensions List. Default
+     * Certificate Extensions List.  Default
      */
-    public readonly c3dCertExtensionCustomOids!: pulumi.Output<string[] | undefined>;
+    declare public readonly c3dCertExtensionCustomOids: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
      *
@@ -117,185 +117,185 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      *
      * * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
      */
-    public readonly c3dCertExtensionIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly c3dCertExtensionIncludes: pulumi.Output<string[] | undefined>;
     /**
-     * Certificate Lifespan. Default
+     * Certificate Lifespan.  Default
      */
-    public readonly c3dCertLifespan!: pulumi.Output<number>;
+    declare public readonly c3dCertLifespan: pulumi.Output<number>;
     /**
      * CA Passphrase. Default enabled
      */
-    public readonly c3dCertificateExtensions!: pulumi.Output<string>;
+    declare public readonly c3dCertificateExtensions: pulumi.Output<string>;
     /**
-     * Client certificate file path. Default None.
+     * Client certificate file path.  Default None.
      */
-    public readonly caFile!: pulumi.Output<string>;
+    declare public readonly caFile: pulumi.Output<string>;
     /**
      * Cache size (sessions).
      */
-    public readonly cacheSize!: pulumi.Output<number>;
+    declare public readonly cacheSize: pulumi.Output<number>;
     /**
      * Cache time out
      */
-    public readonly cacheTimeout!: pulumi.Output<number>;
+    declare public readonly cacheTimeout: pulumi.Output<number>;
     /**
      * Specifies the name of the certificate that the system uses for server-side SSL processing.
      */
-    public readonly cert!: pulumi.Output<string | undefined>;
+    declare public readonly cert: pulumi.Output<string | undefined>;
     /**
      * Specifies the certificates-key chain to associate with the SSL profile
      */
-    public readonly chain!: pulumi.Output<string | undefined>;
+    declare public readonly chain: pulumi.Output<string | undefined>;
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      */
-    public readonly cipherGroup!: pulumi.Output<string | undefined>;
+    declare public readonly cipherGroup: pulumi.Output<string | undefined>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
-    public readonly ciphers!: pulumi.Output<string>;
+    declare public readonly ciphers: pulumi.Output<string>;
     /**
      * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
      */
-    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
+    declare public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
      * Response if the cert is expired (drop / ignore).
      */
-    public readonly expireCertResponseControl!: pulumi.Output<string>;
+    declare public readonly expireCertResponseControl: pulumi.Output<string>;
     /**
      * full path of the profile
      */
-    public readonly fullPath!: pulumi.Output<string>;
+    declare public readonly fullPath: pulumi.Output<string>;
     /**
      * generation
      */
-    public readonly generation!: pulumi.Output<number>;
+    declare public readonly generation: pulumi.Output<number>;
     /**
      * Generic alerts enabled / disabled.
      */
-    public readonly genericAlert!: pulumi.Output<string>;
+    declare public readonly genericAlert: pulumi.Output<string>;
     /**
      * Handshake time out (seconds)
      */
-    public readonly handshakeTimeout!: pulumi.Output<string>;
+    declare public readonly handshakeTimeout: pulumi.Output<string>;
     /**
      * Specifies the file name of the SSL key.
      */
-    public readonly key!: pulumi.Output<string | undefined>;
+    declare public readonly key: pulumi.Output<string | undefined>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    public readonly modSslMethods!: pulumi.Output<string>;
+    declare public readonly modSslMethods: pulumi.Output<string>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * name of partition
      */
-    public readonly partition!: pulumi.Output<string>;
+    declare public readonly partition: pulumi.Output<string>;
     /**
      * Client Certificate Constrained Delegation CA passphrase
      */
-    public readonly passphrase!: pulumi.Output<string>;
+    declare public readonly passphrase: pulumi.Output<string>;
     /**
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      */
-    public readonly peerCertMode!: pulumi.Output<string>;
+    declare public readonly peerCertMode: pulumi.Output<string>;
     /**
      * Proxy CA Cert
      */
-    public readonly proxyCaCert!: pulumi.Output<string>;
+    declare public readonly proxyCaCert: pulumi.Output<string>;
     /**
      * Proxy CA Key
      */
-    public readonly proxyCaKey!: pulumi.Output<string>;
+    declare public readonly proxyCaKey: pulumi.Output<string>;
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      */
-    public readonly proxySsl!: pulumi.Output<string>;
+    declare public readonly proxySsl: pulumi.Output<string>;
     /**
      * Renogotiate Period (seconds)
      */
-    public readonly renegotiatePeriod!: pulumi.Output<string>;
+    declare public readonly renegotiatePeriod: pulumi.Output<string>;
     /**
      * Renogotiate Size
      */
-    public readonly renegotiateSize!: pulumi.Output<string>;
+    declare public readonly renegotiateSize: pulumi.Output<string>;
     /**
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      */
-    public readonly renegotiation!: pulumi.Output<string>;
+    declare public readonly renegotiation: pulumi.Output<string>;
     /**
      * When `true`, client certificate is retained in SSL session.
      */
-    public readonly retainCertificate!: pulumi.Output<string>;
+    declare public readonly retainCertificate: pulumi.Output<string>;
     /**
      * Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
      * When `request` is set the system request secure renegotation of SSL connections.
      * `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      */
-    public readonly secureRenegotiation!: pulumi.Output<string>;
+    declare public readonly secureRenegotiation: pulumi.Output<string>;
     /**
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * Session Mirroring (enabled / disabled)
      */
-    public readonly sessionMirroring!: pulumi.Output<string>;
+    declare public readonly sessionMirroring: pulumi.Output<string>;
     /**
      * Session Ticket (enabled / disabled)
      */
-    public readonly sessionTicket!: pulumi.Output<string>;
+    declare public readonly sessionTicket: pulumi.Output<string>;
     /**
      * Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
      * There can be only one SSL profile with this setting enabled.
      */
-    public readonly sniDefault!: pulumi.Output<string>;
+    declare public readonly sniDefault: pulumi.Output<string>;
     /**
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      */
-    public readonly sniRequire!: pulumi.Output<string>;
+    declare public readonly sniRequire: pulumi.Output<string>;
     /**
      * Enables or disables SSL forward proxy bypass on receiving
      * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      */
-    public readonly sslC3d!: pulumi.Output<string | undefined>;
+    declare public readonly sslC3d: pulumi.Output<string | undefined>;
     /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
-    public readonly sslForwardProxy!: pulumi.Output<string>;
+    declare public readonly sslForwardProxy: pulumi.Output<string>;
     /**
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
-    public readonly sslForwardProxyBypass!: pulumi.Output<string>;
+    declare public readonly sslForwardProxyBypass: pulumi.Output<string>;
     /**
      * SSL sign hash (any, sha1, sha256, sha384)
      */
-    public readonly sslSignHash!: pulumi.Output<string>;
+    declare public readonly sslSignHash: pulumi.Output<string>;
     /**
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
-    public readonly strictResume!: pulumi.Output<string>;
+    declare public readonly strictResume: pulumi.Output<string>;
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
      * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
      */
-    public readonly tmOptions!: pulumi.Output<string[]>;
+    declare public readonly tmOptions: pulumi.Output<string[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
      */
-    public readonly uncleanShutdown!: pulumi.Output<string>;
+    declare public readonly uncleanShutdown: pulumi.Output<string>;
     /**
      * Unclean Shutdown (drop / ignore)
      */
-    public readonly untrustedCertResponseControl!: pulumi.Output<string>;
+    declare public readonly untrustedCertResponseControl: pulumi.Output<string>;
 
     /**
      * Create a ProfileServerSsl resource with the given unique name, arguments, and options.
@@ -310,113 +310,113 @@ export class ProfileServerSsl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileServerSslState | undefined;
-            resourceInputs["alertTimeout"] = state ? state.alertTimeout : undefined;
-            resourceInputs["authenticate"] = state ? state.authenticate : undefined;
-            resourceInputs["authenticateDepth"] = state ? state.authenticateDepth : undefined;
-            resourceInputs["c3dCaCert"] = state ? state.c3dCaCert : undefined;
-            resourceInputs["c3dCaKey"] = state ? state.c3dCaKey : undefined;
-            resourceInputs["c3dCaPassphrase"] = state ? state.c3dCaPassphrase : undefined;
-            resourceInputs["c3dCertExtensionCustomOids"] = state ? state.c3dCertExtensionCustomOids : undefined;
-            resourceInputs["c3dCertExtensionIncludes"] = state ? state.c3dCertExtensionIncludes : undefined;
-            resourceInputs["c3dCertLifespan"] = state ? state.c3dCertLifespan : undefined;
-            resourceInputs["c3dCertificateExtensions"] = state ? state.c3dCertificateExtensions : undefined;
-            resourceInputs["caFile"] = state ? state.caFile : undefined;
-            resourceInputs["cacheSize"] = state ? state.cacheSize : undefined;
-            resourceInputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
-            resourceInputs["cert"] = state ? state.cert : undefined;
-            resourceInputs["chain"] = state ? state.chain : undefined;
-            resourceInputs["cipherGroup"] = state ? state.cipherGroup : undefined;
-            resourceInputs["ciphers"] = state ? state.ciphers : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["expireCertResponseControl"] = state ? state.expireCertResponseControl : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["generation"] = state ? state.generation : undefined;
-            resourceInputs["genericAlert"] = state ? state.genericAlert : undefined;
-            resourceInputs["handshakeTimeout"] = state ? state.handshakeTimeout : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["modSslMethods"] = state ? state.modSslMethods : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
-            resourceInputs["peerCertMode"] = state ? state.peerCertMode : undefined;
-            resourceInputs["proxyCaCert"] = state ? state.proxyCaCert : undefined;
-            resourceInputs["proxyCaKey"] = state ? state.proxyCaKey : undefined;
-            resourceInputs["proxySsl"] = state ? state.proxySsl : undefined;
-            resourceInputs["renegotiatePeriod"] = state ? state.renegotiatePeriod : undefined;
-            resourceInputs["renegotiateSize"] = state ? state.renegotiateSize : undefined;
-            resourceInputs["renegotiation"] = state ? state.renegotiation : undefined;
-            resourceInputs["retainCertificate"] = state ? state.retainCertificate : undefined;
-            resourceInputs["secureRenegotiation"] = state ? state.secureRenegotiation : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["sessionMirroring"] = state ? state.sessionMirroring : undefined;
-            resourceInputs["sessionTicket"] = state ? state.sessionTicket : undefined;
-            resourceInputs["sniDefault"] = state ? state.sniDefault : undefined;
-            resourceInputs["sniRequire"] = state ? state.sniRequire : undefined;
-            resourceInputs["sslC3d"] = state ? state.sslC3d : undefined;
-            resourceInputs["sslForwardProxy"] = state ? state.sslForwardProxy : undefined;
-            resourceInputs["sslForwardProxyBypass"] = state ? state.sslForwardProxyBypass : undefined;
-            resourceInputs["sslSignHash"] = state ? state.sslSignHash : undefined;
-            resourceInputs["strictResume"] = state ? state.strictResume : undefined;
-            resourceInputs["tmOptions"] = state ? state.tmOptions : undefined;
-            resourceInputs["uncleanShutdown"] = state ? state.uncleanShutdown : undefined;
-            resourceInputs["untrustedCertResponseControl"] = state ? state.untrustedCertResponseControl : undefined;
+            resourceInputs["alertTimeout"] = state?.alertTimeout;
+            resourceInputs["authenticate"] = state?.authenticate;
+            resourceInputs["authenticateDepth"] = state?.authenticateDepth;
+            resourceInputs["c3dCaCert"] = state?.c3dCaCert;
+            resourceInputs["c3dCaKey"] = state?.c3dCaKey;
+            resourceInputs["c3dCaPassphrase"] = state?.c3dCaPassphrase;
+            resourceInputs["c3dCertExtensionCustomOids"] = state?.c3dCertExtensionCustomOids;
+            resourceInputs["c3dCertExtensionIncludes"] = state?.c3dCertExtensionIncludes;
+            resourceInputs["c3dCertLifespan"] = state?.c3dCertLifespan;
+            resourceInputs["c3dCertificateExtensions"] = state?.c3dCertificateExtensions;
+            resourceInputs["caFile"] = state?.caFile;
+            resourceInputs["cacheSize"] = state?.cacheSize;
+            resourceInputs["cacheTimeout"] = state?.cacheTimeout;
+            resourceInputs["cert"] = state?.cert;
+            resourceInputs["chain"] = state?.chain;
+            resourceInputs["cipherGroup"] = state?.cipherGroup;
+            resourceInputs["ciphers"] = state?.ciphers;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["expireCertResponseControl"] = state?.expireCertResponseControl;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["generation"] = state?.generation;
+            resourceInputs["genericAlert"] = state?.genericAlert;
+            resourceInputs["handshakeTimeout"] = state?.handshakeTimeout;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["modSslMethods"] = state?.modSslMethods;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["passphrase"] = state?.passphrase;
+            resourceInputs["peerCertMode"] = state?.peerCertMode;
+            resourceInputs["proxyCaCert"] = state?.proxyCaCert;
+            resourceInputs["proxyCaKey"] = state?.proxyCaKey;
+            resourceInputs["proxySsl"] = state?.proxySsl;
+            resourceInputs["renegotiatePeriod"] = state?.renegotiatePeriod;
+            resourceInputs["renegotiateSize"] = state?.renegotiateSize;
+            resourceInputs["renegotiation"] = state?.renegotiation;
+            resourceInputs["retainCertificate"] = state?.retainCertificate;
+            resourceInputs["secureRenegotiation"] = state?.secureRenegotiation;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["sessionMirroring"] = state?.sessionMirroring;
+            resourceInputs["sessionTicket"] = state?.sessionTicket;
+            resourceInputs["sniDefault"] = state?.sniDefault;
+            resourceInputs["sniRequire"] = state?.sniRequire;
+            resourceInputs["sslC3d"] = state?.sslC3d;
+            resourceInputs["sslForwardProxy"] = state?.sslForwardProxy;
+            resourceInputs["sslForwardProxyBypass"] = state?.sslForwardProxyBypass;
+            resourceInputs["sslSignHash"] = state?.sslSignHash;
+            resourceInputs["strictResume"] = state?.strictResume;
+            resourceInputs["tmOptions"] = state?.tmOptions;
+            resourceInputs["uncleanShutdown"] = state?.uncleanShutdown;
+            resourceInputs["untrustedCertResponseControl"] = state?.untrustedCertResponseControl;
         } else {
             const args = argsOrState as ProfileServerSslArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["alertTimeout"] = args ? args.alertTimeout : undefined;
-            resourceInputs["authenticate"] = args ? args.authenticate : undefined;
-            resourceInputs["authenticateDepth"] = args ? args.authenticateDepth : undefined;
-            resourceInputs["c3dCaCert"] = args ? args.c3dCaCert : undefined;
-            resourceInputs["c3dCaKey"] = args ? args.c3dCaKey : undefined;
-            resourceInputs["c3dCaPassphrase"] = args ? args.c3dCaPassphrase : undefined;
-            resourceInputs["c3dCertExtensionCustomOids"] = args ? args.c3dCertExtensionCustomOids : undefined;
-            resourceInputs["c3dCertExtensionIncludes"] = args ? args.c3dCertExtensionIncludes : undefined;
-            resourceInputs["c3dCertLifespan"] = args ? args.c3dCertLifespan : undefined;
-            resourceInputs["c3dCertificateExtensions"] = args ? args.c3dCertificateExtensions : undefined;
-            resourceInputs["caFile"] = args ? args.caFile : undefined;
-            resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
-            resourceInputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
-            resourceInputs["cert"] = args ? args.cert : undefined;
-            resourceInputs["chain"] = args ? args.chain : undefined;
-            resourceInputs["cipherGroup"] = args ? args.cipherGroup : undefined;
-            resourceInputs["ciphers"] = args ? args.ciphers : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["expireCertResponseControl"] = args ? args.expireCertResponseControl : undefined;
-            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
-            resourceInputs["generation"] = args ? args.generation : undefined;
-            resourceInputs["genericAlert"] = args ? args.genericAlert : undefined;
-            resourceInputs["handshakeTimeout"] = args ? args.handshakeTimeout : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["modSslMethods"] = args ? args.modSslMethods : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["alertTimeout"] = args?.alertTimeout;
+            resourceInputs["authenticate"] = args?.authenticate;
+            resourceInputs["authenticateDepth"] = args?.authenticateDepth;
+            resourceInputs["c3dCaCert"] = args?.c3dCaCert;
+            resourceInputs["c3dCaKey"] = args?.c3dCaKey;
+            resourceInputs["c3dCaPassphrase"] = args?.c3dCaPassphrase;
+            resourceInputs["c3dCertExtensionCustomOids"] = args?.c3dCertExtensionCustomOids;
+            resourceInputs["c3dCertExtensionIncludes"] = args?.c3dCertExtensionIncludes;
+            resourceInputs["c3dCertLifespan"] = args?.c3dCertLifespan;
+            resourceInputs["c3dCertificateExtensions"] = args?.c3dCertificateExtensions;
+            resourceInputs["caFile"] = args?.caFile;
+            resourceInputs["cacheSize"] = args?.cacheSize;
+            resourceInputs["cacheTimeout"] = args?.cacheTimeout;
+            resourceInputs["cert"] = args?.cert;
+            resourceInputs["chain"] = args?.chain;
+            resourceInputs["cipherGroup"] = args?.cipherGroup;
+            resourceInputs["ciphers"] = args?.ciphers;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["expireCertResponseControl"] = args?.expireCertResponseControl;
+            resourceInputs["fullPath"] = args?.fullPath;
+            resourceInputs["generation"] = args?.generation;
+            resourceInputs["genericAlert"] = args?.genericAlert;
+            resourceInputs["handshakeTimeout"] = args?.handshakeTimeout;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["modSslMethods"] = args?.modSslMethods;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
-            resourceInputs["peerCertMode"] = args ? args.peerCertMode : undefined;
-            resourceInputs["proxyCaCert"] = args ? args.proxyCaCert : undefined;
-            resourceInputs["proxyCaKey"] = args ? args.proxyCaKey : undefined;
-            resourceInputs["proxySsl"] = args ? args.proxySsl : undefined;
-            resourceInputs["renegotiatePeriod"] = args ? args.renegotiatePeriod : undefined;
-            resourceInputs["renegotiateSize"] = args ? args.renegotiateSize : undefined;
-            resourceInputs["renegotiation"] = args ? args.renegotiation : undefined;
-            resourceInputs["retainCertificate"] = args ? args.retainCertificate : undefined;
-            resourceInputs["secureRenegotiation"] = args ? args.secureRenegotiation : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sessionMirroring"] = args ? args.sessionMirroring : undefined;
-            resourceInputs["sessionTicket"] = args ? args.sessionTicket : undefined;
-            resourceInputs["sniDefault"] = args ? args.sniDefault : undefined;
-            resourceInputs["sniRequire"] = args ? args.sniRequire : undefined;
-            resourceInputs["sslC3d"] = args ? args.sslC3d : undefined;
-            resourceInputs["sslForwardProxy"] = args ? args.sslForwardProxy : undefined;
-            resourceInputs["sslForwardProxyBypass"] = args ? args.sslForwardProxyBypass : undefined;
-            resourceInputs["sslSignHash"] = args ? args.sslSignHash : undefined;
-            resourceInputs["strictResume"] = args ? args.strictResume : undefined;
-            resourceInputs["tmOptions"] = args ? args.tmOptions : undefined;
-            resourceInputs["uncleanShutdown"] = args ? args.uncleanShutdown : undefined;
-            resourceInputs["untrustedCertResponseControl"] = args ? args.untrustedCertResponseControl : undefined;
+            resourceInputs["peerCertMode"] = args?.peerCertMode;
+            resourceInputs["proxyCaCert"] = args?.proxyCaCert;
+            resourceInputs["proxyCaKey"] = args?.proxyCaKey;
+            resourceInputs["proxySsl"] = args?.proxySsl;
+            resourceInputs["renegotiatePeriod"] = args?.renegotiatePeriod;
+            resourceInputs["renegotiateSize"] = args?.renegotiateSize;
+            resourceInputs["renegotiation"] = args?.renegotiation;
+            resourceInputs["retainCertificate"] = args?.retainCertificate;
+            resourceInputs["secureRenegotiation"] = args?.secureRenegotiation;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sessionMirroring"] = args?.sessionMirroring;
+            resourceInputs["sessionTicket"] = args?.sessionTicket;
+            resourceInputs["sniDefault"] = args?.sniDefault;
+            resourceInputs["sniRequire"] = args?.sniRequire;
+            resourceInputs["sslC3d"] = args?.sslC3d;
+            resourceInputs["sslForwardProxy"] = args?.sslForwardProxy;
+            resourceInputs["sslForwardProxyBypass"] = args?.sslForwardProxyBypass;
+            resourceInputs["sslSignHash"] = args?.sslSignHash;
+            resourceInputs["strictResume"] = args?.strictResume;
+            resourceInputs["tmOptions"] = args?.tmOptions;
+            resourceInputs["uncleanShutdown"] = args?.uncleanShutdown;
+            resourceInputs["untrustedCertResponseControl"] = args?.untrustedCertResponseControl;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["passphrase"] };
@@ -439,7 +439,7 @@ export interface ProfileServerSslState {
      */
     authenticate?: pulumi.Input<string>;
     /**
-     * Client certificate chain traversal depth. Default 9.
+     * Client certificate chain traversal depth.  Default 9.
      */
     authenticateDepth?: pulumi.Input<number>;
     /**
@@ -459,7 +459,7 @@ export interface ProfileServerSslState {
      */
     c3dCaPassphrase?: pulumi.Input<string>;
     /**
-     * Certificate Extensions List. Default
+     * Certificate Extensions List.  Default
      */
     c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -488,7 +488,7 @@ export interface ProfileServerSslState {
      */
     c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Certificate Lifespan. Default
+     * Certificate Lifespan.  Default
      */
     c3dCertLifespan?: pulumi.Input<number>;
     /**
@@ -496,7 +496,7 @@ export interface ProfileServerSslState {
      */
     c3dCertificateExtensions?: pulumi.Input<string>;
     /**
-     * Client certificate file path. Default None.
+     * Client certificate file path.  Default None.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -552,11 +552,11 @@ export interface ProfileServerSslState {
      */
     key?: pulumi.Input<string>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
     modSslMethods?: pulumi.Input<string>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -584,7 +584,7 @@ export interface ProfileServerSslState {
      */
     proxyCaKey?: pulumi.Input<string>;
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      */
     proxySsl?: pulumi.Input<string>;
     /**
@@ -681,7 +681,7 @@ export interface ProfileServerSslArgs {
      */
     authenticate?: pulumi.Input<string>;
     /**
-     * Client certificate chain traversal depth. Default 9.
+     * Client certificate chain traversal depth.  Default 9.
      */
     authenticateDepth?: pulumi.Input<number>;
     /**
@@ -701,7 +701,7 @@ export interface ProfileServerSslArgs {
      */
     c3dCaPassphrase?: pulumi.Input<string>;
     /**
-     * Certificate Extensions List. Default
+     * Certificate Extensions List.  Default
      */
     c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -730,7 +730,7 @@ export interface ProfileServerSslArgs {
      */
     c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Certificate Lifespan. Default
+     * Certificate Lifespan.  Default
      */
     c3dCertLifespan?: pulumi.Input<number>;
     /**
@@ -738,7 +738,7 @@ export interface ProfileServerSslArgs {
      */
     c3dCertificateExtensions?: pulumi.Input<string>;
     /**
-     * Client certificate file path. Default None.
+     * Client certificate file path.  Default None.
      */
     caFile?: pulumi.Input<string>;
     /**
@@ -794,11 +794,11 @@ export interface ProfileServerSslArgs {
      */
     key?: pulumi.Input<string>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
     modSslMethods?: pulumi.Input<string>;
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -826,7 +826,7 @@ export interface ProfileServerSslArgs {
      */
     proxyCaKey?: pulumi.Input<string>;
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      */
     proxySsl?: pulumi.Input<string>;
     /**

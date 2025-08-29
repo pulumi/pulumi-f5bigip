@@ -55,15 +55,15 @@ export class FastTemplate extends pulumi.CustomResource {
     /**
      * MD5 hash of the zip archive file containing FAST template
      */
-    public readonly md5Hash!: pulumi.Output<string>;
+    declare public readonly md5Hash: pulumi.Output<string>;
     /**
      * Name of the FAST template set to be created on to BIGIP
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Path to the zip archive file containing FAST template set on Local Disk
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
 
     /**
      * Create a FastTemplate resource with the given unique name, arguments, and options.
@@ -78,20 +78,20 @@ export class FastTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastTemplateState | undefined;
-            resourceInputs["md5Hash"] = state ? state.md5Hash : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["md5Hash"] = state?.md5Hash;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["source"] = state?.source;
         } else {
             const args = argsOrState as FastTemplateArgs | undefined;
-            if ((!args || args.md5Hash === undefined) && !opts.urn) {
+            if (args?.md5Hash === undefined && !opts.urn) {
                 throw new Error("Missing required property 'md5Hash'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["md5Hash"] = args ? args.md5Hash : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["md5Hash"] = args?.md5Hash;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["source"] = args?.source;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FastTemplate.__pulumiType, name, resourceInputs, opts);

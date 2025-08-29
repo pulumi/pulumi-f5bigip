@@ -130,8 +130,7 @@ type PersistenceProfileCookie struct {
 	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout pulumi.IntOutput `pulumi:"timeout"`
@@ -204,8 +203,7 @@ type persistenceProfileCookieState struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name *string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -243,8 +241,7 @@ type PersistenceProfileCookieState struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringPtrInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -286,8 +283,7 @@ type persistenceProfileCookieArgs struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -326,8 +322,7 @@ type PersistenceProfileCookieArgs struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -499,8 +494,7 @@ func (o PersistenceProfileCookieOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-// limits remain hard limits and are not overridden.
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 func (o PersistenceProfileCookieOutput) OverrideConnLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
 }

@@ -36,14 +36,14 @@ public final class DoArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password of BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource
      * 
      */
     @Import(name="bigipPassword")
     private @Nullable Output<String> bigipPassword;
 
     /**
-     * @return Password of BIGIP host to be used for this resource
+     * @return Password of  BIGIP host to be used for this resource
      * 
      */
     public Optional<Output<String>> bigipPassword() {
@@ -207,7 +207,7 @@ public final class DoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of BIGIP host to be used for this resource
+         * @param bigipPassword Password of  BIGIP host to be used for this resource
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class DoArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of BIGIP host to be used for this resource
+         * @param bigipPassword Password of  BIGIP host to be used for this resource
          * 
          * @return builder
          * 

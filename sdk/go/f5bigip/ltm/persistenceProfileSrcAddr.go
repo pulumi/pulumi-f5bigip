@@ -91,8 +91,7 @@ type PersistenceProfileSrcAddr struct {
 	HashAlgorithm pulumi.StringOutput `pulumi:"hashAlgorithm"`
 	// To enable _ disable directs all to the same single pool member
 	MapProxies pulumi.StringOutput `pulumi:"mapProxies"`
-	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 	Mask pulumi.StringOutput `pulumi:"mask"`
 	// To enable _ disable match across pools with given persistence record
 	MatchAcrossPools pulumi.StringOutput `pulumi:"matchAcrossPools"`
@@ -104,8 +103,7 @@ type PersistenceProfileSrcAddr struct {
 	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout pulumi.IntOutput `pulumi:"timeout"`
@@ -154,8 +152,7 @@ type persistenceProfileSrcAddrState struct {
 	HashAlgorithm *string `pulumi:"hashAlgorithm"`
 	// To enable _ disable directs all to the same single pool member
 	MapProxies *string `pulumi:"mapProxies"`
-	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 	Mask *string `pulumi:"mask"`
 	// To enable _ disable match across pools with given persistence record
 	MatchAcrossPools *string `pulumi:"matchAcrossPools"`
@@ -167,8 +164,7 @@ type persistenceProfileSrcAddrState struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name *string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -182,8 +178,7 @@ type PersistenceProfileSrcAddrState struct {
 	HashAlgorithm pulumi.StringPtrInput
 	// To enable _ disable directs all to the same single pool member
 	MapProxies pulumi.StringPtrInput
-	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 	Mask pulumi.StringPtrInput
 	// To enable _ disable match across pools with given persistence record
 	MatchAcrossPools pulumi.StringPtrInput
@@ -195,8 +190,7 @@ type PersistenceProfileSrcAddrState struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringPtrInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -214,8 +208,7 @@ type persistenceProfileSrcAddrArgs struct {
 	HashAlgorithm *string `pulumi:"hashAlgorithm"`
 	// To enable _ disable directs all to the same single pool member
 	MapProxies *string `pulumi:"mapProxies"`
-	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 	Mask *string `pulumi:"mask"`
 	// To enable _ disable match across pools with given persistence record
 	MatchAcrossPools *string `pulumi:"matchAcrossPools"`
@@ -227,8 +220,7 @@ type persistenceProfileSrcAddrArgs struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -243,8 +235,7 @@ type PersistenceProfileSrcAddrArgs struct {
 	HashAlgorithm pulumi.StringPtrInput
 	// To enable _ disable directs all to the same single pool member
 	MapProxies pulumi.StringPtrInput
-	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 	Mask pulumi.StringPtrInput
 	// To enable _ disable match across pools with given persistence record
 	MatchAcrossPools pulumi.StringPtrInput
@@ -256,8 +247,7 @@ type PersistenceProfileSrcAddrArgs struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -369,8 +359,7 @@ func (o PersistenceProfileSrcAddrOutput) MapProxies() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSrcAddr) pulumi.StringOutput { return v.MapProxies }).(pulumi.StringOutput)
 }
 
-// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 func (o PersistenceProfileSrcAddrOutput) Mask() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSrcAddr) pulumi.StringOutput { return v.Mask }).(pulumi.StringOutput)
 }
@@ -400,8 +389,7 @@ func (o PersistenceProfileSrcAddrOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSrcAddr) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-// limits remain hard limits and are not overridden.
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 func (o PersistenceProfileSrcAddrOutput) OverrideConnLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSrcAddr) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
 }

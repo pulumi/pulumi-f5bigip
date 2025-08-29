@@ -67,8 +67,7 @@ class ProfileHttpArgs:
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
-        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-               specify in the LWS Maximum Columns setting.
+        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.str] oneconnect_transformations: Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
         :param pulumi.Input[_builtins.str] proxy_type: Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
@@ -325,8 +324,7 @@ class ProfileHttpArgs:
     @pulumi.getter(name="lwsSeparator")
     def lws_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        specify in the LWS Maximum Columns setting.
+        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_separator")
 
@@ -539,8 +537,7 @@ class _ProfileHttpState:
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
-        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-               specify in the LWS Maximum Columns setting.
+        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         :param pulumi.Input[_builtins.str] oneconnect_transformations: Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
@@ -787,8 +784,7 @@ class _ProfileHttpState:
     @pulumi.getter(name="lwsSeparator")
     def lws_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        specify in the LWS Maximum Columns setting.
+        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_separator")
 
@@ -1049,8 +1045,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
-        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-               specify in the LWS Maximum Columns setting.
+        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         :param pulumi.Input[_builtins.str] oneconnect_transformations: Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
@@ -1248,8 +1243,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
-        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-               specify in the LWS Maximum Columns setting.
+        :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         :param pulumi.Input[_builtins.str] oneconnect_transformations: Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
@@ -1416,8 +1410,7 @@ class ProfileHttp(pulumi.CustomResource):
     @pulumi.getter(name="lwsSeparator")
     def lws_separator(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-        specify in the LWS Maximum Columns setting.
+        Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_separator")
 

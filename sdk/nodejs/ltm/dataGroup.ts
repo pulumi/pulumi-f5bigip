@@ -42,24 +42,24 @@ export class DataGroup extends pulumi.CustomResource {
     /**
      * Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
      */
-    public readonly internal!: pulumi.Output<boolean | undefined>;
+    declare public readonly internal: pulumi.Output<boolean | undefined>;
     /**
      * Name of the datagroup
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    public readonly records!: pulumi.Output<outputs.ltm.DataGroupRecord[] | undefined>;
+    declare public readonly records: pulumi.Output<outputs.ltm.DataGroupRecord[] | undefined>;
     /**
      * Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
      * This should be used in conjunction with `internal` attribute set `false`
      */
-    public readonly recordsSrc!: pulumi.Output<string | undefined>;
+    declare public readonly recordsSrc: pulumi.Output<string | undefined>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataGroup resource with the given unique name, arguments, and options.
@@ -74,24 +74,24 @@ export class DataGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataGroupState | undefined;
-            resourceInputs["internal"] = state ? state.internal : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["records"] = state ? state.records : undefined;
-            resourceInputs["recordsSrc"] = state ? state.recordsSrc : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["internal"] = state?.internal;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["records"] = state?.records;
+            resourceInputs["recordsSrc"] = state?.recordsSrc;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as DataGroupArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["internal"] = args ? args.internal : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["records"] = args ? args.records : undefined;
-            resourceInputs["recordsSrc"] = args ? args.recordsSrc : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["internal"] = args?.internal;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["records"] = args?.records;
+            resourceInputs["recordsSrc"] = args?.recordsSrc;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataGroup.__pulumiType, name, resourceInputs, opts);

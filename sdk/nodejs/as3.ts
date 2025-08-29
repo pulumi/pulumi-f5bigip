@@ -398,20 +398,19 @@ export class As3 extends pulumi.CustomResource {
     /**
      * List of applications currently deployed on the Big-Ip
      */
-    public readonly applicationList!: pulumi.Output<string>;
+    declare public readonly applicationList: pulumi.Output<string>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    public readonly as3Json!: pulumi.Output<string | undefined>;
+    declare public readonly as3Json: pulumi.Output<string | undefined>;
     /**
      * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
      */
-    public readonly controls!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly controls: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-     * of `deleteApps` or `as3Json` can be set in a resource block.
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      */
-    public readonly deleteApps!: pulumi.Output<outputs.As3DeleteApps | undefined>;
+    declare public readonly deleteApps: pulumi.Output<outputs.As3DeleteApps | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *
@@ -599,27 +598,27 @@ export class As3 extends pulumi.CustomResource {
      *
      * > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      */
-    public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreMetadata: pulumi.Output<boolean | undefined>;
     /**
      * Will specify whether is deployment is done via Per-Application Way or Traditional Way
      */
-    public /*out*/ readonly perAppMode!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly perAppMode: pulumi.Output<boolean>;
     /**
      * ID of AS3 post declaration async task
      */
-    public readonly taskId!: pulumi.Output<string>;
+    declare public readonly taskId: pulumi.Output<string>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
-    public readonly tenantFilter!: pulumi.Output<string>;
+    declare public readonly tenantFilter: pulumi.Output<string>;
     /**
      * List of tenants currently deployed on the Big-Ip
      */
-    public readonly tenantList!: pulumi.Output<string>;
+    declare public readonly tenantList: pulumi.Output<string>;
     /**
      * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
-    public readonly tenantName!: pulumi.Output<string>;
+    declare public readonly tenantName: pulumi.Output<string>;
 
     /**
      * Create a As3 resource with the given unique name, arguments, and options.
@@ -634,27 +633,27 @@ export class As3 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as As3State | undefined;
-            resourceInputs["applicationList"] = state ? state.applicationList : undefined;
-            resourceInputs["as3Json"] = state ? state.as3Json : undefined;
-            resourceInputs["controls"] = state ? state.controls : undefined;
-            resourceInputs["deleteApps"] = state ? state.deleteApps : undefined;
-            resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
-            resourceInputs["perAppMode"] = state ? state.perAppMode : undefined;
-            resourceInputs["taskId"] = state ? state.taskId : undefined;
-            resourceInputs["tenantFilter"] = state ? state.tenantFilter : undefined;
-            resourceInputs["tenantList"] = state ? state.tenantList : undefined;
-            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["applicationList"] = state?.applicationList;
+            resourceInputs["as3Json"] = state?.as3Json;
+            resourceInputs["controls"] = state?.controls;
+            resourceInputs["deleteApps"] = state?.deleteApps;
+            resourceInputs["ignoreMetadata"] = state?.ignoreMetadata;
+            resourceInputs["perAppMode"] = state?.perAppMode;
+            resourceInputs["taskId"] = state?.taskId;
+            resourceInputs["tenantFilter"] = state?.tenantFilter;
+            resourceInputs["tenantList"] = state?.tenantList;
+            resourceInputs["tenantName"] = state?.tenantName;
         } else {
             const args = argsOrState as As3Args | undefined;
-            resourceInputs["applicationList"] = args ? args.applicationList : undefined;
-            resourceInputs["as3Json"] = args ? args.as3Json : undefined;
-            resourceInputs["controls"] = args ? args.controls : undefined;
-            resourceInputs["deleteApps"] = args ? args.deleteApps : undefined;
-            resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
-            resourceInputs["taskId"] = args ? args.taskId : undefined;
-            resourceInputs["tenantFilter"] = args ? args.tenantFilter : undefined;
-            resourceInputs["tenantList"] = args ? args.tenantList : undefined;
-            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["applicationList"] = args?.applicationList;
+            resourceInputs["as3Json"] = args?.as3Json;
+            resourceInputs["controls"] = args?.controls;
+            resourceInputs["deleteApps"] = args?.deleteApps;
+            resourceInputs["ignoreMetadata"] = args?.ignoreMetadata;
+            resourceInputs["taskId"] = args?.taskId;
+            resourceInputs["tenantFilter"] = args?.tenantFilter;
+            resourceInputs["tenantList"] = args?.tenantList;
+            resourceInputs["tenantName"] = args?.tenantName;
             resourceInputs["perAppMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -679,8 +678,7 @@ export interface As3State {
      */
     controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-     * of `deleteApps` or `as3Json` can be set in a resource block.
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      */
     deleteApps?: pulumi.Input<inputs.As3DeleteApps>;
     /**
@@ -910,8 +908,7 @@ export interface As3Args {
      */
     controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-     * of `deleteApps` or `as3Json` can be set in a resource block.
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      */
     deleteApps?: pulumi.Input<inputs.As3DeleteApps>;
     /**

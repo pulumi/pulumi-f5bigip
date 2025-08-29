@@ -16,16 +16,14 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
     public static final ProfileBotDefenseState Empty = new ProfileBotDefenseState();
 
     /**
-     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      * 
      */
     @Import(name="defaultsFrom")
     private @Nullable Output<String> defaultsFrom;
 
     /**
-     * @return Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * @return Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      * 
      */
     public Optional<Output<String>> defaultsFrom() {
@@ -78,16 +76,14 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      * 
      */
     @Import(name="template")
     private @Nullable Output<String> template;
 
     /**
-     * @return Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * @return Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      * 
      */
     public Optional<Output<String>> template() {
@@ -123,8 +119,7 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultsFrom Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-         * profile
+         * @param defaultsFrom Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
          * 
          * @return builder
          * 
@@ -135,8 +130,7 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param defaultsFrom Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-         * profile
+         * @param defaultsFrom Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
          * 
          * @return builder
          * 
@@ -209,8 +203,7 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param template Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-         * `strict`
+         * @param template Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
          * 
          * @return builder
          * 
@@ -221,8 +214,7 @@ public final class ProfileBotDefenseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param template Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-         * `strict`
+         * @param template Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
          * 
          * @return builder
          * 

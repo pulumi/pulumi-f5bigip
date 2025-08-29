@@ -40,90 +40,90 @@ export class FastUdpApp extends pulumi.CustomResource {
     /**
      * Name of the FAST UDP application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * Enables use of FastL4 profiles.
      */
-    public readonly enableFastl4!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFastl4: pulumi.Output<boolean | undefined>;
     /**
      * Name of an existing BIG-IP UDP pool monitor. Monitors are used to determine the health of the application on each server.
      */
-    public readonly existingMonitor!: pulumi.Output<string | undefined>;
+    declare public readonly existingMonitor: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP pool.
      */
-    public readonly existingPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingPool: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP FastL4 or UDP profile.
      */
-    public readonly existingProfile!: pulumi.Output<string | undefined>;
+    declare public readonly existingProfile: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
-    public readonly existingSnatPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingSnatPool: pulumi.Output<string | undefined>;
     /**
      * Type of fallback persistence record to be created for each new client connection.
      */
-    public readonly fallbackPersistence!: pulumi.Output<string | undefined>;
+    declare public readonly fallbackPersistence: pulumi.Output<string | undefined>;
     /**
      * Json payload for FAST UDP application.
      */
-    public /*out*/ readonly fastUdpJson!: pulumi.Output<string>;
+    declare public /*out*/ readonly fastUdpJson: pulumi.Output<string>;
     /**
      * Irules to attach to Virtual Server.
      */
-    public readonly irules!: pulumi.Output<string[] | undefined>;
+    declare public readonly irules: pulumi.Output<string[] | undefined>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
-    public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
+    declare public readonly loadBalancingMode: pulumi.Output<string | undefined>;
     /**
      * `monitor` block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
-    public readonly monitor!: pulumi.Output<outputs.FastUdpAppMonitor | undefined>;
+    declare public readonly monitor: pulumi.Output<outputs.FastUdpAppMonitor | undefined>;
     /**
      * Name of an existing BIG-IP persistence profile to be used.
      */
-    public readonly persistenceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceProfile: pulumi.Output<string | undefined>;
     /**
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      */
-    public readonly persistenceType!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceType: pulumi.Output<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    public readonly poolMembers!: pulumi.Output<outputs.FastUdpAppPoolMember[] | undefined>;
+    declare public readonly poolMembers: pulumi.Output<outputs.FastUdpAppPoolMember[] | undefined>;
     /**
      * Existing security log profiles to enable.
      */
-    public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityLogProfiles: pulumi.Output<string[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
-    public readonly slowRampTime!: pulumi.Output<number | undefined>;
+    declare public readonly slowRampTime: pulumi.Output<number | undefined>;
     /**
      * List of address to be used for FAST-Generated SNAT Pool.
      */
-    public readonly snatPoolAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly snatPoolAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Name of the FAST UDP application tenant.
      */
-    public readonly tenant!: pulumi.Output<string>;
+    declare public readonly tenant: pulumi.Output<string>;
     /**
      * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
-    public readonly virtualServer!: pulumi.Output<outputs.FastUdpAppVirtualServer | undefined>;
+    declare public readonly virtualServer: pulumi.Output<outputs.FastUdpAppVirtualServer | undefined>;
     /**
      * Names of existing VLANs to allow.
      */
-    public readonly vlansAlloweds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vlansAlloweds: pulumi.Output<string[] | undefined>;
     /**
      * Names of existing VLANs to reject.
      */
-    public readonly vlansRejecteds!: pulumi.Output<string[] | undefined>;
+    declare public readonly vlansRejecteds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a FastUdpApp resource with the given unique name, arguments, and options.
@@ -138,55 +138,55 @@ export class FastUdpApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastUdpAppState | undefined;
-            resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["enableFastl4"] = state ? state.enableFastl4 : undefined;
-            resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
-            resourceInputs["existingPool"] = state ? state.existingPool : undefined;
-            resourceInputs["existingProfile"] = state ? state.existingProfile : undefined;
-            resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
-            resourceInputs["fallbackPersistence"] = state ? state.fallbackPersistence : undefined;
-            resourceInputs["fastUdpJson"] = state ? state.fastUdpJson : undefined;
-            resourceInputs["irules"] = state ? state.irules : undefined;
-            resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["persistenceProfile"] = state ? state.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = state ? state.persistenceType : undefined;
-            resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
-            resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
-            resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["virtualServer"] = state ? state.virtualServer : undefined;
-            resourceInputs["vlansAlloweds"] = state ? state.vlansAlloweds : undefined;
-            resourceInputs["vlansRejecteds"] = state ? state.vlansRejecteds : undefined;
+            resourceInputs["application"] = state?.application;
+            resourceInputs["enableFastl4"] = state?.enableFastl4;
+            resourceInputs["existingMonitor"] = state?.existingMonitor;
+            resourceInputs["existingPool"] = state?.existingPool;
+            resourceInputs["existingProfile"] = state?.existingProfile;
+            resourceInputs["existingSnatPool"] = state?.existingSnatPool;
+            resourceInputs["fallbackPersistence"] = state?.fallbackPersistence;
+            resourceInputs["fastUdpJson"] = state?.fastUdpJson;
+            resourceInputs["irules"] = state?.irules;
+            resourceInputs["loadBalancingMode"] = state?.loadBalancingMode;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["persistenceProfile"] = state?.persistenceProfile;
+            resourceInputs["persistenceType"] = state?.persistenceType;
+            resourceInputs["poolMembers"] = state?.poolMembers;
+            resourceInputs["securityLogProfiles"] = state?.securityLogProfiles;
+            resourceInputs["slowRampTime"] = state?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = state?.snatPoolAddresses;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["virtualServer"] = state?.virtualServer;
+            resourceInputs["vlansAlloweds"] = state?.vlansAlloweds;
+            resourceInputs["vlansRejecteds"] = state?.vlansRejecteds;
         } else {
             const args = argsOrState as FastUdpAppArgs | undefined;
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.tenant === undefined) && !opts.urn) {
+            if (args?.tenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenant'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["enableFastl4"] = args ? args.enableFastl4 : undefined;
-            resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
-            resourceInputs["existingPool"] = args ? args.existingPool : undefined;
-            resourceInputs["existingProfile"] = args ? args.existingProfile : undefined;
-            resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
-            resourceInputs["fallbackPersistence"] = args ? args.fallbackPersistence : undefined;
-            resourceInputs["irules"] = args ? args.irules : undefined;
-            resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["persistenceProfile"] = args ? args.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = args ? args.persistenceType : undefined;
-            resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
-            resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
-            resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["virtualServer"] = args ? args.virtualServer : undefined;
-            resourceInputs["vlansAlloweds"] = args ? args.vlansAlloweds : undefined;
-            resourceInputs["vlansRejecteds"] = args ? args.vlansRejecteds : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["enableFastl4"] = args?.enableFastl4;
+            resourceInputs["existingMonitor"] = args?.existingMonitor;
+            resourceInputs["existingPool"] = args?.existingPool;
+            resourceInputs["existingProfile"] = args?.existingProfile;
+            resourceInputs["existingSnatPool"] = args?.existingSnatPool;
+            resourceInputs["fallbackPersistence"] = args?.fallbackPersistence;
+            resourceInputs["irules"] = args?.irules;
+            resourceInputs["loadBalancingMode"] = args?.loadBalancingMode;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["persistenceProfile"] = args?.persistenceProfile;
+            resourceInputs["persistenceType"] = args?.persistenceType;
+            resourceInputs["poolMembers"] = args?.poolMembers;
+            resourceInputs["securityLogProfiles"] = args?.securityLogProfiles;
+            resourceInputs["slowRampTime"] = args?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = args?.snatPoolAddresses;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["virtualServer"] = args?.virtualServer;
+            resourceInputs["vlansAlloweds"] = args?.vlansAlloweds;
+            resourceInputs["vlansRejecteds"] = args?.vlansRejecteds;
             resourceInputs["fastUdpJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

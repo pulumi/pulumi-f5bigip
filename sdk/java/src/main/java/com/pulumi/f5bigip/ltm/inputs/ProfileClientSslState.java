@@ -462,14 +462,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="modSslMethods")
     private @Nullable Output<String> modSslMethods;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> modSslMethods() {
@@ -477,14 +477,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ModSSL Methods enabled / disabled. Default is disabled.
+     * ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return ModSSL Methods enabled / disabled. Default is disabled.
+     * @return ModSSL Methods enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -612,14 +612,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Proxy SSL enabled / disabled. Default is disabled.
+     * Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="proxySsl")
     private @Nullable Output<String> proxySsl;
 
     /**
-     * @return Proxy SSL enabled / disabled. Default is disabled.
+     * @return Proxy SSL enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> proxySsl() {
@@ -627,14 +627,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Proxy SSL passthrough enabled / disabled. Default is disabled.
+     * Proxy SSL passthrough enabled / disabled.  Default is disabled.
      * 
      */
     @Import(name="proxySslPassthrough")
     private @Nullable Output<String> proxySslPassthrough;
 
     /**
-     * @return Proxy SSL passthrough enabled / disabled. Default is disabled.
+     * @return Proxy SSL passthrough enabled / disabled.  Default is disabled.
      * 
      */
     public Optional<Output<String>> proxySslPassthrough() {
@@ -1615,7 +1615,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modSslMethods ModSSL Methods enabled / disabled. Default is disabled.
+         * @param modSslMethods ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1626,7 +1626,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param modSslMethods ModSSL Methods enabled / disabled. Default is disabled.
+         * @param modSslMethods ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1636,7 +1636,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mode ModSSL Methods enabled / disabled. Default is disabled.
+         * @param mode ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1647,7 +1647,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mode ModSSL Methods enabled / disabled. Default is disabled.
+         * @param mode ModSSL Methods enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1825,7 +1825,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySsl Proxy SSL enabled / disabled. Default is disabled.
+         * @param proxySsl Proxy SSL enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1836,7 +1836,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySsl Proxy SSL enabled / disabled. Default is disabled.
+         * @param proxySsl Proxy SSL enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1846,7 +1846,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySslPassthrough Proxy SSL passthrough enabled / disabled. Default is disabled.
+         * @param proxySslPassthrough Proxy SSL passthrough enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 
@@ -1857,7 +1857,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param proxySslPassthrough Proxy SSL passthrough enabled / disabled. Default is disabled.
+         * @param proxySslPassthrough Proxy SSL passthrough enabled / disabled.  Default is disabled.
          * 
          * @return builder
          * 

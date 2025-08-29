@@ -33,27 +33,25 @@ export class ProfileBotDefense extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      */
-    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
+    declare public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
      * User defined description for Bot Defense profile
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Select the enforcement mode, possible values are `transparent` and `blocking`.
      */
-    public readonly enforcementMode!: pulumi.Output<string>;
+    declare public readonly enforcementMode: pulumi.Output<string>;
     /**
      * Name of the Bot Defense profile
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      */
-    public readonly template!: pulumi.Output<string>;
+    declare public readonly template: pulumi.Output<string>;
 
     /**
      * Create a ProfileBotDefense resource with the given unique name, arguments, and options.
@@ -68,21 +66,21 @@ export class ProfileBotDefense extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileBotDefenseState | undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enforcementMode"] = state ? state.enforcementMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enforcementMode"] = state?.enforcementMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["template"] = state?.template;
         } else {
             const args = argsOrState as ProfileBotDefenseArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enforcementMode"] = args?.enforcementMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["template"] = args?.template;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileBotDefense.__pulumiType, name, resourceInputs, opts);
@@ -94,8 +92,7 @@ export class ProfileBotDefense extends pulumi.CustomResource {
  */
 export interface ProfileBotDefenseState {
     /**
-     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      */
     defaultsFrom?: pulumi.Input<string>;
     /**
@@ -111,8 +108,7 @@ export interface ProfileBotDefenseState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      */
     template?: pulumi.Input<string>;
 }
@@ -122,8 +118,7 @@ export interface ProfileBotDefenseState {
  */
 export interface ProfileBotDefenseArgs {
     /**
-     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-     * profile
+     * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      */
     defaultsFrom?: pulumi.Input<string>;
     /**
@@ -139,8 +134,7 @@ export interface ProfileBotDefenseArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-     * `strict`
+     * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      */
     template?: pulumi.Input<string>;
 }

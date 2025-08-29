@@ -53,23 +53,23 @@ export class Route extends pulumi.CustomResource {
     /**
      * Specifies a gateway address for the route.
      */
-    public readonly gw!: pulumi.Output<string | undefined>;
+    declare public readonly gw: pulumi.Output<string | undefined>;
     /**
      * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The destination subnet and netmask for the route.
      */
-    public readonly network!: pulumi.Output<string>;
+    declare public readonly network: pulumi.Output<string>;
     /**
      * reject route
      */
-    public readonly reject!: pulumi.Output<boolean | undefined>;
+    declare public readonly reject: pulumi.Output<boolean | undefined>;
     /**
      * tunnel_ref to route traffic
      */
-    public readonly tunnelRef!: pulumi.Output<string | undefined>;
+    declare public readonly tunnelRef: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -84,24 +84,24 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["gw"] = state ? state.gw : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
-            resourceInputs["reject"] = state ? state.reject : undefined;
-            resourceInputs["tunnelRef"] = state ? state.tunnelRef : undefined;
+            resourceInputs["gw"] = state?.gw;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["network"] = state?.network;
+            resourceInputs["reject"] = state?.reject;
+            resourceInputs["tunnelRef"] = state?.tunnelRef;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.network === undefined) && !opts.urn) {
+            if (args?.network === undefined && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            resourceInputs["gw"] = args ? args.gw : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["reject"] = args ? args.reject : undefined;
-            resourceInputs["tunnelRef"] = args ? args.tunnelRef : undefined;
+            resourceInputs["gw"] = args?.gw;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["reject"] = args?.reject;
+            resourceInputs["tunnelRef"] = args?.tunnelRef;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Route.__pulumiType, name, resourceInputs, opts);

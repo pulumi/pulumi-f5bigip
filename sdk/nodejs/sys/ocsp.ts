@@ -61,71 +61,71 @@ export class Ocsp extends pulumi.CustomResource {
     /**
      * Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
      */
-    public readonly cacheErrorTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly cacheErrorTimeout: pulumi.Output<number | undefined>;
     /**
      * Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
      */
-    public readonly cacheTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly cacheTimeout: pulumi.Output<string | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
      */
-    public readonly clockSkew!: pulumi.Output<number | undefined>;
+    declare public readonly clockSkew: pulumi.Output<number | undefined>;
     /**
      * Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
      */
-    public readonly concurrentConnectionsLimit!: pulumi.Output<number | undefined>;
+    declare public readonly concurrentConnectionsLimit: pulumi.Output<number | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
      */
-    public readonly connectionTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly connectionTimeout: pulumi.Output<number | undefined>;
     /**
      * Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
      */
-    public readonly dnsResolver!: pulumi.Output<string | undefined>;
+    declare public readonly dnsResolver: pulumi.Output<string | undefined>;
     /**
      * Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a passphrase used to sign an OCSP request.
      */
-    public readonly passphrase!: pulumi.Output<string | undefined>;
+    declare public readonly passphrase: pulumi.Output<string | undefined>;
     /**
      * Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
      */
-    public readonly proxyServerPool!: pulumi.Output<string | undefined>;
+    declare public readonly proxyServerPool: pulumi.Output<string | undefined>;
     /**
      * Specifies the URL of the OCSP responder.
      */
-    public readonly responderUrl!: pulumi.Output<string | undefined>;
+    declare public readonly responderUrl: pulumi.Output<string | undefined>;
     /**
      * Specifies the route domain for the OCSP responder.
      */
-    public readonly routeDomain!: pulumi.Output<string | undefined>;
+    declare public readonly routeDomain: pulumi.Output<string | undefined>;
     /**
      * Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
      */
-    public readonly signHash!: pulumi.Output<string | undefined>;
+    declare public readonly signHash: pulumi.Output<string | undefined>;
     /**
      * Specifies the certificate used to sign the OCSP request.
      */
-    public readonly signerCert!: pulumi.Output<string | undefined>;
+    declare public readonly signerCert: pulumi.Output<string | undefined>;
     /**
      * Specifies the key used to sign the OCSP request.
      */
-    public readonly signerKey!: pulumi.Output<string | undefined>;
+    declare public readonly signerKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.
      */
-    public readonly statusAge!: pulumi.Output<number | undefined>;
+    declare public readonly statusAge: pulumi.Output<number | undefined>;
     /**
      * Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
      */
-    public readonly strictRespCertCheck!: pulumi.Output<string | undefined>;
+    declare public readonly strictRespCertCheck: pulumi.Output<string | undefined>;
     /**
      * Specifies the certificates used for validating the OCSP response.
      */
-    public readonly trustedResponders!: pulumi.Output<string | undefined>;
+    declare public readonly trustedResponders: pulumi.Output<string | undefined>;
 
     /**
      * Create a Ocsp resource with the given unique name, arguments, and options.
@@ -140,45 +140,45 @@ export class Ocsp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OcspState | undefined;
-            resourceInputs["cacheErrorTimeout"] = state ? state.cacheErrorTimeout : undefined;
-            resourceInputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
-            resourceInputs["clockSkew"] = state ? state.clockSkew : undefined;
-            resourceInputs["concurrentConnectionsLimit"] = state ? state.concurrentConnectionsLimit : undefined;
-            resourceInputs["connectionTimeout"] = state ? state.connectionTimeout : undefined;
-            resourceInputs["dnsResolver"] = state ? state.dnsResolver : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
-            resourceInputs["proxyServerPool"] = state ? state.proxyServerPool : undefined;
-            resourceInputs["responderUrl"] = state ? state.responderUrl : undefined;
-            resourceInputs["routeDomain"] = state ? state.routeDomain : undefined;
-            resourceInputs["signHash"] = state ? state.signHash : undefined;
-            resourceInputs["signerCert"] = state ? state.signerCert : undefined;
-            resourceInputs["signerKey"] = state ? state.signerKey : undefined;
-            resourceInputs["statusAge"] = state ? state.statusAge : undefined;
-            resourceInputs["strictRespCertCheck"] = state ? state.strictRespCertCheck : undefined;
-            resourceInputs["trustedResponders"] = state ? state.trustedResponders : undefined;
+            resourceInputs["cacheErrorTimeout"] = state?.cacheErrorTimeout;
+            resourceInputs["cacheTimeout"] = state?.cacheTimeout;
+            resourceInputs["clockSkew"] = state?.clockSkew;
+            resourceInputs["concurrentConnectionsLimit"] = state?.concurrentConnectionsLimit;
+            resourceInputs["connectionTimeout"] = state?.connectionTimeout;
+            resourceInputs["dnsResolver"] = state?.dnsResolver;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["passphrase"] = state?.passphrase;
+            resourceInputs["proxyServerPool"] = state?.proxyServerPool;
+            resourceInputs["responderUrl"] = state?.responderUrl;
+            resourceInputs["routeDomain"] = state?.routeDomain;
+            resourceInputs["signHash"] = state?.signHash;
+            resourceInputs["signerCert"] = state?.signerCert;
+            resourceInputs["signerKey"] = state?.signerKey;
+            resourceInputs["statusAge"] = state?.statusAge;
+            resourceInputs["strictRespCertCheck"] = state?.strictRespCertCheck;
+            resourceInputs["trustedResponders"] = state?.trustedResponders;
         } else {
             const args = argsOrState as OcspArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["cacheErrorTimeout"] = args ? args.cacheErrorTimeout : undefined;
-            resourceInputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
-            resourceInputs["clockSkew"] = args ? args.clockSkew : undefined;
-            resourceInputs["concurrentConnectionsLimit"] = args ? args.concurrentConnectionsLimit : undefined;
-            resourceInputs["connectionTimeout"] = args ? args.connectionTimeout : undefined;
-            resourceInputs["dnsResolver"] = args ? args.dnsResolver : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cacheErrorTimeout"] = args?.cacheErrorTimeout;
+            resourceInputs["cacheTimeout"] = args?.cacheTimeout;
+            resourceInputs["clockSkew"] = args?.clockSkew;
+            resourceInputs["concurrentConnectionsLimit"] = args?.concurrentConnectionsLimit;
+            resourceInputs["connectionTimeout"] = args?.connectionTimeout;
+            resourceInputs["dnsResolver"] = args?.dnsResolver;
+            resourceInputs["name"] = args?.name;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
-            resourceInputs["proxyServerPool"] = args ? args.proxyServerPool : undefined;
-            resourceInputs["responderUrl"] = args ? args.responderUrl : undefined;
-            resourceInputs["routeDomain"] = args ? args.routeDomain : undefined;
-            resourceInputs["signHash"] = args ? args.signHash : undefined;
-            resourceInputs["signerCert"] = args ? args.signerCert : undefined;
-            resourceInputs["signerKey"] = args ? args.signerKey : undefined;
-            resourceInputs["statusAge"] = args ? args.statusAge : undefined;
-            resourceInputs["strictRespCertCheck"] = args ? args.strictRespCertCheck : undefined;
-            resourceInputs["trustedResponders"] = args ? args.trustedResponders : undefined;
+            resourceInputs["proxyServerPool"] = args?.proxyServerPool;
+            resourceInputs["responderUrl"] = args?.responderUrl;
+            resourceInputs["routeDomain"] = args?.routeDomain;
+            resourceInputs["signHash"] = args?.signHash;
+            resourceInputs["signerCert"] = args?.signerCert;
+            resourceInputs["signerKey"] = args?.signerKey;
+            resourceInputs["statusAge"] = args?.statusAge;
+            resourceInputs["strictRespCertCheck"] = args?.strictRespCertCheck;
+            resourceInputs["trustedResponders"] = args?.trustedResponders;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["passphrase"] };

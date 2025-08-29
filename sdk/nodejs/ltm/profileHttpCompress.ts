@@ -67,55 +67,55 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
     /**
      * Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
      */
-    public readonly compressionBuffersize!: pulumi.Output<number>;
+    declare public readonly compressionBuffersize: pulumi.Output<number>;
     /**
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    public readonly contentTypeExcludes!: pulumi.Output<string[]>;
+    declare public readonly contentTypeExcludes: pulumi.Output<string[]>;
     /**
      * Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    public readonly contentTypeIncludes!: pulumi.Output<string[]>;
+    declare public readonly contentTypeIncludes: pulumi.Output<string[]>;
     /**
      * Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
      */
-    public readonly cpuSaver!: pulumi.Output<string>;
+    declare public readonly cpuSaver: pulumi.Output<string>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
      */
-    public readonly gzipCompressionLevel!: pulumi.Output<number>;
+    declare public readonly gzipCompressionLevel: pulumi.Output<number>;
     /**
      * Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
      */
-    public readonly gzipMemoryLevel!: pulumi.Output<number>;
+    declare public readonly gzipMemoryLevel: pulumi.Output<number>;
     /**
      * Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
      */
-    public readonly gzipWindowSize!: pulumi.Output<number>;
+    declare public readonly gzipWindowSize: pulumi.Output<number>;
     /**
      * Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
      */
-    public readonly keepAcceptEncoding!: pulumi.Output<string>;
+    declare public readonly keepAcceptEncoding: pulumi.Output<string>;
     /**
      * Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
-    public readonly uriExcludes!: pulumi.Output<string[]>;
+    declare public readonly uriExcludes: pulumi.Output<string[]>;
     /**
      * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
-    public readonly uriIncludes!: pulumi.Output<string[]>;
+    declare public readonly uriIncludes: pulumi.Output<string[]>;
     /**
      * Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
      */
-    public readonly varyHeader!: pulumi.Output<string>;
+    declare public readonly varyHeader: pulumi.Output<string>;
 
     /**
      * Create a ProfileHttpCompress resource with the given unique name, arguments, and options.
@@ -130,37 +130,37 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileHttpCompressState | undefined;
-            resourceInputs["compressionBuffersize"] = state ? state.compressionBuffersize : undefined;
-            resourceInputs["contentTypeExcludes"] = state ? state.contentTypeExcludes : undefined;
-            resourceInputs["contentTypeIncludes"] = state ? state.contentTypeIncludes : undefined;
-            resourceInputs["cpuSaver"] = state ? state.cpuSaver : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["gzipCompressionLevel"] = state ? state.gzipCompressionLevel : undefined;
-            resourceInputs["gzipMemoryLevel"] = state ? state.gzipMemoryLevel : undefined;
-            resourceInputs["gzipWindowSize"] = state ? state.gzipWindowSize : undefined;
-            resourceInputs["keepAcceptEncoding"] = state ? state.keepAcceptEncoding : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["uriExcludes"] = state ? state.uriExcludes : undefined;
-            resourceInputs["uriIncludes"] = state ? state.uriIncludes : undefined;
-            resourceInputs["varyHeader"] = state ? state.varyHeader : undefined;
+            resourceInputs["compressionBuffersize"] = state?.compressionBuffersize;
+            resourceInputs["contentTypeExcludes"] = state?.contentTypeExcludes;
+            resourceInputs["contentTypeIncludes"] = state?.contentTypeIncludes;
+            resourceInputs["cpuSaver"] = state?.cpuSaver;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["gzipCompressionLevel"] = state?.gzipCompressionLevel;
+            resourceInputs["gzipMemoryLevel"] = state?.gzipMemoryLevel;
+            resourceInputs["gzipWindowSize"] = state?.gzipWindowSize;
+            resourceInputs["keepAcceptEncoding"] = state?.keepAcceptEncoding;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["uriExcludes"] = state?.uriExcludes;
+            resourceInputs["uriIncludes"] = state?.uriIncludes;
+            resourceInputs["varyHeader"] = state?.varyHeader;
         } else {
             const args = argsOrState as ProfileHttpCompressArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["compressionBuffersize"] = args ? args.compressionBuffersize : undefined;
-            resourceInputs["contentTypeExcludes"] = args ? args.contentTypeExcludes : undefined;
-            resourceInputs["contentTypeIncludes"] = args ? args.contentTypeIncludes : undefined;
-            resourceInputs["cpuSaver"] = args ? args.cpuSaver : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["gzipCompressionLevel"] = args ? args.gzipCompressionLevel : undefined;
-            resourceInputs["gzipMemoryLevel"] = args ? args.gzipMemoryLevel : undefined;
-            resourceInputs["gzipWindowSize"] = args ? args.gzipWindowSize : undefined;
-            resourceInputs["keepAcceptEncoding"] = args ? args.keepAcceptEncoding : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["uriExcludes"] = args ? args.uriExcludes : undefined;
-            resourceInputs["uriIncludes"] = args ? args.uriIncludes : undefined;
-            resourceInputs["varyHeader"] = args ? args.varyHeader : undefined;
+            resourceInputs["compressionBuffersize"] = args?.compressionBuffersize;
+            resourceInputs["contentTypeExcludes"] = args?.contentTypeExcludes;
+            resourceInputs["contentTypeIncludes"] = args?.contentTypeIncludes;
+            resourceInputs["cpuSaver"] = args?.cpuSaver;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["gzipCompressionLevel"] = args?.gzipCompressionLevel;
+            resourceInputs["gzipMemoryLevel"] = args?.gzipMemoryLevel;
+            resourceInputs["gzipWindowSize"] = args?.gzipWindowSize;
+            resourceInputs["keepAcceptEncoding"] = args?.keepAcceptEncoding;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["uriExcludes"] = args?.uriExcludes;
+            resourceInputs["uriIncludes"] = args?.uriIncludes;
+            resourceInputs["varyHeader"] = args?.varyHeader;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileHttpCompress.__pulumiType, name, resourceInputs, opts);

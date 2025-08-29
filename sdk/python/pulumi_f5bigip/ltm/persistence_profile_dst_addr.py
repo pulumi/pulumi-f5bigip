@@ -35,14 +35,12 @@ class PersistenceProfileDstAddrArgs:
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
-        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         pulumi.set(__self__, "defaults_from", defaults_from)
@@ -115,8 +113,7 @@ class PersistenceProfileDstAddrArgs:
     @pulumi.getter
     def mask(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-        when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         """
         return pulumi.get(self, "mask")
 
@@ -176,8 +173,7 @@ class PersistenceProfileDstAddrArgs:
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 
@@ -216,15 +212,13 @@ class _PersistenceProfileDstAddrState:
         Input properties used for looking up and filtering PersistenceProfileDstAddr resources.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
-        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         if app_service is not None:
@@ -287,8 +281,7 @@ class _PersistenceProfileDstAddrState:
     @pulumi.getter
     def mask(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-        when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         """
         return pulumi.get(self, "mask")
 
@@ -360,8 +353,7 @@ class _PersistenceProfileDstAddrState:
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 
@@ -452,15 +444,13 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
-        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         ...
@@ -597,15 +587,13 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
-        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -650,8 +638,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
     @pulumi.getter
     def mask(self) -> pulumi.Output[_builtins.str]:
         """
-        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-        when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         """
         return pulumi.get(self, "mask")
 
@@ -699,8 +686,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> pulumi.Output[_builtins.str]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 

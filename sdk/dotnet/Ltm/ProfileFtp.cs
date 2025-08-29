@@ -111,8 +111,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        /// value is unchecked (disabled).
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         /// </summary>
         [Output("enforceTlssessionReuse")]
         public Output<string?> EnforceTlssessionReuse { get; private set; } = null!;
@@ -124,8 +123,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> FtpsMode { get; private set; } = null!;
 
         /// <summary>
-        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        /// FastL4 only.
+        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         /// </summary>
         [Output("inheritParentProfile")]
         public Output<string?> InheritParentProfile { get; private set; } = null!;
@@ -167,15 +165,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        /// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         /// </summary>
         [Output("security")]
         public Output<string> Security { get; private set; } = null!;
 
         /// <summary>
-        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        /// and PORT when communicating with IPv4 servers.
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         /// </summary>
         [Output("translateExtended")]
         public Output<string?> TranslateExtended { get; private set; } = null!;
@@ -257,8 +253,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        /// value is unchecked (disabled).
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         /// </summary>
         [Input("enforceTlssessionReuse")]
         public Input<string>? EnforceTlssessionReuse { get; set; }
@@ -270,8 +265,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FtpsMode { get; set; }
 
         /// <summary>
-        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        /// FastL4 only.
+        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         /// </summary>
         [Input("inheritParentProfile")]
         public Input<string>? InheritParentProfile { get; set; }
@@ -313,15 +307,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        /// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         /// </summary>
         [Input("security")]
         public Input<string>? Security { get; set; }
 
         /// <summary>
-        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        /// and PORT when communicating with IPv4 servers.
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         /// </summary>
         [Input("translateExtended")]
         public Input<string>? TranslateExtended { get; set; }
@@ -365,8 +357,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        /// value is unchecked (disabled).
+        /// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         /// </summary>
         [Input("enforceTlssessionReuse")]
         public Input<string>? EnforceTlssessionReuse { get; set; }
@@ -378,8 +369,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FtpsMode { get; set; }
 
         /// <summary>
-        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        /// FastL4 only.
+        /// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         /// </summary>
         [Input("inheritParentProfile")]
         public Input<string>? InheritParentProfile { get; set; }
@@ -421,15 +411,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        /// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        /// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         /// </summary>
         [Input("security")]
         public Input<string>? Security { get; set; }
 
         /// <summary>
-        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        /// and PORT when communicating with IPv4 servers.
+        /// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         /// </summary>
         [Input("translateExtended")]
         public Input<string>? TranslateExtended { get; set; }

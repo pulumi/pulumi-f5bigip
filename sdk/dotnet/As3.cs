@@ -392,8 +392,7 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableDictionary<string, string>?> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         /// </summary>
         [Output("deleteApps")]
         public Output<Outputs.As3DeleteApps?> DeleteApps { get; private set; } = null!;
@@ -689,8 +688,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         /// </summary>
         [Input("deleteApps")]
         public Input<Inputs.As3DeleteAppsArgs>? DeleteApps { get; set; }
@@ -942,8 +940,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        /// one of `delete_apps` or `as3_json` can be set in a resource block.
+        /// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         /// </summary>
         [Input("deleteApps")]
         public Input<Inputs.As3DeleteAppsGetArgs>? DeleteApps { get; set; }

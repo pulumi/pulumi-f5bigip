@@ -180,16 +180,14 @@ public class PersistenceProfileSsl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     @Export(name="overrideConnLimit", refs={String.class}, tree="[0]")
     private Output<String> overrideConnLimit;
 
     /**
-     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     public Output<String> overrideConnLimit() {

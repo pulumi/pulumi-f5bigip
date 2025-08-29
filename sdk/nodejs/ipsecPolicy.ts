@@ -61,53 +61,53 @@ export class IpsecPolicy extends pulumi.CustomResource {
      * Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
      * aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
      */
-    public readonly authAlgorithm!: pulumi.Output<string>;
+    declare public readonly authAlgorithm: pulumi.Output<string>;
     /**
      * Description of the IPSec policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
      * aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
      */
-    public readonly encryptAlgorithm!: pulumi.Output<string>;
+    declare public readonly encryptAlgorithm: pulumi.Output<string>;
     /**
      * Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
      */
-    public readonly ipcomp!: pulumi.Output<string>;
+    declare public readonly ipcomp: pulumi.Output<string>;
     /**
      * Specifies the length of time before the IKE security association expires, in kilobytes.
      */
-    public readonly kbLifetime!: pulumi.Output<number>;
+    declare public readonly kbLifetime: pulumi.Output<number>;
     /**
      * Specifies the length of time before the IKE security association expires, in minutes.
      */
-    public readonly lifetime!: pulumi.Output<number>;
+    declare public readonly lifetime: pulumi.Output<number>;
     /**
      * Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
      * modp4096, modp6144, modp8192`
      */
-    public readonly perfectForwardSecrecy!: pulumi.Output<string>;
+    declare public readonly perfectForwardSecrecy: pulumi.Output<string>;
     /**
      * Specifies the IPsec protocol. Valid choices are: `ah, esp`
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    public readonly tunnelLocalAddress!: pulumi.Output<string>;
+    declare public readonly tunnelLocalAddress: pulumi.Output<string>;
     /**
      * Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    public readonly tunnelRemoteAddress!: pulumi.Output<string>;
+    declare public readonly tunnelRemoteAddress: pulumi.Output<string>;
 
     /**
      * Create a IpsecPolicy resource with the given unique name, arguments, and options.
@@ -122,35 +122,35 @@ export class IpsecPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpsecPolicyState | undefined;
-            resourceInputs["authAlgorithm"] = state ? state.authAlgorithm : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encryptAlgorithm"] = state ? state.encryptAlgorithm : undefined;
-            resourceInputs["ipcomp"] = state ? state.ipcomp : undefined;
-            resourceInputs["kbLifetime"] = state ? state.kbLifetime : undefined;
-            resourceInputs["lifetime"] = state ? state.lifetime : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["perfectForwardSecrecy"] = state ? state.perfectForwardSecrecy : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["tunnelLocalAddress"] = state ? state.tunnelLocalAddress : undefined;
-            resourceInputs["tunnelRemoteAddress"] = state ? state.tunnelRemoteAddress : undefined;
+            resourceInputs["authAlgorithm"] = state?.authAlgorithm;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encryptAlgorithm"] = state?.encryptAlgorithm;
+            resourceInputs["ipcomp"] = state?.ipcomp;
+            resourceInputs["kbLifetime"] = state?.kbLifetime;
+            resourceInputs["lifetime"] = state?.lifetime;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["perfectForwardSecrecy"] = state?.perfectForwardSecrecy;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["tunnelLocalAddress"] = state?.tunnelLocalAddress;
+            resourceInputs["tunnelRemoteAddress"] = state?.tunnelRemoteAddress;
         } else {
             const args = argsOrState as IpsecPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["authAlgorithm"] = args ? args.authAlgorithm : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryptAlgorithm"] = args ? args.encryptAlgorithm : undefined;
-            resourceInputs["ipcomp"] = args ? args.ipcomp : undefined;
-            resourceInputs["kbLifetime"] = args ? args.kbLifetime : undefined;
-            resourceInputs["lifetime"] = args ? args.lifetime : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perfectForwardSecrecy"] = args ? args.perfectForwardSecrecy : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["tunnelLocalAddress"] = args ? args.tunnelLocalAddress : undefined;
-            resourceInputs["tunnelRemoteAddress"] = args ? args.tunnelRemoteAddress : undefined;
+            resourceInputs["authAlgorithm"] = args?.authAlgorithm;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryptAlgorithm"] = args?.encryptAlgorithm;
+            resourceInputs["ipcomp"] = args?.ipcomp;
+            resourceInputs["kbLifetime"] = args?.kbLifetime;
+            resourceInputs["lifetime"] = args?.lifetime;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perfectForwardSecrecy"] = args?.perfectForwardSecrecy;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["tunnelLocalAddress"] = args?.tunnelLocalAddress;
+            resourceInputs["tunnelRemoteAddress"] = args?.tunnelRemoteAddress;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpsecPolicy.__pulumiType, name, resourceInputs, opts);

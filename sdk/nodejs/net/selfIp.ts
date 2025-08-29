@@ -117,23 +117,23 @@ export class SelfIp extends pulumi.CustomResource {
     /**
      * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
-    public readonly ip!: pulumi.Output<string>;
+    declare public readonly ip: pulumi.Output<string>;
     /**
      * Name of the selfip
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
-    public readonly portLockdowns!: pulumi.Output<string[] | undefined>;
+    declare public readonly portLockdowns: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    public readonly trafficGroup!: pulumi.Output<string | undefined>;
+    declare public readonly trafficGroup: pulumi.Output<string | undefined>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
-    public readonly vlan!: pulumi.Output<string>;
+    declare public readonly vlan: pulumi.Output<string>;
 
     /**
      * Create a SelfIp resource with the given unique name, arguments, and options.
@@ -148,27 +148,27 @@ export class SelfIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SelfIpState | undefined;
-            resourceInputs["ip"] = state ? state.ip : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["portLockdowns"] = state ? state.portLockdowns : undefined;
-            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            resourceInputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["ip"] = state?.ip;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["portLockdowns"] = state?.portLockdowns;
+            resourceInputs["trafficGroup"] = state?.trafficGroup;
+            resourceInputs["vlan"] = state?.vlan;
         } else {
             const args = argsOrState as SelfIpArgs | undefined;
-            if ((!args || args.ip === undefined) && !opts.urn) {
+            if (args?.ip === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ip'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.vlan === undefined) && !opts.urn) {
+            if (args?.vlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["ip"] = args ? args.ip : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["portLockdowns"] = args ? args.portLockdowns : undefined;
-            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["ip"] = args?.ip;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["portLockdowns"] = args?.portLockdowns;
+            resourceInputs["trafficGroup"] = args?.trafficGroup;
+            resourceInputs["vlan"] = args?.vlan;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SelfIp.__pulumiType, name, resourceInputs, opts);

@@ -36,8 +36,7 @@ class PersistenceProfileSslArgs:
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         pulumi.set(__self__, "defaults_from", defaults_from)
@@ -142,8 +141,7 @@ class PersistenceProfileSslArgs:
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 
@@ -184,8 +182,7 @@ class _PersistenceProfileSslState:
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         if app_service is not None:
@@ -292,8 +289,7 @@ class _PersistenceProfileSslState:
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 
@@ -384,8 +380,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         ...
@@ -518,8 +513,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] match_across_virtuals: To enable _ disable match across services with given persistence record
         :param pulumi.Input[_builtins.str] mirror: To enable _ disable
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
-        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-               limits remain hard limits and are not overridden.
+        :param pulumi.Input[_builtins.str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         :param pulumi.Input[_builtins.int] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -594,8 +588,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
     @pulumi.getter(name="overrideConnLimit")
     def override_conn_limit(self) -> pulumi.Output[_builtins.str]:
         """
-        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-        limits remain hard limits and are not overridden.
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
         """
         return pulumi.get(self, "override_conn_limit")
 

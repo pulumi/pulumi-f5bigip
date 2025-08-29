@@ -57,65 +57,65 @@ export class IApp extends pulumi.CustomResource {
     /**
      * User defined description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly devicegroup!: pulumi.Output<string>;
+    declare public readonly devicegroup: pulumi.Output<string>;
     /**
      * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
      */
-    public readonly executeAction!: pulumi.Output<string>;
+    declare public readonly executeAction: pulumi.Output<string>;
     /**
      * Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
      */
-    public readonly inheritedDevicegroup!: pulumi.Output<string | undefined>;
+    declare public readonly inheritedDevicegroup: pulumi.Output<string | undefined>;
     /**
      * Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
      */
-    public readonly inheritedTrafficGroup!: pulumi.Output<string | undefined>;
+    declare public readonly inheritedTrafficGroup: pulumi.Output<string | undefined>;
     /**
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
-    public readonly jsonfile!: pulumi.Output<string>;
+    declare public readonly jsonfile: pulumi.Output<string>;
     /**
      * string values
      */
-    public readonly lists!: pulumi.Output<outputs.sys.IAppList[] | undefined>;
+    declare public readonly lists: pulumi.Output<outputs.sys.IAppList[] | undefined>;
     /**
      * User defined generic data for the application service. It is a name and value pair.
      */
-    public readonly metadatas!: pulumi.Output<outputs.sys.IAppMetadata[] | undefined>;
+    declare public readonly metadatas: pulumi.Output<outputs.sys.IAppMetadata[] | undefined>;
     /**
      * Name of the iApp.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Displays the administrative partition within which the application resides.
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
      */
-    public readonly strictUpdates!: pulumi.Output<string | undefined>;
-    public readonly tables!: pulumi.Output<outputs.sys.IAppTable[] | undefined>;
+    declare public readonly strictUpdates: pulumi.Output<string | undefined>;
+    declare public readonly tables: pulumi.Output<outputs.sys.IAppTable[] | undefined>;
     /**
      * The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      */
-    public readonly template!: pulumi.Output<string | undefined>;
+    declare public readonly template: pulumi.Output<string | undefined>;
     /**
      * Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      */
-    public readonly templateModified!: pulumi.Output<string | undefined>;
+    declare public readonly templateModified: pulumi.Output<string | undefined>;
     /**
      * Indicates any missing prerequisites associated with the template that defines this application.
      */
-    public readonly templatePrerequisiteErrors!: pulumi.Output<string | undefined>;
+    declare public readonly templatePrerequisiteErrors: pulumi.Output<string | undefined>;
     /**
      * The name of the traffic group that the application service is assigned to.
      */
-    public readonly trafficGroup!: pulumi.Output<string | undefined>;
-    public readonly variables!: pulumi.Output<outputs.sys.IAppVariable[] | undefined>;
+    declare public readonly trafficGroup: pulumi.Output<string | undefined>;
+    declare public readonly variables: pulumi.Output<outputs.sys.IAppVariable[] | undefined>;
 
     /**
      * Create a IApp resource with the given unique name, arguments, and options.
@@ -130,48 +130,48 @@ export class IApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IAppState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["devicegroup"] = state ? state.devicegroup : undefined;
-            resourceInputs["executeAction"] = state ? state.executeAction : undefined;
-            resourceInputs["inheritedDevicegroup"] = state ? state.inheritedDevicegroup : undefined;
-            resourceInputs["inheritedTrafficGroup"] = state ? state.inheritedTrafficGroup : undefined;
-            resourceInputs["jsonfile"] = state ? state.jsonfile : undefined;
-            resourceInputs["lists"] = state ? state.lists : undefined;
-            resourceInputs["metadatas"] = state ? state.metadatas : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["strictUpdates"] = state ? state.strictUpdates : undefined;
-            resourceInputs["tables"] = state ? state.tables : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
-            resourceInputs["templateModified"] = state ? state.templateModified : undefined;
-            resourceInputs["templatePrerequisiteErrors"] = state ? state.templatePrerequisiteErrors : undefined;
-            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["devicegroup"] = state?.devicegroup;
+            resourceInputs["executeAction"] = state?.executeAction;
+            resourceInputs["inheritedDevicegroup"] = state?.inheritedDevicegroup;
+            resourceInputs["inheritedTrafficGroup"] = state?.inheritedTrafficGroup;
+            resourceInputs["jsonfile"] = state?.jsonfile;
+            resourceInputs["lists"] = state?.lists;
+            resourceInputs["metadatas"] = state?.metadatas;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["strictUpdates"] = state?.strictUpdates;
+            resourceInputs["tables"] = state?.tables;
+            resourceInputs["template"] = state?.template;
+            resourceInputs["templateModified"] = state?.templateModified;
+            resourceInputs["templatePrerequisiteErrors"] = state?.templatePrerequisiteErrors;
+            resourceInputs["trafficGroup"] = state?.trafficGroup;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as IAppArgs | undefined;
-            if ((!args || args.jsonfile === undefined) && !opts.urn) {
+            if (args?.jsonfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jsonfile'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["devicegroup"] = args ? args.devicegroup : undefined;
-            resourceInputs["executeAction"] = args ? args.executeAction : undefined;
-            resourceInputs["inheritedDevicegroup"] = args ? args.inheritedDevicegroup : undefined;
-            resourceInputs["inheritedTrafficGroup"] = args ? args.inheritedTrafficGroup : undefined;
-            resourceInputs["jsonfile"] = args ? args.jsonfile : undefined;
-            resourceInputs["lists"] = args ? args.lists : undefined;
-            resourceInputs["metadatas"] = args ? args.metadatas : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["strictUpdates"] = args ? args.strictUpdates : undefined;
-            resourceInputs["tables"] = args ? args.tables : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["templateModified"] = args ? args.templateModified : undefined;
-            resourceInputs["templatePrerequisiteErrors"] = args ? args.templatePrerequisiteErrors : undefined;
-            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["devicegroup"] = args?.devicegroup;
+            resourceInputs["executeAction"] = args?.executeAction;
+            resourceInputs["inheritedDevicegroup"] = args?.inheritedDevicegroup;
+            resourceInputs["inheritedTrafficGroup"] = args?.inheritedTrafficGroup;
+            resourceInputs["jsonfile"] = args?.jsonfile;
+            resourceInputs["lists"] = args?.lists;
+            resourceInputs["metadatas"] = args?.metadatas;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["strictUpdates"] = args?.strictUpdates;
+            resourceInputs["tables"] = args?.tables;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["templateModified"] = args?.templateModified;
+            resourceInputs["templatePrerequisiteErrors"] = args?.templatePrerequisiteErrors;
+            resourceInputs["trafficGroup"] = args?.trafficGroup;
+            resourceInputs["variables"] = args?.variables;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IApp.__pulumiType, name, resourceInputs, opts);

@@ -61,23 +61,23 @@ export class CipherGroup extends pulumi.CustomResource {
     /**
      * Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
-    public readonly allows!: pulumi.Output<string[] | undefined>;
+    declare public readonly allows: pulumi.Output<string[] | undefined>;
     /**
      * Specifies descriptive text that identifies the cipher rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
      */
-    public readonly ordering!: pulumi.Output<string | undefined>;
+    declare public readonly ordering: pulumi.Output<string | undefined>;
     /**
      * Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
      */
-    public readonly requires!: pulumi.Output<string[] | undefined>;
+    declare public readonly requires: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CipherGroup resource with the given unique name, arguments, and options.
@@ -92,21 +92,21 @@ export class CipherGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CipherGroupState | undefined;
-            resourceInputs["allows"] = state ? state.allows : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ordering"] = state ? state.ordering : undefined;
-            resourceInputs["requires"] = state ? state.requires : undefined;
+            resourceInputs["allows"] = state?.allows;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ordering"] = state?.ordering;
+            resourceInputs["requires"] = state?.requires;
         } else {
             const args = argsOrState as CipherGroupArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["allows"] = args ? args.allows : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ordering"] = args ? args.ordering : undefined;
-            resourceInputs["requires"] = args ? args.requires : undefined;
+            resourceInputs["allows"] = args?.allows;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ordering"] = args?.ordering;
+            resourceInputs["requires"] = args?.requires;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CipherGroup.__pulumiType, name, resourceInputs, opts);

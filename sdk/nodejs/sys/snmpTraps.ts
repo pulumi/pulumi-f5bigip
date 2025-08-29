@@ -52,59 +52,59 @@ export class SnmpTraps extends pulumi.CustomResource {
     /**
      * Encrypted password
      */
-    public readonly authPasswordencrypted!: pulumi.Output<string | undefined>;
+    declare public readonly authPasswordencrypted: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol used to authenticate the user.
      */
-    public readonly authProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly authProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies the community string used for this trap.
      */
-    public readonly community!: pulumi.Output<string | undefined>;
+    declare public readonly community: pulumi.Output<string | undefined>;
     /**
      * The port that the trap will be sent to.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the authoritative security engine for SNMPv3.
      */
-    public readonly engineId!: pulumi.Output<string | undefined>;
+    declare public readonly engineId: pulumi.Output<string | undefined>;
     /**
      * The host the trap will be sent to.
      */
-    public readonly host!: pulumi.Output<string | undefined>;
+    declare public readonly host: pulumi.Output<string | undefined>;
     /**
      * Name of the snmp trap.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * User defined description.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Specifies the clear text password used to encrypt traffic. This field will not be displayed.
      */
-    public readonly privacyPassword!: pulumi.Output<string | undefined>;
+    declare public readonly privacyPassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the encrypted password used to encrypt traffic.
      */
-    public readonly privacyPasswordEncrypted!: pulumi.Output<string | undefined>;
+    declare public readonly privacyPasswordEncrypted: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol used to encrypt traffic.
      */
-    public readonly privacyProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly privacyProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      */
-    public readonly securityLevel!: pulumi.Output<string>;
+    declare public readonly securityLevel: pulumi.Output<string>;
     /**
      * Security name used in conjunction with SNMPv3.
      */
-    public readonly securityName!: pulumi.Output<string | undefined>;
+    declare public readonly securityName: pulumi.Output<string | undefined>;
     /**
      * SNMP version used for sending the trap.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a SnmpTraps resource with the given unique name, arguments, and options.
@@ -119,36 +119,36 @@ export class SnmpTraps extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnmpTrapsState | undefined;
-            resourceInputs["authPasswordencrypted"] = state ? state.authPasswordencrypted : undefined;
-            resourceInputs["authProtocol"] = state ? state.authProtocol : undefined;
-            resourceInputs["community"] = state ? state.community : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["engineId"] = state ? state.engineId : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["privacyPassword"] = state ? state.privacyPassword : undefined;
-            resourceInputs["privacyPasswordEncrypted"] = state ? state.privacyPasswordEncrypted : undefined;
-            resourceInputs["privacyProtocol"] = state ? state.privacyProtocol : undefined;
-            resourceInputs["securityLevel"] = state ? state.securityLevel : undefined;
-            resourceInputs["securityName"] = state ? state.securityName : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["authPasswordencrypted"] = state?.authPasswordencrypted;
+            resourceInputs["authProtocol"] = state?.authProtocol;
+            resourceInputs["community"] = state?.community;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["engineId"] = state?.engineId;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["privacyPassword"] = state?.privacyPassword;
+            resourceInputs["privacyPasswordEncrypted"] = state?.privacyPasswordEncrypted;
+            resourceInputs["privacyProtocol"] = state?.privacyProtocol;
+            resourceInputs["securityLevel"] = state?.securityLevel;
+            resourceInputs["securityName"] = state?.securityName;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as SnmpTrapsArgs | undefined;
-            resourceInputs["authPasswordencrypted"] = args ? args.authPasswordencrypted : undefined;
-            resourceInputs["authProtocol"] = args ? args.authProtocol : undefined;
-            resourceInputs["community"] = args ? args.community : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["engineId"] = args ? args.engineId : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["privacyPassword"] = args ? args.privacyPassword : undefined;
-            resourceInputs["privacyPasswordEncrypted"] = args ? args.privacyPasswordEncrypted : undefined;
-            resourceInputs["privacyProtocol"] = args ? args.privacyProtocol : undefined;
-            resourceInputs["securityLevel"] = args ? args.securityLevel : undefined;
-            resourceInputs["securityName"] = args ? args.securityName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["authPasswordencrypted"] = args?.authPasswordencrypted;
+            resourceInputs["authProtocol"] = args?.authProtocol;
+            resourceInputs["community"] = args?.community;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["engineId"] = args?.engineId;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["privacyPassword"] = args?.privacyPassword;
+            resourceInputs["privacyPasswordEncrypted"] = args?.privacyPasswordEncrypted;
+            resourceInputs["privacyProtocol"] = args?.privacyProtocol;
+            resourceInputs["securityLevel"] = args?.securityLevel;
+            resourceInputs["securityName"] = args?.securityName;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SnmpTraps.__pulumiType, name, resourceInputs, opts);

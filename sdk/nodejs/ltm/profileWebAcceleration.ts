@@ -54,59 +54,59 @@ export class ProfileWebAcceleration extends pulumi.CustomResource {
     /**
      * Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
      */
-    public readonly cacheAgingRate!: pulumi.Output<number>;
+    declare public readonly cacheAgingRate: pulumi.Output<number>;
     /**
      * Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
      */
-    public readonly cacheClientCacheControlMode!: pulumi.Output<string>;
+    declare public readonly cacheClientCacheControlMode: pulumi.Output<string>;
     /**
      * Inserts Age and Date headers in the response. The default value is `enabled`.
      */
-    public readonly cacheInsertAgeHeader!: pulumi.Output<string>;
+    declare public readonly cacheInsertAgeHeader: pulumi.Output<string>;
     /**
      * Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
      */
-    public readonly cacheMaxAge!: pulumi.Output<number>;
+    declare public readonly cacheMaxAge: pulumi.Output<number>;
     /**
      * Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
      */
-    public readonly cacheMaxEntries!: pulumi.Output<number>;
+    declare public readonly cacheMaxEntries: pulumi.Output<number>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    public readonly cacheObjectMaxSize!: pulumi.Output<number>;
+    declare public readonly cacheObjectMaxSize: pulumi.Output<number>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    public readonly cacheObjectMinSize!: pulumi.Output<number>;
+    declare public readonly cacheObjectMinSize: pulumi.Output<number>;
     /**
      * Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
      */
-    public readonly cacheSize!: pulumi.Output<number>;
+    declare public readonly cacheSize: pulumi.Output<number>;
     /**
      * Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
      */
-    public readonly cacheUriExcludes!: pulumi.Output<string[]>;
+    declare public readonly cacheUriExcludes: pulumi.Output<string[]>;
     /**
      * Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
      */
-    public readonly cacheUriIncludeOverrides!: pulumi.Output<string[]>;
+    declare public readonly cacheUriIncludeOverrides: pulumi.Output<string[]>;
     /**
      * Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
      */
-    public readonly cacheUriIncludes!: pulumi.Output<string[]>;
+    declare public readonly cacheUriIncludes: pulumi.Output<string[]>;
     /**
      * Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
      */
-    public readonly cacheUriPinneds!: pulumi.Output<string[]>;
+    declare public readonly cacheUriPinneds: pulumi.Output<string[]>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ProfileWebAcceleration resource with the given unique name, arguments, and options.
@@ -121,39 +121,39 @@ export class ProfileWebAcceleration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileWebAccelerationState | undefined;
-            resourceInputs["cacheAgingRate"] = state ? state.cacheAgingRate : undefined;
-            resourceInputs["cacheClientCacheControlMode"] = state ? state.cacheClientCacheControlMode : undefined;
-            resourceInputs["cacheInsertAgeHeader"] = state ? state.cacheInsertAgeHeader : undefined;
-            resourceInputs["cacheMaxAge"] = state ? state.cacheMaxAge : undefined;
-            resourceInputs["cacheMaxEntries"] = state ? state.cacheMaxEntries : undefined;
-            resourceInputs["cacheObjectMaxSize"] = state ? state.cacheObjectMaxSize : undefined;
-            resourceInputs["cacheObjectMinSize"] = state ? state.cacheObjectMinSize : undefined;
-            resourceInputs["cacheSize"] = state ? state.cacheSize : undefined;
-            resourceInputs["cacheUriExcludes"] = state ? state.cacheUriExcludes : undefined;
-            resourceInputs["cacheUriIncludeOverrides"] = state ? state.cacheUriIncludeOverrides : undefined;
-            resourceInputs["cacheUriIncludes"] = state ? state.cacheUriIncludes : undefined;
-            resourceInputs["cacheUriPinneds"] = state ? state.cacheUriPinneds : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["cacheAgingRate"] = state?.cacheAgingRate;
+            resourceInputs["cacheClientCacheControlMode"] = state?.cacheClientCacheControlMode;
+            resourceInputs["cacheInsertAgeHeader"] = state?.cacheInsertAgeHeader;
+            resourceInputs["cacheMaxAge"] = state?.cacheMaxAge;
+            resourceInputs["cacheMaxEntries"] = state?.cacheMaxEntries;
+            resourceInputs["cacheObjectMaxSize"] = state?.cacheObjectMaxSize;
+            resourceInputs["cacheObjectMinSize"] = state?.cacheObjectMinSize;
+            resourceInputs["cacheSize"] = state?.cacheSize;
+            resourceInputs["cacheUriExcludes"] = state?.cacheUriExcludes;
+            resourceInputs["cacheUriIncludeOverrides"] = state?.cacheUriIncludeOverrides;
+            resourceInputs["cacheUriIncludes"] = state?.cacheUriIncludes;
+            resourceInputs["cacheUriPinneds"] = state?.cacheUriPinneds;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ProfileWebAccelerationArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["cacheAgingRate"] = args ? args.cacheAgingRate : undefined;
-            resourceInputs["cacheClientCacheControlMode"] = args ? args.cacheClientCacheControlMode : undefined;
-            resourceInputs["cacheInsertAgeHeader"] = args ? args.cacheInsertAgeHeader : undefined;
-            resourceInputs["cacheMaxAge"] = args ? args.cacheMaxAge : undefined;
-            resourceInputs["cacheMaxEntries"] = args ? args.cacheMaxEntries : undefined;
-            resourceInputs["cacheObjectMaxSize"] = args ? args.cacheObjectMaxSize : undefined;
-            resourceInputs["cacheObjectMinSize"] = args ? args.cacheObjectMinSize : undefined;
-            resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
-            resourceInputs["cacheUriExcludes"] = args ? args.cacheUriExcludes : undefined;
-            resourceInputs["cacheUriIncludeOverrides"] = args ? args.cacheUriIncludeOverrides : undefined;
-            resourceInputs["cacheUriIncludes"] = args ? args.cacheUriIncludes : undefined;
-            resourceInputs["cacheUriPinneds"] = args ? args.cacheUriPinneds : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cacheAgingRate"] = args?.cacheAgingRate;
+            resourceInputs["cacheClientCacheControlMode"] = args?.cacheClientCacheControlMode;
+            resourceInputs["cacheInsertAgeHeader"] = args?.cacheInsertAgeHeader;
+            resourceInputs["cacheMaxAge"] = args?.cacheMaxAge;
+            resourceInputs["cacheMaxEntries"] = args?.cacheMaxEntries;
+            resourceInputs["cacheObjectMaxSize"] = args?.cacheObjectMaxSize;
+            resourceInputs["cacheObjectMinSize"] = args?.cacheObjectMinSize;
+            resourceInputs["cacheSize"] = args?.cacheSize;
+            resourceInputs["cacheUriExcludes"] = args?.cacheUriExcludes;
+            resourceInputs["cacheUriIncludeOverrides"] = args?.cacheUriIncludeOverrides;
+            resourceInputs["cacheUriIncludes"] = args?.cacheUriIncludes;
+            resourceInputs["cacheUriPinneds"] = args?.cacheUriPinneds;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileWebAcceleration.__pulumiType, name, resourceInputs, opts);

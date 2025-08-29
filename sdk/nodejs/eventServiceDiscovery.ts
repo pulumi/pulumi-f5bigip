@@ -106,11 +106,11 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
      *
      * Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
      */
-    public readonly nodes!: pulumi.Output<outputs.EventServiceDiscoveryNode[] | undefined>;
+    declare public readonly nodes: pulumi.Output<outputs.EventServiceDiscoveryNode[] | undefined>;
     /**
      * servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
      */
-    public readonly taskid!: pulumi.Output<string>;
+    declare public readonly taskid: pulumi.Output<string>;
 
     /**
      * Create a EventServiceDiscovery resource with the given unique name, arguments, and options.
@@ -125,15 +125,15 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventServiceDiscoveryState | undefined;
-            resourceInputs["nodes"] = state ? state.nodes : undefined;
-            resourceInputs["taskid"] = state ? state.taskid : undefined;
+            resourceInputs["nodes"] = state?.nodes;
+            resourceInputs["taskid"] = state?.taskid;
         } else {
             const args = argsOrState as EventServiceDiscoveryArgs | undefined;
-            if ((!args || args.taskid === undefined) && !opts.urn) {
+            if (args?.taskid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskid'");
             }
-            resourceInputs["nodes"] = args ? args.nodes : undefined;
-            resourceInputs["taskid"] = args ? args.taskid : undefined;
+            resourceInputs["nodes"] = args?.nodes;
+            resourceInputs["taskid"] = args?.taskid;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventServiceDiscovery.__pulumiType, name, resourceInputs, opts);

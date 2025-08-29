@@ -61,7 +61,7 @@ type ProfileServerSsl struct {
 	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
 	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringOutput `pulumi:"authenticate"`
-	// Client certificate chain traversal depth. Default 9.
+	// Client certificate chain traversal depth.  Default 9.
 	AuthenticateDepth pulumi.IntOutput `pulumi:"authenticateDepth"`
 	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
 	C3dCaCert pulumi.StringPtrOutput `pulumi:"c3dCaCert"`
@@ -73,7 +73,7 @@ type ProfileServerSsl struct {
 	C3dCaKey pulumi.StringPtrOutput `pulumi:"c3dCaKey"`
 	// CA Passphrase. Default
 	C3dCaPassphrase pulumi.StringOutput `pulumi:"c3dCaPassphrase"`
-	// Certificate Extensions List. Default
+	// Certificate Extensions List.  Default
 	C3dCertExtensionCustomOids pulumi.StringArrayOutput `pulumi:"c3dCertExtensionCustomOids"`
 	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 	//
@@ -98,11 +98,11 @@ type ProfileServerSsl struct {
 	//
 	// * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
 	C3dCertExtensionIncludes pulumi.StringArrayOutput `pulumi:"c3dCertExtensionIncludes"`
-	// Certificate Lifespan. Default
+	// Certificate Lifespan.  Default
 	C3dCertLifespan pulumi.IntOutput `pulumi:"c3dCertLifespan"`
 	// CA Passphrase. Default enabled
 	C3dCertificateExtensions pulumi.StringOutput `pulumi:"c3dCertificateExtensions"`
-	// Client certificate file path. Default None.
+	// Client certificate file path.  Default None.
 	CaFile pulumi.StringOutput `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize pulumi.IntOutput `pulumi:"cacheSize"`
@@ -130,9 +130,9 @@ type ProfileServerSsl struct {
 	HandshakeTimeout pulumi.StringOutput `pulumi:"handshakeTimeout"`
 	// Specifies the file name of the SSL key.
 	Key pulumi.StringPtrOutput `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -146,7 +146,7 @@ type ProfileServerSsl struct {
 	ProxyCaCert pulumi.StringOutput `pulumi:"proxyCaCert"`
 	// Proxy CA Key
 	ProxyCaKey pulumi.StringOutput `pulumi:"proxyCaKey"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringOutput `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringOutput `pulumi:"renegotiatePeriod"`
@@ -237,7 +237,7 @@ type profileServerSslState struct {
 	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
 	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate *string `pulumi:"authenticate"`
-	// Client certificate chain traversal depth. Default 9.
+	// Client certificate chain traversal depth.  Default 9.
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
 	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
 	C3dCaCert *string `pulumi:"c3dCaCert"`
@@ -249,7 +249,7 @@ type profileServerSslState struct {
 	C3dCaKey *string `pulumi:"c3dCaKey"`
 	// CA Passphrase. Default
 	C3dCaPassphrase *string `pulumi:"c3dCaPassphrase"`
-	// Certificate Extensions List. Default
+	// Certificate Extensions List.  Default
 	C3dCertExtensionCustomOids []string `pulumi:"c3dCertExtensionCustomOids"`
 	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 	//
@@ -274,11 +274,11 @@ type profileServerSslState struct {
 	//
 	// * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
 	C3dCertExtensionIncludes []string `pulumi:"c3dCertExtensionIncludes"`
-	// Certificate Lifespan. Default
+	// Certificate Lifespan.  Default
 	C3dCertLifespan *int `pulumi:"c3dCertLifespan"`
 	// CA Passphrase. Default enabled
 	C3dCertificateExtensions *string `pulumi:"c3dCertificateExtensions"`
-	// Client certificate file path. Default None.
+	// Client certificate file path.  Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize *int `pulumi:"cacheSize"`
@@ -306,9 +306,9 @@ type profileServerSslState struct {
 	HandshakeTimeout *string `pulumi:"handshakeTimeout"`
 	// Specifies the file name of the SSL key.
 	Key *string `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name *string `pulumi:"name"`
@@ -322,7 +322,7 @@ type profileServerSslState struct {
 	ProxyCaCert *string `pulumi:"proxyCaCert"`
 	// Proxy CA Key
 	ProxyCaKey *string `pulumi:"proxyCaKey"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod *string `pulumi:"renegotiatePeriod"`
@@ -374,7 +374,7 @@ type ProfileServerSslState struct {
 	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
 	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringPtrInput
-	// Client certificate chain traversal depth. Default 9.
+	// Client certificate chain traversal depth.  Default 9.
 	AuthenticateDepth pulumi.IntPtrInput
 	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
 	C3dCaCert pulumi.StringPtrInput
@@ -386,7 +386,7 @@ type ProfileServerSslState struct {
 	C3dCaKey pulumi.StringPtrInput
 	// CA Passphrase. Default
 	C3dCaPassphrase pulumi.StringPtrInput
-	// Certificate Extensions List. Default
+	// Certificate Extensions List.  Default
 	C3dCertExtensionCustomOids pulumi.StringArrayInput
 	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 	//
@@ -411,11 +411,11 @@ type ProfileServerSslState struct {
 	//
 	// * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
 	C3dCertExtensionIncludes pulumi.StringArrayInput
-	// Certificate Lifespan. Default
+	// Certificate Lifespan.  Default
 	C3dCertLifespan pulumi.IntPtrInput
 	// CA Passphrase. Default enabled
 	C3dCertificateExtensions pulumi.StringPtrInput
-	// Client certificate file path. Default None.
+	// Client certificate file path.  Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
 	CacheSize pulumi.IntPtrInput
@@ -443,9 +443,9 @@ type ProfileServerSslState struct {
 	HandshakeTimeout pulumi.StringPtrInput
 	// Specifies the file name of the SSL key.
 	Key pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringPtrInput
@@ -459,7 +459,7 @@ type ProfileServerSslState struct {
 	ProxyCaCert pulumi.StringPtrInput
 	// Proxy CA Key
 	ProxyCaKey pulumi.StringPtrInput
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringPtrInput
@@ -515,7 +515,7 @@ type profileServerSslArgs struct {
 	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
 	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate *string `pulumi:"authenticate"`
-	// Client certificate chain traversal depth. Default 9.
+	// Client certificate chain traversal depth.  Default 9.
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
 	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
 	C3dCaCert *string `pulumi:"c3dCaCert"`
@@ -527,7 +527,7 @@ type profileServerSslArgs struct {
 	C3dCaKey *string `pulumi:"c3dCaKey"`
 	// CA Passphrase. Default
 	C3dCaPassphrase *string `pulumi:"c3dCaPassphrase"`
-	// Certificate Extensions List. Default
+	// Certificate Extensions List.  Default
 	C3dCertExtensionCustomOids []string `pulumi:"c3dCertExtensionCustomOids"`
 	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 	//
@@ -552,11 +552,11 @@ type profileServerSslArgs struct {
 	//
 	// * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
 	C3dCertExtensionIncludes []string `pulumi:"c3dCertExtensionIncludes"`
-	// Certificate Lifespan. Default
+	// Certificate Lifespan.  Default
 	C3dCertLifespan *int `pulumi:"c3dCertLifespan"`
 	// CA Passphrase. Default enabled
 	C3dCertificateExtensions *string `pulumi:"c3dCertificateExtensions"`
-	// Client certificate file path. Default None.
+	// Client certificate file path.  Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
 	CacheSize *int `pulumi:"cacheSize"`
@@ -584,9 +584,9 @@ type profileServerSslArgs struct {
 	HandshakeTimeout *string `pulumi:"handshakeTimeout"`
 	// Specifies the file name of the SSL key.
 	Key *string `pulumi:"key"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods *string `pulumi:"modSslMethods"`
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name string `pulumi:"name"`
@@ -600,7 +600,7 @@ type profileServerSslArgs struct {
 	ProxyCaCert *string `pulumi:"proxyCaCert"`
 	// Proxy CA Key
 	ProxyCaKey *string `pulumi:"proxyCaKey"`
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod *string `pulumi:"renegotiatePeriod"`
@@ -653,7 +653,7 @@ type ProfileServerSslArgs struct {
 	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
 	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringPtrInput
-	// Client certificate chain traversal depth. Default 9.
+	// Client certificate chain traversal depth.  Default 9.
 	AuthenticateDepth pulumi.IntPtrInput
 	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
 	C3dCaCert pulumi.StringPtrInput
@@ -665,7 +665,7 @@ type ProfileServerSslArgs struct {
 	C3dCaKey pulumi.StringPtrInput
 	// CA Passphrase. Default
 	C3dCaPassphrase pulumi.StringPtrInput
-	// Certificate Extensions List. Default
+	// Certificate Extensions List.  Default
 	C3dCertExtensionCustomOids pulumi.StringArrayInput
 	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 	//
@@ -690,11 +690,11 @@ type ProfileServerSslArgs struct {
 	//
 	// * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
 	C3dCertExtensionIncludes pulumi.StringArrayInput
-	// Certificate Lifespan. Default
+	// Certificate Lifespan.  Default
 	C3dCertLifespan pulumi.IntPtrInput
 	// CA Passphrase. Default enabled
 	C3dCertificateExtensions pulumi.StringPtrInput
-	// Client certificate file path. Default None.
+	// Client certificate file path.  Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
 	CacheSize pulumi.IntPtrInput
@@ -722,9 +722,9 @@ type ProfileServerSslArgs struct {
 	HandshakeTimeout pulumi.StringPtrInput
 	// Specifies the file name of the SSL key.
 	Key pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	ModSslMethods pulumi.StringPtrInput
-	// ModSSL Methods enabled / disabled. Default is disabled.
+	// ModSSL Methods enabled / disabled.  Default is disabled.
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringInput
@@ -738,7 +738,7 @@ type ProfileServerSslArgs struct {
 	ProxyCaCert pulumi.StringPtrInput
 	// Proxy CA Key
 	ProxyCaKey pulumi.StringPtrInput
-	// Proxy SSL enabled / disabled. Default is disabled.
+	// Proxy SSL enabled / disabled.  Default is disabled.
 	ProxySsl pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
 	RenegotiatePeriod pulumi.StringPtrInput
@@ -882,7 +882,7 @@ func (o ProfileServerSslOutput) Authenticate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.Authenticate }).(pulumi.StringOutput)
 }
 
-// Client certificate chain traversal depth. Default 9.
+// Client certificate chain traversal depth.  Default 9.
 func (o ProfileServerSslOutput) AuthenticateDepth() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.IntOutput { return v.AuthenticateDepth }).(pulumi.IntOutput)
 }
@@ -906,7 +906,7 @@ func (o ProfileServerSslOutput) C3dCaPassphrase() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.C3dCaPassphrase }).(pulumi.StringOutput)
 }
 
-// Certificate Extensions List. Default
+// Certificate Extensions List.  Default
 func (o ProfileServerSslOutput) C3dCertExtensionCustomOids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringArrayOutput { return v.C3dCertExtensionCustomOids }).(pulumi.StringArrayOutput)
 }
@@ -937,7 +937,7 @@ func (o ProfileServerSslOutput) C3dCertExtensionIncludes() pulumi.StringArrayOut
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringArrayOutput { return v.C3dCertExtensionIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Certificate Lifespan. Default
+// Certificate Lifespan.  Default
 func (o ProfileServerSslOutput) C3dCertLifespan() pulumi.IntOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.IntOutput { return v.C3dCertLifespan }).(pulumi.IntOutput)
 }
@@ -947,7 +947,7 @@ func (o ProfileServerSslOutput) C3dCertificateExtensions() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.C3dCertificateExtensions }).(pulumi.StringOutput)
 }
 
-// Client certificate file path. Default None.
+// Client certificate file path.  Default None.
 func (o ProfileServerSslOutput) CaFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.CaFile }).(pulumi.StringOutput)
 }
@@ -1017,12 +1017,12 @@ func (o ProfileServerSslOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// ModSSL Methods enabled / disabled. Default is disabled.
+// ModSSL Methods enabled / disabled.  Default is disabled.
 func (o ProfileServerSslOutput) ModSslMethods() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.ModSslMethods }).(pulumi.StringOutput)
 }
 
-// ModSSL Methods enabled / disabled. Default is disabled.
+// ModSSL Methods enabled / disabled.  Default is disabled.
 func (o ProfileServerSslOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -1057,7 +1057,7 @@ func (o ProfileServerSslOutput) ProxyCaKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.ProxyCaKey }).(pulumi.StringOutput)
 }
 
-// Proxy SSL enabled / disabled. Default is disabled.
+// Proxy SSL enabled / disabled.  Default is disabled.
 func (o ProfileServerSslOutput) ProxySsl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.ProxySsl }).(pulumi.StringOutput)
 }

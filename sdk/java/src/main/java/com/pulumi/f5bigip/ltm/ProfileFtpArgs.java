@@ -93,16 +93,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      * 
      */
     @Import(name="enforceTlssessionReuse")
     private @Nullable Output<String> enforceTlssessionReuse;
 
     /**
-     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * @return Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      * 
      */
     public Optional<Output<String>> enforceTlssessionReuse() {
@@ -125,16 +123,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      * 
      */
     @Import(name="inheritParentProfile")
     private @Nullable Output<String> inheritParentProfile;
 
     /**
-     * @return Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * @return Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      * 
      */
     public Optional<Output<String>> inheritParentProfile() {
@@ -232,16 +228,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      * 
      */
     @Import(name="security")
     private @Nullable Output<String> security;
 
     /**
-     * @return Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * @return Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      * 
      */
     public Optional<Output<String>> security() {
@@ -249,16 +243,14 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      * 
      */
     @Import(name="translateExtended")
     private @Nullable Output<String> translateExtended;
 
     /**
-     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * @return This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      * 
      */
     public Optional<Output<String>> translateExtended() {
@@ -410,8 +402,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-         * value is unchecked (disabled).
+         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
          * 
          * @return builder
          * 
@@ -422,8 +413,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-         * value is unchecked (disabled).
+         * @param enforceTlssessionReuse Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
          * 
          * @return builder
          * 
@@ -454,8 +444,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritParentProfile Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-         * FastL4 only.
+         * @param inheritParentProfile Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
          * 
          * @return builder
          * 
@@ -466,8 +455,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritParentProfile Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-         * FastL4 only.
+         * @param inheritParentProfile Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
          * 
          * @return builder
          * 
@@ -603,8 +591,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param security Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-         * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+         * @param security Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
          * 
          * @return builder
          * 
@@ -615,8 +602,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param security Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-         * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+         * @param security Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
          * 
          * @return builder
          * 
@@ -626,8 +612,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-         * and PORT when communicating with IPv4 servers.
+         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
          * 
          * @return builder
          * 
@@ -638,8 +623,7 @@ public final class ProfileFtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-         * and PORT when communicating with IPv4 servers.
+         * @param translateExtended This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
          * 
          * @return builder
          * 

@@ -146,16 +146,14 @@ public class PersistenceProfileSrcAddr extends com.pulumi.resources.CustomResour
         return this.mapProxies;
     }
     /**
-     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      * 
      */
     @Export(name="mask", refs={String.class}, tree="[0]")
     private Output<String> mask;
 
     /**
-     * @return Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
-     * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+     * @return Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      * 
      */
     public Output<String> mask() {
@@ -232,16 +230,14 @@ public class PersistenceProfileSrcAddr extends com.pulumi.resources.CustomResour
         return this.name;
     }
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     @Export(name="overrideConnLimit", refs={String.class}, tree="[0]")
     private Output<String> overrideConnLimit;
 
     /**
-     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     public Output<String> overrideConnLimit() {

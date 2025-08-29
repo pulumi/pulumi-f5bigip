@@ -38,139 +38,139 @@ export class NetIkePeer extends pulumi.CustomResource {
     /**
      * The application service that the object belongs to
      */
-    public readonly appService!: pulumi.Output<string | undefined>;
+    declare public readonly appService: pulumi.Output<string | undefined>;
     /**
      * the trusted root and intermediate certificate authorities
      */
-    public readonly caCertFile!: pulumi.Output<string>;
+    declare public readonly caCertFile: pulumi.Output<string>;
     /**
      * Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
      */
-    public readonly crlFile!: pulumi.Output<string>;
+    declare public readonly crlFile: pulumi.Output<string>;
     /**
      * User defined description
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the number of seconds between Dead Peer Detection messages
      */
-    public readonly dpdDelay!: pulumi.Output<number>;
+    declare public readonly dpdDelay: pulumi.Output<number>;
     /**
      * Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
      */
-    public readonly generatePolicy!: pulumi.Output<string>;
+    declare public readonly generatePolicy: pulumi.Output<string>;
     /**
      * Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
      */
-    public readonly lifetime!: pulumi.Output<number>;
+    declare public readonly lifetime: pulumi.Output<number>;
     /**
      * Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * Specifies the name of the certificate file object
      */
-    public readonly myCertFile!: pulumi.Output<string>;
+    declare public readonly myCertFile: pulumi.Output<string>;
     /**
      * Specifies the name of the certificate key file object
      */
-    public readonly myCertKeyFile!: pulumi.Output<string>;
+    declare public readonly myCertKeyFile: pulumi.Output<string>;
     /**
      * Specifies the passphrase of the key used for my-cert-key-file
      */
-    public readonly myCertKeyPassphrase!: pulumi.Output<string>;
+    declare public readonly myCertKeyPassphrase: pulumi.Output<string>;
     /**
      * Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
      */
-    public readonly myIdType!: pulumi.Output<string>;
+    declare public readonly myIdType: pulumi.Output<string>;
     /**
      * Specifies the identifier value sent to the remote host in the phase 1 negotiation
      */
-    public readonly myIdValue!: pulumi.Output<string>;
+    declare public readonly myIdValue: pulumi.Output<string>;
     /**
      * Name of the ike_peer
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enables use of the NAT-Traversal IPsec extension
      */
-    public readonly natTraversal!: pulumi.Output<string>;
+    declare public readonly natTraversal: pulumi.Output<string>;
     /**
      * Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
      */
-    public readonly passive!: pulumi.Output<string>;
+    declare public readonly passive: pulumi.Output<string>;
     /**
      * Specifies the peer’s certificate for authentication
      */
-    public readonly peersCertFile!: pulumi.Output<string>;
+    declare public readonly peersCertFile: pulumi.Output<string>;
     /**
      * Specifies that the only peers-cert-type supported is certfile
      */
-    public readonly peersCertType!: pulumi.Output<string>;
+    declare public readonly peersCertType: pulumi.Output<string>;
     /**
      * Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
      */
-    public readonly peersIdType!: pulumi.Output<string>;
+    declare public readonly peersIdType: pulumi.Output<string>;
     /**
      * Specifies the peer’s identifier to be received
      */
-    public readonly peersIdValue!: pulumi.Output<string>;
+    declare public readonly peersIdValue: pulumi.Output<string>;
     /**
      * Specifies the authentication method used for phase 1 negotiation
      */
-    public readonly phase1AuthMethod!: pulumi.Output<string>;
+    declare public readonly phase1AuthMethod: pulumi.Output<string>;
     /**
      * Specifies the encryption algorithm used for the isakmp phase 1 negotiation
      */
-    public readonly phase1EncryptAlgorithm!: pulumi.Output<string>;
+    declare public readonly phase1EncryptAlgorithm: pulumi.Output<string>;
     /**
      * Defines the hash algorithm used for the isakmp phase 1 negotiation
      */
-    public readonly phase1HashAlgorithm!: pulumi.Output<string>;
+    declare public readonly phase1HashAlgorithm: pulumi.Output<string>;
     /**
      * Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
      */
-    public readonly phase1PerfectForwardSecrecy!: pulumi.Output<string>;
+    declare public readonly phase1PerfectForwardSecrecy: pulumi.Output<string>;
     /**
      * Specifies the preshared key for ISAKMP SAs
      */
-    public readonly presharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly presharedKey: pulumi.Output<string | undefined>;
     /**
      * Display the encrypted preshared-key for the IKE remote node
      */
-    public readonly presharedKeyEncrypted!: pulumi.Output<string>;
+    declare public readonly presharedKeyEncrypted: pulumi.Output<string>;
     /**
      * Specifies the pseudo-random function used to derive keying material for all cryptographic operations
      */
-    public readonly prf!: pulumi.Output<string>;
+    declare public readonly prf: pulumi.Output<string>;
     /**
      * If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
      */
-    public readonly proxySupport!: pulumi.Output<string>;
+    declare public readonly proxySupport: pulumi.Output<string>;
     /**
      * Specifies the IP address of the IKE remote node
      */
-    public readonly remoteAddress!: pulumi.Output<string>;
+    declare public readonly remoteAddress: pulumi.Output<string>;
     /**
      * Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
      */
-    public readonly replayWindowSize!: pulumi.Output<number>;
+    declare public readonly replayWindowSize: pulumi.Output<number>;
     /**
      * Enables or disables this IKE remote node
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Specifies the names of the traffic-selector objects associated with this ike-peer
      */
-    public readonly trafficSelectors!: pulumi.Output<string[]>;
+    declare public readonly trafficSelectors: pulumi.Output<string[]>;
     /**
      * Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
      */
-    public readonly verifyCert!: pulumi.Output<string>;
+    declare public readonly verifyCert: pulumi.Output<string>;
     /**
      * Specifies which version of IKE to be used
      */
-    public readonly versions!: pulumi.Output<string[]>;
+    declare public readonly versions: pulumi.Output<string[]>;
 
     /**
      * Create a NetIkePeer resource with the given unique name, arguments, and options.
@@ -185,82 +185,82 @@ export class NetIkePeer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetIkePeerState | undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["caCertFile"] = state ? state.caCertFile : undefined;
-            resourceInputs["crlFile"] = state ? state.crlFile : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dpdDelay"] = state ? state.dpdDelay : undefined;
-            resourceInputs["generatePolicy"] = state ? state.generatePolicy : undefined;
-            resourceInputs["lifetime"] = state ? state.lifetime : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["myCertFile"] = state ? state.myCertFile : undefined;
-            resourceInputs["myCertKeyFile"] = state ? state.myCertKeyFile : undefined;
-            resourceInputs["myCertKeyPassphrase"] = state ? state.myCertKeyPassphrase : undefined;
-            resourceInputs["myIdType"] = state ? state.myIdType : undefined;
-            resourceInputs["myIdValue"] = state ? state.myIdValue : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["natTraversal"] = state ? state.natTraversal : undefined;
-            resourceInputs["passive"] = state ? state.passive : undefined;
-            resourceInputs["peersCertFile"] = state ? state.peersCertFile : undefined;
-            resourceInputs["peersCertType"] = state ? state.peersCertType : undefined;
-            resourceInputs["peersIdType"] = state ? state.peersIdType : undefined;
-            resourceInputs["peersIdValue"] = state ? state.peersIdValue : undefined;
-            resourceInputs["phase1AuthMethod"] = state ? state.phase1AuthMethod : undefined;
-            resourceInputs["phase1EncryptAlgorithm"] = state ? state.phase1EncryptAlgorithm : undefined;
-            resourceInputs["phase1HashAlgorithm"] = state ? state.phase1HashAlgorithm : undefined;
-            resourceInputs["phase1PerfectForwardSecrecy"] = state ? state.phase1PerfectForwardSecrecy : undefined;
-            resourceInputs["presharedKey"] = state ? state.presharedKey : undefined;
-            resourceInputs["presharedKeyEncrypted"] = state ? state.presharedKeyEncrypted : undefined;
-            resourceInputs["prf"] = state ? state.prf : undefined;
-            resourceInputs["proxySupport"] = state ? state.proxySupport : undefined;
-            resourceInputs["remoteAddress"] = state ? state.remoteAddress : undefined;
-            resourceInputs["replayWindowSize"] = state ? state.replayWindowSize : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["trafficSelectors"] = state ? state.trafficSelectors : undefined;
-            resourceInputs["verifyCert"] = state ? state.verifyCert : undefined;
-            resourceInputs["versions"] = state ? state.versions : undefined;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["caCertFile"] = state?.caCertFile;
+            resourceInputs["crlFile"] = state?.crlFile;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dpdDelay"] = state?.dpdDelay;
+            resourceInputs["generatePolicy"] = state?.generatePolicy;
+            resourceInputs["lifetime"] = state?.lifetime;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["myCertFile"] = state?.myCertFile;
+            resourceInputs["myCertKeyFile"] = state?.myCertKeyFile;
+            resourceInputs["myCertKeyPassphrase"] = state?.myCertKeyPassphrase;
+            resourceInputs["myIdType"] = state?.myIdType;
+            resourceInputs["myIdValue"] = state?.myIdValue;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["natTraversal"] = state?.natTraversal;
+            resourceInputs["passive"] = state?.passive;
+            resourceInputs["peersCertFile"] = state?.peersCertFile;
+            resourceInputs["peersCertType"] = state?.peersCertType;
+            resourceInputs["peersIdType"] = state?.peersIdType;
+            resourceInputs["peersIdValue"] = state?.peersIdValue;
+            resourceInputs["phase1AuthMethod"] = state?.phase1AuthMethod;
+            resourceInputs["phase1EncryptAlgorithm"] = state?.phase1EncryptAlgorithm;
+            resourceInputs["phase1HashAlgorithm"] = state?.phase1HashAlgorithm;
+            resourceInputs["phase1PerfectForwardSecrecy"] = state?.phase1PerfectForwardSecrecy;
+            resourceInputs["presharedKey"] = state?.presharedKey;
+            resourceInputs["presharedKeyEncrypted"] = state?.presharedKeyEncrypted;
+            resourceInputs["prf"] = state?.prf;
+            resourceInputs["proxySupport"] = state?.proxySupport;
+            resourceInputs["remoteAddress"] = state?.remoteAddress;
+            resourceInputs["replayWindowSize"] = state?.replayWindowSize;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["trafficSelectors"] = state?.trafficSelectors;
+            resourceInputs["verifyCert"] = state?.verifyCert;
+            resourceInputs["versions"] = state?.versions;
         } else {
             const args = argsOrState as NetIkePeerArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.remoteAddress === undefined) && !opts.urn) {
+            if (args?.remoteAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteAddress'");
             }
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["caCertFile"] = args ? args.caCertFile : undefined;
-            resourceInputs["crlFile"] = args ? args.crlFile : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dpdDelay"] = args ? args.dpdDelay : undefined;
-            resourceInputs["generatePolicy"] = args ? args.generatePolicy : undefined;
-            resourceInputs["lifetime"] = args ? args.lifetime : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["myCertFile"] = args ? args.myCertFile : undefined;
-            resourceInputs["myCertKeyFile"] = args ? args.myCertKeyFile : undefined;
-            resourceInputs["myCertKeyPassphrase"] = args ? args.myCertKeyPassphrase : undefined;
-            resourceInputs["myIdType"] = args ? args.myIdType : undefined;
-            resourceInputs["myIdValue"] = args ? args.myIdValue : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natTraversal"] = args ? args.natTraversal : undefined;
-            resourceInputs["passive"] = args ? args.passive : undefined;
-            resourceInputs["peersCertFile"] = args ? args.peersCertFile : undefined;
-            resourceInputs["peersCertType"] = args ? args.peersCertType : undefined;
-            resourceInputs["peersIdType"] = args ? args.peersIdType : undefined;
-            resourceInputs["peersIdValue"] = args ? args.peersIdValue : undefined;
-            resourceInputs["phase1AuthMethod"] = args ? args.phase1AuthMethod : undefined;
-            resourceInputs["phase1EncryptAlgorithm"] = args ? args.phase1EncryptAlgorithm : undefined;
-            resourceInputs["phase1HashAlgorithm"] = args ? args.phase1HashAlgorithm : undefined;
-            resourceInputs["phase1PerfectForwardSecrecy"] = args ? args.phase1PerfectForwardSecrecy : undefined;
-            resourceInputs["presharedKey"] = args ? args.presharedKey : undefined;
-            resourceInputs["presharedKeyEncrypted"] = args ? args.presharedKeyEncrypted : undefined;
-            resourceInputs["prf"] = args ? args.prf : undefined;
-            resourceInputs["proxySupport"] = args ? args.proxySupport : undefined;
-            resourceInputs["remoteAddress"] = args ? args.remoteAddress : undefined;
-            resourceInputs["replayWindowSize"] = args ? args.replayWindowSize : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["trafficSelectors"] = args ? args.trafficSelectors : undefined;
-            resourceInputs["verifyCert"] = args ? args.verifyCert : undefined;
-            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["caCertFile"] = args?.caCertFile;
+            resourceInputs["crlFile"] = args?.crlFile;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dpdDelay"] = args?.dpdDelay;
+            resourceInputs["generatePolicy"] = args?.generatePolicy;
+            resourceInputs["lifetime"] = args?.lifetime;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["myCertFile"] = args?.myCertFile;
+            resourceInputs["myCertKeyFile"] = args?.myCertKeyFile;
+            resourceInputs["myCertKeyPassphrase"] = args?.myCertKeyPassphrase;
+            resourceInputs["myIdType"] = args?.myIdType;
+            resourceInputs["myIdValue"] = args?.myIdValue;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natTraversal"] = args?.natTraversal;
+            resourceInputs["passive"] = args?.passive;
+            resourceInputs["peersCertFile"] = args?.peersCertFile;
+            resourceInputs["peersCertType"] = args?.peersCertType;
+            resourceInputs["peersIdType"] = args?.peersIdType;
+            resourceInputs["peersIdValue"] = args?.peersIdValue;
+            resourceInputs["phase1AuthMethod"] = args?.phase1AuthMethod;
+            resourceInputs["phase1EncryptAlgorithm"] = args?.phase1EncryptAlgorithm;
+            resourceInputs["phase1HashAlgorithm"] = args?.phase1HashAlgorithm;
+            resourceInputs["phase1PerfectForwardSecrecy"] = args?.phase1PerfectForwardSecrecy;
+            resourceInputs["presharedKey"] = args?.presharedKey;
+            resourceInputs["presharedKeyEncrypted"] = args?.presharedKeyEncrypted;
+            resourceInputs["prf"] = args?.prf;
+            resourceInputs["proxySupport"] = args?.proxySupport;
+            resourceInputs["remoteAddress"] = args?.remoteAddress;
+            resourceInputs["replayWindowSize"] = args?.replayWindowSize;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["trafficSelectors"] = args?.trafficSelectors;
+            resourceInputs["verifyCert"] = args?.verifyCert;
+            resourceInputs["versions"] = args?.versions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetIkePeer.__pulumiType, name, resourceInputs, opts);

@@ -51,19 +51,19 @@ export class Dns extends pulumi.CustomResource {
     /**
      * Provide description for your DNS server
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      */
-    public readonly nameServers!: pulumi.Output<string[]>;
+    declare public readonly nameServers: pulumi.Output<string[]>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    public readonly numberOfDots!: pulumi.Output<number>;
+    declare public readonly numberOfDots: pulumi.Output<number>;
     /**
      * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
-    public readonly searches!: pulumi.Output<string[] | undefined>;
+    declare public readonly searches: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Dns resource with the given unique name, arguments, and options.
@@ -78,22 +78,22 @@ export class Dns extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DnsState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
-            resourceInputs["numberOfDots"] = state ? state.numberOfDots : undefined;
-            resourceInputs["searches"] = state ? state.searches : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["nameServers"] = state?.nameServers;
+            resourceInputs["numberOfDots"] = state?.numberOfDots;
+            resourceInputs["searches"] = state?.searches;
         } else {
             const args = argsOrState as DnsArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.nameServers === undefined) && !opts.urn) {
+            if (args?.nameServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nameServers'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["nameServers"] = args ? args.nameServers : undefined;
-            resourceInputs["numberOfDots"] = args ? args.numberOfDots : undefined;
-            resourceInputs["searches"] = args ? args.searches : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["nameServers"] = args?.nameServers;
+            resourceInputs["numberOfDots"] = args?.numberOfDots;
+            resourceInputs["searches"] = args?.searches;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Dns.__pulumiType, name, resourceInputs, opts);

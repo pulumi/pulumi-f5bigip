@@ -51,15 +51,15 @@ export class Ntp extends pulumi.CustomResource {
     /**
      * User defined description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Specifies the time servers that the system uses to update the system time.
      */
-    public readonly servers!: pulumi.Output<string[]>;
+    declare public readonly servers: pulumi.Output<string[]>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Ntp resource with the given unique name, arguments, and options.
@@ -74,20 +74,20 @@ export class Ntp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NtpState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["servers"] = state ? state.servers : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["servers"] = state?.servers;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as NtpArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.servers === undefined) && !opts.urn) {
+            if (args?.servers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servers'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["servers"] = args ? args.servers : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["servers"] = args?.servers;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Ntp.__pulumiType, name, resourceInputs, opts);

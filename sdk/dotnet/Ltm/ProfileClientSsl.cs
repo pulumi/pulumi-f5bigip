@@ -225,13 +225,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("modSslMethods")]
         public Output<string> ModSslMethods { get; private set; } = null!;
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -285,13 +285,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> ProxyCaPassphrase { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("proxySsl")]
         public Output<string> ProxySsl { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy SSL passthrough enabled / disabled. Default is disabled.
+        /// Proxy SSL passthrough enabled / disabled.  Default is disabled.
         /// </summary>
         [Output("proxySslPassthrough")]
         public Output<string> ProxySslPassthrough { get; private set; } = null!;
@@ -638,13 +638,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("modSslMethods")]
         public Input<string>? ModSslMethods { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -708,13 +708,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyCaPassphrase { get; set; }
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySsl")]
         public Input<string>? ProxySsl { get; set; }
 
         /// <summary>
-        /// Proxy SSL passthrough enabled / disabled. Default is disabled.
+        /// Proxy SSL passthrough enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySslPassthrough")]
         public Input<string>? ProxySslPassthrough { get; set; }
@@ -1025,13 +1025,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("modSslMethods")]
         public Input<string>? ModSslMethods { get; set; }
 
         /// <summary>
-        /// ModSSL Methods enabled / disabled. Default is disabled.
+        /// ModSSL Methods enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -1095,13 +1095,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyCaPassphrase { get; set; }
 
         /// <summary>
-        /// Proxy SSL enabled / disabled. Default is disabled.
+        /// Proxy SSL enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySsl")]
         public Input<string>? ProxySsl { get; set; }
 
         /// <summary>
-        /// Proxy SSL passthrough enabled / disabled. Default is disabled.
+        /// Proxy SSL passthrough enabled / disabled.  Default is disabled.
         /// </summary>
         [Input("proxySslPassthrough")]
         public Input<string>? ProxySslPassthrough { get; set; }

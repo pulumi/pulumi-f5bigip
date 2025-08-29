@@ -58,23 +58,23 @@ export class Vlan extends pulumi.CustomResource {
     /**
      * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
      */
-    public readonly cmpHash!: pulumi.Output<string>;
+    declare public readonly cmpHash: pulumi.Output<string>;
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    public readonly interfaces!: pulumi.Output<outputs.net.VlanInterface[] | undefined>;
+    declare public readonly interfaces: pulumi.Output<outputs.net.VlanInterface[] | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
      */
-    public readonly mtu!: pulumi.Output<number | undefined>;
+    declare public readonly mtu: pulumi.Output<number | undefined>;
     /**
      * Name of the vlan
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    public readonly tag!: pulumi.Output<number | undefined>;
+    declare public readonly tag: pulumi.Output<number | undefined>;
 
     /**
      * Create a Vlan resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class Vlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VlanState | undefined;
-            resourceInputs["cmpHash"] = state ? state.cmpHash : undefined;
-            resourceInputs["interfaces"] = state ? state.interfaces : undefined;
-            resourceInputs["mtu"] = state ? state.mtu : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tag"] = state ? state.tag : undefined;
+            resourceInputs["cmpHash"] = state?.cmpHash;
+            resourceInputs["interfaces"] = state?.interfaces;
+            resourceInputs["mtu"] = state?.mtu;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tag"] = state?.tag;
         } else {
             const args = argsOrState as VlanArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["cmpHash"] = args ? args.cmpHash : undefined;
-            resourceInputs["interfaces"] = args ? args.interfaces : undefined;
-            resourceInputs["mtu"] = args ? args.mtu : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
+            resourceInputs["cmpHash"] = args?.cmpHash;
+            resourceInputs["interfaces"] = args?.interfaces;
+            resourceInputs["mtu"] = args?.mtu;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tag"] = args?.tag;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Vlan.__pulumiType, name, resourceInputs, opts);

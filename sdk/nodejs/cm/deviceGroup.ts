@@ -62,43 +62,43 @@ export class DeviceGroup extends pulumi.CustomResource {
     /**
      * Specifies if the device-group will automatically sync configuration data to its members
      */
-    public readonly autoSync!: pulumi.Output<string | undefined>;
+    declare public readonly autoSync: pulumi.Output<string | undefined>;
     /**
      * Description of Device group
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    public readonly devices!: pulumi.Output<outputs.cm.DeviceGroupDevice[] | undefined>;
+    declare public readonly devices: pulumi.Output<outputs.cm.DeviceGroupDevice[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
-    public readonly fullLoadOnSync!: pulumi.Output<string | undefined>;
+    declare public readonly fullLoadOnSync: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
      */
-    public readonly incrementalConfig!: pulumi.Output<number | undefined>;
+    declare public readonly incrementalConfig: pulumi.Output<number | undefined>;
     /**
      * Is the name of the device Group
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Specifies if the device-group will use a network connection for failover
      */
-    public readonly networkFailover!: pulumi.Output<string | undefined>;
+    declare public readonly networkFailover: pulumi.Output<string | undefined>;
     /**
      * Device administrative partition
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the configuration should be saved upon auto-sync.
      */
-    public readonly saveOnAutoSync!: pulumi.Output<string | undefined>;
+    declare public readonly saveOnAutoSync: pulumi.Output<string | undefined>;
     /**
      * Specifies if the device-group will be used for failover or resource syncing
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeviceGroup resource with the given unique name, arguments, and options.
@@ -113,28 +113,28 @@ export class DeviceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceGroupState | undefined;
-            resourceInputs["autoSync"] = state ? state.autoSync : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["devices"] = state ? state.devices : undefined;
-            resourceInputs["fullLoadOnSync"] = state ? state.fullLoadOnSync : undefined;
-            resourceInputs["incrementalConfig"] = state ? state.incrementalConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkFailover"] = state ? state.networkFailover : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["saveOnAutoSync"] = state ? state.saveOnAutoSync : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["autoSync"] = state?.autoSync;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["devices"] = state?.devices;
+            resourceInputs["fullLoadOnSync"] = state?.fullLoadOnSync;
+            resourceInputs["incrementalConfig"] = state?.incrementalConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkFailover"] = state?.networkFailover;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["saveOnAutoSync"] = state?.saveOnAutoSync;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as DeviceGroupArgs | undefined;
-            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["devices"] = args ? args.devices : undefined;
-            resourceInputs["fullLoadOnSync"] = args ? args.fullLoadOnSync : undefined;
-            resourceInputs["incrementalConfig"] = args ? args.incrementalConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkFailover"] = args ? args.networkFailover : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["autoSync"] = args?.autoSync;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["devices"] = args?.devices;
+            resourceInputs["fullLoadOnSync"] = args?.fullLoadOnSync;
+            resourceInputs["incrementalConfig"] = args?.incrementalConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkFailover"] = args?.networkFailover;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["saveOnAutoSync"] = args?.saveOnAutoSync;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DeviceGroup.__pulumiType, name, resourceInputs, opts);
