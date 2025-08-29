@@ -59,63 +59,63 @@ export class Guest extends pulumi.CustomResource {
     /**
      * Contains those slots to which the guest is allowed to be assigned.
      */
-    public readonly allowedSlots!: pulumi.Output<number[]>;
+    declare public readonly allowedSlots: pulumi.Output<number[]>;
     /**
      * Specifies the number of cores the system allocates to the guest.
      */
-    public readonly coresPerSlot!: pulumi.Output<number>;
+    declare public readonly coresPerSlot: pulumi.Output<number>;
     /**
      * Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
      */
-    public readonly deleteVirtualDisk!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteVirtualDisk: pulumi.Output<boolean | undefined>;
     /**
      * Resource name including prepended partition path.
      */
-    public /*out*/ readonly fullPath!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullPath: pulumi.Output<string>;
     /**
      * Specifies the hotfix ISO image file which is applied on top of the base image.
      */
-    public readonly initialHotfix!: pulumi.Output<string>;
+    declare public readonly initialHotfix: pulumi.Output<string>;
     /**
      * Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
      */
-    public readonly initialImage!: pulumi.Output<string>;
+    declare public readonly initialImage: pulumi.Output<string>;
     /**
      * Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
      */
-    public readonly mgmtAddress!: pulumi.Output<string>;
+    declare public readonly mgmtAddress: pulumi.Output<string>;
     /**
      * Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
      */
-    public readonly mgmtNetwork!: pulumi.Output<string>;
+    declare public readonly mgmtNetwork: pulumi.Output<string>;
     /**
      * Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      */
-    public readonly mgmtRoute!: pulumi.Output<string>;
+    declare public readonly mgmtRoute: pulumi.Output<string>;
     /**
      * Specifies the minimum number of slots the guest must be assigned to in order to deploy.
      */
-    public readonly minNumberOfSlots!: pulumi.Output<number>;
+    declare public readonly minNumberOfSlots: pulumi.Output<number>;
     /**
      * Name of the vCMP guest
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the number of slots for the system to use when creating the guest.
      */
-    public readonly numberOfSlots!: pulumi.Output<number>;
+    declare public readonly numberOfSlots: pulumi.Output<number>;
     /**
      * Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Virtual disk associated with vCMP guest.
      */
-    public /*out*/ readonly virtualDisk!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualDisk: pulumi.Output<string>;
     /**
      * Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
      */
-    public readonly vlans!: pulumi.Output<string[]>;
+    declare public readonly vlans: pulumi.Output<string[]>;
 
     /**
      * Create a Guest resource with the given unique name, arguments, and options.
@@ -130,39 +130,39 @@ export class Guest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GuestState | undefined;
-            resourceInputs["allowedSlots"] = state ? state.allowedSlots : undefined;
-            resourceInputs["coresPerSlot"] = state ? state.coresPerSlot : undefined;
-            resourceInputs["deleteVirtualDisk"] = state ? state.deleteVirtualDisk : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["initialHotfix"] = state ? state.initialHotfix : undefined;
-            resourceInputs["initialImage"] = state ? state.initialImage : undefined;
-            resourceInputs["mgmtAddress"] = state ? state.mgmtAddress : undefined;
-            resourceInputs["mgmtNetwork"] = state ? state.mgmtNetwork : undefined;
-            resourceInputs["mgmtRoute"] = state ? state.mgmtRoute : undefined;
-            resourceInputs["minNumberOfSlots"] = state ? state.minNumberOfSlots : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numberOfSlots"] = state ? state.numberOfSlots : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["virtualDisk"] = state ? state.virtualDisk : undefined;
-            resourceInputs["vlans"] = state ? state.vlans : undefined;
+            resourceInputs["allowedSlots"] = state?.allowedSlots;
+            resourceInputs["coresPerSlot"] = state?.coresPerSlot;
+            resourceInputs["deleteVirtualDisk"] = state?.deleteVirtualDisk;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["initialHotfix"] = state?.initialHotfix;
+            resourceInputs["initialImage"] = state?.initialImage;
+            resourceInputs["mgmtAddress"] = state?.mgmtAddress;
+            resourceInputs["mgmtNetwork"] = state?.mgmtNetwork;
+            resourceInputs["mgmtRoute"] = state?.mgmtRoute;
+            resourceInputs["minNumberOfSlots"] = state?.minNumberOfSlots;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numberOfSlots"] = state?.numberOfSlots;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["virtualDisk"] = state?.virtualDisk;
+            resourceInputs["vlans"] = state?.vlans;
         } else {
             const args = argsOrState as GuestArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["allowedSlots"] = args ? args.allowedSlots : undefined;
-            resourceInputs["coresPerSlot"] = args ? args.coresPerSlot : undefined;
-            resourceInputs["deleteVirtualDisk"] = args ? args.deleteVirtualDisk : undefined;
-            resourceInputs["initialHotfix"] = args ? args.initialHotfix : undefined;
-            resourceInputs["initialImage"] = args ? args.initialImage : undefined;
-            resourceInputs["mgmtAddress"] = args ? args.mgmtAddress : undefined;
-            resourceInputs["mgmtNetwork"] = args ? args.mgmtNetwork : undefined;
-            resourceInputs["mgmtRoute"] = args ? args.mgmtRoute : undefined;
-            resourceInputs["minNumberOfSlots"] = args ? args.minNumberOfSlots : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numberOfSlots"] = args ? args.numberOfSlots : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["vlans"] = args ? args.vlans : undefined;
+            resourceInputs["allowedSlots"] = args?.allowedSlots;
+            resourceInputs["coresPerSlot"] = args?.coresPerSlot;
+            resourceInputs["deleteVirtualDisk"] = args?.deleteVirtualDisk;
+            resourceInputs["initialHotfix"] = args?.initialHotfix;
+            resourceInputs["initialImage"] = args?.initialImage;
+            resourceInputs["mgmtAddress"] = args?.mgmtAddress;
+            resourceInputs["mgmtNetwork"] = args?.mgmtNetwork;
+            resourceInputs["mgmtRoute"] = args?.mgmtRoute;
+            resourceInputs["minNumberOfSlots"] = args?.minNumberOfSlots;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numberOfSlots"] = args?.numberOfSlots;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["vlans"] = args?.vlans;
             resourceInputs["fullPath"] = undefined /*out*/;
             resourceInputs["virtualDisk"] = undefined /*out*/;
         }

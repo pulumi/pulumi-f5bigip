@@ -51,19 +51,19 @@ export class IpsecProfile extends pulumi.CustomResource {
     /**
      * Specifies descriptive text that identifies the IPsec interface tunnel profile.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
      */
-    public readonly parentProfile!: pulumi.Output<string | undefined>;
+    declare public readonly parentProfile: pulumi.Output<string | undefined>;
     /**
      * Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
      */
-    public readonly trafficSelector!: pulumi.Output<string>;
+    declare public readonly trafficSelector: pulumi.Output<string>;
 
     /**
      * Create a IpsecProfile resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ export class IpsecProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpsecProfileState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentProfile"] = state ? state.parentProfile : undefined;
-            resourceInputs["trafficSelector"] = state ? state.trafficSelector : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentProfile"] = state?.parentProfile;
+            resourceInputs["trafficSelector"] = state?.trafficSelector;
         } else {
             const args = argsOrState as IpsecProfileArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentProfile"] = args ? args.parentProfile : undefined;
-            resourceInputs["trafficSelector"] = args ? args.trafficSelector : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentProfile"] = args?.parentProfile;
+            resourceInputs["trafficSelector"] = args?.trafficSelector;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpsecProfile.__pulumiType, name, resourceInputs, opts);

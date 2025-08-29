@@ -66,20 +66,14 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[_builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[_builtins.int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
-        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-               attributes, the target is considered down.)
+        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         :param pulumi.Input[_builtins.str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[_builtins.str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[_builtins.str] password: Specifies the password if the monitored target requires authentication
         :param pulumi.Input[_builtins.str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[_builtins.str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[_builtins.str] reverse: Instructs the system to mark the target resource down when the test is successful.
-        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-               protocol for communications with the target.)
+        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         :param pulumi.Input[_builtins.str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[_builtins.int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -331,10 +325,7 @@ class MonitorArgs:
     @pulumi.getter(name="mandatoryAttributes")
     def mandatory_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        attributes, the target is considered down.)
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         """
         return pulumi.get(self, "mandatory_attributes")
 
@@ -418,10 +409,7 @@ class MonitorArgs:
     @pulumi.getter
     def security(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        protocol for communications with the target.)
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         """
         return pulumi.get(self, "security")
 
@@ -562,10 +550,7 @@ class _MonitorState:
         :param pulumi.Input[_builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[_builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[_builtins.int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
-        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-               attributes, the target is considered down.)
+        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         :param pulumi.Input[_builtins.str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[_builtins.str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -574,10 +559,7 @@ class _MonitorState:
         :param pulumi.Input[_builtins.str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[_builtins.str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[_builtins.str] reverse: Instructs the system to mark the target resource down when the test is successful.
-        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-               protocol for communications with the target.)
+        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         :param pulumi.Input[_builtins.str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[_builtins.int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -807,10 +789,7 @@ class _MonitorState:
     @pulumi.getter(name="mandatoryAttributes")
     def mandatory_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        attributes, the target is considered down.)
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         """
         return pulumi.get(self, "mandatory_attributes")
 
@@ -918,10 +897,7 @@ class _MonitorState:
     @pulumi.getter
     def security(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        protocol for communications with the target.)
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         """
         return pulumi.get(self, "security")
 
@@ -1118,10 +1094,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[_builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[_builtins.int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
-        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-               attributes, the target is considered down.)
+        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         :param pulumi.Input[_builtins.str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[_builtins.str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -1130,10 +1103,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[_builtins.str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[_builtins.str] reverse: Instructs the system to mark the target resource down when the test is successful.
-        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-               protocol for communications with the target.)
+        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         :param pulumi.Input[_builtins.str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[_builtins.int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -1350,10 +1320,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] filter: Specifies an LDAP key for which the monitor searches
         :param pulumi.Input[_builtins.int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         :param pulumi.Input[_builtins.int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
-        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-               that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-               returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-               attributes, the target is considered down.)
+        :param pulumi.Input[_builtins.str] mandatory_attributes: Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         :param pulumi.Input[_builtins.str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[_builtins.str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
@@ -1362,10 +1329,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         :param pulumi.Input[_builtins.str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[_builtins.str] reverse: Instructs the system to mark the target resource down when the test is successful.
-        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-               (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-               the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-               protocol for communications with the target.)
+        :param pulumi.Input[_builtins.str] security: Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         :param pulumi.Input[_builtins.str] send: Specifies the text string that the monitor sends to the target object.
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[_builtins.int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -1518,10 +1482,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="mandatoryAttributes")
     def mandatory_attributes(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-        that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-        returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-        attributes, the target is considered down.)
+        Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         """
         return pulumi.get(self, "mandatory_attributes")
 
@@ -1593,10 +1554,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def security(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-        (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-        the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-        protocol for communications with the target.)
+        Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         """
         return pulumi.get(self, "security")
 

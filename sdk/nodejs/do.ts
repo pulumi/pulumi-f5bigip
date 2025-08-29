@@ -36,39 +36,39 @@ export class Do extends pulumi.CustomResource {
      * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    public readonly bigipAddress!: pulumi.Output<string | undefined>;
+    declare public readonly bigipAddress: pulumi.Output<string | undefined>;
     /**
-     * Password of BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource
      */
-    public readonly bigipPassword!: pulumi.Output<string | undefined>;
+    declare public readonly bigipPassword: pulumi.Output<string | undefined>;
     /**
      * Port number of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    public readonly bigipPort!: pulumi.Output<string | undefined>;
+    declare public readonly bigipPort: pulumi.Output<string | undefined>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    public readonly bigipTokenAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly bigipTokenAuth: pulumi.Output<boolean | undefined>;
     /**
      * UserName of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    public readonly bigipUser!: pulumi.Output<string | undefined>;
+    declare public readonly bigipUser: pulumi.Output<string | undefined>;
     /**
      * Name of the of the Declarative DO JSON file
      */
-    public readonly doJson!: pulumi.Output<string>;
+    declare public readonly doJson: pulumi.Output<string>;
     /**
      * unique identifier for DO resource
      *
      * @deprecated this attribute is no longer in use
      */
-    public readonly tenantName!: pulumi.Output<string | undefined>;
+    declare public readonly tenantName: pulumi.Output<string | undefined>;
     /**
      * DO json
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
 
     /**
      * Create a Do resource with the given unique name, arguments, and options.
@@ -83,27 +83,27 @@ export class Do extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DoState | undefined;
-            resourceInputs["bigipAddress"] = state ? state.bigipAddress : undefined;
-            resourceInputs["bigipPassword"] = state ? state.bigipPassword : undefined;
-            resourceInputs["bigipPort"] = state ? state.bigipPort : undefined;
-            resourceInputs["bigipTokenAuth"] = state ? state.bigipTokenAuth : undefined;
-            resourceInputs["bigipUser"] = state ? state.bigipUser : undefined;
-            resourceInputs["doJson"] = state ? state.doJson : undefined;
-            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["bigipAddress"] = state?.bigipAddress;
+            resourceInputs["bigipPassword"] = state?.bigipPassword;
+            resourceInputs["bigipPort"] = state?.bigipPort;
+            resourceInputs["bigipTokenAuth"] = state?.bigipTokenAuth;
+            resourceInputs["bigipUser"] = state?.bigipUser;
+            resourceInputs["doJson"] = state?.doJson;
+            resourceInputs["tenantName"] = state?.tenantName;
+            resourceInputs["timeout"] = state?.timeout;
         } else {
             const args = argsOrState as DoArgs | undefined;
-            if ((!args || args.doJson === undefined) && !opts.urn) {
+            if (args?.doJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'doJson'");
             }
-            resourceInputs["bigipAddress"] = args ? args.bigipAddress : undefined;
+            resourceInputs["bigipAddress"] = args?.bigipAddress;
             resourceInputs["bigipPassword"] = args?.bigipPassword ? pulumi.secret(args.bigipPassword) : undefined;
-            resourceInputs["bigipPort"] = args ? args.bigipPort : undefined;
+            resourceInputs["bigipPort"] = args?.bigipPort;
             resourceInputs["bigipTokenAuth"] = args?.bigipTokenAuth ? pulumi.secret(args.bigipTokenAuth) : undefined;
-            resourceInputs["bigipUser"] = args ? args.bigipUser : undefined;
-            resourceInputs["doJson"] = args ? args.doJson : undefined;
-            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["bigipUser"] = args?.bigipUser;
+            resourceInputs["doJson"] = args?.doJson;
+            resourceInputs["tenantName"] = args?.tenantName;
+            resourceInputs["timeout"] = args?.timeout;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["bigipPassword", "bigipTokenAuth"] };
@@ -122,7 +122,7 @@ export interface DoState {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource
      */
     bigipPassword?: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface DoArgs {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource
      */
     bigipPassword?: pulumi.Input<string>;
     /**

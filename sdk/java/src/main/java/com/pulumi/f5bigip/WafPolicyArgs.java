@@ -166,18 +166,14 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      * 
      */
     @Import(name="modifications")
     private @Nullable Output<List<String>> modifications;
 
     /**
-     * @return the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-     * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-     * provided by the BIG-IP.
+     * @return the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      * 
      */
     public Optional<Output<List<String>>> modifications() {
@@ -714,9 +710,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-         * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-         * provided by the BIG-IP.
+         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
          * 
          * @return builder
          * 
@@ -727,9 +721,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-         * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-         * provided by the BIG-IP.
+         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
          * 
          * @return builder
          * 
@@ -739,9 +731,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-         * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-         * provided by the BIG-IP.
+         * @param modifications the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
          * 
          * @return builder
          * 

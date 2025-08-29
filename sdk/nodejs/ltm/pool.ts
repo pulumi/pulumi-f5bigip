@@ -68,43 +68,43 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
-    public readonly allowNat!: pulumi.Output<string>;
+    declare public readonly allowNat: pulumi.Output<string>;
     /**
      * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
-    public readonly allowSnat!: pulumi.Output<string>;
+    declare public readonly allowSnat: pulumi.Output<string>;
     /**
      * Specifies descriptive text that identifies the pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
      */
-    public readonly loadBalancingMode!: pulumi.Output<string>;
+    declare public readonly loadBalancingMode: pulumi.Output<string>;
     /**
      * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
      */
-    public readonly minimumActiveMembers!: pulumi.Output<number>;
+    declare public readonly minimumActiveMembers: pulumi.Output<number>;
     /**
      * List of monitor names to associate with the pool
      */
-    public readonly monitors!: pulumi.Output<string[]>;
+    declare public readonly monitors: pulumi.Output<string[]>;
     /**
      * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
-    public readonly reselectTries!: pulumi.Output<number>;
+    declare public readonly reselectTries: pulumi.Output<number>;
     /**
      * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
-    public readonly serviceDownAction!: pulumi.Output<string>;
+    declare public readonly serviceDownAction: pulumi.Output<string>;
     /**
      * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
-    public readonly slowRampTime!: pulumi.Output<number>;
+    declare public readonly slowRampTime: pulumi.Output<number>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -119,31 +119,31 @@ export class Pool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            resourceInputs["allowNat"] = state ? state.allowNat : undefined;
-            resourceInputs["allowSnat"] = state ? state.allowSnat : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
-            resourceInputs["minimumActiveMembers"] = state ? state.minimumActiveMembers : undefined;
-            resourceInputs["monitors"] = state ? state.monitors : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["reselectTries"] = state ? state.reselectTries : undefined;
-            resourceInputs["serviceDownAction"] = state ? state.serviceDownAction : undefined;
-            resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
+            resourceInputs["allowNat"] = state?.allowNat;
+            resourceInputs["allowSnat"] = state?.allowSnat;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["loadBalancingMode"] = state?.loadBalancingMode;
+            resourceInputs["minimumActiveMembers"] = state?.minimumActiveMembers;
+            resourceInputs["monitors"] = state?.monitors;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["reselectTries"] = state?.reselectTries;
+            resourceInputs["serviceDownAction"] = state?.serviceDownAction;
+            resourceInputs["slowRampTime"] = state?.slowRampTime;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["allowNat"] = args ? args.allowNat : undefined;
-            resourceInputs["allowSnat"] = args ? args.allowSnat : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
-            resourceInputs["minimumActiveMembers"] = args ? args.minimumActiveMembers : undefined;
-            resourceInputs["monitors"] = args ? args.monitors : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reselectTries"] = args ? args.reselectTries : undefined;
-            resourceInputs["serviceDownAction"] = args ? args.serviceDownAction : undefined;
-            resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
+            resourceInputs["allowNat"] = args?.allowNat;
+            resourceInputs["allowSnat"] = args?.allowSnat;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["loadBalancingMode"] = args?.loadBalancingMode;
+            resourceInputs["minimumActiveMembers"] = args?.minimumActiveMembers;
+            resourceInputs["monitors"] = args?.monitors;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reselectTries"] = args?.reselectTries;
+            resourceInputs["serviceDownAction"] = args?.serviceDownAction;
+            resourceInputs["slowRampTime"] = args?.slowRampTime;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pool.__pulumiType, name, resourceInputs, opts);

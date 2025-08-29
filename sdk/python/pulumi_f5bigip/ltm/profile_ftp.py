@@ -43,20 +43,16 @@ class ProfileFtpArgs:
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] description: User defined description
-        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-               value is unchecked (disabled).
+        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         :param pulumi.Input[_builtins.str] ftps_mode: Allows explicit FTPS negotiation
-        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-               FastL4 only.
+        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         :param pulumi.Input[_builtins.str] inherit_vlan_list: inherent vlan list
         :param pulumi.Input[_builtins.str] log_profile: Configures the ALG log profile that controls logging
         :param pulumi.Input[_builtins.str] log_publisher: Configures the log publisher that handles events logging for this profile
         :param pulumi.Input[_builtins.str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[_builtins.int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
-        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-               system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-               and PORT when communicating with IPv4 servers.
+        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         pulumi.set(__self__, "name", name)
         if allow_active_mode is not None:
@@ -166,8 +162,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        value is unchecked (disabled).
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -191,8 +186,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="inheritParentProfile")
     def inherit_parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        FastL4 only.
+        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         """
         return pulumi.get(self, "inherit_parent_profile")
 
@@ -264,8 +258,7 @@ class ProfileFtpArgs:
     @pulumi.getter
     def security(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         """
         return pulumi.get(self, "security")
 
@@ -277,8 +270,7 @@ class ProfileFtpArgs:
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        and PORT when communicating with IPv4 servers.
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
@@ -313,21 +305,17 @@ class _ProfileFtpState:
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] description: User defined description
-        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-               value is unchecked (disabled).
+        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         :param pulumi.Input[_builtins.str] ftps_mode: Allows explicit FTPS negotiation
-        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-               FastL4 only.
+        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         :param pulumi.Input[_builtins.str] inherit_vlan_list: inherent vlan list
         :param pulumi.Input[_builtins.str] log_profile: Configures the ALG log profile that controls logging
         :param pulumi.Input[_builtins.str] log_publisher: Configures the log publisher that handles events logging for this profile
         :param pulumi.Input[_builtins.str] name: Name of the profile_ftp
         :param pulumi.Input[_builtins.str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[_builtins.int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
-        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-               system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-               and PORT when communicating with IPv4 servers.
+        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         if allow_active_mode is not None:
             pulumi.set(__self__, "allow_active_mode", allow_active_mode)
@@ -426,8 +414,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        value is unchecked (disabled).
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -451,8 +438,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="inheritParentProfile")
     def inherit_parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        FastL4 only.
+        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         """
         return pulumi.get(self, "inherit_parent_profile")
 
@@ -536,8 +522,7 @@ class _ProfileFtpState:
     @pulumi.getter
     def security(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         """
         return pulumi.get(self, "security")
 
@@ -549,8 +534,7 @@ class _ProfileFtpState:
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        and PORT when communicating with IPv4 servers.
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
@@ -641,21 +625,17 @@ class ProfileFtp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] description: User defined description
-        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-               value is unchecked (disabled).
+        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         :param pulumi.Input[_builtins.str] ftps_mode: Allows explicit FTPS negotiation
-        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-               FastL4 only.
+        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         :param pulumi.Input[_builtins.str] inherit_vlan_list: inherent vlan list
         :param pulumi.Input[_builtins.str] log_profile: Configures the ALG log profile that controls logging
         :param pulumi.Input[_builtins.str] log_publisher: Configures the log publisher that handles events logging for this profile
         :param pulumi.Input[_builtins.str] name: Name of the profile_ftp
         :param pulumi.Input[_builtins.str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[_builtins.int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
-        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-               system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-               and PORT when communicating with IPv4 servers.
+        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         ...
     @overload
@@ -811,21 +791,17 @@ class ProfileFtp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] description: User defined description
-        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-               value is unchecked (disabled).
+        :param pulumi.Input[_builtins.str] enforce_tlssession_reuse: Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         :param pulumi.Input[_builtins.str] ftps_mode: Allows explicit FTPS negotiation
-        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-               FastL4 only.
+        :param pulumi.Input[_builtins.str] inherit_parent_profile: Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         :param pulumi.Input[_builtins.str] inherit_vlan_list: inherent vlan list
         :param pulumi.Input[_builtins.str] log_profile: Configures the ALG log profile that controls logging
         :param pulumi.Input[_builtins.str] log_publisher: Configures the log publisher that handles events logging for this profile
         :param pulumi.Input[_builtins.str] name: Name of the profile_ftp
         :param pulumi.Input[_builtins.str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[_builtins.int] port: Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
-        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-               system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
-        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-               and PORT when communicating with IPv4 servers.
+        :param pulumi.Input[_builtins.str] security: Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        :param pulumi.Input[_builtins.str] translate_extended: This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -893,8 +869,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="enforceTlssessionReuse")
     def enforce_tlssession_reuse(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-        value is unchecked (disabled).
+        Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
@@ -910,8 +885,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="inheritParentProfile")
     def inherit_parent_profile(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-        FastL4 only.
+        Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         """
         return pulumi.get(self, "inherit_parent_profile")
 
@@ -967,8 +941,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter
     def security(self) -> pulumi.Output[_builtins.str]:
         """
-        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-        system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+        Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         """
         return pulumi.get(self, "security")
 
@@ -976,8 +949,7 @@ class ProfileFtp(pulumi.CustomResource):
     @pulumi.getter(name="translateExtended")
     def translate_extended(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-        and PORT when communicating with IPv4 servers.
+        This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 

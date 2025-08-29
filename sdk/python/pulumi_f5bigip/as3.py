@@ -35,8 +35,7 @@ class As3Args:
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
-        :param pulumi.Input['As3DeleteAppsArgs'] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-               one of `delete_apps` or `as3_json` can be set in a resource block.
+        :param pulumi.Input['As3DeleteAppsArgs'] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         :param pulumi.Input[_builtins.bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -286,8 +285,7 @@ class As3Args:
     @pulumi.getter(name="deleteApps")
     def delete_apps(self) -> Optional[pulumi.Input['As3DeleteAppsArgs']]:
         """
-        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        one of `delete_apps` or `as3_json` can be set in a resource block.
+        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         """
         return pulumi.get(self, "delete_apps")
 
@@ -558,8 +556,7 @@ class _As3State:
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
-        :param pulumi.Input['As3DeleteAppsArgs'] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-               one of `delete_apps` or `as3_json` can be set in a resource block.
+        :param pulumi.Input['As3DeleteAppsArgs'] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         :param pulumi.Input[_builtins.bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -812,8 +809,7 @@ class _As3State:
     @pulumi.getter(name="deleteApps")
     def delete_apps(self) -> Optional[pulumi.Input['As3DeleteAppsArgs']]:
         """
-        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        one of `delete_apps` or `as3_json` can be set in a resource block.
+        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         """
         return pulumi.get(self, "delete_apps")
 
@@ -1460,8 +1456,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
-        :param pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-               one of `delete_apps` or `as3_json` can be set in a resource block.
+        :param pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         :param pulumi.Input[_builtins.bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -2092,8 +2087,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
-        :param pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-               one of `delete_apps` or `as3_json` can be set in a resource block.
+        :param pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']] delete_apps: Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         :param pulumi.Input[_builtins.bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
@@ -2329,8 +2323,7 @@ class As3(pulumi.CustomResource):
     @pulumi.getter(name="deleteApps")
     def delete_apps(self) -> pulumi.Output[Optional['outputs.As3DeleteApps']]:
         """
-        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-        one of `delete_apps` or `as3_json` can be set in a resource block.
+        Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         """
         return pulumi.get(self, "delete_apps")
 

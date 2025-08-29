@@ -55,23 +55,23 @@ export class Key extends pulumi.CustomResource {
     /**
      * Content of SSL certificate key present on local Disk
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * Full Path Name of ssl key
      */
-    public readonly fullPath!: pulumi.Output<string>;
+    declare public readonly fullPath: pulumi.Output<string>;
     /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Partition of ssl certificate key
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Passphrase on key.
      */
-    public readonly passphrase!: pulumi.Output<string | undefined>;
+    declare public readonly passphrase: pulumi.Output<string | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -86,23 +86,23 @@ export class Key extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["fullPath"] = state?.fullPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["passphrase"] = state?.passphrase;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
-            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["fullPath"] = args?.fullPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

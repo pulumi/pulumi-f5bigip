@@ -106,73 +106,72 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
     /**
      * To enable _ disable always sending cookies
      */
-    public readonly alwaysSend!: pulumi.Output<string>;
-    public readonly appService!: pulumi.Output<string>;
+    declare public readonly alwaysSend: pulumi.Output<string>;
+    declare public readonly appService: pulumi.Output<string>;
     /**
      * To required, preferred, or disabled policy for cookie encryption
      */
-    public readonly cookieEncryption!: pulumi.Output<string>;
+    declare public readonly cookieEncryption: pulumi.Output<string>;
     /**
      * Passphrase for encrypted cookies
      */
-    public readonly cookieEncryptionPassphrase!: pulumi.Output<string>;
+    declare public readonly cookieEncryptionPassphrase: pulumi.Output<string>;
     /**
      * Name of the cookie to track persistence
      */
-    public readonly cookieName!: pulumi.Output<string>;
+    declare public readonly cookieName: pulumi.Output<string>;
     /**
      * Inherit defaults from parent profile
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Expiration TTL for cookie specified in D:H:M:S or in seconds
      */
-    public readonly expiration!: pulumi.Output<string>;
+    declare public readonly expiration: pulumi.Output<string>;
     /**
      * Length of hash to apply to cookie
      */
-    public readonly hashLength!: pulumi.Output<number>;
+    declare public readonly hashLength: pulumi.Output<number>;
     /**
      * Number of characters to skip in the cookie for the hash
      */
-    public readonly hashOffset!: pulumi.Output<number>;
+    declare public readonly hashOffset: pulumi.Output<number>;
     /**
      * To enable _ disable sending only over http
      */
-    public readonly httponly!: pulumi.Output<string>;
+    declare public readonly httponly: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string>;
+    declare public readonly matchAcrossPools: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string>;
+    declare public readonly matchAcrossServices: pulumi.Output<string>;
     /**
      * To enable _ disable match across virtual servers with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
+    declare public readonly matchAcrossVirtuals: pulumi.Output<string>;
     /**
      * Specifies the type of cookie processing that the system uses
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string>;
+    declare public readonly mirror: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string>;
+    declare public readonly overrideConnLimit: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout!: pulumi.Output<number>;
+    declare public readonly timeout: pulumi.Output<number>;
 
     /**
      * Create a PersistenceProfileCookie resource with the given unique name, arguments, and options.
@@ -187,50 +186,50 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PersistenceProfileCookieState | undefined;
-            resourceInputs["alwaysSend"] = state ? state.alwaysSend : undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["cookieEncryption"] = state ? state.cookieEncryption : undefined;
-            resourceInputs["cookieEncryptionPassphrase"] = state ? state.cookieEncryptionPassphrase : undefined;
-            resourceInputs["cookieName"] = state ? state.cookieName : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["expiration"] = state ? state.expiration : undefined;
-            resourceInputs["hashLength"] = state ? state.hashLength : undefined;
-            resourceInputs["hashOffset"] = state ? state.hashOffset : undefined;
-            resourceInputs["httponly"] = state ? state.httponly : undefined;
-            resourceInputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["mirror"] = state ? state.mirror : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["alwaysSend"] = state?.alwaysSend;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["cookieEncryption"] = state?.cookieEncryption;
+            resourceInputs["cookieEncryptionPassphrase"] = state?.cookieEncryptionPassphrase;
+            resourceInputs["cookieName"] = state?.cookieName;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["expiration"] = state?.expiration;
+            resourceInputs["hashLength"] = state?.hashLength;
+            resourceInputs["hashOffset"] = state?.hashOffset;
+            resourceInputs["httponly"] = state?.httponly;
+            resourceInputs["matchAcrossPools"] = state?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = state?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = state?.matchAcrossVirtuals;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["mirror"] = state?.mirror;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["overrideConnLimit"] = state?.overrideConnLimit;
+            resourceInputs["timeout"] = state?.timeout;
         } else {
             const args = argsOrState as PersistenceProfileCookieArgs | undefined;
-            if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
+            if (args?.defaultsFrom === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["alwaysSend"] = args ? args.alwaysSend : undefined;
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["cookieEncryption"] = args ? args.cookieEncryption : undefined;
-            resourceInputs["cookieEncryptionPassphrase"] = args ? args.cookieEncryptionPassphrase : undefined;
-            resourceInputs["cookieName"] = args ? args.cookieName : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
-            resourceInputs["hashLength"] = args ? args.hashLength : undefined;
-            resourceInputs["hashOffset"] = args ? args.hashOffset : undefined;
-            resourceInputs["httponly"] = args ? args.httponly : undefined;
-            resourceInputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
-            resourceInputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
-            resourceInputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["mirror"] = args ? args.mirror : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["alwaysSend"] = args?.alwaysSend;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["cookieEncryption"] = args?.cookieEncryption;
+            resourceInputs["cookieEncryptionPassphrase"] = args?.cookieEncryptionPassphrase;
+            resourceInputs["cookieName"] = args?.cookieName;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["expiration"] = args?.expiration;
+            resourceInputs["hashLength"] = args?.hashLength;
+            resourceInputs["hashOffset"] = args?.hashOffset;
+            resourceInputs["httponly"] = args?.httponly;
+            resourceInputs["matchAcrossPools"] = args?.matchAcrossPools;
+            resourceInputs["matchAcrossServices"] = args?.matchAcrossServices;
+            resourceInputs["matchAcrossVirtuals"] = args?.matchAcrossVirtuals;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["mirror"] = args?.mirror;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrideConnLimit"] = args?.overrideConnLimit;
+            resourceInputs["timeout"] = args?.timeout;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PersistenceProfileCookie.__pulumiType, name, resourceInputs, opts);
@@ -303,8 +302,7 @@ export interface PersistenceProfileCookieState {
      */
     name?: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**
@@ -379,8 +377,7 @@ export interface PersistenceProfileCookieArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
     overrideConnLimit?: pulumi.Input<string>;
     /**

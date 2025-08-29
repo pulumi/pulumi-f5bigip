@@ -115,16 +115,14 @@ public final class PersistenceProfileSslArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     @Import(name="overrideConnLimit")
     private @Nullable Output<String> overrideConnLimit;
 
     /**
-     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-     * limits remain hard limits and are not overridden.
+     * @return To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      * 
      */
     public Optional<Output<String>> overrideConnLimit() {
@@ -314,8 +312,7 @@ public final class PersistenceProfileSslArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-         * limits remain hard limits and are not overridden.
+         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
          * 
          * @return builder
          * 
@@ -326,8 +323,7 @@ public final class PersistenceProfileSslArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-         * limits remain hard limits and are not overridden.
+         * @param overrideConnLimit To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
          * 
          * @return builder
          * 

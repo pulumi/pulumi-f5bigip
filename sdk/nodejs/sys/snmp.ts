@@ -50,15 +50,15 @@ export class Snmp extends pulumi.CustomResource {
     /**
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
-    public readonly allowedaddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedaddresses: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the contact information for the system administrator.
      */
-    public readonly sysContact!: pulumi.Output<string | undefined>;
+    declare public readonly sysContact: pulumi.Output<string | undefined>;
     /**
      * Describes the system's physical location.
      */
-    public readonly sysLocation!: pulumi.Output<string | undefined>;
+    declare public readonly sysLocation: pulumi.Output<string | undefined>;
 
     /**
      * Create a Snmp resource with the given unique name, arguments, and options.
@@ -73,14 +73,14 @@ export class Snmp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnmpState | undefined;
-            resourceInputs["allowedaddresses"] = state ? state.allowedaddresses : undefined;
-            resourceInputs["sysContact"] = state ? state.sysContact : undefined;
-            resourceInputs["sysLocation"] = state ? state.sysLocation : undefined;
+            resourceInputs["allowedaddresses"] = state?.allowedaddresses;
+            resourceInputs["sysContact"] = state?.sysContact;
+            resourceInputs["sysLocation"] = state?.sysLocation;
         } else {
             const args = argsOrState as SnmpArgs | undefined;
-            resourceInputs["allowedaddresses"] = args ? args.allowedaddresses : undefined;
-            resourceInputs["sysContact"] = args ? args.sysContact : undefined;
-            resourceInputs["sysLocation"] = args ? args.sysLocation : undefined;
+            resourceInputs["allowedaddresses"] = args?.allowedaddresses;
+            resourceInputs["sysContact"] = args?.sysContact;
+            resourceInputs["sysLocation"] = args?.sysLocation;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Snmp.__pulumiType, name, resourceInputs, opts);

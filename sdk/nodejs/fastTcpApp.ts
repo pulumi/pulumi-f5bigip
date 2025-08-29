@@ -40,66 +40,66 @@ export class FastTcpApp extends pulumi.CustomResource {
     /**
      * Name of the FAST TCP application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
-    public readonly existingMonitor!: pulumi.Output<string | undefined>;
+    declare public readonly existingMonitor: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP pool.
      */
-    public readonly existingPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingPool: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
-    public readonly existingSnatPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingSnatPool: pulumi.Output<string | undefined>;
     /**
      * Type of fallback persistence record to be created for each new client connection.
      */
-    public readonly fallbackPersistence!: pulumi.Output<string | undefined>;
+    declare public readonly fallbackPersistence: pulumi.Output<string | undefined>;
     /**
      * Json payload for FAST TCP application.
      */
-    public /*out*/ readonly fastTcpJson!: pulumi.Output<string>;
+    declare public /*out*/ readonly fastTcpJson: pulumi.Output<string>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
-    public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
+    declare public readonly loadBalancingMode: pulumi.Output<string | undefined>;
     /**
      * `monitor` block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
-    public readonly monitor!: pulumi.Output<outputs.FastTcpAppMonitor | undefined>;
+    declare public readonly monitor: pulumi.Output<outputs.FastTcpAppMonitor | undefined>;
     /**
      * Name of an existing BIG-IP persistence profile to be used.
      */
-    public readonly persistenceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceProfile: pulumi.Output<string | undefined>;
     /**
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      */
-    public readonly persistenceType!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceType: pulumi.Output<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    public readonly poolMembers!: pulumi.Output<outputs.FastTcpAppPoolMember[] | undefined>;
+    declare public readonly poolMembers: pulumi.Output<outputs.FastTcpAppPoolMember[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
-    public readonly slowRampTime!: pulumi.Output<number | undefined>;
+    declare public readonly slowRampTime: pulumi.Output<number | undefined>;
     /**
      * List of address to be used for FAST-Generated SNAT Pool.
      */
-    public readonly snatPoolAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly snatPoolAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Name of the FAST TCP application tenant.
      */
-    public readonly tenant!: pulumi.Output<string>;
+    declare public readonly tenant: pulumi.Output<string>;
     /**
      * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
-    public readonly virtualServer!: pulumi.Output<outputs.FastTcpAppVirtualServer | undefined>;
+    declare public readonly virtualServer: pulumi.Output<outputs.FastTcpAppVirtualServer | undefined>;
 
     /**
      * Create a FastTcpApp resource with the given unique name, arguments, and options.
@@ -114,43 +114,43 @@ export class FastTcpApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastTcpAppState | undefined;
-            resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
-            resourceInputs["existingPool"] = state ? state.existingPool : undefined;
-            resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
-            resourceInputs["fallbackPersistence"] = state ? state.fallbackPersistence : undefined;
-            resourceInputs["fastTcpJson"] = state ? state.fastTcpJson : undefined;
-            resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["persistenceProfile"] = state ? state.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = state ? state.persistenceType : undefined;
-            resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
-            resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["virtualServer"] = state ? state.virtualServer : undefined;
+            resourceInputs["application"] = state?.application;
+            resourceInputs["existingMonitor"] = state?.existingMonitor;
+            resourceInputs["existingPool"] = state?.existingPool;
+            resourceInputs["existingSnatPool"] = state?.existingSnatPool;
+            resourceInputs["fallbackPersistence"] = state?.fallbackPersistence;
+            resourceInputs["fastTcpJson"] = state?.fastTcpJson;
+            resourceInputs["loadBalancingMode"] = state?.loadBalancingMode;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["persistenceProfile"] = state?.persistenceProfile;
+            resourceInputs["persistenceType"] = state?.persistenceType;
+            resourceInputs["poolMembers"] = state?.poolMembers;
+            resourceInputs["slowRampTime"] = state?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = state?.snatPoolAddresses;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["virtualServer"] = state?.virtualServer;
         } else {
             const args = argsOrState as FastTcpAppArgs | undefined;
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.tenant === undefined) && !opts.urn) {
+            if (args?.tenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenant'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
-            resourceInputs["existingPool"] = args ? args.existingPool : undefined;
-            resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
-            resourceInputs["fallbackPersistence"] = args ? args.fallbackPersistence : undefined;
-            resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["persistenceProfile"] = args ? args.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = args ? args.persistenceType : undefined;
-            resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
-            resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["virtualServer"] = args ? args.virtualServer : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["existingMonitor"] = args?.existingMonitor;
+            resourceInputs["existingPool"] = args?.existingPool;
+            resourceInputs["existingSnatPool"] = args?.existingSnatPool;
+            resourceInputs["fallbackPersistence"] = args?.fallbackPersistence;
+            resourceInputs["loadBalancingMode"] = args?.loadBalancingMode;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["persistenceProfile"] = args?.persistenceProfile;
+            resourceInputs["persistenceType"] = args?.persistenceType;
+            resourceInputs["poolMembers"] = args?.poolMembers;
+            resourceInputs["slowRampTime"] = args?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = args?.snatPoolAddresses;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["virtualServer"] = args?.virtualServer;
             resourceInputs["fastTcpJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

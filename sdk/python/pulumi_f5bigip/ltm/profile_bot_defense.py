@@ -27,12 +27,10 @@ class ProfileBotDefenseArgs:
         """
         The set of arguments for constructing a ProfileBotDefense resource.
         :param pulumi.Input[_builtins.str] name: Name of the Bot Defense profile
-        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-               profile
+        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
         :param pulumi.Input[_builtins.str] enforcement_mode: Select the enforcement mode, possible values are `transparent` and `blocking`.
-        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-               `strict`
+        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         pulumi.set(__self__, "name", name)
         if defaults_from is not None:
@@ -60,8 +58,7 @@ class ProfileBotDefenseArgs:
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        profile
+        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         """
         return pulumi.get(self, "defaults_from")
 
@@ -97,8 +94,7 @@ class ProfileBotDefenseArgs:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        `strict`
+        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         return pulumi.get(self, "template")
 
@@ -117,13 +113,11 @@ class _ProfileBotDefenseState:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileBotDefense resources.
-        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-               profile
+        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
         :param pulumi.Input[_builtins.str] enforcement_mode: Select the enforcement mode, possible values are `transparent` and `blocking`.
         :param pulumi.Input[_builtins.str] name: Name of the Bot Defense profile
-        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-               `strict`
+        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         if defaults_from is not None:
             pulumi.set(__self__, "defaults_from", defaults_from)
@@ -140,8 +134,7 @@ class _ProfileBotDefenseState:
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        profile
+        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         """
         return pulumi.get(self, "defaults_from")
 
@@ -189,8 +182,7 @@ class _ProfileBotDefenseState:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        `strict`
+        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         return pulumi.get(self, "template")
 
@@ -215,13 +207,11 @@ class ProfileBotDefense(pulumi.CustomResource):
         Create a ProfileBotDefense resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-               profile
+        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
         :param pulumi.Input[_builtins.str] enforcement_mode: Select the enforcement mode, possible values are `transparent` and `blocking`.
         :param pulumi.Input[_builtins.str] name: Name of the Bot Defense profile
-        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-               `strict`
+        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         ...
     @overload
@@ -289,13 +279,11 @@ class ProfileBotDefense(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-               profile
+        :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
         :param pulumi.Input[_builtins.str] enforcement_mode: Select the enforcement mode, possible values are `transparent` and `blocking`.
         :param pulumi.Input[_builtins.str] name: Name of the Bot Defense profile
-        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-               `strict`
+        :param pulumi.Input[_builtins.str] template: Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,8 +300,7 @@ class ProfileBotDefense(pulumi.CustomResource):
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log`
-        profile
+        Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         """
         return pulumi.get(self, "defaults_from")
 
@@ -345,8 +332,7 @@ class ProfileBotDefense(pulumi.CustomResource):
     @pulumi.getter
     def template(self) -> pulumi.Output[_builtins.str]:
         """
-        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and
-        `strict`
+        Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         return pulumi.get(self, "template")
 

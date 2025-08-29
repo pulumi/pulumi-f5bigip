@@ -40,12 +40,12 @@ export class Command extends pulumi.CustomResource {
     /**
      * The resulting output from the `commands` executed.
      */
-    public readonly commandResults!: pulumi.Output<string[]>;
+    declare public readonly commandResults: pulumi.Output<string[]>;
     /**
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
-    public readonly commands!: pulumi.Output<string[]>;
-    public readonly when!: pulumi.Output<string | undefined>;
+    declare public readonly commands: pulumi.Output<string[]>;
+    declare public readonly when: pulumi.Output<string | undefined>;
 
     /**
      * Create a Command resource with the given unique name, arguments, and options.
@@ -60,17 +60,17 @@ export class Command extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CommandState | undefined;
-            resourceInputs["commandResults"] = state ? state.commandResults : undefined;
-            resourceInputs["commands"] = state ? state.commands : undefined;
-            resourceInputs["when"] = state ? state.when : undefined;
+            resourceInputs["commandResults"] = state?.commandResults;
+            resourceInputs["commands"] = state?.commands;
+            resourceInputs["when"] = state?.when;
         } else {
             const args = argsOrState as CommandArgs | undefined;
-            if ((!args || args.commands === undefined) && !opts.urn) {
+            if (args?.commands === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commands'");
             }
-            resourceInputs["commandResults"] = args ? args.commandResults : undefined;
-            resourceInputs["commands"] = args ? args.commands : undefined;
-            resourceInputs["when"] = args ? args.when : undefined;
+            resourceInputs["commandResults"] = args?.commandResults;
+            resourceInputs["commands"] = args?.commands;
+            resourceInputs["when"] = args?.when;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Command.__pulumiType, name, resourceInputs, opts);

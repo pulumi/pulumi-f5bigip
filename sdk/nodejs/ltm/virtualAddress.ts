@@ -52,35 +52,35 @@ export class VirtualAddress extends pulumi.CustomResource {
     /**
      * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
-    public readonly advertizeRoute!: pulumi.Output<string | undefined>;
+    declare public readonly advertizeRoute: pulumi.Output<string | undefined>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    public readonly arp!: pulumi.Output<boolean | undefined>;
+    declare public readonly arp: pulumi.Output<boolean | undefined>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    public readonly autoDelete!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoDelete: pulumi.Output<boolean | undefined>;
     /**
      * Max number of connections for virtual address
      */
-    public readonly connLimit!: pulumi.Output<number | undefined>;
+    declare public readonly connLimit: pulumi.Output<number | undefined>;
     /**
      * Enable or disable the virtual address
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
-    public readonly icmpEcho!: pulumi.Output<string | undefined>;
+    declare public readonly icmpEcho: pulumi.Output<string | undefined>;
     /**
      * Name of the virtual address
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify the partition and traffic group
      */
-    public readonly trafficGroup!: pulumi.Output<string | undefined>;
+    declare public readonly trafficGroup: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualAddress resource with the given unique name, arguments, and options.
@@ -95,27 +95,27 @@ export class VirtualAddress extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualAddressState | undefined;
-            resourceInputs["advertizeRoute"] = state ? state.advertizeRoute : undefined;
-            resourceInputs["arp"] = state ? state.arp : undefined;
-            resourceInputs["autoDelete"] = state ? state.autoDelete : undefined;
-            resourceInputs["connLimit"] = state ? state.connLimit : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["icmpEcho"] = state ? state.icmpEcho : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
+            resourceInputs["advertizeRoute"] = state?.advertizeRoute;
+            resourceInputs["arp"] = state?.arp;
+            resourceInputs["autoDelete"] = state?.autoDelete;
+            resourceInputs["connLimit"] = state?.connLimit;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["icmpEcho"] = state?.icmpEcho;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["trafficGroup"] = state?.trafficGroup;
         } else {
             const args = argsOrState as VirtualAddressArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["advertizeRoute"] = args ? args.advertizeRoute : undefined;
-            resourceInputs["arp"] = args ? args.arp : undefined;
-            resourceInputs["autoDelete"] = args ? args.autoDelete : undefined;
-            resourceInputs["connLimit"] = args ? args.connLimit : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["icmpEcho"] = args ? args.icmpEcho : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
+            resourceInputs["advertizeRoute"] = args?.advertizeRoute;
+            resourceInputs["arp"] = args?.arp;
+            resourceInputs["autoDelete"] = args?.autoDelete;
+            resourceInputs["connLimit"] = args?.connLimit;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["icmpEcho"] = args?.icmpEcho;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["trafficGroup"] = args?.trafficGroup;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualAddress.__pulumiType, name, resourceInputs, opts);

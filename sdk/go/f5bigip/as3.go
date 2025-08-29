@@ -379,8 +379,7 @@ type As3 struct {
 	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapOutput `pulumi:"controls"`
-	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-	// of `deleteApps` or `as3Json` can be set in a resource block.
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 	DeleteApps As3DeleteAppsPtrOutput `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
@@ -443,8 +442,7 @@ type as3State struct {
 	As3Json *string `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls map[string]string `pulumi:"controls"`
-	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-	// of `deleteApps` or `as3Json` can be set in a resource block.
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 	DeleteApps *As3DeleteApps `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
@@ -478,8 +476,7 @@ type As3State struct {
 	As3Json pulumi.StringPtrInput
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapInput
-	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-	// of `deleteApps` or `as3Json` can be set in a resource block.
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 	DeleteApps As3DeleteAppsPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
@@ -517,8 +514,7 @@ type as3Args struct {
 	As3Json *string `pulumi:"as3Json"`
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls map[string]string `pulumi:"controls"`
-	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-	// of `deleteApps` or `as3Json` can be set in a resource block.
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 	DeleteApps *As3DeleteApps `pulumi:"deleteApps"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
@@ -551,8 +547,7 @@ type As3Args struct {
 	As3Json pulumi.StringPtrInput
 	// A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
 	Controls pulumi.StringMapInput
-	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-	// of `deleteApps` or `as3Json` can be set in a resource block.
+	// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 	DeleteApps As3DeleteAppsPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	//
@@ -679,8 +674,7 @@ func (o As3Output) Controls() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *As3) pulumi.StringMapOutput { return v.Controls }).(pulumi.StringMapOutput)
 }
 
-// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one
-// of `deleteApps` or `as3Json` can be set in a resource block.
+// Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
 func (o As3Output) DeleteApps() As3DeleteAppsPtrOutput {
 	return o.ApplyT(func(v *As3) As3DeleteAppsPtrOutput { return v.DeleteApps }).(As3DeleteAppsPtrOutput)
 }

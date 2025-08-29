@@ -97,109 +97,109 @@ export class FastHttpsApp extends pulumi.CustomResource {
     /**
      * Name of the FAST HTTPS application.
      */
-    public readonly application!: pulumi.Output<string>;
+    declare public readonly application: pulumi.Output<string>;
     /**
      * List of LTM Policies to be applied FAST HTTPS Application.
      */
-    public readonly endpointLtmPolicies!: pulumi.Output<string[] | undefined>;
+    declare public readonly endpointLtmPolicies: pulumi.Output<string[] | undefined>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
-    public readonly existingMonitor!: pulumi.Output<string | undefined>;
+    declare public readonly existingMonitor: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP pool.
      */
-    public readonly existingPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingPool: pulumi.Output<string | undefined>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
-    public readonly existingSnatPool!: pulumi.Output<string | undefined>;
+    declare public readonly existingSnatPool: pulumi.Output<string | undefined>;
     /**
      * Name of an existing TLS client profile.
      */
-    public readonly existingTlsClientProfile!: pulumi.Output<string | undefined>;
+    declare public readonly existingTlsClientProfile: pulumi.Output<string | undefined>;
     /**
      * Name of an existing TLS server profile.
      */
-    public readonly existingTlsServerProfile!: pulumi.Output<string | undefined>;
+    declare public readonly existingTlsServerProfile: pulumi.Output<string | undefined>;
     /**
      * Name of an existing WAF Security policy.
      */
-    public readonly existingWafSecurityPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly existingWafSecurityPolicy: pulumi.Output<string | undefined>;
     /**
      * Type of fallback persistence record to be created for each new client connection.
      */
-    public readonly fallbackPersistence!: pulumi.Output<string | undefined>;
+    declare public readonly fallbackPersistence: pulumi.Output<string | undefined>;
     /**
      * Json payload for FAST HTTPS application.
      */
-    public /*out*/ readonly fastHttpsJson!: pulumi.Output<string>;
+    declare public /*out*/ readonly fastHttpsJson: pulumi.Output<string>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
-    public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
+    declare public readonly loadBalancingMode: pulumi.Output<string | undefined>;
     /**
      * `monitor` block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
-    public readonly monitor!: pulumi.Output<outputs.FastHttpsAppMonitor | undefined>;
+    declare public readonly monitor: pulumi.Output<outputs.FastHttpsAppMonitor | undefined>;
     /**
      * Name of an existing BIG-IP persistence profile to be used.
      */
-    public readonly persistenceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceProfile: pulumi.Output<string | undefined>;
     /**
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      */
-    public readonly persistenceType!: pulumi.Output<string | undefined>;
+    declare public readonly persistenceType: pulumi.Output<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    public readonly poolMembers!: pulumi.Output<outputs.FastHttpsAppPoolMember[]>;
+    declare public readonly poolMembers: pulumi.Output<outputs.FastHttpsAppPoolMember[]>;
     /**
      * List of security log profiles to be used for FAST application
      */
-    public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityLogProfiles: pulumi.Output<string[] | undefined>;
     /**
      * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    public readonly serviceDiscoveries!: pulumi.Output<string[] | undefined>;
+    declare public readonly serviceDiscoveries: pulumi.Output<string[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
-    public readonly slowRampTime!: pulumi.Output<number | undefined>;
+    declare public readonly slowRampTime: pulumi.Output<number | undefined>;
     /**
      * List of address to be used for FAST-Generated SNAT Pool.
      */
-    public readonly snatPoolAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly snatPoolAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
-    public readonly tenant!: pulumi.Output<string>;
+    declare public readonly tenant: pulumi.Output<string>;
     /**
      * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
-    public readonly tlsClientProfile!: pulumi.Output<outputs.FastHttpsAppTlsClientProfile | undefined>;
+    declare public readonly tlsClientProfile: pulumi.Output<outputs.FastHttpsAppTlsClientProfile | undefined>;
     /**
      * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      *
      * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
-    public readonly tlsServerProfile!: pulumi.Output<outputs.FastHttpsAppTlsServerProfile | undefined>;
+    declare public readonly tlsServerProfile: pulumi.Output<outputs.FastHttpsAppTlsServerProfile | undefined>;
     /**
      * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
-    public readonly virtualServer!: pulumi.Output<outputs.FastHttpsAppVirtualServer | undefined>;
+    declare public readonly virtualServer: pulumi.Output<outputs.FastHttpsAppVirtualServer | undefined>;
     /**
      * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
-    public readonly wafSecurityPolicy!: pulumi.Output<outputs.FastHttpsAppWafSecurityPolicy | undefined>;
+    declare public readonly wafSecurityPolicy: pulumi.Output<outputs.FastHttpsAppWafSecurityPolicy | undefined>;
 
     /**
      * Create a FastHttpsApp resource with the given unique name, arguments, and options.
@@ -214,61 +214,61 @@ export class FastHttpsApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastHttpsAppState | undefined;
-            resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["endpointLtmPolicies"] = state ? state.endpointLtmPolicies : undefined;
-            resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
-            resourceInputs["existingPool"] = state ? state.existingPool : undefined;
-            resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
-            resourceInputs["existingTlsClientProfile"] = state ? state.existingTlsClientProfile : undefined;
-            resourceInputs["existingTlsServerProfile"] = state ? state.existingTlsServerProfile : undefined;
-            resourceInputs["existingWafSecurityPolicy"] = state ? state.existingWafSecurityPolicy : undefined;
-            resourceInputs["fallbackPersistence"] = state ? state.fallbackPersistence : undefined;
-            resourceInputs["fastHttpsJson"] = state ? state.fastHttpsJson : undefined;
-            resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["persistenceProfile"] = state ? state.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = state ? state.persistenceType : undefined;
-            resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
-            resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
-            resourceInputs["serviceDiscoveries"] = state ? state.serviceDiscoveries : undefined;
-            resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["tlsClientProfile"] = state ? state.tlsClientProfile : undefined;
-            resourceInputs["tlsServerProfile"] = state ? state.tlsServerProfile : undefined;
-            resourceInputs["virtualServer"] = state ? state.virtualServer : undefined;
-            resourceInputs["wafSecurityPolicy"] = state ? state.wafSecurityPolicy : undefined;
+            resourceInputs["application"] = state?.application;
+            resourceInputs["endpointLtmPolicies"] = state?.endpointLtmPolicies;
+            resourceInputs["existingMonitor"] = state?.existingMonitor;
+            resourceInputs["existingPool"] = state?.existingPool;
+            resourceInputs["existingSnatPool"] = state?.existingSnatPool;
+            resourceInputs["existingTlsClientProfile"] = state?.existingTlsClientProfile;
+            resourceInputs["existingTlsServerProfile"] = state?.existingTlsServerProfile;
+            resourceInputs["existingWafSecurityPolicy"] = state?.existingWafSecurityPolicy;
+            resourceInputs["fallbackPersistence"] = state?.fallbackPersistence;
+            resourceInputs["fastHttpsJson"] = state?.fastHttpsJson;
+            resourceInputs["loadBalancingMode"] = state?.loadBalancingMode;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["persistenceProfile"] = state?.persistenceProfile;
+            resourceInputs["persistenceType"] = state?.persistenceType;
+            resourceInputs["poolMembers"] = state?.poolMembers;
+            resourceInputs["securityLogProfiles"] = state?.securityLogProfiles;
+            resourceInputs["serviceDiscoveries"] = state?.serviceDiscoveries;
+            resourceInputs["slowRampTime"] = state?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = state?.snatPoolAddresses;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["tlsClientProfile"] = state?.tlsClientProfile;
+            resourceInputs["tlsServerProfile"] = state?.tlsServerProfile;
+            resourceInputs["virtualServer"] = state?.virtualServer;
+            resourceInputs["wafSecurityPolicy"] = state?.wafSecurityPolicy;
         } else {
             const args = argsOrState as FastHttpsAppArgs | undefined;
-            if ((!args || args.application === undefined) && !opts.urn) {
+            if (args?.application === undefined && !opts.urn) {
                 throw new Error("Missing required property 'application'");
             }
-            if ((!args || args.tenant === undefined) && !opts.urn) {
+            if (args?.tenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenant'");
             }
-            resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["endpointLtmPolicies"] = args ? args.endpointLtmPolicies : undefined;
-            resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
-            resourceInputs["existingPool"] = args ? args.existingPool : undefined;
-            resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
-            resourceInputs["existingTlsClientProfile"] = args ? args.existingTlsClientProfile : undefined;
-            resourceInputs["existingTlsServerProfile"] = args ? args.existingTlsServerProfile : undefined;
-            resourceInputs["existingWafSecurityPolicy"] = args ? args.existingWafSecurityPolicy : undefined;
-            resourceInputs["fallbackPersistence"] = args ? args.fallbackPersistence : undefined;
-            resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["persistenceProfile"] = args ? args.persistenceProfile : undefined;
-            resourceInputs["persistenceType"] = args ? args.persistenceType : undefined;
-            resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
-            resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
-            resourceInputs["serviceDiscoveries"] = args ? args.serviceDiscoveries : undefined;
-            resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
-            resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["tlsClientProfile"] = args ? args.tlsClientProfile : undefined;
-            resourceInputs["tlsServerProfile"] = args ? args.tlsServerProfile : undefined;
-            resourceInputs["virtualServer"] = args ? args.virtualServer : undefined;
-            resourceInputs["wafSecurityPolicy"] = args ? args.wafSecurityPolicy : undefined;
+            resourceInputs["application"] = args?.application;
+            resourceInputs["endpointLtmPolicies"] = args?.endpointLtmPolicies;
+            resourceInputs["existingMonitor"] = args?.existingMonitor;
+            resourceInputs["existingPool"] = args?.existingPool;
+            resourceInputs["existingSnatPool"] = args?.existingSnatPool;
+            resourceInputs["existingTlsClientProfile"] = args?.existingTlsClientProfile;
+            resourceInputs["existingTlsServerProfile"] = args?.existingTlsServerProfile;
+            resourceInputs["existingWafSecurityPolicy"] = args?.existingWafSecurityPolicy;
+            resourceInputs["fallbackPersistence"] = args?.fallbackPersistence;
+            resourceInputs["loadBalancingMode"] = args?.loadBalancingMode;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["persistenceProfile"] = args?.persistenceProfile;
+            resourceInputs["persistenceType"] = args?.persistenceType;
+            resourceInputs["poolMembers"] = args?.poolMembers;
+            resourceInputs["securityLogProfiles"] = args?.securityLogProfiles;
+            resourceInputs["serviceDiscoveries"] = args?.serviceDiscoveries;
+            resourceInputs["slowRampTime"] = args?.slowRampTime;
+            resourceInputs["snatPoolAddresses"] = args?.snatPoolAddresses;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["tlsClientProfile"] = args?.tlsClientProfile;
+            resourceInputs["tlsServerProfile"] = args?.tlsServerProfile;
+            resourceInputs["virtualServer"] = args?.virtualServer;
+            resourceInputs["wafSecurityPolicy"] = args?.wafSecurityPolicy;
             resourceInputs["fastHttpsJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

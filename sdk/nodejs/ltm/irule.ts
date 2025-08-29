@@ -65,11 +65,11 @@ export class IRule extends pulumi.CustomResource {
     /**
      * Body of the iRule
      */
-    public readonly irule!: pulumi.Output<string>;
+    declare public readonly irule: pulumi.Output<string>;
     /**
      * Name of the iRule
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a IRule resource with the given unique name, arguments, and options.
@@ -84,18 +84,18 @@ export class IRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IRuleState | undefined;
-            resourceInputs["irule"] = state ? state.irule : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["irule"] = state?.irule;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as IRuleArgs | undefined;
-            if ((!args || args.irule === undefined) && !opts.urn) {
+            if (args?.irule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'irule'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["irule"] = args ? args.irule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["irule"] = args?.irule;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IRule.__pulumiType, name, resourceInputs, opts);

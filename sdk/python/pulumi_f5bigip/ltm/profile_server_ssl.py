@@ -76,7 +76,7 @@ class ProfileServerSslArgs:
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
                When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth.  Default 9.
         :param pulumi.Input[_builtins.str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[_builtins.str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
                
@@ -84,7 +84,7 @@ class ProfileServerSslArgs:
                
                * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[_builtins.str] c3d_ca_passphrase: CA Passphrase. Default
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List.  Default
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
                
                basic-constraints
@@ -107,9 +107,9 @@ class ProfileServerSslArgs:
                or in place of the identity in the subject field of the certificate.
                
                * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
-        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan.  Default
         :param pulumi.Input[_builtins.str] c3d_certificate_extensions: CA Passphrase. Default enabled
-        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path.  Default None.
         :param pulumi.Input[_builtins.int] cache_size: Cache size (sessions).
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
@@ -123,14 +123,14 @@ class ProfileServerSslArgs:
         :param pulumi.Input[_builtins.str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key.
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] partition: name of partition
         :param pulumi.Input[_builtins.str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[_builtins.str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -299,7 +299,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="authenticateDepth")
     def authenticate_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Client certificate chain traversal depth. Default 9.
+        Client certificate chain traversal depth.  Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
 
@@ -351,7 +351,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="c3dCertExtensionCustomOids")
     def c3d_cert_extension_custom_oids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Certificate Extensions List. Default
+        Certificate Extensions List.  Default
         """
         return pulumi.get(self, "c3d_cert_extension_custom_oids")
 
@@ -396,7 +396,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="c3dCertLifespan")
     def c3d_cert_lifespan(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Certificate Lifespan. Default
+        Certificate Lifespan.  Default
         """
         return pulumi.get(self, "c3d_cert_lifespan")
 
@@ -420,7 +420,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="caFile")
     def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Client certificate file path. Default None.
+        Client certificate file path.  Default None.
         """
         return pulumi.get(self, "ca_file")
 
@@ -588,7 +588,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -600,7 +600,7 @@ class ProfileServerSslArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -672,7 +672,7 @@ class ProfileServerSslArgs:
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
@@ -962,7 +962,7 @@ class _ProfileServerSslState:
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
                When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth.  Default 9.
         :param pulumi.Input[_builtins.str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[_builtins.str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
                
@@ -970,7 +970,7 @@ class _ProfileServerSslState:
                
                * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[_builtins.str] c3d_ca_passphrase: CA Passphrase. Default
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List.  Default
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
                
                basic-constraints
@@ -993,9 +993,9 @@ class _ProfileServerSslState:
                or in place of the identity in the subject field of the certificate.
                
                * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
-        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan.  Default
         :param pulumi.Input[_builtins.str] c3d_certificate_extensions: CA Passphrase. Default enabled
-        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path.  Default None.
         :param pulumi.Input[_builtins.int] cache_size: Cache size (sessions).
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
@@ -1009,15 +1009,15 @@ class _ProfileServerSslState:
         :param pulumi.Input[_builtins.str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key.
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         :param pulumi.Input[_builtins.str] partition: name of partition
         :param pulumi.Input[_builtins.str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[_builtins.str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -1175,7 +1175,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="authenticateDepth")
     def authenticate_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Client certificate chain traversal depth. Default 9.
+        Client certificate chain traversal depth.  Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
 
@@ -1227,7 +1227,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="c3dCertExtensionCustomOids")
     def c3d_cert_extension_custom_oids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Certificate Extensions List. Default
+        Certificate Extensions List.  Default
         """
         return pulumi.get(self, "c3d_cert_extension_custom_oids")
 
@@ -1272,7 +1272,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="c3dCertLifespan")
     def c3d_cert_lifespan(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Certificate Lifespan. Default
+        Certificate Lifespan.  Default
         """
         return pulumi.get(self, "c3d_cert_lifespan")
 
@@ -1296,7 +1296,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="caFile")
     def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Client certificate file path. Default None.
+        Client certificate file path.  Default None.
         """
         return pulumi.get(self, "ca_file")
 
@@ -1464,7 +1464,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -1476,7 +1476,7 @@ class _ProfileServerSslState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -1560,7 +1560,7 @@ class _ProfileServerSslState:
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
@@ -1881,7 +1881,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
                When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth.  Default 9.
         :param pulumi.Input[_builtins.str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[_builtins.str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
                
@@ -1889,7 +1889,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                
                * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[_builtins.str] c3d_ca_passphrase: CA Passphrase. Default
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List.  Default
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
                
                basic-constraints
@@ -1912,9 +1912,9 @@ class ProfileServerSsl(pulumi.CustomResource):
                or in place of the identity in the subject field of the certificate.
                
                * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
-        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan.  Default
         :param pulumi.Input[_builtins.str] c3d_certificate_extensions: CA Passphrase. Default enabled
-        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path.  Default None.
         :param pulumi.Input[_builtins.int] cache_size: Cache size (sessions).
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
@@ -1928,15 +1928,15 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key.
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         :param pulumi.Input[_builtins.str] partition: name of partition
         :param pulumi.Input[_builtins.str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[_builtins.str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -2196,7 +2196,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
                When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[_builtins.int] authenticate_depth: Client certificate chain traversal depth.  Default 9.
         :param pulumi.Input[_builtins.str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         :param pulumi.Input[_builtins.str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
                
@@ -2204,7 +2204,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                
                * `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.
         :param pulumi.Input[_builtins.str] c3d_ca_passphrase: CA Passphrase. Default
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_custom_oids: Certificate Extensions List.  Default
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
                
                basic-constraints
@@ -2227,9 +2227,9 @@ class ProfileServerSsl(pulumi.CustomResource):
                or in place of the identity in the subject field of the certificate.
                
                * `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.
-        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[_builtins.int] c3d_cert_lifespan: Certificate Lifespan.  Default
         :param pulumi.Input[_builtins.str] c3d_certificate_extensions: CA Passphrase. Default enabled
-        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path. Default None.
+        :param pulumi.Input[_builtins.str] ca_file: Client certificate file path.  Default None.
         :param pulumi.Input[_builtins.int] cache_size: Cache size (sessions).
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
@@ -2243,15 +2243,15 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[_builtins.str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[_builtins.str] key: Specifies the file name of the SSL key.
-        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] mod_ssl_methods: ModSSL Methods enabled / disabled.  Default is disabled.
+        :param pulumi.Input[_builtins.str] mode: ModSSL Methods enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         :param pulumi.Input[_builtins.str] partition: name of partition
         :param pulumi.Input[_builtins.str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[_builtins.str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[_builtins.str] proxy_ca_cert: Proxy CA Cert
         :param pulumi.Input[_builtins.str] proxy_ca_key: Proxy CA Key
-        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
+        :param pulumi.Input[_builtins.str] proxy_ssl: Proxy SSL enabled / disabled.  Default is disabled.
         :param pulumi.Input[_builtins.str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[_builtins.str] renegotiate_size: Renogotiate Size
         :param pulumi.Input[_builtins.str] renegotiation: Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
@@ -2355,7 +2355,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="authenticateDepth")
     def authenticate_depth(self) -> pulumi.Output[_builtins.int]:
         """
-        Client certificate chain traversal depth. Default 9.
+        Client certificate chain traversal depth.  Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
 
@@ -2391,7 +2391,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="c3dCertExtensionCustomOids")
     def c3d_cert_extension_custom_oids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Certificate Extensions List. Default
+        Certificate Extensions List.  Default
         """
         return pulumi.get(self, "c3d_cert_extension_custom_oids")
 
@@ -2428,7 +2428,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="c3dCertLifespan")
     def c3d_cert_lifespan(self) -> pulumi.Output[_builtins.int]:
         """
-        Certificate Lifespan. Default
+        Certificate Lifespan.  Default
         """
         return pulumi.get(self, "c3d_cert_lifespan")
 
@@ -2444,7 +2444,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="caFile")
     def ca_file(self) -> pulumi.Output[_builtins.str]:
         """
-        Client certificate file path. Default None.
+        Client certificate file path.  Default None.
         """
         return pulumi.get(self, "ca_file")
 
@@ -2556,7 +2556,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="modSslMethods")
     def mod_ssl_methods(self) -> pulumi.Output[_builtins.str]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
@@ -2564,7 +2564,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[_builtins.str]:
         """
-        ModSSL Methods enabled / disabled. Default is disabled.
+        ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
@@ -2620,7 +2620,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> pulumi.Output[_builtins.str]:
         """
-        Proxy SSL enabled / disabled. Default is disabled.
+        Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 

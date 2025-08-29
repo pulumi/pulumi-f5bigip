@@ -231,16 +231,14 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      * 
      */
     @Import(name="lwsSeparator")
     private @Nullable Output<String> lwsSeparator;
 
     /**
-     * @return Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-     * specify in the LWS Maximum Columns setting.
+     * @return Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      * 
      */
     public Optional<Output<String>> lwsSeparator() {
@@ -844,8 +842,7 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lwsSeparator Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-         * specify in the LWS Maximum Columns setting.
+         * @param lwsSeparator Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
          * 
          * @return builder
          * 
@@ -856,8 +853,7 @@ public final class ProfileHttpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lwsSeparator Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
-         * specify in the LWS Maximum Columns setting.
+         * @param lwsSeparator Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
          * 
          * @return builder
          * 

@@ -424,16 +424,14 @@ public class As3 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
-     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-     * one of `delete_apps` or `as3_json` can be set in a resource block.
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
      * 
      */
     @Export(name="deleteApps", refs={As3DeleteApps.class}, tree="[0]")
     private Output</* @Nullable */ As3DeleteApps> deleteApps;
 
     /**
-     * @return Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only
-     * one of `delete_apps` or `as3_json` can be set in a resource block.
+     * @return Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
      * 
      */
     public Output<Optional<As3DeleteApps>> deleteApps() {

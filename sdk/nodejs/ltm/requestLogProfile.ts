@@ -67,83 +67,83 @@ export class RequestLogProfile extends pulumi.CustomResource {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
      */
-    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
+    declare public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
      * Specifies user-defined description.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    public readonly proxyResponse!: pulumi.Output<string | undefined>;
+    declare public readonly proxyResponse: pulumi.Output<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    public readonly proxycloseOnError!: pulumi.Output<string | undefined>;
+    declare public readonly proxycloseOnError: pulumi.Output<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    public readonly proxyrespondOnLoggingerror!: pulumi.Output<string | undefined>;
+    declare public readonly proxyrespondOnLoggingerror: pulumi.Output<string | undefined>;
     /**
      * Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    public readonly requestLogging!: pulumi.Output<string>;
+    declare public readonly requestLogging: pulumi.Output<string>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    public readonly requestlogErrorPool!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogErrorPool: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    public readonly requestlogErrorProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogErrorProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    public readonly requestlogErrorTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogErrorTemplate: pulumi.Output<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
      */
-    public readonly requestlogPool!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogPool: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    public readonly requestlogProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    public readonly requestlogTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly requestlogTemplate: pulumi.Output<string | undefined>;
     /**
      * Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    public readonly responseLogging!: pulumi.Output<string>;
+    declare public readonly responseLogging: pulumi.Output<string>;
     /**
      * Defines the pool associated with logging response errors. The default is `none`.
      */
-    public readonly responselogErrorPool!: pulumi.Output<string | undefined>;
+    declare public readonly responselogErrorPool: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    public readonly responselogErrorProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly responselogErrorProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    public readonly responselogErrorTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly responselogErrorTemplate: pulumi.Output<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
      */
-    public readonly responselogPool!: pulumi.Output<string | undefined>;
+    declare public readonly responselogPool: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    public readonly responselogProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly responselogProtocol: pulumi.Output<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    public readonly responselogTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly responselogTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a RequestLogProfile resource with the given unique name, arguments, and options.
@@ -158,51 +158,51 @@ export class RequestLogProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RequestLogProfileState | undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["proxyResponse"] = state ? state.proxyResponse : undefined;
-            resourceInputs["proxycloseOnError"] = state ? state.proxycloseOnError : undefined;
-            resourceInputs["proxyrespondOnLoggingerror"] = state ? state.proxyrespondOnLoggingerror : undefined;
-            resourceInputs["requestLogging"] = state ? state.requestLogging : undefined;
-            resourceInputs["requestlogErrorPool"] = state ? state.requestlogErrorPool : undefined;
-            resourceInputs["requestlogErrorProtocol"] = state ? state.requestlogErrorProtocol : undefined;
-            resourceInputs["requestlogErrorTemplate"] = state ? state.requestlogErrorTemplate : undefined;
-            resourceInputs["requestlogPool"] = state ? state.requestlogPool : undefined;
-            resourceInputs["requestlogProtocol"] = state ? state.requestlogProtocol : undefined;
-            resourceInputs["requestlogTemplate"] = state ? state.requestlogTemplate : undefined;
-            resourceInputs["responseLogging"] = state ? state.responseLogging : undefined;
-            resourceInputs["responselogErrorPool"] = state ? state.responselogErrorPool : undefined;
-            resourceInputs["responselogErrorProtocol"] = state ? state.responselogErrorProtocol : undefined;
-            resourceInputs["responselogErrorTemplate"] = state ? state.responselogErrorTemplate : undefined;
-            resourceInputs["responselogPool"] = state ? state.responselogPool : undefined;
-            resourceInputs["responselogProtocol"] = state ? state.responselogProtocol : undefined;
-            resourceInputs["responselogTemplate"] = state ? state.responselogTemplate : undefined;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["proxyResponse"] = state?.proxyResponse;
+            resourceInputs["proxycloseOnError"] = state?.proxycloseOnError;
+            resourceInputs["proxyrespondOnLoggingerror"] = state?.proxyrespondOnLoggingerror;
+            resourceInputs["requestLogging"] = state?.requestLogging;
+            resourceInputs["requestlogErrorPool"] = state?.requestlogErrorPool;
+            resourceInputs["requestlogErrorProtocol"] = state?.requestlogErrorProtocol;
+            resourceInputs["requestlogErrorTemplate"] = state?.requestlogErrorTemplate;
+            resourceInputs["requestlogPool"] = state?.requestlogPool;
+            resourceInputs["requestlogProtocol"] = state?.requestlogProtocol;
+            resourceInputs["requestlogTemplate"] = state?.requestlogTemplate;
+            resourceInputs["responseLogging"] = state?.responseLogging;
+            resourceInputs["responselogErrorPool"] = state?.responselogErrorPool;
+            resourceInputs["responselogErrorProtocol"] = state?.responselogErrorProtocol;
+            resourceInputs["responselogErrorTemplate"] = state?.responselogErrorTemplate;
+            resourceInputs["responselogPool"] = state?.responselogPool;
+            resourceInputs["responselogProtocol"] = state?.responselogProtocol;
+            resourceInputs["responselogTemplate"] = state?.responselogTemplate;
         } else {
             const args = argsOrState as RequestLogProfileArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["proxyResponse"] = args ? args.proxyResponse : undefined;
-            resourceInputs["proxycloseOnError"] = args ? args.proxycloseOnError : undefined;
-            resourceInputs["proxyrespondOnLoggingerror"] = args ? args.proxyrespondOnLoggingerror : undefined;
-            resourceInputs["requestLogging"] = args ? args.requestLogging : undefined;
-            resourceInputs["requestlogErrorPool"] = args ? args.requestlogErrorPool : undefined;
-            resourceInputs["requestlogErrorProtocol"] = args ? args.requestlogErrorProtocol : undefined;
-            resourceInputs["requestlogErrorTemplate"] = args ? args.requestlogErrorTemplate : undefined;
-            resourceInputs["requestlogPool"] = args ? args.requestlogPool : undefined;
-            resourceInputs["requestlogProtocol"] = args ? args.requestlogProtocol : undefined;
-            resourceInputs["requestlogTemplate"] = args ? args.requestlogTemplate : undefined;
-            resourceInputs["responseLogging"] = args ? args.responseLogging : undefined;
-            resourceInputs["responselogErrorPool"] = args ? args.responselogErrorPool : undefined;
-            resourceInputs["responselogErrorProtocol"] = args ? args.responselogErrorProtocol : undefined;
-            resourceInputs["responselogErrorTemplate"] = args ? args.responselogErrorTemplate : undefined;
-            resourceInputs["responselogPool"] = args ? args.responselogPool : undefined;
-            resourceInputs["responselogProtocol"] = args ? args.responselogProtocol : undefined;
-            resourceInputs["responselogTemplate"] = args ? args.responselogTemplate : undefined;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["proxyResponse"] = args?.proxyResponse;
+            resourceInputs["proxycloseOnError"] = args?.proxycloseOnError;
+            resourceInputs["proxyrespondOnLoggingerror"] = args?.proxyrespondOnLoggingerror;
+            resourceInputs["requestLogging"] = args?.requestLogging;
+            resourceInputs["requestlogErrorPool"] = args?.requestlogErrorPool;
+            resourceInputs["requestlogErrorProtocol"] = args?.requestlogErrorProtocol;
+            resourceInputs["requestlogErrorTemplate"] = args?.requestlogErrorTemplate;
+            resourceInputs["requestlogPool"] = args?.requestlogPool;
+            resourceInputs["requestlogProtocol"] = args?.requestlogProtocol;
+            resourceInputs["requestlogTemplate"] = args?.requestlogTemplate;
+            resourceInputs["responseLogging"] = args?.responseLogging;
+            resourceInputs["responselogErrorPool"] = args?.responselogErrorPool;
+            resourceInputs["responselogErrorProtocol"] = args?.responselogErrorProtocol;
+            resourceInputs["responselogErrorTemplate"] = args?.responselogErrorTemplate;
+            resourceInputs["responselogPool"] = args?.responselogPool;
+            resourceInputs["responselogProtocol"] = args?.responselogProtocol;
+            resourceInputs["responselogTemplate"] = args?.responselogTemplate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RequestLogProfile.__pulumiType, name, resourceInputs, opts);

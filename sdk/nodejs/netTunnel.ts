@@ -51,71 +51,71 @@ export class NetTunnel extends pulumi.CustomResource {
     /**
      * The application service that the object belongs to
      */
-    public readonly appService!: pulumi.Output<string | undefined>;
+    declare public readonly appService: pulumi.Output<string | undefined>;
     /**
      * Specifies whether auto lasthop is enabled or not
      */
-    public readonly autoLastHop!: pulumi.Output<string | undefined>;
+    declare public readonly autoLastHop: pulumi.Output<string | undefined>;
     /**
      * User defined description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies an idle timeout for wildcard tunnels in seconds
      */
-    public readonly idleTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeout: pulumi.Output<number | undefined>;
     /**
      * The key field may represent different values depending on the type of the tunnel
      */
-    public readonly key!: pulumi.Output<number | undefined>;
+    declare public readonly key: pulumi.Output<number | undefined>;
     /**
      * Specifies a local IP address. This option is required
      */
-    public readonly localAddress!: pulumi.Output<string>;
+    declare public readonly localAddress: pulumi.Output<string>;
     /**
      * Specifies how the tunnel carries traffic
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) of the tunnel
      */
-    public readonly mtu!: pulumi.Output<number | undefined>;
+    declare public readonly mtu: pulumi.Output<number | undefined>;
     /**
      * Name of the tunnel
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Displays the admin-partition within which this component resides
      */
-    public readonly partition!: pulumi.Output<string | undefined>;
+    declare public readonly partition: pulumi.Output<string | undefined>;
     /**
      * Specifies the profile that you want to associate with the tunnel
      */
-    public readonly profile!: pulumi.Output<string>;
+    declare public readonly profile: pulumi.Output<string>;
     /**
      * Specifies a remote IP address
      */
-    public readonly remoteAddress!: pulumi.Output<string | undefined>;
+    declare public readonly remoteAddress: pulumi.Output<string | undefined>;
     /**
      * Specifies a secondary non-floating IP address when the local-address is set to a floating address
      */
-    public readonly secondaryAddress!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryAddress: pulumi.Output<string | undefined>;
     /**
      * Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
      */
-    public readonly tos!: pulumi.Output<string | undefined>;
+    declare public readonly tos: pulumi.Output<string | undefined>;
     /**
      * Specifies a traffic-group for use with the tunnel
      */
-    public readonly trafficGroup!: pulumi.Output<string | undefined>;
+    declare public readonly trafficGroup: pulumi.Output<string | undefined>;
     /**
      * Enables or disables the tunnel to be transparent
      */
-    public readonly transparent!: pulumi.Output<string | undefined>;
+    declare public readonly transparent: pulumi.Output<string | undefined>;
     /**
      * Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
      */
-    public readonly usePmtu!: pulumi.Output<string | undefined>;
+    declare public readonly usePmtu: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetTunnel resource with the given unique name, arguments, and options.
@@ -130,51 +130,51 @@ export class NetTunnel extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetTunnelState | undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["autoLastHop"] = state ? state.autoLastHop : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["localAddress"] = state ? state.localAddress : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["mtu"] = state ? state.mtu : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["profile"] = state ? state.profile : undefined;
-            resourceInputs["remoteAddress"] = state ? state.remoteAddress : undefined;
-            resourceInputs["secondaryAddress"] = state ? state.secondaryAddress : undefined;
-            resourceInputs["tos"] = state ? state.tos : undefined;
-            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            resourceInputs["transparent"] = state ? state.transparent : undefined;
-            resourceInputs["usePmtu"] = state ? state.usePmtu : undefined;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["autoLastHop"] = state?.autoLastHop;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["idleTimeout"] = state?.idleTimeout;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["localAddress"] = state?.localAddress;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["mtu"] = state?.mtu;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["profile"] = state?.profile;
+            resourceInputs["remoteAddress"] = state?.remoteAddress;
+            resourceInputs["secondaryAddress"] = state?.secondaryAddress;
+            resourceInputs["tos"] = state?.tos;
+            resourceInputs["trafficGroup"] = state?.trafficGroup;
+            resourceInputs["transparent"] = state?.transparent;
+            resourceInputs["usePmtu"] = state?.usePmtu;
         } else {
             const args = argsOrState as NetTunnelArgs | undefined;
-            if ((!args || args.localAddress === undefined) && !opts.urn) {
+            if (args?.localAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localAddress'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.profile === undefined) && !opts.urn) {
+            if (args?.profile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profile'");
             }
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["autoLastHop"] = args ? args.autoLastHop : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["localAddress"] = args ? args.localAddress : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["mtu"] = args ? args.mtu : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["remoteAddress"] = args ? args.remoteAddress : undefined;
-            resourceInputs["secondaryAddress"] = args ? args.secondaryAddress : undefined;
-            resourceInputs["tos"] = args ? args.tos : undefined;
-            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            resourceInputs["transparent"] = args ? args.transparent : undefined;
-            resourceInputs["usePmtu"] = args ? args.usePmtu : undefined;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["autoLastHop"] = args?.autoLastHop;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["idleTimeout"] = args?.idleTimeout;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["localAddress"] = args?.localAddress;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["mtu"] = args?.mtu;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["remoteAddress"] = args?.remoteAddress;
+            resourceInputs["secondaryAddress"] = args?.secondaryAddress;
+            resourceInputs["tos"] = args?.tos;
+            resourceInputs["trafficGroup"] = args?.trafficGroup;
+            resourceInputs["transparent"] = args?.transparent;
+            resourceInputs["usePmtu"] = args?.usePmtu;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetTunnel.__pulumiType, name, resourceInputs, opts);

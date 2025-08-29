@@ -107,13 +107,11 @@ type ProfileFtp struct {
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// User defined description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-	// value is unchecked (disabled).
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrOutput `pulumi:"enforceTlssessionReuse"`
 	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrOutput `pulumi:"ftpsMode"`
-	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-	// FastL4 only.
+	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 	InheritParentProfile pulumi.StringPtrOutput `pulumi:"inheritParentProfile"`
 	// inherent vlan list
 	InheritVlanList pulumi.StringPtrOutput `pulumi:"inheritVlanList"`
@@ -127,11 +125,9 @@ type ProfileFtp struct {
 	Partition pulumi.StringOutput `pulumi:"partition"`
 	// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringOutput `pulumi:"security"`
-	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-	// and PORT when communicating with IPv4 servers.
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrOutput `pulumi:"translateExtended"`
 }
 
@@ -178,13 +174,11 @@ type profileFtpState struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description
 	Description *string `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-	// value is unchecked (disabled).
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 	EnforceTlssessionReuse *string `pulumi:"enforceTlssessionReuse"`
 	// Allows explicit FTPS negotiation
 	FtpsMode *string `pulumi:"ftpsMode"`
-	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-	// FastL4 only.
+	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 	InheritParentProfile *string `pulumi:"inheritParentProfile"`
 	// inherent vlan list
 	InheritVlanList *string `pulumi:"inheritVlanList"`
@@ -198,11 +192,9 @@ type profileFtpState struct {
 	Partition *string `pulumi:"partition"`
 	// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
 	Port *int `pulumi:"port"`
-	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security *string `pulumi:"security"`
-	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-	// and PORT when communicating with IPv4 servers.
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 	TranslateExtended *string `pulumi:"translateExtended"`
 }
 
@@ -217,13 +209,11 @@ type ProfileFtpState struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description
 	Description pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-	// value is unchecked (disabled).
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrInput
 	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrInput
-	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-	// FastL4 only.
+	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 	InheritParentProfile pulumi.StringPtrInput
 	// inherent vlan list
 	InheritVlanList pulumi.StringPtrInput
@@ -237,11 +227,9 @@ type ProfileFtpState struct {
 	Partition pulumi.StringPtrInput
 	// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
 	Port pulumi.IntPtrInput
-	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringPtrInput
-	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-	// and PORT when communicating with IPv4 servers.
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrInput
 }
 
@@ -260,13 +248,11 @@ type profileFtpArgs struct {
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// User defined description
 	Description *string `pulumi:"description"`
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-	// value is unchecked (disabled).
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 	EnforceTlssessionReuse *string `pulumi:"enforceTlssessionReuse"`
 	// Allows explicit FTPS negotiation
 	FtpsMode *string `pulumi:"ftpsMode"`
-	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-	// FastL4 only.
+	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 	InheritParentProfile *string `pulumi:"inheritParentProfile"`
 	// inherent vlan list
 	InheritVlanList *string `pulumi:"inheritVlanList"`
@@ -280,11 +266,9 @@ type profileFtpArgs struct {
 	Partition *string `pulumi:"partition"`
 	// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
 	Port *int `pulumi:"port"`
-	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security *string `pulumi:"security"`
-	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-	// and PORT when communicating with IPv4 servers.
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 	TranslateExtended *string `pulumi:"translateExtended"`
 }
 
@@ -300,13 +284,11 @@ type ProfileFtpArgs struct {
 	DefaultsFrom pulumi.StringPtrInput
 	// User defined description
 	Description pulumi.StringPtrInput
-	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-	// value is unchecked (disabled).
+	// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 	EnforceTlssessionReuse pulumi.StringPtrInput
 	// Allows explicit FTPS negotiation
 	FtpsMode pulumi.StringPtrInput
-	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-	// FastL4 only.
+	// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 	InheritParentProfile pulumi.StringPtrInput
 	// inherent vlan list
 	InheritVlanList pulumi.StringPtrInput
@@ -320,11 +302,9 @@ type ProfileFtpArgs struct {
 	Partition pulumi.StringPtrInput
 	// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
 	Port pulumi.IntPtrInput
-	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-	// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+	// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 	Security pulumi.StringPtrInput
-	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-	// and PORT when communicating with IPv4 servers.
+	// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 	TranslateExtended pulumi.StringPtrInput
 }
 
@@ -440,8 +420,7 @@ func (o ProfileFtpOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-// value is unchecked (disabled).
+// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
 func (o ProfileFtpOutput) EnforceTlssessionReuse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.EnforceTlssessionReuse }).(pulumi.StringPtrOutput)
 }
@@ -451,8 +430,7 @@ func (o ProfileFtpOutput) FtpsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.FtpsMode }).(pulumi.StringPtrOutput)
 }
 
-// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-// FastL4 only.
+// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 func (o ProfileFtpOutput) InheritParentProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.InheritParentProfile }).(pulumi.StringPtrOutput)
 }
@@ -487,14 +465,12 @@ func (o ProfileFtpOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
 func (o ProfileFtpOutput) Security() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.Security }).(pulumi.StringOutput)
 }
 
-// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-// and PORT when communicating with IPv4 servers.
+// This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
 func (o ProfileFtpOutput) TranslateExtended() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.TranslateExtended }).(pulumi.StringPtrOutput)
 }

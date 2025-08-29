@@ -66,55 +66,55 @@ export class ProfileHttp2 extends pulumi.CustomResource {
     /**
      * This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
      */
-    public readonly activationModes!: pulumi.Output<string[]>;
+    declare public readonly activationModes: pulumi.Output<string[]>;
     /**
      * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
-    public readonly concurrentStreamsPerConnection!: pulumi.Output<number>;
+    declare public readonly concurrentStreamsPerConnection: pulumi.Output<number>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
      */
-    public readonly connectionIdleTimeout!: pulumi.Output<number>;
+    declare public readonly connectionIdleTimeout: pulumi.Output<number>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
      */
-    public readonly enforceTlsRequirements!: pulumi.Output<string>;
+    declare public readonly enforceTlsRequirements: pulumi.Output<string>;
     /**
      * The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
      */
-    public readonly frameSize!: pulumi.Output<number>;
+    declare public readonly frameSize: pulumi.Output<number>;
     /**
      * The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
      */
-    public readonly headerTableSize!: pulumi.Output<number>;
+    declare public readonly headerTableSize: pulumi.Output<number>;
     /**
      * Enable to include content-length in HTTP/2 headers,Default : disabled
      */
-    public readonly includeContentLength!: pulumi.Output<string>;
+    declare public readonly includeContentLength: pulumi.Output<string>;
     /**
      * This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
      */
-    public readonly insertHeader!: pulumi.Output<string>;
+    declare public readonly insertHeader: pulumi.Output<string>;
     /**
      * This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
      */
-    public readonly insertHeaderName!: pulumi.Output<string>;
+    declare public readonly insertHeaderName: pulumi.Output<string>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The flow-control size for upload streams, in KB. `Default: 32`.
      */
-    public readonly receiveWindow!: pulumi.Output<number>;
+    declare public readonly receiveWindow: pulumi.Output<number>;
     /**
      * The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
      */
-    public readonly writeSize!: pulumi.Output<number>;
+    declare public readonly writeSize: pulumi.Output<number>;
 
     /**
      * Create a ProfileHttp2 resource with the given unique name, arguments, and options.
@@ -129,37 +129,37 @@ export class ProfileHttp2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileHttp2State | undefined;
-            resourceInputs["activationModes"] = state ? state.activationModes : undefined;
-            resourceInputs["concurrentStreamsPerConnection"] = state ? state.concurrentStreamsPerConnection : undefined;
-            resourceInputs["connectionIdleTimeout"] = state ? state.connectionIdleTimeout : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["enforceTlsRequirements"] = state ? state.enforceTlsRequirements : undefined;
-            resourceInputs["frameSize"] = state ? state.frameSize : undefined;
-            resourceInputs["headerTableSize"] = state ? state.headerTableSize : undefined;
-            resourceInputs["includeContentLength"] = state ? state.includeContentLength : undefined;
-            resourceInputs["insertHeader"] = state ? state.insertHeader : undefined;
-            resourceInputs["insertHeaderName"] = state ? state.insertHeaderName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["receiveWindow"] = state ? state.receiveWindow : undefined;
-            resourceInputs["writeSize"] = state ? state.writeSize : undefined;
+            resourceInputs["activationModes"] = state?.activationModes;
+            resourceInputs["concurrentStreamsPerConnection"] = state?.concurrentStreamsPerConnection;
+            resourceInputs["connectionIdleTimeout"] = state?.connectionIdleTimeout;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["enforceTlsRequirements"] = state?.enforceTlsRequirements;
+            resourceInputs["frameSize"] = state?.frameSize;
+            resourceInputs["headerTableSize"] = state?.headerTableSize;
+            resourceInputs["includeContentLength"] = state?.includeContentLength;
+            resourceInputs["insertHeader"] = state?.insertHeader;
+            resourceInputs["insertHeaderName"] = state?.insertHeaderName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["receiveWindow"] = state?.receiveWindow;
+            resourceInputs["writeSize"] = state?.writeSize;
         } else {
             const args = argsOrState as ProfileHttp2Args | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["activationModes"] = args ? args.activationModes : undefined;
-            resourceInputs["concurrentStreamsPerConnection"] = args ? args.concurrentStreamsPerConnection : undefined;
-            resourceInputs["connectionIdleTimeout"] = args ? args.connectionIdleTimeout : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["enforceTlsRequirements"] = args ? args.enforceTlsRequirements : undefined;
-            resourceInputs["frameSize"] = args ? args.frameSize : undefined;
-            resourceInputs["headerTableSize"] = args ? args.headerTableSize : undefined;
-            resourceInputs["includeContentLength"] = args ? args.includeContentLength : undefined;
-            resourceInputs["insertHeader"] = args ? args.insertHeader : undefined;
-            resourceInputs["insertHeaderName"] = args ? args.insertHeaderName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["receiveWindow"] = args ? args.receiveWindow : undefined;
-            resourceInputs["writeSize"] = args ? args.writeSize : undefined;
+            resourceInputs["activationModes"] = args?.activationModes;
+            resourceInputs["concurrentStreamsPerConnection"] = args?.concurrentStreamsPerConnection;
+            resourceInputs["connectionIdleTimeout"] = args?.connectionIdleTimeout;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["enforceTlsRequirements"] = args?.enforceTlsRequirements;
+            resourceInputs["frameSize"] = args?.frameSize;
+            resourceInputs["headerTableSize"] = args?.headerTableSize;
+            resourceInputs["includeContentLength"] = args?.includeContentLength;
+            resourceInputs["insertHeader"] = args?.insertHeader;
+            resourceInputs["insertHeaderName"] = args?.insertHeaderName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["receiveWindow"] = args?.receiveWindow;
+            resourceInputs["writeSize"] = args?.writeSize;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileHttp2.__pulumiType, name, resourceInputs, opts);

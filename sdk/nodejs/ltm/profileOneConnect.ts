@@ -57,43 +57,43 @@ export class ProfileOneConnect extends pulumi.CustomResource {
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
      */
-    public readonly idleTimeoutOverride!: pulumi.Output<string>;
+    declare public readonly idleTimeoutOverride: pulumi.Output<string>;
     /**
      * Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
      */
-    public readonly limitType!: pulumi.Output<string>;
+    declare public readonly limitType: pulumi.Output<string>;
     /**
      * Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
      */
-    public readonly maxAge!: pulumi.Output<number>;
+    declare public readonly maxAge: pulumi.Output<number>;
     /**
      * Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
      */
-    public readonly maxReuse!: pulumi.Output<number>;
+    declare public readonly maxReuse: pulumi.Output<number>;
     /**
      * Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
      */
-    public readonly maxSize!: pulumi.Output<number>;
+    declare public readonly maxSize: pulumi.Output<number>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    public readonly partition!: pulumi.Output<string>;
+    declare public readonly partition: pulumi.Output<string>;
     /**
      * Specify if you want to share the pool, default value is `disabled`.
      */
-    public readonly sharePools!: pulumi.Output<string>;
+    declare public readonly sharePools: pulumi.Output<string>;
     /**
      * Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
      */
-    public readonly sourceMask!: pulumi.Output<string>;
+    declare public readonly sourceMask: pulumi.Output<string>;
 
     /**
      * Create a ProfileOneConnect resource with the given unique name, arguments, and options.
@@ -108,31 +108,31 @@ export class ProfileOneConnect extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileOneConnectState | undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["idleTimeoutOverride"] = state ? state.idleTimeoutOverride : undefined;
-            resourceInputs["limitType"] = state ? state.limitType : undefined;
-            resourceInputs["maxAge"] = state ? state.maxAge : undefined;
-            resourceInputs["maxReuse"] = state ? state.maxReuse : undefined;
-            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["sharePools"] = state ? state.sharePools : undefined;
-            resourceInputs["sourceMask"] = state ? state.sourceMask : undefined;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["idleTimeoutOverride"] = state?.idleTimeoutOverride;
+            resourceInputs["limitType"] = state?.limitType;
+            resourceInputs["maxAge"] = state?.maxAge;
+            resourceInputs["maxReuse"] = state?.maxReuse;
+            resourceInputs["maxSize"] = state?.maxSize;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["sharePools"] = state?.sharePools;
+            resourceInputs["sourceMask"] = state?.sourceMask;
         } else {
             const args = argsOrState as ProfileOneConnectArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["idleTimeoutOverride"] = args ? args.idleTimeoutOverride : undefined;
-            resourceInputs["limitType"] = args ? args.limitType : undefined;
-            resourceInputs["maxAge"] = args ? args.maxAge : undefined;
-            resourceInputs["maxReuse"] = args ? args.maxReuse : undefined;
-            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["sharePools"] = args ? args.sharePools : undefined;
-            resourceInputs["sourceMask"] = args ? args.sourceMask : undefined;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["idleTimeoutOverride"] = args?.idleTimeoutOverride;
+            resourceInputs["limitType"] = args?.limitType;
+            resourceInputs["maxAge"] = args?.maxAge;
+            resourceInputs["maxReuse"] = args?.maxReuse;
+            resourceInputs["maxSize"] = args?.maxSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["sharePools"] = args?.sharePools;
+            resourceInputs["sourceMask"] = args?.sourceMask;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileOneConnect.__pulumiType, name, resourceInputs, opts);

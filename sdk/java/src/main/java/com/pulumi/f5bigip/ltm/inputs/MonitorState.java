@@ -212,20 +212,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-     * attributes, the target is considered down.)
+     * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      * 
      */
     @Import(name="mandatoryAttributes")
     private @Nullable Output<String> mandatoryAttributes;
 
     /**
-     * @return Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-     * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-     * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-     * attributes, the target is considered down.)
+     * @return Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      * 
      */
     public Optional<Output<String>> mandatoryAttributes() {
@@ -353,20 +347,14 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-     * protocol for communications with the target.)
+     * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      * 
      */
     @Import(name="security")
     private @Nullable Output<String> security;
 
     /**
-     * @return Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-     * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-     * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-     * protocol for communications with the target.)
+     * @return Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      * 
      */
     public Optional<Output<String>> security() {
@@ -805,10 +793,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-         * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-         * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-         * attributes, the target is considered down.)
+         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
          * 
          * @return builder
          * 
@@ -819,10 +804,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-         * that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-         * returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-         * attributes, the target is considered down.)
+         * @param mandatoryAttributes Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
          * 
          * @return builder
          * 
@@ -1000,10 +982,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-         * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-         * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-         * protocol for communications with the target.)
+         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
          * 
          * @return builder
          * 
@@ -1014,10 +993,7 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-         * (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-         * the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-         * protocol for communications with the target.)
+         * @param security Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
          * 
          * @return builder
          * 

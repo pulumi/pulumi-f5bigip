@@ -88,8 +88,7 @@ type PersistenceProfileSsl struct {
 	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -144,8 +143,7 @@ type persistenceProfileSslState struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name *string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -165,8 +163,7 @@ type PersistenceProfileSslState struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringPtrInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -190,8 +187,7 @@ type persistenceProfileSslArgs struct {
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name string `pulumi:"name"`
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit *string `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout *int `pulumi:"timeout"`
@@ -212,8 +208,7 @@ type PersistenceProfileSslArgs struct {
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
 	Name pulumi.StringInput
-	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-	// limits remain hard limits and are not overridden.
+	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 	OverrideConnLimit pulumi.StringPtrInput
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrInput
@@ -340,8 +335,7 @@ func (o PersistenceProfileSslOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
-// limits remain hard limits and are not overridden.
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
 func (o PersistenceProfileSslOutput) OverrideConnLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
 }

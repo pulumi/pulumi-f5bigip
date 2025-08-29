@@ -119,10 +119,7 @@ type Monitor struct {
 	Interval pulumi.IntOutput `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntOutput `pulumi:"ipDscp"`
-	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-	// attributes, the target is considered down.)
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 	MandatoryAttributes pulumi.StringPtrOutput `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringOutput `pulumi:"manualResume"`
@@ -140,10 +137,7 @@ type Monitor struct {
 	ReceiveDisable pulumi.StringPtrOutput `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringOutput `pulumi:"reverse"`
-	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-	// protocol for communications with the target.)
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 	Security pulumi.StringPtrOutput `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringOutput `pulumi:"send"`
@@ -230,10 +224,7 @@ type monitorState struct {
 	Interval *int `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp *int `pulumi:"ipDscp"`
-	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-	// attributes, the target is considered down.)
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 	MandatoryAttributes *string `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume *string `pulumi:"manualResume"`
@@ -251,10 +242,7 @@ type monitorState struct {
 	ReceiveDisable *string `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse *string `pulumi:"reverse"`
-	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-	// protocol for communications with the target.)
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 	Security *string `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
@@ -299,10 +287,7 @@ type MonitorState struct {
 	Interval pulumi.IntPtrInput
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntPtrInput
-	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-	// attributes, the target is considered down.)
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 	MandatoryAttributes pulumi.StringPtrInput
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringPtrInput
@@ -320,10 +305,7 @@ type MonitorState struct {
 	ReceiveDisable pulumi.StringPtrInput
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringPtrInput
-	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-	// protocol for communications with the target.)
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 	Security pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
@@ -372,10 +354,7 @@ type monitorArgs struct {
 	Interval *int `pulumi:"interval"`
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp *int `pulumi:"ipDscp"`
-	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-	// attributes, the target is considered down.)
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 	MandatoryAttributes *string `pulumi:"mandatoryAttributes"`
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume *string `pulumi:"manualResume"`
@@ -393,10 +372,7 @@ type monitorArgs struct {
 	ReceiveDisable *string `pulumi:"receiveDisable"`
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse *string `pulumi:"reverse"`
-	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-	// protocol for communications with the target.)
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 	Security *string `pulumi:"security"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
@@ -442,10 +418,7 @@ type MonitorArgs struct {
 	Interval pulumi.IntPtrInput
 	// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
 	IpDscp pulumi.IntPtrInput
-	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-	// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-	// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-	// attributes, the target is considered down.)
+	// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 	MandatoryAttributes pulumi.StringPtrInput
 	// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume pulumi.StringPtrInput
@@ -463,10 +436,7 @@ type MonitorArgs struct {
 	ReceiveDisable pulumi.StringPtrInput
 	// Instructs the system to mark the target resource down when the test is successful.
 	Reverse pulumi.StringPtrInput
-	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-	// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-	// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-	// protocol for communications with the target.)
+	// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 	Security pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
@@ -636,10 +606,7 @@ func (o MonitorOutput) IpDscp() pulumi.IntOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.IpDscp }).(pulumi.IntOutput)
 }
 
-// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies
-// that the system performs only a one-level search (based on the Filter setting), and does not require that the target
-// returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no
-// attributes, the target is considered down.)
+// Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
 func (o MonitorOutput) MandatoryAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.MandatoryAttributes }).(pulumi.StringPtrOutput)
 }
@@ -684,10 +651,7 @@ func (o MonitorOutput) Reverse() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Reverse }).(pulumi.StringOutput)
 }
 
-// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none
-// (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that
-// the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS
-// protocol for communications with the target.)
+// Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
 func (o MonitorOutput) Security() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Security }).(pulumi.StringPtrOutput)
 }

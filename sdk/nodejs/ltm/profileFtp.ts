@@ -89,71 +89,67 @@ export class ProfileFtp extends pulumi.CustomResource {
     /**
      * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
-    public readonly allowActiveMode!: pulumi.Output<string | undefined>;
+    declare public readonly allowActiveMode: pulumi.Output<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    public readonly allowFtps!: pulumi.Output<string | undefined>;
+    declare public readonly allowFtps: pulumi.Output<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    public readonly appService!: pulumi.Output<string | undefined>;
+    declare public readonly appService: pulumi.Output<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom!: pulumi.Output<string>;
+    declare public readonly defaultsFrom: pulumi.Output<string>;
     /**
      * User defined description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      */
-    public readonly enforceTlssessionReuse!: pulumi.Output<string | undefined>;
+    declare public readonly enforceTlssessionReuse: pulumi.Output<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    public readonly ftpsMode!: pulumi.Output<string | undefined>;
+    declare public readonly ftpsMode: pulumi.Output<string | undefined>;
     /**
-     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      */
-    public readonly inheritParentProfile!: pulumi.Output<string | undefined>;
+    declare public readonly inheritParentProfile: pulumi.Output<string | undefined>;
     /**
      * inherent vlan list
      */
-    public readonly inheritVlanList!: pulumi.Output<string | undefined>;
+    declare public readonly inheritVlanList: pulumi.Output<string | undefined>;
     /**
      * Configures the ALG log profile that controls logging
      */
-    public readonly logProfile!: pulumi.Output<string>;
+    declare public readonly logProfile: pulumi.Output<string>;
     /**
      * Configures the log publisher that handles events logging for this profile
      */
-    public readonly logPublisher!: pulumi.Output<string>;
+    declare public readonly logPublisher: pulumi.Output<string>;
     /**
      * Name of the profile_ftp
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    public readonly partition!: pulumi.Output<string>;
+    declare public readonly partition: pulumi.Output<string>;
     /**
      * Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
-     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      */
-    public readonly security!: pulumi.Output<string>;
+    declare public readonly security: pulumi.Output<string>;
     /**
-     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      */
-    public readonly translateExtended!: pulumi.Output<string | undefined>;
+    declare public readonly translateExtended: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProfileFtp resource with the given unique name, arguments, and options.
@@ -168,43 +164,43 @@ export class ProfileFtp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileFtpState | undefined;
-            resourceInputs["allowActiveMode"] = state ? state.allowActiveMode : undefined;
-            resourceInputs["allowFtps"] = state ? state.allowFtps : undefined;
-            resourceInputs["appService"] = state ? state.appService : undefined;
-            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enforceTlssessionReuse"] = state ? state.enforceTlssessionReuse : undefined;
-            resourceInputs["ftpsMode"] = state ? state.ftpsMode : undefined;
-            resourceInputs["inheritParentProfile"] = state ? state.inheritParentProfile : undefined;
-            resourceInputs["inheritVlanList"] = state ? state.inheritVlanList : undefined;
-            resourceInputs["logProfile"] = state ? state.logProfile : undefined;
-            resourceInputs["logPublisher"] = state ? state.logPublisher : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partition"] = state ? state.partition : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["security"] = state ? state.security : undefined;
-            resourceInputs["translateExtended"] = state ? state.translateExtended : undefined;
+            resourceInputs["allowActiveMode"] = state?.allowActiveMode;
+            resourceInputs["allowFtps"] = state?.allowFtps;
+            resourceInputs["appService"] = state?.appService;
+            resourceInputs["defaultsFrom"] = state?.defaultsFrom;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enforceTlssessionReuse"] = state?.enforceTlssessionReuse;
+            resourceInputs["ftpsMode"] = state?.ftpsMode;
+            resourceInputs["inheritParentProfile"] = state?.inheritParentProfile;
+            resourceInputs["inheritVlanList"] = state?.inheritVlanList;
+            resourceInputs["logProfile"] = state?.logProfile;
+            resourceInputs["logPublisher"] = state?.logPublisher;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partition"] = state?.partition;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["security"] = state?.security;
+            resourceInputs["translateExtended"] = state?.translateExtended;
         } else {
             const args = argsOrState as ProfileFtpArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["allowActiveMode"] = args ? args.allowActiveMode : undefined;
-            resourceInputs["allowFtps"] = args ? args.allowFtps : undefined;
-            resourceInputs["appService"] = args ? args.appService : undefined;
-            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enforceTlssessionReuse"] = args ? args.enforceTlssessionReuse : undefined;
-            resourceInputs["ftpsMode"] = args ? args.ftpsMode : undefined;
-            resourceInputs["inheritParentProfile"] = args ? args.inheritParentProfile : undefined;
-            resourceInputs["inheritVlanList"] = args ? args.inheritVlanList : undefined;
-            resourceInputs["logProfile"] = args ? args.logProfile : undefined;
-            resourceInputs["logPublisher"] = args ? args.logPublisher : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["security"] = args ? args.security : undefined;
-            resourceInputs["translateExtended"] = args ? args.translateExtended : undefined;
+            resourceInputs["allowActiveMode"] = args?.allowActiveMode;
+            resourceInputs["allowFtps"] = args?.allowFtps;
+            resourceInputs["appService"] = args?.appService;
+            resourceInputs["defaultsFrom"] = args?.defaultsFrom;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enforceTlssessionReuse"] = args?.enforceTlssessionReuse;
+            resourceInputs["ftpsMode"] = args?.ftpsMode;
+            resourceInputs["inheritParentProfile"] = args?.inheritParentProfile;
+            resourceInputs["inheritVlanList"] = args?.inheritVlanList;
+            resourceInputs["logProfile"] = args?.logProfile;
+            resourceInputs["logPublisher"] = args?.logPublisher;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partition"] = args?.partition;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["security"] = args?.security;
+            resourceInputs["translateExtended"] = args?.translateExtended;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileFtp.__pulumiType, name, resourceInputs, opts);
@@ -236,8 +232,7 @@ export interface ProfileFtpState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      */
     enforceTlssessionReuse?: pulumi.Input<string>;
     /**
@@ -245,8 +240,7 @@ export interface ProfileFtpState {
      */
     ftpsMode?: pulumi.Input<string>;
     /**
-     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      */
     inheritParentProfile?: pulumi.Input<string>;
     /**
@@ -274,13 +268,11 @@ export interface ProfileFtpState {
      */
     port?: pulumi.Input<number>;
     /**
-     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      */
     security?: pulumi.Input<string>;
     /**
-     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      */
     translateExtended?: pulumi.Input<string>;
 }
@@ -310,8 +302,7 @@ export interface ProfileFtpArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default
-     * value is unchecked (disabled).
+     * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      */
     enforceTlssessionReuse?: pulumi.Input<string>;
     /**
@@ -319,8 +310,7 @@ export interface ProfileFtpArgs {
      */
     ftpsMode?: pulumi.Input<string>;
     /**
-     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
-     * FastL4 only.
+     * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      */
     inheritParentProfile?: pulumi.Input<string>;
     /**
@@ -348,13 +338,11 @@ export interface ProfileFtpArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
-     * system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+     * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      */
     security?: pulumi.Input<string>;
     /**
-     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV
-     * and PORT when communicating with IPv4 servers.
+     * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      */
     translateExtended?: pulumi.Input<string>;
 }

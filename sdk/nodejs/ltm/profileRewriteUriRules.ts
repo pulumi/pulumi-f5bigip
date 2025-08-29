@@ -83,23 +83,23 @@ export class ProfileRewriteUriRules extends pulumi.CustomResource {
     /**
      * Block type. Each request is block type with following arguments.
      */
-    public readonly clients!: pulumi.Output<outputs.ltm.ProfileRewriteUriRulesClient[]>;
+    declare public readonly clients: pulumi.Output<outputs.ltm.ProfileRewriteUriRulesClient[]>;
     /**
      * Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * Specifies the name of the uri rule.
      */
-    public readonly ruleName!: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string>;
     /**
      * Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
      */
-    public readonly ruleType!: pulumi.Output<string | undefined>;
+    declare public readonly ruleType: pulumi.Output<string | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */
-    public readonly servers!: pulumi.Output<outputs.ltm.ProfileRewriteUriRulesServer[]>;
+    declare public readonly servers: pulumi.Output<outputs.ltm.ProfileRewriteUriRulesServer[]>;
 
     /**
      * Create a ProfileRewriteUriRules resource with the given unique name, arguments, and options.
@@ -114,30 +114,30 @@ export class ProfileRewriteUriRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileRewriteUriRulesState | undefined;
-            resourceInputs["clients"] = state ? state.clients : undefined;
-            resourceInputs["profileName"] = state ? state.profileName : undefined;
-            resourceInputs["ruleName"] = state ? state.ruleName : undefined;
-            resourceInputs["ruleType"] = state ? state.ruleType : undefined;
-            resourceInputs["servers"] = state ? state.servers : undefined;
+            resourceInputs["clients"] = state?.clients;
+            resourceInputs["profileName"] = state?.profileName;
+            resourceInputs["ruleName"] = state?.ruleName;
+            resourceInputs["ruleType"] = state?.ruleType;
+            resourceInputs["servers"] = state?.servers;
         } else {
             const args = argsOrState as ProfileRewriteUriRulesArgs | undefined;
-            if ((!args || args.clients === undefined) && !opts.urn) {
+            if (args?.clients === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clients'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.ruleName === undefined) && !opts.urn) {
+            if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if ((!args || args.servers === undefined) && !opts.urn) {
+            if (args?.servers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servers'");
             }
-            resourceInputs["clients"] = args ? args.clients : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
-            resourceInputs["servers"] = args ? args.servers : undefined;
+            resourceInputs["clients"] = args?.clients;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleType"] = args?.ruleType;
+            resourceInputs["servers"] = args?.servers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileRewriteUriRules.__pulumiType, name, resourceInputs, opts);

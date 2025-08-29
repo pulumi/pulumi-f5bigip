@@ -146,9 +146,7 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<Outputs.WafPolicyIpException>> IpExceptions { get; private set; } = null!;
 
         /// <summary>
-        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        /// provided by the BIG-IP.
+        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         /// </summary>
         [Output("modifications")]
         public Output<ImmutableArray<string>> Modifications { get; private set; } = null!;
@@ -387,9 +385,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _modifications;
 
         /// <summary>
-        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        /// provided by the BIG-IP.
+        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         /// </summary>
         public InputList<string> Modifications
         {
@@ -635,9 +631,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _modifications;
 
         /// <summary>
-        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
-        /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
-        /// provided by the BIG-IP.
+        /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         /// </summary>
         public InputList<string> Modifications
         {

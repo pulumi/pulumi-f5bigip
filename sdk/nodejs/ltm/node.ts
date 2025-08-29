@@ -75,46 +75,46 @@ export class Node extends pulumi.CustomResource {
     /**
      * IP or hostname of the node
      */
-    public readonly address!: pulumi.Output<string>;
+    declare public readonly address: pulumi.Output<string>;
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    public readonly connectionLimit!: pulumi.Output<number>;
+    declare public readonly connectionLimit: pulumi.Output<number>;
     /**
      * User-defined description give ltm_node
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    public readonly dynamicRatio!: pulumi.Output<number>;
-    public readonly fqdn!: pulumi.Output<outputs.ltm.NodeFqdn | undefined>;
+    declare public readonly dynamicRatio: pulumi.Output<number>;
+    declare public readonly fqdn: pulumi.Output<outputs.ltm.NodeFqdn | undefined>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    public readonly monitor!: pulumi.Output<string | undefined>;
+    declare public readonly monitor: pulumi.Output<string | undefined>;
     /**
      * Name of the node
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
-    public readonly rateLimit!: pulumi.Output<string>;
+    declare public readonly rateLimit: pulumi.Output<string>;
     /**
      * Sets the ratio number for the node.
      */
-    public readonly ratio!: pulumi.Output<number>;
+    declare public readonly ratio: pulumi.Output<number>;
     /**
      * Enables or disables the node for new sessions. The default value is user-enabled.
      */
-    public readonly session!: pulumi.Output<string>;
+    declare public readonly session: pulumi.Output<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      *
      * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
 
     /**
      * Create a Node resource with the given unique name, arguments, and options.
@@ -129,36 +129,36 @@ export class Node extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NodeState | undefined;
-            resourceInputs["address"] = state ? state.address : undefined;
-            resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rateLimit"] = state ? state.rateLimit : undefined;
-            resourceInputs["ratio"] = state ? state.ratio : undefined;
-            resourceInputs["session"] = state ? state.session : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["address"] = state?.address;
+            resourceInputs["connectionLimit"] = state?.connectionLimit;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dynamicRatio"] = state?.dynamicRatio;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rateLimit"] = state?.rateLimit;
+            resourceInputs["ratio"] = state?.ratio;
+            resourceInputs["session"] = state?.session;
+            resourceInputs["state"] = state?.state;
         } else {
             const args = argsOrState as NodeArgs | undefined;
-            if ((!args || args.address === undefined) && !opts.urn) {
+            if (args?.address === undefined && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["address"] = args ? args.address : undefined;
-            resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
-            resourceInputs["ratio"] = args ? args.ratio : undefined;
-            resourceInputs["session"] = args ? args.session : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["address"] = args?.address;
+            resourceInputs["connectionLimit"] = args?.connectionLimit;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamicRatio"] = args?.dynamicRatio;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rateLimit"] = args?.rateLimit;
+            resourceInputs["ratio"] = args?.ratio;
+            resourceInputs["session"] = args?.session;
+            resourceInputs["state"] = args?.state;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Node.__pulumiType, name, resourceInputs, opts);
