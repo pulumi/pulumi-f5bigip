@@ -1,6 +1,9 @@
 provider: f5bigip
 major-version: 3
 aws: true
+esc:
+  enabled: true
+  environment: imports/github-secrets # No repo-specific secrets.
 env:
   AWS_REGION: us-west-2
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
