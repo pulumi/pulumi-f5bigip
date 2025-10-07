@@ -73,7 +73,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing policy can be imported into this resource by supplying policy Name in `full path` as `id`.
+    /// An existing policy can be imported into this resource by supplying policy Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2

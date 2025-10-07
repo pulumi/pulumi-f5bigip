@@ -46,7 +46,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<bool>? Compress { get; set; }
 
         /// <summary>
-        /// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        /// This action is set to `True` by default, it needs to be explicitly set to `False` for actions it conflicts with.
         /// </summary>
         [Input("connection")]
         public Input<bool>? Connection { get; set; }

@@ -95,14 +95,14 @@ public class CipherGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+     * Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+     * @return Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
      * 
      */
     public Output<String> name() {

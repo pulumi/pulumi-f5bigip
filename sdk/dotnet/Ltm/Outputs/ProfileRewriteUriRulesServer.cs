@@ -22,11 +22,11 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Port part of the uri. Default value is: `none`
+        /// Port part of the uri. Default value is: `None`
         /// </summary>
         public readonly string? Port;
         /// <summary>
-        /// Scheme part of the uri, e.g. `https`, `ftp`.
+        /// Scheme part of the uri, e.g. `Https`, `Ftp`.
         /// </summary>
         public readonly string Scheme;
 

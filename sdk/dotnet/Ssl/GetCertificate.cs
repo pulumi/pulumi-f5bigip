@@ -153,7 +153,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of ssl_certificate configured on bigip with full path
+        /// Name of SslCertificate configured on bigip with full path
         /// </summary>
         public readonly string Name;
         /// <summary>

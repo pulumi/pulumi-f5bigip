@@ -17,7 +17,42 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.NetIkePeer` Manages a ike_peer configuration
+ * `f5bigip.NetIkePeer` Manages a ikePeer configuration
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.NetIkePeer;
+ * import com.pulumi.f5bigip.NetIkePeerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example1 = new NetIkePeer("example1", NetIkePeerArgs.builder()
+ *             .name("example1")
+ *             .localAddress("192.16.81.240")
+ *             .profile("/Common/dslite")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  */
 @ResourceType(type="f5bigip:index/netIkePeer:NetIkePeer")

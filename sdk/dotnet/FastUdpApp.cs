@@ -11,6 +11,45 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fast_udp_app = new F5BigIP.FastUdpApp("fast-udp-app", new()
+    ///     {
+    ///         Application = "udp_app_2",
+    ///         Tenant = "udp_app_tenant",
+    ///         VirtualServer = 
+    ///         {
+    ///             { "ip", "11.12.16.30" },
+    ///             { "port", 443 },
+    ///         }[0],
+    ///         PoolMembers = new[]
+    ///         {
+    ///             new F5BigIP.Inputs.FastUdpAppPoolMemberArgs
+    ///             {
+    ///                 Addresses = new[]
+    ///                 {
+    ///                     "10.11.34.65",
+    ///                     "56.43.23.76",
+    ///                 },
+    ///                 Port = 443,
+    ///                 PriorityGroup = 1,
+    ///                 ConnectionLimit = 4,
+    ///                 ShareNodes = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastUdpApp:FastUdpApp")]
     public partial class FastUdpApp : global::Pulumi.CustomResource
@@ -76,7 +115,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// `Monitor` block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Output("monitor")]
@@ -95,7 +134,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> PersistenceType { get; private set; } = null!;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// `PoolMembers` block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         [Output("poolMembers")]
@@ -126,7 +165,7 @@ namespace Pulumi.F5BigIP
         public Output<string> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// `VirtualServer` block will provide `Ip` and `Port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Output("virtualServer")]
@@ -251,7 +290,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// `Monitor` block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -273,7 +312,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastUdpAppPoolMemberArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// `PoolMembers` block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastUdpAppPoolMemberArgs> PoolMembers
@@ -319,7 +358,7 @@ namespace Pulumi.F5BigIP
         public Input<string> Tenant { get; set; } = null!;
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// `VirtualServer` block will provide `Ip` and `Port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]
@@ -424,7 +463,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// `Monitor` block takes input for FAST-Generated Pool Monitor.
         /// See Pool Monitor below for more details.
         /// </summary>
         [Input("monitor")]
@@ -446,7 +485,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.FastUdpAppPoolMemberGetArgs>? _poolMembers;
 
         /// <summary>
-        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// `PoolMembers` block takes input for FAST-Generated Pool.
         /// See Pool Members below for more details.
         /// </summary>
         public InputList<Inputs.FastUdpAppPoolMemberGetArgs> PoolMembers
@@ -492,7 +531,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        /// `VirtualServer` block will provide `Ip` and `Port` options to be used for virtual server.
         /// See virtual server below for more details.
         /// </summary>
         [Input("virtualServer")]

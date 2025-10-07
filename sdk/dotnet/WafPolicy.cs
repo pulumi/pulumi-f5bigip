@@ -119,14 +119,14 @@ namespace Pulumi.F5BigIP
         public Output<string?> EnforcementMode { get; private set; } = null!;
 
         /// <summary>
-        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// `FileTypes` takes list of file-types options to be used for policy builder.
         /// See file types below for more details.
         /// </summary>
         [Output("fileTypes")]
         public Output<ImmutableArray<Outputs.WafPolicyFileType>> FileTypes { get; private set; } = null!;
 
         /// <summary>
-        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// `GraphqlProfiles` takes list of graphql profile options to be used for policy builder.
         /// See graphql profiles below for more details.
         /// </summary>
         [Output("graphqlProfiles")]
@@ -139,7 +139,7 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<Outputs.WafPolicyHostName>> HostNames { get; private set; } = null!;
 
         /// <summary>
-        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// `IpExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         /// See IP Exceptions below for more details.
         /// </summary>
         [Output("ipExceptions")]
@@ -176,7 +176,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> Partition { get; private set; } = null!;
 
         /// <summary>
-        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// `PolicyBuilder` block will provide `LearningMode` options to be used for policy builder.
         /// See policy builder below for more details.
         /// </summary>
         [Output("policyBuilders")]
@@ -243,7 +243,7 @@ namespace Pulumi.F5BigIP
         public Output<string> TemplateName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is `security`.
+        /// The type of policy you want to create. The default policy type is `Security`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyFileTypeArgs>? _fileTypes;
 
         /// <summary>
-        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// `FileTypes` takes list of file-types options to be used for policy builder.
         /// See file types below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyFileTypeArgs> FileTypes
@@ -347,7 +347,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyGraphqlProfileArgs>? _graphqlProfiles;
 
         /// <summary>
-        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// `GraphqlProfiles` takes list of graphql profile options to be used for policy builder.
         /// See graphql profiles below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyGraphqlProfileArgs> GraphqlProfiles
@@ -372,7 +372,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyIpExceptionArgs>? _ipExceptions;
 
         /// <summary>
-        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// `IpExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         /// See IP Exceptions below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyIpExceptionArgs> IpExceptions
@@ -433,7 +433,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyPolicyBuilderArgs>? _policyBuilders;
 
         /// <summary>
-        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// `PolicyBuilder` block will provide `LearningMode` options to be used for policy builder.
         /// See policy builder below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyPolicyBuilderArgs> PolicyBuilders
@@ -521,7 +521,7 @@ namespace Pulumi.F5BigIP
         public Input<string> TemplateName { get; set; } = null!;
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is `security`.
+        /// The type of policy you want to create. The default policy type is `Security`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -580,7 +580,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyFileTypeGetArgs>? _fileTypes;
 
         /// <summary>
-        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// `FileTypes` takes list of file-types options to be used for policy builder.
         /// See file types below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyFileTypeGetArgs> FileTypes
@@ -593,7 +593,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyGraphqlProfileGetArgs>? _graphqlProfiles;
 
         /// <summary>
-        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// `GraphqlProfiles` takes list of graphql profile options to be used for policy builder.
         /// See graphql profiles below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyGraphqlProfileGetArgs> GraphqlProfiles
@@ -618,7 +618,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyIpExceptionGetArgs>? _ipExceptions;
 
         /// <summary>
-        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// `IpExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         /// See IP Exceptions below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyIpExceptionGetArgs> IpExceptions
@@ -679,7 +679,7 @@ namespace Pulumi.F5BigIP
         private InputList<Inputs.WafPolicyPolicyBuilderGetArgs>? _policyBuilders;
 
         /// <summary>
-        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// `PolicyBuilder` block will provide `LearningMode` options to be used for policy builder.
         /// See policy builder below for more details.
         /// </summary>
         public InputList<Inputs.WafPolicyPolicyBuilderGetArgs> PolicyBuilders
@@ -773,7 +773,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? TemplateName { get; set; }
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is `security`.
+        /// The type of policy you want to create. The default policy type is `Security`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -25,13 +25,13 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Port part of the uri. Default value is: `none`
+        /// Port part of the uri. Default value is: `None`
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// Scheme part of the uri, e.g. `https`, `ftp`.
+        /// Scheme part of the uri, e.g. `Https`, `Ftp`.
         /// </summary>
         [Input("scheme", required: true)]
         public Input<string> Scheme { get; set; } = null!;

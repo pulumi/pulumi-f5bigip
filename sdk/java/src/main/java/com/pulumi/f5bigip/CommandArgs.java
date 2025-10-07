@@ -33,14 +33,14 @@ public final class CommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+     * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      * 
      */
     @Import(name="commands", required=true)
     private Output<List<String>> commands;
 
     /**
-     * @return The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+     * @return The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      * 
      */
     public Output<List<String>> commands() {
@@ -112,7 +112,7 @@ public final class CommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class CommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class CommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+         * @param commands The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
          * 
          * @return builder
          * 

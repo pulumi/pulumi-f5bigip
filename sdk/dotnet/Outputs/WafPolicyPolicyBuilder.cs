@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicyPolicyBuilder
     {
         /// <summary>
-        /// learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
+        /// learning mode setting for policy-builder, possible options: [`Automatic`,`Disabled`, `Manual`]
         /// </summary>
         public readonly string? LearningMode;
 

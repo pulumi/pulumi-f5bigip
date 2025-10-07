@@ -105,11 +105,11 @@ import javax.annotation.Nullable;
  * 
  * * `port` - (Optional)Allows you to configure the FTP service to run on an alternate port. The default is 20.
  * 
- * * `log_profile` - (Optional)Configures the ALG log profile that controls logging
+ * * `logProfile` - (Optional)Configures the ALG log profile that controls logging
  * 
- * * `log_publisher` - (Optional)Configures the log publisher that handles events logging for this profile
+ * * `logPublisher` - (Optional)Configures the log publisher that handles events logging for this profile
  * 
- * *  `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
+ * *  `inheritParentProfile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
  * 
  * * `description` - (Optional)User defined description for FTP profile
  * 
