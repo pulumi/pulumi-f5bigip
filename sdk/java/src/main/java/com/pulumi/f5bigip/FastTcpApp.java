@@ -22,6 +22,54 @@ import javax.annotation.Nullable;
 /**
  * `f5bigip.FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.FastTcpApp;
+ * import com.pulumi.f5bigip.FastTcpAppArgs;
+ * import com.pulumi.f5bigip.inputs.FastTcpAppPoolMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fast_tcp_app = new FastTcpApp("fast-tcp-app", FastTcpAppArgs.builder()
+ *             .application("tcp_app_2")
+ *             .tenant("tcp_app_tenant")
+ *             .virtualServer(FastTcpAppVirtualServerArgs.builder()
+ *                 .ip("11.12.16.30")
+ *                 .port(443)
+ *                 .build()[0])
+ *             .poolMembers(FastTcpAppPoolMemberArgs.builder()
+ *                 .addresses(                
+ *                     "10.11.34.65",
+ *                     "56.43.23.76")
+ *                 .port(443)
+ *                 .priorityGroup(1)
+ *                 .connectionLimit(4)
+ *                 .shareNodes(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  */
 @ResourceType(type="f5bigip:index/fastTcpApp:FastTcpApp")
 public class FastTcpApp extends com.pulumi.resources.CustomResource {
@@ -168,7 +216,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.persistenceType);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -176,7 +224,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<FastTcpAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -226,7 +274,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -234,7 +282,7 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastTcpAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */

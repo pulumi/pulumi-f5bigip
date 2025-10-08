@@ -19,7 +19,7 @@ namespace Pulumi.F5BigIP.Inputs
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+        /// set `True` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `False`.
         /// </summary>
         [Input("monitorAuth")]
         public Input<bool>? MonitorAuth { get; set; }

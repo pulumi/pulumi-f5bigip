@@ -14,11 +14,11 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     public sealed class DataGroupRecord
     {
         /// <summary>
-        /// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
+        /// , sets the value of the record's `Data` attribute, specifying a value here will create a record in the form of `name := data`
         /// </summary>
         public readonly string? Data;
         /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+        /// , sets the value of the record's `Name` attribute, must be of type defined in `Type` attribute
         /// </summary>
         public readonly string Name;
 

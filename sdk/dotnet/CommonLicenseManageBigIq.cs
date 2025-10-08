@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
         public Output<string> AssignmentType { get; private set; } = null!;
 
         /// <summary>
-        /// BIGIQ License Manager IP Address, variable type `string`
+        /// BIGIQ License Manager IP Address, variable type `String`
         /// </summary>
         [Output("bigiqAddress")]
         public Output<string> BigiqAddress { get; private set; } = null!;
@@ -34,25 +34,25 @@ namespace Pulumi.F5BigIP
         public Output<string?> BigiqLoginRef { get; private set; } = null!;
 
         /// <summary>
-        /// BIGIQ License Manager password.  variable type `string`
+        /// BIGIQ License Manager password.  variable type `String`
         /// </summary>
         [Output("bigiqPassword")]
         public Output<string> BigiqPassword { get; private set; } = null!;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         [Output("bigiqPort")]
         public Output<string?> BigiqPort { get; private set; } = null!;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         [Output("bigiqTokenAuth")]
         public Output<bool?> BigiqTokenAuth { get; private set; } = null!;
 
         /// <summary>
-        /// BIGIQ License Manager username, variable type `string`
+        /// BIGIQ License Manager username, variable type `String`
         /// </summary>
         [Output("bigiqUser")]
         public Output<string> BigiqUser { get; private set; } = null!;
@@ -64,37 +64,37 @@ namespace Pulumi.F5BigIP
         public Output<string> DeviceLicenseStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
+        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `String`
         /// </summary>
         [Output("hypervisor")]
         public Output<string?> Hypervisor { get; private set; } = null!;
 
         /// <summary>
-        /// License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
+        /// License Assignment is done with specified `Key`, supported only with RegKeypool type License assignement. type `String`
         /// </summary>
         [Output("key")]
         public Output<string?> Key { get; private set; } = null!;
 
         /// <summary>
-        /// A name given to the license pool. type `string`
+        /// A name given to the license pool. type `String`
         /// </summary>
         [Output("licensePoolname")]
         public Output<string> LicensePoolname { get; private set; } = null!;
 
         /// <summary>
-        /// MAC address of the BIG-IP. type `string`
+        /// MAC address of the BIG-IP. type `String`
         /// </summary>
         [Output("macAddress")]
         public Output<string?> MacAddress { get; private set; } = null!;
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Output("skukeyword1")]
         public Output<string?> Skukeyword1 { get; private set; } = null!;
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Output("skukeyword2")]
         public Output<string?> Skukeyword2 { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// The units used to measure billing. For example, “hourly” or “daily”. Type `string`
+        /// The units used to measure billing. For example, “hourly” or “daily”. Type `String`
         /// </summary>
         [Output("unitOfMeasure")]
         public Output<string?> UnitOfMeasure { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.F5BigIP
         public Input<string> AssignmentType { get; set; } = null!;
 
         /// <summary>
-        /// BIGIQ License Manager IP Address, variable type `string`
+        /// BIGIQ License Manager IP Address, variable type `String`
         /// </summary>
         [Input("bigiqAddress", required: true)]
         public Input<string> BigiqAddress { get; set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPassword;
 
         /// <summary>
-        /// BIGIQ License Manager password.  variable type `string`
+        /// BIGIQ License Manager password.  variable type `String`
         /// </summary>
         public Input<string>? BigiqPassword
         {
@@ -213,7 +213,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPort;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         public Input<string>? BigiqPort
         {
@@ -229,7 +229,7 @@ namespace Pulumi.F5BigIP
         private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         public Input<bool>? BigiqTokenAuth
         {
@@ -245,7 +245,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqUser;
 
         /// <summary>
-        /// BIGIQ License Manager username, variable type `string`
+        /// BIGIQ License Manager username, variable type `String`
         /// </summary>
         public Input<string>? BigiqUser
         {
@@ -264,37 +264,37 @@ namespace Pulumi.F5BigIP
         public Input<string>? DeviceLicenseStatus { get; set; }
 
         /// <summary>
-        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
+        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `String`
         /// </summary>
         [Input("hypervisor")]
         public Input<string>? Hypervisor { get; set; }
 
         /// <summary>
-        /// License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
+        /// License Assignment is done with specified `Key`, supported only with RegKeypool type License assignement. type `String`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// A name given to the license pool. type `string`
+        /// A name given to the license pool. type `String`
         /// </summary>
         [Input("licensePoolname", required: true)]
         public Input<string> LicensePoolname { get; set; } = null!;
 
         /// <summary>
-        /// MAC address of the BIG-IP. type `string`
+        /// MAC address of the BIG-IP. type `String`
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Input("skukeyword1")]
         public Input<string>? Skukeyword1 { get; set; }
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Input("skukeyword2")]
         public Input<string>? Skukeyword2 { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// The units used to measure billing. For example, “hourly” or “daily”. Type `string`
+        /// The units used to measure billing. For example, “hourly” or “daily”. Type `String`
         /// </summary>
         [Input("unitOfMeasure")]
         public Input<string>? UnitOfMeasure { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? AssignmentType { get; set; }
 
         /// <summary>
-        /// BIGIQ License Manager IP Address, variable type `string`
+        /// BIGIQ License Manager IP Address, variable type `String`
         /// </summary>
         [Input("bigiqAddress")]
         public Input<string>? BigiqAddress { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPassword;
 
         /// <summary>
-        /// BIGIQ License Manager password.  variable type `string`
+        /// BIGIQ License Manager password.  variable type `String`
         /// </summary>
         public Input<string>? BigiqPassword
         {
@@ -367,7 +367,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPort;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         public Input<string>? BigiqPort
         {
@@ -383,7 +383,7 @@ namespace Pulumi.F5BigIP
         private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         public Input<bool>? BigiqTokenAuth
         {
@@ -399,7 +399,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqUser;
 
         /// <summary>
-        /// BIGIQ License Manager username, variable type `string`
+        /// BIGIQ License Manager username, variable type `String`
         /// </summary>
         public Input<string>? BigiqUser
         {
@@ -418,37 +418,37 @@ namespace Pulumi.F5BigIP
         public Input<string>? DeviceLicenseStatus { get; set; }
 
         /// <summary>
-        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
+        /// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `String`
         /// </summary>
         [Input("hypervisor")]
         public Input<string>? Hypervisor { get; set; }
 
         /// <summary>
-        /// License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
+        /// License Assignment is done with specified `Key`, supported only with RegKeypool type License assignement. type `String`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// A name given to the license pool. type `string`
+        /// A name given to the license pool. type `String`
         /// </summary>
         [Input("licensePoolname")]
         public Input<string>? LicensePoolname { get; set; }
 
         /// <summary>
-        /// MAC address of the BIG-IP. type `string`
+        /// MAC address of the BIG-IP. type `String`
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Input("skukeyword1")]
         public Input<string>? Skukeyword1 { get; set; }
 
         /// <summary>
-        /// An optional offering name. type `string`
+        /// An optional offering name. type `String`
         /// </summary>
         [Input("skukeyword2")]
         public Input<string>? Skukeyword2 { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// The units used to measure billing. For example, “hourly” or “daily”. Type `string`
+        /// The units used to measure billing. For example, “hourly” or “daily”. Type `String`
         /// </summary>
         [Input("unitOfMeasure")]
         public Input<string>? UnitOfMeasure { get; set; }

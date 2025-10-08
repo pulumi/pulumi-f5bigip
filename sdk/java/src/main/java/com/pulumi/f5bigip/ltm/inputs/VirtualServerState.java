@@ -408,14 +408,14 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      * 
      */
     @Import(name="vlans")
     private @Nullable Output<List<String>> vlans;
 
     /**
-     * @return The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+     * @return The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      * 
      */
     public Optional<Output<List<String>>> vlans() {
@@ -1105,7 +1105,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
          * 
          * @return builder
          * 
@@ -1126,7 +1126,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+         * @param vlans The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
          * 
          * @return builder
          * 

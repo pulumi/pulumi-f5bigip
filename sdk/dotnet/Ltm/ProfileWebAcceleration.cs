@@ -45,13 +45,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> CacheAgingRate { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
+        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `All`.
         /// </summary>
         [Output("cacheClientCacheControlMode")]
         public Output<string> CacheClientCacheControlMode { get; private set; } = null!;
 
         /// <summary>
-        /// Inserts Age and Date headers in the response. The default value is `enabled`.
+        /// Inserts Age and Date headers in the response. The default value is `Enabled`.
         /// </summary>
         [Output("cacheInsertAgeHeader")]
         public Output<string> CacheInsertAgeHeader { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> CacheSize { get; private set; } = null!;
 
         /// <summary>
-        /// Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
+        /// Configures a list of URIs to exclude from the cache. The default value of `None` specifies no URIs are excluded.
         /// </summary>
         [Output("cacheUriExcludes")]
         public Output<ImmutableArray<string>> CacheUriExcludes { get; private set; } = null!;
@@ -175,13 +175,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheAgingRate { get; set; }
 
         /// <summary>
-        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
+        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `All`.
         /// </summary>
         [Input("cacheClientCacheControlMode")]
         public Input<string>? CacheClientCacheControlMode { get; set; }
 
         /// <summary>
-        /// Inserts Age and Date headers in the response. The default value is `enabled`.
+        /// Inserts Age and Date headers in the response. The default value is `Enabled`.
         /// </summary>
         [Input("cacheInsertAgeHeader")]
         public Input<string>? CacheInsertAgeHeader { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _cacheUriExcludes;
 
         /// <summary>
-        /// Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
+        /// Configures a list of URIs to exclude from the cache. The default value of `None` specifies no URIs are excluded.
         /// </summary>
         public InputList<string> CacheUriExcludes
         {
@@ -291,13 +291,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheAgingRate { get; set; }
 
         /// <summary>
-        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
+        /// Specifies which cache disabling headers sent by clients the system ignores. The default value is `All`.
         /// </summary>
         [Input("cacheClientCacheControlMode")]
         public Input<string>? CacheClientCacheControlMode { get; set; }
 
         /// <summary>
-        /// Inserts Age and Date headers in the response. The default value is `enabled`.
+        /// Inserts Age and Date headers in the response. The default value is `Enabled`.
         /// </summary>
         [Input("cacheInsertAgeHeader")]
         public Input<string>? CacheInsertAgeHeader { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _cacheUriExcludes;
 
         /// <summary>
-        /// Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
+        /// Configures a list of URIs to exclude from the cache. The default value of `None` specifies no URIs are excluded.
         /// </summary>
         public InputList<string> CacheUriExcludes
         {

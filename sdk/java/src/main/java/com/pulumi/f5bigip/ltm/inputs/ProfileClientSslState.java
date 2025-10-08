@@ -216,20 +216,20 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      * 
-     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+     * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
     @Import(name="certKeyChain")
     private @Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain;
 
     /**
-     * @return `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * @return `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      * 
-     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+     * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
     public Optional<Output<ProfileClientSslCertKeyChainArgs>> certKeyChain() {
@@ -785,14 +785,14 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     @Import(name="sniRequire")
     private @Nullable Output<String> sniRequire;
 
     /**
-     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     public Optional<Output<String>> sniRequire() {
@@ -876,7 +876,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     @Import(name="tmOptions")
@@ -884,7 +884,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     public Optional<Output<List<String>>> tmOptions() {
@@ -1273,10 +1273,10 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certKeyChain `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+         * @param certKeyChain `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
          * See Cert Key Chain below for more details.
          * 
-         * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+         * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
          * 
          * @return builder
          * 
@@ -1287,10 +1287,10 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param certKeyChain `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+         * @param certKeyChain `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
          * See Cert Key Chain below for more details.
          * 
-         * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+         * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
          * 
          * @return builder
          * 
@@ -2064,7 +2064,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sniRequire Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+         * @param sniRequire Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
          * 
          * @return builder
          * 
@@ -2075,7 +2075,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sniRequire Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+         * @param sniRequire Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
          * 
          * @return builder
          * 
@@ -2191,7 +2191,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param tmOptions List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
          * 
          * @return builder
          * 
@@ -2203,7 +2203,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param tmOptions List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
          * 
          * @return builder
          * 
@@ -2214,7 +2214,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param tmOptions List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+         * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
          * 
          * @return builder
          * 

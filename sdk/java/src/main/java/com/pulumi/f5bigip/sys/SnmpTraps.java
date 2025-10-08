@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+ * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
  * ## Example Usage
  * 
  * <pre>

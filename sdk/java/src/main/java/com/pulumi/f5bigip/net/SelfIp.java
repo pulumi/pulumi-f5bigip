@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * ### Example usage with `port_lockdown`
+ * ### Example usage with `portLockdown`
  * 
  * <pre>
  * {@code
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Example usage with `port_lockdown` set to `[&#34;none&#34;]`
+ * ### Example usage with `portLockdown` set to `[&#34;none&#34;]`
  * 
  * <pre>
  * {@code

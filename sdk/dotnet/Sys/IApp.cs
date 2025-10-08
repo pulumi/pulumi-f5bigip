@@ -53,7 +53,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string> Devicegroup { get; private set; } = null!;
 
         /// <summary>
-        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        /// Run the specified template action associated with the application, this option can be specified in `Json` with `executeAction`, value specified with `ExecuteAction` attribute take precedence over `Json` value
         /// </summary>
         [Output("executeAction")]
         public Output<string> ExecuteAction { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Devicegroup { get; set; }
 
         /// <summary>
-        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        /// Run the specified template action associated with the application, this option can be specified in `Json` with `executeAction`, value specified with `ExecuteAction` attribute take precedence over `Json` value
         /// </summary>
         [Input("executeAction")]
         public Input<string>? ExecuteAction { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Devicegroup { get; set; }
 
         /// <summary>
-        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        /// Run the specified template action associated with the application, this option can be specified in `Json` with `executeAction`, value specified with `ExecuteAction` attribute take precedence over `Json` value
         /// </summary>
         [Input("executeAction")]
         public Input<string>? ExecuteAction { get; set; }
