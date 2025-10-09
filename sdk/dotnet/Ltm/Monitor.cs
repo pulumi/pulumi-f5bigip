@@ -74,7 +74,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `id`.
+    /// An existing monitor can be imported into this resource by supplying monitor Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
@@ -84,7 +84,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `Disabled`.
         /// </summary>
         [Output("adaptive")]
         public Output<string> Adaptive { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `Interval` should be always less than `Timeout`. Default is `5`.
         /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `Disabled`.
         /// </summary>
         [Input("adaptive")]
         public Input<string>? Adaptive { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filter { get; set; }
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `Interval` should be always less than `Timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `Disabled`.
         /// </summary>
         [Input("adaptive")]
         public Input<string>? Adaptive { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filter { get; set; }
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `Interval` should be always less than `Timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }

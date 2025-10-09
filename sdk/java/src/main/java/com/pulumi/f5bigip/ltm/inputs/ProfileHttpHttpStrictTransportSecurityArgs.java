@@ -17,14 +17,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     public static final ProfileHttpHttpStrictTransportSecurityArgs Empty = new ProfileHttpHttpStrictTransportSecurityArgs();
 
     /**
-     * The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+     * The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     @Import(name="includeSubdomains")
     private @Nullable Output<String> includeSubdomains;
 
     /**
-     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     public Optional<Output<String>> includeSubdomains() {
@@ -32,14 +32,14 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
     }
 
     /**
-     * The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+     * The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     @Import(name="maximumAge")
     private @Nullable Output<Integer> maximumAge;
 
     /**
-     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     public Optional<Output<Integer>> maximumAge() {
@@ -104,7 +104,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+         * @param includeSubdomains The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ProfileHttpHttpStrictTransportSecurityArgs extends com.pulumi
         }
 
         /**
-         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+         * @param maximumAge The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
          * 
          * @return builder
          * 

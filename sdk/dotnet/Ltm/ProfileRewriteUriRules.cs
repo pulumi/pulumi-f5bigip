@@ -104,7 +104,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> RuleName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
+        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `Both`
         /// </summary>
         [Output("ruleType")]
         public Output<string?> RuleType { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
+        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `Both`
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? RuleName { get; set; }
 
         /// <summary>
-        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
+        /// Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `Both`
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }

@@ -63,7 +63,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> DhGroups { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+        /// Name of the Cipher Rule. Name should be in pattern `Partition` + `CipherRuleName`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DhGroups { get; set; }
 
         /// <summary>
-        /// Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+        /// Name of the Cipher Rule. Name should be in pattern `Partition` + `CipherRuleName`
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DhGroups { get; set; }
 
         /// <summary>
-        /// Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+        /// Name of the Cipher Rule. Name should be in pattern `Partition` + `CipherRuleName`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

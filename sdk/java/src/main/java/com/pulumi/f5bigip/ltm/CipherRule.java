@@ -107,14 +107,14 @@ public class CipherRule extends com.pulumi.resources.CustomResource {
         return this.dhGroups;
     }
     /**
-     * Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+     * Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+     * @return Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      * 
      */
     public Output<String> name() {

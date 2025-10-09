@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Inputs
     public sealed class WafPolicyPolicyBuilderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
+        /// learning mode setting for policy-builder, possible options: [`Automatic`,`Disabled`, `Manual`]
         /// </summary>
         [Input("learningMode")]
         public Input<string>? LearningMode { get; set; }

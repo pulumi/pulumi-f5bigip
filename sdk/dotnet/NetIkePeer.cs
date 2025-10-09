@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
-    /// `f5bigip.NetIkePeer` Manages a ike_peer configuration
+    /// `f5bigip.NetIkePeer` Manages a IkePeer configuration
+    /// 
+    /// ## Example Usage
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/netIkePeer:NetIkePeer")]
     public partial class NetIkePeer : global::Pulumi.CustomResource

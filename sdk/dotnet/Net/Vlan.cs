@@ -45,7 +45,7 @@ namespace Pulumi.F5BigIP.Net
     public partial class Vlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`Default`, `src-ip`, `dst-ip`]
         /// </summary>
         [Output("cmpHash")]
         public Output<string> CmpHash { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class VlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`Default`, `src-ip`, `dst-ip`]
         /// </summary>
         [Input("cmpHash")]
         public Input<string>? CmpHash { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class VlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        /// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`Default`, `src-ip`, `dst-ip`]
         /// </summary>
         [Input("cmpHash")]
         public Input<string>? CmpHash { get; set; }

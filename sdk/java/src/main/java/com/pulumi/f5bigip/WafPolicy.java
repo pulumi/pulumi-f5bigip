@@ -180,7 +180,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enforcementMode);
     }
     /**
-     * `file_types` takes list of file-types options to be used for policy builder.
+     * `fileTypes` takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      * 
      */
@@ -188,7 +188,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<WafPolicyFileType>> fileTypes;
 
     /**
-     * @return `file_types` takes list of file-types options to be used for policy builder.
+     * @return `fileTypes` takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      * 
      */
@@ -196,7 +196,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileTypes);
     }
     /**
-     * `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      * 
      */
@@ -204,7 +204,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<WafPolicyGraphqlProfile>> graphqlProfiles;
 
     /**
-     * @return `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+     * @return `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      * 
      */
@@ -226,7 +226,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hostNames);
     }
     /**
-     * `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      * 
      */
@@ -234,7 +234,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<WafPolicyIpException>> ipExceptions;
 
     /**
-     * @return `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * @return `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      * 
      */
@@ -312,7 +312,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.partition);
     }
     /**
-     * `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      * 
      */
@@ -320,7 +320,7 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<WafPolicyPolicyBuilder>> policyBuilders;
 
     /**
-     * @return `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+     * @return `policyBuilder` block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      * 
      */

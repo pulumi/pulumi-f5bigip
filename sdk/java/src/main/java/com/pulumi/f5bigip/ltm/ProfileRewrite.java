@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `bigip_ltm_rewrite_profile` Configures ltm policies to manage traffic assigned to a virtual server
+ * `bigipLtmRewriteProfile` Configures ltm policies to manage traffic assigned to a virtual server
  * 
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-profile`.
  * 

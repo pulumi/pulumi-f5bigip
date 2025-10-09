@@ -56,7 +56,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Output<int> CoresPerSlot { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
+        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `True`
         /// </summary>
         [Output("deleteVirtualDisk")]
         public Output<bool?> DeleteVirtualDisk { get; private set; } = null!;
@@ -86,13 +86,13 @@ namespace Pulumi.F5BigIP.VCMP
         public Output<string> MgmtAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
+        /// Specifies the method by which the management address is used in the vCMP guest. options : [`Bridged`,`Isolated`,`host-only`].
         /// </summary>
         [Output("mgmtNetwork")]
         public Output<string> MgmtNetwork { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+        /// Specifies the gateway address for the `MgmtAddress`. Can be set to `None` to remove the value from the configuration.
         /// </summary>
         [Output("mgmtRoute")]
         public Output<string> MgmtRoute { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Output<int> NumberOfSlots { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
+        /// Specifies the state of the vCMP guest on the system. options : [`Configured`,`Provisioned`,`Deployed`].
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<int>? CoresPerSlot { get; set; }
 
         /// <summary>
-        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
+        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `True`
         /// </summary>
         [Input("deleteVirtualDisk")]
         public Input<bool>? DeleteVirtualDisk { get; set; }
@@ -222,13 +222,13 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<string>? MgmtAddress { get; set; }
 
         /// <summary>
-        /// Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
+        /// Specifies the method by which the management address is used in the vCMP guest. options : [`Bridged`,`Isolated`,`host-only`].
         /// </summary>
         [Input("mgmtNetwork")]
         public Input<string>? MgmtNetwork { get; set; }
 
         /// <summary>
-        /// Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+        /// Specifies the gateway address for the `MgmtAddress`. Can be set to `None` to remove the value from the configuration.
         /// </summary>
         [Input("mgmtRoute")]
         public Input<string>? MgmtRoute { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<int>? NumberOfSlots { get; set; }
 
         /// <summary>
-        /// Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
+        /// Specifies the state of the vCMP guest on the system. options : [`Configured`,`Provisioned`,`Deployed`].
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<int>? CoresPerSlot { get; set; }
 
         /// <summary>
-        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
+        /// Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `True`
         /// </summary>
         [Input("deleteVirtualDisk")]
         public Input<bool>? DeleteVirtualDisk { get; set; }
@@ -326,13 +326,13 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<string>? MgmtAddress { get; set; }
 
         /// <summary>
-        /// Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
+        /// Specifies the method by which the management address is used in the vCMP guest. options : [`Bridged`,`Isolated`,`host-only`].
         /// </summary>
         [Input("mgmtNetwork")]
         public Input<string>? MgmtNetwork { get; set; }
 
         /// <summary>
-        /// Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+        /// Specifies the gateway address for the `MgmtAddress`. Can be set to `None` to remove the value from the configuration.
         /// </summary>
         [Input("mgmtRoute")]
         public Input<string>? MgmtRoute { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.F5BigIP.VCMP
         public Input<int>? NumberOfSlots { get; set; }
 
         /// <summary>
-        /// Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
+        /// Specifies the state of the vCMP guest on the system. options : [`Configured`,`Provisioned`,`Deployed`].
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

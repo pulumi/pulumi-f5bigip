@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Fast
     public static class GetConsulServiceDiscovery
     {
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.Invoke<GetConsulServiceDiscoveryResult>("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args ?? new GetConsulServiceDiscoveryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -91,13 +91,13 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetConsulServiceDiscoveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public string? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public bool? CredentialUpdate { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.F5BigIP.Fast
         public string? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public string? UndetectableAction { get; set; }
@@ -168,13 +168,13 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetConsulServiceDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public Input<string>? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public Input<bool>? CredentialUpdate { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.F5BigIP.Fast
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public Input<string>? UndetectableAction { get; set; }

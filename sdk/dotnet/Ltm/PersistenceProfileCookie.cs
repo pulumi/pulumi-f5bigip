@@ -44,44 +44,44 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Reference
     /// 
-    /// `name` - (Required) Name of the virtual address
+    /// `Name` - (Required) Name of the virtual address
     /// 
-    /// `defaults_from` - (Required) Parent cookie persistence profile
+    /// `DefaultsFrom` - (Required) Parent cookie persistence profile
     /// 
-    /// `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
+    /// `MatchAcrossPools` (Optional) (enabled or disabled) match across pools with given persistence record
     /// 
-    /// `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
+    /// `MatchAcrossServices` (Optional) (enabled or disabled) match across services with given persistence record
     /// 
-    /// `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
+    /// `MatchAcrossVirtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
     /// 
-    /// `method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
+    /// `Method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
     /// 
-    /// `mirror` (Optional) (enabled or disabled) mirror persistence record
+    /// `Mirror` (Optional) (enabled or disabled) mirror persistence record
     /// 
-    /// `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
+    /// `Timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
     /// 
-    /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+    /// `OverrideConnLimit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
     /// 
-    /// `always_send` (Optional) (enabled or disabled) always send cookies
+    /// `AlwaysSend` (Optional) (enabled or disabled) always send cookies
     /// 
-    /// `cookie_encryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption
+    /// `CookieEncryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption
     /// 
-    /// `cookie_encryption_passphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.
-    /// If this is configured specify `ignore_changes` under the `lifecycle` block to ignore returned encrypted value.
+    /// `CookieEncryptionPassphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.
+    /// If this is configured specify `IgnoreChanges` under the `Lifecycle` block to ignore returned encrypted value.
     /// 
-    /// `cookie_name` (Optional) Name of the cookie to track persistence
+    /// `CookieName` (Optional) Name of the cookie to track persistence
     /// 
-    /// `expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)
+    /// `Expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)
     /// 
-    /// `hash_length` (Optional) (Integer) Length of hash to apply to cookie
+    /// `HashLength` (Optional) (Integer) Length of hash to apply to cookie
     /// 
-    /// `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
+    /// `HashOffset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
     /// 
-    /// `httponly` (Optional) (enabled or disabled) Sending only over http
+    /// `Httponly` (Optional) (enabled or disabled) Sending only over http
     /// 
     /// ## Importing
     /// 
-    /// An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `id`.
+    /// An cookie persistence profile can be imported into this resource by supplying the Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
