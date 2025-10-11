@@ -38,14 +38,14 @@ public class Command extends com.pulumi.resources.CustomResource {
         return this.commandResults;
     }
     /**
-     * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+     * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      * 
      */
     @Export(name="commands", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> commands;
 
     /**
-     * @return The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+     * @return The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      * 
      */
     public Output<List<String>> commands() {

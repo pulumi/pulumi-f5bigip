@@ -1162,6 +1162,8 @@ class NetIkePeer(pulumi.CustomResource):
         """
         `NetIkePeer` Manages a ike_peer configuration
 
+        ## Example Usage
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
@@ -1207,6 +1209,8 @@ class NetIkePeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `NetIkePeer` Manages a ike_peer configuration
+
+        ## Example Usage
 
         :param str resource_name: The name of the resource.
         :param NetIkePeerArgs args: The arguments to use to populate this resource's properties.

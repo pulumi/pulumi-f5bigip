@@ -17,7 +17,7 @@ public final class GetCertificateResult {
      */
     private String id;
     /**
-     * @return Name of ssl_certificate configured on bigip with full path
+     * @return Name of sslCertificate configured on bigip with full path
      * 
      */
     private String name;
@@ -39,7 +39,7 @@ public final class GetCertificateResult {
         return this.id;
     }
     /**
-     * @return Name of ssl_certificate configured on bigip with full path
+     * @return Name of sslCertificate configured on bigip with full path
      * 
      */
     public String name() {

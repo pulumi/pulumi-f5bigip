@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `bigip_ltm_rewrite_profile` Configures ltm policies to manage traffic assigned to a virtual server
+    /// `BigipLtmRewriteProfile` Configures ltm policies to manage traffic assigned to a virtual server
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-profile`.
     /// 
@@ -120,13 +120,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<Outputs.ProfileRewriteCookieRule>> CookieRules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
+        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `None`.
         /// </summary>
         [Output("crlFile")]
         public Output<string?> CrlFile { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `Rewrite` profile.
         /// </summary>
         [Output("defaultsFrom")]
         public Output<string?> DefaultsFrom { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
+        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `None`.
         /// </summary>
         [Input("crlFile")]
         public Input<string>? CrlFile { get; set; }
 
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `Rewrite` profile.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -410,13 +410,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
+        /// Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `None`.
         /// </summary>
         [Input("crlFile")]
         public Input<string>? CrlFile { get; set; }
 
         /// <summary>
-        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
+        /// Specifies the profile from which this profile inherits settings. The default is the system-supplied `Rewrite` profile.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }

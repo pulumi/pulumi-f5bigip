@@ -170,7 +170,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * 
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      * 
-     * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+     * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      * 
      */
     @Export(name="ignoreMetadata", refs={Boolean.class}, tree="[0]")
@@ -183,7 +183,7 @@ public class BigIqAs3 extends com.pulumi.resources.CustomResource {
      * 
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      * 
-     * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+     * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      * 
      */
     public Output<Optional<Boolean>> ignoreMetadata() {

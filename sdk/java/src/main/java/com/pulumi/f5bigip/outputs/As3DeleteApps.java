@@ -14,7 +14,7 @@ public final class As3DeleteApps {
     /**
      * @return List of application names to delete from the specified tenant.
      * 
-     * &gt; `delete_apps` cannot be used together with `as3_json`.
+     * &gt; `deleteApps` cannot be used together with `as3Json`.
      * 
      */
     private List<String> apps;
@@ -28,7 +28,7 @@ public final class As3DeleteApps {
     /**
      * @return List of application names to delete from the specified tenant.
      * 
-     * &gt; `delete_apps` cannot be used together with `as3_json`.
+     * &gt; `deleteApps` cannot be used together with `as3Json`.
      * 
      */
     public List<String> apps() {

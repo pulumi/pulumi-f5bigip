@@ -65,17 +65,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Common Arguments for all versions
     /// 
-    /// * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.
+    /// * `Security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.
     /// 
-    /// * `port` - (Optional)Allows you to configure the FTP service to run on an alternate port. The default is 20.
+    /// * `Port` - (Optional)Allows you to configure the FTP service to run on an alternate port. The default is 20.
     /// 
-    /// * `log_profile` - (Optional)Configures the ALG log profile that controls logging
+    /// * `LogProfile` - (Optional)Configures the ALG log profile that controls logging
     /// 
-    /// * `log_publisher` - (Optional)Configures the log publisher that handles events logging for this profile
+    /// * `LogPublisher` - (Optional)Configures the log publisher that handles events logging for this profile
     /// 
-    /// *  `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
+    /// *  `InheritParentProfile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
     /// 
-    /// * `description` - (Optional)User defined description for FTP profile
+    /// * `Description` - (Optional)User defined description for FTP profile
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileFtp:ProfileFtp")]
     public partial class ProfileFtp : global::Pulumi.CustomResource

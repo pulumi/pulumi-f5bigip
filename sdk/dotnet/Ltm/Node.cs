@@ -46,7 +46,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing Node can be imported into this resource by supplying Node Name in `full path` as `id`.
+    /// An existing Node can be imported into this resource by supplying Node Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_node.site2_node "/TEST/testnode"

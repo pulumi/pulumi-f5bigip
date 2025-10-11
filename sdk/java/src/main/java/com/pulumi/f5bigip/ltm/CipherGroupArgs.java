@@ -48,14 +48,14 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+     * Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+     * @return Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
      * 
      */
     public Output<String> name() {
@@ -173,7 +173,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+         * @param name Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class CipherGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+         * @param name Name of the Cipher group. Name should be in pattern `partition` + `cipherGroupName`
          * 
          * @return builder
          * 

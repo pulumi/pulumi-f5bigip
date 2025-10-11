@@ -211,7 +211,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.persistenceType);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -219,7 +219,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<FastUdpAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -283,7 +283,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -291,7 +291,7 @@ public class FastUdpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastUdpAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */

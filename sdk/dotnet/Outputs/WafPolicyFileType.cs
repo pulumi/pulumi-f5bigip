@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
+        /// Determines the type of the name attribute. Only when setting the type to `Wildcard` will the special wildcard characters in the name be interpreted as such
         /// </summary>
         public readonly string? Type;
 

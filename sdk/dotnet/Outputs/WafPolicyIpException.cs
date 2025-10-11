@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicyIpException
     {
         /// <summary>
-        /// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+        /// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`Always`, `Never`, `policy-default`].
         /// </summary>
         public readonly string? BlockRequests;
         /// <summary>

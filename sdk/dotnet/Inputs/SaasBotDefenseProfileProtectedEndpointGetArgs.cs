@@ -37,13 +37,13 @@ namespace Pulumi.F5BigIP.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// POST field to protect the path when it has a POST method, `enabled` or `disabled`
+        /// POST field to protect the path when it has a POST method, `Enabled` or `Disabled`
         /// </summary>
         [Input("post")]
         public Input<string>? Post { get; set; }
 
         /// <summary>
-        /// PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+        /// PUT field to protect the path when it has a PUT method,`Enabled` or `Disabled`
         /// </summary>
         [Input("put")]
         public Input<string>? Put { get; set; }

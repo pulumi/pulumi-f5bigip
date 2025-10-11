@@ -179,14 +179,14 @@ public class Guest extends com.pulumi.resources.CustomResource {
         return this.mgmtNetwork;
     }
     /**
-     * Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+     * Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      * 
      */
     @Export(name="mgmtRoute", refs={String.class}, tree="[0]")
     private Output<String> mgmtRoute;
 
     /**
-     * @return Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+     * @return Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      * 
      */
     public Output<String> mgmtRoute() {

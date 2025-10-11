@@ -25,7 +25,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Select the enforcement mode, possible values are `transparent` and `blocking`.
+        /// Select the enforcement mode, possible values are `Transparent` and `Blocking`.
         /// </summary>
         [Output("enforcementMode")]
         public Output<string> EnforcementMode { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `Balanced`,`Relaxed` and `Strict`
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Select the enforcement mode, possible values are `transparent` and `blocking`.
+        /// Select the enforcement mode, possible values are `Transparent` and `Blocking`.
         /// </summary>
         [Input("enforcementMode")]
         public Input<string>? EnforcementMode { get; set; }
@@ -113,7 +113,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `Balanced`,`Relaxed` and `Strict`
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Select the enforcement mode, possible values are `transparent` and `blocking`.
+        /// Select the enforcement mode, possible values are `Transparent` and `Blocking`.
         /// </summary>
         [Input("enforcementMode")]
         public Input<string>? EnforcementMode { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
+        /// Profile templates specify Mitigation and Verification Settings default values. possible ptions `Balanced`,`Relaxed` and `Strict`
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
