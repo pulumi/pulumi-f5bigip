@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing client-ssl profile can be imported into this resource by supplying client-ssl profile Name in `full path` as `id`.
+    /// An existing client-ssl profile can be imported into this resource by supplying client-ssl profile Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_profile_client_ssl.test-ClientSsl-import /Common/test-ClientSsl
@@ -53,7 +53,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AlertTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `Disabled`.
         /// </summary>
         [Output("allowExpiredCrl")]
         public Output<string> AllowExpiredCrl { get; private set; } = null!;
@@ -65,8 +65,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AllowNonSsl { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
-        /// When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of client authentication for an SSL session.When `Once`,specifies that the system authenticates the client once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Output("authenticate")]
         public Output<string> Authenticate { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> CacheTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `Default`
         /// </summary>
         [Output("cert")]
         public Output<string> Cert { get; private set; } = null!;
@@ -126,10 +126,10 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> CertExtensionIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// `CertKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
         /// See Cert Key Chain below for more details.
         /// 
-        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// &gt; **NOTE**  `CertKeyChain` is recommend way for adding cert-key-chain to profile. If `CertKeyChain` block provided, we should not provide `Cert`, `Key` and `Chain`.
         /// </summary>
         [Output("certKeyChain")]
         public Output<Outputs.ProfileClientSslCertKeyChain?> CertKeyChain { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Chain { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Output("cipherGroup")]
         public Output<string> CipherGroup { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> InheritCertKeychain { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the file name of the SSL key. The default is `default`
+        /// Specifies the file name of the SSL key. The default is `Default`
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// Specifies whether the system uses OCSP stapling. The default value is `Disabled`.
         /// </summary>
         [Output("ocspStapling")]
         public Output<string?> OcspStapling { get; private set; } = null!;
@@ -315,15 +315,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Renegotiation { get; private set; } = null!;
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Output("retainCertificate")]
         public Output<string> RetainCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Output("secureRenegotiation")]
@@ -355,7 +355,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniDefault { get; private set; } = null!;
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Output("sniRequire")]
         public Output<string> SniRequire { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         [Output("tmOptions")]
         public Output<ImmutableArray<string>> TmOptions { get; private set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `Disabled`.
         /// </summary>
         [Input("allowExpiredCrl")]
         public Input<string>? AllowExpiredCrl { get; set; }
@@ -472,8 +472,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AllowNonSsl { get; set; }
 
         /// <summary>
-        /// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
-        /// When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of client authentication for an SSL session.When `Once`,specifies that the system authenticates the client once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `Default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
@@ -539,10 +539,10 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// `CertKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
         /// See Cert Key Chain below for more details.
         /// 
-        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// &gt; **NOTE**  `CertKeyChain` is recommend way for adding cert-key-chain to profile. If `CertKeyChain` block provided, we should not provide `Cert`, `Key` and `Chain`.
         /// </summary>
         [Input("certKeyChain")]
         public Input<Inputs.ProfileClientSslCertKeyChainArgs>? CertKeyChain { get; set; }
@@ -566,7 +566,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Input("cipherGroup")]
         public Input<string>? CipherGroup { get; set; }
@@ -632,7 +632,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InheritCertKeychain { get; set; }
 
         /// <summary>
-        /// Specifies the file name of the SSL key. The default is `default`
+        /// Specifies the file name of the SSL key. The default is `Default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -656,7 +656,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// Specifies whether the system uses OCSP stapling. The default value is `Disabled`.
         /// </summary>
         [Input("ocspStapling")]
         public Input<string>? OcspStapling { get; set; }
@@ -738,15 +738,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Renegotiation { get; set; }
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Input("retainCertificate")]
         public Input<string>? RetainCertificate { get; set; }
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Input("secureRenegotiation")]
@@ -778,7 +778,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniDefault { get; set; }
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("sniRequire")]
         public Input<string>? SniRequire { get; set; }
@@ -818,7 +818,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         public InputList<string> TmOptions
         {
@@ -847,7 +847,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
+        /// Instructs the system to use the specified CRL file even if it has expired. The default is `Disabled`.
         /// </summary>
         [Input("allowExpiredCrl")]
         public Input<string>? AllowExpiredCrl { get; set; }
@@ -859,8 +859,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AllowNonSsl { get; set; }
 
         /// <summary>
-        /// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
-        /// When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of client authentication for an SSL session.When `Once`,specifies that the system authenticates the client once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -908,7 +908,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CacheTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `Default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
@@ -926,10 +926,10 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        /// `CertKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
         /// See Cert Key Chain below for more details.
         /// 
-        /// &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+        /// &gt; **NOTE**  `CertKeyChain` is recommend way for adding cert-key-chain to profile. If `CertKeyChain` block provided, we should not provide `Cert`, `Key` and `Chain`.
         /// </summary>
         [Input("certKeyChain")]
         public Input<Inputs.ProfileClientSslCertKeyChainGetArgs>? CertKeyChain { get; set; }
@@ -953,7 +953,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Input("cipherGroup")]
         public Input<string>? CipherGroup { get; set; }
@@ -1019,7 +1019,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? InheritCertKeychain { get; set; }
 
         /// <summary>
-        /// Specifies the file name of the SSL key. The default is `default`
+        /// Specifies the file name of the SSL key. The default is `Default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -1043,7 +1043,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// Specifies whether the system uses OCSP stapling. The default value is `Disabled`.
         /// </summary>
         [Input("ocspStapling")]
         public Input<string>? OcspStapling { get; set; }
@@ -1125,15 +1125,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Renegotiation { get; set; }
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Input("retainCertificate")]
         public Input<string>? RetainCertificate { get; set; }
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Input("secureRenegotiation")]
@@ -1165,7 +1165,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniDefault { get; set; }
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("sniRequire")]
         public Input<string>? SniRequire { get; set; }
@@ -1205,7 +1205,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         public InputList<string> TmOptions
         {

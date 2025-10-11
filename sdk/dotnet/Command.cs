@@ -18,13 +18,13 @@ namespace Pulumi.F5BigIP
     public partial class Command : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resulting output from the `commands` executed.
+        /// The resulting output from the `Commands` executed.
         /// </summary>
         [Output("commandResults")]
         public Output<ImmutableArray<string>> CommandResults { get; private set; } = null!;
 
         /// <summary>
-        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `CommandResult`
         /// </summary>
         [Output("commands")]
         public Output<ImmutableArray<string>> Commands { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commandResults;
 
         /// <summary>
-        /// The resulting output from the `commands` executed.
+        /// The resulting output from the `Commands` executed.
         /// </summary>
         public InputList<string> CommandResults
         {
@@ -94,7 +94,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commands;
 
         /// <summary>
-        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `CommandResult`
         /// </summary>
         public InputList<string> Commands
         {
@@ -117,7 +117,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commandResults;
 
         /// <summary>
-        /// The resulting output from the `commands` executed.
+        /// The resulting output from the `Commands` executed.
         /// </summary>
         public InputList<string> CommandResults
         {
@@ -129,7 +129,7 @@ namespace Pulumi.F5BigIP
         private InputList<string>? _commands;
 
         /// <summary>
-        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        /// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `CommandResult`
         /// </summary>
         public InputList<string> Commands
         {

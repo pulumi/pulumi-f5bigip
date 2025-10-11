@@ -52,7 +52,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<int?> CacheErrorTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
+        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `Indefinite`.
         /// </summary>
         [Output("cacheTimeout")]
         public Output<string?> CacheTimeout { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string?> RouteDomain { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
+        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `Sha256`.
         /// </summary>
         [Output("signHash")]
         public Output<string?> SignHash { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<int?> StatusAge { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
+        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `Enabled`.
         /// </summary>
         [Output("strictRespCertCheck")]
         public Output<string?> StrictRespCertCheck { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? CacheErrorTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
+        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `Indefinite`.
         /// </summary>
         [Input("cacheTimeout")]
         public Input<string>? CacheTimeout { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? RouteDomain { get; set; }
 
         /// <summary>
-        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
+        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `Sha256`.
         /// </summary>
         [Input("signHash")]
         public Input<string>? SignHash { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? StatusAge { get; set; }
 
         /// <summary>
-        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
+        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `Enabled`.
         /// </summary>
         [Input("strictRespCertCheck")]
         public Input<string>? StrictRespCertCheck { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? CacheErrorTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
+        /// Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `Indefinite`.
         /// </summary>
         [Input("cacheTimeout")]
         public Input<string>? CacheTimeout { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? RouteDomain { get; set; }
 
         /// <summary>
-        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
+        /// Specifies the hash algorithm used to sign the OCSP request. The default value is `Sha256`.
         /// </summary>
         [Input("signHash")]
         public Input<string>? SignHash { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? StatusAge { get; set; }
 
         /// <summary>
-        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
+        /// Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `Enabled`.
         /// </summary>
         [Input("strictRespCertCheck")]
         public Input<string>? StrictRespCertCheck { get; set; }

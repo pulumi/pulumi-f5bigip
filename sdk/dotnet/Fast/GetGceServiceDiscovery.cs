@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Fast
     public static class GetGceServiceDiscovery
     {
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.Invoke<GetGceServiceDiscoveryResult>("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args ?? new GetGceServiceDiscoveryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -94,13 +94,13 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetGceServiceDiscoveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public string? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public bool? CredentialUpdate { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.F5BigIP.Fast
         public string? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public string? UndetectableAction { get; set; }
@@ -171,13 +171,13 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetGceServiceDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public Input<string>? AddressRealm { get; set; }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public Input<bool>? CredentialUpdate { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.F5BigIP.Fast
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public Input<string>? UndetectableAction { get; set; }

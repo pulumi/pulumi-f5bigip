@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip.NetIkePeer` Manages a ikePeer configuration
+ *
+ * ## Example Usage
  */
 export class NetIkePeer extends pulumi.CustomResource {
     /**

@@ -81,7 +81,7 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
-        /// When creating a new traffic selector, if this parameter is not specified, the default is `last`
+        /// When creating a new traffic selector, if this parameter is not specified, the default is `Last`
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
-        /// When creating a new traffic selector, if this parameter is not specified, the default is `last`
+        /// When creating a new traffic selector, if this parameter is not specified, the default is `Last`
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
-        /// When creating a new traffic selector, if this parameter is not specified, the default is `last`
+        /// When creating a new traffic selector, if this parameter is not specified, the default is `Last`
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }

@@ -64,13 +64,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+        /// Name of the Cipher group. Name should be in pattern `Partition` + `CipherGroupName`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `Default`.
         /// </summary>
         [Output("ordering")]
         public Output<string?> Ordering { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+        /// Name of the Cipher group. Name should be in pattern `Partition` + `CipherGroupName`
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `Default`.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }
@@ -196,13 +196,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
+        /// Name of the Cipher group. Name should be in pattern `Partition` + `CipherGroupName`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
+        /// Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `Default`.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }

@@ -41,7 +41,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `id`.
+    /// An existing tcp profile can be imported into this resource by supplying tcp profile Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
@@ -87,7 +87,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> EarlyRetransmit { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `Enabled`. If `FastOpen` set to `Enabled`, argument `VerifiedAccept` can't be set to `Enabled`.
         /// </summary>
         [Output("fastOpen")]
         public Output<string> FastOpen { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> TimewaitRecycle { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `Disabled`.
         /// </summary>
         [Output("verifiedAccept")]
         public Output<string?> VerifiedAccept { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? EarlyRetransmit { get; set; }
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `Enabled`. If `FastOpen` set to `Enabled`, argument `VerifiedAccept` can't be set to `Enabled`.
         /// </summary>
         [Input("fastOpen")]
         public Input<string>? FastOpen { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? TimewaitRecycle { get; set; }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `Disabled`.
         /// </summary>
         [Input("verifiedAccept")]
         public Input<string>? VerifiedAccept { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? EarlyRetransmit { get; set; }
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `Enabled`. If `FastOpen` set to `Enabled`, argument `VerifiedAccept` can't be set to `Enabled`.
         /// </summary>
         [Input("fastOpen")]
         public Input<string>? FastOpen { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? TimewaitRecycle { get; set; }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `Disabled`.
         /// </summary>
         [Input("verifiedAccept")]
         public Input<string>? VerifiedAccept { get; set; }

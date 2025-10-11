@@ -53,7 +53,7 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// });
     /// ```
-    /// ### Example usage with `port_lockdown`
+    /// ### Example usage with `PortLockdown`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Pulumi.F5BigIP.Net
     /// });
     /// ```
     /// 
-    /// ### Example usage with `port_lockdown` set to `["none"]`
+    /// ### Example usage with `PortLockdown` set to `["none"]`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -117,7 +117,7 @@ namespace Pulumi.F5BigIP.Net
     /// });
     /// ```
     /// 
-    /// ### Example usage with route domain embedded in the `ip`
+    /// ### Example usage with route domain embedded in the `Ip`
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

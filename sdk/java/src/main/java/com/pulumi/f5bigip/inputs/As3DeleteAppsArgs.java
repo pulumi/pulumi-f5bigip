@@ -18,7 +18,7 @@ public final class As3DeleteAppsArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of application names to delete from the specified tenant.
      * 
-     * &gt; `delete_apps` cannot be used together with `as3_json`.
+     * &gt; `deleteApps` cannot be used together with `as3Json`.
      * 
      */
     @Import(name="apps", required=true)
@@ -27,7 +27,7 @@ public final class As3DeleteAppsArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return List of application names to delete from the specified tenant.
      * 
-     * &gt; `delete_apps` cannot be used together with `as3_json`.
+     * &gt; `deleteApps` cannot be used together with `as3Json`.
      * 
      */
     public Output<List<String>> apps() {
@@ -77,7 +77,7 @@ public final class As3DeleteAppsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apps List of application names to delete from the specified tenant.
          * 
-         * &gt; `delete_apps` cannot be used together with `as3_json`.
+         * &gt; `deleteApps` cannot be used together with `as3Json`.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class As3DeleteAppsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apps List of application names to delete from the specified tenant.
          * 
-         * &gt; `delete_apps` cannot be used together with `as3_json`.
+         * &gt; `deleteApps` cannot be used together with `as3Json`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class As3DeleteAppsArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apps List of application names to delete from the specified tenant.
          * 
-         * &gt; `delete_apps` cannot be used together with `as3_json`.
+         * &gt; `deleteApps` cannot be used together with `as3Json`.
          * 
          * @return builder
          * 

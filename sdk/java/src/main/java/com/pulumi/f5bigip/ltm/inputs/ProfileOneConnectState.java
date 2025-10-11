@@ -107,14 +107,14 @@ public final class ProfileOneConnectState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+     * Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+     * @return Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -326,7 +326,7 @@ public final class ProfileOneConnectState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+         * @param name Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ProfileOneConnectState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+         * @param name Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
          * 
          * @return builder
          * 

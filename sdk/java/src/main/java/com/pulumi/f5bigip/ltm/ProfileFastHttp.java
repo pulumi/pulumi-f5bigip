@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.
+ * `f5bigip.ltm.ProfileFastHttp` Configures a custom profileFasthttp for use by health checks.
  * 
  * For resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 

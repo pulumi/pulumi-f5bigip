@@ -13,6 +13,8 @@ import (
 )
 
 // `NetIkePeer` Manages a ikePeer configuration
+//
+// ## Example Usage
 type NetIkePeer struct {
 	pulumi.CustomResourceState
 

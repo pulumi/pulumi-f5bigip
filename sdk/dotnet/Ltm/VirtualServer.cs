@@ -13,11 +13,11 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.VirtualServer` Configures Virtual Server
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
-    /// When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
+    /// When including directory in `Fullpath` we have to make sure it is created in the given partition before using it.
     /// 
     /// ## Importing
     /// 
-    /// An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `id`.
+    /// An existing virtual-server can be imported into this resource by supplying virtual-server Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
@@ -66,7 +66,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> FirewallEnforcedPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `Tcp`. valid options are [`Any`,`Udp`,`Tcp`]
         /// </summary>
         [Output("ipProtocol")]
         public Output<string?> IpProtocol { get; private set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        /// Can be either omitted for `None` or the values `Automap` options : [`Snat`,`Automap`,`None`].
         /// </summary>
         [Output("sourceAddressTranslation")]
         public Output<string> SourceAddressTranslation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// Specifies whether the system preserves the source port of the connection. The default is `Preserve`.
         /// </summary>
         [Output("sourcePort")]
         public Output<string> SourcePort { get; private set; } = null!;
@@ -183,14 +183,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> TranslatePort { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `VlanEnabled`
         /// </summary>
         [Output("vlans")]
         public Output<ImmutableArray<string>> Vlans { get; private set; } = null!;
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the `vlans` option.
-        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
+        /// Enables the virtual server on the VLANs specified by the `Vlans` option.
+        /// By default it is `False` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `Vlans`, mark this attribute to `True`.
         /// </summary>
         [Output("vlansEnabled")]
         public Output<bool?> VlansEnabled { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
-        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `Tcp`. valid options are [`Any`,`Udp`,`Tcp`]
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
@@ -404,13 +404,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        /// Can be either omitted for `None` or the values `Automap` options : [`Snat`,`Automap`,`None`].
         /// </summary>
         [Input("sourceAddressTranslation")]
         public Input<string>? SourceAddressTranslation { get; set; }
 
         /// <summary>
-        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// Specifies whether the system preserves the source port of the connection. The default is `Preserve`.
         /// </summary>
         [Input("sourcePort")]
         public Input<string>? SourcePort { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _vlans;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `VlanEnabled`
         /// </summary>
         public InputList<string> Vlans
         {
@@ -452,8 +452,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the `vlans` option.
-        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
+        /// Enables the virtual server on the VLANs specified by the `Vlans` option.
+        /// By default it is `False` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `Vlans`, mark this attribute to `True`.
         /// </summary>
         [Input("vlansEnabled")]
         public Input<bool>? VlansEnabled { get; set; }
@@ -512,7 +512,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
-        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `Tcp`. valid options are [`Any`,`Udp`,`Tcp`]
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
@@ -629,13 +629,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        /// Can be either omitted for `None` or the values `Automap` options : [`Snat`,`Automap`,`None`].
         /// </summary>
         [Input("sourceAddressTranslation")]
         public Input<string>? SourceAddressTranslation { get; set; }
 
         /// <summary>
-        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// Specifies whether the system preserves the source port of the connection. The default is `Preserve`.
         /// </summary>
         [Input("sourcePort")]
         public Input<string>? SourcePort { get; set; }
@@ -668,7 +668,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _vlans;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `VlanEnabled`
         /// </summary>
         public InputList<string> Vlans
         {
@@ -677,8 +677,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the `vlans` option.
-        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
+        /// Enables the virtual server on the VLANs specified by the `Vlans` option.
+        /// By default it is `False` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `Vlans`, mark this attribute to `True`.
         /// </summary>
         [Input("vlansEnabled")]
         public Input<bool>? VlansEnabled { get; set; }

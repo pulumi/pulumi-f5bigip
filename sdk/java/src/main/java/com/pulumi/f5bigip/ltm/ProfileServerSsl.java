@@ -718,14 +718,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
         return this.sniDefault;
     }
     /**
-     * Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     @Export(name="sniRequire", refs={String.class}, tree="[0]")
     private Output<String> sniRequire;
 
     /**
-     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     public Output<String> sniRequire() {
@@ -733,7 +733,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
     }
     /**
      * Enables or disables SSL forward proxy bypass on receiving
-     * handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+     * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      * 
      */
     @Export(name="sslC3d", refs={String.class}, tree="[0]")
@@ -741,7 +741,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Enables or disables SSL forward proxy bypass on receiving
-     * handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+     * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      * 
      */
     public Output<Optional<String>> sslC3d() {
@@ -805,7 +805,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
     }
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     @Export(name="tmOptions", refs={List.class,String.class}, tree="[0,1]")
@@ -813,7 +813,7 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
 
     /**
      * @return List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     public Output<List<String>> tmOptions() {

@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class FastHttpAppWafSecurityPolicy
     {
         /// <summary>
-        /// Setting `true` will enable FAST to create WAF Security Policy.
+        /// Setting `True` will enable FAST to create WAF Security Policy.
         /// </summary>
         public readonly bool Enable;
 

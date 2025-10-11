@@ -53,8 +53,8 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
-        /// default is `nominal`
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `Dedicated` requires setting all others to `None`. Setting the level of a module to `None` means the module is not activated.
+        /// default is `Nominal`
         /// possible options:
         /// * nominal
         /// * minimum
@@ -155,8 +155,8 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
-        /// default is `nominal`
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `Dedicated` requires setting all others to `None`. Setting the level of a module to `None` means the module is not activated.
+        /// default is `Nominal`
         /// possible options:
         /// * nominal
         /// * minimum
@@ -219,8 +219,8 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
-        /// default is `nominal`
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `Dedicated` requires setting all others to `None`. Setting the level of a module to `None` means the module is not activated.
+        /// default is `Nominal`
         /// possible options:
         /// * nominal
         /// * minimum

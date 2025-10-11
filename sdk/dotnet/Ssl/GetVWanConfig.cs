@@ -196,15 +196,15 @@ namespace Pulumi.F5BigIP.Ssl
         public readonly string AzureVwanResourcegroup;
         public readonly string AzureVwanVpnsite;
         /// <summary>
-        /// (type `string`) provides IP address of BIGIP G/W for IPSec Endpoint.
+        /// (type `String`) provides IP address of BIGIP G/W for IPSec Endpoint.
         /// </summary>
         public readonly string BigipGwIp;
         /// <summary>
-        /// (type `string`) Provides IP Address space used on vWAN Hub.
+        /// (type `String`) Provides IP Address space used on vWAN Hub.
         /// </summary>
         public readonly string HubAddressSpace;
         /// <summary>
-        /// (type `list`) Provides Subnets connected to vWAN Hub.
+        /// (type `List`) Provides Subnets connected to vWAN Hub.
         /// </summary>
         public readonly ImmutableArray<string> HubConnectedSubnets;
         /// <summary>
@@ -212,11 +212,11 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// (type `string`) provides pre-shared-key used for IPSec Tunnel creation.
+        /// (type `String`) provides pre-shared-key used for IPSec Tunnel creation.
         /// </summary>
         public readonly string PresharedKey;
         /// <summary>
-        /// (type `list`) Provides vWAN Gateway Address for IPSec End point
+        /// (type `List`) Provides vWAN Gateway Address for IPSec End point
         /// </summary>
         public readonly ImmutableArray<string> VwanGwAddresses;
 

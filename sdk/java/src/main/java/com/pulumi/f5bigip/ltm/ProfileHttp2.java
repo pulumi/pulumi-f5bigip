@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
+ * `f5bigip.ltm.ProfileHttp2` Configures a custom profileHttp2 for use by health checks.
  * 
  * For resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 

@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProfileHttpHttpStrictTransportSecurity {
     /**
-     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     private @Nullable String includeSubdomains;
     /**
-     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     private @Nullable Integer maximumAge;
@@ -35,14 +35,14 @@ public final class ProfileHttpHttpStrictTransportSecurity {
 
     private ProfileHttpHttpStrictTransportSecurity() {}
     /**
-     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
+     * @return The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is &#34;enabled&#34;. If no string is specified during Create, then default value will be assigned by BigIp. If includeSubdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;enabled&#34; explicitly.
      * 
      */
     public Optional<String> includeSubdomains() {
         return Optional.ofNullable(this.includeSubdomains);
     }
     /**
-     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+     * @return The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host&#39;s domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximumAge is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
      * 
      */
     public Optional<Integer> maximumAge() {

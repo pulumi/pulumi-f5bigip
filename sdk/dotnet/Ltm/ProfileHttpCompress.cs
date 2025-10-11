@@ -80,7 +80,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ContentTypeIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `Enabled`.
         /// </summary>
         [Output("cpuSaver")]
         public Output<string> CpuSaver { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> GzipWindowSize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `Disabled`.
         /// </summary>
         [Output("keepAcceptEncoding")]
         public Output<string> KeepAcceptEncoding { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> UriIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `Enabled`.
         /// </summary>
         [Output("varyHeader")]
         public Output<string> VaryHeader { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `Enabled`.
         /// </summary>
         [Input("cpuSaver")]
         public Input<string>? CpuSaver { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? GzipWindowSize { get; set; }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `Disabled`.
         /// </summary>
         [Input("keepAcceptEncoding")]
         public Input<string>? KeepAcceptEncoding { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `Enabled`.
         /// </summary>
         [Input("varyHeader")]
         public Input<string>? VaryHeader { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `Enabled`.
         /// </summary>
         [Input("cpuSaver")]
         public Input<string>? CpuSaver { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? GzipWindowSize { get; set; }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `Disabled`.
         /// </summary>
         [Input("keepAcceptEncoding")]
         public Input<string>? KeepAcceptEncoding { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `Enabled`.
         /// </summary>
         [Input("varyHeader")]
         public Input<string>? VaryHeader { get; set; }

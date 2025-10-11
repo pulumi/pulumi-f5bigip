@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
-    /// `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+    /// `f5bigip.sys.SnmpTraps` provides details bout how to enable SnmpTraps resource on BIG-IP
     /// ## Example Usage
     /// 
     /// ```csharp

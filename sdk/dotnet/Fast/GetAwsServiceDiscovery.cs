@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Fast
     public static class GetAwsServiceDiscovery
     {
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.F5BigIP.Fast
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `Http`/`Https` app deployment in FAST.
         /// 
         /// ## Example Usage
         /// 
@@ -91,7 +91,7 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetAwsServiceDiscoveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public string? AddressRealm { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.F5BigIP.Fast
         private string? _awsAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `AwsSecretAccessKey` field)
         /// </summary>
         public string? AwsAccessKey
         {
@@ -118,7 +118,7 @@ namespace Pulumi.F5BigIP.Fast
         private string? _awsSecretAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `AwsSecretAccessKey` field)
         /// </summary>
         public string? AwsSecretAccessKey
         {
@@ -127,7 +127,7 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public bool? CredentialUpdate { get; set; }
@@ -151,7 +151,7 @@ namespace Pulumi.F5BigIP.Fast
         public int? Port { get; set; }
 
         /// <summary>
-        /// Assume a role (also requires the `external_id` field)
+        /// Assume a role (also requires the `ExternalId` field)
         /// </summary>
         [Input("roleArn")]
         public string? RoleArn { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.F5BigIP.Fast
         public string? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public string? UndetectableAction { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetAwsServiceDiscoveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies whether to look for public or private IP addresses,default `private`.
+        /// Specifies whether to look for public or private IP addresses,default `Private`.
         /// </summary>
         [Input("addressRealm")]
         public Input<string>? AddressRealm { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.F5BigIP.Fast
         private Input<string>? _awsAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `AwsSecretAccessKey` field)
         /// </summary>
         public Input<string>? AwsAccessKey
         {
@@ -223,7 +223,7 @@ namespace Pulumi.F5BigIP.Fast
         private Input<string>? _awsSecretAccessKey;
 
         /// <summary>
-        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+        /// Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `AwsSecretAccessKey` field)
         /// </summary>
         public Input<string>? AwsSecretAccessKey
         {
@@ -236,7 +236,7 @@ namespace Pulumi.F5BigIP.Fast
         }
 
         /// <summary>
-        /// Specifies whether you are updating your credentials,default `false`.
+        /// Specifies whether you are updating your credentials,default `False`.
         /// </summary>
         [Input("credentialUpdate")]
         public Input<bool>? CredentialUpdate { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.F5BigIP.Fast
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Assume a role (also requires the `external_id` field)
+        /// Assume a role (also requires the `ExternalId` field)
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.F5BigIP.Fast
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Action to take when node cannot be detected,default `remove`.
+        /// Action to take when node cannot be detected,default `Remove`.
         /// </summary>
         [Input("undetectableAction")]
         public Input<string>? UndetectableAction { get; set; }

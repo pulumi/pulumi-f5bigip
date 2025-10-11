@@ -94,14 +94,14 @@ public class IApp extends com.pulumi.resources.CustomResource {
         return this.devicegroup;
     }
     /**
-     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
      * 
      */
     @Export(name="executeAction", refs={String.class}, tree="[0]")
     private Output<String> executeAction;
 
     /**
-     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
      * 
      */
     public Output<String> executeAction() {

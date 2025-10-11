@@ -100,7 +100,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> KeepaliveInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `Disabled`.
         /// </summary>
         [Output("lateBinding")]
         public Output<string> LateBinding { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `Disabled`.
         /// </summary>
         [Input("lateBinding")]
         public Input<string>? LateBinding { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `Disabled`.
         /// </summary>
         [Input("lateBinding")]
         public Input<string>? LateBinding { get; set; }

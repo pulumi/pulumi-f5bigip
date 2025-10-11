@@ -51,14 +51,14 @@ public final class IAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
      * 
      */
     @Import(name="executeAction")
     private @Nullable Output<String> executeAction;
 
     /**
-     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
      * 
      */
     public Optional<Output<String>> executeAction() {
@@ -342,7 +342,7 @@ public final class IAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class IAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
          * 
          * @return builder
          * 

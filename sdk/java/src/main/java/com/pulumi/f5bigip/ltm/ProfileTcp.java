@@ -156,14 +156,14 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.earlyRetransmit);
     }
     /**
-     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
      * 
      */
     @Export(name="fastOpen", refs={String.class}, tree="[0]")
     private Output<String> fastOpen;
 
     /**
-     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
      * 
      */
     public Output<String> fastOpen() {

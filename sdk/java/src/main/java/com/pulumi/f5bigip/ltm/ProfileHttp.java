@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
+ * `f5bigip.ltm.ProfileHttp` Configures a custom profileHttp for use by health checks.
  * 
  * For resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 
@@ -398,14 +398,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return this.responseHeadersPermitteds;
     }
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     @Export(name="serverAgentName", refs={String.class}, tree="[0]")
     private Output<String> serverAgentName;
 
     /**
-     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
+     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, &#34;none&#34; string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass &#34;BigIP&#34; explicitly.
      * 
      */
     public Output<String> serverAgentName() {

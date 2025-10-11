@@ -16,7 +16,7 @@ namespace Pulumi.F5BigIP.Outputs
         /// <summary>
         /// List of application names to delete from the specified tenant.
         /// 
-        /// &gt; `delete_apps` cannot be used together with `as3_json`.
+        /// &gt; `DeleteApps` cannot be used together with `As3Json`.
         /// </summary>
         public readonly ImmutableArray<string> Apps;
         /// <summary>

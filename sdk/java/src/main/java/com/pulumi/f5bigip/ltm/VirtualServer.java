@@ -397,14 +397,14 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.translatePort);
     }
     /**
-     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      * 
      */
     @Export(name="vlans", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vlans;
 
     /**
-     * @return The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+     * @return The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      * 
      */
     public Output<Optional<List<String>>> vlans() {

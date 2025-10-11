@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     public sealed class ProfileClientSslCertKeyChain
     {
         /// <summary>
-        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `Default`
         /// </summary>
         public readonly string? Cert;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// </summary>
         public readonly string? Chain;
         /// <summary>
-        /// Specifies the file name of the SSL key. The default is `default`
+        /// Specifies the file name of the SSL key. The default is `Default`
         /// </summary>
         public readonly string? Key;
         /// <summary>

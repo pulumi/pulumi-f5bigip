@@ -47,7 +47,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing pool can be imported into this resource by supplying pool Name in `full path` as `id`.
+    /// An existing pool can be imported into this resource by supplying pool Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
@@ -58,13 +58,13 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Output("allowNat")]
         public Output<string> AllowNat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Output("allowSnat")]
         public Output<string> AllowSnat { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `Disabled`.
         /// </summary>
         [Output("minimumActiveMembers")]
         public Output<int> MinimumActiveMembers { get; private set; } = null!;
@@ -164,13 +164,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Input("allowNat")]
         public Input<string>? AllowNat { get; set; }
 
         /// <summary>
-        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Input("allowSnat")]
         public Input<string>? AllowSnat { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `Disabled`.
         /// </summary>
         [Input("minimumActiveMembers")]
         public Input<int>? MinimumActiveMembers { get; set; }
@@ -238,13 +238,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Input("allowNat")]
         public Input<string>? AllowNat { get; set; }
 
         /// <summary>
-        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `Yes`, Possible Values `Yes` or `No`].
         /// </summary>
         [Input("allowSnat")]
         public Input<string>? AllowSnat { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
-        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `Disabled`.
         /// </summary>
         [Input("minimumActiveMembers")]
         public Input<int>? MinimumActiveMembers { get; set; }

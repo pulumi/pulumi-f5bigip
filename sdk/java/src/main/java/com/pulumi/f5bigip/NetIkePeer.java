@@ -17,7 +17,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.NetIkePeer` Manages a ike_peer configuration
+ * `f5bigip.NetIkePeer` Manages a ikePeer configuration
+ * 
+ * ## Example Usage
  * 
  */
 @ResourceType(type="f5bigip:index/netIkePeer:NetIkePeer")

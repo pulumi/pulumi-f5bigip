@@ -190,7 +190,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -198,7 +198,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FastHttpAppPoolMemberArgs>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -222,14 +222,14 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+     * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
     @Import(name="serviceDiscoveries")
     private @Nullable Output<List<String>> serviceDiscoveries;
 
     /**
-     * @return List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+     * @return List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
     public Optional<Output<List<String>>> serviceDiscoveries() {
@@ -282,7 +282,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -290,7 +290,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpAppVirtualServerArgs> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -299,7 +299,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -307,7 +307,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastHttpAppWafSecurityPolicyArgs> wafSecurityPolicy;
 
     /**
-     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * @return `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -601,7 +601,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -613,7 +613,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -624,7 +624,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -666,7 +666,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
@@ -770,7 +770,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -782,7 +782,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -793,7 +793,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * @param wafSecurityPolicy `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
          * See WAF Security Policy below for more details.
          * 
          * @return builder
@@ -805,7 +805,7 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * @param wafSecurityPolicy `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
          * See WAF Security Policy below for more details.
          * 
          * @return builder

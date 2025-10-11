@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Inputs
     public sealed class FastHttpsAppWafSecurityPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Setting `true` will enable FAST to create WAF Security Policy.
+        /// Setting `True` will enable FAST to create WAF Security Policy.
         /// </summary>
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;

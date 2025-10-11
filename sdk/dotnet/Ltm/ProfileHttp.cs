@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
+    /// `f5bigip.ltm.ProfileHttp` Configures a custom ProfileHttp for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
@@ -66,7 +66,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> AppService { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `None`
         /// </summary>
         [Output("basicAuthRealm")]
         public Output<string> BasicAuthRealm { get; private set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> FallbackStatusCodes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `None`.
         /// </summary>
         [Output("headErase")]
         public Output<string> HeadErase { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `None`.
         /// </summary>
         [Output("headInsert")]
         public Output<string> HeadInsert { get; private set; } = null!;
@@ -162,25 +162,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> OneconnectTransformations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `Reverse`.
         /// </summary>
         [Output("proxyType")]
         public Output<string> ProxyType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `None`.
         /// </summary>
         [Output("redirectRewrite")]
         public Output<string> RedirectRewrite { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `Preserve`.
         /// </summary>
         [Output("requestChunking")]
         public Output<string> RequestChunking { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `Selective`.
         /// </summary>
         [Output("responseChunking")]
         public Output<string> ResponseChunking { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ResponseHeadersPermitteds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If ServerAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         /// </summary>
         [Output("serverAgentName")]
         public Output<string> ServerAgentName { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AppService { get; set; }
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `None`
         /// </summary>
         [Input("basicAuthRealm")]
         public Input<string>? BasicAuthRealm { get; set; }
@@ -352,13 +352,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `None`.
         /// </summary>
         [Input("headErase")]
         public Input<string>? HeadErase { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `None`.
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
@@ -406,25 +406,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? OneconnectTransformations { get; set; }
 
         /// <summary>
-        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `Reverse`.
         /// </summary>
         [Input("proxyType")]
         public Input<string>? ProxyType { get; set; }
 
         /// <summary>
-        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `None`.
         /// </summary>
         [Input("redirectRewrite")]
         public Input<string>? RedirectRewrite { get; set; }
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `Preserve`.
         /// </summary>
         [Input("requestChunking")]
         public Input<string>? RequestChunking { get; set; }
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `Selective`.
         /// </summary>
         [Input("responseChunking")]
         public Input<string>? ResponseChunking { get; set; }
@@ -442,7 +442,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If ServerAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AppService { get; set; }
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `None`
         /// </summary>
         [Input("basicAuthRealm")]
         public Input<string>? BasicAuthRealm { get; set; }
@@ -570,13 +570,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `None`.
         /// </summary>
         [Input("headErase")]
         public Input<string>? HeadErase { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `None`.
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
@@ -624,25 +624,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? OneconnectTransformations { get; set; }
 
         /// <summary>
-        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `Reverse`.
         /// </summary>
         [Input("proxyType")]
         public Input<string>? ProxyType { get; set; }
 
         /// <summary>
-        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `None`.
         /// </summary>
         [Input("redirectRewrite")]
         public Input<string>? RedirectRewrite { get; set; }
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `Preserve`.
         /// </summary>
         [Input("requestChunking")]
         public Input<string>? RequestChunking { get; set; }
 
         /// <summary>
-        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `Selective`.
         /// </summary>
         [Input("responseChunking")]
         public Input<string>? ResponseChunking { get; set; }
@@ -660,7 +660,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If ServerAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }

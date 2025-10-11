@@ -61,14 +61,14 @@ public final class CipherRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+     * Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+     * @return Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      * 
      */
     public Optional<Output<String>> name() {
@@ -182,7 +182,7 @@ public final class CipherRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+         * @param name Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class CipherRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
+         * @param name Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
          * 
          * @return builder
          * 

@@ -27,7 +27,7 @@ namespace Pulumi.F5BigIP.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
+        /// Determines the type of the name attribute. Only when setting the type to `Wildcard` will the special wildcard characters in the name be interpreted as such
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

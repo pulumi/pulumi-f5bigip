@@ -44,7 +44,7 @@ namespace Pulumi.F5BigIP
     public partial class BigIqAs3 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```File``` function
         /// </summary>
         [Output("as3Json")]
         public Output<string> As3Json { get; private set; } = null!;
@@ -68,13 +68,13 @@ namespace Pulumi.F5BigIP
         public Output<string> BigiqPassword { get; private set; } = null!;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         [Output("bigiqPort")]
         public Output<string?> BigiqPort { get; private set; } = null!;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         [Output("bigiqTokenAuth")]
         public Output<bool?> BigiqTokenAuth { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.F5BigIP
         public Output<string> BigiqUser { get; private set; } = null!;
 
         /// <summary>
-        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `True`
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
@@ -142,7 +142,7 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
         /// 
-        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+        /// &gt;  **Note:** This resource does not support `TeanatFilter` parameter as BIG-IP As3 resource
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```File``` function
         /// </summary>
         [Input("as3Json", required: true)]
         public Input<string> As3Json { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPort;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         public Input<string>? BigiqPort
         {
@@ -271,7 +271,7 @@ namespace Pulumi.F5BigIP
         private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         public Input<bool>? BigiqTokenAuth
         {
@@ -300,7 +300,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `True`
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
@@ -356,7 +356,7 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
         /// 
-        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+        /// &gt;  **Note:** This resource does not support `TeanatFilter` parameter as BIG-IP As3 resource
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```File``` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
@@ -423,7 +423,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigiqPort;
 
         /// <summary>
-        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        /// type `Int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         public Input<string>? BigiqPort
         {
@@ -439,7 +439,7 @@ namespace Pulumi.F5BigIP
         private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
-        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+        /// type `Bool`, if set to `True` enables Token based Authentication,default is `False`
         /// </summary>
         public Input<bool>? BigiqTokenAuth
         {
@@ -468,7 +468,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `True`
         /// 
         /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
         /// 
@@ -524,7 +524,7 @@ namespace Pulumi.F5BigIP
         /// 
         /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
         /// 
-        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+        /// &gt;  **Note:** This resource does not support `TeanatFilter` parameter as BIG-IP As3 resource
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }

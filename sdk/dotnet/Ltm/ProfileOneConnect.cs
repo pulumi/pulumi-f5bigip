@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
+    /// `f5bigip.ltm.ProfileOneConnect` Configures a custom ProfileOneconnect for use by health checks.
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
     /// 
@@ -50,7 +50,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `Disabled`, `Indefinite`, or a numeric value that you specify. The default value is `Disabled`
         /// </summary>
         [Output("idleTimeoutOverride")]
         public Output<string> IdleTimeoutOverride { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+        /// Name of Profile should be full path.The full path is the combination of the `partition + ProfileName`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Partition { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is `disabled`.
+        /// Specify if you want to share the pool, default value is `Disabled`.
         /// </summary>
         [Output("sharePools")]
         public Output<string> SharePools { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `Disabled`, `Indefinite`, or a numeric value that you specify. The default value is `Disabled`
         /// </summary>
         [Input("idleTimeoutOverride")]
         public Input<string>? IdleTimeoutOverride { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+        /// Name of Profile should be full path.The full path is the combination of the `partition + ProfileName`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is `disabled`.
+        /// Specify if you want to share the pool, default value is `Disabled`.
         /// </summary>
         [Input("sharePools")]
         public Input<string>? SharePools { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `Disabled`, `Indefinite`, or a numeric value that you specify. The default value is `Disabled`
         /// </summary>
         [Input("idleTimeoutOverride")]
         public Input<string>? IdleTimeoutOverride { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+        /// Name of Profile should be full path.The full path is the combination of the `partition + ProfileName`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is `disabled`.
+        /// Specify if you want to share the pool, default value is `Disabled`.
         /// </summary>
         [Input("sharePools")]
         public Input<string>? SharePools { get; set; }

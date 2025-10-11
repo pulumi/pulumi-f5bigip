@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Inputs
     public sealed class WafPolicyIpExceptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+        /// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`Always`, `Never`, `policy-default`].
         /// </summary>
         [Input("blockRequests")]
         public Input<string>? BlockRequests { get; set; }

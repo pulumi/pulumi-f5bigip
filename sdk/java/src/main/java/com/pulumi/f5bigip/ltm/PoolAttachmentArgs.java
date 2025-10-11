@@ -153,14 +153,14 @@ public final class PoolAttachmentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
      * 
      */
     public Optional<Output<String>> state() {
@@ -390,7 +390,7 @@ public final class PoolAttachmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class PoolAttachmentArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
          * 
          * @return builder
          * 

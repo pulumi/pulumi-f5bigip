@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Importing
     /// 
-    /// An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `id`.
+    /// An existing server-ssl profile can be imported into this resource by supplying server-ssl profile Name in `full path` as `Id`.
     /// An example is below:
     /// ```sh
     /// $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
@@ -54,8 +54,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AlertTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
-        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of server authentication for an SSL session.When `Once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Output("authenticate")]
         public Output<string> Authenticate { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Chain { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Output("cipherGroup")]
         public Output<string?> CipherGroup { get; private set; } = null!;
@@ -290,15 +290,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Renegotiation { get; private set; } = null!;
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Output("retainCertificate")]
         public Output<string> RetainCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Output("secureRenegotiation")]
@@ -330,14 +330,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniDefault { get; private set; } = null!;
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Output("sniRequire")]
         public Output<string> SniRequire { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables SSL forward proxy bypass on receiving
-        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// handshake_failure, ProtocolVersion or UnsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, ProtocolVersion or UnsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
         /// </summary>
         [Output("sslC3d")]
         public Output<string?> SslC3d { get; private set; } = null!;
@@ -368,7 +368,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         [Output("tmOptions")]
         public Output<ImmutableArray<string>> TmOptions { get; private set; } = null!;
@@ -442,8 +442,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
-        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of server authentication for an SSL session.When `Once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Input("cipherGroup")]
         public Input<string>? CipherGroup { get; set; }
@@ -700,15 +700,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Renegotiation { get; set; }
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Input("retainCertificate")]
         public Input<string>? RetainCertificate { get; set; }
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Input("secureRenegotiation")]
@@ -740,14 +740,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniDefault { get; set; }
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("sniRequire")]
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
         /// Enables or disables SSL forward proxy bypass on receiving
-        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// handshake_failure, ProtocolVersion or UnsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, ProtocolVersion or UnsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
         /// </summary>
         [Input("sslC3d")]
         public Input<string>? SslC3d { get; set; }
@@ -781,7 +781,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         public InputList<string> TmOptions
         {
@@ -816,8 +816,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
-        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
+        /// Specifies the frequency of server authentication for an SSL session.When `Once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `Always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -938,7 +938,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `Ciphers`. The default value is `None`.
         /// </summary>
         [Input("cipherGroup")]
         public Input<string>? CipherGroup { get; set; }
@@ -1074,15 +1074,15 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Renegotiation { get; set; }
 
         /// <summary>
-        /// When `true`, client certificate is retained in SSL session.
+        /// When `True`, client certificate is retained in SSL session.
         /// </summary>
         [Input("retainCertificate")]
         public Input<string>? RetainCertificate { get; set; }
 
         /// <summary>
         /// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
-        /// When `request` is set the system request secure renegotation of SSL connections.
-        /// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+        /// When `Request` is set the system request secure renegotation of SSL connections.
+        /// `Require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
         /// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
         /// </summary>
         [Input("secureRenegotiation")]
@@ -1114,14 +1114,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniDefault { get; set; }
 
         /// <summary>
-        /// Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        /// Requires that the network peers also provide SNI support, this setting only takes effect when `SniDefault` is set to `True`.When creating a new profile, the setting is provided by the parent profile
         /// </summary>
         [Input("sniRequire")]
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
         /// Enables or disables SSL forward proxy bypass on receiving
-        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// handshake_failure, ProtocolVersion or UnsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, ProtocolVersion or UnsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
         /// </summary>
         [Input("sslC3d")]
         public Input<string>? SslC3d { get; set; }
@@ -1155,7 +1155,7 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : TmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         /// </summary>
         public InputList<string> TmOptions
         {

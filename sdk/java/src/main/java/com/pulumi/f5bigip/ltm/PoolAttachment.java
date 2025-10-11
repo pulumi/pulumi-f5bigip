@@ -295,14 +295,14 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
         return this.ratio;
     }
     /**
-     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
-     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
      * 
      */
     public Output<Optional<String>> state() {

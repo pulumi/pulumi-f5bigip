@@ -18,7 +18,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class DataGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// Set `False` if you want to Create External Datagroups. default is `True`,means creates internal datagroup.
         /// </summary>
         [Output("internal")]
         public Output<bool?> Internal { get; private set; } = null!;
@@ -30,20 +30,20 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        /// a set of `Name` and `Data` attributes, name must be of type specified by the `Type` attributed (`String`, `Ip` and `Integer`), data is optional and can take any value, multiple `Record` sets can be specified as needed.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.DataGroupRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
-        /// This should be used in conjunction with `internal` attribute set `false`
+        /// This should be used in conjunction with `Internal` attribute set `False`
         /// </summary>
         [Output("recordsSrc")]
         public Output<string?> RecordsSrc { get; private set; } = null!;
 
         /// <summary>
-        /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
+        /// datagroup type (applies to the `Name` field of the record), supports: `String`, `Ip` or `Integer`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class DataGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// Set `False` if you want to Create External Datagroups. default is `True`,means creates internal datagroup.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
@@ -110,7 +110,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<Inputs.DataGroupRecordArgs>? _records;
 
         /// <summary>
-        /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        /// a set of `Name` and `Data` attributes, name must be of type specified by the `Type` attributed (`String`, `Ip` and `Integer`), data is optional and can take any value, multiple `Record` sets can be specified as needed.
         /// </summary>
         public InputList<Inputs.DataGroupRecordArgs> Records
         {
@@ -120,13 +120,13 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
-        /// This should be used in conjunction with `internal` attribute set `false`
+        /// This should be used in conjunction with `Internal` attribute set `False`
         /// </summary>
         [Input("recordsSrc")]
         public Input<string>? RecordsSrc { get; set; }
 
         /// <summary>
-        /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
+        /// datagroup type (applies to the `Name` field of the record), supports: `String`, `Ip` or `Integer`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class DataGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// Set `False` if you want to Create External Datagroups. default is `True`,means creates internal datagroup.
         /// </summary>
         [Input("internal")]
         public Input<bool>? Internal { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<Inputs.DataGroupRecordGetArgs>? _records;
 
         /// <summary>
-        /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        /// a set of `Name` and `Data` attributes, name must be of type specified by the `Type` attributed (`String`, `Ip` and `Integer`), data is optional and can take any value, multiple `Record` sets can be specified as needed.
         /// </summary>
         public InputList<Inputs.DataGroupRecordGetArgs> Records
         {
@@ -165,13 +165,13 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
-        /// This should be used in conjunction with `internal` attribute set `false`
+        /// This should be used in conjunction with `Internal` attribute set `False`
         /// </summary>
         [Input("recordsSrc")]
         public Input<string>? RecordsSrc { get; set; }
 
         /// <summary>
-        /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
+        /// datagroup type (applies to the `Name` field of the record), supports: `String`, `Ip` or `Integer`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

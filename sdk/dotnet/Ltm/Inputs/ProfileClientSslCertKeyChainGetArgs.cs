@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
     public sealed class ProfileClientSslCertKeyChainGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+        /// Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `Default`
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<string>? Chain { get; set; }
 
         /// <summary>
-        /// Specifies the file name of the SSL key. The default is `default`
+        /// Specifies the file name of the SSL key. The default is `Default`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

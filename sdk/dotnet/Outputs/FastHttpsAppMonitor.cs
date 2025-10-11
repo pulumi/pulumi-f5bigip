@@ -18,7 +18,7 @@ namespace Pulumi.F5BigIP.Outputs
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+        /// set `True` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `False`.
         /// </summary>
         public readonly bool? MonitorAuth;
         /// <summary>

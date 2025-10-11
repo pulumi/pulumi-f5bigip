@@ -108,14 +108,14 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
      * 
      */
     @Import(name="fastOpen")
     private @Nullable Output<String> fastOpen;
 
     /**
-     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
      * 
      */
     public Optional<Output<String>> fastOpen() {
@@ -519,7 +519,7 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
+         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can&#39;t be set to `enabled`.
          * 
          * @return builder
          * 

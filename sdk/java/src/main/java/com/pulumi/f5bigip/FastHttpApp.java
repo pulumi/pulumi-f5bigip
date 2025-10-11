@@ -304,7 +304,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.persistenceType);
     }
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -312,7 +312,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output<List<FastHttpAppPoolMember>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -334,14 +334,14 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityLogProfiles);
     }
     /**
-     * List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+     * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
     @Export(name="serviceDiscoveries", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serviceDiscoveries;
 
     /**
-     * @return List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+     * @return List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
     public Output<Optional<List<String>>> serviceDiscoveries() {
@@ -390,7 +390,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -398,7 +398,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpAppVirtualServer> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -406,7 +406,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualServer);
     }
     /**
-     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
@@ -414,7 +414,7 @@ public class FastHttpApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ FastHttpAppWafSecurityPolicy> wafSecurityPolicy;
 
     /**
-     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * @return `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      * 
      */
