@@ -88,7 +88,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> ProxyrespondOnLoggingerror { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables request logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Output("requestLogging")]
         public Output<string> RequestLogging { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> RequestlogErrorTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `None`.
         /// </summary>
         [Output("requestlogPool")]
         public Output<string?> RequestlogPool { get; private set; } = null!;
@@ -124,19 +124,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> RequestlogProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on RequestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Output("requestlogTemplate")]
         public Output<string?> RequestlogTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables response logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Output("responseLogging")]
         public Output<string> ResponseLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the pool associated with logging response errors. The default is `none`.
+        /// Defines the pool associated with logging response errors. The default is `None`.
         /// </summary>
         [Output("responselogErrorPool")]
         public Output<string?> ResponselogErrorPool { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> ResponselogErrorTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `None`.
         /// </summary>
         [Output("responselogPool")]
         public Output<string?> ResponselogPool { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> ResponselogProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on ResponselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Output("responselogTemplate")]
         public Output<string?> ResponselogTemplate { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyrespondOnLoggingerror { get; set; }
 
         /// <summary>
-        /// Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables request logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("requestLogging")]
         public Input<string>? RequestLogging { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? RequestlogErrorTemplate { get; set; }
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `None`.
         /// </summary>
         [Input("requestlogPool")]
         public Input<string>? RequestlogPool { get; set; }
@@ -290,19 +290,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? RequestlogProtocol { get; set; }
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on RequestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Input("requestlogTemplate")]
         public Input<string>? RequestlogTemplate { get; set; }
 
         /// <summary>
-        /// Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables response logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("responseLogging")]
         public Input<string>? ResponseLogging { get; set; }
 
         /// <summary>
-        /// Defines the pool associated with logging response errors. The default is `none`.
+        /// Defines the pool associated with logging response errors. The default is `None`.
         /// </summary>
         [Input("responselogErrorPool")]
         public Input<string>? ResponselogErrorPool { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ResponselogErrorTemplate { get; set; }
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `None`.
         /// </summary>
         [Input("responselogPool")]
         public Input<string>? ResponselogPool { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ResponselogProtocol { get; set; }
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on ResponselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Input("responselogTemplate")]
         public Input<string>? ResponselogTemplate { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ProxyrespondOnLoggingerror { get; set; }
 
         /// <summary>
-        /// Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables request logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("requestLogging")]
         public Input<string>? RequestLogging { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? RequestlogErrorTemplate { get; set; }
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `None`.
         /// </summary>
         [Input("requestlogPool")]
         public Input<string>? RequestlogPool { get; set; }
@@ -418,19 +418,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? RequestlogProtocol { get; set; }
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on RequestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Input("requestlogTemplate")]
         public Input<string>? RequestlogTemplate { get; set; }
 
         /// <summary>
-        /// Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
+        /// Enables or disables response logging. The default is `Disabled`, possible values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("responseLogging")]
         public Input<string>? ResponseLogging { get; set; }
 
         /// <summary>
-        /// Defines the pool associated with logging response errors. The default is `none`.
+        /// Defines the pool associated with logging response errors. The default is `None`.
         /// </summary>
         [Input("responselogErrorPool")]
         public Input<string>? ResponselogErrorPool { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ResponselogErrorTemplate { get; set; }
 
         /// <summary>
-        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
+        /// Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `None`.
         /// </summary>
         [Input("responselogPool")]
         public Input<string>? ResponselogPool { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? ResponselogProtocol { get; set; }
 
         /// <summary>
-        /// Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+        /// Specifies the directives and entries to be logged. More infor on ResponselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         /// </summary>
         [Input("responselogTemplate")]
         public Input<string>? ResponselogTemplate { get; set; }

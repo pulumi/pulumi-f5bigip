@@ -197,14 +197,14 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+     * Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      * 
      */
     @Import(name="requestlogTemplate")
     private @Nullable Output<String> requestlogTemplate;
 
     /**
-     * @return Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+     * @return Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      * 
      */
     public Optional<Output<String>> requestlogTemplate() {
@@ -302,14 +302,14 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+     * Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      * 
      */
     @Import(name="responselogTemplate")
     private @Nullable Output<String> responselogTemplate;
 
     /**
-     * @return Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+     * @return Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      * 
      */
     public Optional<Output<String>> responselogTemplate() {
@@ -612,7 +612,7 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param requestlogTemplate Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+         * @param requestlogTemplate Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param requestlogTemplate Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+         * @param requestlogTemplate Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
          * 
          * @return builder
          * 
@@ -759,7 +759,7 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param responselogTemplate Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+         * @param responselogTemplate Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
          * 
          * @return builder
          * 
@@ -770,7 +770,7 @@ public final class RequestLogProfileArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param responselogTemplate Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
+         * @param responselogTemplate Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
          * 
          * @return builder
          * 

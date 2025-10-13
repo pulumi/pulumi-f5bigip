@@ -86,19 +86,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Partition { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        /// Specifies the name of a SNAT pool. You can only use this option when `Automap` and `Translation` are not used.
         /// </summary>
         [Output("snatpool")]
         public Output<string?> Snatpool { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        /// Specifies how the SNAT object handles the client's source port. The default is `Preserve`.
         /// </summary>
         [Output("sourceport")]
         public Output<string?> Sourceport { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `Automap` and `Snatpool` are not used.
         /// </summary>
         [Output("translation")]
         public Output<string?> Translation { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Vlans { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
+        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `True`, vlandisabled on VLANS specified by `Vlans`,if set to `False` vlanEnabled set on VLANS specified by `Vlans` .
         /// </summary>
         [Output("vlansdisabled")]
         public Output<bool?> Vlansdisabled { get; private set; } = null!;
@@ -204,19 +204,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        /// Specifies the name of a SNAT pool. You can only use this option when `Automap` and `Translation` are not used.
         /// </summary>
         [Input("snatpool")]
         public Input<string>? Snatpool { get; set; }
 
         /// <summary>
-        /// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        /// Specifies how the SNAT object handles the client's source port. The default is `Preserve`.
         /// </summary>
         [Input("sourceport")]
         public Input<string>? Sourceport { get; set; }
 
         /// <summary>
-        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `Automap` and `Snatpool` are not used.
         /// </summary>
         [Input("translation")]
         public Input<string>? Translation { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
+        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `True`, vlandisabled on VLANS specified by `Vlans`,if set to `False` vlanEnabled set on VLANS specified by `Vlans` .
         /// </summary>
         [Input("vlansdisabled")]
         public Input<bool>? Vlansdisabled { get; set; }
@@ -290,19 +290,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        /// Specifies the name of a SNAT pool. You can only use this option when `Automap` and `Translation` are not used.
         /// </summary>
         [Input("snatpool")]
         public Input<string>? Snatpool { get; set; }
 
         /// <summary>
-        /// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        /// Specifies how the SNAT object handles the client's source port. The default is `Preserve`.
         /// </summary>
         [Input("sourceport")]
         public Input<string>? Sourceport { get; set; }
 
         /// <summary>
-        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        /// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `Automap` and `Snatpool` are not used.
         /// </summary>
         [Input("translation")]
         public Input<string>? Translation { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
+        /// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `True`, vlandisabled on VLANS specified by `Vlans`,if set to `False` vlanEnabled set on VLANS specified by `Vlans` .
         /// </summary>
         [Input("vlansdisabled")]
         public Input<bool>? Vlansdisabled { get; set; }

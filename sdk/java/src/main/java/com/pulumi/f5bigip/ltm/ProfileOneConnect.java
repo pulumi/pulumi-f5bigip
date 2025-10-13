@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
+ * `f5bigip.ltm.ProfileOneConnect` Configures a custom profileOneconnect for use by health checks.
  * 
  * Resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
  * 
@@ -148,14 +148,14 @@ public class ProfileOneConnect extends com.pulumi.resources.CustomResource {
         return this.maxSize;
     }
     /**
-     * Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+     * Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
+     * @return Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      * 
      */
     public Output<String> name() {

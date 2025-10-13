@@ -14,12 +14,12 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
-    /// There are two ways to use `f5bigip.ltm.PoolAttachment` resource for `node` attribute
+    /// There are two ways to use `f5bigip.ltm.PoolAttachment` resource for `Node` attribute
     /// 
     /// * It can be reference from `f5bigip.ltm.Node` (or)
     /// * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
     /// 
-    /// &gt; For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+    /// &gt; For adding IPv6 node/member to pool it should be specific in `Node` attribute in format like `ipv6_address.port`.
     /// IPv4 should be specified as `ipv4_address:port`
     /// 
     /// ### Usage Pool attachment with node/member directly attaching to pool.
@@ -157,7 +157,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> FqdnAutopopulate { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `None` (or) `Default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         /// </summary>
         [Output("monitor")]
         public Output<string> Monitor { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> Ratio { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// Specifies the state the pool member should be in,value can be `Enabled` (or) `Disabled` (or) `ForcedOffline`).
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FqdnAutopopulate { get; set; }
 
         /// <summary>
-        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `None` (or) `Default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         /// </summary>
         [Input("monitor")]
         public Input<string>? Monitor { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Ratio { get; set; }
 
         /// <summary>
-        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// Specifies the state the pool member should be in,value can be `Enabled` (or) `Disabled` (or) `ForcedOffline`).
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FqdnAutopopulate { get; set; }
 
         /// <summary>
-        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `None` (or) `Default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         /// </summary>
         [Input("monitor")]
         public Input<string>? Monitor { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Ratio { get; set; }
 
         /// <summary>
-        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// Specifies the state the pool member should be in,value can be `Enabled` (or) `Disabled` (or) `ForcedOffline`).
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

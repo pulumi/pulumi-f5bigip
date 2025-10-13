@@ -139,14 +139,14 @@ public final class GuestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+     * Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      * 
      */
     @Import(name="mgmtRoute")
     private @Nullable Output<String> mgmtRoute;
 
     /**
-     * @return Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+     * @return Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      * 
      */
     public Optional<Output<String>> mgmtRoute() {
@@ -460,7 +460,7 @@ public final class GuestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mgmtRoute Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+         * @param mgmtRoute Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class GuestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mgmtRoute Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
+         * @param mgmtRoute Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
          * 
          * @return builder
          * 
