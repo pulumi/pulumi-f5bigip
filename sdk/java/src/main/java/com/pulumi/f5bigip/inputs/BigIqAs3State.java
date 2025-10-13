@@ -128,7 +128,7 @@ public final class BigIqAs3State extends com.pulumi.resources.ResourceArgs {
      * 
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      * 
-     * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+     * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      * 
      */
     @Import(name="ignoreMetadata")
@@ -141,7 +141,7 @@ public final class BigIqAs3State extends com.pulumi.resources.ResourceArgs {
      * 
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      * 
-     * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+     * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      * 
      */
     public Optional<Output<Boolean>> ignoreMetadata() {
@@ -349,7 +349,7 @@ public final class BigIqAs3State extends com.pulumi.resources.ResourceArgs {
          * 
          * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
          * 
-         * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+         * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class BigIqAs3State extends com.pulumi.resources.ResourceArgs {
          * 
          * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
          * 
-         * &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
+         * &gt;  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
          * 
          * @return builder
          * 

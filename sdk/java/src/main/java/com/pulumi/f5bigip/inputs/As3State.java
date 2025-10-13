@@ -64,14 +64,14 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
+     * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      * 
      */
     @Import(name="deleteApps")
     private @Nullable Output<As3DeleteAppsArgs> deleteApps;
 
     /**
-     * @return Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
+     * @return Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      * 
      */
     public Optional<Output<As3DeleteAppsArgs>> deleteApps() {
@@ -90,7 +90,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
      * 
      * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
      * 
-     * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
+     * &gt; **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      * 
      */
     @Import(name="ignoreMetadata")
@@ -108,7 +108,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
      * 
      * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
      * 
-     * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
+     * &gt; **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      * 
      */
     public Optional<Output<Boolean>> ignoreMetadata() {
@@ -287,7 +287,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteApps Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
+         * @param deleteApps Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deleteApps Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
+         * @param deleteApps Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          * 
          * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
          * 
-         * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
+         * &gt; **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class As3State extends com.pulumi.resources.ResourceArgs {
          * 
          * The `f5bigip.As3` resource allows you to **post full AS3 declarations** or **selectively delete one or more applications** from a specific tenant in BIG-IP.
          * 
-         * &gt; **Note**: `delete_apps` and `as3_json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
+         * &gt; **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
          * 
          * @return builder
          * 

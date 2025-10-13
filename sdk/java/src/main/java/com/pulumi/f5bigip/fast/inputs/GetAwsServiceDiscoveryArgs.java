@@ -34,14 +34,14 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      * 
      */
     @Import(name="awsAccessKey")
     private @Nullable Output<String> awsAccessKey;
 
     /**
-     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      * 
      */
     public Optional<Output<String>> awsAccessKey() {
@@ -64,14 +64,14 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      * 
      */
     @Import(name="awsSecretAccessKey")
     private @Nullable Output<String> awsSecretAccessKey;
 
     /**
-     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+     * @return Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      * 
      */
     public Optional<Output<String>> awsSecretAccessKey() {
@@ -139,14 +139,14 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Assume a role (also requires the `external_id` field)
+     * Assume a role (also requires the `externalId` field)
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Assume a role (also requires the `external_id` field)
+     * @return Assume a role (also requires the `externalId` field)
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -279,7 +279,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param awsAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param awsAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param awsSecretAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsSecretAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param awsSecretAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
+         * @param awsSecretAccessKey Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param roleArn Assume a role (also requires the `external_id` field)
+         * @param roleArn Assume a role (also requires the `externalId` field)
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class GetAwsServiceDiscoveryArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param roleArn Assume a role (also requires the `external_id` field)
+         * @param roleArn Assume a role (also requires the `externalId` field)
          * 
          * @return builder
          * 

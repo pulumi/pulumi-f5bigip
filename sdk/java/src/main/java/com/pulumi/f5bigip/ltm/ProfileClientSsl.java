@@ -254,20 +254,20 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.certExtensionIncludes;
     }
     /**
-     * `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      * 
-     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+     * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
     @Export(name="certKeyChain", refs={ProfileClientSslCertKeyChain.class}, tree="[0]")
     private Output</* @Nullable */ ProfileClientSslCertKeyChain> certKeyChain;
 
     /**
-     * @return `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+     * @return `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      * 
-     * &gt; **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
+     * &gt; **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      * 
      */
     public Output<Optional<ProfileClientSslCertKeyChain>> certKeyChain() {
@@ -786,14 +786,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.sniDefault;
     }
     /**
-     * Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     @Export(name="sniRequire", refs={String.class}, tree="[0]")
     private Output<String> sniRequire;
 
     /**
-     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+     * @return Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      * 
      */
     public Output<String> sniRequire() {
@@ -871,7 +871,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
     }
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     @Export(name="tmOptions", refs={List.class,String.class}, tree="[0,1]")
@@ -879,7 +879,7 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
 
     /**
      * @return List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
-     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
+     * Don&#39;t insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = [&#34;dont-insert-empty-fragments&#34;,&#34;no-tlsv1.3&#34;]
      * 
      */
     public Output<List<String>> tmOptions() {

@@ -173,7 +173,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `pool_members` block takes input for FAST-Generated Pool.
+     * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -181,7 +181,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FastTcpAppPoolMemberArgs>> poolMembers;
 
     /**
-     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * @return `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
@@ -235,7 +235,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -243,7 +243,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<FastTcpAppVirtualServerArgs> virtualServer;
 
     /**
-     * @return `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+     * @return `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      * 
      */
@@ -502,7 +502,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -514,7 +514,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -525,7 +525,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * @param poolMembers `poolMembers` block takes input for FAST-Generated Pool.
          * See Pool Members below for more details.
          * 
          * @return builder
@@ -609,7 +609,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
@@ -621,7 +621,7 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualServer `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+         * @param virtualServer `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
          * See virtual server below for more details.
          * 
          * @return builder
