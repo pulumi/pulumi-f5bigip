@@ -16,6 +16,7 @@ from .get_node import *
 from .get_policy import *
 from .get_pool import *
 from .i_rule import *
+from .ifile import *
 from .monitor import *
 from .node import *
 from .persistence_profile_cookie import *
