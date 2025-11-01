@@ -144,6 +144,65 @@ import (
 //
 // ```
 //
+// ### Pool attachment resource with attaching multiple nodes in same pool using `forEach`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			node1, err := ltm.NewNode(ctx, "node1", &ltm.NodeArgs{
+//				Name:    pulumi.String("/Common/terraform_node1"),
+//				Address: pulumi.String("192.168.30.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			node2, err := ltm.NewNode(ctx, "node2", &ltm.NodeArgs{
+//				Name:    pulumi.String("/Common/terraform_node2"),
+//				Address: pulumi.String("192.168.30.2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			k8sProd, err := ltm.NewPool(ctx, "k8s_prod", &ltm.PoolArgs{
+//				Name: pulumi.String("/Common/k8prod_Pool"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var k8sprod []*ltm.PoolAttachment
+//			for key0, _ := range interface{}(std.Toset(ctx, &std.TosetArgs{
+//				Input: pulumi.StringArray{
+//					node1.Name,
+//					node2.Name,
+//				},
+//			}, nil).Result) {
+//				__res, err := ltm.NewPoolAttachment(ctx, fmt.Sprintf("k8sprod-%v", key0), &ltm.PoolAttachmentArgs{
+//					Pool: k8sProd.Name,
+//					Node: pulumi.Sprintf("%v:80", key0),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				k8sprod = append(k8sprod, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Importing
 //
 // An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:

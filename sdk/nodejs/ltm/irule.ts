@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const rule2 = new f5bigip.ltm.IRule("rule2", {
  *     name: "/Common/terraform_irule2",
  *     irule: `when CLIENT_ACCEPTED {
- *      log local0. "test"
+ *      log local0. \\"test\\"
  *    }
  * `,
  * });
