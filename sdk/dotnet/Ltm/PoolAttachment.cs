@@ -120,6 +120,47 @@ namespace Pulumi.F5BigIP.Ltm
     /// });
     /// ```
     /// 
+    /// ### Pool attachment resource with attaching multiple nodes in same pool using `ForEach`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Threading.Tasks;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(async() =&gt; 
+    /// {
+    ///     var node1 = new F5BigIP.Ltm.Node("node1", new()
+    ///     {
+    ///         Name = "/Common/terraform_node1",
+    ///         Address = "192.168.30.1",
+    ///     });
+    /// 
+    ///     var node2 = new F5BigIP.Ltm.Node("node2", new()
+    ///     {
+    ///         Name = "/Common/terraform_node2",
+    ///         Address = "192.168.30.2",
+    ///     });
+    /// 
+    ///     var k8sProd = new F5BigIP.Ltm.Pool("k8s_prod", new()
+    ///     {
+    ///         Name = "/Common/k8prod_Pool",
+    ///     });
+    /// 
+    ///     var k8sprod = new List&lt;F5BigIP.Ltm.PoolAttachment&gt;();
+    ///     foreach (var range in )
+    ///     {
+    ///         k8sprod.Add(new F5BigIP.Ltm.PoolAttachment($"k8sprod-{range.Key}", new()
+    ///         {
+    ///             Pool = k8sProd.Name,
+    ///             Node = $"{range.Key}:80",
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
     /// ## Importing
     /// 
     /// An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:

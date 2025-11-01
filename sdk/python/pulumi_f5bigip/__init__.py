@@ -281,6 +281,14 @@ _utilities.register(
  },
  {
   "pkg": "f5bigip",
+  "mod": "ltm/ifile",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/ifile:Ifile": "Ifile"
+  }
+ },
+ {
+  "pkg": "f5bigip",
   "mod": "ltm/monitor",
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
@@ -565,6 +573,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip.sys",
   "classes": {
    "f5bigip:sys/iApp:IApp": "IApp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "sys/ifile",
+  "fqn": "pulumi_f5bigip.sys",
+  "classes": {
+   "f5bigip:sys/ifile:Ifile": "Ifile"
   }
  },
  {

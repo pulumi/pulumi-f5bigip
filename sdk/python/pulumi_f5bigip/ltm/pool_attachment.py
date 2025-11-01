@@ -436,6 +436,30 @@ class PoolAttachment(pulumi.CustomResource):
             node=node.name.apply(lambda name: f"{name}:80"))
         ```
 
+        ### Pool attachment resource with attaching multiple nodes in same pool using `for_each`
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        node1 = f5bigip.ltm.Node("node1",
+            name="/Common/terraform_node1",
+            address="192.168.30.1")
+        node2 = f5bigip.ltm.Node("node2",
+            name="/Common/terraform_node2",
+            address="192.168.30.2")
+        k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
+        k8sprod = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+            node1.name,
+            node2.name,
+        ]).result)]:
+            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{range['key']}",
+                pool=k8s_prod.name,
+                node=f"{range['key']}:80"))
+        ```
+
         ## Importing
 
         An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:
@@ -531,6 +555,30 @@ class PoolAttachment(pulumi.CustomResource):
         attach_node = f5bigip.ltm.PoolAttachment("attach_node",
             pool=pool.name,
             node=node.name.apply(lambda name: f"{name}:80"))
+        ```
+
+        ### Pool attachment resource with attaching multiple nodes in same pool using `for_each`
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        node1 = f5bigip.ltm.Node("node1",
+            name="/Common/terraform_node1",
+            address="192.168.30.1")
+        node2 = f5bigip.ltm.Node("node2",
+            name="/Common/terraform_node2",
+            address="192.168.30.2")
+        k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
+        k8sprod = []
+        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+            node1.name,
+            node2.name,
+        ]).result)]:
+            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{range['key']}",
+                pool=k8s_prod.name,
+                node=f"{range['key']}:80"))
         ```
 
         ## Importing
