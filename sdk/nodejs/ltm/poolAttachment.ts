@@ -81,6 +81,38 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Pool attachment resource with attaching multiple nodes in same pool using `forEach`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as std from "@pulumi/std";
+ *
+ * export = async () => {
+ *     const node1 = new f5bigip.ltm.Node("node1", {
+ *         name: "/Common/terraform_node1",
+ *         address: "192.168.30.1",
+ *     });
+ *     const node2 = new f5bigip.ltm.Node("node2", {
+ *         name: "/Common/terraform_node2",
+ *         address: "192.168.30.2",
+ *     });
+ *     const k8sProd = new f5bigip.ltm.Pool("k8s_prod", {name: "/Common/k8prod_Pool"});
+ *     const k8sprod: f5bigip.ltm.PoolAttachment[] = [];
+ *     for (const range of std.toset({
+ *         input: [
+ *             node1.name,
+ *             node2.name,
+ *         ],
+ *     }).result.map((v, k) => ({key: k, value: v}))) {
+ *         k8sprod.push(new f5bigip.ltm.PoolAttachment(`k8sprod-${range.key}`, {
+ *             pool: k8sProd.name,
+ *             node: `${range.key}:80`,
+ *         }));
+ *     }
+ * }
+ * ```
+ *
  * ## Importing
  *
  * An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:

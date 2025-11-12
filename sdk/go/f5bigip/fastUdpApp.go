@@ -13,6 +13,49 @@ import (
 )
 
 // `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewFastUdpApp(ctx, "fast-udp-app", &f5bigip.FastUdpAppArgs{
+//				Application: pulumi.String("udp_app_2"),
+//				Tenant:      pulumi.String("udp_app_tenant"),
+//				VirtualServer: map[string]interface{}{
+//					"ip":   "11.12.16.30",
+//					"port": 443,
+//				}[0],
+//				PoolMembers: f5bigip.FastUdpAppPoolMemberArray{
+//					&f5bigip.FastUdpAppPoolMemberArgs{
+//						Addresses: pulumi.StringArray{
+//							pulumi.String("10.11.34.65"),
+//							pulumi.String("56.43.23.76"),
+//						},
+//						Port:            pulumi.Int(443),
+//						PriorityGroup:   pulumi.Int(1),
+//						ConnectionLimit: pulumi.Int(4),
+//						ShareNodes:      pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type FastUdpApp struct {
 	pulumi.CustomResourceState
 

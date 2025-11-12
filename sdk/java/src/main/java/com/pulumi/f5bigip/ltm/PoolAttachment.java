@@ -156,6 +156,65 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Pool attachment resource with attaching multiple nodes in same pool using `forEach`
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.ltm.Node;
+ * import com.pulumi.f5bigip.ltm.NodeArgs;
+ * import com.pulumi.f5bigip.ltm.Pool;
+ * import com.pulumi.f5bigip.ltm.PoolArgs;
+ * import com.pulumi.f5bigip.ltm.PoolAttachment;
+ * import com.pulumi.f5bigip.ltm.PoolAttachmentArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var node1 = new Node("node1", NodeArgs.builder()
+ *             .name("/Common/terraform_node1")
+ *             .address("192.168.30.1")
+ *             .build());
+ * 
+ *         var node2 = new Node("node2", NodeArgs.builder()
+ *             .name("/Common/terraform_node2")
+ *             .address("192.168.30.2")
+ *             .build());
+ * 
+ *         var k8sProd = new Pool("k8sProd", PoolArgs.builder()
+ *             .name("/Common/k8prod_Pool")
+ *             .build());
+ * 
+ *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+ *             .input(            
+ *                 node1.name(),
+ *                 node2.name())
+ *             .build()).result())) {
+ *             new PoolAttachment("k8sprod-" + range.key(), PoolAttachmentArgs.builder()
+ *                 .pool(k8sProd.name())
+ *                 .node(String.format("%s:80", range.key()))
+ *                 .build());
+ *         }
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Importing
  * 
  * An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:

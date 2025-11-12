@@ -39,7 +39,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         Name = "/Common/terraform_irule2",
     ///         Irule = @"when CLIENT_ACCEPTED {
-    ///      log local0. ""test""
+    ///      log local0. \""test\""
     ///    }
     /// ",
     ///     });

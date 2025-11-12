@@ -8,6 +8,17 @@ import * as utilities from "./utilities";
  * `f5bigip.NetIkePeer` Manages a ikePeer configuration
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const example1 = new f5bigip.NetIkePeer("example1", {
+ *     name: "example1",
+ *     localAddress: "192.16.81.240",
+ *     profile: "/Common/dslite",
+ * });
+ * ```
  */
 export class NetIkePeer extends pulumi.CustomResource {
     /**

@@ -730,6 +730,31 @@ class FastUdpApp(pulumi.CustomResource):
         """
         `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
+            application="udp_app_2",
+            tenant="udp_app_tenant",
+            virtual_server={
+                "ip": "11.12.16.30",
+                "port": 443,
+            }[0],
+            pool_members=[{
+                "addresses": [
+                    "10.11.34.65",
+                    "56.43.23.76",
+                ],
+                "port": 443,
+                "priority_group": 1,
+                "connection_limit": 4,
+                "share_nodes": True,
+            }])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the FAST UDP application.
@@ -764,6 +789,31 @@ class FastUdpApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
+            application="udp_app_2",
+            tenant="udp_app_tenant",
+            virtual_server={
+                "ip": "11.12.16.30",
+                "port": 443,
+            }[0],
+            pool_members=[{
+                "addresses": [
+                    "10.11.34.65",
+                    "56.43.23.76",
+                ],
+                "port": 443,
+                "priority_group": 1,
+                "connection_limit": 4,
+                "share_nodes": True,
+            }])
+        ```
 
         :param str resource_name: The name of the resource.
         :param FastUdpAppArgs args: The arguments to use to populate this resource's properties.

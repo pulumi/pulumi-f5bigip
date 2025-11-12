@@ -15,6 +15,32 @@ import (
 // `NetIkePeer` Manages a ikePeer configuration
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewNetIkePeer(ctx, "example1", &f5bigip.NetIkePeerArgs{
+//				Name:         pulumi.String("example1"),
+//				LocalAddress: "192.16.81.240",
+//				Profile:      "/Common/dslite",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type NetIkePeer struct {
 	pulumi.CustomResourceState
 
