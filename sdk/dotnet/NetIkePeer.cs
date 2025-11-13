@@ -13,6 +13,24 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.NetIkePeer` Manages a IkePeer configuration
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example1 = new F5BigIP.NetIkePeer("example1", new()
+    ///     {
+    ///         Name = "example1",
+    ///         LocalAddress = "192.16.81.240",
+    ///         Profile = "/Common/dslite",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/netIkePeer:NetIkePeer")]
     public partial class NetIkePeer : global::Pulumi.CustomResource

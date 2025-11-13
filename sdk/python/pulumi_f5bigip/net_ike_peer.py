@@ -1164,6 +1164,16 @@ class NetIkePeer(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        example1 = f5bigip.NetIkePeer("example1",
+            name="example1",
+            local_address="192.16.81.240",
+            profile="/Common/dslite")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
@@ -1211,6 +1221,16 @@ class NetIkePeer(pulumi.CustomResource):
         `NetIkePeer` Manages a ike_peer configuration
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        example1 = f5bigip.NetIkePeer("example1",
+            name="example1",
+            local_address="192.16.81.240",
+            profile="/Common/dslite")
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetIkePeerArgs args: The arguments to use to populate this resource's properties.

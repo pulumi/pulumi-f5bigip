@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .name("/Common/terraform_irule2")
  *             .irule("""
  * when CLIENT_ACCEPTED {
- *      log local0. "test"
+ *      log local0. \"test\"
  *    }
  *             """)
  *             .build());

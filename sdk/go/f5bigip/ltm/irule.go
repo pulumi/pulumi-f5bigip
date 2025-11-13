@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = ltm.NewIRule(ctx, "rule2", &ltm.IRuleArgs{
 //				Name:  pulumi.String("/Common/terraform_irule2"),
-//				Irule: pulumi.String("when CLIENT_ACCEPTED {\n     log local0. \"test\"\n   }\n"),
+//				Irule: pulumi.String("when CLIENT_ACCEPTED {\n     log local0. \\\"test\\\"\n   }\n"),
 //			})
 //			if err != nil {
 //				return err

@@ -11,6 +11,45 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fast_tcp_app = new F5BigIP.FastTcpApp("fast-tcp-app", new()
+    ///     {
+    ///         Application = "tcp_app_2",
+    ///         Tenant = "tcp_app_tenant",
+    ///         VirtualServer = 
+    ///         {
+    ///             { "ip", "11.12.16.30" },
+    ///             { "port", 443 },
+    ///         }[0],
+    ///         PoolMembers = new[]
+    ///         {
+    ///             new F5BigIP.Inputs.FastTcpAppPoolMemberArgs
+    ///             {
+    ///                 Addresses = new[]
+    ///                 {
+    ///                     "10.11.34.65",
+    ///                     "56.43.23.76",
+    ///                 },
+    ///                 Port = 443,
+    ///                 PriorityGroup = 1,
+    ///                 ConnectionLimit = 4,
+    ///                 ShareNodes = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastTcpApp:FastTcpApp")]
     public partial class FastTcpApp : global::Pulumi.CustomResource
