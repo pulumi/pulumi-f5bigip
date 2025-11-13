@@ -23,6 +23,54 @@ import javax.annotation.Nullable;
 /**
  * `f5bigip.FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.FastUdpApp;
+ * import com.pulumi.f5bigip.FastUdpAppArgs;
+ * import com.pulumi.f5bigip.inputs.FastUdpAppPoolMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fast_udp_app = new FastUdpApp("fast-udp-app", FastUdpAppArgs.builder()
+ *             .application("udp_app_2")
+ *             .tenant("udp_app_tenant")
+ *             .virtualServer(FastUdpAppVirtualServerArgs.builder()
+ *                 .ip("11.12.16.30")
+ *                 .port(443)
+ *                 .build()[0])
+ *             .poolMembers(FastUdpAppPoolMemberArgs.builder()
+ *                 .addresses(                
+ *                     "10.11.34.65",
+ *                     "56.43.23.76")
+ *                 .port(443)
+ *                 .priorityGroup(1)
+ *                 .connectionLimit(4)
+ *                 .shareNodes(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  */
 @ResourceType(type="f5bigip:index/fastUdpApp:FastUdpApp")
 public class FastUdpApp extends com.pulumi.resources.CustomResource {
