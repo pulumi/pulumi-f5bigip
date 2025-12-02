@@ -1,3 +1,0 @@
-name: f5bigip-pool
-runtime: nodejs
-description: Provision F5 BigIP Local Traffic Manager (LTM) resources (in TypeScript)
