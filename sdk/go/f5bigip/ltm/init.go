@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataGroup{}
 	case "f5bigip:ltm/iRule:IRule":
 		r = &IRule{}
+	case "f5bigip:ltm/ifile:Ifile":
+		r = &Ifile{}
 	case "f5bigip:ltm/monitor:Monitor":
 		r = &Monitor{}
 	case "f5bigip:ltm/node:Node":
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"ltm/iRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/ifile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
