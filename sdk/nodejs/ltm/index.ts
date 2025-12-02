@@ -50,6 +50,11 @@ export const getPool: typeof import("./getPool").getPool = null as any;
 export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
 
+export { IfileArgs, IfileState } from "./ifile";
+export type Ifile = import("./ifile").Ifile;
+export const Ifile: typeof import("./ifile").Ifile = null as any;
+utilities.lazyLoad(exports, ["Ifile"], () => require("./ifile"));
+
 export { IRuleArgs, IRuleState } from "./irule";
 export type IRule = import("./irule").IRule;
 export const IRule: typeof import("./irule").IRule = null as any;
@@ -208,6 +213,8 @@ const _module = {
                 return new DataGroup(name, <any>undefined, { urn })
             case "f5bigip:ltm/iRule:IRule":
                 return new IRule(name, <any>undefined, { urn })
+            case "f5bigip:ltm/ifile:Ifile":
+                return new Ifile(name, <any>undefined, { urn })
             case "f5bigip:ltm/monitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
             case "f5bigip:ltm/node:Node":
@@ -273,6 +280,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "ltm/cipherGroup", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/cipherRule", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/dataGroup", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/iRule", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/ifile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/monitor", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/node", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/persistenceProfileCookie", _module)
