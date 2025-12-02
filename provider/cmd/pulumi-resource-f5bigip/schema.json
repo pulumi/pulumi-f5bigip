@@ -7576,6 +7576,88 @@
                 "type": "object"
             }
         },
+        "f5bigip:ltm/ifile:Ifile": {
+            "description": "\u003cspan pulumi-lang-nodejs=\"`f5bigip.ltm.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.ltm.Ifile`\" pulumi-lang-go=\"`ltm.Ifile`\" pulumi-lang-python=\"`ltm.Ifile`\" pulumi-lang-yaml=\"`f5bigip.ltm.Ifile`\" pulumi-lang-java=\"`f5bigip.ltm.Ifile`\"\u003e`f5bigip.ltm.Ifile`\u003c/span\u003e This resource creates an LTM iFile on F5 BIG-IP that references an existing system iFile. \nLTM iFiles are used in iRules and LTM policies to access file content for traffic processing and decision making.\n\n## Example Usage\n\n### Using LTM iFile in iRule\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst serverList = new f5bigip.sys.Ifile(\"server_list\", {\n    name: \"server-mapping\",\n    partition: \"Production\",\n    content: `web1:10.1.1.10\nweb2:10.1.1.11\nweb3:10.1.1.12\n`,\n});\nconst ltmServers = new f5bigip.ltm.Ifile(\"ltm_servers\", {\n    name: \"ltm-server-mapping\",\n    partition: \"Production\",\n    fileName: \"/Production/server-mapping\",\n});\nconst serverSelector = new f5bigip.ltm.IRule(\"server_selector\", {\n    name: \"select-server-rule\",\n    irule: `when HTTP_REQUEST {\n  set server_map [ifile get ltm-server-mapping]\n  # Process server mapping logic\n  foreach line [split server_map \\\\\"\\\\\n\\\\\"] {\n    set parts [split line \\\\\":\\\\\"]\n    # Implement server selection logic\n  }\n}\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nserver_list = f5bigip.sys.Ifile(\"server_list\",\n    name=\"server-mapping\",\n    partition=\"Production\",\n    content=\"\"\"web1:10.1.1.10\nweb2:10.1.1.11\nweb3:10.1.1.12\n\"\"\")\nltm_servers = f5bigip.ltm.Ifile(\"ltm_servers\",\n    name=\"ltm-server-mapping\",\n    partition=\"Production\",\n    file_name=\"/Production/server-mapping\")\nserver_selector = f5bigip.ltm.IRule(\"server_selector\",\n    name=\"select-server-rule\",\n    irule=\"\"\"when HTTP_REQUEST {\n  set server_map [ifile get ltm-server-mapping]\n  # Process server mapping logic\n  foreach line [split $server_map \\\"\\\n\\\"] {\n    set parts [split $line \\\":\\\"]\n    # Implement server selection logic\n  }\n}\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var serverList = new F5BigIP.Sys.Ifile(\"server_list\", new()\n    {\n        Name = \"server-mapping\",\n        Partition = \"Production\",\n        Content = @\"web1:10.1.1.10\nweb2:10.1.1.11\nweb3:10.1.1.12\n\",\n    });\n\n    var ltmServers = new F5BigIP.Ltm.Ifile(\"ltm_servers\", new()\n    {\n        Name = \"ltm-server-mapping\",\n        Partition = \"Production\",\n        FileName = \"/Production/server-mapping\",\n    });\n\n    var serverSelector = new F5BigIP.Ltm.IRule(\"server_selector\", new()\n    {\n        Name = \"select-server-rule\",\n        Irule = @\"when HTTP_REQUEST {\n  set server_map [ifile get ltm-server-mapping]\n  # Process server mapping logic\n  foreach line [split $server_map \\\"\"\\\n\\\"\"] {\n    set parts [split $line \\\"\":\\\"\"]\n    # Implement server selection logic\n  }\n}\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewIfile(ctx, \"server_list\", \u0026sys.IfileArgs{\n\t\t\tName:      pulumi.String(\"server-mapping\"),\n\t\t\tPartition: pulumi.String(\"Production\"),\n\t\t\tContent:   pulumi.String(\"web1:10.1.1.10\\nweb2:10.1.1.11\\nweb3:10.1.1.12\\n\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewIfile(ctx, \"ltm_servers\", \u0026ltm.IfileArgs{\n\t\t\tName:      pulumi.String(\"ltm-server-mapping\"),\n\t\t\tPartition: pulumi.String(\"Production\"),\n\t\t\tFileName:  pulumi.String(\"/Production/server-mapping\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewIRule(ctx, \"server_selector\", \u0026ltm.IRuleArgs{\n\t\t\tName: pulumi.String(\"select-server-rule\"),\n\t\t\tIrule: pulumi.String(`when HTTP_REQUEST {\n  set server_map [ifile get ltm-server-mapping]\n  # Process server mapping logic\n  foreach line [split $server_map \\\"\\\n\\\"] {\n    set parts [split $line \\\":\\\"]\n    # Implement server selection logic\n  }\n}\n`),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.IRule;\nimport com.pulumi.f5bigip.ltm.IRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var serverList = new com.pulumi.f5bigip.sys.Ifile(\"serverList\", com.pulumi.f5bigip.sys.IfileArgs.builder()\n            .name(\"server-mapping\")\n            .partition(\"Production\")\n            .content(\"\"\"\nweb1:10.1.1.10\nweb2:10.1.1.11\nweb3:10.1.1.12\n            \"\"\")\n            .build());\n\n        var ltmServers = new com.pulumi.f5bigip.ltm.Ifile(\"ltmServers\", com.pulumi.f5bigip.ltm.IfileArgs.builder()\n            .name(\"ltm-server-mapping\")\n            .partition(\"Production\")\n            .fileName(\"/Production/server-mapping\")\n            .build());\n\n        var serverSelector = new IRule(\"serverSelector\", IRuleArgs.builder()\n            .name(\"select-server-rule\")\n            .irule(\"\"\"\nwhen HTTP_REQUEST {\n  set server_map [ifile get ltm-server-mapping]\n  # Process server mapping logic\n  foreach line [split $server_map \\\"\\\n\\\"] {\n    set parts [split $line \\\":\\\"]\n    # Implement server selection logic\n  }\n}\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  serverList:\n    type: f5bigip:sys:Ifile\n    name: server_list\n    properties:\n      name: server-mapping\n      partition: Production\n      content: |\n        web1:10.1.1.10\n        web2:10.1.1.11\n        web3:10.1.1.12\n  ltmServers:\n    type: f5bigip:ltm:Ifile\n    name: ltm_servers\n    properties:\n      name: ltm-server-mapping\n      partition: Production\n      fileName: /Production/server-mapping\n  serverSelector:\n    type: f5bigip:ltm:IRule\n    name: server_selector\n    properties:\n      name: select-server-rule\n      irule: |\n        when HTTP_REQUEST {\n          set server_map [ifile get ltm-server-mapping]\n          # Process server mapping logic\n          foreach line [split $server_map \\\"\\\n        \\\"] {\n            set parts [split $line \\\":\\\"]\n            # Implement server selection logic\n          }\n        }\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Notes\n\n* The referenced system iFile (specified in \u003cspan pulumi-lang-nodejs=\"`fileName`\" pulumi-lang-dotnet=\"`FileName`\" pulumi-lang-go=\"`fileName`\" pulumi-lang-python=\"`file_name`\" pulumi-lang-yaml=\"`fileName`\" pulumi-lang-java=\"`fileName`\"\u003e`file_name`\u003c/span\u003e) must exist before creating the LTM iFile.\n* LTM iFiles are primarily used in iRules and LTM policies for traffic processing.\n* Changes to \u003cspan pulumi-lang-nodejs=\"`name`\" pulumi-lang-dotnet=\"`Name`\" pulumi-lang-go=\"`name`\" pulumi-lang-python=\"`name`\" pulumi-lang-yaml=\"`name`\" pulumi-lang-java=\"`name`\"\u003e`name`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`partition`\" pulumi-lang-dotnet=\"`Partition`\" pulumi-lang-go=\"`partition`\" pulumi-lang-python=\"`partition`\" pulumi-lang-yaml=\"`partition`\" pulumi-lang-java=\"`partition`\"\u003e`partition`\u003c/span\u003e, or \u003cspan pulumi-lang-nodejs=\"`subPath`\" pulumi-lang-dotnet=\"`SubPath`\" pulumi-lang-go=\"`subPath`\" pulumi-lang-python=\"`sub_path`\" pulumi-lang-yaml=\"`subPath`\" pulumi-lang-java=\"`subPath`\"\u003e`sub_path`\u003c/span\u003e will force recreation of the resource.\n* The LTM iFile acts as a reference to the system iFile and doesn't store content directly.\n* Use \u003cspan pulumi-lang-nodejs=\"`f5bigip.sys.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.sys.Ifile`\" pulumi-lang-go=\"`sys.Ifile`\" pulumi-lang-python=\"`sys.Ifile`\" pulumi-lang-yaml=\"`f5bigip.sys.Ifile`\" pulumi-lang-java=\"`f5bigip.sys.Ifile`\"\u003e`f5bigip.sys.Ifile`\u003c/span\u003e to upload file content, then reference it with \u003cspan pulumi-lang-nodejs=\"`f5bigip.ltm.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.ltm.Ifile`\" pulumi-lang-go=\"`ltm.Ifile`\" pulumi-lang-python=\"`ltm.Ifile`\" pulumi-lang-yaml=\"`f5bigip.ltm.Ifile`\" pulumi-lang-java=\"`f5bigip.ltm.Ifile`\"\u003e`f5bigip.ltm.Ifile`\u003c/span\u003e for LTM usage.\n\n## Related Resources\n\n* \u003cspan pulumi-lang-nodejs=\"`f5bigip.sys.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.sys.Ifile`\" pulumi-lang-go=\"`sys.Ifile`\" pulumi-lang-python=\"`sys.Ifile`\" pulumi-lang-yaml=\"`f5bigip.sys.Ifile`\" pulumi-lang-java=\"`f5bigip.sys.Ifile`\"\u003e`f5bigip.sys.Ifile`\u003c/span\u003e - Creates system iFiles with content\n* \u003cspan pulumi-lang-nodejs=\"`f5bigip.ltm.IRule`\" pulumi-lang-dotnet=\"`f5bigip.ltm.IRule`\" pulumi-lang-go=\"`ltm.IRule`\" pulumi-lang-python=\"`ltm.IRule`\" pulumi-lang-yaml=\"`f5bigip.ltm.IRule`\" pulumi-lang-java=\"`f5bigip.ltm.IRule`\"\u003e`f5bigip.ltm.IRule`\u003c/span\u003e - Creates iRules that can reference LTM iFiles\n* \u003cspan pulumi-lang-nodejs=\"`f5bigip.ltm.Policy`\" pulumi-lang-dotnet=\"`f5bigip.ltm.Policy`\" pulumi-lang-go=\"`ltm.Policy`\" pulumi-lang-python=\"`ltm.Policy`\" pulumi-lang-yaml=\"`f5bigip.ltm.Policy`\" pulumi-lang-java=\"`f5bigip.ltm.Policy`\"\u003e`f5bigip.ltm.Policy`\u003c/span\u003e - Creates LTM policies that can use LTM iFiles\n\n## Import\n\nLTM iFiles can be imported using their full path:\n\nbash\n\n```sh\n$ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile\n```\n\nFor iFiles with sub-paths:\n\nbash\n\n```sh\n$ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile\n```\n\n",
+            "properties": {
+                "fileName": {
+                    "type": "string",
+                    "description": "The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with \u003cspan pulumi-lang-nodejs=\"`f5bigip.sys.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.sys.Ifile`\" pulumi-lang-go=\"`sys.Ifile`\" pulumi-lang-python=\"`sys.Ifile`\" pulumi-lang-yaml=\"`f5bigip.sys.Ifile`\" pulumi-lang-java=\"`f5bigip.sys.Ifile`\"\u003e`f5bigip.sys.Ifile`\u003c/span\u003e.\n"
+                },
+                "fullPath": {
+                    "type": "string",
+                    "description": "The complete path of the LTM iFile on the BIG-IP system.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the LTM iFile to be created on BIG-IP.\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition where the LTM iFile will be created. Defaults to `Common`.\n"
+                },
+                "subPath": {
+                    "type": "string",
+                    "description": "Subdirectory within the partition for organizing iFiles.\n"
+                }
+            },
+            "required": [
+                "fileName",
+                "fullPath",
+                "name"
+            ],
+            "inputProperties": {
+                "fileName": {
+                    "type": "string",
+                    "description": "The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with \u003cspan pulumi-lang-nodejs=\"`f5bigip.sys.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.sys.Ifile`\" pulumi-lang-go=\"`sys.Ifile`\" pulumi-lang-python=\"`sys.Ifile`\" pulumi-lang-yaml=\"`f5bigip.sys.Ifile`\" pulumi-lang-java=\"`f5bigip.sys.Ifile`\"\u003e`f5bigip.sys.Ifile`\u003c/span\u003e.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the LTM iFile to be created on BIG-IP.\n",
+                    "willReplaceOnChanges": true
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition where the LTM iFile will be created. Defaults to `Common`.\n",
+                    "willReplaceOnChanges": true
+                },
+                "subPath": {
+                    "type": "string",
+                    "description": "Subdirectory within the partition for organizing iFiles.\n"
+                }
+            },
+            "requiredInputs": [
+                "fileName",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Ifile resources.\n",
+                "properties": {
+                    "fileName": {
+                        "type": "string",
+                        "description": "The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with \u003cspan pulumi-lang-nodejs=\"`f5bigip.sys.Ifile`\" pulumi-lang-dotnet=\"`f5bigip.sys.Ifile`\" pulumi-lang-go=\"`sys.Ifile`\" pulumi-lang-python=\"`sys.Ifile`\" pulumi-lang-yaml=\"`f5bigip.sys.Ifile`\" pulumi-lang-java=\"`f5bigip.sys.Ifile`\"\u003e`f5bigip.sys.Ifile`\u003c/span\u003e.\n"
+                    },
+                    "fullPath": {
+                        "type": "string",
+                        "description": "The complete path of the LTM iFile on the BIG-IP system.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the LTM iFile to be created on BIG-IP.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "partition": {
+                        "type": "string",
+                        "description": "Partition where the LTM iFile will be created. Defaults to `Common`.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "subPath": {
+                        "type": "string",
+                        "description": "Subdirectory within the partition for organizing iFiles.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:ltm/monitor:Monitor": {
             "description": "\u003cspan pulumi-lang-nodejs=\"`f5bigip.ltm.Monitor`\" pulumi-lang-dotnet=\"`f5bigip.ltm.Monitor`\" pulumi-lang-go=\"`ltm.Monitor`\" pulumi-lang-python=\"`ltm.Monitor`\" pulumi-lang-yaml=\"`f5bigip.ltm.Monitor`\" pulumi-lang-java=\"`f5bigip.ltm.Monitor`\"\u003e`f5bigip.ltm.Monitor`\u003c/span\u003e Configures a custom monitor for use by health checks.\n\nFor resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\\x0d\\n\",\n    timeout: 999,\n    interval: 998,\n    destination: \"1.2.3.4:1234\",\n});\nconst test_https_monitor = new f5bigip.ltm.Monitor(\"test-https-monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    sslProfile: \"/Common/serverssl\",\n    send: \"GET /some/path\\x0d\\n\",\n    interval: 999,\n    timeout: 1000,\n});\nconst test_ftp_monitor = new f5bigip.ltm.Monitor(\"test-ftp-monitor\", {\n    name: \"/Common/ftp-test\",\n    parent: \"/Common/ftp\",\n    interval: 5,\n    timeUntilUp: 0,\n    timeout: 16,\n    destination: \"*:8008\",\n    filename: \"somefile\",\n});\nconst test_postgresql_monitor = new f5bigip.ltm.Monitor(\"test-postgresql-monitor\", {\n    name: \"/Common/test-postgresql-monitor\",\n    parent: \"/Common/postgresql\",\n    send: \"SELECT 'Test';\",\n    receive: \"Test\",\n    interval: 5,\n    timeout: 16,\n    username: \"abcd\",\n    password: \"abcd1234\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\\x0d\\n\",\n    timeout=999,\n    interval=998,\n    destination=\"1.2.3.4:1234\")\ntest_https_monitor = f5bigip.ltm.Monitor(\"test-https-monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    ssl_profile=\"/Common/serverssl\",\n    send=\"GET /some/path\\x0d\\n\",\n    interval=999,\n    timeout=1000)\ntest_ftp_monitor = f5bigip.ltm.Monitor(\"test-ftp-monitor\",\n    name=\"/Common/ftp-test\",\n    parent=\"/Common/ftp\",\n    interval=5,\n    time_until_up=0,\n    timeout=16,\n    destination=\"*:8008\",\n    filename=\"somefile\")\ntest_postgresql_monitor = f5bigip.ltm.Monitor(\"test-postgresql-monitor\",\n    name=\"/Common/test-postgresql-monitor\",\n    parent=\"/Common/postgresql\",\n    send=\"SELECT 'Test';\",\n    receive=\"Test\",\n    interval=5,\n    timeout=16,\n    username=\"abcd\",\n    password=\"abcd1234\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        Send = @\"GET /some/path\r\n\",\n        Timeout = 999,\n        Interval = 998,\n        Destination = \"1.2.3.4:1234\",\n    });\n\n    var test_https_monitor = new F5BigIP.Ltm.Monitor(\"test-https-monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        SslProfile = \"/Common/serverssl\",\n        Send = @\"GET /some/path\r\n\",\n        Interval = 999,\n        Timeout = 1000,\n    });\n\n    var test_ftp_monitor = new F5BigIP.Ltm.Monitor(\"test-ftp-monitor\", new()\n    {\n        Name = \"/Common/ftp-test\",\n        Parent = \"/Common/ftp\",\n        Interval = 5,\n        TimeUntilUp = 0,\n        Timeout = 16,\n        Destination = \"*:8008\",\n        Filename = \"somefile\",\n    });\n\n    var test_postgresql_monitor = new F5BigIP.Ltm.Monitor(\"test-postgresql-monitor\", new()\n    {\n        Name = \"/Common/test-postgresql-monitor\",\n        Parent = \"/Common/postgresql\",\n        Send = \"SELECT 'Test';\",\n        Receive = \"Test\",\n        Interval = 5,\n        Timeout = 16,\n        Username = \"abcd\",\n        Password = \"abcd1234\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:      pulumi.String(\"/Common/http\"),\n\t\t\tSend:        pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:     pulumi.Int(999),\n\t\t\tInterval:    pulumi.Int(998),\n\t\t\tDestination: pulumi.String(\"1.2.3.4:1234\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-https-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:       pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:     pulumi.String(\"/Common/http\"),\n\t\t\tSslProfile: pulumi.String(\"/Common/serverssl\"),\n\t\t\tSend:       pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tInterval:   pulumi.Int(999),\n\t\t\tTimeout:    pulumi.Int(1000),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-ftp-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:        pulumi.String(\"/Common/ftp-test\"),\n\t\t\tParent:      pulumi.String(\"/Common/ftp\"),\n\t\t\tInterval:    pulumi.Int(5),\n\t\t\tTimeUntilUp: pulumi.Int(0),\n\t\t\tTimeout:     pulumi.Int(16),\n\t\t\tDestination: pulumi.String(\"*:8008\"),\n\t\t\tFilename:    pulumi.String(\"somefile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-postgresql-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:     pulumi.String(\"/Common/test-postgresql-monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/postgresql\"),\n\t\t\tSend:     pulumi.String(\"SELECT 'Test';\"),\n\t\t\tReceive:  pulumi.String(\"Test\"),\n\t\t\tInterval: pulumi.Int(5),\n\t\t\tTimeout:  pulumi.Int(16),\n\t\t\tUsername: pulumi.String(\"abcd\"),\n\t\t\tPassword: pulumi.String(\"abcd1234\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.Monitor;\nimport com.pulumi.f5bigip.ltm.MonitorArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new Monitor(\"monitor\", MonitorArgs.builder()\n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .timeout(999)\n            .interval(998)\n            .destination(\"1.2.3.4:1234\")\n            .build());\n\n        var test_https_monitor = new Monitor(\"test-https-monitor\", MonitorArgs.builder()\n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .sslProfile(\"/Common/serverssl\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .interval(999)\n            .timeout(1000)\n            .build());\n\n        var test_ftp_monitor = new Monitor(\"test-ftp-monitor\", MonitorArgs.builder()\n            .name(\"/Common/ftp-test\")\n            .parent(\"/Common/ftp\")\n            .interval(5)\n            .timeUntilUp(0)\n            .timeout(16)\n            .destination(\"*:8008\")\n            .filename(\"somefile\")\n            .build());\n\n        var test_postgresql_monitor = new Monitor(\"test-postgresql-monitor\", MonitorArgs.builder()\n            .name(\"/Common/test-postgresql-monitor\")\n            .parent(\"/Common/postgresql\")\n            .send(\"SELECT 'Test';\")\n            .receive(\"Test\")\n            .interval(5)\n            .timeout(16)\n            .username(\"abcd\")\n            .password(\"abcd1234\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      send: \"GET /some/path\\r\\n\"\n      timeout: '999'\n      interval: '998'\n      destination: 1.2.3.4:1234\n  test-https-monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      sslProfile: /Common/serverssl\n      send: \"GET /some/path\\r\\n\"\n      interval: '999'\n      timeout: '1000'\n  test-ftp-monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/ftp-test\n      parent: /Common/ftp\n      interval: 5\n      timeUntilUp: 0\n      timeout: 16\n      destination: '*:8008'\n      filename: somefile\n  test-postgresql-monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/test-postgresql-monitor\n      parent: /Common/postgresql\n      send: SELECT 'Test';\n      receive: Test\n      interval: 5\n      timeout: 16\n      username: abcd\n      password: abcd1234\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Importing\n\nAn existing monitor can be imported into this resource by supplying monitor Name in `full path` as \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e.\nAn example is below:\n```sh\n$ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor\n```\n",
             "properties": {
@@ -15302,6 +15384,98 @@
                         "items": {
                             "$ref": "#/types/f5bigip:sys/IAppVariable:IAppVariable"
                         }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:sys/ifile:Ifile": {
+            "description": "\n\n## Import\n\nSystem iFiles can be imported using their full path:\n\nbash\n\n```sh\n$ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile\n```\n\nFor iFiles with sub-paths:\n\nbash\n\n```sh\n$ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile\n```\n\n",
+            "properties": {
+                "checksum": {
+                    "type": "string",
+                    "description": "MD5 checksum of the iFile content, automatically calculated by BIG-IP.\n"
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.\n",
+                    "secret": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition where the iFile will be stored. Defaults to `Common`.\n"
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "Size of the iFile content in bytes.\n"
+                },
+                "subPath": {
+                    "type": "string",
+                    "description": "Subdirectory within the partition for organizing iFiles hierarchically.\n"
+                }
+            },
+            "required": [
+                "checksum",
+                "content",
+                "name",
+                "size"
+            ],
+            "inputProperties": {
+                "content": {
+                    "type": "string",
+                    "description": "The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.\n",
+                    "secret": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.\n",
+                    "willReplaceOnChanges": true
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition where the iFile will be stored. Defaults to `Common`.\n"
+                },
+                "subPath": {
+                    "type": "string",
+                    "description": "Subdirectory within the partition for organizing iFiles hierarchically.\n"
+                }
+            },
+            "requiredInputs": [
+                "content",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Ifile resources.\n",
+                "properties": {
+                    "checksum": {
+                        "type": "string",
+                        "description": "MD5 checksum of the iFile content, automatically calculated by BIG-IP.\n"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.\n",
+                        "secret": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "partition": {
+                        "type": "string",
+                        "description": "Partition where the iFile will be stored. Defaults to `Common`.\n"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "Size of the iFile content in bytes.\n"
+                    },
+                    "subPath": {
+                        "type": "string",
+                        "description": "Subdirectory within the partition for organizing iFiles hierarchically.\n"
                     }
                 },
                 "type": "object"
