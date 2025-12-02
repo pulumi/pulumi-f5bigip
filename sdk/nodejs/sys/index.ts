@@ -20,6 +20,11 @@ export type IApp = import("./iapp").IApp;
 export const IApp: typeof import("./iapp").IApp = null as any;
 utilities.lazyLoad(exports, ["IApp"], () => require("./iapp"));
 
+export { IfileArgs, IfileState } from "./ifile";
+export type Ifile = import("./ifile").Ifile;
+export const Ifile: typeof import("./ifile").Ifile = null as any;
+utilities.lazyLoad(exports, ["Ifile"], () => require("./ifile"));
+
 export { NtpArgs, NtpState } from "./ntp";
 export type Ntp = import("./ntp").Ntp;
 export const Ntp: typeof import("./ntp").Ntp = null as any;
@@ -56,6 +61,8 @@ const _module = {
                 return new Dns(name, <any>undefined, { urn })
             case "f5bigip:sys/iApp:IApp":
                 return new IApp(name, <any>undefined, { urn })
+            case "f5bigip:sys/ifile:Ifile":
+                return new Ifile(name, <any>undefined, { urn })
             case "f5bigip:sys/ntp:Ntp":
                 return new Ntp(name, <any>undefined, { urn })
             case "f5bigip:sys/ocsp:Ocsp":
@@ -74,6 +81,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("f5bigip", "sys/bigIpLicense", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "sys/dns", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "sys/iApp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "sys/ifile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "sys/ntp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "sys/ocsp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "sys/provision", _module)
