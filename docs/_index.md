@@ -41,6 +41,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
@@ -49,6 +50,7 @@ const hostname = config.requireObject<any>("hostname");
 const username = config.requireObject<any>("username");
 const password = config.requireObject<any>("password");
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -64,6 +66,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```python
 import pulumi
 
@@ -72,6 +75,7 @@ hostname = config.require_object("hostname")
 username = config.require_object("username")
 password = config.require_object("password")
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -87,6 +91,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -101,6 +106,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -116,6 +122,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```go
 package main
 
@@ -134,6 +141,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -149,6 +157,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```yaml
 configuration:
   hostname:
@@ -158,6 +167,7 @@ configuration:
   password:
     type: dynamic
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -173,6 +183,7 @@ config:
         value: 'TODO: var.username'
 
 ```
+
 ```java
 package generated_program;
 
@@ -199,6 +210,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 ## Configuration Reference
