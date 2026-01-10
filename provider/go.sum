@@ -1401,8 +1401,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
-github.com/F5Networks/terraform-provider-bigip v1.24.1 h1:fSVRLvJAxDy/MyywMzIfMjByaSRjZnOJSJyIrZSTqvc=
-github.com/F5Networks/terraform-provider-bigip v1.24.1/go.mod h1:CAtOpsCXdIy76P3gk4ZmdaGuyznmoGSk1intYqsJdoU=
+github.com/F5Networks/terraform-provider-bigip v1.24.2 h1:7gxSjOUDesPZm7wsscR8JsM63y0+xvBMRTitRZxlQ3c=
+github.com/F5Networks/terraform-provider-bigip v1.24.2/go.mod h1:4IYAxilsjvzHjJSR0maG6G/dhG6+ridCbCdbu1rg1dA=
 github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.25.0/go.mod h1:obipzmGjfSjam60XLwGfqUkJsfiheAl+TUjG+4yzyPM=
 github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.27.0/go.mod h1:yAZHSGnqScoU556rBOVkwLze6WP5N+U11RHuWaGVxwY=
 github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.29.0/go.mod h1:Cz6ft6Dkn3Et6l2v2a9/RpN7epQ1GtDlO6lj8bEcOvw=

@@ -88,6 +88,29 @@ import javax.annotation.Nullable;
  *             .password("abcd1234")
  *             .build());
  * 
+ *         // Step 1: Create custom parent monitor (inherits from built-in)
+ *         var parent_monitor = new Monitor("parent-monitor", MonitorArgs.builder()
+ *             .name("/Common/parent")
+ *             .parent("/Common/http")
+ *             .interval(999)
+ *             .timeout(1000)
+ *             .send("""
+ * GET /
+ *             """)
+ *             .receive("200")
+ *             .build());
+ * 
+ *         // Step 2: Create child monitor that inherits from custom parent
+ *         // Inherited from parent: interval=999, timeout=1000, receive="200"
+ *         var child_monitor = new Monitor("child-monitor", MonitorArgs.builder()
+ *             .name("/Common/child")
+ *             .parent("/Common/http")
+ *             .customParent(parent_monitor.name())
+ *             .send("""
+ * GET /custom
+ *             """)
+ *             .build());
+ * 
  *     }
  * }
  * }
