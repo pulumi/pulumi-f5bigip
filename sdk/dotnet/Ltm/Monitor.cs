@@ -69,6 +69,29 @@ namespace Pulumi.F5BigIP.Ltm
     ///         Password = "abcd1234",
     ///     });
     /// 
+    ///     // Step 1: Create custom parent monitor (inherits from built-in)
+    ///     var parent_monitor = new F5BigIP.Ltm.Monitor("parent-monitor", new()
+    ///     {
+    ///         Name = "/Common/parent",
+    ///         Parent = "/Common/http",
+    ///         Interval = 999,
+    ///         Timeout = 1000,
+    ///         Send = @"GET /
+    /// ",
+    ///         Receive = "200",
+    ///     });
+    /// 
+    ///     // Step 2: Create child monitor that inherits from custom parent
+    ///     // Inherited from parent: interval=999, timeout=1000, receive="200"
+    ///     var child_monitor = new F5BigIP.Ltm.Monitor("child-monitor", new()
+    ///     {
+    ///         Name = "/Common/child",
+    ///         Parent = "/Common/http",
+    ///         CustomParent = parent_monitor.Name,
+    ///         Send = @"GET /custom
+    /// ",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

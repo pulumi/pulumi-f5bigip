@@ -50,6 +50,23 @@ import * as utilities from "../utilities";
  *     username: "abcd",
  *     password: "abcd1234",
  * });
+ * // Step 1: Create custom parent monitor (inherits from built-in)
+ * const parent_monitor = new f5bigip.ltm.Monitor("parent-monitor", {
+ *     name: "/Common/parent",
+ *     parent: "/Common/http",
+ *     interval: 999,
+ *     timeout: 1000,
+ *     send: "GET /\x0d\n",
+ *     receive: "200",
+ * });
+ * // Step 2: Create child monitor that inherits from custom parent
+ * // Inherited from parent: interval=999, timeout=1000, receive="200"
+ * const child_monitor = new f5bigip.ltm.Monitor("child-monitor", {
+ *     name: "/Common/child",
+ *     parent: "/Common/http",
+ *     customParent: parent_monitor.name,
+ *     send: "GET /custom\x0d\n",
+ * });
  * ```
  *
  * ## Importing

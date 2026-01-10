@@ -77,6 +77,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Step 1: Create custom parent monitor (inherits from built-in)
+//			parent_monitor, err := ltm.NewMonitor(ctx, "parent-monitor", &ltm.MonitorArgs{
+//				Name:     pulumi.String("/Common/parent"),
+//				Parent:   pulumi.String("/Common/http"),
+//				Interval: pulumi.Int(999),
+//				Timeout:  pulumi.Int(1000),
+//				Send:     pulumi.String("GET /\n"),
+//				Receive:  pulumi.String("200"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Step 2: Create child monitor that inherits from custom parent
+//			// Inherited from parent: interval=999, timeout=1000, receive="200"
+//			_, err = ltm.NewMonitor(ctx, "child-monitor", &ltm.MonitorArgs{
+//				Name:         pulumi.String("/Common/child"),
+//				Parent:       pulumi.String("/Common/http"),
+//				CustomParent: parent_monitor.Name,
+//				Send:         pulumi.String("GET /custom\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
