@@ -1023,12 +1023,6 @@ class ProfileHttp(pulumi.CustomResource):
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_xff: Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -1092,12 +1086,6 @@ class ProfileHttp(pulumi.CustomResource):
         ## Import
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileHttpArgs args: The arguments to use to populate this resource's properties.

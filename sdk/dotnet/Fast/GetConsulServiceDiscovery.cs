@@ -247,6 +247,9 @@ namespace Pulumi.F5BigIP.Fast
     public sealed class GetConsulServiceDiscoveryResult
     {
         public readonly string? AddressRealm;
+        /// <summary>
+        /// The JSON for Hashicorp Consul service discovery block.
+        /// </summary>
         public readonly string ConsulSdJson;
         public readonly bool? CredentialUpdate;
         public readonly string? EncodedToken;

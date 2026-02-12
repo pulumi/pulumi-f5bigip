@@ -17,14 +17,14 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
     public static final SslKeyCertArgs Empty = new SslKeyCertArgs();
 
     /**
-     * The content of the cert.
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      * 
      */
     @Import(name="certContent", required=true)
     private Output<String> certContent;
 
     /**
-     * @return The content of the cert.
+     * @return Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      * 
      */
     public Output<String> certContent() {
@@ -107,14 +107,14 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The content of the key.
+     * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      * 
      */
     @Import(name="keyContent", required=true)
     private Output<String> keyContent;
 
     /**
-     * @return The content of the key.
+     * @return Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      * 
      */
     public Output<String> keyContent() {
@@ -216,7 +216,7 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certContent The content of the cert.
+         * @param certContent Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certContent The content of the cert.
+         * @param certContent Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyContent The content of the key.
+         * @param keyContent Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SslKeyCertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyContent The content of the key.
+         * @param keyContent Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
          * 
          * @return builder
          * 

@@ -19,20 +19,15 @@ __all__ = [
     'VlanInterfaceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class VlanInterfaceArgsDict(TypedDict):
-        tagged: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
-        """
-        vlanport: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Physical or virtual port used for traffic
-        """
-elif False:
-    VlanInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class VlanInterfaceArgsDict(TypedDict):
+    tagged: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
+    """
+    vlanport: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Physical or virtual port used for traffic
+    """
 
 @pulumi.input_type
 class VlanInterfaceArgs:

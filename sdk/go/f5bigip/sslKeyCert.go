@@ -23,7 +23,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 type SslKeyCert struct {
 	pulumi.CustomResourceState
 
-	// The content of the cert.
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 	CertContent pulumi.StringOutput `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringOutput `pulumi:"certFullPath"`
@@ -72,7 +72,7 @@ type SslKeyCert struct {
 	CertOcsp pulumi.StringPtrOutput `pulumi:"certOcsp"`
 	// Specifies the issuer certificate.
 	IssuerCert pulumi.StringPtrOutput `pulumi:"issuerCert"`
-	// The content of the key.
+	// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 	KeyContent pulumi.StringOutput `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
 	KeyFullPath pulumi.StringOutput `pulumi:"keyFullPath"`
@@ -141,7 +141,7 @@ func GetSslKeyCert(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SslKeyCert resources.
 type sslKeyCertState struct {
-	// The content of the cert.
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 	CertContent *string `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath *string `pulumi:"certFullPath"`
@@ -153,7 +153,7 @@ type sslKeyCertState struct {
 	CertOcsp *string `pulumi:"certOcsp"`
 	// Specifies the issuer certificate.
 	IssuerCert *string `pulumi:"issuerCert"`
-	// The content of the key.
+	// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 	KeyContent *string `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
 	KeyFullPath *string `pulumi:"keyFullPath"`
@@ -166,7 +166,7 @@ type sslKeyCertState struct {
 }
 
 type SslKeyCertState struct {
-	// The content of the cert.
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 	CertContent pulumi.StringPtrInput
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type SslKeyCertState struct {
 	CertOcsp pulumi.StringPtrInput
 	// Specifies the issuer certificate.
 	IssuerCert pulumi.StringPtrInput
-	// The content of the key.
+	// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 	KeyContent pulumi.StringPtrInput
 	// full path of the SSL key on the BIGIP.
 	KeyFullPath pulumi.StringPtrInput
@@ -195,7 +195,7 @@ func (SslKeyCertState) ElementType() reflect.Type {
 }
 
 type sslKeyCertArgs struct {
-	// The content of the cert.
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 	CertContent string `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath *string `pulumi:"certFullPath"`
@@ -207,7 +207,7 @@ type sslKeyCertArgs struct {
 	CertOcsp *string `pulumi:"certOcsp"`
 	// Specifies the issuer certificate.
 	IssuerCert *string `pulumi:"issuerCert"`
-	// The content of the key.
+	// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 	KeyContent string `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
 	KeyFullPath *string `pulumi:"keyFullPath"`
@@ -221,7 +221,7 @@ type sslKeyCertArgs struct {
 
 // The set of arguments for constructing a SslKeyCert resource.
 type SslKeyCertArgs struct {
-	// The content of the cert.
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 	CertContent pulumi.StringInput
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type SslKeyCertArgs struct {
 	CertOcsp pulumi.StringPtrInput
 	// Specifies the issuer certificate.
 	IssuerCert pulumi.StringPtrInput
-	// The content of the key.
+	// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 	KeyContent pulumi.StringInput
 	// full path of the SSL key on the BIGIP.
 	KeyFullPath pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o SslKeyCertOutput) ToSslKeyCertOutputWithContext(ctx context.Context) Ssl
 	return o
 }
 
-// The content of the cert.
+// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
 func (o SslKeyCertOutput) CertContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslKeyCert) pulumi.StringOutput { return v.CertContent }).(pulumi.StringOutput)
 }
@@ -362,7 +362,7 @@ func (o SslKeyCertOutput) IssuerCert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SslKeyCert) pulumi.StringPtrOutput { return v.IssuerCert }).(pulumi.StringPtrOutput)
 }
 
-// The content of the key.
+// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
 func (o SslKeyCertOutput) KeyContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslKeyCert) pulumi.StringOutput { return v.KeyContent }).(pulumi.StringOutput)
 }

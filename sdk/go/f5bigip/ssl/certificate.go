@@ -23,7 +23,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Content of certificate on Disk
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 	Content pulumi.StringOutput `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringOutput `pulumi:"fullPath"`
@@ -64,7 +64,7 @@ type Certificate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the OCSP responder.
 	Ocsp pulumi.StringPtrOutput `pulumi:"ocsp"`
-	// Partition of ssl certificate
+	// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
 }
 
@@ -111,7 +111,7 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Content of certificate on Disk
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 	Content *string `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath *string `pulumi:"fullPath"`
@@ -123,12 +123,12 @@ type certificateState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the OCSP responder.
 	Ocsp *string `pulumi:"ocsp"`
-	// Partition of ssl certificate
+	// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 	Partition *string `pulumi:"partition"`
 }
 
 type CertificateState struct {
-	// Content of certificate on Disk
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 	Content pulumi.StringPtrInput
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringPtrInput
@@ -140,7 +140,7 @@ type CertificateState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the OCSP responder.
 	Ocsp pulumi.StringPtrInput
-	// Partition of ssl certificate
+	// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 	Partition pulumi.StringPtrInput
 }
 
@@ -149,7 +149,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Content of certificate on Disk
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 	Content string `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath *string `pulumi:"fullPath"`
@@ -161,13 +161,13 @@ type certificateArgs struct {
 	Name string `pulumi:"name"`
 	// Specifies the OCSP responder.
 	Ocsp *string `pulumi:"ocsp"`
-	// Partition of ssl certificate
+	// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 	Partition *string `pulumi:"partition"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Content of certificate on Disk
+	// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 	Content pulumi.StringInput
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type CertificateArgs struct {
 	Name pulumi.StringInput
 	// Specifies the OCSP responder.
 	Ocsp pulumi.StringPtrInput
-	// Partition of ssl certificate
+	// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 	Partition pulumi.StringPtrInput
 }
 
@@ -270,7 +270,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Content of certificate on Disk
+// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
 func (o CertificateOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
@@ -300,7 +300,7 @@ func (o CertificateOutput) Ocsp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Ocsp }).(pulumi.StringPtrOutput)
 }
 
-// Partition of ssl certificate
+// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
 func (o CertificateOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }

@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:index/sslKeyCert:SslKeyCert")
 public class SslKeyCert extends com.pulumi.resources.CustomResource {
     /**
-     * The content of the cert.
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      * 
      */
     @Export(name="certContent", refs={String.class}, tree="[0]")
     private Output<String> certContent;
 
     /**
-     * @return The content of the cert.
+     * @return Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      * 
      */
     public Output<String> certContent() {
@@ -150,14 +150,14 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.issuerCert);
     }
     /**
-     * The content of the key.
+     * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      * 
      */
     @Export(name="keyContent", refs={String.class}, tree="[0]")
     private Output<String> keyContent;
 
     /**
-     * @return The content of the key.
+     * @return Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      * 
      */
     public Output<String> keyContent() {

@@ -35,14 +35,32 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password of  BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     * 
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     * 
+     * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     * 
+     * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+     * state to empty and won&#39;t throw error.
      * 
      */
     @Import(name="bigipPassword")
     private @Nullable Output<String> bigipPassword;
 
     /**
-     * @return Password of  BIGIP host to be used for this resource
+     * @return Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     * 
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     * 
+     * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     * 
+     * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+     * state to empty and won&#39;t throw error.
      * 
      */
     public Optional<Output<String>> bigipPassword() {
@@ -206,7 +224,16 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of  BIGIP host to be used for this resource
+         * @param bigipPassword Password of  BIGIP host to be used for this resource,this is optional parameter.
+         * whenever we specify this parameter it gets overwrite provider configuration
+         * 
+         * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+         * 
+         * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+         * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+         * 
+         * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+         * state to empty and won&#39;t throw error.
          * 
          * @return builder
          * 
@@ -217,7 +244,16 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of  BIGIP host to be used for this resource
+         * @param bigipPassword Password of  BIGIP host to be used for this resource,this is optional parameter.
+         * whenever we specify this parameter it gets overwrite provider configuration
+         * 
+         * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+         * 
+         * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+         * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+         * 
+         * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+         * state to empty and won&#39;t throw error.
          * 
          * @return builder
          * 

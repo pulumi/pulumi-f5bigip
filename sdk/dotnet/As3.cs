@@ -10,362 +10,302 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
+    /// `f5bigip.As3` provides details about bigip as3 resource
+    /// 
+    /// This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+    /// 
+    /// &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+    /// 
+    /// &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
+    /// 
+    /// &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute TenantName to be passed to add application on specified tenant, else random tenant name will be generated.
+    /// 
+    /// As3 Declaration can be deployed in Traditional way as well as Per-Application Way :
+    /// 
+    /// - Traditional Way - Entire Declaration needs to be passed in during the create and update call along with the tenant details in the declaration.
+    /// - Per-Application Way - Only application details needs to be passed in the as3_json. Tenant name needs to be passed else random tenant name will be generated.
+    /// 
+    /// **Note:** : PerApplication needs to be turned `True` as a Prerequisite on the Big-IP (BIG-IP AS3 version &gt;3.50) device. For details : &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html&gt;
+    /// 
+    /// ### Delete Specific Applications from a Tenant
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var as3AppDeletion = new F5BigIP.As3("as3_app_deletion", new()
+    ///     {
+    ///         DeleteApps = new F5BigIP.Inputs.As3DeleteAppsArgs
+    ///         {
+    ///             TenantName = "Tenant-2",
+    ///             Apps = new[]
+    ///             {
+    ///                 "terraform_vs_http",
+    ///                 "legacy_app",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example of controls parameters
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var as3_example1 = new F5BigIP.As3("as3-example1", new()
+    ///     {
+    ///         As3Json = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "example1.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Controls = 
+    ///         {
+    ///             { "dry_run", "no" },
+    ///             { "trace", "yes" },
+    ///             { "trace_response", "yes" },
+    ///             { "log_level", "debug" },
+    ///             { "user_agent", "dummy agent" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// # Per-Application Deployment - Example Usage for json file with tenant name
+    /// resource "f5bigip.As3" "as3-example1" {
+    ///   As3Json   = file("perApplication_example.json")
+    ///   TenantName = "Test"
+    /// }
+    /// 
+    /// # Per-Application Deployment - Example Usage for json file without tenant name - Tenant with Random name is generated in this case
+    /// resource "f5bigip.As3" "as3-example1" {
+    ///   As3Json   = file("perApplication_example.json")
+    /// }
+    /// 
+    /// ## Behavior
+    /// 
+    /// When `DeleteApps` is used, Terraform logs “Creating...”, but the underlying logic performs application deletion via REST API calls.
+    /// 
+    /// Each app in the `Apps` list is deleted using:
+    /// 
+    /// A synthetic resource ID is assigned to keep Terraform state consistent after successful deletion.
+    /// 
+    /// ***
+    /// 
+    /// ## Outputs
+    /// 
+    /// - `TaskId` – AS3 task ID used in BIG-IP.
+    /// - `ApplicationList` – List of deleted applications (if applicable).
+    /// - `TenantList` – List of affected tenants.
+    /// 
+    /// ***
+    /// 
     /// ## Import
     /// 
     /// As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
     /// 
     /// ```sh
-    /// $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01
-    /// ```
-    /// 
-    /// ```sh
-    /// $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01,Sample_non_http_01
+    ///    $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+    ///    $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
     /// ```
     /// 
     /// #### Import examples ( single and multiple partitions )
     /// 
     /// ```sh
+    /// 
     /// $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
-    /// ```
-    /// 
     /// bigip_as3.test: Importing from ID "Sample_http_01"...
-    /// 
     /// bigip_as3.test: Import prepared!
-    /// 
     ///   Prepared bigip_as3 for import
-    /// 
     /// bigip_as3.test: Refreshing state... [id=Sample_http_01]
     /// 
     /// Import successful!
     /// 
     /// The resources that were imported are shown above. These resources are now in
-    /// 
     /// your Terraform state and will henceforth be managed by Terraform.
     /// 
     /// $ terraform show
+    /// ```
     /// 
     /// bigip_as3.test:
-    /// 
-    /// resource "bigip_as3" "test" {
-    /// 
-    ///     as3_json      = jsonencode(
-    ///     
-    ///         {
-    ///     
-    ///             action      = "deploy"
-    ///     
-    ///             class       = "AS3"
-    ///     
-    ///             declaration = {
-    ///     
-    ///                 Sample_http_01 = {
-    ///     
-    ///                     A1    = {
-    ///     
-    ///                         class      = "Application"
-    ///     
-    ///                         jsessionid = {
-    ///     
-    ///                             class             = "Persist"
-    ///     
-    ///                             cookieMethod      = "hash"
-    ///     
-    ///                             cookieName        = "JSESSIONID"
-    ///     
-    ///                             persistenceMethod = "cookie"
-    ///     
-    ///                         }
-    ///     
-    ///                         service    = {
-    ///     
-    ///                             class              = "Service_HTTP"
-    ///     
-    ///                             persistenceMethods = [
-    ///     
-    ///                                 {
-    ///     
-    ///                                     use = "jsessionid"
-    ///     
-    ///                                 },
-    ///     
-    ///                             ]
-    ///     
-    ///                             pool               = "web_pool"
-    ///     
-    ///                             virtualAddresses   = [
-    ///     
-    ///                                 "10.0.2.10",
-    ///     
-    ///                             ]
-    ///     
-    ///                         }
-    ///     
-    ///                         web_pool   = {
-    ///     
-    ///                             class    = "Pool"
-    ///     
-    ///                             members  = [
-    ///     
-    ///                                 {
-    ///     
-    ///                                     serverAddresses = [
-    ///     
-    ///                                         "192.0.2.10",
-    ///     
-    ///                                         "192.0.2.11",
-    ///     
-    ///                                     ]
-    ///     
-    ///                                     servicePort     = 80
-    ///     
-    ///                                 },
-    ///     
-    ///                             ]
-    ///     
-    ///                             monitors = [
-    ///     
-    ///                                 "http",
-    ///     
-    ///                             ]
-    ///     
-    ///                         }
-    ///     
-    ///                     }
-    ///     
-    ///                     class = "Tenant"
-    ///     
-    ///                 }
-    ///     
-    ///                 class          = "ADC"
-    ///     
-    ///                 id             = "UDP_DNS_Sample"
-    ///     
-    ///                 label          = "UDP_DNS_Sample"
-    ///     
-    ///                 remark         = "Sample of a UDP DNS Load Balancer Service"
-    ///     
-    ///                 schemaVersion  = "3.0.0"
-    ///     
-    ///             }
-    ///     
-    ///             persist     = true
-    ///     
-    ///         }
-    ///     
-    ///     )
-    ///     
-    ///     id            = "Sample_http_01"
-    ///     
-    ///     tenant_filter = "Sample_http_01"
-    ///     
-    ///     tenant_list   = "Sample_http_01"
-    /// 
+    /// resource "f5bigip.As3" "test" {
+    /// As3Json      = jsonencode(
+    /// {
+    /// action      = "deploy"
+    /// class       = "AS3"
+    /// declaration = {
+    /// Sample_http_01 = {
+    /// A1    = {
+    /// class      = "Application"
+    /// jsessionid = {
+    /// class             = "Persist"
+    /// cookieMethod      = "hash"
+    /// cookieName        = "JSESSIONID"
+    /// persistenceMethod = "cookie"
+    /// }
+    /// service    = {
+    /// class              = "Service_HTTP"
+    /// persistenceMethods = [
+    /// {
+    /// use = "jsessionid"
+    /// },
+    /// ]
+    /// pool               = "WebPool"
+    /// virtualAddresses   = [
+    /// "10.0.2.10",
+    /// ]
+    /// }
+    /// WebPool   = {
+    /// class    = "Pool"
+    /// members  = [
+    /// {
+    /// serverAddresses = [
+    /// "192.0.2.10",
+    /// "192.0.2.11",
+    /// ]
+    /// servicePort     = 80
+    /// },
+    /// ]
+    /// monitors = [
+    /// "http",
+    /// ]
+    /// }
+    /// }
+    /// class = "Tenant"
+    /// }
+    /// class          = "ADC"
+    /// id             = "UDP_DNS_Sample"
+    /// label          = "UDP_DNS_Sample"
+    /// remark         = "Sample of a UDP DNS Load Balancer Service"
+    /// schemaVersion  = "3.0.0"
+    /// }
+    /// persist     = true
+    /// }
+    /// )
+    /// id            = "Sample_http_01"
+    /// TenantFilter = "Sample_http_01"
+    /// TenantList   = "Sample_http_01"
     /// }
     /// 
     /// ```sh
     /// $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
-    /// ```
-    /// 
     /// bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
-    /// 
     /// bigip_as3.test: Import prepared!
-    /// 
     ///   Prepared bigip_as3 for import
-    /// 
     /// bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
     /// 
     /// Import successful!
     /// 
     /// The resources that were imported are shown above. These resources are now in
-    /// 
     /// your Terraform state and will henceforth be managed by Terraform.
     /// 
     /// $ terraform show
+    /// ```
     /// 
     /// bigip_as3.test:
-    /// 
-    /// resource "bigip_as3" "test" {
-    /// 
-    ///     as3_json      = jsonencode(
-    ///     
-    ///         {
-    ///     
-    ///             action      = "deploy"
-    ///     
-    ///             class       = "AS3"
-    ///     
-    ///             declaration = {
-    ///     
-    ///                 Sample_http_01     = {
-    ///     
-    ///                     A1    = {
-    ///     
-    ///                         class      = "Application"
-    ///     
-    ///                         jsessionid = {
-    ///     
-    ///                             class             = "Persist"
-    ///     
-    ///                             cookieMethod      = "hash"
-    ///     
-    ///                             cookieName        = "JSESSIONID"
-    ///     
-    ///                             persistenceMethod = "cookie"
-    ///     
-    ///                         }
-    ///     
-    ///                         service    = {
-    ///     
-    ///                             class              = "Service_HTTP"
-    ///     
-    ///                             persistenceMethods = [
-    ///     
-    ///                                 {
-    ///     
-    ///                                     use = "jsessionid"
-    ///     
-    ///                                 },
-    ///     
-    ///                             ]
-    ///     
-    ///                             pool               = "web_pool"
-    ///     
-    ///                             virtualAddresses   = [
-    ///     
-    ///                                 "10.0.2.10",
-    ///     
-    ///                             ]
-    ///     
-    ///                         }
-    ///     
-    ///                         web_pool   = {
-    ///     
-    ///                             class    = "Pool"
-    ///     
-    ///                             members  = [
-    ///     
-    ///                                 {
-    ///     
-    ///                                     serverAddresses = [
-    ///     
-    ///                                         "192.0.2.10",
-    ///     
-    ///                                         "192.0.2.11",
-    ///     
-    ///                                     ]
-    ///     
-    ///                                     servicePort     = 80
-    ///     
-    ///                                 },
-    ///     
-    ///                             ]
-    ///     
-    ///                             monitors = [
-    ///     
-    ///                                 "http",
-    ///     
-    ///                             ]
-    ///     
-    ///                         }
-    ///     
-    ///                     }
-    ///     
-    ///                     class = "Tenant"
-    ///     
-    ///                 }
-    ///     
-    ///                 Sample_non_http_01 = {
-    ///     
-    ///                     DNS_Service = {
-    ///     
-    ///                         Pool1   = {
-    ///     
-    ///                             class    = "Pool"
-    ///     
-    ///                             members  = [
-    ///     
-    ///                                 {
-    ///     
-    ///                                     serverAddresses = [
-    ///     
-    ///                                         "10.1.10.100",
-    ///     
-    ///                                     ]
-    ///     
-    ///                                     servicePort     = 53
-    ///     
-    ///                                 },
-    ///     
-    ///                                 {
-    ///     
-    ///                                     serverAddresses = [
-    ///     
-    ///                                         "10.1.10.101",
-    ///     
-    ///                                     ]
-    ///     
-    ///                                     servicePort     = 53
-    ///     
-    ///                                 },
-    ///     
-    ///                             ]
-    ///     
-    ///                             monitors = [
-    ///     
-    ///                                 "icmp",
-    ///     
-    ///                             ]
-    ///     
-    ///                         }
-    ///     
-    ///                         class   = "Application"
-    ///     
-    ///                         service = {
-    ///     
-    ///                             class            = "Service_UDP"
-    ///     
-    ///                             pool             = "Pool1"
-    ///     
-    ///                             virtualAddresses = [
-    ///     
-    ///                                 "10.1.20.121",
-    ///     
-    ///                             ]
-    ///     
-    ///                             virtualPort      = 53
-    ///     
-    ///                         }
-    ///     
-    ///                     }
-    ///     
-    ///                     class       = "Tenant"
-    ///     
-    ///                 }
-    ///     
-    ///                 class              = "ADC"
-    ///     
-    ///                 id                 = "UDP_DNS_Sample"
-    ///     
-    ///                 label              = "UDP_DNS_Sample"
-    ///     
-    ///                 remark             = "Sample of a UDP DNS Load Balancer Service"
-    ///     
-    ///                 schemaVersion      = "3.0.0"
-    ///     
-    ///             }
-    ///     
-    ///             persist     = true
-    ///     
-    ///         }
-    ///     
-    ///     )
-    ///     
-    ///     id            = "Sample_http_01,Sample_non_http_01"
-    ///     
-    ///     tenant_filter = "Sample_http_01,Sample_non_http_01"
-    ///     
-    ///     tenant_list   = "Sample_http_01,Sample_non_http_01"
-    /// 
+    /// resource "f5bigip.As3" "test" {
+    /// As3Json      = jsonencode(
+    /// {
+    /// action      = "deploy"
+    /// class       = "AS3"
+    /// declaration = {
+    /// Sample_http_01     = {
+    /// A1    = {
+    /// class      = "Application"
+    /// jsessionid = {
+    /// class             = "Persist"
+    /// cookieMethod      = "hash"
+    /// cookieName        = "JSESSIONID"
+    /// persistenceMethod = "cookie"
+    /// }
+    /// service    = {
+    /// class              = "Service_HTTP"
+    /// persistenceMethods = [
+    /// {
+    /// use = "jsessionid"
+    /// },
+    /// ]
+    /// pool               = "WebPool"
+    /// virtualAddresses   = [
+    /// "10.0.2.10",
+    /// ]
+    /// }
+    /// WebPool   = {
+    /// class    = "Pool"
+    /// members  = [
+    /// {
+    /// serverAddresses = [
+    /// "192.0.2.10",
+    /// "192.0.2.11",
+    /// ]
+    /// servicePort     = 80
+    /// },
+    /// ]
+    /// monitors = [
+    /// "http",
+    /// ]
+    /// }
+    /// }
+    /// class = "Tenant"
+    /// }
+    /// Sample_non_http_01 = {
+    /// DNS_Service = {
+    /// Pool1   = {
+    /// class    = "Pool"
+    /// members  = [
+    /// {
+    /// serverAddresses = [
+    /// "10.1.10.100",
+    /// ]
+    /// servicePort     = 53
+    /// },
+    /// {
+    /// serverAddresses = [
+    /// "10.1.10.101",
+    /// ]
+    /// servicePort     = 53
+    /// },
+    /// ]
+    /// monitors = [
+    /// "icmp",
+    /// ]
+    /// }
+    /// class   = "Application"
+    /// service = {
+    /// class            = "Service_UDP"
+    /// pool             = "Pool1"
+    /// virtualAddresses = [
+    /// "10.1.20.121",
+    /// ]
+    /// virtualPort      = 53
+    /// }
+    /// }
+    /// class       = "Tenant"
+    /// }
+    /// class              = "ADC"
+    /// id                 = "UDP_DNS_Sample"
+    /// label              = "UDP_DNS_Sample"
+    /// remark             = "Sample of a UDP DNS Load Balancer Service"
+    /// schemaVersion      = "3.0.0"
+    /// }
+    /// persist     = true
+    /// }
+    /// )
+    /// id            = "Sample_http_01,Sample_non_http_01"
+    /// TenantFilter = "Sample_http_01,Sample_non_http_01"
+    /// TenantList   = "Sample_http_01,Sample_non_http_01"
     /// }
     /// 
     /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html

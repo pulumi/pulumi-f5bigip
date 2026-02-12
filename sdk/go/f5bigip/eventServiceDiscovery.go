@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `EventServiceDiscovery` Terraform resource to update pool members based on event driven Service Discovery.
+//
+// # The API endpoint for Service discovery tasks should be available before using the resource and with this resource,we will be able to connect to a specific endpoint related to event based service discovery that will allow us to update the list of pool members
+//
 // ## Example Usage
 //
 // ```go

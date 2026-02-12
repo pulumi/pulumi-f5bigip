@@ -10,23 +10,174 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
+    /// `f5bigip.sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+    /// System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### System iFile with Sub-path
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateFile = new F5BigIP.Sys.Ifile("template_file", new()
+    ///     {
+    ///         Name = "error-template",
+    ///         Partition = "Common",
+    ///         SubPath = "templates",
+    ///         Content = @"&lt;html&gt;
+    ///   &lt;head&gt;&lt;title&gt;Service Unavailable&lt;/title&gt;&lt;/head&gt;
+    ///   &lt;body&gt;
+    ///     &lt;h1&gt;503 - Service Temporarily Unavailable&lt;/h1&gt;
+    ///     &lt;p&gt;Please try again later.&lt;/p&gt;
+    ///   &lt;/body&gt;
+    /// &lt;/html&gt;
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### JSON Configuration File
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverList = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["servers"] = new[]
+    ///         {
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["name"] = "web1",
+    ///                 ["ip"] = "10.1.1.10",
+    ///                 ["port"] = 80,
+    ///             },
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["name"] = "web2",
+    ///                 ["ip"] = "10.1.1.11",
+    ///                 ["port"] = 80,
+    ///             },
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["name"] = "web3",
+    ///                 ["ip"] = "10.1.1.12",
+    ///                 ["port"] = 80,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var serverConfig = new F5BigIP.Sys.Ifile("server_config", new()
+    ///     {
+    ///         Name = "server-list",
+    ///         Partition = "MyApp",
+    ///         Content = serverList,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Using System iFile with LTM iFile
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create system iFile with content
+    ///     var lookupTable = new F5BigIP.Sys.Ifile("lookup_table", new()
+    ///     {
+    ///         Name = "url-rewrite-map",
+    ///         Partition = "Common",
+    ///         Content = @"/old-api/v1/ /api/v2/
+    /// /legacy/ /new/
+    /// /deprecated/ /current/
+    /// ",
+    ///     });
+    /// 
+    ///     // Create LTM iFile that references the system iFile
+    ///     var ltmLookup = new F5BigIP.Ltm.Ifile("ltm_lookup", new()
+    ///     {
+    ///         Name = "ltm-url-rewrite-map",
+    ///         Partition = "Common",
+    ///         FileName = "/Common/url-rewrite-map",
+    ///     });
+    /// 
+    ///     // Use in an iRule
+    ///     var urlRewriter = new F5BigIP.Ltm.IRule("url_rewriter", new()
+    ///     {
+    ///         Name = "url-rewrite-rule",
+    ///         Irule = @"when HTTP_REQUEST {
+    ///   set uri [HTTP::uri]
+    ///   set mapping [ifile get ltm-url-rewrite-map]
+    ///   foreach line [split $mapping \""\
+    /// \""] {
+    ///     set parts [split $line \"" \""]
+    ///     if {[string match [lindex $parts 0]* $uri]} {
+    ///       HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
+    ///       break
+    ///     }
+    ///   }
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Notes
+    /// 
+    /// * The `Content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+    /// * Changes to `Name` will force recreation of the resource since iFile names cannot be changed after creation.
+    /// * The `Checksum` and `Size` attributes are automatically computed by the BIG-IP system.
+    /// * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+    /// * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+    /// * System iFiles can be referenced by `f5bigip.ltm.Ifile` resources for use in LTM configurations.
+    /// 
+    /// ## Path Structure
+    /// 
+    /// The full path of an iFile follows this pattern:
+    /// - Without sub-path: `/{partition}/{name}`
+    /// - With sub-path: `/{partition}/{sub_path}/{name}`
+    /// 
+    /// Examples:
+    /// - `/Common/config-file`
+    /// - `/Production/templates/error-page`
+    /// - `/MyApp/configs/database-settings`
+    /// 
+    /// ## Related Resources
+    /// 
+    /// * `f5bigip.ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+    /// * `f5bigip.ltm.IRule` - Creates iRules that can access iFile content
+    /// * `f5bigip.ltm.Policy` - Creates LTM policies that can use iFile content
+    /// 
+    /// ## Security Considerations
+    /// 
+    /// * iFile content is stored on the BIG-IP system and may contain sensitive information
+    /// * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+    /// * Consider using Terraform's sensitive variable handling for confidential content
+    /// * The `Content` field is marked as sensitive in Terraform state to prevent accidental exposure
+    /// 
     /// ## Import
     /// 
     /// System iFiles can be imported using their full path:
     /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
-    /// ```
-    /// 
     /// For iFiles with sub-paths:
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ifile:Ifile")]
     public partial class Ifile : global::Pulumi.CustomResource

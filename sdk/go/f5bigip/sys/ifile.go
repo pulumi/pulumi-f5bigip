@@ -12,23 +12,203 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+// System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+//
+// ## Example Usage
+//
+// ### System iFile with Sub-path
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewIfile(ctx, "template_file", &sys.IfileArgs{
+//				Name:      pulumi.String("error-template"),
+//				Partition: pulumi.String("Common"),
+//				SubPath:   pulumi.String("templates"),
+//				Content: pulumi.String(`<html>
+//	  <head><title>Service Unavailable</title></head>
+//	  <body>
+//	    <h1>503 - Service Temporarily Unavailable</h1>
+//	    <p>Please try again later.</p>
+//	  </body>
+//
+// </html>
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### JSON Configuration File
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"servers": []map[string]interface{}{
+//					map[string]interface{}{
+//						"name": "web1",
+//						"ip":   "10.1.1.10",
+//						"port": 80,
+//					},
+//					map[string]interface{}{
+//						"name": "web2",
+//						"ip":   "10.1.1.11",
+//						"port": 80,
+//					},
+//					map[string]interface{}{
+//						"name": "web3",
+//						"ip":   "10.1.1.12",
+//						"port": 80,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			serverList := json0
+//			_, err = sys.NewIfile(ctx, "server_config", &sys.IfileArgs{
+//				Name:      pulumi.String("server-list"),
+//				Partition: pulumi.String("MyApp"),
+//				Content:   pulumi.String(serverList),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Using System iFile with LTM iFile
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Create system iFile with content
+//			_, err := sys.NewIfile(ctx, "lookup_table", &sys.IfileArgs{
+//				Name:      pulumi.String("url-rewrite-map"),
+//				Partition: pulumi.String("Common"),
+//				Content:   pulumi.String("/old-api/v1/ /api/v2/\n/legacy/ /new/\n/deprecated/ /current/\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create LTM iFile that references the system iFile
+//			_, err = ltm.NewIfile(ctx, "ltm_lookup", &ltm.IfileArgs{
+//				Name:      pulumi.String("ltm-url-rewrite-map"),
+//				Partition: pulumi.String("Common"),
+//				FileName:  pulumi.String("/Common/url-rewrite-map"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Use in an iRule
+//			_, err = ltm.NewIRule(ctx, "url_rewriter", &ltm.IRuleArgs{
+//				Name: pulumi.String("url-rewrite-rule"),
+//				Irule: pulumi.String(`when HTTP_REQUEST {
+//	  set uri [HTTP::uri]
+//	  set mapping [ifile get ltm-url-rewrite-map]
+//	  foreach line [split $mapping \"\
+//
+//	\"] {
+//	    set parts [split $line \" \"]
+//	    if {[string match [lindex $parts 0]* $uri]} {
+//	      HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
+//	      break
+//	    }
+//	  }
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Notes
+//
+// * The `content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+// * Changes to `name` will force recreation of the resource since iFile names cannot be changed after creation.
+// * The `checksum` and `size` attributes are automatically computed by the BIG-IP system.
+// * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+// * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+// * System iFiles can be referenced by `ltm.Ifile` resources for use in LTM configurations.
+//
+// ## Path Structure
+//
+// The full path of an iFile follows this pattern:
+// - Without sub-path: `/{partition}/{name}`
+// - With sub-path: `/{partition}/{sub_path}/{name}`
+//
+// Examples:
+// - `/Common/config-file`
+// - `/Production/templates/error-page`
+// - `/MyApp/configs/database-settings`
+//
+// ## Related Resources
+//
+// * `ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+// * `ltm.IRule` - Creates iRules that can access iFile content
+// * `ltm.Policy` - Creates LTM policies that can use iFile content
+//
+// ## Security Considerations
+//
+// * iFile content is stored on the BIG-IP system and may contain sensitive information
+// * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+// * Consider using Terraform's sensitive variable handling for confidential content
+// * The `content` field is marked as sensitive in Terraform state to prevent accidental exposure
+//
 // ## Import
 //
 // System iFiles can be imported using their full path:
 //
-// bash
-//
-// ```sh
-// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
-// ```
-//
 // For iFiles with sub-paths:
-//
-// bash
-//
-// ```sh
-// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
-// ```
 type Ifile struct {
 	pulumi.CustomResourceState
 

@@ -240,19 +240,7 @@ class Ifile(pulumi.CustomResource):
 
         LTM iFiles can be imported using their full path:
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
-        ```
-
         For iFiles with sub-paths:
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,19 +310,7 @@ class Ifile(pulumi.CustomResource):
 
         LTM iFiles can be imported using their full path:
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
-        ```
-
         For iFiles with sub-paths:
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
-        ```
 
         :param str resource_name: The name of the resource.
         :param IfileArgs args: The arguments to use to populate this resource's properties.

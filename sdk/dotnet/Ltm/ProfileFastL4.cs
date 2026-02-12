@@ -42,7 +42,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Import
     /// 
-    /// BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
+    /// BIG-IP LTM fastl4 profiles can be imported using the `Name`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4

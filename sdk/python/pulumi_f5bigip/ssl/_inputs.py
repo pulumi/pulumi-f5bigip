@@ -23,16 +23,11 @@ __all__ = [
     'GetWafEntityUrlMethodOverrideArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GetWafEntityParameterUrlArgsDict(TypedDict):
-        method: _builtins.str
-        name: _builtins.str
-        protocol: _builtins.str
-        type: _builtins.str
-elif False:
-    GetWafEntityParameterUrlArgsDict: TypeAlias = Mapping[str, Any]
+class GetWafEntityParameterUrlArgsDict(TypedDict):
+    method: _builtins.str
+    name: _builtins.str
+    protocol: _builtins.str
+    type: _builtins.str
 
 @pulumi.input_type
 class GetWafEntityParameterUrlArgs:
@@ -83,26 +78,23 @@ class GetWafEntityParameterUrlArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict(TypedDict):
-        origin_name: _builtins.str
-        """
-        Specifies the name of the origin with which you want to share your data.
-        """
-        origin_port: _builtins.str
-        """
-        Specifies the port that other web applications are allowed to use to request data from your web application.
-        """
-        origin_protocol: _builtins.str
-        """
-        Specifies the protocol that other web applications are allowed to use to request data from your web application.
-        """
-        include_subdomains: NotRequired[_builtins.bool]
-        """
-        Determines whether the subdomains are allowed to receive data from the web application.
-        """
-elif False:
-    GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict: TypeAlias = Mapping[str, Any]
+class GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict(TypedDict):
+    origin_name: _builtins.str
+    """
+    Specifies the name of the origin with which you want to share your data.
+    """
+    origin_port: _builtins.str
+    """
+    Specifies the port that other web applications are allowed to use to request data from your web application.
+    """
+    origin_protocol: _builtins.str
+    """
+    Specifies the protocol that other web applications are allowed to use to request data from your web application.
+    """
+    include_subdomains: NotRequired[_builtins.bool]
+    """
+    Determines whether the subdomains are allowed to receive data from the web application.
+    """
 
 @pulumi.input_type
 class GetWafEntityUrlCrossOriginRequestsEnforcementArgs:
@@ -172,18 +164,15 @@ class GetWafEntityUrlCrossOriginRequestsEnforcementArgs:
         pulumi.set(self, "include_subdomains", value)
 
 
-if not MYPY:
-    class GetWafEntityUrlMethodOverrideArgsDict(TypedDict):
-        allow: _builtins.bool
-        """
-        Specifies that the system allows or disallows a method for this URL
-        """
-        method: _builtins.str
-        """
-        Specifies an HTTP method.
-        """
-elif False:
-    GetWafEntityUrlMethodOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class GetWafEntityUrlMethodOverrideArgsDict(TypedDict):
+    allow: _builtins.bool
+    """
+    Specifies that the system allows or disallows a method for this URL
+    """
+    method: _builtins.str
+    """
+    Specifies an HTTP method.
+    """
 
 @pulumi.input_type
 class GetWafEntityUrlMethodOverrideArgs:

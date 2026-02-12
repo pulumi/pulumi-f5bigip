@@ -22,7 +22,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

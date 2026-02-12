@@ -18,362 +18,329 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * `f5bigip.As3` provides details about bigip as3 resource
+ * 
+ * This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+ * 
+ * &gt; This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+ * 
+ * &gt; For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be &gt; **v3.50**
+ * 
+ * &gt; For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenantName to be passed to add application on specified tenant, else random tenant name will be generated.
+ * 
+ * As3 Declaration can be deployed in Traditional way as well as Per-Application Way :
+ * 
+ * - Traditional Way - Entire Declaration needs to be passed in during the create and update call along with the tenant details in the declaration.
+ * - Per-Application Way - Only application details needs to be passed in the as3_json. Tenant name needs to be passed else random tenant name will be generated.
+ * 
+ * **Note:** : PerApplication needs to be turned `true` as a Prerequisite on the Big-IP (BIG-IP AS3 version &gt;3.50) device. For details : &lt;https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html&gt;
+ * 
+ * ### Delete Specific Applications from a Tenant
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.As3;
+ * import com.pulumi.f5bigip.As3Args;
+ * import com.pulumi.f5bigip.inputs.As3DeleteAppsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var as3AppDeletion = new As3("as3AppDeletion", As3Args.builder()
+ *             .deleteApps(As3DeleteAppsArgs.builder()
+ *                 .tenantName("Tenant-2")
+ *                 .apps(                
+ *                     "terraform_vs_http",
+ *                     "legacy_app")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Example of controls parameters
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.As3;
+ * import com.pulumi.f5bigip.As3Args;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var as3_example1 = new As3("as3-example1", As3Args.builder()
+ *             .as3Json(StdFunctions.file(FileArgs.builder()
+ *                 .input("example1.json")
+ *                 .build()).result())
+ *             .controls(Map.ofEntries(
+ *                 Map.entry("dry_run", "no"),
+ *                 Map.entry("trace", "yes"),
+ *                 Map.entry("trace_response", "yes"),
+ *                 Map.entry("log_level", "debug"),
+ *                 Map.entry("user_agent", "dummy agent")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * # Per-Application Deployment - Example Usage for json file with tenant name
+ * resource &#34;f5bigip.As3&#34; &#34;as3-example1&#34; {
+ *   as3Json   = file(&#34;perApplication_example.json&#34;)
+ *   tenantName = &#34;Test&#34;
+ * }
+ * 
+ * # Per-Application Deployment - Example Usage for json file without tenant name - Tenant with Random name is generated in this case
+ * resource &#34;f5bigip.As3&#34; &#34;as3-example1&#34; {
+ *   as3Json   = file(&#34;perApplication_example.json&#34;)
+ * }
+ * 
+ * ## Behavior
+ * 
+ * When `deleteApps` is used, Terraform logs “Creating...”, but the underlying logic performs application deletion via REST API calls.
+ * 
+ * Each app in the `apps` list is deleted using:
+ * 
+ * A synthetic resource ID is assigned to keep Terraform state consistent after successful deletion.
+ * 
+ * ***
+ * 
+ * ## Outputs
+ * 
+ * - `taskId` – AS3 task ID used in BIG-IP.
+ * - `applicationList` – List of deleted applications (if applicable).
+ * - `tenantList` – List of affected tenants.
+ * 
+ * ***
+ * 
  * ## Import
  * 
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
  * 
  * ```sh
- * $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01
- * ```
- * 
- * ```sh
- * $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01,Sample_non_http_01
+ *    $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+ *    $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
  * ```
  * 
  * #### Import examples ( single and multiple partitions )
  * 
  * ```sh
+ * 
  * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
- * ```
- * 
  * bigip_as3.test: Importing from ID &#34;Sample_http_01&#34;...
- * 
  * bigip_as3.test: Import prepared!
- * 
  *   Prepared bigip_as3 for import
- * 
  * bigip_as3.test: Refreshing state... [id=Sample_http_01]
  * 
  * Import successful!
  * 
  * The resources that were imported are shown above. These resources are now in
- * 
  * your Terraform state and will henceforth be managed by Terraform.
  * 
  * $ terraform show
+ * ```
  * 
  * bigip_as3.test:
- * 
- * resource &#34;bigip_as3&#34; &#34;test&#34; {
- * 
- *     as3_json      = jsonencode(
- *     
- *         {
- *     
- *             action      = &#34;deploy&#34;
- *     
- *             class       = &#34;AS3&#34;
- *     
- *             declaration = {
- *     
- *                 Sample_http_01 = {
- *     
- *                     A1    = {
- *     
- *                         class      = &#34;Application&#34;
- *     
- *                         jsessionid = {
- *     
- *                             class             = &#34;Persist&#34;
- *     
- *                             cookieMethod      = &#34;hash&#34;
- *     
- *                             cookieName        = &#34;JSESSIONID&#34;
- *     
- *                             persistenceMethod = &#34;cookie&#34;
- *     
- *                         }
- *     
- *                         service    = {
- *     
- *                             class              = &#34;Service_HTTP&#34;
- *     
- *                             persistenceMethods = [
- *     
- *                                 {
- *     
- *                                     use = &#34;jsessionid&#34;
- *     
- *                                 },
- *     
- *                             ]
- *     
- *                             pool               = &#34;web_pool&#34;
- *     
- *                             virtualAddresses   = [
- *     
- *                                 &#34;10.0.2.10&#34;,
- *     
- *                             ]
- *     
- *                         }
- *     
- *                         web_pool   = {
- *     
- *                             class    = &#34;Pool&#34;
- *     
- *                             members  = [
- *     
- *                                 {
- *     
- *                                     serverAddresses = [
- *     
- *                                         &#34;192.0.2.10&#34;,
- *     
- *                                         &#34;192.0.2.11&#34;,
- *     
- *                                     ]
- *     
- *                                     servicePort     = 80
- *     
- *                                 },
- *     
- *                             ]
- *     
- *                             monitors = [
- *     
- *                                 &#34;http&#34;,
- *     
- *                             ]
- *     
- *                         }
- *     
- *                     }
- *     
- *                     class = &#34;Tenant&#34;
- *     
- *                 }
- *     
- *                 class          = &#34;ADC&#34;
- *     
- *                 id             = &#34;UDP_DNS_Sample&#34;
- *     
- *                 label          = &#34;UDP_DNS_Sample&#34;
- *     
- *                 remark         = &#34;Sample of a UDP DNS Load Balancer Service&#34;
- *     
- *                 schemaVersion  = &#34;3.0.0&#34;
- *     
- *             }
- *     
- *             persist     = true
- *     
- *         }
- *     
- *     )
- *     
- *     id            = &#34;Sample_http_01&#34;
- *     
- *     tenant_filter = &#34;Sample_http_01&#34;
- *     
- *     tenant_list   = &#34;Sample_http_01&#34;
- * 
+ * resource &#34;f5bigip.As3&#34; &#34;test&#34; {
+ * as3Json      = jsonencode(
+ * {
+ * action      = &#34;deploy&#34;
+ * class       = &#34;AS3&#34;
+ * declaration = {
+ * Sample_http_01 = {
+ * A1    = {
+ * class      = &#34;Application&#34;
+ * jsessionid = {
+ * class             = &#34;Persist&#34;
+ * cookieMethod      = &#34;hash&#34;
+ * cookieName        = &#34;JSESSIONID&#34;
+ * persistenceMethod = &#34;cookie&#34;
+ * }
+ * service    = {
+ * class              = &#34;Service_HTTP&#34;
+ * persistenceMethods = [
+ * {
+ * use = &#34;jsessionid&#34;
+ * },
+ * ]
+ * pool               = &#34;webPool&#34;
+ * virtualAddresses   = [
+ * &#34;10.0.2.10&#34;,
+ * ]
+ * }
+ * webPool   = {
+ * class    = &#34;Pool&#34;
+ * members  = [
+ * {
+ * serverAddresses = [
+ * &#34;192.0.2.10&#34;,
+ * &#34;192.0.2.11&#34;,
+ * ]
+ * servicePort     = 80
+ * },
+ * ]
+ * monitors = [
+ * &#34;http&#34;,
+ * ]
+ * }
+ * }
+ * class = &#34;Tenant&#34;
+ * }
+ * class          = &#34;ADC&#34;
+ * id             = &#34;UDP_DNS_Sample&#34;
+ * label          = &#34;UDP_DNS_Sample&#34;
+ * remark         = &#34;Sample of a UDP DNS Load Balancer Service&#34;
+ * schemaVersion  = &#34;3.0.0&#34;
+ * }
+ * persist     = true
+ * }
+ * )
+ * id            = &#34;Sample_http_01&#34;
+ * tenantFilter = &#34;Sample_http_01&#34;
+ * tenantList   = &#34;Sample_http_01&#34;
  * }
  * 
  * ```sh
  * $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
- * ```
- * 
  * bigip_as3.test: Importing from ID &#34;Sample_http_01,Sample_non_http_01&#34;...
- * 
  * bigip_as3.test: Import prepared!
- * 
  *   Prepared bigip_as3 for import
- * 
  * bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
  * 
  * Import successful!
  * 
  * The resources that were imported are shown above. These resources are now in
- * 
  * your Terraform state and will henceforth be managed by Terraform.
  * 
  * $ terraform show
+ * ```
  * 
  * bigip_as3.test:
- * 
- * resource &#34;bigip_as3&#34; &#34;test&#34; {
- * 
- *     as3_json      = jsonencode(
- *     
- *         {
- *     
- *             action      = &#34;deploy&#34;
- *     
- *             class       = &#34;AS3&#34;
- *     
- *             declaration = {
- *     
- *                 Sample_http_01     = {
- *     
- *                     A1    = {
- *     
- *                         class      = &#34;Application&#34;
- *     
- *                         jsessionid = {
- *     
- *                             class             = &#34;Persist&#34;
- *     
- *                             cookieMethod      = &#34;hash&#34;
- *     
- *                             cookieName        = &#34;JSESSIONID&#34;
- *     
- *                             persistenceMethod = &#34;cookie&#34;
- *     
- *                         }
- *     
- *                         service    = {
- *     
- *                             class              = &#34;Service_HTTP&#34;
- *     
- *                             persistenceMethods = [
- *     
- *                                 {
- *     
- *                                     use = &#34;jsessionid&#34;
- *     
- *                                 },
- *     
- *                             ]
- *     
- *                             pool               = &#34;web_pool&#34;
- *     
- *                             virtualAddresses   = [
- *     
- *                                 &#34;10.0.2.10&#34;,
- *     
- *                             ]
- *     
- *                         }
- *     
- *                         web_pool   = {
- *     
- *                             class    = &#34;Pool&#34;
- *     
- *                             members  = [
- *     
- *                                 {
- *     
- *                                     serverAddresses = [
- *     
- *                                         &#34;192.0.2.10&#34;,
- *     
- *                                         &#34;192.0.2.11&#34;,
- *     
- *                                     ]
- *     
- *                                     servicePort     = 80
- *     
- *                                 },
- *     
- *                             ]
- *     
- *                             monitors = [
- *     
- *                                 &#34;http&#34;,
- *     
- *                             ]
- *     
- *                         }
- *     
- *                     }
- *     
- *                     class = &#34;Tenant&#34;
- *     
- *                 }
- *     
- *                 Sample_non_http_01 = {
- *     
- *                     DNS_Service = {
- *     
- *                         Pool1   = {
- *     
- *                             class    = &#34;Pool&#34;
- *     
- *                             members  = [
- *     
- *                                 {
- *     
- *                                     serverAddresses = [
- *     
- *                                         &#34;10.1.10.100&#34;,
- *     
- *                                     ]
- *     
- *                                     servicePort     = 53
- *     
- *                                 },
- *     
- *                                 {
- *     
- *                                     serverAddresses = [
- *     
- *                                         &#34;10.1.10.101&#34;,
- *     
- *                                     ]
- *     
- *                                     servicePort     = 53
- *     
- *                                 },
- *     
- *                             ]
- *     
- *                             monitors = [
- *     
- *                                 &#34;icmp&#34;,
- *     
- *                             ]
- *     
- *                         }
- *     
- *                         class   = &#34;Application&#34;
- *     
- *                         service = {
- *     
- *                             class            = &#34;Service_UDP&#34;
- *     
- *                             pool             = &#34;Pool1&#34;
- *     
- *                             virtualAddresses = [
- *     
- *                                 &#34;10.1.20.121&#34;,
- *     
- *                             ]
- *     
- *                             virtualPort      = 53
- *     
- *                         }
- *     
- *                     }
- *     
- *                     class       = &#34;Tenant&#34;
- *     
- *                 }
- *     
- *                 class              = &#34;ADC&#34;
- *     
- *                 id                 = &#34;UDP_DNS_Sample&#34;
- *     
- *                 label              = &#34;UDP_DNS_Sample&#34;
- *     
- *                 remark             = &#34;Sample of a UDP DNS Load Balancer Service&#34;
- *     
- *                 schemaVersion      = &#34;3.0.0&#34;
- *     
- *             }
- *     
- *             persist     = true
- *     
- *         }
- *     
- *     )
- *     
- *     id            = &#34;Sample_http_01,Sample_non_http_01&#34;
- *     
- *     tenant_filter = &#34;Sample_http_01,Sample_non_http_01&#34;
- *     
- *     tenant_list   = &#34;Sample_http_01,Sample_non_http_01&#34;
- * 
+ * resource &#34;f5bigip.As3&#34; &#34;test&#34; {
+ * as3Json      = jsonencode(
+ * {
+ * action      = &#34;deploy&#34;
+ * class       = &#34;AS3&#34;
+ * declaration = {
+ * Sample_http_01     = {
+ * A1    = {
+ * class      = &#34;Application&#34;
+ * jsessionid = {
+ * class             = &#34;Persist&#34;
+ * cookieMethod      = &#34;hash&#34;
+ * cookieName        = &#34;JSESSIONID&#34;
+ * persistenceMethod = &#34;cookie&#34;
+ * }
+ * service    = {
+ * class              = &#34;Service_HTTP&#34;
+ * persistenceMethods = [
+ * {
+ * use = &#34;jsessionid&#34;
+ * },
+ * ]
+ * pool               = &#34;webPool&#34;
+ * virtualAddresses   = [
+ * &#34;10.0.2.10&#34;,
+ * ]
+ * }
+ * webPool   = {
+ * class    = &#34;Pool&#34;
+ * members  = [
+ * {
+ * serverAddresses = [
+ * &#34;192.0.2.10&#34;,
+ * &#34;192.0.2.11&#34;,
+ * ]
+ * servicePort     = 80
+ * },
+ * ]
+ * monitors = [
+ * &#34;http&#34;,
+ * ]
+ * }
+ * }
+ * class = &#34;Tenant&#34;
+ * }
+ * Sample_non_http_01 = {
+ * DNS_Service = {
+ * Pool1   = {
+ * class    = &#34;Pool&#34;
+ * members  = [
+ * {
+ * serverAddresses = [
+ * &#34;10.1.10.100&#34;,
+ * ]
+ * servicePort     = 53
+ * },
+ * {
+ * serverAddresses = [
+ * &#34;10.1.10.101&#34;,
+ * ]
+ * servicePort     = 53
+ * },
+ * ]
+ * monitors = [
+ * &#34;icmp&#34;,
+ * ]
+ * }
+ * class   = &#34;Application&#34;
+ * service = {
+ * class            = &#34;Service_UDP&#34;
+ * pool             = &#34;Pool1&#34;
+ * virtualAddresses = [
+ * &#34;10.1.20.121&#34;,
+ * ]
+ * virtualPort      = 53
+ * }
+ * }
+ * class       = &#34;Tenant&#34;
+ * }
+ * class              = &#34;ADC&#34;
+ * id                 = &#34;UDP_DNS_Sample&#34;
+ * label              = &#34;UDP_DNS_Sample&#34;
+ * remark             = &#34;Sample of a UDP DNS Load Balancer Service&#34;
+ * schemaVersion      = &#34;3.0.0&#34;
+ * }
+ * persist     = true
+ * }
+ * )
+ * id            = &#34;Sample_http_01,Sample_non_http_01&#34;
+ * tenantFilter = &#34;Sample_http_01,Sample_non_http_01&#34;
+ * tenantList   = &#34;Sample_http_01,Sample_non_http_01&#34;
  * }
  * 
  * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html

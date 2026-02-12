@@ -57,7 +57,7 @@ export class SslKeyCert extends pulumi.CustomResource {
     }
 
     /**
-     * The content of the cert.
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      */
     declare public readonly certContent: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class SslKeyCert extends pulumi.CustomResource {
      */
     declare public readonly issuerCert: pulumi.Output<string | undefined>;
     /**
-     * The content of the key.
+     * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      */
     declare public readonly keyContent: pulumi.Output<string>;
     /**
@@ -163,7 +163,7 @@ export class SslKeyCert extends pulumi.CustomResource {
  */
 export interface SslKeyCertState {
     /**
-     * The content of the cert.
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      */
     certContent?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface SslKeyCertState {
      */
     issuerCert?: pulumi.Input<string>;
     /**
-     * The content of the key.
+     * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      */
     keyContent?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface SslKeyCertState {
  */
 export interface SslKeyCertArgs {
     /**
-     * The content of the cert.
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      */
     certContent: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface SslKeyCertArgs {
      */
     issuerCert?: pulumi.Input<string>;
     /**
-     * The content of the key.
+     * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      */
     keyContent: pulumi.Input<string>;
     /**

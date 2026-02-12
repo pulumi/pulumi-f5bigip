@@ -34,7 +34,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Import
     /// 
-    /// BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
+    /// BIG-IP LTM oneconnect profiles can be imported using the `Name` , e.g.
     /// 
     /// ```sh
     /// $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect

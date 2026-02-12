@@ -51,9 +51,17 @@ public class Command extends com.pulumi.resources.CustomResource {
     public Output<List<String>> commands() {
         return this.commands;
     }
+    /**
+     * default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     * 
+     */
     @Export(name="when", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> when;
 
+    /**
+     * @return default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     * 
+     */
     public Output<Optional<String>> when() {
         return Codegen.optional(this.when);
     }

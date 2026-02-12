@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:ssl/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Content of certificate on Disk
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      * 
      */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
-     * @return Content of certificate on Disk
+     * @return Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      * 
      */
     public Output<String> content() {
@@ -146,14 +146,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ocsp);
     }
     /**
-     * Partition of ssl certificate
+     * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      * 
      */
     @Export(name="partition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partition;
 
     /**
-     * @return Partition of ssl certificate
+     * @return Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      * 
      */
     public Output<Optional<String>> partition() {

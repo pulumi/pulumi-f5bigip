@@ -17,23 +17,216 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * `f5bigip.sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+ * System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+ * 
+ * ## Example Usage
+ * 
+ * ### System iFile with Sub-path
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.sys.Ifile;
+ * import com.pulumi.f5bigip.sys.IfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var templateFile = new Ifile("templateFile", IfileArgs.builder()
+ *             .name("error-template")
+ *             .partition("Common")
+ *             .subPath("templates")
+ *             .content("""
+ * <html>
+ *   <head><title>Service Unavailable</title></head>
+ *   <body>
+ *     <h1>503 - Service Temporarily Unavailable</h1>
+ *     <p>Please try again later.</p>
+ *   </body>
+ * </html>
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### JSON Configuration File
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.sys.Ifile;
+ * import com.pulumi.f5bigip.sys.IfileArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var serverList = serializeJson(
+ *             jsonObject(
+ *                 jsonProperty("servers", jsonArray(
+ *                     jsonObject(
+ *                         jsonProperty("name", "web1"),
+ *                         jsonProperty("ip", "10.1.1.10"),
+ *                         jsonProperty("port", 80)
+ *                     ), 
+ *                     jsonObject(
+ *                         jsonProperty("name", "web2"),
+ *                         jsonProperty("ip", "10.1.1.11"),
+ *                         jsonProperty("port", 80)
+ *                     ), 
+ *                     jsonObject(
+ *                         jsonProperty("name", "web3"),
+ *                         jsonProperty("ip", "10.1.1.12"),
+ *                         jsonProperty("port", 80)
+ *                     )
+ *                 ))
+ *             ));
+ * 
+ *         var serverConfig = new Ifile("serverConfig", IfileArgs.builder()
+ *             .name("server-list")
+ *             .partition("MyApp")
+ *             .content(serverList)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Using System iFile with LTM iFile
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.ltm.IRule;
+ * import com.pulumi.f5bigip.ltm.IRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Create system iFile with content
+ *         var lookupTable = new com.pulumi.f5bigip.sys.Ifile("lookupTable", com.pulumi.f5bigip.sys.IfileArgs.builder()
+ *             .name("url-rewrite-map")
+ *             .partition("Common")
+ *             .content("""
+ * /old-api/v1/ /api/v2/
+ * /legacy/ /new/
+ * /deprecated/ /current/
+ *             """)
+ *             .build());
+ * 
+ *         // Create LTM iFile that references the system iFile
+ *         var ltmLookup = new com.pulumi.f5bigip.ltm.Ifile("ltmLookup", com.pulumi.f5bigip.ltm.IfileArgs.builder()
+ *             .name("ltm-url-rewrite-map")
+ *             .partition("Common")
+ *             .fileName("/Common/url-rewrite-map")
+ *             .build());
+ * 
+ *         // Use in an iRule
+ *         var urlRewriter = new IRule("urlRewriter", IRuleArgs.builder()
+ *             .name("url-rewrite-rule")
+ *             .irule("""
+ * when HTTP_REQUEST {
+ *   set uri [HTTP::uri]
+ *   set mapping [ifile get ltm-url-rewrite-map]
+ *   foreach line [split $mapping \"\
+ * \"] {
+ *     set parts [split $line \" \"]
+ *     if {[string match [lindex $parts 0]* $uri]} {
+ *       HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
+ *       break
+ *     }
+ *   }
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Notes
+ * 
+ * * The `content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+ * * Changes to `name` will force recreation of the resource since iFile names cannot be changed after creation.
+ * * The `checksum` and `size` attributes are automatically computed by the BIG-IP system.
+ * * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+ * * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+ * * System iFiles can be referenced by `f5bigip.ltm.Ifile` resources for use in LTM configurations.
+ * 
+ * ## Path Structure
+ * 
+ * The full path of an iFile follows this pattern:
+ * - Without sub-path: `/{partition}/{name}`
+ * - With sub-path: `/{partition}/{sub_path}/{name}`
+ * 
+ * Examples:
+ * - `/Common/config-file`
+ * - `/Production/templates/error-page`
+ * - `/MyApp/configs/database-settings`
+ * 
+ * ## Related Resources
+ * 
+ * * `f5bigip.ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+ * * `f5bigip.ltm.IRule` - Creates iRules that can access iFile content
+ * * `f5bigip.ltm.Policy` - Creates LTM policies that can use iFile content
+ * 
+ * ## Security Considerations
+ * 
+ * * iFile content is stored on the BIG-IP system and may contain sensitive information
+ * * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+ * * Consider using Terraform&#39;s sensitive variable handling for confidential content
+ * * The `content` field is marked as sensitive in Terraform state to prevent accidental exposure
+ * 
  * ## Import
  * 
  * System iFiles can be imported using their full path:
  * 
- * bash
- * 
- * ```sh
- * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
- * ```
- * 
  * For iFiles with sub-paths:
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
- * ```
  * 
  */
 @ResourceType(type="f5bigip:sys/ifile:Ifile")

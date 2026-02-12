@@ -53,7 +53,7 @@ export class Key extends pulumi.CustomResource {
     }
 
     /**
-     * Content of SSL certificate key present on local Disk
+     * Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
      */
     declare public readonly content: pulumi.Output<string>;
     /**
@@ -65,7 +65,7 @@ export class Key extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Partition of ssl certificate key
+     * Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
      */
     declare public readonly partition: pulumi.Output<string | undefined>;
     /**
@@ -117,7 +117,7 @@ export class Key extends pulumi.CustomResource {
  */
 export interface KeyState {
     /**
-     * Content of SSL certificate key present on local Disk
+     * Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
      */
     content?: pulumi.Input<string>;
     /**
@@ -129,7 +129,7 @@ export interface KeyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Partition of ssl certificate key
+     * Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
      */
     partition?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface KeyState {
  */
 export interface KeyArgs {
     /**
-     * Content of SSL certificate key present on local Disk
+     * Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
      */
     content: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface KeyArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Partition of ssl certificate key
+     * Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
      */
     partition?: pulumi.Input<string>;
     /**

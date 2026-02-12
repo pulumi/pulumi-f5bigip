@@ -53,7 +53,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * Content of certificate on Disk
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      */
     declare public readonly content: pulumi.Output<string>;
     /**
@@ -77,7 +77,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly ocsp: pulumi.Output<string | undefined>;
     /**
-     * Partition of ssl certificate
+     * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      */
     declare public readonly partition: pulumi.Output<string | undefined>;
 
@@ -129,7 +129,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * Content of certificate on Disk
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      */
     content?: pulumi.Input<string>;
     /**
@@ -153,7 +153,7 @@ export interface CertificateState {
      */
     ocsp?: pulumi.Input<string>;
     /**
-     * Partition of ssl certificate
+     * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      */
     partition?: pulumi.Input<string>;
 }
@@ -163,7 +163,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Content of certificate on Disk
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      */
     content: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface CertificateArgs {
      */
     ocsp?: pulumi.Input<string>;
     /**
-     * Partition of ssl certificate
+     * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      */
     partition?: pulumi.Input<string>;
 }

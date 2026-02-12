@@ -52,7 +52,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Import
     /// 
-    /// BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
+    /// BIG-IP LTM HTTP Compress profiles can be imported using the `Name`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs

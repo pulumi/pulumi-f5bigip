@@ -5,23 +5,142 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * `f5bigip.sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+ * System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+ *
+ * ## Example Usage
+ *
+ * ### System iFile with Sub-path
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const templateFile = new f5bigip.sys.Ifile("template_file", {
+ *     name: "error-template",
+ *     partition: "Common",
+ *     subPath: "templates",
+ *     content: `<html>
+ *   <head><title>Service Unavailable</title></head>
+ *   <body>
+ *     <h1>503 - Service Temporarily Unavailable</h1>
+ *     <p>Please try again later.</p>
+ *   </body>
+ * </html>
+ * `,
+ * });
+ * ```
+ *
+ * ### JSON Configuration File
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const serverList = JSON.stringify({
+ *     servers: [
+ *         {
+ *             name: "web1",
+ *             ip: "10.1.1.10",
+ *             port: 80,
+ *         },
+ *         {
+ *             name: "web2",
+ *             ip: "10.1.1.11",
+ *             port: 80,
+ *         },
+ *         {
+ *             name: "web3",
+ *             ip: "10.1.1.12",
+ *             port: 80,
+ *         },
+ *     ],
+ * });
+ * const serverConfig = new f5bigip.sys.Ifile("server_config", {
+ *     name: "server-list",
+ *     partition: "MyApp",
+ *     content: serverList,
+ * });
+ * ```
+ *
+ * ### Using System iFile with LTM iFile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * // Create system iFile with content
+ * const lookupTable = new f5bigip.sys.Ifile("lookup_table", {
+ *     name: "url-rewrite-map",
+ *     partition: "Common",
+ *     content: `/old-api/v1/ /api/v2/
+ * /legacy/ /new/
+ * /deprecated/ /current/
+ * `,
+ * });
+ * // Create LTM iFile that references the system iFile
+ * const ltmLookup = new f5bigip.ltm.Ifile("ltm_lookup", {
+ *     name: "ltm-url-rewrite-map",
+ *     partition: "Common",
+ *     fileName: "/Common/url-rewrite-map",
+ * });
+ * // Use in an iRule
+ * const urlRewriter = new f5bigip.ltm.IRule("url_rewriter", {
+ *     name: "url-rewrite-rule",
+ *     irule: `when HTTP_REQUEST {
+ *   set uri [HTTP::uri]
+ *   set mapping [ifile get ltm-url-rewrite-map]
+ *   foreach line [split mapping \\"\\
+ * \\"] {
+ *     set parts [split line \\" \\"]
+ *     if {[string match [lindex parts 0]* uri]} {
+ *       HTTP::uri [string map [list [lindex parts 0] [lindex parts 1]] uri]
+ *       break
+ *     }
+ *   }
+ * }
+ * `,
+ * });
+ * ```
+ *
+ * ## Notes
+ *
+ * * The `content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+ * * Changes to `name` will force recreation of the resource since iFile names cannot be changed after creation.
+ * * The `checksum` and `size` attributes are automatically computed by the BIG-IP system.
+ * * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+ * * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+ * * System iFiles can be referenced by `f5bigip.ltm.Ifile` resources for use in LTM configurations.
+ *
+ * ## Path Structure
+ *
+ * The full path of an iFile follows this pattern:
+ * - Without sub-path: `/{partition}/{name}`
+ * - With sub-path: `/{partition}/{sub_path}/{name}`
+ *
+ * Examples:
+ * - `/Common/config-file`
+ * - `/Production/templates/error-page`
+ * - `/MyApp/configs/database-settings`
+ *
+ * ## Related Resources
+ *
+ * * `f5bigip.ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+ * * `f5bigip.ltm.IRule` - Creates iRules that can access iFile content
+ * * `f5bigip.ltm.Policy` - Creates LTM policies that can use iFile content
+ *
+ * ## Security Considerations
+ *
+ * * iFile content is stored on the BIG-IP system and may contain sensitive information
+ * * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+ * * Consider using Terraform's sensitive variable handling for confidential content
+ * * The `content` field is marked as sensitive in Terraform state to prevent accidental exposure
+ *
  * ## Import
  *
  * System iFiles can be imported using their full path:
  *
- * bash
- *
- * ```sh
- * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
- * ```
- *
  * For iFiles with sub-paths:
- *
- * bash
- *
- * ```sh
- * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
- * ```
  */
 export class Ifile extends pulumi.CustomResource {
     /**

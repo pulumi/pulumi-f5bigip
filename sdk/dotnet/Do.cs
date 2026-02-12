@@ -9,6 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP
 {
+    /// <summary>
+    /// `f5bigip.Do` provides details about bigip do resource
+    /// 
+    /// This resource is helpful to configure do declarative JSON on BIG-IP.
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var do_example = new F5BigIP.Do("do-example", new()
+    ///     {
+    ///         DoJson = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "example.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Timeout = 15,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Importing
+    /// 
+    /// Importing Existing DO declaration onto terraform can be done by using `task id` as `Id`.
+    /// An example is below:
+    /// ```sh
+    /// $ terraform import bigip_do.do-example2 2543dc37-bd1a-45c1-983f-1155a81489b2
+    /// ```
+    /// 
+    /// * `example.json` - Example of DO Declarative JSON
+    /// * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
+    /// </summary>
     [F5BigIPResourceType("f5bigip:index/do:Do")]
     public partial class Do : global::Pulumi.CustomResource
     {
@@ -20,7 +58,16 @@ namespace Pulumi.F5BigIP
         public Output<string?> BigipAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// 
+        /// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+        /// 
+        /// &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `BigipAddress`,
+        /// `BigipUser`,`BigipPort` and `BigipPassword`. All Must be specified in such scenario.
+        /// 
+        /// &gt; **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+        /// state to empty and won't throw error.
         /// </summary>
         [Output("bigipPassword")]
         public Output<string?> BigipPassword { get; private set; } = null!;
@@ -125,7 +172,16 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigipPassword;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// 
+        /// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+        /// 
+        /// &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `BigipAddress`,
+        /// `BigipUser`,`BigipPort` and `BigipPassword`. All Must be specified in such scenario.
+        /// 
+        /// &gt; **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+        /// state to empty and won't throw error.
         /// </summary>
         public Input<string>? BigipPassword
         {
@@ -204,7 +260,16 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigipPassword;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// 
+        /// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+        /// 
+        /// &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `BigipAddress`,
+        /// `BigipUser`,`BigipPort` and `BigipPassword`. All Must be specified in such scenario.
+        /// 
+        /// &gt; **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+        /// state to empty and won't throw error.
         /// </summary>
         public Input<string>? BigipPassword
         {
