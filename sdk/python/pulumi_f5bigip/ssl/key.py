@@ -26,10 +26,10 @@ class KeyArgs:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param pulumi.Input[_builtins.str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate key
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         :param pulumi.Input[_builtins.str] passphrase: Passphrase on key.
         """
         pulumi.set(__self__, "content", content)
@@ -45,7 +45,7 @@ class KeyArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
         """
-        Content of SSL certificate key present on local Disk
+        Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -81,7 +81,7 @@ class KeyArgs:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Partition of ssl certificate key
+        Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         """
         return pulumi.get(self, "partition")
 
@@ -112,10 +112,10 @@ class _KeyState:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
-        :param pulumi.Input[_builtins.str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate key
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         :param pulumi.Input[_builtins.str] passphrase: Passphrase on key.
         """
         if content is not None:
@@ -133,7 +133,7 @@ class _KeyState:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Content of SSL certificate key present on local Disk
+        Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -169,7 +169,7 @@ class _KeyState:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Partition of ssl certificate key
+        Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         """
         return pulumi.get(self, "partition")
 
@@ -221,10 +221,10 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate key
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         :param pulumi.Input[_builtins.str] passphrase: Passphrase on key.
         """
         ...
@@ -312,10 +312,10 @@ class Key(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate key
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         :param pulumi.Input[_builtins.str] passphrase: Passphrase on key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -333,7 +333,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
         """
-        Content of SSL certificate key present on local Disk
+        Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -357,7 +357,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Partition of ssl certificate key
+        Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `full_path` format.
         """
         return pulumi.get(self, "partition")
 

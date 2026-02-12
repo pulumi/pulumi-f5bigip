@@ -78,6 +78,9 @@ class GetConsulServiceDiscoveryResult:
     @_builtins.property
     @pulumi.getter(name="consulSdJson")
     def consul_sd_json(self) -> _builtins.str:
+        """
+        The JSON for Hashicorp Consul service discovery block.
+        """
         return pulumi.get(self, "consul_sd_json")
 
     @_builtins.property

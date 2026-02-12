@@ -45,6 +45,9 @@ export class Command extends pulumi.CustomResource {
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
     declare public readonly commands: pulumi.Output<string[]>;
+    /**
+     * default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     */
     declare public readonly when: pulumi.Output<string | undefined>;
 
     /**
@@ -89,6 +92,9 @@ export interface CommandState {
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
     commands?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     */
     when?: pulumi.Input<string>;
 }
 
@@ -104,5 +110,8 @@ export interface CommandArgs {
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
     commands: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     */
     when?: pulumi.Input<string>;
 }

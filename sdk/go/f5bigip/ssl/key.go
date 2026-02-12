@@ -23,7 +23,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +52,13 @@ import (
 type Key struct {
 	pulumi.CustomResourceState
 
-	// Content of SSL certificate key present on local Disk
+	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content pulumi.StringOutput `pulumi:"content"`
 	// Full Path Name of ssl key
 	FullPath pulumi.StringOutput `pulumi:"fullPath"`
 	// Name of the SSL Certificate key to be Imported on to BIGIP
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Partition of ssl certificate key
+	// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
 	// Passphrase on key.
 	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
@@ -111,26 +111,26 @@ func GetKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Key resources.
 type keyState struct {
-	// Content of SSL certificate key present on local Disk
+	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content *string `pulumi:"content"`
 	// Full Path Name of ssl key
 	FullPath *string `pulumi:"fullPath"`
 	// Name of the SSL Certificate key to be Imported on to BIGIP
 	Name *string `pulumi:"name"`
-	// Partition of ssl certificate key
+	// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 	Partition *string `pulumi:"partition"`
 	// Passphrase on key.
 	Passphrase *string `pulumi:"passphrase"`
 }
 
 type KeyState struct {
-	// Content of SSL certificate key present on local Disk
+	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content pulumi.StringPtrInput
 	// Full Path Name of ssl key
 	FullPath pulumi.StringPtrInput
 	// Name of the SSL Certificate key to be Imported on to BIGIP
 	Name pulumi.StringPtrInput
-	// Partition of ssl certificate key
+	// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 	Partition pulumi.StringPtrInput
 	// Passphrase on key.
 	Passphrase pulumi.StringPtrInput
@@ -141,13 +141,13 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
-	// Content of SSL certificate key present on local Disk
+	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content string `pulumi:"content"`
 	// Full Path Name of ssl key
 	FullPath *string `pulumi:"fullPath"`
 	// Name of the SSL Certificate key to be Imported on to BIGIP
 	Name string `pulumi:"name"`
-	// Partition of ssl certificate key
+	// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 	Partition *string `pulumi:"partition"`
 	// Passphrase on key.
 	Passphrase *string `pulumi:"passphrase"`
@@ -155,13 +155,13 @@ type keyArgs struct {
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
-	// Content of SSL certificate key present on local Disk
+	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content pulumi.StringInput
 	// Full Path Name of ssl key
 	FullPath pulumi.StringPtrInput
 	// Name of the SSL Certificate key to be Imported on to BIGIP
 	Name pulumi.StringInput
-	// Partition of ssl certificate key
+	// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 	Partition pulumi.StringPtrInput
 	// Passphrase on key.
 	Passphrase pulumi.StringPtrInput
@@ -254,7 +254,7 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
-// Content of SSL certificate key present on local Disk
+// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 func (o KeyOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
@@ -269,7 +269,7 @@ func (o KeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Partition of ssl certificate key
+// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `fullPath` format.
 func (o KeyOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }

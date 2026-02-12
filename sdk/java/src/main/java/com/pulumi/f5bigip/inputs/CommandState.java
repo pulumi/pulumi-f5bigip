@@ -46,9 +46,17 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.commands);
     }
 
+    /**
+     * default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     * 
+     */
     @Import(name="when")
     private @Nullable Output<String> when;
 
+    /**
+     * @return default value will be `apply`,can be set to `destroy` for terraform destroy call.
+     * 
+     */
     public Optional<Output<String>> when() {
         return Optional.ofNullable(this.when);
     }
@@ -141,11 +149,23 @@ public final class CommandState extends com.pulumi.resources.ResourceArgs {
             return commands(List.of(commands));
         }
 
+        /**
+         * @param when default value will be `apply`,can be set to `destroy` for terraform destroy call.
+         * 
+         * @return builder
+         * 
+         */
         public Builder when(@Nullable Output<String> when) {
             $.when = when;
             return this;
         }
 
+        /**
+         * @param when default value will be `apply`,can be set to `destroy` for terraform destroy call.
+         * 
+         * @return builder
+         * 
+         */
         public Builder when(String when) {
             return when(Output.of(when));
         }

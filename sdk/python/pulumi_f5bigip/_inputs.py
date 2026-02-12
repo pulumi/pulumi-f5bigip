@@ -69,22 +69,17 @@ __all__ = [
     'WafPolicySignaturesSettingArgsDict',
 ]
 
-MYPY = False
+class As3DeleteAppsArgsDict(TypedDict):
+    apps: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of application names to delete from the specified tenant.
 
-if not MYPY:
-    class As3DeleteAppsArgsDict(TypedDict):
-        apps: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of application names to delete from the specified tenant.
-
-        > `delete_apps` cannot be used together with `as3_json`.
-        """
-        tenant_name: pulumi.Input[_builtins.str]
-        """
-        Name of the tenant containing the apps to delete.
-        """
-elif False:
-    As3DeleteAppsArgsDict: TypeAlias = Mapping[str, Any]
+    > `delete_apps` cannot be used together with `as3_json`.
+    """
+    tenant_name: pulumi.Input[_builtins.str]
+    """
+    Name of the tenant containing the apps to delete.
+    """
 
 @pulumi.input_type
 class As3DeleteAppsArgs:
@@ -127,22 +122,19 @@ class As3DeleteAppsArgs:
         pulumi.set(self, "tenant_name", value)
 
 
-if not MYPY:
-    class EventServiceDiscoveryNodeArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        name of node
-        """
-        ip: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ip of nonde
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        port
-        """
-elif False:
-    EventServiceDiscoveryNodeArgsDict: TypeAlias = Mapping[str, Any]
+class EventServiceDiscoveryNodeArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    name of node
+    """
+    ip: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ip of nonde
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    port
+    """
 
 @pulumi.input_type
 class EventServiceDiscoveryNodeArgs:
@@ -199,34 +191,31 @@ class EventServiceDiscoveryNodeArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class FastHttpAppMonitorArgsDict(TypedDict):
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-        """
-        monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        password for web access on FAST-Generated Pool Monitor.
-        """
-        response: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The presence of this string anywhere in the HTTP response implies availability.
-        """
-        send_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        username for web access on FAST-Generated Pool Monitor.
-        """
-elif False:
-    FastHttpAppMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpAppMonitorArgsDict(TypedDict):
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+    """
+    monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    password for web access on FAST-Generated Pool Monitor.
+    """
+    response: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The presence of this string anywhere in the HTTP response implies availability.
+    """
+    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify data to be sent during each health check for FAST-Generated Pool Monitor.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    username for web access on FAST-Generated Pool Monitor.
+    """
 
 @pulumi.input_type
 class FastHttpAppMonitorArgs:
@@ -331,30 +320,27 @@ class FastHttpAppMonitorArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class FastHttpAppPoolMemberArgsDict(TypedDict):
-        addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of server address to be used for FAST-Generated Pool.
-        """
-        connection_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        connectionLimit value to be used for FAST-Generated Pool.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        port number of serviceport to be used for FAST-Generated Pool.
-        """
-        priority_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        priorityGroup value to be used for FAST-Generated Pool.
-        """
-        share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        shareNodes value to be used for FAST-Generated Pool.
-        """
-elif False:
-    FastHttpAppPoolMemberArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpAppPoolMemberArgsDict(TypedDict):
+    addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of server address to be used for FAST-Generated Pool.
+    """
+    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    connectionLimit value to be used for FAST-Generated Pool.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    port number of serviceport to be used for FAST-Generated Pool.
+    """
+    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    priorityGroup value to be used for FAST-Generated Pool.
+    """
+    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    shareNodes value to be used for FAST-Generated Pool.
+    """
 
 @pulumi.input_type
 class FastHttpAppPoolMemberArgs:
@@ -442,18 +428,15 @@ class FastHttpAppPoolMemberArgs:
         pulumi.set(self, "share_nodes", value)
 
 
-if not MYPY:
-    class FastHttpAppVirtualServerArgsDict(TypedDict):
-        ip: pulumi.Input[_builtins.str]
-        """
-        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port number to used for accessing virtual server/application
-        """
-elif False:
-    FastHttpAppVirtualServerArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpAppVirtualServerArgsDict(TypedDict):
+    ip: pulumi.Input[_builtins.str]
+    """
+    IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port number to used for accessing virtual server/application
+    """
 
 @pulumi.input_type
 class FastHttpAppVirtualServerArgs:
@@ -492,14 +475,11 @@ class FastHttpAppVirtualServerArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class FastHttpAppWafSecurityPolicyArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        Setting `true` will enable FAST to create WAF Security Policy.
-        """
-elif False:
-    FastHttpAppWafSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpAppWafSecurityPolicyArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    Setting `true` will enable FAST to create WAF Security Policy.
+    """
 
 @pulumi.input_type
 class FastHttpAppWafSecurityPolicyArgs:
@@ -523,34 +503,31 @@ class FastHttpAppWafSecurityPolicyArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class FastHttpsAppMonitorArgsDict(TypedDict):
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-        """
-        monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        password for web access on FAST-Generated Pool Monitor.
-        """
-        response: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The presence of this string anywhere in the HTTP response implies availability.
-        """
-        send_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        username for web access on FAST-Generated Pool Monitor.
-        """
-elif False:
-    FastHttpsAppMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppMonitorArgsDict(TypedDict):
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+    """
+    monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    password for web access on FAST-Generated Pool Monitor.
+    """
+    response: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The presence of this string anywhere in the HTTP response implies availability.
+    """
+    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify data to be sent during each health check for FAST-Generated Pool Monitor.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    username for web access on FAST-Generated Pool Monitor.
+    """
 
 @pulumi.input_type
 class FastHttpsAppMonitorArgs:
@@ -655,30 +632,27 @@ class FastHttpsAppMonitorArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class FastHttpsAppPoolMemberArgsDict(TypedDict):
-        addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of server address to be used for FAST-Generated Pool.
-        """
-        connection_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        connectionLimit value to be used for FAST-Generated Pool.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        port number of serviceport to be used for FAST-Generated Pool.
-        """
-        priority_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        priorityGroup value to be used for FAST-Generated Pool.
-        """
-        share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        shareNodes value to be used for FAST-Generated Pool.
-        """
-elif False:
-    FastHttpsAppPoolMemberArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppPoolMemberArgsDict(TypedDict):
+    addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of server address to be used for FAST-Generated Pool.
+    """
+    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    connectionLimit value to be used for FAST-Generated Pool.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    port number of serviceport to be used for FAST-Generated Pool.
+    """
+    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    priorityGroup value to be used for FAST-Generated Pool.
+    """
+    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    shareNodes value to be used for FAST-Generated Pool.
+    """
 
 @pulumi.input_type
 class FastHttpsAppPoolMemberArgs:
@@ -766,18 +740,15 @@ class FastHttpsAppPoolMemberArgs:
         pulumi.set(self, "share_nodes", value)
 
 
-if not MYPY:
-    class FastHttpsAppTlsClientProfileArgsDict(TypedDict):
-        tls_cert_name: pulumi.Input[_builtins.str]
-        """
-        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-        """
-        tls_key_name: pulumi.Input[_builtins.str]
-        """
-        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-        """
-elif False:
-    FastHttpsAppTlsClientProfileArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppTlsClientProfileArgsDict(TypedDict):
+    tls_cert_name: pulumi.Input[_builtins.str]
+    """
+    Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+    """
+    tls_key_name: pulumi.Input[_builtins.str]
+    """
+    Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+    """
 
 @pulumi.input_type
 class FastHttpsAppTlsClientProfileArgs:
@@ -816,18 +787,15 @@ class FastHttpsAppTlsClientProfileArgs:
         pulumi.set(self, "tls_key_name", value)
 
 
-if not MYPY:
-    class FastHttpsAppTlsServerProfileArgsDict(TypedDict):
-        tls_cert_name: pulumi.Input[_builtins.str]
-        """
-        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-        """
-        tls_key_name: pulumi.Input[_builtins.str]
-        """
-        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-        """
-elif False:
-    FastHttpsAppTlsServerProfileArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppTlsServerProfileArgsDict(TypedDict):
+    tls_cert_name: pulumi.Input[_builtins.str]
+    """
+    Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+    """
+    tls_key_name: pulumi.Input[_builtins.str]
+    """
+    Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+    """
 
 @pulumi.input_type
 class FastHttpsAppTlsServerProfileArgs:
@@ -866,18 +834,15 @@ class FastHttpsAppTlsServerProfileArgs:
         pulumi.set(self, "tls_key_name", value)
 
 
-if not MYPY:
-    class FastHttpsAppVirtualServerArgsDict(TypedDict):
-        ip: pulumi.Input[_builtins.str]
-        """
-        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port number to used for accessing virtual server/application
-        """
-elif False:
-    FastHttpsAppVirtualServerArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppVirtualServerArgsDict(TypedDict):
+    ip: pulumi.Input[_builtins.str]
+    """
+    IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port number to used for accessing virtual server/application
+    """
 
 @pulumi.input_type
 class FastHttpsAppVirtualServerArgs:
@@ -916,14 +881,11 @@ class FastHttpsAppVirtualServerArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class FastHttpsAppWafSecurityPolicyArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        Setting `true` will enable FAST to create WAF Security Policy.
-        """
-elif False:
-    FastHttpsAppWafSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class FastHttpsAppWafSecurityPolicyArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    Setting `true` will enable FAST to create WAF Security Policy.
+    """
 
 @pulumi.input_type
 class FastHttpsAppWafSecurityPolicyArgs:
@@ -947,14 +909,11 @@ class FastHttpsAppWafSecurityPolicyArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class FastTcpAppMonitorArgsDict(TypedDict):
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-        """
-elif False:
-    FastTcpAppMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class FastTcpAppMonitorArgsDict(TypedDict):
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+    """
 
 @pulumi.input_type
 class FastTcpAppMonitorArgs:
@@ -979,30 +938,27 @@ class FastTcpAppMonitorArgs:
         pulumi.set(self, "interval", value)
 
 
-if not MYPY:
-    class FastTcpAppPoolMemberArgsDict(TypedDict):
-        addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of server address to be used for FAST-Generated Pool.
-        """
-        connection_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        connectionLimit value to be used for FAST-Generated Pool.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        port number of serviceport to be used for FAST-Generated Pool.
-        """
-        priority_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        priorityGroup value to be used for FAST-Generated Pool.
-        """
-        share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        shareNodes value to be used for FAST-Generated Pool.
-        """
-elif False:
-    FastTcpAppPoolMemberArgsDict: TypeAlias = Mapping[str, Any]
+class FastTcpAppPoolMemberArgsDict(TypedDict):
+    addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of server address to be used for FAST-Generated Pool.
+    """
+    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    connectionLimit value to be used for FAST-Generated Pool.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    port number of serviceport to be used for FAST-Generated Pool.
+    """
+    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    priorityGroup value to be used for FAST-Generated Pool.
+    """
+    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    shareNodes value to be used for FAST-Generated Pool.
+    """
 
 @pulumi.input_type
 class FastTcpAppPoolMemberArgs:
@@ -1090,18 +1046,15 @@ class FastTcpAppPoolMemberArgs:
         pulumi.set(self, "share_nodes", value)
 
 
-if not MYPY:
-    class FastTcpAppVirtualServerArgsDict(TypedDict):
-        ip: pulumi.Input[_builtins.str]
-        """
-        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port number to used for accessing virtual server/application
-        """
-elif False:
-    FastTcpAppVirtualServerArgsDict: TypeAlias = Mapping[str, Any]
+class FastTcpAppVirtualServerArgsDict(TypedDict):
+    ip: pulumi.Input[_builtins.str]
+    """
+    IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port number to used for accessing virtual server/application
+    """
 
 @pulumi.input_type
 class FastTcpAppVirtualServerArgs:
@@ -1140,22 +1093,19 @@ class FastTcpAppVirtualServerArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class FastUdpAppMonitorArgsDict(TypedDict):
-        expected_response: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The presence of this optional string is required in the response, if specified it confirms availability.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-        """
-        send_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional data to be sent during each health check.
-        """
-elif False:
-    FastUdpAppMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class FastUdpAppMonitorArgsDict(TypedDict):
+    expected_response: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The presence of this optional string is required in the response, if specified it confirms availability.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+    """
+    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional data to be sent during each health check.
+    """
 
 @pulumi.input_type
 class FastUdpAppMonitorArgs:
@@ -1212,30 +1162,27 @@ class FastUdpAppMonitorArgs:
         pulumi.set(self, "send_string", value)
 
 
-if not MYPY:
-    class FastUdpAppPoolMemberArgsDict(TypedDict):
-        addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of server address to be used for FAST-Generated Pool.
-        """
-        connection_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        connectionLimit value to be used for FAST-Generated Pool.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        port number of serviceport to be used for FAST-Generated Pool.
-        """
-        priority_group: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        priorityGroup value to be used for FAST-Generated Pool.
-        """
-        share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        shareNodes value to be used for FAST-Generated Pool.
-        """
-elif False:
-    FastUdpAppPoolMemberArgsDict: TypeAlias = Mapping[str, Any]
+class FastUdpAppPoolMemberArgsDict(TypedDict):
+    addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of server address to be used for FAST-Generated Pool.
+    """
+    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    connectionLimit value to be used for FAST-Generated Pool.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    port number of serviceport to be used for FAST-Generated Pool.
+    """
+    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    priorityGroup value to be used for FAST-Generated Pool.
+    """
+    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    shareNodes value to be used for FAST-Generated Pool.
+    """
 
 @pulumi.input_type
 class FastUdpAppPoolMemberArgs:
@@ -1323,18 +1270,15 @@ class FastUdpAppPoolMemberArgs:
         pulumi.set(self, "share_nodes", value)
 
 
-if not MYPY:
-    class FastUdpAppVirtualServerArgsDict(TypedDict):
-        ip: pulumi.Input[_builtins.str]
-        """
-        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Port number to used for accessing virtual server/application
-        """
-elif False:
-    FastUdpAppVirtualServerArgsDict: TypeAlias = Mapping[str, Any]
+class FastUdpAppVirtualServerArgsDict(TypedDict):
+    ip: pulumi.Input[_builtins.str]
+    """
+    IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Port number to used for accessing virtual server/application
+    """
 
 @pulumi.input_type
 class FastUdpAppVirtualServerArgs:
@@ -1373,34 +1317,31 @@ class FastUdpAppVirtualServerArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Unique name for the protected endpoint
-        """
-        endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the path to the web page to be protected by BD. For example, `/login`.
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        hostname or IP address of the web page to be protected by the Bot Defense
-        """
-        mitigation_action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
-        """
-        post: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        POST field to protect the path when it has a POST method, `enabled` or `disabled`
-        """
-        put: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
-        """
-elif False:
-    SaasBotDefenseProfileProtectedEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Unique name for the protected endpoint
+    """
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the path to the web page to be protected by BD. For example, `/login`.
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    hostname or IP address of the web page to be protected by the Bot Defense
+    """
+    mitigation_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
+    """
+    post: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    POST field to protect the path when it has a POST method, `enabled` or `disabled`
+    """
+    put: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
+    """
 
 @pulumi.input_type
 class SaasBotDefenseProfileProtectedEndpointArgs:
@@ -1504,24 +1445,21 @@ class SaasBotDefenseProfileProtectedEndpointArgs:
         pulumi.set(self, "put", value)
 
 
-if not MYPY:
-    class WafPolicyFileTypeArgsDict(TypedDict):
-        allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
-        * No allowed file type matched the file type of the request.
-        * The file type of the request matched a disallowed file type.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the file type name as appearing in the URL extension.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
-        """
-elif False:
-    WafPolicyFileTypeArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyFileTypeArgsDict(TypedDict):
+    allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+    * No allowed file type matched the file type of the request.
+    * The file type of the request matched a disallowed file type.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the file type name as appearing in the URL extension.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
+    """
 
 @pulumi.input_type
 class WafPolicyFileTypeArgs:
@@ -1582,26 +1520,23 @@ class WafPolicyFileTypeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class WafPolicyGraphqlProfileArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-        """
-        attack_signatures_check: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
-        """
-        defense_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgsDict']]]]
-        """
-        defense_attributes settings for policy
-        """
-        metachar_elementcheck: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
-        """
-elif False:
-    WafPolicyGraphqlProfileArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyGraphqlProfileArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+    """
+    attack_signatures_check: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
+    """
+    defense_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgsDict']]]]
+    """
+    defense_attributes settings for policy
+    """
+    metachar_elementcheck: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
+    """
 
 @pulumi.input_type
 class WafPolicyGraphqlProfileArgs:
@@ -1673,35 +1608,32 @@ class WafPolicyGraphqlProfileArgs:
         pulumi.set(self, "metachar_elementcheck", value)
 
 
-if not MYPY:
-    class WafPolicyGraphqlProfileDefenseAttributeArgsDict(TypedDict):
-        allow_introspection_queries: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Introspection queries can also be enforced to prevent attackers from using them to
-        understand the API structure and potentially breach an application.
-        """
-        maximum_batched_queries: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the highest number of batched queries allowed by the security policy.
-        """
-        maximum_structure_depth: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
-        """
-        maximum_total_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
-        """
-        maximum_value_length: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
-        """
-        tolerate_parsing_warnings: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
-        """
-elif False:
-    WafPolicyGraphqlProfileDefenseAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyGraphqlProfileDefenseAttributeArgsDict(TypedDict):
+    allow_introspection_queries: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Introspection queries can also be enforced to prevent attackers from using them to
+    understand the API structure and potentially breach an application.
+    """
+    maximum_batched_queries: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the highest number of batched queries allowed by the security policy.
+    """
+    maximum_structure_depth: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+    """
+    maximum_total_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+    """
+    maximum_value_length: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+    """
+    tolerate_parsing_warnings: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+    """
 
 @pulumi.input_type
 class WafPolicyGraphqlProfileDefenseAttributeArgs:
@@ -1808,14 +1740,11 @@ class WafPolicyGraphqlProfileDefenseAttributeArgs:
         pulumi.set(self, "tolerate_parsing_warnings", value)
 
 
-if not MYPY:
-    class WafPolicyHostNameArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-        """
-elif False:
-    WafPolicyHostNameArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyHostNameArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+    """
 
 @pulumi.input_type
 class WafPolicyHostNameArgs:
@@ -1840,38 +1769,35 @@ class WafPolicyHostNameArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class WafPolicyIpExceptionArgsDict(TypedDict):
-        ip_address: pulumi.Input[_builtins.str]
-        """
-        Specifies the IP address that you want the system to trust.
-        """
-        ip_mask: pulumi.Input[_builtins.str]
-        """
-        Specifies the netmask of the exceptional IP address. This is an optional field.
-        """
-        block_requests: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the description of the policy.
-        """
-        ignore_anomalies: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
-        """
-        ignore_ipreputation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
-        """
-        trustedby_policybuilder: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
-        """
-elif False:
-    WafPolicyIpExceptionArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyIpExceptionArgsDict(TypedDict):
+    ip_address: pulumi.Input[_builtins.str]
+    """
+    Specifies the IP address that you want the system to trust.
+    """
+    ip_mask: pulumi.Input[_builtins.str]
+    """
+    Specifies the netmask of the exceptional IP address. This is an optional field.
+    """
+    block_requests: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the description of the policy.
+    """
+    ignore_anomalies: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+    """
+    ignore_ipreputation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+    """
+    trustedby_policybuilder: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+    """
 
 @pulumi.input_type
 class WafPolicyIpExceptionArgs:
@@ -1990,14 +1916,11 @@ class WafPolicyIpExceptionArgs:
         pulumi.set(self, "trustedby_policybuilder", value)
 
 
-if not MYPY:
-    class WafPolicyPolicyBuilderArgsDict(TypedDict):
-        learning_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
-        """
-elif False:
-    WafPolicyPolicyBuilderArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicyPolicyBuilderArgsDict(TypedDict):
+    learning_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
+    """
 
 @pulumi.input_type
 class WafPolicyPolicyBuilderArgs:
@@ -2022,15 +1945,12 @@ class WafPolicyPolicyBuilderArgs:
         pulumi.set(self, "learning_mode", value)
 
 
-if not MYPY:
-    class WafPolicySignaturesSettingArgsDict(TypedDict):
-        placesignatures_in_staging: NotRequired[pulumi.Input[_builtins.bool]]
-        signature_staging: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        setting true will enforce all signature from staging
-        """
-elif False:
-    WafPolicySignaturesSettingArgsDict: TypeAlias = Mapping[str, Any]
+class WafPolicySignaturesSettingArgsDict(TypedDict):
+    placesignatures_in_staging: NotRequired[pulumi.Input[_builtins.bool]]
+    signature_staging: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    setting true will enforce all signature from staging
+    """
 
 @pulumi.input_type
 class WafPolicySignaturesSettingArgs:

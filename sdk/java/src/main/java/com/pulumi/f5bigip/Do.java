@@ -17,6 +17,60 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * `f5bigip.Do` provides details about bigip do resource
+ * 
+ * This resource is helpful to configure do declarative JSON on BIG-IP.
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.Do;
+ * import com.pulumi.f5bigip.DoArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var do_example = new Do("do-example", DoArgs.builder()
+ *             .doJson(StdFunctions.file(FileArgs.builder()
+ *                 .input("example.json")
+ *                 .build()).result())
+ *             .timeout(15)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Importing
+ * 
+ * Importing Existing DO declaration onto terraform can be done by using `task id` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_do.do-example2 2543dc37-bd1a-45c1-983f-1155a81489b2
+ * ```
+ * 
+ * * `example.json` - Example of DO Declarative JSON
+ * * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
+ * 
+ */
 @ResourceType(type="f5bigip:index/do:Do")
 public class Do extends com.pulumi.resources.CustomResource {
     /**
@@ -36,14 +90,32 @@ public class Do extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bigipAddress);
     }
     /**
-     * Password of  BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     * 
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     * 
+     * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     * 
+     * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+     * state to empty and won&#39;t throw error.
      * 
      */
     @Export(name="bigipPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bigipPassword;
 
     /**
-     * @return Password of  BIGIP host to be used for this resource
+     * @return Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     * 
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     * 
+     * &gt; **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     * 
+     * &gt; **Note:** Delete method is not supported by DO, so terraform destroy won&#39;t delete configuration in bigip but we will set the terrform
+     * state to empty and won&#39;t throw error.
      * 
      */
     public Output<Optional<String>> bigipPassword() {

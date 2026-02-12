@@ -723,12 +723,6 @@ class RequestLogProfile(pulumi.CustomResource):
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
@@ -782,12 +776,6 @@ class RequestLogProfile(pulumi.CustomResource):
         ## Import
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
-        ```
 
         :param str resource_name: The name of the resource.
         :param RequestLogProfileArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class CommandArgs:
         The set of arguments for constructing a Command resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
+        :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         pulumi.set(__self__, "commands", commands)
         if command_results is not None:
@@ -60,6 +61,9 @@ class CommandArgs:
     @_builtins.property
     @pulumi.getter
     def when(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        default value will be `apply`,can be set to `destroy` for terraform destroy call.
+        """
         return pulumi.get(self, "when")
 
     @when.setter
@@ -77,6 +81,7 @@ class _CommandState:
         Input properties used for looking up and filtering Command resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         if command_results is not None:
             pulumi.set(__self__, "command_results", command_results)
@@ -112,6 +117,9 @@ class _CommandState:
     @_builtins.property
     @pulumi.getter
     def when(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        default value will be `apply`,can be set to `destroy` for terraform destroy call.
+        """
         return pulumi.get(self, "when")
 
     @when.setter
@@ -138,6 +146,7 @@ class Command(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         ...
     @overload
@@ -204,6 +213,7 @@ class Command(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,5 +243,8 @@ class Command(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def when(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        default value will be `apply`,can be set to `destroy` for terraform destroy call.
+        """
         return pulumi.get(self, "when")
 

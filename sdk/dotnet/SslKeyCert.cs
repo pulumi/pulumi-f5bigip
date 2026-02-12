@@ -46,7 +46,7 @@ namespace Pulumi.F5BigIP
     public partial class SslKeyCert : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The content of the cert.
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function.
         /// </summary>
         [Output("certContent")]
         public Output<string> CertContent { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> IssuerCert { get; private set; } = null!;
 
         /// <summary>
-        /// The content of the key.
+        /// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `File` function.
         /// </summary>
         [Output("keyContent")]
         public Output<string> KeyContent { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _certContent;
 
         /// <summary>
-        /// The content of the cert.
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function.
         /// </summary>
         public Input<string>? CertContent
         {
@@ -213,7 +213,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _keyContent;
 
         /// <summary>
-        /// The content of the key.
+        /// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `File` function.
         /// </summary>
         public Input<string>? KeyContent
         {
@@ -271,7 +271,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _certContent;
 
         /// <summary>
-        /// The content of the cert.
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function.
         /// </summary>
         public Input<string>? CertContent
         {
@@ -317,7 +317,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _keyContent;
 
         /// <summary>
-        /// The content of the key.
+        /// Content of SSL key on Local Disk,path of SSL key will be provided to terraform `File` function.
         /// </summary>
         public Input<string>? KeyContent
         {

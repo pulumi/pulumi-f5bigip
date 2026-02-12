@@ -10,6 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
+    /// `f5bigip.WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
+    /// It outputs an up-to-date WAF Policy in a JSON format
+    /// 
+    /// * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
+    /// 
+    /// &gt; **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
+    /// 
+    /// &gt; **NOTE** For BIG-IP v17.x above version,Terraform BIG-IP Provider version must be &gt; v1.23.0
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -77,7 +86,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// ## Import
     /// 
-    /// An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`.
+    /// An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `Id`.
     /// 
     /// e.g:
     /// 

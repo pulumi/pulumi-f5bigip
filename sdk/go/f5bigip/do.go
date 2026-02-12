@@ -12,13 +12,69 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `Do` provides details about bigip do resource
+//
+// This resource is helpful to configure do declarative JSON on BIG-IP.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-std/sdk/v2/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "example.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewDo(ctx, "do-example", &f5bigip.DoArgs{
+//				DoJson:  pulumi.String(invokeFile.Result),
+//				Timeout: pulumi.Int(15),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Importing
+//
+// Importing Existing DO declaration onto terraform can be done by using `task id` as `id`.
+// An example is below:
+// ```sh
+// $ terraform import bigip_do.do-example2 2543dc37-bd1a-45c1-983f-1155a81489b2
+// ```
+//
+// * `example.json` - Example of DO Declarative JSON
+// * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
 type Do struct {
 	pulumi.CustomResourceState
 
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrOutput `pulumi:"bigipAddress"`
-	// Password of  BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	//
+	// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+	//
+	// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+	// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+	//
+	// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+	// state to empty and won't throw error.
 	BigipPassword pulumi.StringPtrOutput `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -85,7 +141,16 @@ type doState struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress *string `pulumi:"bigipAddress"`
-	// Password of  BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	//
+	// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+	//
+	// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+	// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+	//
+	// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+	// state to empty and won't throw error.
 	BigipPassword *string `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -109,7 +174,16 @@ type DoState struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrInput
-	// Password of  BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	//
+	// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+	//
+	// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+	// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+	//
+	// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+	// state to empty and won't throw error.
 	BigipPassword pulumi.StringPtrInput
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -137,7 +211,16 @@ type doArgs struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress *string `pulumi:"bigipAddress"`
-	// Password of  BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	//
+	// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+	//
+	// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+	// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+	//
+	// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+	// state to empty and won't throw error.
 	BigipPassword *string `pulumi:"bigipPassword"`
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -162,7 +245,16 @@ type DoArgs struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
 	BigipAddress pulumi.StringPtrInput
-	// Password of  BIGIP host to be used for this resource
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	//
+	// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+	//
+	// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+	// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+	//
+	// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+	// state to empty and won't throw error.
 	BigipPassword pulumi.StringPtrInput
 	// Port number of BIGIP host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration
@@ -275,7 +367,16 @@ func (o DoOutput) BigipAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipAddress }).(pulumi.StringPtrOutput)
 }
 
-// Password of  BIGIP host to be used for this resource
+// Password of  BIGIP host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
+//
+// * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+//
+// > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+// `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+//
+// > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+// state to empty and won't throw error.
 func (o DoOutput) BigipPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipPassword }).(pulumi.StringPtrOutput)
 }

@@ -29,6 +29,9 @@ namespace Pulumi.F5BigIP
         [Output("commands")]
         public Output<ImmutableArray<string>> Commands { get; private set; } = null!;
 
+        /// <summary>
+        /// default value will be `Apply`,can be set to `Destroy` for terraform destroy call.
+        /// </summary>
         [Output("when")]
         public Output<string?> When { get; private set; } = null!;
 
@@ -102,6 +105,9 @@ namespace Pulumi.F5BigIP
             set => _commands = value;
         }
 
+        /// <summary>
+        /// default value will be `Apply`,can be set to `Destroy` for terraform destroy call.
+        /// </summary>
         [Input("when")]
         public Input<string>? When { get; set; }
 
@@ -137,6 +143,9 @@ namespace Pulumi.F5BigIP
             set => _commands = value;
         }
 
+        /// <summary>
+        /// default value will be `Apply`,can be set to `Destroy` for terraform destroy call.
+        /// </summary>
         [Input("when")]
         public Input<string>? When { get; set; }
 

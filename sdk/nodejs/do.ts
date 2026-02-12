@@ -4,6 +4,36 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * `f5bigip.Do` provides details about bigip do resource
+ *
+ * This resource is helpful to configure do declarative JSON on BIG-IP.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as std from "@pulumi/std";
+ *
+ * const do_example = new f5bigip.Do("do-example", {
+ *     doJson: std.file({
+ *         input: "example.json",
+ *     }).then(invoke => invoke.result),
+ *     timeout: 15,
+ * });
+ * ```
+ *
+ * ## Importing
+ *
+ * Importing Existing DO declaration onto terraform can be done by using `task id` as `id`.
+ * An example is below:
+ * ```sh
+ * $ terraform import bigip_do.do-example2 2543dc37-bd1a-45c1-983f-1155a81489b2
+ * ```
+ *
+ * * `example.json` - Example of DO Declarative JSON
+ * * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
+ */
 export class Do extends pulumi.CustomResource {
     /**
      * Get an existing Do resource's state with the given name, ID, and optional extra
@@ -38,7 +68,16 @@ export class Do extends pulumi.CustomResource {
      */
     declare public readonly bigipAddress: pulumi.Output<string | undefined>;
     /**
-     * Password of  BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     *
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     *
+     * > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     *
+     * > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+     * state to empty and won't throw error.
      */
     declare public readonly bigipPassword: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +161,16 @@ export interface DoState {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of  BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     *
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     *
+     * > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     *
+     * > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+     * state to empty and won't throw error.
      */
     bigipPassword?: pulumi.Input<string>;
     /**
@@ -165,7 +213,16 @@ export interface DoArgs {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of  BIGIP host to be used for this resource
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     *
+     * * `timeout(minutes)` - (optional) timeout to keep polling DO endpoint until Bigip is provisioned by DO.( Default timeout is 20 minutes )
+     *
+     * > **Note:** If we want to replace provider BIGIP with other BIGIPs details we can specify with `bigipAddress`,
+     * `bigipUser`,`bigipPort` and `bigipPassword`. All Must be specified in such scenario.
+     *
+     * > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
+     * state to empty and won't throw error.
      */
     bigipPassword?: pulumi.Input<string>;
     /**

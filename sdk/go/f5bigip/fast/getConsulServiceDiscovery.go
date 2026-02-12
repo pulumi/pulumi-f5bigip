@@ -78,7 +78,8 @@ type GetConsulServiceDiscoveryArgs struct {
 
 // A collection of values returned by getConsulServiceDiscovery.
 type GetConsulServiceDiscoveryResult struct {
-	AddressRealm     *string `pulumi:"addressRealm"`
+	AddressRealm *string `pulumi:"addressRealm"`
+	// The JSON for Hashicorp Consul service discovery block.
 	ConsulSdJson     string  `pulumi:"consulSdJson"`
 	CredentialUpdate *bool   `pulumi:"credentialUpdate"`
 	EncodedToken     *string `pulumi:"encodedToken"`
@@ -154,6 +155,7 @@ func (o GetConsulServiceDiscoveryResultOutput) AddressRealm() pulumi.StringPtrOu
 	return o.ApplyT(func(v GetConsulServiceDiscoveryResult) *string { return v.AddressRealm }).(pulumi.StringPtrOutput)
 }
 
+// The JSON for Hashicorp Consul service discovery block.
 func (o GetConsulServiceDiscoveryResultOutput) ConsulSdJson() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConsulServiceDiscoveryResult) string { return v.ConsulSdJson }).(pulumi.StringOutput)
 }

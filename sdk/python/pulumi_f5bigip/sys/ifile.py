@@ -202,23 +202,138 @@ class Ifile(pulumi.CustomResource):
                  sub_path: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        `sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+        System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+
+        ## Example Usage
+
+        ### System iFile with Sub-path
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        template_file = f5bigip.sys.Ifile("template_file",
+            name="error-template",
+            partition="Common",
+            sub_path="templates",
+            content=\"\"\"<html>
+          <head><title>Service Unavailable</title></head>
+          <body>
+            <h1>503 - Service Temporarily Unavailable</h1>
+            <p>Please try again later.</p>
+          </body>
+        </html>
+        \"\"\")
+        ```
+
+        ### JSON Configuration File
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_f5bigip as f5bigip
+
+        server_list = json.dumps({
+            "servers": [
+                {
+                    "name": "web1",
+                    "ip": "10.1.1.10",
+                    "port": 80,
+                },
+                {
+                    "name": "web2",
+                    "ip": "10.1.1.11",
+                    "port": 80,
+                },
+                {
+                    "name": "web3",
+                    "ip": "10.1.1.12",
+                    "port": 80,
+                },
+            ],
+        })
+        server_config = f5bigip.sys.Ifile("server_config",
+            name="server-list",
+            partition="MyApp",
+            content=server_list)
+        ```
+
+        ### Using System iFile with LTM iFile
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Create system iFile with content
+        lookup_table = f5bigip.sys.Ifile("lookup_table",
+            name="url-rewrite-map",
+            partition="Common",
+            content=\"\"\"/old-api/v1/ /api/v2/
+        /legacy/ /new/
+        /deprecated/ /current/
+        \"\"\")
+        # Create LTM iFile that references the system iFile
+        ltm_lookup = f5bigip.ltm.Ifile("ltm_lookup",
+            name="ltm-url-rewrite-map",
+            partition="Common",
+            file_name="/Common/url-rewrite-map")
+        # Use in an iRule
+        url_rewriter = f5bigip.ltm.IRule("url_rewriter",
+            name="url-rewrite-rule",
+            irule=\"\"\"when HTTP_REQUEST {
+          set uri [HTTP::uri]
+          set mapping [ifile get ltm-url-rewrite-map]
+          foreach line [split $mapping \\"\\
+        \\"] {
+            set parts [split $line \\" \\"]
+            if {[string match [lindex $parts 0]* $uri]} {
+              HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
+              break
+            }
+          }
+        }
+        \"\"\")
+        ```
+
+        ## Notes
+
+        * The `content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+        * Changes to `name` will force recreation of the resource since iFile names cannot be changed after creation.
+        * The `checksum` and `size` attributes are automatically computed by the BIG-IP system.
+        * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+        * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+        * System iFiles can be referenced by `ltm.Ifile` resources for use in LTM configurations.
+
+        ## Path Structure
+
+        The full path of an iFile follows this pattern:
+        - Without sub-path: `/{partition}/{name}`
+        - With sub-path: `/{partition}/{sub_path}/{name}`
+
+        Examples:
+        - `/Common/config-file`
+        - `/Production/templates/error-page`
+        - `/MyApp/configs/database-settings`
+
+        ## Related Resources
+
+        * `ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+        * `ltm.IRule` - Creates iRules that can access iFile content
+        * `ltm.Policy` - Creates LTM policies that can use iFile content
+
+        ## Security Considerations
+
+        * iFile content is stored on the BIG-IP system and may contain sensitive information
+        * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+        * Consider using Terraform's sensitive variable handling for confidential content
+        * The `content` field is marked as sensitive in Terraform state to prevent accidental exposure
+
         ## Import
 
         System iFiles can be imported using their full path:
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
-        ```
-
         For iFiles with sub-paths:
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,23 +349,138 @@ class Ifile(pulumi.CustomResource):
                  args: IfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        `sys.Ifile` This resource uploads and manages system iFiles on F5 BIG-IP devices.
+        System iFiles store file content on the BIG-IP that can be referenced by iRules, LTM policies, and other BIG-IP configurations for traffic processing and decision making.
+
+        ## Example Usage
+
+        ### System iFile with Sub-path
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        template_file = f5bigip.sys.Ifile("template_file",
+            name="error-template",
+            partition="Common",
+            sub_path="templates",
+            content=\"\"\"<html>
+          <head><title>Service Unavailable</title></head>
+          <body>
+            <h1>503 - Service Temporarily Unavailable</h1>
+            <p>Please try again later.</p>
+          </body>
+        </html>
+        \"\"\")
+        ```
+
+        ### JSON Configuration File
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_f5bigip as f5bigip
+
+        server_list = json.dumps({
+            "servers": [
+                {
+                    "name": "web1",
+                    "ip": "10.1.1.10",
+                    "port": 80,
+                },
+                {
+                    "name": "web2",
+                    "ip": "10.1.1.11",
+                    "port": 80,
+                },
+                {
+                    "name": "web3",
+                    "ip": "10.1.1.12",
+                    "port": 80,
+                },
+            ],
+        })
+        server_config = f5bigip.sys.Ifile("server_config",
+            name="server-list",
+            partition="MyApp",
+            content=server_list)
+        ```
+
+        ### Using System iFile with LTM iFile
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Create system iFile with content
+        lookup_table = f5bigip.sys.Ifile("lookup_table",
+            name="url-rewrite-map",
+            partition="Common",
+            content=\"\"\"/old-api/v1/ /api/v2/
+        /legacy/ /new/
+        /deprecated/ /current/
+        \"\"\")
+        # Create LTM iFile that references the system iFile
+        ltm_lookup = f5bigip.ltm.Ifile("ltm_lookup",
+            name="ltm-url-rewrite-map",
+            partition="Common",
+            file_name="/Common/url-rewrite-map")
+        # Use in an iRule
+        url_rewriter = f5bigip.ltm.IRule("url_rewriter",
+            name="url-rewrite-rule",
+            irule=\"\"\"when HTTP_REQUEST {
+          set uri [HTTP::uri]
+          set mapping [ifile get ltm-url-rewrite-map]
+          foreach line [split $mapping \\"\\
+        \\"] {
+            set parts [split $line \\" \\"]
+            if {[string match [lindex $parts 0]* $uri]} {
+              HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
+              break
+            }
+          }
+        }
+        \"\"\")
+        ```
+
+        ## Notes
+
+        * The `content` field is marked as sensitive and will not be displayed in Terraform logs or state output.
+        * Changes to `name` will force recreation of the resource since iFile names cannot be changed after creation.
+        * The `checksum` and `size` attributes are automatically computed by the BIG-IP system.
+        * iFile content is uploaded to the BIG-IP system and stored there permanently until the resource is destroyed.
+        * Use `file()` function to load content from local files or `templatefile()` for dynamic content generation.
+        * System iFiles can be referenced by `ltm.Ifile` resources for use in LTM configurations.
+
+        ## Path Structure
+
+        The full path of an iFile follows this pattern:
+        - Without sub-path: `/{partition}/{name}`
+        - With sub-path: `/{partition}/{sub_path}/{name}`
+
+        Examples:
+        - `/Common/config-file`
+        - `/Production/templates/error-page`
+        - `/MyApp/configs/database-settings`
+
+        ## Related Resources
+
+        * `ltm.Ifile` - Creates LTM iFiles that reference system iFiles
+        * `ltm.IRule` - Creates iRules that can access iFile content
+        * `ltm.Policy` - Creates LTM policies that can use iFile content
+
+        ## Security Considerations
+
+        * iFile content is stored on the BIG-IP system and may contain sensitive information
+        * Use appropriate BIG-IP access controls to limit who can view or modify iFiles
+        * Consider using Terraform's sensitive variable handling for confidential content
+        * The `content` field is marked as sensitive in Terraform state to prevent accidental exposure
+
         ## Import
 
         System iFiles can be imported using their full path:
 
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
-        ```
-
         For iFiles with sub-paths:
-
-        bash
-
-        ```sh
-        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
-        ```
 
         :param str resource_name: The name of the resource.
         :param IfileArgs args: The arguments to use to populate this resource's properties.

@@ -28,13 +28,13 @@ class CertificateArgs:
                  partition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[_builtins.str] content: Content of certificate on Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
         :param pulumi.Input[_builtins.str] issuer_cert: Specifies the issuer certificate.
         :param pulumi.Input[_builtins.str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[_builtins.str] ocsp: Specifies the OCSP responder.
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "name", name)
@@ -53,7 +53,7 @@ class CertificateArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input[_builtins.str]:
         """
-        Content of certificate on Disk
+        Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -125,7 +125,7 @@ class CertificateArgs:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Partition of ssl certificate
+        Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         return pulumi.get(self, "partition")
 
@@ -146,13 +146,13 @@ class _CertificateState:
                  partition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[_builtins.str] content: Content of certificate on Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
         :param pulumi.Input[_builtins.str] issuer_cert: Specifies the issuer certificate.
         :param pulumi.Input[_builtins.str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] ocsp: Specifies the OCSP responder.
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -173,7 +173,7 @@ class _CertificateState:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Content of certificate on Disk
+        Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -245,7 +245,7 @@ class _CertificateState:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Partition of ssl certificate
+        Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         return pulumi.get(self, "partition")
 
@@ -287,13 +287,13 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: Content of certificate on Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
         :param pulumi.Input[_builtins.str] issuer_cert: Specifies the issuer certificate.
         :param pulumi.Input[_builtins.str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] ocsp: Specifies the OCSP responder.
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         ...
     @overload
@@ -386,13 +386,13 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] content: Content of certificate on Disk
+        :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
         :param pulumi.Input[_builtins.str] issuer_cert: Specifies the issuer certificate.
         :param pulumi.Input[_builtins.str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] ocsp: Specifies the OCSP responder.
-        :param pulumi.Input[_builtins.str] partition: Partition of ssl certificate
+        :param pulumi.Input[_builtins.str] partition: Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -411,7 +411,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:
         """
-        Content of certificate on Disk
+        Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
@@ -459,7 +459,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Partition of ssl certificate
+        Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         return pulumi.get(self, "partition")
 

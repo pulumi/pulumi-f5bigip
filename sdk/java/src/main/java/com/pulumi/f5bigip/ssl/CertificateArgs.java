@@ -17,14 +17,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * Content of certificate on Disk
+     * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return Content of certificate on Disk
+     * @return Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      * 
      */
     public Output<String> content() {
@@ -107,14 +107,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Partition of ssl certificate
+     * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      * 
      */
     @Import(name="partition")
     private @Nullable Output<String> partition;
 
     /**
-     * @return Partition of ssl certificate
+     * @return Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      * 
      */
     public Optional<Output<String>> partition() {
@@ -152,7 +152,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content Content of certificate on Disk
+         * @param content Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content Content of certificate on Disk
+         * @param content Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Partition of ssl certificate
+         * @param partition Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Partition of ssl certificate
+         * @param partition Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
          * 
          * @return builder
          * 

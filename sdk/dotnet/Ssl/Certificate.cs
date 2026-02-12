@@ -41,7 +41,7 @@ namespace Pulumi.F5BigIP.Ssl
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Content of certificate on Disk
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string?> Ocsp { get; private set; } = null!;
 
         /// <summary>
-        /// Partition of ssl certificate
+        /// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in FullPath format.
         /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.F5BigIP.Ssl
         private Input<string>? _content;
 
         /// <summary>
-        /// Content of certificate on Disk
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function
         /// </summary>
         public Input<string>? Content
         {
@@ -179,7 +179,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Ocsp { get; set; }
 
         /// <summary>
-        /// Partition of ssl certificate
+        /// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in FullPath format.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.F5BigIP.Ssl
         private Input<string>? _content;
 
         /// <summary>
-        /// Content of certificate on Disk
+        /// Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `File` function
         /// </summary>
         public Input<string>? Content
         {
@@ -239,7 +239,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Ocsp { get; set; }
 
         /// <summary>
-        /// Partition of ssl certificate
+        /// Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in FullPath format.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }

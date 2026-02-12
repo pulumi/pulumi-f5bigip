@@ -22,7 +22,8 @@ type Command struct {
 	CommandResults pulumi.StringArrayOutput `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayOutput `pulumi:"commands"`
-	When     pulumi.StringPtrOutput   `pulumi:"when"`
+	// default value will be `apply`,can be set to `destroy` for terraform destroy call.
+	When pulumi.StringPtrOutput `pulumi:"when"`
 }
 
 // NewCommand registers a new resource with the given unique name, arguments, and options.
@@ -62,7 +63,8 @@ type commandState struct {
 	CommandResults []string `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands []string `pulumi:"commands"`
-	When     *string  `pulumi:"when"`
+	// default value will be `apply`,can be set to `destroy` for terraform destroy call.
+	When *string `pulumi:"when"`
 }
 
 type CommandState struct {
@@ -70,7 +72,8 @@ type CommandState struct {
 	CommandResults pulumi.StringArrayInput
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayInput
-	When     pulumi.StringPtrInput
+	// default value will be `apply`,can be set to `destroy` for terraform destroy call.
+	When pulumi.StringPtrInput
 }
 
 func (CommandState) ElementType() reflect.Type {
@@ -82,7 +85,8 @@ type commandArgs struct {
 	CommandResults []string `pulumi:"commandResults"`
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands []string `pulumi:"commands"`
-	When     *string  `pulumi:"when"`
+	// default value will be `apply`,can be set to `destroy` for terraform destroy call.
+	When *string `pulumi:"when"`
 }
 
 // The set of arguments for constructing a Command resource.
@@ -91,7 +95,8 @@ type CommandArgs struct {
 	CommandResults pulumi.StringArrayInput
 	// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
 	Commands pulumi.StringArrayInput
-	When     pulumi.StringPtrInput
+	// default value will be `apply`,can be set to `destroy` for terraform destroy call.
+	When pulumi.StringPtrInput
 }
 
 func (CommandArgs) ElementType() reflect.Type {
@@ -191,6 +196,7 @@ func (o CommandOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
+// default value will be `apply`,can be set to `destroy` for terraform destroy call.
 func (o CommandOutput) When() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Command) pulumi.StringPtrOutput { return v.When }).(pulumi.StringPtrOutput)
 }

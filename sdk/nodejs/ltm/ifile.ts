@@ -62,19 +62,7 @@ import * as utilities from "../utilities";
  *
  * LTM iFiles can be imported using their full path:
  *
- * bash
- *
- * ```sh
- * $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
- * ```
- *
  * For iFiles with sub-paths:
- *
- * bash
- *
- * ```sh
- * $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
- * ```
  */
 export class Ifile extends pulumi.CustomResource {
     /**

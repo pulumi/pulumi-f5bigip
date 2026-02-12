@@ -41,7 +41,7 @@ namespace Pulumi.F5BigIP.Ssl
     public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Content of SSL certificate key present on local Disk
+        /// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `File` function
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Partition of ssl certificate key
+        /// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `FullPath` format.
         /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.F5BigIP.Ssl
         private Input<string>? _content;
 
         /// <summary>
-        /// Content of SSL certificate key present on local Disk
+        /// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `File` function
         /// </summary>
         public Input<string>? Content
         {
@@ -150,7 +150,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Partition of ssl certificate key
+        /// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `FullPath` format.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.F5BigIP.Ssl
         private Input<string>? _content;
 
         /// <summary>
-        /// Content of SSL certificate key present on local Disk
+        /// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `File` function
         /// </summary>
         public Input<string>? Content
         {
@@ -208,7 +208,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Partition of ssl certificate key
+        /// Partition on to SSL Certificate key to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in `FullPath` format.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }

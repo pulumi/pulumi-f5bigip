@@ -55,20 +55,15 @@ __all__ = [
     'GetPolicyRuleConditionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataGroupRecordArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        """
-        data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
-        """
-elif False:
-    DataGroupRecordArgsDict: TypeAlias = Mapping[str, Any]
+class DataGroupRecordArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+    """
+    data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
+    """
 
 @pulumi.input_type
 class DataGroupRecordArgs:
@@ -108,30 +103,27 @@ class DataGroupRecordArgs:
         pulumi.set(self, "data", value)
 
 
-if not MYPY:
-    class NodeFqdnArgsDict(TypedDict):
-        address_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
-        """
-        autopopulate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether the node should scale to the IP address set returned by DNS.
-        """
-        downinterval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the number of attempts to resolve a domain name. The default is 5.
-        """
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the node
-        """
-elif False:
-    NodeFqdnArgsDict: TypeAlias = Mapping[str, Any]
+class NodeFqdnArgsDict(TypedDict):
+    address_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+    """
+    autopopulate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether the node should scale to the IP address set returned by DNS.
+    """
+    downinterval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the number of attempts to resolve a domain name. The default is 5.
+    """
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the node
+    """
 
 @pulumi.input_type
 class NodeFqdnArgs:
@@ -220,26 +212,23 @@ class NodeFqdnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class PolicyRuleArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of Rule to be applied in policy.
-        """
-        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgsDict']]]]
-        """
-        Block type. See action block for more details.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgsDict']]]]
-        """
-        Block type. See condition block for more details.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies descriptive text that identifies the irule attached to policy.
-        """
-elif False:
-    PolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyRuleArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of Rule to be applied in policy.
+    """
+    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgsDict']]]]
+    """
+    Block type. See action block for more details.
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgsDict']]]]
+    """
+    Block type. See condition block for more details.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies descriptive text that identifies the irule attached to policy.
+    """
 
 @pulumi.input_type
 class PolicyRuleArgs:
@@ -311,123 +300,120 @@ class PolicyRuleArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PolicyRuleActionArgsDict(TypedDict):
-        app_service: NotRequired[pulumi.Input[_builtins.str]]
-        application: NotRequired[pulumi.Input[_builtins.str]]
-        asm: NotRequired[pulumi.Input[_builtins.bool]]
-        avr: NotRequired[pulumi.Input[_builtins.bool]]
-        cache: NotRequired[pulumi.Input[_builtins.bool]]
-        carp: NotRequired[pulumi.Input[_builtins.bool]]
-        category: NotRequired[pulumi.Input[_builtins.str]]
-        classify: NotRequired[pulumi.Input[_builtins.bool]]
-        clone_pool: NotRequired[pulumi.Input[_builtins.str]]
-        code: NotRequired[pulumi.Input[_builtins.int]]
-        compress: NotRequired[pulumi.Input[_builtins.bool]]
-        connection: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        cookie_hash: NotRequired[pulumi.Input[_builtins.bool]]
-        cookie_insert: NotRequired[pulumi.Input[_builtins.bool]]
-        cookie_passive: NotRequired[pulumi.Input[_builtins.bool]]
-        cookie_rewrite: NotRequired[pulumi.Input[_builtins.bool]]
-        decompress: NotRequired[pulumi.Input[_builtins.bool]]
-        defer: NotRequired[pulumi.Input[_builtins.bool]]
-        destination_address: NotRequired[pulumi.Input[_builtins.bool]]
-        disable: NotRequired[pulumi.Input[_builtins.bool]]
-        domain: NotRequired[pulumi.Input[_builtins.str]]
-        enable: NotRequired[pulumi.Input[_builtins.bool]]
-        expiry: NotRequired[pulumi.Input[_builtins.str]]
-        expiry_secs: NotRequired[pulumi.Input[_builtins.int]]
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        extension: NotRequired[pulumi.Input[_builtins.str]]
-        facility: NotRequired[pulumi.Input[_builtins.str]]
-        forward: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This action will affect forwarding.
-        """
-        from_profile: NotRequired[pulumi.Input[_builtins.str]]
-        hash: NotRequired[pulumi.Input[_builtins.bool]]
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        http: NotRequired[pulumi.Input[_builtins.bool]]
-        http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-        http_header: NotRequired[pulumi.Input[_builtins.bool]]
-        http_host: NotRequired[pulumi.Input[_builtins.bool]]
-        http_referer: NotRequired[pulumi.Input[_builtins.bool]]
-        http_reply: NotRequired[pulumi.Input[_builtins.bool]]
-        http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-        http_uri: NotRequired[pulumi.Input[_builtins.bool]]
-        ifile: NotRequired[pulumi.Input[_builtins.str]]
-        insert: NotRequired[pulumi.Input[_builtins.bool]]
-        internal_virtual: NotRequired[pulumi.Input[_builtins.str]]
-        ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        l7dos: NotRequired[pulumi.Input[_builtins.bool]]
-        length: NotRequired[pulumi.Input[_builtins.int]]
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        log: NotRequired[pulumi.Input[_builtins.bool]]
-        ltm_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        member: NotRequired[pulumi.Input[_builtins.str]]
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        netmask: NotRequired[pulumi.Input[_builtins.str]]
-        nexthop: NotRequired[pulumi.Input[_builtins.str]]
-        node: NotRequired[pulumi.Input[_builtins.str]]
-        offset: NotRequired[pulumi.Input[_builtins.int]]
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        pem: NotRequired[pulumi.Input[_builtins.bool]]
-        persist: NotRequired[pulumi.Input[_builtins.bool]]
-        pin: NotRequired[pulumi.Input[_builtins.bool]]
-        policy: NotRequired[pulumi.Input[_builtins.str]]
-        pool: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This action will direct the stream to this pool.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        priority: NotRequired[pulumi.Input[_builtins.str]]
-        profile: NotRequired[pulumi.Input[_builtins.str]]
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        query_string: NotRequired[pulumi.Input[_builtins.str]]
-        rateclass: NotRequired[pulumi.Input[_builtins.str]]
-        redirect: NotRequired[pulumi.Input[_builtins.bool]]
-        remove: NotRequired[pulumi.Input[_builtins.bool]]
-        replace: NotRequired[pulumi.Input[_builtins.bool]]
-        request: NotRequired[pulumi.Input[_builtins.bool]]
-        request_adapt: NotRequired[pulumi.Input[_builtins.bool]]
-        reset: NotRequired[pulumi.Input[_builtins.bool]]
-        response: NotRequired[pulumi.Input[_builtins.bool]]
-        response_adapt: NotRequired[pulumi.Input[_builtins.bool]]
-        scheme: NotRequired[pulumi.Input[_builtins.str]]
-        script: NotRequired[pulumi.Input[_builtins.str]]
-        select: NotRequired[pulumi.Input[_builtins.bool]]
-        server_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        set_variable: NotRequired[pulumi.Input[_builtins.bool]]
-        shutdown: NotRequired[pulumi.Input[_builtins.bool]]
-        snat: NotRequired[pulumi.Input[_builtins.str]]
-        snatpool: NotRequired[pulumi.Input[_builtins.str]]
-        source_address: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_session_id: NotRequired[pulumi.Input[_builtins.bool]]
-        status: NotRequired[pulumi.Input[_builtins.int]]
-        tcl: NotRequired[pulumi.Input[_builtins.bool]]
-        tcp_nagle: NotRequired[pulumi.Input[_builtins.bool]]
-        text: NotRequired[pulumi.Input[_builtins.str]]
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        tm_name: NotRequired[pulumi.Input[_builtins.str]]
-        uie: NotRequired[pulumi.Input[_builtins.bool]]
-        universal: NotRequired[pulumi.Input[_builtins.bool]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        virtual: NotRequired[pulumi.Input[_builtins.str]]
-        vlan: NotRequired[pulumi.Input[_builtins.str]]
-        vlan_id: NotRequired[pulumi.Input[_builtins.int]]
-        wam: NotRequired[pulumi.Input[_builtins.bool]]
-        write: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyRuleActionArgsDict(TypedDict):
+    app_service: NotRequired[pulumi.Input[_builtins.str]]
+    application: NotRequired[pulumi.Input[_builtins.str]]
+    asm: NotRequired[pulumi.Input[_builtins.bool]]
+    avr: NotRequired[pulumi.Input[_builtins.bool]]
+    cache: NotRequired[pulumi.Input[_builtins.bool]]
+    carp: NotRequired[pulumi.Input[_builtins.bool]]
+    category: NotRequired[pulumi.Input[_builtins.str]]
+    classify: NotRequired[pulumi.Input[_builtins.bool]]
+    clone_pool: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[_builtins.int]]
+    compress: NotRequired[pulumi.Input[_builtins.bool]]
+    connection: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    cookie_hash: NotRequired[pulumi.Input[_builtins.bool]]
+    cookie_insert: NotRequired[pulumi.Input[_builtins.bool]]
+    cookie_passive: NotRequired[pulumi.Input[_builtins.bool]]
+    cookie_rewrite: NotRequired[pulumi.Input[_builtins.bool]]
+    decompress: NotRequired[pulumi.Input[_builtins.bool]]
+    defer: NotRequired[pulumi.Input[_builtins.bool]]
+    destination_address: NotRequired[pulumi.Input[_builtins.bool]]
+    disable: NotRequired[pulumi.Input[_builtins.bool]]
+    domain: NotRequired[pulumi.Input[_builtins.str]]
+    enable: NotRequired[pulumi.Input[_builtins.bool]]
+    expiry: NotRequired[pulumi.Input[_builtins.str]]
+    expiry_secs: NotRequired[pulumi.Input[_builtins.int]]
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    extension: NotRequired[pulumi.Input[_builtins.str]]
+    facility: NotRequired[pulumi.Input[_builtins.str]]
+    forward: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This action will affect forwarding.
+    """
+    from_profile: NotRequired[pulumi.Input[_builtins.str]]
+    hash: NotRequired[pulumi.Input[_builtins.bool]]
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    http: NotRequired[pulumi.Input[_builtins.bool]]
+    http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
+    http_header: NotRequired[pulumi.Input[_builtins.bool]]
+    http_host: NotRequired[pulumi.Input[_builtins.bool]]
+    http_referer: NotRequired[pulumi.Input[_builtins.bool]]
+    http_reply: NotRequired[pulumi.Input[_builtins.bool]]
+    http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
+    http_uri: NotRequired[pulumi.Input[_builtins.bool]]
+    ifile: NotRequired[pulumi.Input[_builtins.str]]
+    insert: NotRequired[pulumi.Input[_builtins.bool]]
+    internal_virtual: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    l7dos: NotRequired[pulumi.Input[_builtins.bool]]
+    length: NotRequired[pulumi.Input[_builtins.int]]
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    log: NotRequired[pulumi.Input[_builtins.bool]]
+    ltm_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    member: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    netmask: NotRequired[pulumi.Input[_builtins.str]]
+    nexthop: NotRequired[pulumi.Input[_builtins.str]]
+    node: NotRequired[pulumi.Input[_builtins.str]]
+    offset: NotRequired[pulumi.Input[_builtins.int]]
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    pem: NotRequired[pulumi.Input[_builtins.bool]]
+    persist: NotRequired[pulumi.Input[_builtins.bool]]
+    pin: NotRequired[pulumi.Input[_builtins.bool]]
+    policy: NotRequired[pulumi.Input[_builtins.str]]
+    pool: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This action will direct the stream to this pool.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[_builtins.str]]
+    profile: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    query_string: NotRequired[pulumi.Input[_builtins.str]]
+    rateclass: NotRequired[pulumi.Input[_builtins.str]]
+    redirect: NotRequired[pulumi.Input[_builtins.bool]]
+    remove: NotRequired[pulumi.Input[_builtins.bool]]
+    replace: NotRequired[pulumi.Input[_builtins.bool]]
+    request: NotRequired[pulumi.Input[_builtins.bool]]
+    request_adapt: NotRequired[pulumi.Input[_builtins.bool]]
+    reset: NotRequired[pulumi.Input[_builtins.bool]]
+    response: NotRequired[pulumi.Input[_builtins.bool]]
+    response_adapt: NotRequired[pulumi.Input[_builtins.bool]]
+    scheme: NotRequired[pulumi.Input[_builtins.str]]
+    script: NotRequired[pulumi.Input[_builtins.str]]
+    select: NotRequired[pulumi.Input[_builtins.bool]]
+    server_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    set_variable: NotRequired[pulumi.Input[_builtins.bool]]
+    shutdown: NotRequired[pulumi.Input[_builtins.bool]]
+    snat: NotRequired[pulumi.Input[_builtins.str]]
+    snatpool: NotRequired[pulumi.Input[_builtins.str]]
+    source_address: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_session_id: NotRequired[pulumi.Input[_builtins.bool]]
+    status: NotRequired[pulumi.Input[_builtins.int]]
+    tcl: NotRequired[pulumi.Input[_builtins.bool]]
+    tcp_nagle: NotRequired[pulumi.Input[_builtins.bool]]
+    text: NotRequired[pulumi.Input[_builtins.str]]
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    tm_name: NotRequired[pulumi.Input[_builtins.str]]
+    uie: NotRequired[pulumi.Input[_builtins.bool]]
+    universal: NotRequired[pulumi.Input[_builtins.bool]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    virtual: NotRequired[pulumi.Input[_builtins.str]]
+    vlan: NotRequired[pulumi.Input[_builtins.str]]
+    vlan_id: NotRequired[pulumi.Input[_builtins.int]]
+    wam: NotRequired[pulumi.Input[_builtins.bool]]
+    write: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyRuleActionArgs:
@@ -1696,103 +1682,100 @@ class PolicyRuleActionArgs:
         pulumi.set(self, "write", value)
 
 
-if not MYPY:
-    class PolicyRuleConditionArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.bool]]
-        all: NotRequired[pulumi.Input[_builtins.bool]]
-        app_service: NotRequired[pulumi.Input[_builtins.str]]
-        browser_type: NotRequired[pulumi.Input[_builtins.bool]]
-        browser_version: NotRequired[pulumi.Input[_builtins.bool]]
-        case_insensitive: NotRequired[pulumi.Input[_builtins.bool]]
-        case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
-        cipher: NotRequired[pulumi.Input[_builtins.bool]]
-        cipher_bits: NotRequired[pulumi.Input[_builtins.bool]]
-        client_accepted: NotRequired[pulumi.Input[_builtins.bool]]
-        client_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-        code: NotRequired[pulumi.Input[_builtins.bool]]
-        common_name: NotRequired[pulumi.Input[_builtins.bool]]
-        contains: NotRequired[pulumi.Input[_builtins.bool]]
-        continent: NotRequired[pulumi.Input[_builtins.bool]]
-        country_code: NotRequired[pulumi.Input[_builtins.bool]]
-        country_name: NotRequired[pulumi.Input[_builtins.bool]]
-        cpu_usage: NotRequired[pulumi.Input[_builtins.bool]]
-        datagroup: NotRequired[pulumi.Input[_builtins.str]]
-        device_make: NotRequired[pulumi.Input[_builtins.bool]]
-        device_model: NotRequired[pulumi.Input[_builtins.bool]]
-        domain: NotRequired[pulumi.Input[_builtins.bool]]
-        ends_with: NotRequired[pulumi.Input[_builtins.bool]]
-        equals: NotRequired[pulumi.Input[_builtins.bool]]
-        exists: NotRequired[pulumi.Input[_builtins.bool]]
-        expiry: NotRequired[pulumi.Input[_builtins.bool]]
-        extension: NotRequired[pulumi.Input[_builtins.bool]]
-        external: NotRequired[pulumi.Input[_builtins.bool]]
-        geoip: NotRequired[pulumi.Input[_builtins.bool]]
-        greater: NotRequired[pulumi.Input[_builtins.bool]]
-        greater_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
-        host: NotRequired[pulumi.Input[_builtins.bool]]
-        http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-        http_header: NotRequired[pulumi.Input[_builtins.bool]]
-        http_host: NotRequired[pulumi.Input[_builtins.bool]]
-        http_method: NotRequired[pulumi.Input[_builtins.bool]]
-        http_referer: NotRequired[pulumi.Input[_builtins.bool]]
-        http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-        http_status: NotRequired[pulumi.Input[_builtins.bool]]
-        http_uri: NotRequired[pulumi.Input[_builtins.bool]]
-        http_user_agent: NotRequired[pulumi.Input[_builtins.bool]]
-        http_version: NotRequired[pulumi.Input[_builtins.bool]]
-        index: NotRequired[pulumi.Input[_builtins.int]]
-        internal: NotRequired[pulumi.Input[_builtins.bool]]
-        isp: NotRequired[pulumi.Input[_builtins.bool]]
-        last15secs: NotRequired[pulumi.Input[_builtins.bool]]
-        last1min: NotRequired[pulumi.Input[_builtins.bool]]
-        last5mins: NotRequired[pulumi.Input[_builtins.bool]]
-        less: NotRequired[pulumi.Input[_builtins.bool]]
-        less_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
-        local: NotRequired[pulumi.Input[_builtins.bool]]
-        major: NotRequired[pulumi.Input[_builtins.bool]]
-        matches: NotRequired[pulumi.Input[_builtins.bool]]
-        minor: NotRequired[pulumi.Input[_builtins.bool]]
-        missing: NotRequired[pulumi.Input[_builtins.bool]]
-        mss: NotRequired[pulumi.Input[_builtins.bool]]
-        not_: NotRequired[pulumi.Input[_builtins.bool]]
-        org: NotRequired[pulumi.Input[_builtins.bool]]
-        password: NotRequired[pulumi.Input[_builtins.bool]]
-        path: NotRequired[pulumi.Input[_builtins.bool]]
-        path_segment: NotRequired[pulumi.Input[_builtins.bool]]
-        port: NotRequired[pulumi.Input[_builtins.bool]]
-        present: NotRequired[pulumi.Input[_builtins.bool]]
-        protocol: NotRequired[pulumi.Input[_builtins.bool]]
-        query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
-        query_string: NotRequired[pulumi.Input[_builtins.bool]]
-        region_code: NotRequired[pulumi.Input[_builtins.bool]]
-        region_name: NotRequired[pulumi.Input[_builtins.bool]]
-        remote: NotRequired[pulumi.Input[_builtins.bool]]
-        request: NotRequired[pulumi.Input[_builtins.bool]]
-        response: NotRequired[pulumi.Input[_builtins.bool]]
-        route_domain: NotRequired[pulumi.Input[_builtins.bool]]
-        rtt: NotRequired[pulumi.Input[_builtins.bool]]
-        scheme: NotRequired[pulumi.Input[_builtins.bool]]
-        server_name: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_cert: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_extension: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
-        ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
-        starts_with: NotRequired[pulumi.Input[_builtins.bool]]
-        tcp: NotRequired[pulumi.Input[_builtins.bool]]
-        text: NotRequired[pulumi.Input[_builtins.bool]]
-        tm_name: NotRequired[pulumi.Input[_builtins.str]]
-        unnamed_query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
-        user_agent_token: NotRequired[pulumi.Input[_builtins.bool]]
-        username: NotRequired[pulumi.Input[_builtins.bool]]
-        value: NotRequired[pulumi.Input[_builtins.bool]]
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        version: NotRequired[pulumi.Input[_builtins.bool]]
-        vlan: NotRequired[pulumi.Input[_builtins.bool]]
-        vlan_id: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    PolicyRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyRuleConditionArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.bool]]
+    all: NotRequired[pulumi.Input[_builtins.bool]]
+    app_service: NotRequired[pulumi.Input[_builtins.str]]
+    browser_type: NotRequired[pulumi.Input[_builtins.bool]]
+    browser_version: NotRequired[pulumi.Input[_builtins.bool]]
+    case_insensitive: NotRequired[pulumi.Input[_builtins.bool]]
+    case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
+    cipher: NotRequired[pulumi.Input[_builtins.bool]]
+    cipher_bits: NotRequired[pulumi.Input[_builtins.bool]]
+    client_accepted: NotRequired[pulumi.Input[_builtins.bool]]
+    client_ssl: NotRequired[pulumi.Input[_builtins.bool]]
+    code: NotRequired[pulumi.Input[_builtins.bool]]
+    common_name: NotRequired[pulumi.Input[_builtins.bool]]
+    contains: NotRequired[pulumi.Input[_builtins.bool]]
+    continent: NotRequired[pulumi.Input[_builtins.bool]]
+    country_code: NotRequired[pulumi.Input[_builtins.bool]]
+    country_name: NotRequired[pulumi.Input[_builtins.bool]]
+    cpu_usage: NotRequired[pulumi.Input[_builtins.bool]]
+    datagroup: NotRequired[pulumi.Input[_builtins.str]]
+    device_make: NotRequired[pulumi.Input[_builtins.bool]]
+    device_model: NotRequired[pulumi.Input[_builtins.bool]]
+    domain: NotRequired[pulumi.Input[_builtins.bool]]
+    ends_with: NotRequired[pulumi.Input[_builtins.bool]]
+    equals: NotRequired[pulumi.Input[_builtins.bool]]
+    exists: NotRequired[pulumi.Input[_builtins.bool]]
+    expiry: NotRequired[pulumi.Input[_builtins.bool]]
+    extension: NotRequired[pulumi.Input[_builtins.bool]]
+    external: NotRequired[pulumi.Input[_builtins.bool]]
+    geoip: NotRequired[pulumi.Input[_builtins.bool]]
+    greater: NotRequired[pulumi.Input[_builtins.bool]]
+    greater_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
+    host: NotRequired[pulumi.Input[_builtins.bool]]
+    http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
+    http_header: NotRequired[pulumi.Input[_builtins.bool]]
+    http_host: NotRequired[pulumi.Input[_builtins.bool]]
+    http_method: NotRequired[pulumi.Input[_builtins.bool]]
+    http_referer: NotRequired[pulumi.Input[_builtins.bool]]
+    http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
+    http_status: NotRequired[pulumi.Input[_builtins.bool]]
+    http_uri: NotRequired[pulumi.Input[_builtins.bool]]
+    http_user_agent: NotRequired[pulumi.Input[_builtins.bool]]
+    http_version: NotRequired[pulumi.Input[_builtins.bool]]
+    index: NotRequired[pulumi.Input[_builtins.int]]
+    internal: NotRequired[pulumi.Input[_builtins.bool]]
+    isp: NotRequired[pulumi.Input[_builtins.bool]]
+    last15secs: NotRequired[pulumi.Input[_builtins.bool]]
+    last1min: NotRequired[pulumi.Input[_builtins.bool]]
+    last5mins: NotRequired[pulumi.Input[_builtins.bool]]
+    less: NotRequired[pulumi.Input[_builtins.bool]]
+    less_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
+    local: NotRequired[pulumi.Input[_builtins.bool]]
+    major: NotRequired[pulumi.Input[_builtins.bool]]
+    matches: NotRequired[pulumi.Input[_builtins.bool]]
+    minor: NotRequired[pulumi.Input[_builtins.bool]]
+    missing: NotRequired[pulumi.Input[_builtins.bool]]
+    mss: NotRequired[pulumi.Input[_builtins.bool]]
+    not_: NotRequired[pulumi.Input[_builtins.bool]]
+    org: NotRequired[pulumi.Input[_builtins.bool]]
+    password: NotRequired[pulumi.Input[_builtins.bool]]
+    path: NotRequired[pulumi.Input[_builtins.bool]]
+    path_segment: NotRequired[pulumi.Input[_builtins.bool]]
+    port: NotRequired[pulumi.Input[_builtins.bool]]
+    present: NotRequired[pulumi.Input[_builtins.bool]]
+    protocol: NotRequired[pulumi.Input[_builtins.bool]]
+    query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
+    query_string: NotRequired[pulumi.Input[_builtins.bool]]
+    region_code: NotRequired[pulumi.Input[_builtins.bool]]
+    region_name: NotRequired[pulumi.Input[_builtins.bool]]
+    remote: NotRequired[pulumi.Input[_builtins.bool]]
+    request: NotRequired[pulumi.Input[_builtins.bool]]
+    response: NotRequired[pulumi.Input[_builtins.bool]]
+    route_domain: NotRequired[pulumi.Input[_builtins.bool]]
+    rtt: NotRequired[pulumi.Input[_builtins.bool]]
+    scheme: NotRequired[pulumi.Input[_builtins.bool]]
+    server_name: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_cert: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_extension: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
+    ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
+    starts_with: NotRequired[pulumi.Input[_builtins.bool]]
+    tcp: NotRequired[pulumi.Input[_builtins.bool]]
+    text: NotRequired[pulumi.Input[_builtins.bool]]
+    tm_name: NotRequired[pulumi.Input[_builtins.str]]
+    unnamed_query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
+    user_agent_token: NotRequired[pulumi.Input[_builtins.bool]]
+    username: NotRequired[pulumi.Input[_builtins.bool]]
+    value: NotRequired[pulumi.Input[_builtins.bool]]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    version: NotRequired[pulumi.Input[_builtins.bool]]
+    vlan: NotRequired[pulumi.Input[_builtins.bool]]
+    vlan_id: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class PolicyRuleConditionArgs:
@@ -2915,30 +2898,27 @@ class PolicyRuleConditionArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-if not MYPY:
-    class ProfileClientSslCertKeyChainArgsDict(TypedDict):
-        cert: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
-        """
-        chain: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a certificate chain file that a server can use for authentication. The default is `None`.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the file name of the SSL key. The default is `default`
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of Cert-key-chain
-        """
-        passphrase: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type the name of the pass phrase used to encrypt the key.
-        """
-elif False:
-    ProfileClientSslCertKeyChainArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileClientSslCertKeyChainArgsDict(TypedDict):
+    cert: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
+    """
+    chain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a certificate chain file that a server can use for authentication. The default is `None`.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the file name of the SSL key. The default is `default`
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of Cert-key-chain
+    """
+    passphrase: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type the name of the pass phrase used to encrypt the key.
+    """
 
 @pulumi.input_type
 class ProfileClientSslCertKeyChainArgs:
@@ -3027,26 +3007,23 @@ class ProfileClientSslCertKeyChainArgs:
         pulumi.set(self, "passphrase", value)
 
 
-if not MYPY:
-    class ProfileHttpEnforcementArgsDict(TypedDict):
-        known_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
-        """
-        max_header_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
-        """
-        max_header_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
-        """
-        unknown_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
-        """
-elif False:
-    ProfileHttpEnforcementArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileHttpEnforcementArgsDict(TypedDict):
+    known_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
+    """
+    max_header_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
+    """
+    max_header_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
+    """
+    unknown_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
+    """
 
 @pulumi.input_type
 class ProfileHttpEnforcementArgs:
@@ -3119,26 +3096,23 @@ class ProfileHttpEnforcementArgs:
         pulumi.set(self, "unknown_method", value)
 
 
-if not MYPY:
-    class ProfileHttpHttpStrictTransportSecurityArgsDict(TypedDict):
-        include_subdomains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
-        """
-        maximum_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
-        """
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
-        """
-        preload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
-        """
-elif False:
-    ProfileHttpHttpStrictTransportSecurityArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileHttpHttpStrictTransportSecurityArgsDict(TypedDict):
+    include_subdomains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
+    """
+    maximum_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
+    """
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
+    """
+    preload: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
+    """
 
 @pulumi.input_type
 class ProfileHttpHttpStrictTransportSecurityArgs:
@@ -3211,18 +3185,15 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
         pulumi.set(self, "preload", value)
 
 
-if not MYPY:
-    class ProfileRewriteCookieRuleArgsDict(TypedDict):
-        client_domain: pulumi.Input[_builtins.str]
-        client_path: pulumi.Input[_builtins.str]
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        Name of the cookie rewrite rule.
-        """
-        server_domain: pulumi.Input[_builtins.str]
-        server_path: pulumi.Input[_builtins.str]
-elif False:
-    ProfileRewriteCookieRuleArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileRewriteCookieRuleArgsDict(TypedDict):
+    client_domain: pulumi.Input[_builtins.str]
+    client_path: pulumi.Input[_builtins.str]
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    Name of the cookie rewrite rule.
+    """
+    server_domain: pulumi.Input[_builtins.str]
+    server_path: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ProfileRewriteCookieRuleArgs:
@@ -3290,26 +3261,23 @@ class ProfileRewriteCookieRuleArgs:
         pulumi.set(self, "server_path", value)
 
 
-if not MYPY:
-    class ProfileRewriteRequestArgsDict(TypedDict):
-        insert_xfwd_for: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
-        """
-        insert_xfwd_host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
-        """
-        insert_xfwd_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
-        """
-        rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
-        """
-elif False:
-    ProfileRewriteRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileRewriteRequestArgsDict(TypedDict):
+    insert_xfwd_for: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
+    """
+    insert_xfwd_host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
+    """
+    insert_xfwd_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
+    """
+    rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
+    """
 
 @pulumi.input_type
 class ProfileRewriteRequestArgs:
@@ -3382,18 +3350,15 @@ class ProfileRewriteRequestArgs:
         pulumi.set(self, "rewrite_headers", value)
 
 
-if not MYPY:
-    class ProfileRewriteResponseArgsDict(TypedDict):
-        rewrite_content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
-        """
-        rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
-        """
-elif False:
-    ProfileRewriteResponseArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileRewriteResponseArgsDict(TypedDict):
+    rewrite_content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
+    """
+    rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
+    """
 
 @pulumi.input_type
 class ProfileRewriteResponseArgs:
@@ -3434,26 +3399,23 @@ class ProfileRewriteResponseArgs:
         pulumi.set(self, "rewrite_headers", value)
 
 
-if not MYPY:
-    class ProfileRewriteUriRulesClientArgsDict(TypedDict):
-        host: pulumi.Input[_builtins.str]
-        """
-        Host part of the uri, e.g. `www.foo.com`.
-        """
-        scheme: pulumi.Input[_builtins.str]
-        """
-        Scheme part of the uri, e.g. `https`, `ftp`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path part of the uri, must always end with `/`. Default value is: `/`
-        """
-        port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port part of the uri. Default value is: `none`
-        """
-elif False:
-    ProfileRewriteUriRulesClientArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileRewriteUriRulesClientArgsDict(TypedDict):
+    host: pulumi.Input[_builtins.str]
+    """
+    Host part of the uri, e.g. `www.foo.com`.
+    """
+    scheme: pulumi.Input[_builtins.str]
+    """
+    Scheme part of the uri, e.g. `https`, `ftp`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path part of the uri, must always end with `/`. Default value is: `/`
+    """
+    port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port part of the uri. Default value is: `none`
+    """
 
 @pulumi.input_type
 class ProfileRewriteUriRulesClientArgs:
@@ -3524,26 +3486,23 @@ class ProfileRewriteUriRulesClientArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ProfileRewriteUriRulesServerArgsDict(TypedDict):
-        host: pulumi.Input[_builtins.str]
-        """
-        Host part of the uri, e.g. `www.foo.com`.
-        """
-        scheme: pulumi.Input[_builtins.str]
-        """
-        Scheme part of the uri, e.g. `https`, `ftp`.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path part of the uri, must always end with `/`. Default value is: `/`
-        """
-        port: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Port part of the uri. Default value is: `none`
-        """
-elif False:
-    ProfileRewriteUriRulesServerArgsDict: TypeAlias = Mapping[str, Any]
+class ProfileRewriteUriRulesServerArgsDict(TypedDict):
+    host: pulumi.Input[_builtins.str]
+    """
+    Host part of the uri, e.g. `www.foo.com`.
+    """
+    scheme: pulumi.Input[_builtins.str]
+    """
+    Scheme part of the uri, e.g. `https`, `ftp`.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path part of the uri, must always end with `/`. Default value is: `/`
+    """
+    port: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Port part of the uri. Default value is: `none`
+    """
 
 @pulumi.input_type
 class ProfileRewriteUriRulesServerArgs:
@@ -3614,18 +3573,15 @@ class ProfileRewriteUriRulesServerArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class SnatOriginArgsDict(TypedDict):
-        app_service: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        app service
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
-        """
-elif False:
-    SnatOriginArgsDict: TypeAlias = Mapping[str, Any]
+class SnatOriginArgsDict(TypedDict):
+    app_service: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    app service
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+    """
 
 @pulumi.input_type
 class SnatOriginArgs:
@@ -3666,15 +3622,12 @@ class SnatOriginArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetDataGroupRecordArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the datagroup
-        """
-        data: NotRequired[_builtins.str]
-elif False:
-    GetDataGroupRecordArgsDict: TypeAlias = Mapping[str, Any]
+class GetDataGroupRecordArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the datagroup
+    """
+    data: NotRequired[_builtins.str]
 
 @pulumi.input_type
 class GetDataGroupRecordArgs:
@@ -3710,30 +3663,27 @@ class GetDataGroupRecordArgs:
         pulumi.set(self, "data", value)
 
 
-if not MYPY:
-    class GetNodeFqdnArgsDict(TypedDict):
-        autopopulate: _builtins.str
-        """
-        Specifies if the node should scale to the IP address set returned by DNS.
-        """
-        downinterval: _builtins.int
-        """
-        The number of attempts to resolve a domain name.
-        """
-        interval: _builtins.str
-        """
-        The amount of time before sending the next DNS query.
-        """
-        address_family: NotRequired[_builtins.str]
-        """
-        The FQDN node's address family.
-        """
-        name: NotRequired[_builtins.str]
-        """
-        Name of the node.
-        """
-elif False:
-    GetNodeFqdnArgsDict: TypeAlias = Mapping[str, Any]
+class GetNodeFqdnArgsDict(TypedDict):
+    autopopulate: _builtins.str
+    """
+    Specifies if the node should scale to the IP address set returned by DNS.
+    """
+    downinterval: _builtins.int
+    """
+    The number of attempts to resolve a domain name.
+    """
+    interval: _builtins.str
+    """
+    The amount of time before sending the next DNS query.
+    """
+    address_family: NotRequired[_builtins.str]
+    """
+    The FQDN node's address family.
+    """
+    name: NotRequired[_builtins.str]
+    """
+    Name of the node.
+    """
 
 @pulumi.input_type
 class GetNodeFqdnArgs:
@@ -3819,16 +3769,13 @@ class GetNodeFqdnArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetPolicyRuleArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the policy which includes partion ( /partition/policy-name )
-        """
-        actions: NotRequired[Sequence['GetPolicyRuleActionArgsDict']]
-        conditions: NotRequired[Sequence['GetPolicyRuleConditionArgsDict']]
-elif False:
-    GetPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyRuleArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the policy which includes partion ( /partition/policy-name )
+    """
+    actions: NotRequired[Sequence['GetPolicyRuleActionArgsDict']]
+    conditions: NotRequired[Sequence['GetPolicyRuleConditionArgsDict']]
 
 @pulumi.input_type
 class GetPolicyRuleArgs:
@@ -3876,114 +3823,111 @@ class GetPolicyRuleArgs:
         pulumi.set(self, "conditions", value)
 
 
-if not MYPY:
-    class GetPolicyRuleActionArgsDict(TypedDict):
-        app_service: _builtins.str
-        application: _builtins.str
-        asm: _builtins.bool
-        avr: _builtins.bool
-        cache: _builtins.bool
-        carp: _builtins.bool
-        category: _builtins.str
-        classify: _builtins.bool
-        clone_pool: _builtins.str
-        code: _builtins.int
-        compress: _builtins.bool
-        connection: _builtins.bool
-        content: _builtins.str
-        cookie_hash: _builtins.bool
-        cookie_insert: _builtins.bool
-        cookie_passive: _builtins.bool
-        cookie_rewrite: _builtins.bool
-        decompress: _builtins.bool
-        defer: _builtins.bool
-        destination_address: _builtins.bool
-        disable: _builtins.bool
-        domain: _builtins.str
-        enable: _builtins.bool
-        expiry: _builtins.str
-        expiry_secs: _builtins.int
-        expression: _builtins.str
-        extension: _builtins.str
-        facility: _builtins.str
-        from_profile: _builtins.str
-        hash: _builtins.bool
-        host: _builtins.str
-        http: _builtins.bool
-        http_basic_auth: _builtins.bool
-        http_cookie: _builtins.bool
-        http_header: _builtins.bool
-        http_referer: _builtins.bool
-        http_reply: _builtins.bool
-        http_set_cookie: _builtins.bool
-        http_uri: _builtins.bool
-        ifile: _builtins.str
-        insert: _builtins.bool
-        internal_virtual: _builtins.str
-        ip_address: _builtins.str
-        key: _builtins.str
-        l7dos: _builtins.bool
-        length: _builtins.int
-        location: _builtins.str
-        log: _builtins.bool
-        ltm_policy: _builtins.bool
-        member: _builtins.str
-        message: _builtins.str
-        netmask: _builtins.str
-        nexthop: _builtins.str
-        node: _builtins.str
-        offset: _builtins.int
-        path: _builtins.str
-        pem: _builtins.bool
-        persist: _builtins.bool
-        pin: _builtins.bool
-        policy: _builtins.str
-        pool: _builtins.str
-        port: _builtins.int
-        priority: _builtins.str
-        profile: _builtins.str
-        protocol: _builtins.str
-        query_string: _builtins.str
-        rateclass: _builtins.str
-        redirect: _builtins.bool
-        remove: _builtins.bool
-        replace: _builtins.bool
-        request: _builtins.bool
-        request_adapt: _builtins.bool
-        reset: _builtins.bool
-        response: _builtins.bool
-        response_adapt: _builtins.bool
-        scheme: _builtins.str
-        script: _builtins.str
-        select: _builtins.bool
-        server_ssl: _builtins.bool
-        set_variable: _builtins.bool
-        shutdown: _builtins.bool
-        snat: _builtins.str
-        snatpool: _builtins.str
-        source_address: _builtins.bool
-        ssl_client_hello: _builtins.bool
-        ssl_server_handshake: _builtins.bool
-        ssl_server_hello: _builtins.bool
-        ssl_session_id: _builtins.bool
-        status: _builtins.int
-        tcl: _builtins.bool
-        tcp_nagle: _builtins.bool
-        text: _builtins.str
-        timeout: _builtins.int
-        tm_name: _builtins.str
-        uie: _builtins.bool
-        universal: _builtins.bool
-        value: _builtins.str
-        virtual: _builtins.str
-        vlan: _builtins.str
-        vlan_id: _builtins.int
-        wam: _builtins.bool
-        write: _builtins.bool
-        forward: NotRequired[_builtins.bool]
-        http_host: NotRequired[_builtins.bool]
-elif False:
-    GetPolicyRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyRuleActionArgsDict(TypedDict):
+    app_service: _builtins.str
+    application: _builtins.str
+    asm: _builtins.bool
+    avr: _builtins.bool
+    cache: _builtins.bool
+    carp: _builtins.bool
+    category: _builtins.str
+    classify: _builtins.bool
+    clone_pool: _builtins.str
+    code: _builtins.int
+    compress: _builtins.bool
+    connection: _builtins.bool
+    content: _builtins.str
+    cookie_hash: _builtins.bool
+    cookie_insert: _builtins.bool
+    cookie_passive: _builtins.bool
+    cookie_rewrite: _builtins.bool
+    decompress: _builtins.bool
+    defer: _builtins.bool
+    destination_address: _builtins.bool
+    disable: _builtins.bool
+    domain: _builtins.str
+    enable: _builtins.bool
+    expiry: _builtins.str
+    expiry_secs: _builtins.int
+    expression: _builtins.str
+    extension: _builtins.str
+    facility: _builtins.str
+    from_profile: _builtins.str
+    hash: _builtins.bool
+    host: _builtins.str
+    http: _builtins.bool
+    http_basic_auth: _builtins.bool
+    http_cookie: _builtins.bool
+    http_header: _builtins.bool
+    http_referer: _builtins.bool
+    http_reply: _builtins.bool
+    http_set_cookie: _builtins.bool
+    http_uri: _builtins.bool
+    ifile: _builtins.str
+    insert: _builtins.bool
+    internal_virtual: _builtins.str
+    ip_address: _builtins.str
+    key: _builtins.str
+    l7dos: _builtins.bool
+    length: _builtins.int
+    location: _builtins.str
+    log: _builtins.bool
+    ltm_policy: _builtins.bool
+    member: _builtins.str
+    message: _builtins.str
+    netmask: _builtins.str
+    nexthop: _builtins.str
+    node: _builtins.str
+    offset: _builtins.int
+    path: _builtins.str
+    pem: _builtins.bool
+    persist: _builtins.bool
+    pin: _builtins.bool
+    policy: _builtins.str
+    pool: _builtins.str
+    port: _builtins.int
+    priority: _builtins.str
+    profile: _builtins.str
+    protocol: _builtins.str
+    query_string: _builtins.str
+    rateclass: _builtins.str
+    redirect: _builtins.bool
+    remove: _builtins.bool
+    replace: _builtins.bool
+    request: _builtins.bool
+    request_adapt: _builtins.bool
+    reset: _builtins.bool
+    response: _builtins.bool
+    response_adapt: _builtins.bool
+    scheme: _builtins.str
+    script: _builtins.str
+    select: _builtins.bool
+    server_ssl: _builtins.bool
+    set_variable: _builtins.bool
+    shutdown: _builtins.bool
+    snat: _builtins.str
+    snatpool: _builtins.str
+    source_address: _builtins.bool
+    ssl_client_hello: _builtins.bool
+    ssl_server_handshake: _builtins.bool
+    ssl_server_hello: _builtins.bool
+    ssl_session_id: _builtins.bool
+    status: _builtins.int
+    tcl: _builtins.bool
+    tcp_nagle: _builtins.bool
+    text: _builtins.str
+    timeout: _builtins.int
+    tm_name: _builtins.str
+    uie: _builtins.bool
+    universal: _builtins.bool
+    value: _builtins.str
+    virtual: _builtins.str
+    vlan: _builtins.str
+    vlan_id: _builtins.int
+    wam: _builtins.bool
+    write: _builtins.bool
+    forward: NotRequired[_builtins.bool]
+    http_host: NotRequired[_builtins.bool]
 
 @pulumi.input_type
 class GetPolicyRuleActionArgs:
@@ -5136,101 +5080,98 @@ class GetPolicyRuleActionArgs:
         pulumi.set(self, "http_host", value)
 
 
-if not MYPY:
-    class GetPolicyRuleConditionArgsDict(TypedDict):
-        address: _builtins.bool
-        all: _builtins.bool
-        app_service: _builtins.str
-        browser_type: _builtins.bool
-        browser_version: _builtins.bool
-        case_insensitive: _builtins.bool
-        case_sensitive: _builtins.bool
-        cipher: _builtins.bool
-        cipher_bits: _builtins.bool
-        client_ssl: _builtins.bool
-        code: _builtins.bool
-        common_name: _builtins.bool
-        contains: _builtins.bool
-        continent: _builtins.bool
-        country_code: _builtins.bool
-        country_name: _builtins.bool
-        cpu_usage: _builtins.bool
-        datagroup: _builtins.str
-        device_make: _builtins.bool
-        device_model: _builtins.bool
-        domain: _builtins.bool
-        ends_with: _builtins.bool
-        equals: _builtins.bool
-        expiry: _builtins.bool
-        extension: _builtins.bool
-        external: _builtins.bool
-        geoip: _builtins.bool
-        greater: _builtins.bool
-        greater_or_equal: _builtins.bool
-        host: _builtins.bool
-        http_basic_auth: _builtins.bool
-        http_cookie: _builtins.bool
-        http_header: _builtins.bool
-        http_host: _builtins.bool
-        http_method: _builtins.bool
-        http_referer: _builtins.bool
-        http_set_cookie: _builtins.bool
-        http_status: _builtins.bool
-        http_uri: _builtins.bool
-        http_user_agent: _builtins.bool
-        http_version: _builtins.bool
-        index: _builtins.int
-        internal: _builtins.bool
-        isp: _builtins.bool
-        last15secs: _builtins.bool
-        last1min: _builtins.bool
-        last5mins: _builtins.bool
-        less: _builtins.bool
-        less_or_equal: _builtins.bool
-        local: _builtins.bool
-        major: _builtins.bool
-        matches: _builtins.bool
-        minor: _builtins.bool
-        missing: _builtins.bool
-        mss: _builtins.bool
-        not_: _builtins.bool
-        org: _builtins.bool
-        password: _builtins.bool
-        path: _builtins.bool
-        path_segment: _builtins.bool
-        port: _builtins.bool
-        present: _builtins.bool
-        protocol: _builtins.bool
-        query_parameter: _builtins.bool
-        query_string: _builtins.bool
-        region_code: _builtins.bool
-        region_name: _builtins.bool
-        remote: _builtins.bool
-        request: _builtins.bool
-        response: _builtins.bool
-        route_domain: _builtins.bool
-        rtt: _builtins.bool
-        scheme: _builtins.bool
-        server_name: _builtins.bool
-        ssl_cert: _builtins.bool
-        ssl_client_hello: _builtins.bool
-        ssl_extension: _builtins.bool
-        ssl_server_handshake: _builtins.bool
-        ssl_server_hello: _builtins.bool
-        starts_with: _builtins.bool
-        tcp: _builtins.bool
-        text: _builtins.bool
-        tm_name: _builtins.str
-        unnamed_query_parameter: _builtins.bool
-        user_agent_token: _builtins.bool
-        username: _builtins.bool
-        value: _builtins.bool
-        values: Sequence[_builtins.str]
-        version: _builtins.bool
-        vlan: _builtins.bool
-        vlan_id: _builtins.bool
-elif False:
-    GetPolicyRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyRuleConditionArgsDict(TypedDict):
+    address: _builtins.bool
+    all: _builtins.bool
+    app_service: _builtins.str
+    browser_type: _builtins.bool
+    browser_version: _builtins.bool
+    case_insensitive: _builtins.bool
+    case_sensitive: _builtins.bool
+    cipher: _builtins.bool
+    cipher_bits: _builtins.bool
+    client_ssl: _builtins.bool
+    code: _builtins.bool
+    common_name: _builtins.bool
+    contains: _builtins.bool
+    continent: _builtins.bool
+    country_code: _builtins.bool
+    country_name: _builtins.bool
+    cpu_usage: _builtins.bool
+    datagroup: _builtins.str
+    device_make: _builtins.bool
+    device_model: _builtins.bool
+    domain: _builtins.bool
+    ends_with: _builtins.bool
+    equals: _builtins.bool
+    expiry: _builtins.bool
+    extension: _builtins.bool
+    external: _builtins.bool
+    geoip: _builtins.bool
+    greater: _builtins.bool
+    greater_or_equal: _builtins.bool
+    host: _builtins.bool
+    http_basic_auth: _builtins.bool
+    http_cookie: _builtins.bool
+    http_header: _builtins.bool
+    http_host: _builtins.bool
+    http_method: _builtins.bool
+    http_referer: _builtins.bool
+    http_set_cookie: _builtins.bool
+    http_status: _builtins.bool
+    http_uri: _builtins.bool
+    http_user_agent: _builtins.bool
+    http_version: _builtins.bool
+    index: _builtins.int
+    internal: _builtins.bool
+    isp: _builtins.bool
+    last15secs: _builtins.bool
+    last1min: _builtins.bool
+    last5mins: _builtins.bool
+    less: _builtins.bool
+    less_or_equal: _builtins.bool
+    local: _builtins.bool
+    major: _builtins.bool
+    matches: _builtins.bool
+    minor: _builtins.bool
+    missing: _builtins.bool
+    mss: _builtins.bool
+    not_: _builtins.bool
+    org: _builtins.bool
+    password: _builtins.bool
+    path: _builtins.bool
+    path_segment: _builtins.bool
+    port: _builtins.bool
+    present: _builtins.bool
+    protocol: _builtins.bool
+    query_parameter: _builtins.bool
+    query_string: _builtins.bool
+    region_code: _builtins.bool
+    region_name: _builtins.bool
+    remote: _builtins.bool
+    request: _builtins.bool
+    response: _builtins.bool
+    route_domain: _builtins.bool
+    rtt: _builtins.bool
+    scheme: _builtins.bool
+    server_name: _builtins.bool
+    ssl_cert: _builtins.bool
+    ssl_client_hello: _builtins.bool
+    ssl_extension: _builtins.bool
+    ssl_server_handshake: _builtins.bool
+    ssl_server_hello: _builtins.bool
+    starts_with: _builtins.bool
+    tcp: _builtins.bool
+    text: _builtins.bool
+    tm_name: _builtins.str
+    unnamed_query_parameter: _builtins.bool
+    user_agent_token: _builtins.bool
+    username: _builtins.bool
+    value: _builtins.bool
+    values: Sequence[_builtins.str]
+    version: _builtins.bool
+    vlan: _builtins.bool
+    vlan_id: _builtins.bool
 
 @pulumi.input_type
 class GetPolicyRuleConditionArgs:

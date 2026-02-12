@@ -1091,362 +1091,279 @@ class As3(pulumi.CustomResource):
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        `As3` provides details about bigip as3 resource
+
+        This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+
+        > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+
+        > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+
+        > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
+
+        As3 Declaration can be deployed in Traditional way as well as Per-Application Way :
+
+        - Traditional Way - Entire Declaration needs to be passed in during the create and update call along with the tenant details in the declaration.
+        - Per-Application Way - Only application details needs to be passed in the as3_json. Tenant name needs to be passed else random tenant name will be generated.
+
+        **Note:** : PerApplication needs to be turned `true` as a Prerequisite on the Big-IP (BIG-IP AS3 version >3.50) device. For details : <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html>
+
+        ### Delete Specific Applications from a Tenant
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        as3_app_deletion = f5bigip.As3("as3_app_deletion", delete_apps={
+            "tenant_name": "Tenant-2",
+            "apps": [
+                "terraform_vs_http",
+                "legacy_app",
+            ],
+        })
+        ```
+
+        ## Example of controls parameters
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        as3_example1 = f5bigip.As3("as3-example1",
+            as3_json=std.file(input="example1.json").result,
+            controls={
+                "dry_run": "no",
+                "trace": "yes",
+                "trace_response": "yes",
+                "log_level": "debug",
+                "user_agent": "dummy agent",
+            })
+        ```
+
+        # Per-Application Deployment - Example Usage for json file with tenant name
+        resource "As3" "as3-example1" {
+          as3_json   = file("perApplication_example.json")
+          tenant_name = "Test"
+        }
+
+        # Per-Application Deployment - Example Usage for json file without tenant name - Tenant with Random name is generated in this case
+        resource "As3" "as3-example1" {
+          as3_json   = file("perApplication_example.json")
+        }
+
+        ## Behavior
+
+        When `delete_apps` is used, Terraform logs “Creating...”, but the underlying logic performs application deletion via REST API calls.
+
+        Each app in the `apps` list is deleted using:
+
+        A synthetic resource ID is assigned to keep Terraform state consistent after successful deletion.
+
+        ***
+
+        ## Outputs
+
+        - `task_id` – AS3 task ID used in BIG-IP.
+        - `application_list` – List of deleted applications (if applicable).
+        - `tenant_list` – List of affected tenants.
+
+        ***
+
         ## Import
 
         As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
 
         ```sh
-        $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01
-        ```
-
-        ```sh
-        $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01,Sample_non_http_01
+           $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+           $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
         ```
 
         #### Import examples ( single and multiple partitions )
 
         ```sh
+
         $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
-        ```
-
         bigip_as3.test: Importing from ID "Sample_http_01"...
-
         bigip_as3.test: Import prepared!
-
           Prepared bigip_as3 for import
-
         bigip_as3.test: Refreshing state... [id=Sample_http_01]
 
         Import successful!
 
         The resources that were imported are shown above. These resources are now in
-
         your Terraform state and will henceforth be managed by Terraform.
 
         $ terraform show
+        ```
 
         bigip_as3.test:
-
-        resource "bigip_as3" "test" {
-
-            as3_json      = jsonencode(
-            
-                {
-            
-                    action      = "deploy"
-            
-                    class       = "AS3"
-            
-                    declaration = {
-            
-                        Sample_http_01 = {
-            
-                            A1    = {
-            
-                                class      = "Application"
-            
-                                jsessionid = {
-            
-                                    class             = "Persist"
-            
-                                    cookieMethod      = "hash"
-            
-                                    cookieName        = "JSESSIONID"
-            
-                                    persistenceMethod = "cookie"
-            
-                                }
-            
-                                service    = {
-            
-                                    class              = "Service_HTTP"
-            
-                                    persistenceMethods = [
-            
-                                        {
-            
-                                            use = "jsessionid"
-            
-                                        },
-            
-                                    ]
-            
-                                    pool               = "web_pool"
-            
-                                    virtualAddresses   = [
-            
-                                        "10.0.2.10",
-            
-                                    ]
-            
-                                }
-            
-                                web_pool   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "192.0.2.10",
-            
-                                                "192.0.2.11",
-            
-                                            ]
-            
-                                            servicePort     = 80
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "http",
-            
-                                    ]
-            
-                                }
-            
-                            }
-            
-                            class = "Tenant"
-            
-                        }
-            
-                        class          = "ADC"
-            
-                        id             = "UDP_DNS_Sample"
-            
-                        label          = "UDP_DNS_Sample"
-            
-                        remark         = "Sample of a UDP DNS Load Balancer Service"
-            
-                        schemaVersion  = "3.0.0"
-            
-                    }
-            
-                    persist     = true
-            
-                }
-            
-            )
-            
-            id            = "Sample_http_01"
-            
-            tenant_filter = "Sample_http_01"
-            
-            tenant_list   = "Sample_http_01"
-
+        resource "As3" "test" {
+        as3_json      = jsonencode(
+        {
+        action      = "deploy"
+        class       = "AS3"
+        declaration = {
+        Sample_http_01 = {
+        A1    = {
+        class      = "Application"
+        jsessionid = {
+        class             = "Persist"
+        cookieMethod      = "hash"
+        cookieName        = "JSESSIONID"
+        persistenceMethod = "cookie"
+        }
+        service    = {
+        class              = "Service_HTTP"
+        persistenceMethods = [
+        {
+        use = "jsessionid"
+        },
+        ]
+        pool               = "web_pool"
+        virtualAddresses   = [
+        "10.0.2.10",
+        ]
+        }
+        web_pool   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "192.0.2.10",
+        "192.0.2.11",
+        ]
+        servicePort     = 80
+        },
+        ]
+        monitors = [
+        "http",
+        ]
+        }
+        }
+        class = "Tenant"
+        }
+        class          = "ADC"
+        id             = "UDP_DNS_Sample"
+        label          = "UDP_DNS_Sample"
+        remark         = "Sample of a UDP DNS Load Balancer Service"
+        schemaVersion  = "3.0.0"
+        }
+        persist     = true
+        }
+        )
+        id            = "Sample_http_01"
+        tenant_filter = "Sample_http_01"
+        tenant_list   = "Sample_http_01"
         }
 
         ```sh
         $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
-        ```
-
         bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
-
         bigip_as3.test: Import prepared!
-
           Prepared bigip_as3 for import
-
         bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
 
         Import successful!
 
         The resources that were imported are shown above. These resources are now in
-
         your Terraform state and will henceforth be managed by Terraform.
 
         $ terraform show
+        ```
 
         bigip_as3.test:
-
-        resource "bigip_as3" "test" {
-
-            as3_json      = jsonencode(
-            
-                {
-            
-                    action      = "deploy"
-            
-                    class       = "AS3"
-            
-                    declaration = {
-            
-                        Sample_http_01     = {
-            
-                            A1    = {
-            
-                                class      = "Application"
-            
-                                jsessionid = {
-            
-                                    class             = "Persist"
-            
-                                    cookieMethod      = "hash"
-            
-                                    cookieName        = "JSESSIONID"
-            
-                                    persistenceMethod = "cookie"
-            
-                                }
-            
-                                service    = {
-            
-                                    class              = "Service_HTTP"
-            
-                                    persistenceMethods = [
-            
-                                        {
-            
-                                            use = "jsessionid"
-            
-                                        },
-            
-                                    ]
-            
-                                    pool               = "web_pool"
-            
-                                    virtualAddresses   = [
-            
-                                        "10.0.2.10",
-            
-                                    ]
-            
-                                }
-            
-                                web_pool   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "192.0.2.10",
-            
-                                                "192.0.2.11",
-            
-                                            ]
-            
-                                            servicePort     = 80
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "http",
-            
-                                    ]
-            
-                                }
-            
-                            }
-            
-                            class = "Tenant"
-            
-                        }
-            
-                        Sample_non_http_01 = {
-            
-                            DNS_Service = {
-            
-                                Pool1   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "10.1.10.100",
-            
-                                            ]
-            
-                                            servicePort     = 53
-            
-                                        },
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "10.1.10.101",
-            
-                                            ]
-            
-                                            servicePort     = 53
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "icmp",
-            
-                                    ]
-            
-                                }
-            
-                                class   = "Application"
-            
-                                service = {
-            
-                                    class            = "Service_UDP"
-            
-                                    pool             = "Pool1"
-            
-                                    virtualAddresses = [
-            
-                                        "10.1.20.121",
-            
-                                    ]
-            
-                                    virtualPort      = 53
-            
-                                }
-            
-                            }
-            
-                            class       = "Tenant"
-            
-                        }
-            
-                        class              = "ADC"
-            
-                        id                 = "UDP_DNS_Sample"
-            
-                        label              = "UDP_DNS_Sample"
-            
-                        remark             = "Sample of a UDP DNS Load Balancer Service"
-            
-                        schemaVersion      = "3.0.0"
-            
-                    }
-            
-                    persist     = true
-            
-                }
-            
-            )
-            
-            id            = "Sample_http_01,Sample_non_http_01"
-            
-            tenant_filter = "Sample_http_01,Sample_non_http_01"
-            
-            tenant_list   = "Sample_http_01,Sample_non_http_01"
-
+        resource "As3" "test" {
+        as3_json      = jsonencode(
+        {
+        action      = "deploy"
+        class       = "AS3"
+        declaration = {
+        Sample_http_01     = {
+        A1    = {
+        class      = "Application"
+        jsessionid = {
+        class             = "Persist"
+        cookieMethod      = "hash"
+        cookieName        = "JSESSIONID"
+        persistenceMethod = "cookie"
+        }
+        service    = {
+        class              = "Service_HTTP"
+        persistenceMethods = [
+        {
+        use = "jsessionid"
+        },
+        ]
+        pool               = "web_pool"
+        virtualAddresses   = [
+        "10.0.2.10",
+        ]
+        }
+        web_pool   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "192.0.2.10",
+        "192.0.2.11",
+        ]
+        servicePort     = 80
+        },
+        ]
+        monitors = [
+        "http",
+        ]
+        }
+        }
+        class = "Tenant"
+        }
+        Sample_non_http_01 = {
+        DNS_Service = {
+        Pool1   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "10.1.10.100",
+        ]
+        servicePort     = 53
+        },
+        {
+        serverAddresses = [
+        "10.1.10.101",
+        ]
+        servicePort     = 53
+        },
+        ]
+        monitors = [
+        "icmp",
+        ]
+        }
+        class   = "Application"
+        service = {
+        class            = "Service_UDP"
+        pool             = "Pool1"
+        virtualAddresses = [
+        "10.1.20.121",
+        ]
+        virtualPort      = 53
+        }
+        }
+        class       = "Tenant"
+        }
+        class              = "ADC"
+        id                 = "UDP_DNS_Sample"
+        label              = "UDP_DNS_Sample"
+        remark             = "Sample of a UDP DNS Load Balancer Service"
+        schemaVersion      = "3.0.0"
+        }
+        persist     = true
+        }
+        )
+        id            = "Sample_http_01,Sample_non_http_01"
+        tenant_filter = "Sample_http_01,Sample_non_http_01"
+        tenant_list   = "Sample_http_01,Sample_non_http_01"
         }
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
@@ -1654,362 +1571,279 @@ class As3(pulumi.CustomResource):
                  args: Optional[As3Args] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        `As3` provides details about bigip as3 resource
+
+        This resource is helpful to configure AS3 declarative JSON on BIG-IP.
+
+        > This Resource also supports **Per-Application** mode of AS3 deployment, more information on **Per-Application** mode can be found [Per-App](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html)
+
+        > For Supporting AS3 Per-App mode of deployment, AS3 version on BIG-IP should be > **v3.50**
+
+        > For Deploying AS3 JSON in Per-App mode, this resource provided with a attribute tenant_name to be passed to add application on specified tenant, else random tenant name will be generated.
+
+        As3 Declaration can be deployed in Traditional way as well as Per-Application Way :
+
+        - Traditional Way - Entire Declaration needs to be passed in during the create and update call along with the tenant details in the declaration.
+        - Per-Application Way - Only application details needs to be passed in the as3_json. Tenant name needs to be passed else random tenant name will be generated.
+
+        **Note:** : PerApplication needs to be turned `true` as a Prerequisite on the Big-IP (BIG-IP AS3 version >3.50) device. For details : <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/per-app-declarations.html>
+
+        ### Delete Specific Applications from a Tenant
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        as3_app_deletion = f5bigip.As3("as3_app_deletion", delete_apps={
+            "tenant_name": "Tenant-2",
+            "apps": [
+                "terraform_vs_http",
+                "legacy_app",
+            ],
+        })
+        ```
+
+        ## Example of controls parameters
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+        import pulumi_std as std
+
+        as3_example1 = f5bigip.As3("as3-example1",
+            as3_json=std.file(input="example1.json").result,
+            controls={
+                "dry_run": "no",
+                "trace": "yes",
+                "trace_response": "yes",
+                "log_level": "debug",
+                "user_agent": "dummy agent",
+            })
+        ```
+
+        # Per-Application Deployment - Example Usage for json file with tenant name
+        resource "As3" "as3-example1" {
+          as3_json   = file("perApplication_example.json")
+          tenant_name = "Test"
+        }
+
+        # Per-Application Deployment - Example Usage for json file without tenant name - Tenant with Random name is generated in this case
+        resource "As3" "as3-example1" {
+          as3_json   = file("perApplication_example.json")
+        }
+
+        ## Behavior
+
+        When `delete_apps` is used, Terraform logs “Creating...”, but the underlying logic performs application deletion via REST API calls.
+
+        Each app in the `apps` list is deleted using:
+
+        A synthetic resource ID is assigned to keep Terraform state consistent after successful deletion.
+
+        ***
+
+        ## Outputs
+
+        - `task_id` – AS3 task ID used in BIG-IP.
+        - `application_list` – List of deleted applications (if applicable).
+        - `tenant_list` – List of affected tenants.
+
+        ***
+
         ## Import
 
         As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
 
         ```sh
-        $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01
-        ```
-
-        ```sh
-        $ pulumi import f5bigip:index/as3:As3  bigip_as3.test Sample_http_01,Sample_non_http_01
+           $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
+           $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
         ```
 
         #### Import examples ( single and multiple partitions )
 
         ```sh
+
         $ pulumi import f5bigip:index/as3:As3 test Sample_http_01
-        ```
-
         bigip_as3.test: Importing from ID "Sample_http_01"...
-
         bigip_as3.test: Import prepared!
-
           Prepared bigip_as3 for import
-
         bigip_as3.test: Refreshing state... [id=Sample_http_01]
 
         Import successful!
 
         The resources that were imported are shown above. These resources are now in
-
         your Terraform state and will henceforth be managed by Terraform.
 
         $ terraform show
+        ```
 
         bigip_as3.test:
-
-        resource "bigip_as3" "test" {
-
-            as3_json      = jsonencode(
-            
-                {
-            
-                    action      = "deploy"
-            
-                    class       = "AS3"
-            
-                    declaration = {
-            
-                        Sample_http_01 = {
-            
-                            A1    = {
-            
-                                class      = "Application"
-            
-                                jsessionid = {
-            
-                                    class             = "Persist"
-            
-                                    cookieMethod      = "hash"
-            
-                                    cookieName        = "JSESSIONID"
-            
-                                    persistenceMethod = "cookie"
-            
-                                }
-            
-                                service    = {
-            
-                                    class              = "Service_HTTP"
-            
-                                    persistenceMethods = [
-            
-                                        {
-            
-                                            use = "jsessionid"
-            
-                                        },
-            
-                                    ]
-            
-                                    pool               = "web_pool"
-            
-                                    virtualAddresses   = [
-            
-                                        "10.0.2.10",
-            
-                                    ]
-            
-                                }
-            
-                                web_pool   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "192.0.2.10",
-            
-                                                "192.0.2.11",
-            
-                                            ]
-            
-                                            servicePort     = 80
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "http",
-            
-                                    ]
-            
-                                }
-            
-                            }
-            
-                            class = "Tenant"
-            
-                        }
-            
-                        class          = "ADC"
-            
-                        id             = "UDP_DNS_Sample"
-            
-                        label          = "UDP_DNS_Sample"
-            
-                        remark         = "Sample of a UDP DNS Load Balancer Service"
-            
-                        schemaVersion  = "3.0.0"
-            
-                    }
-            
-                    persist     = true
-            
-                }
-            
-            )
-            
-            id            = "Sample_http_01"
-            
-            tenant_filter = "Sample_http_01"
-            
-            tenant_list   = "Sample_http_01"
-
+        resource "As3" "test" {
+        as3_json      = jsonencode(
+        {
+        action      = "deploy"
+        class       = "AS3"
+        declaration = {
+        Sample_http_01 = {
+        A1    = {
+        class      = "Application"
+        jsessionid = {
+        class             = "Persist"
+        cookieMethod      = "hash"
+        cookieName        = "JSESSIONID"
+        persistenceMethod = "cookie"
+        }
+        service    = {
+        class              = "Service_HTTP"
+        persistenceMethods = [
+        {
+        use = "jsessionid"
+        },
+        ]
+        pool               = "web_pool"
+        virtualAddresses   = [
+        "10.0.2.10",
+        ]
+        }
+        web_pool   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "192.0.2.10",
+        "192.0.2.11",
+        ]
+        servicePort     = 80
+        },
+        ]
+        monitors = [
+        "http",
+        ]
+        }
+        }
+        class = "Tenant"
+        }
+        class          = "ADC"
+        id             = "UDP_DNS_Sample"
+        label          = "UDP_DNS_Sample"
+        remark         = "Sample of a UDP DNS Load Balancer Service"
+        schemaVersion  = "3.0.0"
+        }
+        persist     = true
+        }
+        )
+        id            = "Sample_http_01"
+        tenant_filter = "Sample_http_01"
+        tenant_list   = "Sample_http_01"
         }
 
         ```sh
         $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01
-        ```
-
         bigip_as3.test: Importing from ID "Sample_http_01,Sample_non_http_01"...
-
         bigip_as3.test: Import prepared!
-
           Prepared bigip_as3 for import
-
         bigip_as3.test: Refreshing state... [id=Sample_http_01,Sample_non_http_01]
 
         Import successful!
 
         The resources that were imported are shown above. These resources are now in
-
         your Terraform state and will henceforth be managed by Terraform.
 
         $ terraform show
+        ```
 
         bigip_as3.test:
-
-        resource "bigip_as3" "test" {
-
-            as3_json      = jsonencode(
-            
-                {
-            
-                    action      = "deploy"
-            
-                    class       = "AS3"
-            
-                    declaration = {
-            
-                        Sample_http_01     = {
-            
-                            A1    = {
-            
-                                class      = "Application"
-            
-                                jsessionid = {
-            
-                                    class             = "Persist"
-            
-                                    cookieMethod      = "hash"
-            
-                                    cookieName        = "JSESSIONID"
-            
-                                    persistenceMethod = "cookie"
-            
-                                }
-            
-                                service    = {
-            
-                                    class              = "Service_HTTP"
-            
-                                    persistenceMethods = [
-            
-                                        {
-            
-                                            use = "jsessionid"
-            
-                                        },
-            
-                                    ]
-            
-                                    pool               = "web_pool"
-            
-                                    virtualAddresses   = [
-            
-                                        "10.0.2.10",
-            
-                                    ]
-            
-                                }
-            
-                                web_pool   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "192.0.2.10",
-            
-                                                "192.0.2.11",
-            
-                                            ]
-            
-                                            servicePort     = 80
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "http",
-            
-                                    ]
-            
-                                }
-            
-                            }
-            
-                            class = "Tenant"
-            
-                        }
-            
-                        Sample_non_http_01 = {
-            
-                            DNS_Service = {
-            
-                                Pool1   = {
-            
-                                    class    = "Pool"
-            
-                                    members  = [
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "10.1.10.100",
-            
-                                            ]
-            
-                                            servicePort     = 53
-            
-                                        },
-            
-                                        {
-            
-                                            serverAddresses = [
-            
-                                                "10.1.10.101",
-            
-                                            ]
-            
-                                            servicePort     = 53
-            
-                                        },
-            
-                                    ]
-            
-                                    monitors = [
-            
-                                        "icmp",
-            
-                                    ]
-            
-                                }
-            
-                                class   = "Application"
-            
-                                service = {
-            
-                                    class            = "Service_UDP"
-            
-                                    pool             = "Pool1"
-            
-                                    virtualAddresses = [
-            
-                                        "10.1.20.121",
-            
-                                    ]
-            
-                                    virtualPort      = 53
-            
-                                }
-            
-                            }
-            
-                            class       = "Tenant"
-            
-                        }
-            
-                        class              = "ADC"
-            
-                        id                 = "UDP_DNS_Sample"
-            
-                        label              = "UDP_DNS_Sample"
-            
-                        remark             = "Sample of a UDP DNS Load Balancer Service"
-            
-                        schemaVersion      = "3.0.0"
-            
-                    }
-            
-                    persist     = true
-            
-                }
-            
-            )
-            
-            id            = "Sample_http_01,Sample_non_http_01"
-            
-            tenant_filter = "Sample_http_01,Sample_non_http_01"
-            
-            tenant_list   = "Sample_http_01,Sample_non_http_01"
-
+        resource "As3" "test" {
+        as3_json      = jsonencode(
+        {
+        action      = "deploy"
+        class       = "AS3"
+        declaration = {
+        Sample_http_01     = {
+        A1    = {
+        class      = "Application"
+        jsessionid = {
+        class             = "Persist"
+        cookieMethod      = "hash"
+        cookieName        = "JSESSIONID"
+        persistenceMethod = "cookie"
+        }
+        service    = {
+        class              = "Service_HTTP"
+        persistenceMethods = [
+        {
+        use = "jsessionid"
+        },
+        ]
+        pool               = "web_pool"
+        virtualAddresses   = [
+        "10.0.2.10",
+        ]
+        }
+        web_pool   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "192.0.2.10",
+        "192.0.2.11",
+        ]
+        servicePort     = 80
+        },
+        ]
+        monitors = [
+        "http",
+        ]
+        }
+        }
+        class = "Tenant"
+        }
+        Sample_non_http_01 = {
+        DNS_Service = {
+        Pool1   = {
+        class    = "Pool"
+        members  = [
+        {
+        serverAddresses = [
+        "10.1.10.100",
+        ]
+        servicePort     = 53
+        },
+        {
+        serverAddresses = [
+        "10.1.10.101",
+        ]
+        servicePort     = 53
+        },
+        ]
+        monitors = [
+        "icmp",
+        ]
+        }
+        class   = "Application"
+        service = {
+        class            = "Service_UDP"
+        pool             = "Pool1"
+        virtualAddresses = [
+        "10.1.20.121",
+        ]
+        virtualPort      = 53
+        }
+        }
+        class       = "Tenant"
+        }
+        class              = "ADC"
+        id                 = "UDP_DNS_Sample"
+        label              = "UDP_DNS_Sample"
+        remark             = "Sample of a UDP DNS Load Balancer Service"
+        schemaVersion      = "3.0.0"
+        }
+        persist     = true
+        }
+        )
+        id            = "Sample_http_01,Sample_non_http_01"
+        tenant_filter = "Sample_http_01,Sample_non_http_01"
+        tenant_list   = "Sample_http_01,Sample_non_http_01"
         }
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html

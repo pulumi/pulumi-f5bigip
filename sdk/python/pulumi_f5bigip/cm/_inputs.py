@@ -19,20 +19,15 @@ __all__ = [
     'DeviceGroupDeviceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeviceGroupDeviceArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Is the name of the device Group
-        """
-        set_sync_leader: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Name of origin
-        """
-elif False:
-    DeviceGroupDeviceArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceGroupDeviceArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Is the name of the device Group
+    """
+    set_sync_leader: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Name of origin
+    """
 
 @pulumi.input_type
 class DeviceGroupDeviceArgs:
