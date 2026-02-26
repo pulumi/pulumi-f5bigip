@@ -34,6 +34,7 @@ class ProfileHttpCompressArgs:
                  vary_header: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileHttpCompress resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
         :param pulumi.Input[_builtins.int] compression_buffersize: Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_type_excludes: Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
@@ -249,6 +250,7 @@ class _ProfileHttpCompressState:
                  vary_header: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileHttpCompress resources.
+
         :param pulumi.Input[_builtins.int] compression_buffersize: Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_type_excludes: Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_type_includes: Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
@@ -498,6 +500,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
         $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compression_buffersize: Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
@@ -550,6 +553,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
         ```sh
         $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileHttpCompressArgs args: The arguments to use to populate this resource's properties.

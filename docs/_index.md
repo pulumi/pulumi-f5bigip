@@ -204,9 +204,9 @@ public class App {
 
     public static void stack(Context ctx) {
         final var config = ctx.config();
-        final var hostname = config.get("hostname");
-        final var username = config.get("username");
-        final var password = config.get("password");
+        final var hostname = config.require("hostname");
+        final var username = config.require("username");
+        final var password = config.require("password");
     }
 }
 ```

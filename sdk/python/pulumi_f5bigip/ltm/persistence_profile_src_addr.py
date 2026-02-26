@@ -33,6 +33,7 @@ class PersistenceProfileSrcAddrArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a PersistenceProfileSrcAddr resource.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
@@ -227,6 +228,7 @@ class _PersistenceProfileSrcAddrState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PersistenceProfileSrcAddr resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
         :param pulumi.Input[_builtins.str] map_proxies: To enable _ disable directs all to the same single pool member
@@ -480,6 +482,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
@@ -554,6 +557,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_persistence_profile_srcaddr.srcaddr "/Common/terraform_srcaddr"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileSrcAddrArgs args: The arguments to use to populate this resource's properties.

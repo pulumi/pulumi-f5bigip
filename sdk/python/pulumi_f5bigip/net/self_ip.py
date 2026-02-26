@@ -26,6 +26,7 @@ class SelfIpArgs:
                  traffic_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SelfIp resource.
+
         :param pulumi.Input[_builtins.str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         :param pulumi.Input[_builtins.str] name: Name of the selfip
         :param pulumi.Input[_builtins.str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
@@ -111,6 +112,7 @@ class _SelfIpState:
                  vlan: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SelfIp resources.
+
         :param pulumi.Input[_builtins.str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         :param pulumi.Input[_builtins.str] name: Name of the selfip
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
@@ -274,6 +276,7 @@ class SelfIp(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
@@ -360,6 +363,7 @@ class SelfIp(pulumi.CustomResource):
             port_lockdowns=["none"],
             opts = pulumi.ResourceOptions(depends_on=[vlan1]))
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SelfIpArgs args: The arguments to use to populate this resource's properties.

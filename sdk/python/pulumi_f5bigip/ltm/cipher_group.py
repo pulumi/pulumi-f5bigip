@@ -26,6 +26,7 @@ class CipherGroupArgs:
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CipherGroup resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the cipher rule
@@ -113,6 +114,7 @@ class _CipherGroupState:
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CipherGroup resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the cipher rule
         :param pulumi.Input[_builtins.str] name: Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
@@ -228,6 +230,7 @@ class CipherGroup(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
@@ -266,6 +269,7 @@ class CipherGroup(pulumi.CustomResource):
         $ terraform import bigip_ltm_cipher_group.test_cipher_group /Common/test_cipher_group
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CipherGroupArgs args: The arguments to use to populate this resource's properties.

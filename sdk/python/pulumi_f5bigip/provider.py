@@ -34,6 +34,7 @@ class ProviderArgs:
                  validate_certs_disable: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
+
         :param pulumi.Input[_builtins.str] address: Domain name/IP of the BigIP
         :param pulumi.Input[_builtins.int] api_retries: Amount of times to retry AS3 API requests. Default: 10.
         :param pulumi.Input[_builtins.int] api_timeout: A timeout for AS3 requests, represented as a number of seconds. Default: 60
@@ -258,6 +259,7 @@ class Provider(pulumi.ProviderResource):
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address: Domain name/IP of the BigIP
@@ -285,6 +287,7 @@ class Provider(pulumi.ProviderResource):
         settings, however an explicit `Provider` instance may be created and passed during resource
         construction to achieve fine-grained programmatic control over provider settings. See the
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.

@@ -31,6 +31,7 @@ class TrafficSelectorArgs:
                  source_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficSelector resource.
+
         :param pulumi.Input[_builtins.str] destination_address: Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
         :param pulumi.Input[_builtins.str] name: Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
         :param pulumi.Input[_builtins.str] source_address: Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
@@ -198,6 +199,7 @@ class _TrafficSelectorState:
                  source_port: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficSelector resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the traffic selector.
         :param pulumi.Input[_builtins.str] destination_address: Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
         :param pulumi.Input[_builtins.int] destination_port: Specifies the IP port used by the application. The default value is `All Ports (0)`
@@ -387,6 +389,7 @@ class TrafficSelector(pulumi.CustomResource):
             source_address="2.10.11.12/32")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the traffic selector.
@@ -423,6 +426,7 @@ class TrafficSelector(pulumi.CustomResource):
             destination_address="3.10.11.2/32",
             source_address="2.10.11.12/32")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrafficSelectorArgs args: The arguments to use to populate this resource's properties.

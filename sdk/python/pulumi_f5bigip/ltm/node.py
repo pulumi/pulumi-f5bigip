@@ -34,6 +34,7 @@ class NodeArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Node resource.
+
         :param pulumi.Input[_builtins.str] address: IP or hostname of the node
         :param pulumi.Input[_builtins.str] name: Name of the node
         :param pulumi.Input[_builtins.int] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
@@ -216,6 +217,7 @@ class _NodeState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Node resources.
+
         :param pulumi.Input[_builtins.str] address: IP or hostname of the node
         :param pulumi.Input[_builtins.int] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
         :param pulumi.Input[_builtins.str] description: User-defined description give ltm_node
@@ -439,6 +441,7 @@ class Node(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address: IP or hostname of the node
@@ -496,6 +499,7 @@ class Node(pulumi.CustomResource):
         $ terraform import bigip_ltm_node.site2_node "/Common/3.3.3.3"
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NodeArgs args: The arguments to use to populate this resource's properties.

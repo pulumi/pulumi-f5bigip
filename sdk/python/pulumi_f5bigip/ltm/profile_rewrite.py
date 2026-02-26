@@ -38,6 +38,7 @@ class ProfileRewriteArgs:
                  split_tunneling: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileRewrite resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
         :param pulumi.Input[_builtins.str] rewrite_mode: Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_lists: Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
@@ -284,6 +285,7 @@ class _ProfileRewriteState:
                  split_tunneling: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileRewrite resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_lists: Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
         :param pulumi.Input[_builtins.str] ca_file: Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
         :param pulumi.Input[_builtins.str] cache_type: Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
@@ -589,6 +591,7 @@ class ProfileRewrite(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bypass_lists: Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
@@ -667,6 +670,7 @@ class ProfileRewrite(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileRewriteArgs args: The arguments to use to populate this resource's properties.

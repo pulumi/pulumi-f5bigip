@@ -98,7 +98,15 @@ import javax.annotation.Nullable;
  * 
  * LTM iFiles can be imported using their full path:
  * 
+ * ```sh
+ * $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
+ * ```
+ * 
  * For iFiles with sub-paths:
+ * 
+ * ```sh
+ * $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
+ * ```
  * 
  */
 @ResourceType(type="f5bigip:ltm/ifile:Ifile")

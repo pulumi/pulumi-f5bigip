@@ -28,6 +28,7 @@ class DataGroupArgs:
                  records_src: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataGroup resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the datagroup
         :param pulumi.Input[_builtins.str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         :param pulumi.Input[_builtins.bool] internal: Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
@@ -116,6 +117,7 @@ class _DataGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataGroup resources.
+
         :param pulumi.Input[_builtins.bool] internal: Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
         :param pulumi.Input[_builtins.str] name: Name of the datagroup
         :param pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
@@ -213,6 +215,7 @@ class DataGroup(pulumi.CustomResource):
 
         Resource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] internal: Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
@@ -232,6 +235,7 @@ class DataGroup(pulumi.CustomResource):
         `ltm.DataGroup` Manages internal (in-line) datagroup configuration
 
         Resource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.
+
 
         :param str resource_name: The name of the resource.
         :param DataGroupArgs args: The arguments to use to populate this resource's properties.

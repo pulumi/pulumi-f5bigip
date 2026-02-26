@@ -23,6 +23,7 @@ class BigIpLicenseArgs:
                  registration_key: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a BigIpLicense resource.
+
         :param pulumi.Input[_builtins.str] command: Tmsh command to execute tmsh commands like install
         :param pulumi.Input[_builtins.str] registration_key: A unique Key F5 provides for Licensing BIG-IP
         """
@@ -61,6 +62,7 @@ class _BigIpLicenseState:
                  registration_key: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BigIpLicense resources.
+
         :param pulumi.Input[_builtins.str] command: Tmsh command to execute tmsh commands like install
         :param pulumi.Input[_builtins.str] registration_key: A unique Key F5 provides for Licensing BIG-IP
         """
@@ -105,6 +107,7 @@ class BigIpLicense(pulumi.CustomResource):
                  __props__=None):
         """
         Create a BigIpLicense resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] command: Tmsh command to execute tmsh commands like install
@@ -118,6 +121,7 @@ class BigIpLicense(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a BigIpLicense resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param BigIpLicenseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

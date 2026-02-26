@@ -28,6 +28,7 @@ class CertificateArgs:
                  partition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
+
         :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
@@ -146,6 +147,7 @@ class _CertificateState:
                  partition: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
+
         :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl certificate
         :param pulumi.Input[_builtins.str] issuer_cert: Specifies the issuer certificate.
@@ -285,6 +287,7 @@ class Certificate(pulumi.CustomResource):
             partition="Common")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
@@ -317,6 +320,7 @@ class Certificate(pulumi.CustomResource):
             content=std.file(input="servercert.crt").result,
             partition="Common")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

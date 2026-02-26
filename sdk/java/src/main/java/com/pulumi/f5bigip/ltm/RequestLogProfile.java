@@ -62,6 +62,10 @@ import javax.annotation.Nullable;
  * 
  * BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
  * 
+ * ```sh
+ * $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
+ * ```
+ * 
  */
 @ResourceType(type="f5bigip:ltm/requestLogProfile:RequestLogProfile")
 public class RequestLogProfile extends com.pulumi.resources.CustomResource {

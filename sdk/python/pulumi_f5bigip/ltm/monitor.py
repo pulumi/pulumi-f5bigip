@@ -51,6 +51,7 @@ class MonitorArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
+
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         :param pulumi.Input[_builtins.str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[_builtins.str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -537,6 +538,7 @@ class _MonitorState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
+
         :param pulumi.Input[_builtins.str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[_builtins.int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[_builtins.str] base: Specifies the location in the LDAP tree from which the monitor starts the health check
@@ -1094,6 +1096,7 @@ class Monitor(pulumi.CustomResource):
         $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -1199,6 +1202,7 @@ class Monitor(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_monitor.monitor /Common/terraform_monitor
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

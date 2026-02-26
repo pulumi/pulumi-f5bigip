@@ -40,6 +40,7 @@ class IAppArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         The set of arguments for constructing a IApp resource.
+
         :param pulumi.Input[_builtins.str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
         :param pulumi.Input[_builtins.str] name: Name of the iApp.
         :param pulumi.Input[_builtins.str] description: User defined description.
@@ -310,6 +311,7 @@ class _IAppState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering IApp resources.
+
         :param pulumi.Input[_builtins.str] description: User defined description.
         :param pulumi.Input[_builtins.str] devicegroup: BIG-IP password
         :param pulumi.Input[_builtins.str] execute_action: Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
@@ -601,6 +603,7 @@ class IApp(pulumi.CustomResource):
 
         ### Json File
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: User defined description.
@@ -641,6 +644,7 @@ class IApp(pulumi.CustomResource):
         ```
 
         ### Json File
+
 
         :param str resource_name: The name of the resource.
         :param IAppArgs args: The arguments to use to populate this resource's properties.

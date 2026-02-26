@@ -24,6 +24,7 @@ class NtpArgs:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ntp resource.
+
         :param pulumi.Input[_builtins.str] description: User defined description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone that you want to use for the system time.
@@ -78,6 +79,7 @@ class _NtpState:
                  timezone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ntp resources.
+
         :param pulumi.Input[_builtins.str] description: User defined description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone that you want to use for the system time.
@@ -151,6 +153,7 @@ class Ntp(pulumi.CustomResource):
             timezone="America/Los_Angeles")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: User defined description.
@@ -177,6 +180,7 @@ class Ntp(pulumi.CustomResource):
             servers=["time.facebook.com"],
             timezone="America/Los_Angeles")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NtpArgs args: The arguments to use to populate this resource's properties.

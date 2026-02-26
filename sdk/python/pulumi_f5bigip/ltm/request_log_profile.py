@@ -41,6 +41,7 @@ class RequestLogProfileArgs:
                  responselog_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RequestLogProfile resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
         :param pulumi.Input[_builtins.str] description: Specifies user-defined description.
@@ -368,6 +369,7 @@ class _RequestLogProfileState:
                  responselog_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestLogProfile resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
         :param pulumi.Input[_builtins.str] description: Specifies user-defined description.
         :param pulumi.Input[_builtins.str] name: Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
@@ -723,6 +725,11 @@ class RequestLogProfile(pulumi.CustomResource):
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
 
+        ```sh
+        $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
@@ -776,6 +783,11 @@ class RequestLogProfile(pulumi.CustomResource):
         ## Import
 
         BIG-IP LTM Request Log profiles can be imported using the `name`, e.g.
+
+        ```sh
+        $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestLogProfileArgs args: The arguments to use to populate this resource's properties.

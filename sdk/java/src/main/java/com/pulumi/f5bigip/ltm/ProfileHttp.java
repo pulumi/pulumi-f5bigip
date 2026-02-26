@@ -66,6 +66,10 @@ import javax.annotation.Nullable;
  * 
  * BIG-IP LTM http profiles can be imported using the `name`, e.g.
  * 
+ * ```sh
+ * $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+ * ```
+ * 
  */
 @ResourceType(type="f5bigip:ltm/profileHttp:ProfileHttp")
 public class ProfileHttp extends com.pulumi.resources.CustomResource {

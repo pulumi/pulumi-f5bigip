@@ -25,6 +25,7 @@ class IfileArgs:
                  sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ifile resource.
+
         :param pulumi.Input[_builtins.str] file_name: The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with `sys.Ifile`.
         :param pulumi.Input[_builtins.str] name: Name of the LTM iFile to be created on BIG-IP.
         :param pulumi.Input[_builtins.str] partition: Partition where the LTM iFile will be created. Defaults to `Common`.
@@ -96,6 +97,7 @@ class _IfileState:
                  sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ifile resources.
+
         :param pulumi.Input[_builtins.str] file_name: The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with `sys.Ifile`.
         :param pulumi.Input[_builtins.str] full_path: The complete path of the LTM iFile on the BIG-IP system.
         :param pulumi.Input[_builtins.str] name: Name of the LTM iFile to be created on BIG-IP.
@@ -240,7 +242,16 @@ class Ifile(pulumi.CustomResource):
 
         LTM iFiles can be imported using their full path:
 
+        ```sh
+        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
+        ```
+
         For iFiles with sub-paths:
+
+        ```sh
+        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,7 +321,16 @@ class Ifile(pulumi.CustomResource):
 
         LTM iFiles can be imported using their full path:
 
+        ```sh
+        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/my-ltm-ifile
+        ```
+
         For iFiles with sub-paths:
+
+        ```sh
+        $ pulumi import f5bigip:ltm/ifile:Ifile example /Common/templates/my-ltm-ifile
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IfileArgs args: The arguments to use to populate this resource's properties.

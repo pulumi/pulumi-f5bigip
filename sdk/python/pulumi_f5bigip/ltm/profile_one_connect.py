@@ -31,6 +31,7 @@ class ProfileOneConnectArgs:
                  source_mask: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileOneConnect resource.
+
         :param pulumi.Input[_builtins.str] name: Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] idle_timeout_override: Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
@@ -198,6 +199,7 @@ class _ProfileOneConnectState:
                  source_mask: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileOneConnect resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] idle_timeout_override: Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         :param pulumi.Input[_builtins.str] limit_type: Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
@@ -390,6 +392,7 @@ class ProfileOneConnect(pulumi.CustomResource):
         $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -430,6 +433,7 @@ class ProfileOneConnect(pulumi.CustomResource):
         ```sh
         $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileOneConnectArgs args: The arguments to use to populate this resource's properties.

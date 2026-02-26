@@ -25,6 +25,7 @@ class EventServiceDiscoveryArgs:
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None):
         """
         The set of arguments for constructing a EventServiceDiscovery resource.
+
         :param pulumi.Input[_builtins.str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         :param pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
                
@@ -154,6 +155,7 @@ class _EventServiceDiscoveryState:
                  taskid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventServiceDiscovery resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
                
                For more information, please refer below document
@@ -313,6 +315,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
@@ -395,6 +398,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventServiceDiscoveryArgs args: The arguments to use to populate this resource's properties.

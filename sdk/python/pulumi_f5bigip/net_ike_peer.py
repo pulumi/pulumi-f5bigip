@@ -55,6 +55,7 @@ class NetIkePeerArgs:
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetIkePeer resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the ike_peer
         :param pulumi.Input[_builtins.str] remote_address: Specifies the IP address of the IKE remote node
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
@@ -605,6 +606,7 @@ class _NetIkePeerState:
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetIkePeer resources.
+
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
         :param pulumi.Input[_builtins.str] ca_cert_file: the trusted root and intermediate certificate authorities
         :param pulumi.Input[_builtins.str] crl_file: Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
@@ -1174,6 +1176,7 @@ class NetIkePeer(pulumi.CustomResource):
             profile="/Common/dslite")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
@@ -1231,6 +1234,7 @@ class NetIkePeer(pulumi.CustomResource):
             local_address="192.16.81.240",
             profile="/Common/dslite")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetIkePeerArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class CipherRuleArgs:
                  signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CipherRule resource.
+
         :param pulumi.Input[_builtins.str] cipher: Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
         :param pulumi.Input[_builtins.str] name: Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
         :param pulumi.Input[_builtins.str] description: The Partition in which the Cipher Rule will be created.
@@ -112,6 +113,7 @@ class _CipherRuleState:
                  signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CipherRule resources.
+
         :param pulumi.Input[_builtins.str] cipher: Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
         :param pulumi.Input[_builtins.str] description: The Partition in which the Cipher Rule will be created.
         :param pulumi.Input[_builtins.str] dh_groups: Specifies the DH Groups algorithms, separated by colons (:).
@@ -226,6 +228,7 @@ class CipherRule(pulumi.CustomResource):
         $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cipher: Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
@@ -263,6 +266,7 @@ class CipherRule(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_cipher_rule.test_cipher_rule /Common/test_cipher_rule
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CipherRuleArgs args: The arguments to use to populate this resource's properties.

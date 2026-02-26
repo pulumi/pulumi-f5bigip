@@ -27,6 +27,7 @@ class ProvisionArgs:
                  memory_ratio: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Provision resource.
+
         :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP. 
                possible options:
                * afm
@@ -172,6 +173,7 @@ class _ProvisionState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Provision resources.
+
         :param pulumi.Input[_builtins.int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         :param pulumi.Input[_builtins.int] disk_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         :param pulumi.Input[_builtins.str] level: Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
@@ -337,6 +339,7 @@ class Provision(pulumi.CustomResource):
             memory_ratio=0)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -390,6 +393,7 @@ class Provision(pulumi.CustomResource):
             level="nominal",
             memory_ratio=0)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProvisionArgs args: The arguments to use to populate this resource's properties.

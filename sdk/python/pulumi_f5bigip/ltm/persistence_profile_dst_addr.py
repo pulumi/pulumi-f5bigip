@@ -32,6 +32,7 @@ class PersistenceProfileDstAddrArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a PersistenceProfileDstAddr resource.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
@@ -210,6 +211,7 @@ class _PersistenceProfileDstAddrState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PersistenceProfileDstAddr resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] hash_algorithm: Specify the hash algorithm
         :param pulumi.Input[_builtins.str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
@@ -440,6 +442,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         $ terraform import bigip_ltm_persistence_profile_dstaddr.dstaddr "/Common/terraform_ppdstaddr"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
@@ -506,6 +509,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_persistence_profile_dstaddr.dstaddr "/Common/terraform_ppdstaddr"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileDstAddrArgs args: The arguments to use to populate this resource's properties.

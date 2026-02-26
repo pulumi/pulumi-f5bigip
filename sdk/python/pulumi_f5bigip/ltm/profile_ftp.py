@@ -37,6 +37,7 @@ class ProfileFtpArgs:
                  translate_extended: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileFtp resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the profile_ftp
         :param pulumi.Input[_builtins.str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         :param pulumi.Input[_builtins.str] allow_ftps: Allows explicit FTPS negotiation
@@ -300,6 +301,7 @@ class _ProfileFtpState:
                  translate_extended: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFtp resources.
+
         :param pulumi.Input[_builtins.str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         :param pulumi.Input[_builtins.str] allow_ftps: Allows explicit FTPS negotiation
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
@@ -618,6 +620,7 @@ class ProfileFtp(pulumi.CustomResource):
 
         * `description` - (Optional)User defined description for FTP profile
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allow_active_mode: Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
@@ -694,6 +697,7 @@ class ProfileFtp(pulumi.CustomResource):
         *  `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
 
         * `description` - (Optional)User defined description for FTP profile
+
 
         :param str resource_name: The name of the resource.
         :param ProfileFtpArgs args: The arguments to use to populate this resource's properties.

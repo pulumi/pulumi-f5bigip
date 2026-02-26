@@ -25,6 +25,7 @@ class IfileArgs:
                  sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ifile resource.
+
         :param pulumi.Input[_builtins.str] content: The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.
         :param pulumi.Input[_builtins.str] name: Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partition: Partition where the iFile will be stored. Defaults to `Common`.
@@ -97,6 +98,7 @@ class _IfileState:
                  sub_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ifile resources.
+
         :param pulumi.Input[_builtins.str] checksum: MD5 checksum of the iFile content, automatically calculated by BIG-IP.
         :param pulumi.Input[_builtins.str] content: The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.
         :param pulumi.Input[_builtins.str] name: Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.
@@ -333,7 +335,16 @@ class Ifile(pulumi.CustomResource):
 
         System iFiles can be imported using their full path:
 
+        ```sh
+        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
+        ```
+
         For iFiles with sub-paths:
+
+        ```sh
+        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -480,7 +491,16 @@ class Ifile(pulumi.CustomResource):
 
         System iFiles can be imported using their full path:
 
+        ```sh
+        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
+        ```
+
         For iFiles with sub-paths:
+
+        ```sh
+        $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param IfileArgs args: The arguments to use to populate this resource's properties.

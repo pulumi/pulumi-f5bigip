@@ -23,6 +23,7 @@ class SnatPoolArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a SnatPool resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[_builtins.str] name: Name of the snatpool
         """
@@ -61,6 +62,7 @@ class _SnatPoolState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnatPool resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[_builtins.str] name: Name of the snatpool
         """
@@ -122,6 +124,7 @@ class SnatPool(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
@@ -151,6 +154,7 @@ class SnatPool(pulumi.CustomResource):
                 "194.2.2.2",
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnatPoolArgs args: The arguments to use to populate this resource's properties.

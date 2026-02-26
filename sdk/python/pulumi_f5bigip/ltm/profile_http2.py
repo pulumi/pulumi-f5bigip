@@ -34,6 +34,7 @@ class ProfileHttp2Args:
                  write_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ProfileHttp2 resource.
+
         :param pulumi.Input[_builtins.str] name: Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
         :param pulumi.Input[_builtins.int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
@@ -249,6 +250,7 @@ class _ProfileHttp2State:
                  write_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ProfileHttp2 resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
         :param pulumi.Input[_builtins.int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
         :param pulumi.Input[_builtins.int] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
@@ -496,6 +498,7 @@ class ProfileHttp2(pulumi.CustomResource):
             defaults_from=nyhttp2.name)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
@@ -546,6 +549,7 @@ class ProfileHttp2(pulumi.CustomResource):
             name="/Common/test-profile-http2-child",
             defaults_from=nyhttp2.name)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileHttp2Args args: The arguments to use to populate this resource's properties.

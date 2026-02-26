@@ -37,6 +37,7 @@ class FastTcpAppArgs:
                  virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
         """
         The set of arguments for constructing a FastTcpApp resource.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST TCP application.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST TCP application tenant.
         :param pulumi.Input[_builtins.str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -274,6 +275,7 @@ class _FastTcpAppState:
                  virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
         """
         Input properties used for looking up and filtering FastTcpApp resources.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST TCP application.
         :param pulumi.Input[_builtins.str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         :param pulumi.Input[_builtins.str] existing_pool: Name of an existing BIG-IP pool.
@@ -557,6 +559,7 @@ class FastTcpApp(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the FAST TCP application.
@@ -610,6 +613,7 @@ class FastTcpApp(pulumi.CustomResource):
                 "share_nodes": True,
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastTcpAppArgs args: The arguments to use to populate this resource's properties.

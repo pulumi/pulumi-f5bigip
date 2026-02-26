@@ -49,6 +49,7 @@ class WafPolicyArgs:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WafPolicy resource.
+
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param pulumi.Input[_builtins.str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[_builtins.str] application_language: The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -480,6 +481,7 @@ class _WafPolicyState:
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WafPolicy resources.
+
         :param pulumi.Input[_builtins.str] application_language: The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
         :param pulumi.Input[_builtins.bool] case_insensitive: Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
         :param pulumi.Input[_builtins.str] description: Specifies the description of the policy.
@@ -987,6 +989,7 @@ class WafPolicy(pulumi.CustomResource):
         $ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_language: The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -1083,6 +1086,7 @@ class WafPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param WafPolicyArgs args: The arguments to use to populate this resource's properties.

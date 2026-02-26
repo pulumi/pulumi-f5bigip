@@ -26,6 +26,7 @@ class RouteArgs:
                  tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[_builtins.str] network: The destination subnet and netmask for the route.
         :param pulumi.Input[_builtins.str] gw: Specifies a gateway address for the route.
@@ -112,6 +113,7 @@ class _RouteState:
                  tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
+
         :param pulumi.Input[_builtins.str] gw: Specifies a gateway address for the route.
         :param pulumi.Input[_builtins.str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[_builtins.str] network: The destination subnet and netmask for the route.
@@ -219,6 +221,7 @@ class Route(pulumi.CustomResource):
             gw="1.1.1.2")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gw: Specifies a gateway address for the route.
@@ -249,6 +252,7 @@ class Route(pulumi.CustomResource):
             network="10.10.10.0/24",
             gw="1.1.1.2")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

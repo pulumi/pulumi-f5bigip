@@ -26,6 +26,7 @@ class KeyArgs:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Key resource.
+
         :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
@@ -112,6 +113,7 @@ class _KeyState:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
+
         :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
         :param pulumi.Input[_builtins.str] full_path: Full Path Name of ssl key
         :param pulumi.Input[_builtins.str] name: Name of the SSL Certificate key to be Imported on to BIGIP
@@ -219,6 +221,7 @@ class Key(pulumi.CustomResource):
             partition="Common")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
@@ -249,6 +252,7 @@ class Key(pulumi.CustomResource):
             content=std.file(input="serverkey.key").result,
             partition="Common")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

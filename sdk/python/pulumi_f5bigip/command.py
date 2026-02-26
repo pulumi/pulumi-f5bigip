@@ -24,6 +24,7 @@ class CommandArgs:
                  when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Command resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
@@ -79,6 +80,7 @@ class _CommandState:
                  when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Command resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         :param pulumi.Input[_builtins.str] when: default value will be `apply`,can be set to `destroy` for terraform destroy call.
@@ -142,6 +144,7 @@ class Command(pulumi.CustomResource):
 
         This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command_results: The resulting output from the `commands` executed.
@@ -158,6 +161,7 @@ class Command(pulumi.CustomResource):
         `Command` Run TMSH commands on F5 devices
 
         This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
+
 
         :param str resource_name: The name of the resource.
         :param CommandArgs args: The arguments to use to populate this resource's properties.

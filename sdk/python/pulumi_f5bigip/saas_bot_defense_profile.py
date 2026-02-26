@@ -32,6 +32,7 @@ class SaasBotDefenseProfileArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SaasBotDefenseProfile resource.
+
         :param pulumi.Input[_builtins.str] api_key: Specifies the API key, enter the value provided by F5 Support.
         :param pulumi.Input[_builtins.str] application_id: Specifies the Bot Defense API application ID, enter the value provided by F5 Support
         :param pulumi.Input[_builtins.str] name: Unique name for the Distributed Cloud Services Bot Defense profile
@@ -177,6 +178,7 @@ class _SaasBotDefenseProfileState:
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SaasBotDefenseProfile resources.
+
         :param pulumi.Input[_builtins.str] api_key: Specifies the API key, enter the value provided by F5 Support.
         :param pulumi.Input[_builtins.str] application_id: Specifies the Bot Defense API application ID, enter the value provided by F5 Support
         :param pulumi.Input[_builtins.str] defaults_from: Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
@@ -333,6 +335,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Create a SaasBotDefenseProfile resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: Specifies the API key, enter the value provided by F5 Support.
@@ -353,6 +356,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a SaasBotDefenseProfile resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param SaasBotDefenseProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

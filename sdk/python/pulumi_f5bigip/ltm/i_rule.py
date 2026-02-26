@@ -23,6 +23,7 @@ class IRuleArgs:
                  name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a IRule resource.
+
         :param pulumi.Input[_builtins.str] irule: Body of the iRule
         :param pulumi.Input[_builtins.str] name: Name of the iRule
         """
@@ -61,6 +62,7 @@ class _IRuleState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IRule resources.
+
         :param pulumi.Input[_builtins.str] irule: Body of the iRule
         :param pulumi.Input[_builtins.str] name: Name of the iRule
         """
@@ -129,6 +131,7 @@ class IRule(pulumi.CustomResource):
 
         ##myirule.tcl
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] irule: Body of the iRule
@@ -165,6 +168,7 @@ class IRule(pulumi.CustomResource):
         ```
 
         ##myirule.tcl
+
 
         :param str resource_name: The name of the resource.
         :param IRuleArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class DnsArgs:
                  searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Dns resource.
+
         :param pulumi.Input[_builtins.str] description: Provide description for your DNS server
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         :param pulumi.Input[_builtins.int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
@@ -95,6 +96,7 @@ class _DnsState:
                  searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Dns resources.
+
         :param pulumi.Input[_builtins.str] description: Provide description for your DNS server
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         :param pulumi.Input[_builtins.int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
@@ -184,6 +186,7 @@ class Dns(pulumi.CustomResource):
             searches=["f5.com"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Provide description for your DNS server
@@ -211,6 +214,7 @@ class Dns(pulumi.CustomResource):
             name_servers=["1.1.1.1"],
             searches=["f5.com"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DnsArgs args: The arguments to use to populate this resource's properties.

@@ -32,6 +32,7 @@ class SslKeyCertArgs:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SslKeyCert resource.
+
         :param pulumi.Input[_builtins.str] cert_content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
         :param pulumi.Input[_builtins.str] cert_name: Name of the SSL certificate to be Imported on to BIGIP.
         :param pulumi.Input[_builtins.str] key_content: Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
@@ -212,6 +213,7 @@ class _SslKeyCertState:
                  passphrase: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SslKeyCert resources.
+
         :param pulumi.Input[_builtins.str] cert_content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
         :param pulumi.Input[_builtins.str] cert_full_path: full path of the SSL certificate on the BIGIP.
         :param pulumi.Input[_builtins.str] cert_monitoring_type: Specifies the type of monitoring used.
@@ -417,6 +419,7 @@ class SslKeyCert(pulumi.CustomResource):
             cert_content=std.file(input="certificate.pem").result)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cert_content: Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
@@ -455,6 +458,7 @@ class SslKeyCert(pulumi.CustomResource):
             cert_name="ssl-test-cert",
             cert_content=std.file(input="certificate.pem").result)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SslKeyCertArgs args: The arguments to use to populate this resource's properties.
