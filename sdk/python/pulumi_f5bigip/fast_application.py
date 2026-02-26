@@ -23,6 +23,7 @@ class FastApplicationArgs:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FastApplication resource.
+
         :param pulumi.Input[_builtins.str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[_builtins.str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         """
@@ -64,6 +65,7 @@ class _FastApplicationState:
                  tenant: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FastApplication resources.
+
         :param pulumi.Input[_builtins.str] application: A FAST application name.
                
                
@@ -159,6 +161,7 @@ class FastApplication(pulumi.CustomResource):
             fast_json=std.file(input="new_fast_app.json").result)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
@@ -184,6 +187,7 @@ class FastApplication(pulumi.CustomResource):
             template="examples/simple_http",
             fast_json=std.file(input="new_fast_app.json").result)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastApplicationArgs args: The arguments to use to populate this resource's properties.

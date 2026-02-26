@@ -25,6 +25,7 @@ class DeviceArgs:
                  mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
+
         :param pulumi.Input[_builtins.str] configsync_ip: IP address used for config sync
         :param pulumi.Input[_builtins.str] name: Address of the Device which needs to be Deviceensed
         :param pulumi.Input[_builtins.str] mirror_ip: IP address used for state mirroring
@@ -95,6 +96,7 @@ class _DeviceState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Device resources.
+
         :param pulumi.Input[_builtins.str] configsync_ip: IP address used for config sync
         :param pulumi.Input[_builtins.str] mirror_ip: IP address used for state mirroring
         :param pulumi.Input[_builtins.str] mirror_secondary_ip: Secondary IP address used for state mirroring
@@ -186,6 +188,7 @@ class Device(pulumi.CustomResource):
             mirror_secondary_ip="11.11.11.11")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configsync_ip: IP address used for config sync
@@ -215,6 +218,7 @@ class Device(pulumi.CustomResource):
             mirror_ip="10.10.10.10",
             mirror_secondary_ip="11.11.11.11")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

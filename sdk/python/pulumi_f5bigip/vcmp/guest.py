@@ -34,6 +34,7 @@ class GuestArgs:
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Guest resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the vCMP guest
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] allowed_slots: Contains those slots to which the guest is allowed to be assigned.
         :param pulumi.Input[_builtins.int] cores_per_slot: Specifies the number of cores the system allocates to the guest.
@@ -251,6 +252,7 @@ class _GuestState:
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Guest resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] allowed_slots: Contains those slots to which the guest is allowed to be assigned.
         :param pulumi.Input[_builtins.int] cores_per_slot: Specifies the number of cores the system allocates to the guest.
         :param pulumi.Input[_builtins.bool] delete_virtual_disk: Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
@@ -522,6 +524,7 @@ class Guest(pulumi.CustomResource):
             min_number_of_slots=1)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] allowed_slots: Contains those slots to which the guest is allowed to be assigned.
@@ -566,6 +569,7 @@ class Guest(pulumi.CustomResource):
             number_of_slots=1,
             min_number_of_slots=1)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GuestArgs args: The arguments to use to populate this resource's properties.

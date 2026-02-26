@@ -50,6 +50,7 @@ class VirtualServerArgs:
                  vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualServer resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[_builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
@@ -515,6 +516,7 @@ class _VirtualServerState:
                  vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering VirtualServer resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[_builtins.int] connection_limit: Specifies the maximum number of connections allowed for the virtual server.
         :param pulumi.Input[_builtins.str] description: Description of Virtual server
@@ -997,6 +999,7 @@ class VirtualServer(pulumi.CustomResource):
         $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
@@ -1047,6 +1050,7 @@ class VirtualServer(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_virtual_server.http /Common/terraform_vs_http
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VirtualServerArgs args: The arguments to use to populate this resource's properties.

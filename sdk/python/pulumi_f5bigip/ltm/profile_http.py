@@ -52,6 +52,7 @@ class ProfileHttpArgs:
                  xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfileHttp resource.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         :param pulumi.Input[_builtins.str] accept_xff: Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
@@ -523,6 +524,7 @@ class _ProfileHttpState:
                  xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProfileHttp resources.
+
         :param pulumi.Input[_builtins.str] accept_xff: Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         :param pulumi.Input[_builtins.str] app_service: The application service to which the object belongs.
         :param pulumi.Input[_builtins.str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
@@ -1023,6 +1025,11 @@ class ProfileHttp(pulumi.CustomResource):
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
 
+        ```sh
+        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_xff: Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -1086,6 +1093,11 @@ class ProfileHttp(pulumi.CustomResource):
         ## Import
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g.
+
+        ```sh
+        $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileHttpArgs args: The arguments to use to populate this resource's properties.

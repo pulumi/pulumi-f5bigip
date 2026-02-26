@@ -140,7 +140,15 @@ import * as utilities from "../utilities";
  *
  * System iFiles can be imported using their full path:
  *
+ * ```sh
+ * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
+ * ```
+ *
  * For iFiles with sub-paths:
+ *
+ * ```sh
+ * $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
+ * ```
  */
 export class Ifile extends pulumi.CustomResource {
     /**

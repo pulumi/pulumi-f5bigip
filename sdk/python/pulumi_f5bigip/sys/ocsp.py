@@ -38,6 +38,7 @@ class OcspArgs:
                  trusted_responders: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ocsp resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
         :param pulumi.Input[_builtins.int] cache_error_timeout: Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
         :param pulumi.Input[_builtins.str] cache_timeout: Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
@@ -317,6 +318,7 @@ class _OcspState:
                  trusted_responders: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ocsp resources.
+
         :param pulumi.Input[_builtins.int] cache_error_timeout: Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
         :param pulumi.Input[_builtins.str] cache_timeout: Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
         :param pulumi.Input[_builtins.int] clock_skew: Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
@@ -624,6 +626,7 @@ class Ocsp(pulumi.CustomResource):
         $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cache_error_timeout: Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
@@ -674,6 +677,7 @@ class Ocsp(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_sys_ocsp.test-ocsp /Common/test-ocsp
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OcspArgs args: The arguments to use to populate this resource's properties.

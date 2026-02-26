@@ -24,6 +24,7 @@ class PartitionArgs:
                  route_domain_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Partition resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the partition.
         :param pulumi.Input[_builtins.str] description: Description of the partition.
         :param pulumi.Input[_builtins.int] route_domain_id: Route domain id of the partition.
@@ -79,6 +80,7 @@ class _PartitionState:
                  route_domain_id: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Partition resources.
+
         :param pulumi.Input[_builtins.str] description: Description of the partition.
         :param pulumi.Input[_builtins.str] name: Name of the partition.
         :param pulumi.Input[_builtins.int] route_domain_id: Route domain id of the partition.
@@ -163,6 +165,7 @@ class Partition(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the partition.
@@ -200,6 +203,7 @@ class Partition(pulumi.CustomResource):
         $ terraform import bigip_partition.test_partition test_partition
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PartitionArgs args: The arguments to use to populate this resource's properties.

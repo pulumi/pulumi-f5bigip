@@ -31,6 +31,7 @@ class PoolAttachmentArgs:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PoolAttachment resource.
+
         :param pulumi.Input[_builtins.str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         :param pulumi.Input[_builtins.str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[_builtins.int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -197,6 +198,7 @@ class _PoolAttachmentState:
                  state: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PoolAttachment resources.
+
         :param pulumi.Input[_builtins.int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
         :param pulumi.Input[_builtins.str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[_builtins.int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
@@ -469,6 +471,7 @@ class PoolAttachment(pulumi.CustomResource):
         	'{"pool": "/Common/terraform-pool", "node": "/Common/node1:80"}'
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -589,6 +592,7 @@ class PoolAttachment(pulumi.CustomResource):
         $ terraform import bigip_ltm_pool_attachment.node-pool-attach \\
         	'{"pool": "/Common/terraform-pool", "node": "/Common/node1:80"}'
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PoolAttachmentArgs args: The arguments to use to populate this resource's properties.

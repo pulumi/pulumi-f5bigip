@@ -43,6 +43,7 @@ class ProfileTcpArgs:
                  zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ProfileTcp resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
         :param pulumi.Input[_builtins.int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         :param pulumi.Input[_builtins.str] congestion_control: Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
@@ -402,6 +403,7 @@ class _ProfileTcpState:
                  zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ProfileTcp resources.
+
         :param pulumi.Input[_builtins.int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         :param pulumi.Input[_builtins.str] congestion_control: Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -794,6 +796,7 @@ class ProfileTcp(pulumi.CustomResource):
         $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -854,6 +857,7 @@ class ProfileTcp(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_profile_tcp.tcp-lan-profile-import /Common/test-tcp-lan-profile
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileTcpArgs args: The arguments to use to populate this resource's properties.

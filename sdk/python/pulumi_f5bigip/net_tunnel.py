@@ -38,6 +38,7 @@ class NetTunnelArgs:
                  use_pmtu: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetTunnel resource.
+
         :param pulumi.Input[_builtins.str] local_address: Specifies a local IP address. This option is required
         :param pulumi.Input[_builtins.str] name: Name of the tunnel
         :param pulumi.Input[_builtins.str] profile: Specifies the profile that you want to associate with the tunnel
@@ -315,6 +316,7 @@ class _NetTunnelState:
                  use_pmtu: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetTunnel resources.
+
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
         :param pulumi.Input[_builtins.str] auto_last_hop: Specifies whether auto lasthop is enabled or not
         :param pulumi.Input[_builtins.str] description: User defined description
@@ -612,6 +614,7 @@ class NetTunnel(pulumi.CustomResource):
             profile="/Common/dslite")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service: The application service that the object belongs to
@@ -652,6 +655,7 @@ class NetTunnel(pulumi.CustomResource):
             local_address="192.16.81.240",
             profile="/Common/dslite")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param NetTunnelArgs args: The arguments to use to populate this resource's properties.

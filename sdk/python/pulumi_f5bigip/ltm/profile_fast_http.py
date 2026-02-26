@@ -32,6 +32,7 @@ class ProfileFastHttpArgs:
                  maxheader_size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ProfileFastHttp resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the profile_fasthttp
         :param pulumi.Input[_builtins.int] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
         :param pulumi.Input[_builtins.int] connpool_maxsize: Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
@@ -215,6 +216,7 @@ class _ProfileFastHttpState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFastHttp resources.
+
         :param pulumi.Input[_builtins.int] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
         :param pulumi.Input[_builtins.int] connpool_maxsize: Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
         :param pulumi.Input[_builtins.int] connpool_minsize: Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
@@ -426,6 +428,7 @@ class ProfileFastHttp(pulumi.CustomResource):
             maxheader_size=32768)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -470,6 +473,7 @@ class ProfileFastHttp(pulumi.CustomResource):
             forcehttp10response="disabled",
             maxheader_size=32768)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileFastHttpArgs args: The arguments to use to populate this resource's properties.

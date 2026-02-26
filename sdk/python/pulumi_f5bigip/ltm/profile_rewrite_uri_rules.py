@@ -28,6 +28,7 @@ class ProfileRewriteUriRulesArgs:
                  rule_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileRewriteUriRules resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]] clients: Block type. Each request is block type with following arguments.
         :param pulumi.Input[_builtins.str] profile_name: Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[_builtins.str] rule_name: Specifies the name of the uri rule.
@@ -112,6 +113,7 @@ class _ProfileRewriteUriRulesState:
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]] = None):
         """
         Input properties used for looking up and filtering ProfileRewriteUriRules resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]] clients: Block type. Each request is block type with following arguments.
         :param pulumi.Input[_builtins.str] profile_name: Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[_builtins.str] rule_name: Specifies the name of the uri rule.
@@ -245,6 +247,7 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]] clients: Block type. Each request is block type with following arguments.
@@ -301,6 +304,7 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
                 "scheme": "ftps",
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileRewriteUriRulesArgs args: The arguments to use to populate this resource's properties.

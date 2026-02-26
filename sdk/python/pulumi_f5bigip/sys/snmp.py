@@ -24,6 +24,7 @@ class SnmpArgs:
                  sys_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Snmp resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         :param pulumi.Input[_builtins.str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[_builtins.str] sys_location: Describes the system's physical location.
@@ -80,6 +81,7 @@ class _SnmpState:
                  sys_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snmp resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         :param pulumi.Input[_builtins.str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[_builtins.str] sys_location: Describes the system's physical location.
@@ -152,6 +154,7 @@ class Snmp(pulumi.CustomResource):
             allowedaddresses=["202.10.10.2"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
@@ -177,6 +180,7 @@ class Snmp(pulumi.CustomResource):
             sys_location="SeattleHQ",
             allowedaddresses=["202.10.10.2"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnmpArgs args: The arguments to use to populate this resource's properties.

@@ -33,6 +33,7 @@ class IpsecPolicyArgs:
                  tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpsecPolicy resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
         :param pulumi.Input[_builtins.str] auth_algorithm: Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
                aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
@@ -238,6 +239,7 @@ class _IpsecPolicyState:
                  tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpsecPolicy resources.
+
         :param pulumi.Input[_builtins.str] auth_algorithm: Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
                aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
         :param pulumi.Input[_builtins.str] description: Description of the IPSec policy.
@@ -470,6 +472,7 @@ class IpsecPolicy(pulumi.CustomResource):
             ipcomp="deflate")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_algorithm: Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -517,6 +520,7 @@ class IpsecPolicy(pulumi.CustomResource):
             lifetime=3,
             ipcomp="deflate")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpsecPolicyArgs args: The arguments to use to populate this resource's properties.

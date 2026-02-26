@@ -32,6 +32,7 @@ class As3Args:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a As3 resource.
+
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
@@ -553,6 +554,7 @@ class _As3State:
                  tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering As3 resources.
+
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] controls: A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
@@ -1368,6 +1370,7 @@ class As3(pulumi.CustomResource):
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_list: List of applications currently deployed on the Big-Ip
@@ -1847,6 +1850,7 @@ class As3(pulumi.CustomResource):
         }
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
+
 
         :param str resource_name: The name of the resource.
         :param As3Args args: The arguments to use to populate this resource's properties.

@@ -72,6 +72,7 @@ class ProfileServerSslArgs:
                  untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileServerSsl resource.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
@@ -959,6 +960,7 @@ class _ProfileServerSslState:
                  untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileServerSsl resources.
+
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
         :param pulumi.Input[_builtins.str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
                When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
@@ -1876,6 +1878,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alert_timeout: Alert time out
@@ -1994,6 +1997,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         $ terraform import bigip_ltm_profile_server_ssl.test-ServerSsl-import /Common/test-ServerSsl
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileServerSslArgs args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class BigIqAs3Args:
                  tenant_list: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BigIqAs3 resource.
+
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[_builtins.str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[_builtins.str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
@@ -290,6 +291,7 @@ class _BigIqAs3State:
                  tenant_list: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BigIqAs3 resources.
+
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[_builtins.str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[_builtins.str] bigiq_login_ref: BIGIQ Login reference for token authentication
@@ -576,6 +578,7 @@ class BigIqAs3(pulumi.CustomResource):
             as3_json=std.file(input="bigiq_example.json").result)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -669,6 +672,7 @@ class BigIqAs3(pulumi.CustomResource):
             bigiq_password="xxxxxxxxx",
             as3_json=std.file(input="bigiq_example.json").result)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BigIqAs3Args args: The arguments to use to populate this resource's properties.

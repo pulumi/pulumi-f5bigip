@@ -41,6 +41,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Import
     /// 
     /// BIG-IP LTM Request Log profiles can be imported using the `Name`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import f5bigip:ltm/requestLogProfile:RequestLogProfile test-request-log /Common/test-request-log
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/requestLogProfile:RequestLogProfile")]
     public partial class RequestLogProfile : global::Pulumi.CustomResource

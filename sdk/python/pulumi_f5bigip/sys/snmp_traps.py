@@ -35,6 +35,7 @@ class SnmpTrapsArgs:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnmpTraps resource.
+
         :param pulumi.Input[_builtins.str] auth_passwordencrypted: Encrypted password
         :param pulumi.Input[_builtins.str] auth_protocol: Specifies the protocol used to authenticate the user.
         :param pulumi.Input[_builtins.str] community: Specifies the community string used for this trap.
@@ -267,6 +268,7 @@ class _SnmpTrapsState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnmpTraps resources.
+
         :param pulumi.Input[_builtins.str] auth_passwordencrypted: Encrypted password
         :param pulumi.Input[_builtins.str] auth_protocol: Specifies the protocol used to authenticate the user.
         :param pulumi.Input[_builtins.str] community: Specifies the community string used for this trap.
@@ -517,6 +519,7 @@ class SnmpTraps(pulumi.CustomResource):
             port=111)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_passwordencrypted: Encrypted password
@@ -555,6 +558,7 @@ class SnmpTraps(pulumi.CustomResource):
             description="Setup snmp traps",
             port=111)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnmpTrapsArgs args: The arguments to use to populate this resource's properties.

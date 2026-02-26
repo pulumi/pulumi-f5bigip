@@ -37,6 +37,7 @@ class CommonLicenseManageBigIqArgs:
                  unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CommonLicenseManageBigIq resource.
+
         :param pulumi.Input[_builtins.str] assignment_type: The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
         :param pulumi.Input[_builtins.str] bigiq_address: BIGIQ License Manager IP Address, variable type `string`
         :param pulumi.Input[_builtins.str] bigiq_password: BIGIQ License Manager password.  variable type `string`
@@ -296,6 +297,7 @@ class _CommonLicenseManageBigIqState:
                  unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CommonLicenseManageBigIq resources.
+
         :param pulumi.Input[_builtins.str] assignment_type: The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
         :param pulumi.Input[_builtins.str] bigiq_address: BIGIQ License Manager IP Address, variable type `string`
         :param pulumi.Input[_builtins.str] bigiq_login_ref: BIGIQ Login reference for token authentication
@@ -565,6 +567,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assignment_type: The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -592,6 +595,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
+
 
         :param str resource_name: The name of the resource.
         :param CommonLicenseManageBigIqArgs args: The arguments to use to populate this resource's properties.

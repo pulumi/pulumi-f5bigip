@@ -39,6 +39,7 @@ class PersistenceProfileCookieArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a PersistenceProfileCookie resource.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
         :param pulumi.Input[_builtins.str] always_send: To enable _ disable always sending cookies
@@ -329,6 +330,7 @@ class _PersistenceProfileCookieState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PersistenceProfileCookie resources.
+
         :param pulumi.Input[_builtins.str] always_send: To enable _ disable always sending cookies
         :param pulumi.Input[_builtins.str] cookie_encryption: To required, preferred, or disabled policy for cookie encryption
         :param pulumi.Input[_builtins.str] cookie_encryption_passphrase: Passphrase for encrypted cookies
@@ -693,6 +695,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] always_send: To enable _ disable always sending cookies
@@ -788,6 +791,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_persistence_profile_cookie.test_ppcookie "/Common/terraform_cookie"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileCookieArgs args: The arguments to use to populate this resource's properties.

@@ -34,6 +34,7 @@ class SnatArgs:
                  vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Snat resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[_builtins.str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -216,6 +217,7 @@ class _SnatState:
                  vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Snat resources.
+
         :param pulumi.Input[_builtins.str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[_builtins.str] full_path: Fullpath
         :param pulumi.Input[_builtins.str] mirror: Enables or disables mirroring of SNAT connections.
@@ -424,6 +426,7 @@ class Snat(pulumi.CustomResource):
             vlansdisabled=False)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -465,6 +468,7 @@ class Snat(pulumi.CustomResource):
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SnatArgs args: The arguments to use to populate this resource's properties.

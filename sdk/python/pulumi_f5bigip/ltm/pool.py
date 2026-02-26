@@ -31,6 +31,7 @@ class PoolArgs:
                  slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Pool resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
         :param pulumi.Input[_builtins.str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[_builtins.str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
@@ -198,6 +199,7 @@ class _PoolState:
                  slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
+
         :param pulumi.Input[_builtins.str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[_builtins.str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the pool.
@@ -399,6 +401,7 @@ class Pool(pulumi.CustomResource):
 
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -448,6 +451,7 @@ class Pool(pulumi.CustomResource):
         $ terraform import bigip_ltm_pool.k8s_prod_import /Common/k8prod_Pool
 
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

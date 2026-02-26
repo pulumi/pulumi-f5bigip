@@ -35,6 +35,7 @@ class ProfileWebAccelerationArgs:
                  defaults_from: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileWebAcceleration resource.
+
         :param pulumi.Input[_builtins.str] name: Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
         :param pulumi.Input[_builtins.int] cache_aging_rate: Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
         :param pulumi.Input[_builtins.str] cache_client_cache_control_mode: Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
@@ -266,6 +267,7 @@ class _ProfileWebAccelerationState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileWebAcceleration resources.
+
         :param pulumi.Input[_builtins.int] cache_aging_rate: Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
         :param pulumi.Input[_builtins.str] cache_client_cache_control_mode: Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
         :param pulumi.Input[_builtins.str] cache_insert_age_header: Inserts Age and Date headers in the response. The default value is `enabled`.
@@ -518,6 +520,7 @@ class ProfileWebAcceleration(pulumi.CustomResource):
             cache_max_entries=201)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] cache_aging_rate: Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
@@ -558,6 +561,7 @@ class ProfileWebAcceleration(pulumi.CustomResource):
             cache_size=101,
             cache_max_entries=201)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileWebAccelerationArgs args: The arguments to use to populate this resource's properties.

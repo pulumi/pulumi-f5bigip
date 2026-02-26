@@ -28,6 +28,7 @@ class VlanArgs:
                  tag: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Vlan resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the vlan
         :param pulumi.Input[_builtins.str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
@@ -115,6 +116,7 @@ class _VlanState:
                  tag: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Vlan resources.
+
         :param pulumi.Input[_builtins.str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[_builtins.int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
@@ -225,6 +227,7 @@ class Vlan(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
@@ -258,6 +261,7 @@ class Vlan(pulumi.CustomResource):
                 "tagged": False,
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param VlanArgs args: The arguments to use to populate this resource's properties.

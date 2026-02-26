@@ -42,6 +42,7 @@ class FastHttpAppArgs:
                  waf_security_policy: Optional[pulumi.Input['FastHttpAppWafSecurityPolicyArgs']] = None):
         """
         The set of arguments for constructing a FastHttpApp resource.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST HTTPS application.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST HTTPS application tenant.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoint_ltm_policies: List of LTM Policies to be applied FAST HTTP Application.
@@ -361,6 +362,7 @@ class _FastHttpAppState:
                  waf_security_policy: Optional[pulumi.Input['FastHttpAppWafSecurityPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering FastHttpApp resources.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST HTTPS application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoint_ltm_policies: List of LTM Policies to be applied FAST HTTP Application.
         :param pulumi.Input[_builtins.str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -752,6 +754,7 @@ class FastHttpApp(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the FAST HTTPS application.
@@ -837,6 +840,7 @@ class FastHttpApp(pulumi.CustomResource):
                 tc3.azure_sd_json,
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastHttpAppArgs args: The arguments to use to populate this resource's properties.

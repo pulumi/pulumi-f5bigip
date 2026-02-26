@@ -24,6 +24,7 @@ class FastTemplateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FastTemplate resource.
+
         :param pulumi.Input[_builtins.str] md5_hash: MD5 hash of the zip archive file containing FAST template
         :param pulumi.Input[_builtins.str] source: Path to the zip archive file containing FAST template set on Local Disk
         :param pulumi.Input[_builtins.str] name: Name of the FAST template set to be created on to BIGIP
@@ -78,6 +79,7 @@ class _FastTemplateState:
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FastTemplate resources.
+
         :param pulumi.Input[_builtins.str] md5_hash: MD5 hash of the zip archive file containing FAST template
         :param pulumi.Input[_builtins.str] name: Name of the FAST template set to be created on to BIGIP
         :param pulumi.Input[_builtins.str] source: Path to the zip archive file containing FAST template set on Local Disk
@@ -153,6 +155,7 @@ class FastTemplate(pulumi.CustomResource):
             md5_hash=std.filemd5(input="foo_template.zip").result)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] md5_hash: MD5 hash of the zip archive file containing FAST template
@@ -181,6 +184,7 @@ class FastTemplate(pulumi.CustomResource):
             source="foo_template.zip",
             md5_hash=std.filemd5(input="foo_template.zip").result)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -43,6 +43,7 @@ class FastUdpAppArgs:
                  vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FastUdpApp resource.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST UDP application.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST UDP application tenant.
         :param pulumi.Input[_builtins.bool] enable_fastl4: Enables use of FastL4 profiles.
@@ -376,6 +377,7 @@ class _FastUdpAppState:
                  vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering FastUdpApp resources.
+
         :param pulumi.Input[_builtins.str] application: Name of the FAST UDP application.
         :param pulumi.Input[_builtins.bool] enable_fastl4: Enables use of FastL4 profiles.
         :param pulumi.Input[_builtins.str] existing_monitor: Name of an existing BIG-IP UDP pool monitor. Monitors are used to determine the health of the application on each server.
@@ -755,6 +757,7 @@ class FastUdpApp(pulumi.CustomResource):
             }])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: Name of the FAST UDP application.
@@ -814,6 +817,7 @@ class FastUdpApp(pulumi.CustomResource):
                 "share_nodes": True,
             }])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FastUdpAppArgs args: The arguments to use to populate this resource's properties.

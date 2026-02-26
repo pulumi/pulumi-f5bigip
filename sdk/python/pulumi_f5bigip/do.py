@@ -29,6 +29,7 @@ class DoArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Do resource.
+
         :param pulumi.Input[_builtins.str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
@@ -192,6 +193,7 @@ class _DoState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Do resources.
+
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
                whenever we specify this parameter it gets overwrite provider configuration
         :param pulumi.Input[_builtins.str] bigip_password: Password of  BIGIP host to be used for this resource,this is optional parameter.
@@ -385,6 +387,7 @@ class Do(pulumi.CustomResource):
         * `example.json` - Example of DO Declarative JSON
         * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -440,6 +443,7 @@ class Do(pulumi.CustomResource):
 
         * `example.json` - Example of DO Declarative JSON
         * `DO documentation` - https://clouddocs.f5.com/products/extensions/f5-declarative-onboarding/latest/composing-a-declaration.html#sample-declaration-for-a-standalone-big-ip
+
 
         :param str resource_name: The name of the resource.
         :param DoArgs args: The arguments to use to populate this resource's properties.

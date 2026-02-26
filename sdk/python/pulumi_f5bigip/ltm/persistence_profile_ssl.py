@@ -30,6 +30,7 @@ class PersistenceProfileSslArgs:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a PersistenceProfileSsl resource.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] name: Name of the persistence profile
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
@@ -176,6 +177,7 @@ class _PersistenceProfileSslState:
                  timeout: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering PersistenceProfileSsl resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[_builtins.str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[_builtins.str] match_across_services: To enable _ disable match across services with given persistence record
@@ -372,6 +374,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         $ terraform import bigip_ltm_persistence_profile_ssl.ppssl "/Common/terraform_ssl"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Inherit defaults from parent profile
@@ -434,6 +437,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_persistence_profile_ssl.ppssl "/Common/terraform_ssl"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PersistenceProfileSslArgs args: The arguments to use to populate this resource's properties.

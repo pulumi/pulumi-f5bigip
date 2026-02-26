@@ -177,7 +177,15 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// System iFiles can be imported using their full path:
     /// 
+    /// ```sh
+    /// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/my-ifile
+    /// ```
+    /// 
     /// For iFiles with sub-paths:
+    /// 
+    /// ```sh
+    /// $ pulumi import f5bigip:sys/ifile:Ifile example /Common/templates/my-ifile
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ifile:Ifile")]
     public partial class Ifile : global::Pulumi.CustomResource

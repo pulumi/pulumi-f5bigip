@@ -25,6 +25,7 @@ class IpsecProfileArgs:
                  traffic_selector: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpsecProfile resource.
+
         :param pulumi.Input[_builtins.str] name: Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the IPsec interface tunnel profile.
         :param pulumi.Input[_builtins.str] parent_profile: Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
@@ -96,6 +97,7 @@ class _IpsecProfileState:
                  traffic_selector: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpsecProfile resources.
+
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the IPsec interface tunnel profile.
         :param pulumi.Input[_builtins.str] name: Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
         :param pulumi.Input[_builtins.str] parent_profile: Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
@@ -185,6 +187,7 @@ class IpsecProfile(pulumi.CustomResource):
             traffic_selector="test-trafficselector")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -212,6 +215,7 @@ class IpsecProfile(pulumi.CustomResource):
             description="mytestipsecprofile",
             traffic_selector="test-trafficselector")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param IpsecProfileArgs args: The arguments to use to populate this resource's properties.

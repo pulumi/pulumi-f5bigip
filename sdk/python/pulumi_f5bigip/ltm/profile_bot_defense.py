@@ -26,6 +26,7 @@ class ProfileBotDefenseArgs:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileBotDefense resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Bot Defense profile
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
@@ -113,6 +114,7 @@ class _ProfileBotDefenseState:
                  template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileBotDefense resources.
+
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         :param pulumi.Input[_builtins.str] description: User defined description for Bot Defense profile
         :param pulumi.Input[_builtins.str] enforcement_mode: Select the enforcement mode, possible values are `transparent` and `blocking`.
@@ -205,6 +207,7 @@ class ProfileBotDefense(pulumi.CustomResource):
                  __props__=None):
         """
         Create a ProfileBotDefense resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
@@ -221,6 +224,7 @@ class ProfileBotDefense(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a ProfileBotDefense resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param ProfileBotDefenseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

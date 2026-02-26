@@ -33,6 +33,7 @@ class DeviceGroupArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DeviceGroup resource.
+
         :param pulumi.Input[_builtins.str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[_builtins.str] description: Description of Device group
         :param pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
@@ -201,6 +202,7 @@ class _DeviceGroupState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeviceGroup resources.
+
         :param pulumi.Input[_builtins.str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[_builtins.str] description: Description of Device group
         :param pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
@@ -395,6 +397,7 @@ class DeviceGroup(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
@@ -437,6 +440,7 @@ class DeviceGroup(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.

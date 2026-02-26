@@ -36,6 +36,7 @@ class ProfileFastL4Args:
                  tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileFastL4 resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         :param pulumi.Input[_builtins.int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -283,6 +284,7 @@ class _ProfileFastL4State:
                  tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFastL4 resources.
+
         :param pulumi.Input[_builtins.int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         :param pulumi.Input[_builtins.str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[_builtins.str] explicitflow_migration: Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
@@ -564,6 +566,7 @@ class ProfileFastL4(pulumi.CustomResource):
         $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -618,6 +621,7 @@ class ProfileFastL4(pulumi.CustomResource):
         ```sh
         $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ProfileFastL4Args args: The arguments to use to populate this resource's properties.

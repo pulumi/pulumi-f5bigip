@@ -30,6 +30,7 @@ class PolicyArgs:
                  strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+
         :param pulumi.Input[_builtins.str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] controls: Specifies the controls
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the ltm policy.
@@ -153,6 +154,7 @@ class _PolicyState:
                  strategy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] controls: Specifies the controls
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the ltm policy.
         :param pulumi.Input[_builtins.str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
@@ -319,6 +321,7 @@ class Policy(pulumi.CustomResource):
         $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] controls: Specifies the controls
@@ -374,6 +377,7 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ terraform import bigip_ltm_policy.policy-import-test /Common/policy2
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
