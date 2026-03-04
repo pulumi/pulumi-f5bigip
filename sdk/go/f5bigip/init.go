@@ -45,6 +45,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FastTemplate{}
 	case "f5bigip:index/fastUdpApp:FastUdpApp":
 		r = &FastUdpApp{}
+	case "f5bigip:index/gtmDatacenter:GtmDatacenter":
+		r = &GtmDatacenter{}
+	case "f5bigip:index/gtmPool:GtmPool":
+		r = &GtmPool{}
+	case "f5bigip:index/gtmServer:GtmServer":
+		r = &GtmServer{}
+	case "f5bigip:index/gtmWideip:GtmWideip":
+		r = &GtmWideip{}
 	case "f5bigip:index/ipsecPolicy:IpsecPolicy":
 		r = &IpsecPolicy{}
 	case "f5bigip:index/ipsecProfile:IpsecProfile":
@@ -152,6 +160,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/fastUdpApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmDatacenter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmWideip",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

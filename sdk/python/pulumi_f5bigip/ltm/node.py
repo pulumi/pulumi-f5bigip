@@ -43,10 +43,8 @@ class NodeArgs:
         :param pulumi.Input[_builtins.str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[_builtins.str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[_builtins.int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. The default value is user-enabled.
+        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[_builtins.str] state: Default is "user-up" you can set to "user-down" if you want to disable
-               
-               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "name", name)
@@ -178,7 +176,7 @@ class NodeArgs:
     @pulumi.getter
     def session(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables or disables the node for new sessions. The default value is user-enabled.
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         """
         return pulumi.get(self, "session")
 
@@ -191,8 +189,6 @@ class NodeArgs:
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
-
-        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 
@@ -226,10 +222,8 @@ class _NodeState:
         :param pulumi.Input[_builtins.str] name: Name of the node
         :param pulumi.Input[_builtins.str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[_builtins.int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. The default value is user-enabled.
+        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[_builtins.str] state: Default is "user-up" you can set to "user-down" if you want to disable
-               
-               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -363,7 +357,7 @@ class _NodeState:
     @pulumi.getter
     def session(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Enables or disables the node for new sessions. The default value is user-enabled.
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         """
         return pulumi.get(self, "session")
 
@@ -376,8 +370,6 @@ class _NodeState:
     def state(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
-
-        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 
@@ -452,10 +444,8 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the node
         :param pulumi.Input[_builtins.str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[_builtins.int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. The default value is user-enabled.
+        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[_builtins.str] state: Default is "user-up" you can set to "user-down" if you want to disable
-               
-               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         ...
     @overload
@@ -587,10 +577,8 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the node
         :param pulumi.Input[_builtins.str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[_builtins.int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. The default value is user-enabled.
+        :param pulumi.Input[_builtins.str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[_builtins.str] state: Default is "user-up" you can set to "user-down" if you want to disable
-               
-               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -682,7 +670,7 @@ class Node(pulumi.CustomResource):
     @pulumi.getter
     def session(self) -> pulumi.Output[_builtins.str]:
         """
-        Enables or disables the node for new sessions. The default value is user-enabled.
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         """
         return pulumi.get(self, "session")
 
@@ -691,8 +679,6 @@ class Node(pulumi.CustomResource):
     def state(self) -> pulumi.Output[_builtins.str]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
-
-        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 

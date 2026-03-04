@@ -110,15 +110,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> Ratio { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables the node for new sessions. The default value is user-enabled.
+        /// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         /// </summary>
         [Output("session")]
         public Output<string> Session { get; private set; } = null!;
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
-        /// 
-        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -221,15 +219,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Ratio { get; set; }
 
         /// <summary>
-        /// Enables or disables the node for new sessions. The default value is user-enabled.
+        /// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         /// </summary>
         [Input("session")]
         public Input<string>? Session { get; set; }
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
-        /// 
-        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -294,15 +290,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? Ratio { get; set; }
 
         /// <summary>
-        /// Enables or disables the node for new sessions. The default value is user-enabled.
+        /// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         /// </summary>
         [Input("session")]
         public Input<string>? Session { get; set; }
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
-        /// 
-        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

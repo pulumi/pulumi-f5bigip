@@ -93,11 +93,11 @@ class NodeFqdn(dict):
                  interval: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None):
         """
-        :param _builtins.str address_family: Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
-        :param _builtins.str autopopulate: Specifies whether the node should scale to the IP address set returned by DNS.
-        :param _builtins.int downinterval: Specifies the number of attempts to resolve a domain name. The default is 5.
-        :param _builtins.str interval: Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
-        :param _builtins.str name: Name of the node
+        :param _builtins.str address_family: Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
+        :param _builtins.str autopopulate: Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
+        :param _builtins.int downinterval: The number of attempts to resolve a domain name. (Default: `5`)
+        :param _builtins.str interval: Specifies the amount of time before sending the next DNS query. (Default: `3600`)
+        :param _builtins.str name: The fully qualified domain name of the node. Cannot configure with the `address` argument.
         """
         if address_family is not None:
             pulumi.set(__self__, "address_family", address_family)
@@ -114,7 +114,7 @@ class NodeFqdn(dict):
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> Optional[_builtins.str]:
         """
-        Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+        Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
         """
         return pulumi.get(self, "address_family")
 
@@ -122,7 +122,7 @@ class NodeFqdn(dict):
     @pulumi.getter
     def autopopulate(self) -> Optional[_builtins.str]:
         """
-        Specifies whether the node should scale to the IP address set returned by DNS.
+        Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
         """
         return pulumi.get(self, "autopopulate")
 
@@ -130,7 +130,7 @@ class NodeFqdn(dict):
     @pulumi.getter
     def downinterval(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of attempts to resolve a domain name. The default is 5.
+        The number of attempts to resolve a domain name. (Default: `5`)
         """
         return pulumi.get(self, "downinterval")
 
@@ -138,7 +138,7 @@ class NodeFqdn(dict):
     @pulumi.getter
     def interval(self) -> Optional[_builtins.str]:
         """
-        Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+        Specifies the amount of time before sending the next DNS query. (Default: `3600`)
         """
         return pulumi.get(self, "interval")
 
@@ -146,7 +146,7 @@ class NodeFqdn(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        Name of the node
+        The fully qualified domain name of the node. Cannot configure with the `address` argument.
         """
         return pulumi.get(self, "name")
 

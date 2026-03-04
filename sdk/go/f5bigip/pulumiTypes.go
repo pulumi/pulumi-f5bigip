@@ -2810,6 +2810,522 @@ func (o FastUdpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type GtmPoolMember struct {
+	// Disabled state of the pool member
+	Disabled *bool `pulumi:"disabled"`
+	// Enable or disable the pool member
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the maximum allowable data throughput rate for this member
+	LimitMaxBps *int `pulumi:"limitMaxBps"`
+	// Enables or disables the limitMaxBps option for this member
+	LimitMaxBpsStatus *string `pulumi:"limitMaxBpsStatus"`
+	// Specifies the maximum number of concurrent connections for this member
+	LimitMaxConnections *int `pulumi:"limitMaxConnections"`
+	// Enables or disables the limitMaxConnections option for this member
+	LimitMaxConnectionsStatus *string `pulumi:"limitMaxConnectionsStatus"`
+	// Specifies the maximum allowable data transfer rate in packets per second for this member
+	LimitMaxPps *int `pulumi:"limitMaxPps"`
+	// Enables or disables the limitMaxPps option for this member
+	LimitMaxPpsStatus *string `pulumi:"limitMaxPpsStatus"`
+	// Specifies the order in which the member will be used
+	MemberOrder *int `pulumi:"memberOrder"`
+	// Specifies the health monitor for this pool member
+	Monitor *string `pulumi:"monitor"`
+	// Name of the pool member (format: <server_name>:<virtual_server_name>)
+	Name string `pulumi:"name"`
+	// Specifies the weight of the pool member for load balancing
+	Ratio *int `pulumi:"ratio"`
+}
+
+// GtmPoolMemberInput is an input type that accepts GtmPoolMemberArgs and GtmPoolMemberOutput values.
+// You can construct a concrete instance of `GtmPoolMemberInput` via:
+//
+//	GtmPoolMemberArgs{...}
+type GtmPoolMemberInput interface {
+	pulumi.Input
+
+	ToGtmPoolMemberOutput() GtmPoolMemberOutput
+	ToGtmPoolMemberOutputWithContext(context.Context) GtmPoolMemberOutput
+}
+
+type GtmPoolMemberArgs struct {
+	// Disabled state of the pool member
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// Enable or disable the pool member
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies the maximum allowable data throughput rate for this member
+	LimitMaxBps pulumi.IntPtrInput `pulumi:"limitMaxBps"`
+	// Enables or disables the limitMaxBps option for this member
+	LimitMaxBpsStatus pulumi.StringPtrInput `pulumi:"limitMaxBpsStatus"`
+	// Specifies the maximum number of concurrent connections for this member
+	LimitMaxConnections pulumi.IntPtrInput `pulumi:"limitMaxConnections"`
+	// Enables or disables the limitMaxConnections option for this member
+	LimitMaxConnectionsStatus pulumi.StringPtrInput `pulumi:"limitMaxConnectionsStatus"`
+	// Specifies the maximum allowable data transfer rate in packets per second for this member
+	LimitMaxPps pulumi.IntPtrInput `pulumi:"limitMaxPps"`
+	// Enables or disables the limitMaxPps option for this member
+	LimitMaxPpsStatus pulumi.StringPtrInput `pulumi:"limitMaxPpsStatus"`
+	// Specifies the order in which the member will be used
+	MemberOrder pulumi.IntPtrInput `pulumi:"memberOrder"`
+	// Specifies the health monitor for this pool member
+	Monitor pulumi.StringPtrInput `pulumi:"monitor"`
+	// Name of the pool member (format: <server_name>:<virtual_server_name>)
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the weight of the pool member for load balancing
+	Ratio pulumi.IntPtrInput `pulumi:"ratio"`
+}
+
+func (GtmPoolMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmPoolMember)(nil)).Elem()
+}
+
+func (i GtmPoolMemberArgs) ToGtmPoolMemberOutput() GtmPoolMemberOutput {
+	return i.ToGtmPoolMemberOutputWithContext(context.Background())
+}
+
+func (i GtmPoolMemberArgs) ToGtmPoolMemberOutputWithContext(ctx context.Context) GtmPoolMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmPoolMemberOutput)
+}
+
+// GtmPoolMemberArrayInput is an input type that accepts GtmPoolMemberArray and GtmPoolMemberArrayOutput values.
+// You can construct a concrete instance of `GtmPoolMemberArrayInput` via:
+//
+//	GtmPoolMemberArray{ GtmPoolMemberArgs{...} }
+type GtmPoolMemberArrayInput interface {
+	pulumi.Input
+
+	ToGtmPoolMemberArrayOutput() GtmPoolMemberArrayOutput
+	ToGtmPoolMemberArrayOutputWithContext(context.Context) GtmPoolMemberArrayOutput
+}
+
+type GtmPoolMemberArray []GtmPoolMemberInput
+
+func (GtmPoolMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmPoolMember)(nil)).Elem()
+}
+
+func (i GtmPoolMemberArray) ToGtmPoolMemberArrayOutput() GtmPoolMemberArrayOutput {
+	return i.ToGtmPoolMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GtmPoolMemberArray) ToGtmPoolMemberArrayOutputWithContext(ctx context.Context) GtmPoolMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmPoolMemberArrayOutput)
+}
+
+type GtmPoolMemberOutput struct{ *pulumi.OutputState }
+
+func (GtmPoolMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmPoolMember)(nil)).Elem()
+}
+
+func (o GtmPoolMemberOutput) ToGtmPoolMemberOutput() GtmPoolMemberOutput {
+	return o
+}
+
+func (o GtmPoolMemberOutput) ToGtmPoolMemberOutputWithContext(ctx context.Context) GtmPoolMemberOutput {
+	return o
+}
+
+// Disabled state of the pool member
+func (o GtmPoolMemberOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable the pool member
+func (o GtmPoolMemberOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the maximum allowable data throughput rate for this member
+func (o GtmPoolMemberOutput) LimitMaxBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *int { return v.LimitMaxBps }).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables the limitMaxBps option for this member
+func (o GtmPoolMemberOutput) LimitMaxBpsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *string { return v.LimitMaxBpsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum number of concurrent connections for this member
+func (o GtmPoolMemberOutput) LimitMaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *int { return v.LimitMaxConnections }).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables the limitMaxConnections option for this member
+func (o GtmPoolMemberOutput) LimitMaxConnectionsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *string { return v.LimitMaxConnectionsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum allowable data transfer rate in packets per second for this member
+func (o GtmPoolMemberOutput) LimitMaxPps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *int { return v.LimitMaxPps }).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables the limitMaxPps option for this member
+func (o GtmPoolMemberOutput) LimitMaxPpsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *string { return v.LimitMaxPpsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the order in which the member will be used
+func (o GtmPoolMemberOutput) MemberOrder() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *int { return v.MemberOrder }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the health monitor for this pool member
+func (o GtmPoolMemberOutput) Monitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *string { return v.Monitor }).(pulumi.StringPtrOutput)
+}
+
+// Name of the pool member (format: <server_name>:<virtual_server_name>)
+func (o GtmPoolMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GtmPoolMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the weight of the pool member for load balancing
+func (o GtmPoolMemberOutput) Ratio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmPoolMember) *int { return v.Ratio }).(pulumi.IntPtrOutput)
+}
+
+type GtmPoolMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GtmPoolMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmPoolMember)(nil)).Elem()
+}
+
+func (o GtmPoolMemberArrayOutput) ToGtmPoolMemberArrayOutput() GtmPoolMemberArrayOutput {
+	return o
+}
+
+func (o GtmPoolMemberArrayOutput) ToGtmPoolMemberArrayOutputWithContext(ctx context.Context) GtmPoolMemberArrayOutput {
+	return o
+}
+
+func (o GtmPoolMemberArrayOutput) Index(i pulumi.IntInput) GtmPoolMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GtmPoolMember {
+		return vs[0].([]GtmPoolMember)[vs[1].(int)]
+	}).(GtmPoolMemberOutput)
+}
+
+type GtmServerAddress struct {
+	// Device name associated with the address
+	DeviceName *string `pulumi:"deviceName"`
+	// IP address
+	Name string `pulumi:"name"`
+	// IP translation address. Default is `none`
+	Translation *string `pulumi:"translation"`
+}
+
+// GtmServerAddressInput is an input type that accepts GtmServerAddressArgs and GtmServerAddressOutput values.
+// You can construct a concrete instance of `GtmServerAddressInput` via:
+//
+//	GtmServerAddressArgs{...}
+type GtmServerAddressInput interface {
+	pulumi.Input
+
+	ToGtmServerAddressOutput() GtmServerAddressOutput
+	ToGtmServerAddressOutputWithContext(context.Context) GtmServerAddressOutput
+}
+
+type GtmServerAddressArgs struct {
+	// Device name associated with the address
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// IP address
+	Name pulumi.StringInput `pulumi:"name"`
+	// IP translation address. Default is `none`
+	Translation pulumi.StringPtrInput `pulumi:"translation"`
+}
+
+func (GtmServerAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmServerAddress)(nil)).Elem()
+}
+
+func (i GtmServerAddressArgs) ToGtmServerAddressOutput() GtmServerAddressOutput {
+	return i.ToGtmServerAddressOutputWithContext(context.Background())
+}
+
+func (i GtmServerAddressArgs) ToGtmServerAddressOutputWithContext(ctx context.Context) GtmServerAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmServerAddressOutput)
+}
+
+// GtmServerAddressArrayInput is an input type that accepts GtmServerAddressArray and GtmServerAddressArrayOutput values.
+// You can construct a concrete instance of `GtmServerAddressArrayInput` via:
+//
+//	GtmServerAddressArray{ GtmServerAddressArgs{...} }
+type GtmServerAddressArrayInput interface {
+	pulumi.Input
+
+	ToGtmServerAddressArrayOutput() GtmServerAddressArrayOutput
+	ToGtmServerAddressArrayOutputWithContext(context.Context) GtmServerAddressArrayOutput
+}
+
+type GtmServerAddressArray []GtmServerAddressInput
+
+func (GtmServerAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmServerAddress)(nil)).Elem()
+}
+
+func (i GtmServerAddressArray) ToGtmServerAddressArrayOutput() GtmServerAddressArrayOutput {
+	return i.ToGtmServerAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GtmServerAddressArray) ToGtmServerAddressArrayOutputWithContext(ctx context.Context) GtmServerAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmServerAddressArrayOutput)
+}
+
+type GtmServerAddressOutput struct{ *pulumi.OutputState }
+
+func (GtmServerAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmServerAddress)(nil)).Elem()
+}
+
+func (o GtmServerAddressOutput) ToGtmServerAddressOutput() GtmServerAddressOutput {
+	return o
+}
+
+func (o GtmServerAddressOutput) ToGtmServerAddressOutputWithContext(ctx context.Context) GtmServerAddressOutput {
+	return o
+}
+
+// Device name associated with the address
+func (o GtmServerAddressOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerAddress) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// IP address
+func (o GtmServerAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GtmServerAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// IP translation address. Default is `none`
+func (o GtmServerAddressOutput) Translation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerAddress) *string { return v.Translation }).(pulumi.StringPtrOutput)
+}
+
+type GtmServerAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GtmServerAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmServerAddress)(nil)).Elem()
+}
+
+func (o GtmServerAddressArrayOutput) ToGtmServerAddressArrayOutput() GtmServerAddressArrayOutput {
+	return o
+}
+
+func (o GtmServerAddressArrayOutput) ToGtmServerAddressArrayOutputWithContext(ctx context.Context) GtmServerAddressArrayOutput {
+	return o
+}
+
+func (o GtmServerAddressArrayOutput) Index(i pulumi.IntInput) GtmServerAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GtmServerAddress {
+		return vs[0].([]GtmServerAddress)[vs[1].(int)]
+	}).(GtmServerAddressOutput)
+}
+
+type GtmServerVirtualServer struct {
+	// Virtual server dependency
+	DependsOn *string `pulumi:"dependsOn"`
+	// Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+	Destination string `pulumi:"destination"`
+	// Enable the virtual server. Default is `true`
+	Enabled *bool `pulumi:"enabled"`
+	// Maximum bits per second for this virtual server
+	LimitMaxBps *int `pulumi:"limitMaxBps"`
+	// Enable/disable the bps limit
+	LimitMaxBpsStatus *string `pulumi:"limitMaxBpsStatus"`
+	// Maximum concurrent connections
+	LimitMaxConnections *int `pulumi:"limitMaxConnections"`
+	// Enable/disable the connections limit
+	LimitMaxConnectionsStatus *string `pulumi:"limitMaxConnectionsStatus"`
+	// Maximum packets per second
+	LimitMaxPps *int `pulumi:"limitMaxPps"`
+	// Enable/disable the pps limit
+	LimitMaxPpsStatus *string `pulumi:"limitMaxPpsStatus"`
+	// Monitor assigned to check virtual server health
+	Monitor *string `pulumi:"monitor"`
+	// Name of the virtual server
+	Name string `pulumi:"name"`
+	// Translation address for NAT scenarios. Default is `none`
+	TranslationAddress *string `pulumi:"translationAddress"`
+	// Translation port for NAT scenarios. Default is `0`
+	TranslationPort *int `pulumi:"translationPort"`
+}
+
+// GtmServerVirtualServerInput is an input type that accepts GtmServerVirtualServerArgs and GtmServerVirtualServerOutput values.
+// You can construct a concrete instance of `GtmServerVirtualServerInput` via:
+//
+//	GtmServerVirtualServerArgs{...}
+type GtmServerVirtualServerInput interface {
+	pulumi.Input
+
+	ToGtmServerVirtualServerOutput() GtmServerVirtualServerOutput
+	ToGtmServerVirtualServerOutputWithContext(context.Context) GtmServerVirtualServerOutput
+}
+
+type GtmServerVirtualServerArgs struct {
+	// Virtual server dependency
+	DependsOn pulumi.StringPtrInput `pulumi:"dependsOn"`
+	// Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Enable the virtual server. Default is `true`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Maximum bits per second for this virtual server
+	LimitMaxBps pulumi.IntPtrInput `pulumi:"limitMaxBps"`
+	// Enable/disable the bps limit
+	LimitMaxBpsStatus pulumi.StringPtrInput `pulumi:"limitMaxBpsStatus"`
+	// Maximum concurrent connections
+	LimitMaxConnections pulumi.IntPtrInput `pulumi:"limitMaxConnections"`
+	// Enable/disable the connections limit
+	LimitMaxConnectionsStatus pulumi.StringPtrInput `pulumi:"limitMaxConnectionsStatus"`
+	// Maximum packets per second
+	LimitMaxPps pulumi.IntPtrInput `pulumi:"limitMaxPps"`
+	// Enable/disable the pps limit
+	LimitMaxPpsStatus pulumi.StringPtrInput `pulumi:"limitMaxPpsStatus"`
+	// Monitor assigned to check virtual server health
+	Monitor pulumi.StringPtrInput `pulumi:"monitor"`
+	// Name of the virtual server
+	Name pulumi.StringInput `pulumi:"name"`
+	// Translation address for NAT scenarios. Default is `none`
+	TranslationAddress pulumi.StringPtrInput `pulumi:"translationAddress"`
+	// Translation port for NAT scenarios. Default is `0`
+	TranslationPort pulumi.IntPtrInput `pulumi:"translationPort"`
+}
+
+func (GtmServerVirtualServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmServerVirtualServer)(nil)).Elem()
+}
+
+func (i GtmServerVirtualServerArgs) ToGtmServerVirtualServerOutput() GtmServerVirtualServerOutput {
+	return i.ToGtmServerVirtualServerOutputWithContext(context.Background())
+}
+
+func (i GtmServerVirtualServerArgs) ToGtmServerVirtualServerOutputWithContext(ctx context.Context) GtmServerVirtualServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmServerVirtualServerOutput)
+}
+
+// GtmServerVirtualServerArrayInput is an input type that accepts GtmServerVirtualServerArray and GtmServerVirtualServerArrayOutput values.
+// You can construct a concrete instance of `GtmServerVirtualServerArrayInput` via:
+//
+//	GtmServerVirtualServerArray{ GtmServerVirtualServerArgs{...} }
+type GtmServerVirtualServerArrayInput interface {
+	pulumi.Input
+
+	ToGtmServerVirtualServerArrayOutput() GtmServerVirtualServerArrayOutput
+	ToGtmServerVirtualServerArrayOutputWithContext(context.Context) GtmServerVirtualServerArrayOutput
+}
+
+type GtmServerVirtualServerArray []GtmServerVirtualServerInput
+
+func (GtmServerVirtualServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmServerVirtualServer)(nil)).Elem()
+}
+
+func (i GtmServerVirtualServerArray) ToGtmServerVirtualServerArrayOutput() GtmServerVirtualServerArrayOutput {
+	return i.ToGtmServerVirtualServerArrayOutputWithContext(context.Background())
+}
+
+func (i GtmServerVirtualServerArray) ToGtmServerVirtualServerArrayOutputWithContext(ctx context.Context) GtmServerVirtualServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GtmServerVirtualServerArrayOutput)
+}
+
+type GtmServerVirtualServerOutput struct{ *pulumi.OutputState }
+
+func (GtmServerVirtualServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GtmServerVirtualServer)(nil)).Elem()
+}
+
+func (o GtmServerVirtualServerOutput) ToGtmServerVirtualServerOutput() GtmServerVirtualServerOutput {
+	return o
+}
+
+func (o GtmServerVirtualServerOutput) ToGtmServerVirtualServerOutputWithContext(ctx context.Context) GtmServerVirtualServerOutput {
+	return o
+}
+
+// Virtual server dependency
+func (o GtmServerVirtualServerOutput) DependsOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.DependsOn }).(pulumi.StringPtrOutput)
+}
+
+// Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+func (o GtmServerVirtualServerOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Enable the virtual server. Default is `true`
+func (o GtmServerVirtualServerOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum bits per second for this virtual server
+func (o GtmServerVirtualServerOutput) LimitMaxBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *int { return v.LimitMaxBps }).(pulumi.IntPtrOutput)
+}
+
+// Enable/disable the bps limit
+func (o GtmServerVirtualServerOutput) LimitMaxBpsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.LimitMaxBpsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Maximum concurrent connections
+func (o GtmServerVirtualServerOutput) LimitMaxConnections() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *int { return v.LimitMaxConnections }).(pulumi.IntPtrOutput)
+}
+
+// Enable/disable the connections limit
+func (o GtmServerVirtualServerOutput) LimitMaxConnectionsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.LimitMaxConnectionsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Maximum packets per second
+func (o GtmServerVirtualServerOutput) LimitMaxPps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *int { return v.LimitMaxPps }).(pulumi.IntPtrOutput)
+}
+
+// Enable/disable the pps limit
+func (o GtmServerVirtualServerOutput) LimitMaxPpsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.LimitMaxPpsStatus }).(pulumi.StringPtrOutput)
+}
+
+// Monitor assigned to check virtual server health
+func (o GtmServerVirtualServerOutput) Monitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.Monitor }).(pulumi.StringPtrOutput)
+}
+
+// Name of the virtual server
+func (o GtmServerVirtualServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Translation address for NAT scenarios. Default is `none`
+func (o GtmServerVirtualServerOutput) TranslationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *string { return v.TranslationAddress }).(pulumi.StringPtrOutput)
+}
+
+// Translation port for NAT scenarios. Default is `0`
+func (o GtmServerVirtualServerOutput) TranslationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GtmServerVirtualServer) *int { return v.TranslationPort }).(pulumi.IntPtrOutput)
+}
+
+type GtmServerVirtualServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GtmServerVirtualServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GtmServerVirtualServer)(nil)).Elem()
+}
+
+func (o GtmServerVirtualServerArrayOutput) ToGtmServerVirtualServerArrayOutput() GtmServerVirtualServerArrayOutput {
+	return o
+}
+
+func (o GtmServerVirtualServerArrayOutput) ToGtmServerVirtualServerArrayOutputWithContext(ctx context.Context) GtmServerVirtualServerArrayOutput {
+	return o
+}
+
+func (o GtmServerVirtualServerArrayOutput) Index(i pulumi.IntInput) GtmServerVirtualServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GtmServerVirtualServer {
+		return vs[0].([]GtmServerVirtualServer)[vs[1].(int)]
+	}).(GtmServerVirtualServerOutput)
+}
+
 type SaasBotDefenseProfileProtectedEndpoint struct {
 	// Specifies the path to the web page to be protected by BD. For example, `/login`.
 	Endpoint *string `pulumi:"endpoint"`
@@ -3827,6 +4343,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppPoolMemberArrayInput)(nil)).Elem(), FastUdpAppPoolMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerPtrInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmPoolMemberInput)(nil)).Elem(), GtmPoolMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmPoolMemberArrayInput)(nil)).Elem(), GtmPoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmServerAddressInput)(nil)).Elem(), GtmServerAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmServerAddressArrayInput)(nil)).Elem(), GtmServerAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmServerVirtualServerInput)(nil)).Elem(), GtmServerVirtualServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GtmServerVirtualServerArrayInput)(nil)).Elem(), GtmServerVirtualServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpointInput)(nil)).Elem(), SaasBotDefenseProfileProtectedEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SaasBotDefenseProfileProtectedEndpointArrayInput)(nil)).Elem(), SaasBotDefenseProfileProtectedEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeInput)(nil)).Elem(), WafPolicyFileTypeArgs{})
@@ -3879,6 +4401,12 @@ func init() {
 	pulumi.RegisterOutputType(FastUdpAppPoolMemberArrayOutput{})
 	pulumi.RegisterOutputType(FastUdpAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastUdpAppVirtualServerPtrOutput{})
+	pulumi.RegisterOutputType(GtmPoolMemberOutput{})
+	pulumi.RegisterOutputType(GtmPoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(GtmServerAddressOutput{})
+	pulumi.RegisterOutputType(GtmServerAddressArrayOutput{})
+	pulumi.RegisterOutputType(GtmServerVirtualServerOutput{})
+	pulumi.RegisterOutputType(GtmServerVirtualServerArrayOutput{})
 	pulumi.RegisterOutputType(SaasBotDefenseProfileProtectedEndpointOutput{})
 	pulumi.RegisterOutputType(SaasBotDefenseProfileProtectedEndpointArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyFileTypeOutput{})

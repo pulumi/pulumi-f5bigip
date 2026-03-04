@@ -70,6 +70,26 @@ export const getAs3DeviceInformation: typeof import("./getAs3DeviceInformation")
 export const getAs3DeviceInformationOutput: typeof import("./getAs3DeviceInformation").getAs3DeviceInformationOutput = null as any;
 utilities.lazyLoad(exports, ["getAs3DeviceInformation","getAs3DeviceInformationOutput"], () => require("./getAs3DeviceInformation"));
 
+export { GtmDatacenterArgs, GtmDatacenterState } from "./gtmDatacenter";
+export type GtmDatacenter = import("./gtmDatacenter").GtmDatacenter;
+export const GtmDatacenter: typeof import("./gtmDatacenter").GtmDatacenter = null as any;
+utilities.lazyLoad(exports, ["GtmDatacenter"], () => require("./gtmDatacenter"));
+
+export { GtmPoolArgs, GtmPoolState } from "./gtmPool";
+export type GtmPool = import("./gtmPool").GtmPool;
+export const GtmPool: typeof import("./gtmPool").GtmPool = null as any;
+utilities.lazyLoad(exports, ["GtmPool"], () => require("./gtmPool"));
+
+export { GtmServerArgs, GtmServerState } from "./gtmServer";
+export type GtmServer = import("./gtmServer").GtmServer;
+export const GtmServer: typeof import("./gtmServer").GtmServer = null as any;
+utilities.lazyLoad(exports, ["GtmServer"], () => require("./gtmServer"));
+
+export { GtmWideipArgs, GtmWideipState } from "./gtmWideip";
+export type GtmWideip = import("./gtmWideip").GtmWideip;
+export const GtmWideip: typeof import("./gtmWideip").GtmWideip = null as any;
+utilities.lazyLoad(exports, ["GtmWideip"], () => require("./gtmWideip"));
+
 export { IpsecPolicyArgs, IpsecPolicyState } from "./ipsecPolicy";
 export type IpsecPolicy = import("./ipsecPolicy").IpsecPolicy;
 export const IpsecPolicy: typeof import("./ipsecPolicy").IpsecPolicy = null as any;
@@ -170,6 +190,14 @@ const _module = {
                 return new FastTemplate(name, <any>undefined, { urn })
             case "f5bigip:index/fastUdpApp:FastUdpApp":
                 return new FastUdpApp(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmDatacenter:GtmDatacenter":
+                return new GtmDatacenter(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmPool:GtmPool":
+                return new GtmPool(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmServer:GtmServer":
+                return new GtmServer(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmWideip:GtmWideip":
+                return new GtmWideip(name, <any>undefined, { urn })
             case "f5bigip:index/ipsecPolicy:IpsecPolicy":
                 return new IpsecPolicy(name, <any>undefined, { urn })
             case "f5bigip:index/ipsecProfile:IpsecProfile":
@@ -205,6 +233,10 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/fastHttpsApp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastTcpApp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastTemplate", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastUdpApp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmDatacenter", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmPool", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmServer", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmWideip", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)

@@ -13,31 +13,31 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
     public sealed class NodeFqdnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+        /// Specifies the node's address family. Can be `All`, `Ipv4` or `Ipv6` (Default: `Ipv4`)
         /// </summary>
         [Input("addressFamily")]
         public Input<string>? AddressFamily { get; set; }
 
         /// <summary>
-        /// Specifies whether the node should scale to the IP address set returned by DNS.
+        /// Specifies if the node should scale to the IP address set returned by DNS. (Default: `Disabled`)
         /// </summary>
         [Input("autopopulate")]
         public Input<string>? Autopopulate { get; set; }
 
         /// <summary>
-        /// Specifies the number of attempts to resolve a domain name. The default is 5.
+        /// The number of attempts to resolve a domain name. (Default: `5`)
         /// </summary>
         [Input("downinterval")]
         public Input<int>? Downinterval { get; set; }
 
         /// <summary>
-        /// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+        /// Specifies the amount of time before sending the next DNS query. (Default: `3600`)
         /// </summary>
         [Input("interval")]
         public Input<string>? Interval { get; set; }
 
         /// <summary>
-        /// Name of the node
+        /// The fully qualified domain name of the node. Cannot configure with the `Address` argument.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

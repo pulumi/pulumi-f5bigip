@@ -281,6 +281,127 @@ export interface FastUdpAppVirtualServer {
     port: pulumi.Input<number>;
 }
 
+export interface GtmPoolMember {
+    /**
+     * Disabled state of the pool member
+     */
+    disabled?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable the pool member
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the maximum allowable data throughput rate for this member
+     */
+    limitMaxBps?: pulumi.Input<number>;
+    /**
+     * Enables or disables the limitMaxBps option for this member
+     */
+    limitMaxBpsStatus?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum number of concurrent connections for this member
+     */
+    limitMaxConnections?: pulumi.Input<number>;
+    /**
+     * Enables or disables the limitMaxConnections option for this member
+     */
+    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    /**
+     * Specifies the maximum allowable data transfer rate in packets per second for this member
+     */
+    limitMaxPps?: pulumi.Input<number>;
+    /**
+     * Enables or disables the limitMaxPps option for this member
+     */
+    limitMaxPpsStatus?: pulumi.Input<string>;
+    /**
+     * Specifies the order in which the member will be used
+     */
+    memberOrder?: pulumi.Input<number>;
+    /**
+     * Specifies the health monitor for this pool member
+     */
+    monitor?: pulumi.Input<string>;
+    /**
+     * Name of the pool member (format: <server_name>:<virtual_server_name>)
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the weight of the pool member for load balancing
+     */
+    ratio?: pulumi.Input<number>;
+}
+
+export interface GtmServerAddress {
+    /**
+     * Device name associated with the address
+     */
+    deviceName?: pulumi.Input<string>;
+    /**
+     * IP address
+     */
+    name: pulumi.Input<string>;
+    /**
+     * IP translation address. Default is `none`
+     */
+    translation?: pulumi.Input<string>;
+}
+
+export interface GtmServerVirtualServer {
+    /**
+     * Virtual server dependency
+     */
+    dependsOn?: pulumi.Input<string>;
+    /**
+     * Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+     */
+    destination: pulumi.Input<string>;
+    /**
+     * Enable the virtual server. Default is `true`
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Maximum bits per second for this virtual server
+     */
+    limitMaxBps?: pulumi.Input<number>;
+    /**
+     * Enable/disable the bps limit
+     */
+    limitMaxBpsStatus?: pulumi.Input<string>;
+    /**
+     * Maximum concurrent connections
+     */
+    limitMaxConnections?: pulumi.Input<number>;
+    /**
+     * Enable/disable the connections limit
+     */
+    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    /**
+     * Maximum packets per second
+     */
+    limitMaxPps?: pulumi.Input<number>;
+    /**
+     * Enable/disable the pps limit
+     */
+    limitMaxPpsStatus?: pulumi.Input<string>;
+    /**
+     * Monitor assigned to check virtual server health
+     */
+    monitor?: pulumi.Input<string>;
+    /**
+     * Name of the virtual server
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Translation address for NAT scenarios. Default is `none`
+     */
+    translationAddress?: pulumi.Input<string>;
+    /**
+     * Translation port for NAT scenarios. Default is `0`
+     */
+    translationPort?: pulumi.Input<number>;
+}
+
 export interface SaasBotDefenseProfileProtectedEndpoint {
     /**
      * Specifies the path to the web page to be protected by BD. For example, `/login`.
@@ -933,23 +1054,23 @@ export namespace ltm {
 
     export interface NodeFqdn {
         /**
-         * Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+         * Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
          */
         addressFamily?: pulumi.Input<string>;
         /**
-         * Specifies whether the node should scale to the IP address set returned by DNS.
+         * Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
          */
         autopopulate?: pulumi.Input<string>;
         /**
-         * Specifies the number of attempts to resolve a domain name. The default is 5.
+         * The number of attempts to resolve a domain name. (Default: `5`)
          */
         downinterval?: pulumi.Input<number>;
         /**
-         * Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+         * Specifies the amount of time before sending the next DNS query. (Default: `3600`)
          */
         interval?: pulumi.Input<string>;
         /**
-         * Name of the node
+         * The fully qualified domain name of the node. Cannot configure with the `address` argument.
          */
         name?: pulumi.Input<string>;
     }

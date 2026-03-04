@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NodeFqdn {
     /**
-     * @return Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
      * 
      */
     private @Nullable String addressFamily;
     /**
-     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * @return Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
      * 
      */
     private @Nullable String autopopulate;
     /**
-     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * @return The number of attempts to resolve a domain name. (Default: `5`)
      * 
      */
     private @Nullable Integer downinterval;
     /**
-     * @return Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the amount of time before sending the next DNS query. (Default: `3600`)
      * 
      */
     private @Nullable String interval;
     /**
-     * @return Name of the node
+     * @return The fully qualified domain name of the node. Cannot configure with the `address` argument.
      * 
      */
     private @Nullable String name;
 
     private NodeFqdn() {}
     /**
-     * @return Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
      * 
      */
     public Optional<String> addressFamily() {
         return Optional.ofNullable(this.addressFamily);
     }
     /**
-     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * @return Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
      * 
      */
     public Optional<String> autopopulate() {
         return Optional.ofNullable(this.autopopulate);
     }
     /**
-     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * @return The number of attempts to resolve a domain name. (Default: `5`)
      * 
      */
     public Optional<Integer> downinterval() {
         return Optional.ofNullable(this.downinterval);
     }
     /**
-     * @return Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the amount of time before sending the next DNS query. (Default: `3600`)
      * 
      */
     public Optional<String> interval() {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return Name of the node
+     * @return The fully qualified domain name of the node. Cannot configure with the `address` argument.
      * 
      */
     public Optional<String> name() {

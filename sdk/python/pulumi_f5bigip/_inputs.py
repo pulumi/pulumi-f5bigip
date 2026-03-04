@@ -51,6 +51,12 @@ __all__ = [
     'FastUdpAppPoolMemberArgsDict',
     'FastUdpAppVirtualServerArgs',
     'FastUdpAppVirtualServerArgsDict',
+    'GtmPoolMemberArgs',
+    'GtmPoolMemberArgsDict',
+    'GtmServerAddressArgs',
+    'GtmServerAddressArgsDict',
+    'GtmServerVirtualServerArgs',
+    'GtmServerVirtualServerArgsDict',
     'SaasBotDefenseProfileProtectedEndpointArgs',
     'SaasBotDefenseProfileProtectedEndpointArgsDict',
     'WafPolicyFileTypeArgs',
@@ -1315,6 +1321,589 @@ class FastUdpAppVirtualServerArgs:
     @port.setter
     def port(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "port", value)
+
+
+class GtmPoolMemberArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the pool member (format: <server_name>:<virtual_server_name>)
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Disabled state of the pool member
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable or disable the pool member
+    """
+    limit_max_bps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum allowable data throughput rate for this member
+    """
+    limit_max_bps_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enables or disables the limit_max_bps option for this member
+    """
+    limit_max_connections: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum number of concurrent connections for this member
+    """
+    limit_max_connections_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enables or disables the limit_max_connections option for this member
+    """
+    limit_max_pps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum allowable data transfer rate in packets per second for this member
+    """
+    limit_max_pps_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enables or disables the limit_max_pps option for this member
+    """
+    member_order: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the order in which the member will be used
+    """
+    monitor: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the health monitor for this pool member
+    """
+    ratio: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the weight of the pool member for load balancing
+    """
+
+@pulumi.input_type
+class GtmPoolMemberArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_order: Optional[pulumi.Input[_builtins.int]] = None,
+                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
+                 ratio: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the pool member (format: <server_name>:<virtual_server_name>)
+        :param pulumi.Input[_builtins.bool] disabled: Disabled state of the pool member
+        :param pulumi.Input[_builtins.bool] enabled: Enable or disable the pool member
+        :param pulumi.Input[_builtins.int] limit_max_bps: Specifies the maximum allowable data throughput rate for this member
+        :param pulumi.Input[_builtins.str] limit_max_bps_status: Enables or disables the limit_max_bps option for this member
+        :param pulumi.Input[_builtins.int] limit_max_connections: Specifies the maximum number of concurrent connections for this member
+        :param pulumi.Input[_builtins.str] limit_max_connections_status: Enables or disables the limit_max_connections option for this member
+        :param pulumi.Input[_builtins.int] limit_max_pps: Specifies the maximum allowable data transfer rate in packets per second for this member
+        :param pulumi.Input[_builtins.str] limit_max_pps_status: Enables or disables the limit_max_pps option for this member
+        :param pulumi.Input[_builtins.int] member_order: Specifies the order in which the member will be used
+        :param pulumi.Input[_builtins.str] monitor: Specifies the health monitor for this pool member
+        :param pulumi.Input[_builtins.int] ratio: Specifies the weight of the pool member for load balancing
+        """
+        pulumi.set(__self__, "name", name)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if limit_max_bps is not None:
+            pulumi.set(__self__, "limit_max_bps", limit_max_bps)
+        if limit_max_bps_status is not None:
+            pulumi.set(__self__, "limit_max_bps_status", limit_max_bps_status)
+        if limit_max_connections is not None:
+            pulumi.set(__self__, "limit_max_connections", limit_max_connections)
+        if limit_max_connections_status is not None:
+            pulumi.set(__self__, "limit_max_connections_status", limit_max_connections_status)
+        if limit_max_pps is not None:
+            pulumi.set(__self__, "limit_max_pps", limit_max_pps)
+        if limit_max_pps_status is not None:
+            pulumi.set(__self__, "limit_max_pps_status", limit_max_pps_status)
+        if member_order is not None:
+            pulumi.set(__self__, "member_order", member_order)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the pool member (format: <server_name>:<virtual_server_name>)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Disabled state of the pool member
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "disabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable or disable the pool member
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxBps")
+    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the maximum allowable data throughput rate for this member
+        """
+        return pulumi.get(self, "limit_max_bps")
+
+    @limit_max_bps.setter
+    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_bps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxBpsStatus")
+    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enables or disables the limit_max_bps option for this member
+        """
+        return pulumi.get(self, "limit_max_bps_status")
+
+    @limit_max_bps_status.setter
+    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_bps_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxConnections")
+    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the maximum number of concurrent connections for this member
+        """
+        return pulumi.get(self, "limit_max_connections")
+
+    @limit_max_connections.setter
+    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_connections", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxConnectionsStatus")
+    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enables or disables the limit_max_connections option for this member
+        """
+        return pulumi.get(self, "limit_max_connections_status")
+
+    @limit_max_connections_status.setter
+    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_connections_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxPps")
+    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the maximum allowable data transfer rate in packets per second for this member
+        """
+        return pulumi.get(self, "limit_max_pps")
+
+    @limit_max_pps.setter
+    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_pps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxPpsStatus")
+    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enables or disables the limit_max_pps option for this member
+        """
+        return pulumi.get(self, "limit_max_pps_status")
+
+    @limit_max_pps_status.setter
+    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_pps_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memberOrder")
+    def member_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the order in which the member will be used
+        """
+        return pulumi.get(self, "member_order")
+
+    @member_order.setter
+    def member_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "member_order", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the health monitor for this pool member
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "monitor", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the weight of the pool member for load balancing
+        """
+        return pulumi.get(self, "ratio")
+
+    @ratio.setter
+    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ratio", value)
+
+
+class GtmServerAddressArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    IP address
+    """
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Device name associated with the address
+    """
+    translation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP translation address. Default is `none`
+    """
+
+@pulumi.input_type
+class GtmServerAddressArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 translation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: IP address
+        :param pulumi.Input[_builtins.str] device_name: Device name associated with the address
+        :param pulumi.Input[_builtins.str] translation: IP translation address. Default is `none`
+        """
+        pulumi.set(__self__, "name", name)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if translation is not None:
+            pulumi.set(__self__, "translation", translation)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Device name associated with the address
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "device_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP translation address. Default is `none`
+        """
+        return pulumi.get(self, "translation")
+
+    @translation.setter
+    def translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "translation", value)
+
+
+class GtmServerVirtualServerArgsDict(TypedDict):
+    destination: pulumi.Input[_builtins.str]
+    """
+    Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual server
+    """
+    depends_on: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual server dependency
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable the virtual server. Default is `true`
+    """
+    limit_max_bps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum bits per second for this virtual server
+    """
+    limit_max_bps_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable/disable the bps limit
+    """
+    limit_max_connections: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum concurrent connections
+    """
+    limit_max_connections_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable/disable the connections limit
+    """
+    limit_max_pps: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum packets per second
+    """
+    limit_max_pps_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enable/disable the pps limit
+    """
+    monitor: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Monitor assigned to check virtual server health
+    """
+    translation_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Translation address for NAT scenarios. Default is `none`
+    """
+    translation_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Translation port for NAT scenarios. Default is `0`
+    """
+
+@pulumi.input_type
+class GtmServerVirtualServerArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 depends_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
+                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
+                 translation_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 translation_port: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination: Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+        :param pulumi.Input[_builtins.str] name: Name of the virtual server
+        :param pulumi.Input[_builtins.str] depends_on: Virtual server dependency
+        :param pulumi.Input[_builtins.bool] enabled: Enable the virtual server. Default is `true`
+        :param pulumi.Input[_builtins.int] limit_max_bps: Maximum bits per second for this virtual server
+        :param pulumi.Input[_builtins.str] limit_max_bps_status: Enable/disable the bps limit
+        :param pulumi.Input[_builtins.int] limit_max_connections: Maximum concurrent connections
+        :param pulumi.Input[_builtins.str] limit_max_connections_status: Enable/disable the connections limit
+        :param pulumi.Input[_builtins.int] limit_max_pps: Maximum packets per second
+        :param pulumi.Input[_builtins.str] limit_max_pps_status: Enable/disable the pps limit
+        :param pulumi.Input[_builtins.str] monitor: Monitor assigned to check virtual server health
+        :param pulumi.Input[_builtins.str] translation_address: Translation address for NAT scenarios. Default is `none`
+        :param pulumi.Input[_builtins.int] translation_port: Translation port for NAT scenarios. Default is `0`
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "name", name)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if limit_max_bps is not None:
+            pulumi.set(__self__, "limit_max_bps", limit_max_bps)
+        if limit_max_bps_status is not None:
+            pulumi.set(__self__, "limit_max_bps_status", limit_max_bps_status)
+        if limit_max_connections is not None:
+            pulumi.set(__self__, "limit_max_connections", limit_max_connections)
+        if limit_max_connections_status is not None:
+            pulumi.set(__self__, "limit_max_connections_status", limit_max_connections_status)
+        if limit_max_pps is not None:
+            pulumi.set(__self__, "limit_max_pps", limit_max_pps)
+        if limit_max_pps_status is not None:
+            pulumi.set(__self__, "limit_max_pps_status", limit_max_pps_status)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if translation_address is not None:
+            pulumi.set(__self__, "translation_address", translation_address)
+        if translation_port is not None:
+            pulumi.set(__self__, "translation_port", translation_port)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[_builtins.str]:
+        """
+        Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the virtual server
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Virtual server dependency
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "depends_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable the virtual server. Default is `true`
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxBps")
+    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum bits per second for this virtual server
+        """
+        return pulumi.get(self, "limit_max_bps")
+
+    @limit_max_bps.setter
+    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_bps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxBpsStatus")
+    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enable/disable the bps limit
+        """
+        return pulumi.get(self, "limit_max_bps_status")
+
+    @limit_max_bps_status.setter
+    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_bps_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxConnections")
+    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum concurrent connections
+        """
+        return pulumi.get(self, "limit_max_connections")
+
+    @limit_max_connections.setter
+    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_connections", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxConnectionsStatus")
+    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enable/disable the connections limit
+        """
+        return pulumi.get(self, "limit_max_connections_status")
+
+    @limit_max_connections_status.setter
+    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_connections_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxPps")
+    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum packets per second
+        """
+        return pulumi.get(self, "limit_max_pps")
+
+    @limit_max_pps.setter
+    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "limit_max_pps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitMaxPpsStatus")
+    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Enable/disable the pps limit
+        """
+        return pulumi.get(self, "limit_max_pps_status")
+
+    @limit_max_pps_status.setter
+    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "limit_max_pps_status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Monitor assigned to check virtual server health
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "monitor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="translationAddress")
+    def translation_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Translation address for NAT scenarios. Default is `none`
+        """
+        return pulumi.get(self, "translation_address")
+
+    @translation_address.setter
+    def translation_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "translation_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="translationPort")
+    def translation_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Translation port for NAT scenarios. Default is `0`
+        """
+        return pulumi.get(self, "translation_port")
+
+    @translation_port.setter
+    def translation_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "translation_port", value)
 
 
 class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
