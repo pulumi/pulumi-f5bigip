@@ -85,11 +85,9 @@ type Node struct {
 	RateLimit pulumi.StringOutput `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntOutput `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. The default value is user-enabled.
+	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 	Session pulumi.StringOutput `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	//
-	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -146,11 +144,9 @@ type nodeState struct {
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. The default value is user-enabled.
+	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	//
-	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State *string `pulumi:"state"`
 }
 
@@ -172,11 +168,9 @@ type NodeState struct {
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput
-	// Enables or disables the node for new sessions. The default value is user-enabled.
+	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	//
-	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringPtrInput
 }
 
@@ -202,11 +196,9 @@ type nodeArgs struct {
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. The default value is user-enabled.
+	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	//
-	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State *string `pulumi:"state"`
 }
 
@@ -229,11 +221,9 @@ type NodeArgs struct {
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput
-	// Enables or disables the node for new sessions. The default value is user-enabled.
+	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	//
-	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringPtrInput
 }
 
@@ -368,14 +358,12 @@ func (o NodeOutput) Ratio() pulumi.IntOutput {
 	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.Ratio }).(pulumi.IntOutput)
 }
 
-// Enables or disables the node for new sessions. The default value is user-enabled.
+// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
 func (o NodeOutput) Session() pulumi.StringOutput {
 	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Session }).(pulumi.StringOutput)
 }
 
 // Default is "user-up" you can set to "user-down" if you want to disable
-//
-// > *NOTE* Below attributes needs to be configured under fqdn option.
 func (o NodeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

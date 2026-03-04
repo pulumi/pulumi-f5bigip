@@ -281,6 +281,127 @@ export interface FastUdpAppVirtualServer {
     port: number;
 }
 
+export interface GtmPoolMember {
+    /**
+     * Disabled state of the pool member
+     */
+    disabled?: boolean;
+    /**
+     * Enable or disable the pool member
+     */
+    enabled?: boolean;
+    /**
+     * Specifies the maximum allowable data throughput rate for this member
+     */
+    limitMaxBps?: number;
+    /**
+     * Enables or disables the limitMaxBps option for this member
+     */
+    limitMaxBpsStatus?: string;
+    /**
+     * Specifies the maximum number of concurrent connections for this member
+     */
+    limitMaxConnections?: number;
+    /**
+     * Enables or disables the limitMaxConnections option for this member
+     */
+    limitMaxConnectionsStatus?: string;
+    /**
+     * Specifies the maximum allowable data transfer rate in packets per second for this member
+     */
+    limitMaxPps?: number;
+    /**
+     * Enables or disables the limitMaxPps option for this member
+     */
+    limitMaxPpsStatus?: string;
+    /**
+     * Specifies the order in which the member will be used
+     */
+    memberOrder?: number;
+    /**
+     * Specifies the health monitor for this pool member
+     */
+    monitor?: string;
+    /**
+     * Name of the pool member (format: <server_name>:<virtual_server_name>)
+     */
+    name: string;
+    /**
+     * Specifies the weight of the pool member for load balancing
+     */
+    ratio?: number;
+}
+
+export interface GtmServerAddress {
+    /**
+     * Device name associated with the address
+     */
+    deviceName: string;
+    /**
+     * IP address
+     */
+    name: string;
+    /**
+     * IP translation address. Default is `none`
+     */
+    translation: string;
+}
+
+export interface GtmServerVirtualServer {
+    /**
+     * Virtual server dependency
+     */
+    dependsOn?: string;
+    /**
+     * Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
+     */
+    destination: string;
+    /**
+     * Enable the virtual server. Default is `true`
+     */
+    enabled?: boolean;
+    /**
+     * Maximum bits per second for this virtual server
+     */
+    limitMaxBps?: number;
+    /**
+     * Enable/disable the bps limit
+     */
+    limitMaxBpsStatus?: string;
+    /**
+     * Maximum concurrent connections
+     */
+    limitMaxConnections?: number;
+    /**
+     * Enable/disable the connections limit
+     */
+    limitMaxConnectionsStatus?: string;
+    /**
+     * Maximum packets per second
+     */
+    limitMaxPps?: number;
+    /**
+     * Enable/disable the pps limit
+     */
+    limitMaxPpsStatus?: string;
+    /**
+     * Monitor assigned to check virtual server health
+     */
+    monitor?: string;
+    /**
+     * Name of the virtual server
+     */
+    name: string;
+    /**
+     * Translation address for NAT scenarios. Default is `none`
+     */
+    translationAddress?: string;
+    /**
+     * Translation port for NAT scenarios. Default is `0`
+     */
+    translationPort?: number;
+}
+
 export interface SaasBotDefenseProfileProtectedEndpoint {
     /**
      * Specifies the path to the web page to be protected by BD. For example, `/login`.
@@ -694,23 +815,23 @@ export namespace ltm {
 
     export interface NodeFqdn {
         /**
-         * Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+         * Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
          */
         addressFamily: string;
         /**
-         * Specifies whether the node should scale to the IP address set returned by DNS.
+         * Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
          */
         autopopulate: string;
         /**
-         * Specifies the number of attempts to resolve a domain name. The default is 5.
+         * The number of attempts to resolve a domain name. (Default: `5`)
          */
         downinterval: number;
         /**
-         * Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+         * Specifies the amount of time before sending the next DNS query. (Default: `3600`)
          */
         interval: string;
         /**
-         * Name of the node
+         * The fully qualified domain name of the node. Cannot configure with the `address` argument.
          */
         name?: string;
     }

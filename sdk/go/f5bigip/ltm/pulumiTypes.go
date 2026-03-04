@@ -120,15 +120,15 @@ func (o DataGroupRecordArrayOutput) Index(i pulumi.IntInput) DataGroupRecordOutp
 }
 
 type NodeFqdn struct {
-	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+	// Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
 	AddressFamily *string `pulumi:"addressFamily"`
-	// Specifies whether the node should scale to the IP address set returned by DNS.
+	// Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
 	Autopopulate *string `pulumi:"autopopulate"`
-	// Specifies the number of attempts to resolve a domain name. The default is 5.
+	// The number of attempts to resolve a domain name. (Default: `5`)
 	Downinterval *int `pulumi:"downinterval"`
-	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+	// Specifies the amount of time before sending the next DNS query. (Default: `3600`)
 	Interval *string `pulumi:"interval"`
-	// Name of the node
+	// The fully qualified domain name of the node. Cannot configure with the `address` argument.
 	Name *string `pulumi:"name"`
 }
 
@@ -144,15 +144,15 @@ type NodeFqdnInput interface {
 }
 
 type NodeFqdnArgs struct {
-	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+	// Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
 	AddressFamily pulumi.StringPtrInput `pulumi:"addressFamily"`
-	// Specifies whether the node should scale to the IP address set returned by DNS.
+	// Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
 	Autopopulate pulumi.StringPtrInput `pulumi:"autopopulate"`
-	// Specifies the number of attempts to resolve a domain name. The default is 5.
+	// The number of attempts to resolve a domain name. (Default: `5`)
 	Downinterval pulumi.IntPtrInput `pulumi:"downinterval"`
-	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+	// Specifies the amount of time before sending the next DNS query. (Default: `3600`)
 	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// Name of the node
+	// The fully qualified domain name of the node. Cannot configure with the `address` argument.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -233,27 +233,27 @@ func (o NodeFqdnOutput) ToNodeFqdnPtrOutputWithContext(ctx context.Context) Node
 	}).(NodeFqdnPtrOutput)
 }
 
-// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+// Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
 func (o NodeFqdnOutput) AddressFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the node should scale to the IP address set returned by DNS.
+// Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
 func (o NodeFqdnOutput) Autopopulate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of attempts to resolve a domain name. The default is 5.
+// The number of attempts to resolve a domain name. (Default: `5`)
 func (o NodeFqdnOutput) Downinterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+// Specifies the amount of time before sending the next DNS query. (Default: `3600`)
 func (o NodeFqdnOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// Name of the node
+// The fully qualified domain name of the node. Cannot configure with the `address` argument.
 func (o NodeFqdnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -282,7 +282,7 @@ func (o NodeFqdnPtrOutput) Elem() NodeFqdnOutput {
 	}).(NodeFqdnOutput)
 }
 
-// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+// Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
 func (o NodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *string {
 		if v == nil {
@@ -292,7 +292,7 @@ func (o NodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the node should scale to the IP address set returned by DNS.
+// Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
 func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *string {
 		if v == nil {
@@ -302,7 +302,7 @@ func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of attempts to resolve a domain name. The default is 5.
+// The number of attempts to resolve a domain name. (Default: `5`)
 func (o NodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *int {
 		if v == nil {
@@ -312,7 +312,7 @@ func (o NodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+// Specifies the amount of time before sending the next DNS query. (Default: `3600`)
 func (o NodeFqdnPtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *string {
 		if v == nil {
@@ -322,7 +322,7 @@ func (o NodeFqdnPtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the node
+// The fully qualified domain name of the node. Cannot configure with the `address` argument.
 func (o NodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NodeFqdn) *string {
 		if v == nil {

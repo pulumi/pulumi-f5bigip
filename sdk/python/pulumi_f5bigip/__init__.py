@@ -19,6 +19,10 @@ from .fast_tcp_app import *
 from .fast_template import *
 from .fast_udp_app import *
 from .get_as3_device_information import *
+from .gtm_datacenter import *
+from .gtm_pool import *
+from .gtm_server import *
+from .gtm_wideip import *
 from .ipsec_policy import *
 from .ipsec_profile import *
 from .net_ike_peer import *
@@ -173,6 +177,38 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/fastUdpApp:FastUdpApp": "FastUdpApp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmDatacenter",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmDatacenter:GtmDatacenter": "GtmDatacenter"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmPool",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmPool:GtmPool": "GtmPool"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmServer",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmServer:GtmServer": "GtmServer"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmWideip",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmWideip:GtmWideip": "GtmWideip"
   }
  },
  {

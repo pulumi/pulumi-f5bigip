@@ -199,6 +199,39 @@
                     }
                 }
             },
+            "bigip_gtm_datacenter": {
+                "current": "f5bigip:index/gtmDatacenter:GtmDatacenter"
+            },
+            "bigip_gtm_pool": {
+                "current": "f5bigip:index/gtmPool:GtmPool",
+                "fields": {
+                    "members": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "bigip_gtm_server": {
+                "current": "f5bigip:index/gtmServer:GtmServer",
+                "fields": {
+                    "addresses": {
+                        "maxItemsOne": false
+                    },
+                    "virtual_servers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "bigip_gtm_wideip": {
+                "current": "f5bigip:index/gtmWideip:GtmWideip",
+                "fields": {
+                    "aliases": {
+                        "maxItemsOne": false
+                    },
+                    "load_balancing_decision_log_verbosity": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "bigip_ipsec_policy": {
                 "current": "f5bigip:index/ipsecPolicy:IpsecPolicy"
             },

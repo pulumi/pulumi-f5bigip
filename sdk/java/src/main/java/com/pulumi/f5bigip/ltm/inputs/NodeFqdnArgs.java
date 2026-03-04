@@ -17,14 +17,14 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
     public static final NodeFqdnArgs Empty = new NodeFqdnArgs();
 
     /**
-     * Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+     * Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
      * 
      */
     @Import(name="addressFamily")
     private @Nullable Output<String> addressFamily;
 
     /**
-     * @return Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
      * 
      */
     public Optional<Output<String>> addressFamily() {
@@ -32,14 +32,14 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the node should scale to the IP address set returned by DNS.
+     * Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
      * 
      */
     @Import(name="autopopulate")
     private @Nullable Output<String> autopopulate;
 
     /**
-     * @return Specifies whether the node should scale to the IP address set returned by DNS.
+     * @return Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
      * 
      */
     public Optional<Output<String>> autopopulate() {
@@ -47,14 +47,14 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of attempts to resolve a domain name. The default is 5.
+     * The number of attempts to resolve a domain name. (Default: `5`)
      * 
      */
     @Import(name="downinterval")
     private @Nullable Output<Integer> downinterval;
 
     /**
-     * @return Specifies the number of attempts to resolve a domain name. The default is 5.
+     * @return The number of attempts to resolve a domain name. (Default: `5`)
      * 
      */
     public Optional<Output<Integer>> downinterval() {
@@ -62,14 +62,14 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+     * Specifies the amount of time before sending the next DNS query. (Default: `3600`)
      * 
      */
     @Import(name="interval")
     private @Nullable Output<String> interval;
 
     /**
-     * @return Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+     * @return Specifies the amount of time before sending the next DNS query. (Default: `3600`)
      * 
      */
     public Optional<Output<String>> interval() {
@@ -77,14 +77,14 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the node
+     * The fully qualified domain name of the node. Cannot configure with the `address` argument.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the node
+     * @return The fully qualified domain name of the node. Cannot configure with the `address` argument.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,7 +120,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressFamily Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+         * @param addressFamily Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressFamily Specifies the node&#39;s address family. The default is &#39;unspecified&#39;, or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+         * @param addressFamily Specifies the node&#39;s address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autopopulate Specifies whether the node should scale to the IP address set returned by DNS.
+         * @param autopopulate Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autopopulate Specifies whether the node should scale to the IP address set returned by DNS.
+         * @param autopopulate Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downinterval Specifies the number of attempts to resolve a domain name. The default is 5.
+         * @param downinterval The number of attempts to resolve a domain name. (Default: `5`)
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param downinterval Specifies the number of attempts to resolve a domain name. The default is 5.
+         * @param downinterval The number of attempts to resolve a domain name. (Default: `5`)
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interval Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+         * @param interval Specifies the amount of time before sending the next DNS query. (Default: `3600`)
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interval Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+         * @param interval Specifies the amount of time before sending the next DNS query. (Default: `3600`)
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the node
+         * @param name The fully qualified domain name of the node. Cannot configure with the `address` argument.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class NodeFqdnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the node
+         * @param name The fully qualified domain name of the node. Cannot configure with the `address` argument.
          * 
          * @return builder
          * 

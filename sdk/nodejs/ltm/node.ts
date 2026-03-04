@@ -106,13 +106,11 @@ export class Node extends pulumi.CustomResource {
      */
     declare public readonly ratio: pulumi.Output<number>;
     /**
-     * Enables or disables the node for new sessions. The default value is user-enabled.
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      */
     declare public readonly session: pulumi.Output<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
-     *
-     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     declare public readonly state: pulumi.Output<string>;
 
@@ -203,13 +201,11 @@ export interface NodeState {
      */
     ratio?: pulumi.Input<number>;
     /**
-     * Enables or disables the node for new sessions. The default value is user-enabled.
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      */
     session?: pulumi.Input<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
-     *
-     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     state?: pulumi.Input<string>;
 }
@@ -252,13 +248,11 @@ export interface NodeArgs {
      */
     ratio?: pulumi.Input<number>;
     /**
-     * Enables or disables the node for new sessions. The default value is user-enabled.
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      */
     session?: pulumi.Input<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
-     *
-     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     state?: pulumi.Input<string>;
 }

@@ -199,14 +199,14 @@ public class Node extends com.pulumi.resources.CustomResource {
         return this.ratio;
     }
     /**
-     * Enables or disables the node for new sessions. The default value is user-enabled.
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      * 
      */
     @Export(name="session", refs={String.class}, tree="[0]")
     private Output<String> session;
 
     /**
-     * @return Enables or disables the node for new sessions. The default value is user-enabled.
+     * @return Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      * 
      */
     public Output<String> session() {
@@ -215,16 +215,12 @@ public class Node extends com.pulumi.resources.CustomResource {
     /**
      * Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
      * 
-     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
-     * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
      * @return Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
-     * 
-     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
      * 
      */
     public Output<String> state() {
