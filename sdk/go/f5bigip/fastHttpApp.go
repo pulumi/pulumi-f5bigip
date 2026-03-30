@@ -97,8 +97,8 @@ import (
 //					},
 //				},
 //				ServiceDiscoveries: pulumi.StringArray{
-//					pulumi.String(TC3GetGceServiceDiscovery.GceSdJson),
-//					pulumi.String(TC3.AzureSdJson),
+//					pulumi.String(pulumi.String(TC3GetGceServiceDiscovery.GceSdJson)),
+//					pulumi.String(pulumi.String(TC3.AzureSdJson)),
 //				},
 //			})
 //			if err != nil {

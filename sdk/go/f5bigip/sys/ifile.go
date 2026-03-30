@@ -98,7 +98,7 @@ import (
 //			_, err = sys.NewIfile(ctx, "server_config", &sys.IfileArgs{
 //				Name:      pulumi.String("server-list"),
 //				Partition: pulumi.String("MyApp"),
-//				Content:   pulumi.String(serverList),
+//				Content:   pulumi.String(pulumi.String(serverList)),
 //			})
 //			if err != nil {
 //				return err
