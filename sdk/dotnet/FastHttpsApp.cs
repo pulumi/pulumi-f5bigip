@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
+    ///     var fastHttpsApp = new F5BigIP.Index.FastHttpsApp("fast_https_app", new()
     ///     {
     ///         Tenant = "fasthttpstenant",
     ///         Application = "fasthttpsapp",
@@ -63,7 +63,7 @@ namespace Pulumi.F5BigIP
     ///         Region = "testgceregion",
     ///     });
     /// 
-    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
+    ///     var fastHttpsApp = new F5BigIP.Index.FastHttpsApp("fast_https_app", new()
     ///     {
     ///         Tenant = "fasthttpstenant",
     ///         Application = "fasthttpsapp",

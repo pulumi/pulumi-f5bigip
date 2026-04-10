@@ -24,11 +24,11 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_template = new F5BigIP.FastTemplate("foo-template", new()
+    ///     var foo_template = new F5BigIP.Index.FastTemplate("foo-template", new()
     ///     {
     ///         Name = "foo_template",
     ///         Source = "foo_template.zip",
-    ///         Md5Hash = Std.Filemd5.Invoke(new()
+    ///         Md5Hash = Std.Index.Filemd5.Invoke(new()
     ///         {
     ///             Input = "foo_template.zip",
     ///         }).Apply(invoke =&gt; invoke.Result),

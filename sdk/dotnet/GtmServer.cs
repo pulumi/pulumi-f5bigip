@@ -28,12 +28,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var server1 = new F5BigIP.GtmServer("server1", new()
+    ///     var server1 = new F5BigIP.Index.GtmServer("server1", new()
     ///     {
     ///         Name = "bigip_server1",
     ///         Datacenter = dc1.Name,
@@ -63,12 +63,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var multiAddressServer = new F5BigIP.GtmServer("multi_address_server", new()
+    ///     var multiAddressServer = new F5BigIP.Index.GtmServer("multi_address_server", new()
     ///     {
     ///         Name = "multi_server",
     ///         Datacenter = dc1.Name,
@@ -105,12 +105,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var natServer = new F5BigIP.GtmServer("nat_server", new()
+    ///     var natServer = new F5BigIP.Index.GtmServer("nat_server", new()
     ///     {
     ///         Name = "nat_server",
     ///         Datacenter = dc1.Name,
@@ -141,12 +141,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var genericHost = new F5BigIP.GtmServer("generic_host", new()
+    ///     var genericHost = new F5BigIP.Index.GtmServer("generic_host", new()
     ///     {
     ///         Name = "generic_server",
     ///         Datacenter = dc1.Name,
@@ -178,12 +178,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var genericWithVs = new F5BigIP.GtmServer("generic_with_vs", new()
+    ///     var genericWithVs = new F5BigIP.Index.GtmServer("generic_with_vs", new()
     ///     {
     ///         Name = "generic_app_server",
     ///         Datacenter = dc1.Name,
@@ -236,12 +236,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var proberServer = new F5BigIP.GtmServer("prober_server", new()
+    ///     var proberServer = new F5BigIP.Index.GtmServer("prober_server", new()
     ///     {
     ///         Name = "prober_configured_server",
     ///         Datacenter = dc1.Name,
@@ -275,12 +275,12 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var dc1 = new F5BigIP.GtmDatacenter("dc1", new()
+    ///     var dc1 = new F5BigIP.Index.GtmDatacenter("dc1", new()
     ///     {
     ///         Name = "datacenter1",
     ///     });
     /// 
-    ///     var limitedServer = new F5BigIP.GtmServer("limited_server", new()
+    ///     var limitedServer = new F5BigIP.Index.GtmServer("limited_server", new()
     ///     {
     ///         Name = "resource_limited_server",
     ///         Datacenter = dc1.Name,

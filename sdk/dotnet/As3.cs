@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var as3AppDeletion = new F5BigIP.As3("as3_app_deletion", new()
+    ///     var as3AppDeletion = new F5BigIP.Index.As3("as3_app_deletion", new()
     ///     {
     ///         DeleteApps = new F5BigIP.Inputs.As3DeleteAppsArgs
     ///         {
@@ -64,9 +64,9 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var as3_example1 = new F5BigIP.As3("as3-example1", new()
+    ///     var as3_example1 = new F5BigIP.Index.As3("as3-example1", new()
     ///     {
-    ///         As3Json = Std.File.Invoke(new()
+    ///         As3Json = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "example1.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

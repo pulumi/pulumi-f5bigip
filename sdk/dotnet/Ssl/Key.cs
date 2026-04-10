@@ -27,7 +27,7 @@ namespace Pulumi.F5BigIP.Ssl
     ///     var test_key = new F5BigIP.Ssl.Key("test-key", new()
     ///     {
     ///         Name = "serverkey.key",
-    ///         Content = Std.File.Invoke(new()
+    ///         Content = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "serverkey.key",
     ///         }).Apply(invoke =&gt; invoke.Result),
