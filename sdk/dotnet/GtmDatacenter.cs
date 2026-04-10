@@ -28,7 +28,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.GtmDatacenter("example", new()
+    ///     var example = new F5BigIP.Index.GtmDatacenter("example", new()
     ///     {
     ///         Name = "example_datacenter",
     ///         Partition = "Common",
@@ -53,7 +53,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var customProber = new F5BigIP.GtmDatacenter("custom_prober", new()
+    ///     var customProber = new F5BigIP.Index.GtmDatacenter("custom_prober", new()
     ///     {
     ///         Name = "custom_datacenter",
     ///         Partition = "Common",
@@ -78,7 +78,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var maintenance = new F5BigIP.GtmDatacenter("maintenance", new()
+    ///     var maintenance = new F5BigIP.Index.GtmDatacenter("maintenance", new()
     ///     {
     ///         Name = "maintenance_dc",
     ///         Partition = "Common",

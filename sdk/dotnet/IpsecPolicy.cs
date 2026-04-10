@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_policy = new F5BigIP.IpsecPolicy("test-policy", new()
+    ///     var test_policy = new F5BigIP.Index.IpsecPolicy("test-policy", new()
     ///     {
     ///         Name = "/Common/test-policy",
     ///         Description = "created by terraform provider",

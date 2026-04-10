@@ -24,16 +24,16 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testkeycert = new F5BigIP.SslKeyCert("testkeycert", new()
+    ///     var testkeycert = new F5BigIP.Index.SslKeyCert("testkeycert", new()
     ///     {
     ///         Partition = "Common",
     ///         KeyName = "ssl-test-key",
-    ///         KeyContent = Std.File.Invoke(new()
+    ///         KeyContent = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "key.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         CertName = "ssl-test-cert",
-    ///         CertContent = Std.File.Invoke(new()
+    ///         CertContent = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "certificate.pem",
     ///         }).Apply(invoke =&gt; invoke.Result),

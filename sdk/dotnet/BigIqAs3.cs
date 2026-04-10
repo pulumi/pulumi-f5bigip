@@ -26,12 +26,12 @@ namespace Pulumi.F5BigIP
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Example Usage for json file
-    ///     var exampletask = new F5BigIP.BigIqAs3("exampletask", new()
+    ///     var exampletask = new F5BigIP.Index.BigIqAs3("exampletask", new()
     ///     {
     ///         BigiqAddress = "xx.xx.xxx.xx",
     ///         BigiqUser = "xxxxx",
     ///         BigiqPassword = "xxxxxxxxx",
-    ///         As3Json = Std.File.Invoke(new()
+    ///         As3Json = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "bigiq_example.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

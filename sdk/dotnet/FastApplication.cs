@@ -23,10 +23,10 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_app = new F5BigIP.FastApplication("foo-app", new()
+    ///     var foo_app = new F5BigIP.Index.FastApplication("foo-app", new()
     ///     {
     ///         Template = "examples/simple_http",
-    ///         FastJson = Std.File.Invoke(new()
+    ///         FastJson = Std.Index.File.Invoke(new()
     ///         {
     ///             Input = "new_fast_app.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new F5BigIP.EventServiceDiscovery("test", new()
+    ///     var test = new F5BigIP.Index.EventServiceDiscovery("test", new()
     ///     {
     ///         Taskid = "~Sample_event_sd~My_app~My_pool",
     ///         Nodes = new[]

@@ -134,9 +134,12 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		cfg := config.New(ctx, "")
-		hostname := cfg.RequireObject("hostname")
-		username := cfg.RequireObject("username")
-		password := cfg.RequireObject("password")
+		var hostname interface{}
+		cfg.RequireObject("hostname", &hostname)
+		var username interface{}
+		cfg.RequireObject("username", &username)
+		var password interface{}
+		cfg.RequireObject("password", &password)
 		return nil
 	})
 }
