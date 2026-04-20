@@ -11,9 +11,11 @@ require (
 // Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
 replace github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 
-replace github.com/f5devcentral/go-bigip => ./third_party/go-bigip
+// Upstream v1.26.0 updates these vendored modules but does not expose matching
+// changes via its published module graph, so we target the vendored copies.
+replace github.com/f5devcentral/go-bigip => ../upstream/vendor/github.com/f5devcentral/go-bigip
 
-replace github.com/f5devcentral/go-bigip/f5teem => ./third_party/go-bigip-f5teem
+replace github.com/f5devcentral/go-bigip/f5teem => ../upstream/vendor/github.com/f5devcentral/go-bigip/f5teem
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20260318212141-5525259d096b
 
