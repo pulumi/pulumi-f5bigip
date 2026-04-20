@@ -47,6 +47,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FastUdpApp{}
 	case "f5bigip:index/gtmDatacenter:GtmDatacenter":
 		r = &GtmDatacenter{}
+	case "f5bigip:index/gtmMonitorBigip:GtmMonitorBigip":
+		r = &GtmMonitorBigip{}
+	case "f5bigip:index/gtmMonitorHttp:GtmMonitorHttp":
+		r = &GtmMonitorHttp{}
+	case "f5bigip:index/gtmMonitorHttps:GtmMonitorHttps":
+		r = &GtmMonitorHttps{}
+	case "f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql":
+		r = &GtmMonitorPostgresql{}
+	case "f5bigip:index/gtmMonitorTcp:GtmMonitorTcp":
+		r = &GtmMonitorTcp{}
 	case "f5bigip:index/gtmPool:GtmPool":
 		r = &GtmPool{}
 	case "f5bigip:index/gtmServer:GtmServer":
@@ -165,6 +175,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/gtmDatacenter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmMonitorBigip",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmMonitorHttp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmMonitorHttps",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmMonitorPostgresql",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/gtmMonitorTcp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

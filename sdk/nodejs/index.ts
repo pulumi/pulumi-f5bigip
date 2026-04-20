@@ -75,6 +75,31 @@ export type GtmDatacenter = import("./gtmDatacenter").GtmDatacenter;
 export const GtmDatacenter: typeof import("./gtmDatacenter").GtmDatacenter = null as any;
 utilities.lazyLoad(exports, ["GtmDatacenter"], () => require("./gtmDatacenter"));
 
+export { GtmMonitorBigipArgs, GtmMonitorBigipState } from "./gtmMonitorBigip";
+export type GtmMonitorBigip = import("./gtmMonitorBigip").GtmMonitorBigip;
+export const GtmMonitorBigip: typeof import("./gtmMonitorBigip").GtmMonitorBigip = null as any;
+utilities.lazyLoad(exports, ["GtmMonitorBigip"], () => require("./gtmMonitorBigip"));
+
+export { GtmMonitorHttpArgs, GtmMonitorHttpState } from "./gtmMonitorHttp";
+export type GtmMonitorHttp = import("./gtmMonitorHttp").GtmMonitorHttp;
+export const GtmMonitorHttp: typeof import("./gtmMonitorHttp").GtmMonitorHttp = null as any;
+utilities.lazyLoad(exports, ["GtmMonitorHttp"], () => require("./gtmMonitorHttp"));
+
+export { GtmMonitorHttpsArgs, GtmMonitorHttpsState } from "./gtmMonitorHttps";
+export type GtmMonitorHttps = import("./gtmMonitorHttps").GtmMonitorHttps;
+export const GtmMonitorHttps: typeof import("./gtmMonitorHttps").GtmMonitorHttps = null as any;
+utilities.lazyLoad(exports, ["GtmMonitorHttps"], () => require("./gtmMonitorHttps"));
+
+export { GtmMonitorPostgresqlArgs, GtmMonitorPostgresqlState } from "./gtmMonitorPostgresql";
+export type GtmMonitorPostgresql = import("./gtmMonitorPostgresql").GtmMonitorPostgresql;
+export const GtmMonitorPostgresql: typeof import("./gtmMonitorPostgresql").GtmMonitorPostgresql = null as any;
+utilities.lazyLoad(exports, ["GtmMonitorPostgresql"], () => require("./gtmMonitorPostgresql"));
+
+export { GtmMonitorTcpArgs, GtmMonitorTcpState } from "./gtmMonitorTcp";
+export type GtmMonitorTcp = import("./gtmMonitorTcp").GtmMonitorTcp;
+export const GtmMonitorTcp: typeof import("./gtmMonitorTcp").GtmMonitorTcp = null as any;
+utilities.lazyLoad(exports, ["GtmMonitorTcp"], () => require("./gtmMonitorTcp"));
+
 export { GtmPoolArgs, GtmPoolState } from "./gtmPool";
 export type GtmPool = import("./gtmPool").GtmPool;
 export const GtmPool: typeof import("./gtmPool").GtmPool = null as any;
@@ -192,6 +217,16 @@ const _module = {
                 return new FastUdpApp(name, <any>undefined, { urn })
             case "f5bigip:index/gtmDatacenter:GtmDatacenter":
                 return new GtmDatacenter(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmMonitorBigip:GtmMonitorBigip":
+                return new GtmMonitorBigip(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmMonitorHttp:GtmMonitorHttp":
+                return new GtmMonitorHttp(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmMonitorHttps:GtmMonitorHttps":
+                return new GtmMonitorHttps(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql":
+                return new GtmMonitorPostgresql(name, <any>undefined, { urn })
+            case "f5bigip:index/gtmMonitorTcp:GtmMonitorTcp":
+                return new GtmMonitorTcp(name, <any>undefined, { urn })
             case "f5bigip:index/gtmPool:GtmPool":
                 return new GtmPool(name, <any>undefined, { urn })
             case "f5bigip:index/gtmServer:GtmServer":
@@ -234,6 +269,11 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/fastTcpApp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastTemplate", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastUdpApp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/gtmDatacenter", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmMonitorBigip", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmMonitorHttp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmMonitorHttps", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmMonitorPostgresql", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/gtmMonitorTcp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/gtmPool", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/gtmServer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/gtmWideip", _module)
