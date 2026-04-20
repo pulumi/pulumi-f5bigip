@@ -20,6 +20,11 @@ from .fast_template import *
 from .fast_udp_app import *
 from .get_as3_device_information import *
 from .gtm_datacenter import *
+from .gtm_monitor_bigip import *
+from .gtm_monitor_http import *
+from .gtm_monitor_https import *
+from .gtm_monitor_postgresql import *
+from .gtm_monitor_tcp import *
 from .gtm_pool import *
 from .gtm_server import *
 from .gtm_wideip import *
@@ -185,6 +190,46 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/gtmDatacenter:GtmDatacenter": "GtmDatacenter"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmMonitorBigip",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmMonitorBigip:GtmMonitorBigip": "GtmMonitorBigip"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmMonitorHttp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmMonitorHttp:GtmMonitorHttp": "GtmMonitorHttp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmMonitorHttps",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmMonitorHttps:GtmMonitorHttps": "GtmMonitorHttps"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmMonitorPostgresql",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql": "GtmMonitorPostgresql"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/gtmMonitorTcp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/gtmMonitorTcp:GtmMonitorTcp": "GtmMonitorTcp"
   }
  },
  {

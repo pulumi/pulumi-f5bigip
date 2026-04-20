@@ -5563,6 +5563,799 @@
                 "type": "object"
             }
         },
+        "f5bigip:index/gtmMonitorBigip:GtmMonitorBigip": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmMonitorBigip \" pulumi-lang-dotnet=\" f5bigip.GtmMonitorBigip \" pulumi-lang-go=\" GtmMonitorBigip \" pulumi-lang-python=\" GtmMonitorBigip \" pulumi-lang-yaml=\" f5bigip.GtmMonitorBigip \" pulumi-lang-java=\" f5bigip.GtmMonitorBigip \"\u003e f5bigip.GtmMonitorBigip \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) BIG-IP Monitor resource. This resource allows you to configure and manage GTM BIG-IP monitors on a BIG-IP system.\n\n## Description\n\nA GTM BIG-IP monitor is both a health and performance monitor that acquires data captured through monitors managed by a BIG-IP Local Traffic Manager.\n\nYou can monitor only the following components with a BIG-IP monitor:\n\n* Global Traffic Manager server\n* Global Traffic Manager virtual server\n* Local Traffic Manager server\n* Local Traffic Manager virtual server\n\n## Example Usage\n\n### Basic BIG-IP Monitor\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmMonitorBigip(\"example\", {name: \"/Common/my_bigip_monitor\"});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmMonitorBigip(\"example\", name=\"/Common/my_bigip_monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmMonitorBigip(\"example\", new()\n    {\n        Name = \"/Common/my_bigip_monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorBigip(ctx, \"example\", \u0026f5bigip.GtmMonitorBigipArgs{\n\t\t\tName: pulumi.String(\"/Common/my_bigip_monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorBigip;\nimport com.pulumi.f5bigip.GtmMonitorBigipArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmMonitorBigip(\"example\", GtmMonitorBigipArgs.builder()\n            .name(\"/Common/my_bigip_monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmMonitorBigip\n    properties:\n      name: /Common/my_bigip_monitor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Full BIG-IP Monitor Configuration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst advanced = new f5bigip.GtmMonitorBigip(\"advanced\", {\n    name: \"/Common/my_bigip_monitor\",\n    defaultsFrom: \"/Common/bigip\",\n    destination: \"*:*\",\n    interval: 10,\n    timeout: 30,\n    ignoreDownResponse: \"disabled\",\n    aggregationType: \"average-nodes\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nadvanced = f5bigip.GtmMonitorBigip(\"advanced\",\n    name=\"/Common/my_bigip_monitor\",\n    defaults_from=\"/Common/bigip\",\n    destination=\"*:*\",\n    interval=10,\n    timeout=30,\n    ignore_down_response=\"disabled\",\n    aggregation_type=\"average-nodes\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var advanced = new F5BigIP.Index.GtmMonitorBigip(\"advanced\", new()\n    {\n        Name = \"/Common/my_bigip_monitor\",\n        DefaultsFrom = \"/Common/bigip\",\n        Destination = \"*:*\",\n        Interval = 10,\n        Timeout = 30,\n        IgnoreDownResponse = \"disabled\",\n        AggregationType = \"average-nodes\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorBigip(ctx, \"advanced\", \u0026f5bigip.GtmMonitorBigipArgs{\n\t\t\tName:               pulumi.String(\"/Common/my_bigip_monitor\"),\n\t\t\tDefaultsFrom:       pulumi.String(\"/Common/bigip\"),\n\t\t\tDestination:        pulumi.String(\"*:*\"),\n\t\t\tInterval:           pulumi.Int(10),\n\t\t\tTimeout:            pulumi.Int(30),\n\t\t\tIgnoreDownResponse: pulumi.String(\"disabled\"),\n\t\t\tAggregationType:    pulumi.String(\"average-nodes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorBigip;\nimport com.pulumi.f5bigip.GtmMonitorBigipArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var advanced = new GtmMonitorBigip(\"advanced\", GtmMonitorBigipArgs.builder()\n            .name(\"/Common/my_bigip_monitor\")\n            .defaultsFrom(\"/Common/bigip\")\n            .destination(\"*:*\")\n            .interval(10)\n            .timeout(30)\n            .ignoreDownResponse(\"disabled\")\n            .aggregationType(\"average-nodes\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  advanced:\n    type: f5bigip:GtmMonitorBigip\n    properties:\n      name: /Common/my_bigip_monitor\n      defaultsFrom: /Common/bigip\n      destination: '*:*'\n      interval: 10\n      timeout: 30\n      ignoreDownResponse: disabled\n      aggregationType: average-nodes\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGTM BIG-IP Monitor resources can be imported using the full path name:\n\n```sh\n$ pulumi import f5bigip:index/gtmMonitorBigip:GtmMonitorBigip example /Common/my_bigip_monitor\n```\n\n",
+            "properties": {
+                "aggregationType": {
+                    "type": "string",
+                    "description": "Specifies how the system combines monitor information for a monitored pool. The default is none"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM BIG-IP monitor"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "aggregationType": {
+                    "type": "string",
+                    "description": "Specifies how the system combines monitor information for a monitored pool. The default is none"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM BIG-IP monitor",
+                    "willReplaceOnChanges": true
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GtmMonitorBigip resources.\n",
+                "properties": {
+                    "aggregationType": {
+                        "type": "string",
+                        "description": "Specifies how the system combines monitor information for a monitored pool. The default is none"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Inherit properties from this monitor"
+                    },
+                    "destination": {
+                        "type": "string",
+                        "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                    },
+                    "ignoreDownResponse": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the GTM BIG-IP monitor",
+                        "willReplaceOnChanges": true
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/gtmMonitorHttp:GtmMonitorHttp": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmMonitorHttp \" pulumi-lang-dotnet=\" f5bigip.GtmMonitorHttp \" pulumi-lang-go=\" GtmMonitorHttp \" pulumi-lang-python=\" GtmMonitorHttp \" pulumi-lang-yaml=\" f5bigip.GtmMonitorHttp \" pulumi-lang-java=\" f5bigip.GtmMonitorHttp \"\u003e f5bigip.GtmMonitorHttp \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) HTTP Monitor resource. This resource allows you to configure and manage GTM HTTP health monitors on a BIG-IP system.\n\n## Description\n\nA GTM HTTP monitor verifies the HTTP service by attempting to receive specific content from a web page.\n\n## Example Usage\n\n### Basic HTTP Monitor\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmMonitorHttp(\"example\", {name: \"/Common/my_http_monitor\"});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmMonitorHttp(\"example\", name=\"/Common/my_http_monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmMonitorHttp(\"example\", new()\n    {\n        Name = \"/Common/my_http_monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorHttp(ctx, \"example\", \u0026f5bigip.GtmMonitorHttpArgs{\n\t\t\tName: pulumi.String(\"/Common/my_http_monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorHttp;\nimport com.pulumi.f5bigip.GtmMonitorHttpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmMonitorHttp(\"example\", GtmMonitorHttpArgs.builder()\n            .name(\"/Common/my_http_monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmMonitorHttp\n    properties:\n      name: /Common/my_http_monitor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Full HTTP Monitor Configuration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst advanced = new f5bigip.GtmMonitorHttp(\"advanced\", {\n    name: \"/Common/my_http_monitor\",\n    defaultsFrom: \"/Common/http\",\n    destination: \"*:80\",\n    interval: 10,\n    timeout: 60,\n    probeTimeout: 3,\n    ignoreDownResponse: \"disabled\",\n    transparent: \"disabled\",\n    reverse: \"disabled\",\n    send: \"GET /health\\\\r\\\\n\",\n    receive: \"200 OK\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nadvanced = f5bigip.GtmMonitorHttp(\"advanced\",\n    name=\"/Common/my_http_monitor\",\n    defaults_from=\"/Common/http\",\n    destination=\"*:80\",\n    interval=10,\n    timeout=60,\n    probe_timeout=3,\n    ignore_down_response=\"disabled\",\n    transparent=\"disabled\",\n    reverse=\"disabled\",\n    send=\"GET /health\\\\r\\\\n\",\n    receive=\"200 OK\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var advanced = new F5BigIP.Index.GtmMonitorHttp(\"advanced\", new()\n    {\n        Name = \"/Common/my_http_monitor\",\n        DefaultsFrom = \"/Common/http\",\n        Destination = \"*:80\",\n        Interval = 10,\n        Timeout = 60,\n        ProbeTimeout = 3,\n        IgnoreDownResponse = \"disabled\",\n        Transparent = \"disabled\",\n        Reverse = \"disabled\",\n        Send = \"GET /health\\\\r\\\\n\",\n        Receive = \"200 OK\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorHttp(ctx, \"advanced\", \u0026f5bigip.GtmMonitorHttpArgs{\n\t\t\tName:               pulumi.String(\"/Common/my_http_monitor\"),\n\t\t\tDefaultsFrom:       pulumi.String(\"/Common/http\"),\n\t\t\tDestination:        pulumi.String(\"*:80\"),\n\t\t\tInterval:           pulumi.Int(10),\n\t\t\tTimeout:            pulumi.Int(60),\n\t\t\tProbeTimeout:       pulumi.Int(3),\n\t\t\tIgnoreDownResponse: pulumi.String(\"disabled\"),\n\t\t\tTransparent:        pulumi.String(\"disabled\"),\n\t\t\tReverse:            pulumi.String(\"disabled\"),\n\t\t\tSend:               pulumi.String(\"GET /health\\\\r\\\\n\"),\n\t\t\tReceive:            pulumi.String(\"200 OK\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorHttp;\nimport com.pulumi.f5bigip.GtmMonitorHttpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var advanced = new GtmMonitorHttp(\"advanced\", GtmMonitorHttpArgs.builder()\n            .name(\"/Common/my_http_monitor\")\n            .defaultsFrom(\"/Common/http\")\n            .destination(\"*:80\")\n            .interval(10)\n            .timeout(60)\n            .probeTimeout(3)\n            .ignoreDownResponse(\"disabled\")\n            .transparent(\"disabled\")\n            .reverse(\"disabled\")\n            .send(\"GET /health\\\\r\\\\n\")\n            .receive(\"200 OK\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  advanced:\n    type: f5bigip:GtmMonitorHttp\n    properties:\n      name: /Common/my_http_monitor\n      defaultsFrom: /Common/http\n      destination: '*:80'\n      interval: 10\n      timeout: 60\n      probeTimeout: 3\n      ignoreDownResponse: disabled\n      transparent: disabled\n      reverse: disabled\n      send: GET /health\\r\\n\n      receive: 200 OK\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGTM HTTP Monitor resources can be imported using the full path name:\n\n```sh\n$ pulumi import f5bigip:index/gtmMonitorHttp:GtmMonitorHttp example /Common/my_http_monitor\n```\n\n",
+            "properties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM HTTP monitor"
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM HTTP monitor",
+                    "willReplaceOnChanges": true
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GtmMonitorHttp resources.\n",
+                "properties": {
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Inherit properties from this monitor"
+                    },
+                    "destination": {
+                        "type": "string",
+                        "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                    },
+                    "ignoreDownResponse": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the GTM HTTP monitor",
+                        "willReplaceOnChanges": true
+                    },
+                    "probeTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                    },
+                    "receive": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor looks for in the returned resource"
+                    },
+                    "reverse": {
+                        "type": "string",
+                        "description": "Instructs the system to mark the target resource down when the test is successful"
+                    },
+                    "send": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor sends to the target object"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                    },
+                    "transparent": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor operates in transparent mode"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/gtmMonitorHttps:GtmMonitorHttps": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmMonitorHttps \" pulumi-lang-dotnet=\" f5bigip.GtmMonitorHttps \" pulumi-lang-go=\" GtmMonitorHttps \" pulumi-lang-python=\" GtmMonitorHttps \" pulumi-lang-yaml=\" f5bigip.GtmMonitorHttps \" pulumi-lang-java=\" f5bigip.GtmMonitorHttps \"\u003e f5bigip.GtmMonitorHttps \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) HTTPS Monitor resource. This resource allows you to configure and manage GTM HTTPS health monitors on a BIG-IP system.\n\n## Description\n\nA GTM HTTPS monitor verifies the HTTPS service by attempting to receive specific content from a web page protected by Secure Socket Layer (SSL) security. HTTPS monitors support client certificate authentication and configurable cipher lists.\n\n## Example Usage\n\n### Basic HTTPS Monitor\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmMonitorHttps(\"example\", {name: \"/Common/my_https_monitor\"});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmMonitorHttps(\"example\", name=\"/Common/my_https_monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmMonitorHttps(\"example\", new()\n    {\n        Name = \"/Common/my_https_monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorHttps(ctx, \"example\", \u0026f5bigip.GtmMonitorHttpsArgs{\n\t\t\tName: pulumi.String(\"/Common/my_https_monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorHttps;\nimport com.pulumi.f5bigip.GtmMonitorHttpsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmMonitorHttps(\"example\", GtmMonitorHttpsArgs.builder()\n            .name(\"/Common/my_https_monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmMonitorHttps\n    properties:\n      name: /Common/my_https_monitor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### HTTPS Monitor with Client Certificate\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst withCert = new f5bigip.GtmMonitorHttps(\"with_cert\", {\n    name: \"/Common/my_https_monitor\",\n    defaultsFrom: \"/Common/https\",\n    destination: \"*:443\",\n    interval: 10,\n    timeout: 60,\n    probeTimeout: 3,\n    send: \"GET /health\\\\r\\\\n\",\n    receive: \"200 OK\",\n    cert: \"/Common/my_client_cert\",\n    key: \"/Common/my_client_key\",\n    compatibility: \"enabled\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nwith_cert = f5bigip.GtmMonitorHttps(\"with_cert\",\n    name=\"/Common/my_https_monitor\",\n    defaults_from=\"/Common/https\",\n    destination=\"*:443\",\n    interval=10,\n    timeout=60,\n    probe_timeout=3,\n    send=\"GET /health\\\\r\\\\n\",\n    receive=\"200 OK\",\n    cert=\"/Common/my_client_cert\",\n    key=\"/Common/my_client_key\",\n    compatibility=\"enabled\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var withCert = new F5BigIP.Index.GtmMonitorHttps(\"with_cert\", new()\n    {\n        Name = \"/Common/my_https_monitor\",\n        DefaultsFrom = \"/Common/https\",\n        Destination = \"*:443\",\n        Interval = 10,\n        Timeout = 60,\n        ProbeTimeout = 3,\n        Send = \"GET /health\\\\r\\\\n\",\n        Receive = \"200 OK\",\n        Cert = \"/Common/my_client_cert\",\n        Key = \"/Common/my_client_key\",\n        Compatibility = \"enabled\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorHttps(ctx, \"with_cert\", \u0026f5bigip.GtmMonitorHttpsArgs{\n\t\t\tName:          pulumi.String(\"/Common/my_https_monitor\"),\n\t\t\tDefaultsFrom:  pulumi.String(\"/Common/https\"),\n\t\t\tDestination:   pulumi.String(\"*:443\"),\n\t\t\tInterval:      pulumi.Int(10),\n\t\t\tTimeout:       pulumi.Int(60),\n\t\t\tProbeTimeout:  pulumi.Int(3),\n\t\t\tSend:          pulumi.String(\"GET /health\\\\r\\\\n\"),\n\t\t\tReceive:       pulumi.String(\"200 OK\"),\n\t\t\tCert:          pulumi.String(\"/Common/my_client_cert\"),\n\t\t\tKey:           pulumi.String(\"/Common/my_client_key\"),\n\t\t\tCompatibility: pulumi.String(\"enabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorHttps;\nimport com.pulumi.f5bigip.GtmMonitorHttpsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var withCert = new GtmMonitorHttps(\"withCert\", GtmMonitorHttpsArgs.builder()\n            .name(\"/Common/my_https_monitor\")\n            .defaultsFrom(\"/Common/https\")\n            .destination(\"*:443\")\n            .interval(10)\n            .timeout(60)\n            .probeTimeout(3)\n            .send(\"GET /health\\\\r\\\\n\")\n            .receive(\"200 OK\")\n            .cert(\"/Common/my_client_cert\")\n            .key(\"/Common/my_client_key\")\n            .compatibility(\"enabled\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  withCert:\n    type: f5bigip:GtmMonitorHttps\n    name: with_cert\n    properties:\n      name: /Common/my_https_monitor\n      defaultsFrom: /Common/https\n      destination: '*:443'\n      interval: 10\n      timeout: 60\n      probeTimeout: 3\n      send: GET /health\\r\\n\n      receive: 200 OK\n      cert: /Common/my_client_cert\n      key: /Common/my_client_key\n      compatibility: enabled\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGTM HTTPS Monitor resources can be imported using the full path name:\n\n```sh\n$ pulumi import f5bigip:index/gtmMonitorHttps:GtmMonitorHttps example /Common/my_https_monitor\n```\n\n",
+            "properties": {
+                "cert": {
+                    "type": "string",
+                    "description": "Specifies a fully-qualified path for a client certificate that the monitor sends to the target SSL server"
+                },
+                "cipherlist": {
+                    "type": "string",
+                    "description": "Specifies the list of ciphers for this monitor"
+                },
+                "compatibility": {
+                    "type": "string",
+                    "description": "Specifies the SSL version compatibility"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Specifies the key for the client certificate that the monitor sends to the target SSL server"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM HTTPS monitor"
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "cert": {
+                    "type": "string",
+                    "description": "Specifies a fully-qualified path for a client certificate that the monitor sends to the target SSL server"
+                },
+                "cipherlist": {
+                    "type": "string",
+                    "description": "Specifies the list of ciphers for this monitor"
+                },
+                "compatibility": {
+                    "type": "string",
+                    "description": "Specifies the SSL version compatibility"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "Specifies the key for the client certificate that the monitor sends to the target SSL server"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM HTTPS monitor",
+                    "willReplaceOnChanges": true
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GtmMonitorHttps resources.\n",
+                "properties": {
+                    "cert": {
+                        "type": "string",
+                        "description": "Specifies a fully-qualified path for a client certificate that the monitor sends to the target SSL server"
+                    },
+                    "cipherlist": {
+                        "type": "string",
+                        "description": "Specifies the list of ciphers for this monitor"
+                    },
+                    "compatibility": {
+                        "type": "string",
+                        "description": "Specifies the SSL version compatibility"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Inherit properties from this monitor"
+                    },
+                    "destination": {
+                        "type": "string",
+                        "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                    },
+                    "ignoreDownResponse": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Specifies the key for the client certificate that the monitor sends to the target SSL server"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the GTM HTTPS monitor",
+                        "willReplaceOnChanges": true
+                    },
+                    "probeTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                    },
+                    "receive": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor looks for in the returned resource"
+                    },
+                    "reverse": {
+                        "type": "string",
+                        "description": "Instructs the system to mark the target resource down when the test is successful"
+                    },
+                    "send": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor sends to the target object"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                    },
+                    "transparent": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor operates in transparent mode"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmMonitorPostgresql \" pulumi-lang-dotnet=\" f5bigip.GtmMonitorPostgresql \" pulumi-lang-go=\" GtmMonitorPostgresql \" pulumi-lang-python=\" GtmMonitorPostgresql \" pulumi-lang-yaml=\" f5bigip.GtmMonitorPostgresql \" pulumi-lang-java=\" f5bigip.GtmMonitorPostgresql \"\u003e f5bigip.GtmMonitorPostgresql \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) PostgreSQL Monitor resource. This resource allows you to configure and manage GTM PostgreSQL health monitors on a BIG-IP system.\n\n## Description\n\nA GTM PostgreSQL monitor verifies PostgreSQL database services by connecting to a database and optionally executing a query and evaluating the response. PostgreSQL monitors support database-specific configuration including database name, username, password, and instance count.\n\n## Example Usage\n\n### Basic PostgreSQL Monitor\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmMonitorPostgresql(\"example\", {name: \"/Common/my_postgresql_monitor\"});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmMonitorPostgresql(\"example\", name=\"/Common/my_postgresql_monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmMonitorPostgresql(\"example\", new()\n    {\n        Name = \"/Common/my_postgresql_monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorPostgresql(ctx, \"example\", \u0026f5bigip.GtmMonitorPostgresqlArgs{\n\t\t\tName: pulumi.String(\"/Common/my_postgresql_monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorPostgresql;\nimport com.pulumi.f5bigip.GtmMonitorPostgresqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmMonitorPostgresql(\"example\", GtmMonitorPostgresqlArgs.builder()\n            .name(\"/Common/my_postgresql_monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmMonitorPostgresql\n    properties:\n      name: /Common/my_postgresql_monitor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### PostgreSQL Monitor with Authentication\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst advanced = new f5bigip.GtmMonitorPostgresql(\"advanced\", {\n    name: \"/Common/my_postgresql_monitor\",\n    defaultsFrom: \"/Common/postgresql\",\n    destination: \"*:5432\",\n    interval: 10,\n    timeout: 60,\n    probeTimeout: 3,\n    ignoreDownResponse: \"disabled\",\n    database: \"mydb\",\n    username: \"monitor_user\",\n    password: \"monitor_pass\",\n    receive: \"SELECT\",\n    debug: \"no\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nadvanced = f5bigip.GtmMonitorPostgresql(\"advanced\",\n    name=\"/Common/my_postgresql_monitor\",\n    defaults_from=\"/Common/postgresql\",\n    destination=\"*:5432\",\n    interval=10,\n    timeout=60,\n    probe_timeout=3,\n    ignore_down_response=\"disabled\",\n    database=\"mydb\",\n    username=\"monitor_user\",\n    password=\"monitor_pass\",\n    receive=\"SELECT\",\n    debug=\"no\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var advanced = new F5BigIP.Index.GtmMonitorPostgresql(\"advanced\", new()\n    {\n        Name = \"/Common/my_postgresql_monitor\",\n        DefaultsFrom = \"/Common/postgresql\",\n        Destination = \"*:5432\",\n        Interval = 10,\n        Timeout = 60,\n        ProbeTimeout = 3,\n        IgnoreDownResponse = \"disabled\",\n        Database = \"mydb\",\n        Username = \"monitor_user\",\n        Password = \"monitor_pass\",\n        Receive = \"SELECT\",\n        Debug = \"no\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorPostgresql(ctx, \"advanced\", \u0026f5bigip.GtmMonitorPostgresqlArgs{\n\t\t\tName:               pulumi.String(\"/Common/my_postgresql_monitor\"),\n\t\t\tDefaultsFrom:       pulumi.String(\"/Common/postgresql\"),\n\t\t\tDestination:        pulumi.String(\"*:5432\"),\n\t\t\tInterval:           pulumi.Int(10),\n\t\t\tTimeout:            pulumi.Int(60),\n\t\t\tProbeTimeout:       pulumi.Int(3),\n\t\t\tIgnoreDownResponse: pulumi.String(\"disabled\"),\n\t\t\tDatabase:           pulumi.String(\"mydb\"),\n\t\t\tUsername:           pulumi.String(\"monitor_user\"),\n\t\t\tPassword:           pulumi.String(\"monitor_pass\"),\n\t\t\tReceive:            pulumi.String(\"SELECT\"),\n\t\t\tDebug:              pulumi.String(\"no\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorPostgresql;\nimport com.pulumi.f5bigip.GtmMonitorPostgresqlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var advanced = new GtmMonitorPostgresql(\"advanced\", GtmMonitorPostgresqlArgs.builder()\n            .name(\"/Common/my_postgresql_monitor\")\n            .defaultsFrom(\"/Common/postgresql\")\n            .destination(\"*:5432\")\n            .interval(10)\n            .timeout(60)\n            .probeTimeout(3)\n            .ignoreDownResponse(\"disabled\")\n            .database(\"mydb\")\n            .username(\"monitor_user\")\n            .password(\"monitor_pass\")\n            .receive(\"SELECT\")\n            .debug(\"no\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  advanced:\n    type: f5bigip:GtmMonitorPostgresql\n    properties:\n      name: /Common/my_postgresql_monitor\n      defaultsFrom: /Common/postgresql\n      destination: '*:5432'\n      interval: 10\n      timeout: 60\n      probeTimeout: 3\n      ignoreDownResponse: disabled\n      database: mydb\n      username: monitor_user\n      password: monitor_pass\n      receive: SELECT\n      debug: no\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGTM PostgreSQL Monitor resources can be imported using the full path name:\n\n```sh\n$ pulumi import f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql example /Common/my_postgresql_monitor\n```\n\n",
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Specifies the database in which the user is created"
+                },
+                "debug": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor sends error messages and additional information to a log file created and labeled specifically for this monitor"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "instanceCount": {
+                    "type": "string",
+                    "description": "Specifies the number of instances for which the system keeps a connection open"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM PostgreSQL monitor"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Specifies the password if the monitored target requires authentication",
+                    "secret": true
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Specifies the user name if the monitored target requires authentication"
+                }
+            },
+            "required": [
+                "instanceCount",
+                "name"
+            ],
+            "inputProperties": {
+                "database": {
+                    "type": "string",
+                    "description": "Specifies the database in which the user is created"
+                },
+                "debug": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor sends error messages and additional information to a log file created and labeled specifically for this monitor"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "instanceCount": {
+                    "type": "string",
+                    "description": "Specifies the number of instances for which the system keeps a connection open"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM PostgreSQL monitor",
+                    "willReplaceOnChanges": true
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Specifies the password if the monitored target requires authentication",
+                    "secret": true
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Specifies the user name if the monitored target requires authentication"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GtmMonitorPostgresql resources.\n",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "Specifies the database in which the user is created"
+                    },
+                    "debug": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor sends error messages and additional information to a log file created and labeled specifically for this monitor"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Inherit properties from this monitor"
+                    },
+                    "destination": {
+                        "type": "string",
+                        "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                    },
+                    "ignoreDownResponse": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                    },
+                    "instanceCount": {
+                        "type": "string",
+                        "description": "Specifies the number of instances for which the system keeps a connection open"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the GTM PostgreSQL monitor",
+                        "willReplaceOnChanges": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Specifies the password if the monitored target requires authentication",
+                        "secret": true
+                    },
+                    "probeTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                    },
+                    "receive": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor looks for in the returned resource"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Specifies the user name if the monitored target requires authentication"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/gtmMonitorTcp:GtmMonitorTcp": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmMonitorTcp \" pulumi-lang-dotnet=\" f5bigip.GtmMonitorTcp \" pulumi-lang-go=\" GtmMonitorTcp \" pulumi-lang-python=\" GtmMonitorTcp \" pulumi-lang-yaml=\" f5bigip.GtmMonitorTcp \" pulumi-lang-java=\" f5bigip.GtmMonitorTcp \"\u003e f5bigip.GtmMonitorTcp \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) TCP Monitor resource. This resource allows you to configure and manage GTM TCP health monitors on a BIG-IP system.\n\n## Description\n\nA GTM TCP monitor verifies the health of TCP-based services by establishing a connection to the target. It can optionally send a text string and evaluate the response for more specific health checks.\n\n## Example Usage\n\n### Basic TCP Monitor\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmMonitorTcp(\"example\", {name: \"/Common/my_tcp_monitor\"});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmMonitorTcp(\"example\", name=\"/Common/my_tcp_monitor\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmMonitorTcp(\"example\", new()\n    {\n        Name = \"/Common/my_tcp_monitor\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorTcp(ctx, \"example\", \u0026f5bigip.GtmMonitorTcpArgs{\n\t\t\tName: pulumi.String(\"/Common/my_tcp_monitor\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorTcp;\nimport com.pulumi.f5bigip.GtmMonitorTcpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmMonitorTcp(\"example\", GtmMonitorTcpArgs.builder()\n            .name(\"/Common/my_tcp_monitor\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmMonitorTcp\n    properties:\n      name: /Common/my_tcp_monitor\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### TCP Monitor with Send/Receive Strings\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst advanced = new f5bigip.GtmMonitorTcp(\"advanced\", {\n    name: \"/Common/my_tcp_monitor\",\n    defaultsFrom: \"/Common/tcp\",\n    destination: \"*:3306\",\n    interval: 10,\n    timeout: 60,\n    probeTimeout: 3,\n    ignoreDownResponse: \"disabled\",\n    transparent: \"disabled\",\n    reverse: \"disabled\",\n    send: \"ping\",\n    receive: \"pong\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nadvanced = f5bigip.GtmMonitorTcp(\"advanced\",\n    name=\"/Common/my_tcp_monitor\",\n    defaults_from=\"/Common/tcp\",\n    destination=\"*:3306\",\n    interval=10,\n    timeout=60,\n    probe_timeout=3,\n    ignore_down_response=\"disabled\",\n    transparent=\"disabled\",\n    reverse=\"disabled\",\n    send=\"ping\",\n    receive=\"pong\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var advanced = new F5BigIP.Index.GtmMonitorTcp(\"advanced\", new()\n    {\n        Name = \"/Common/my_tcp_monitor\",\n        DefaultsFrom = \"/Common/tcp\",\n        Destination = \"*:3306\",\n        Interval = 10,\n        Timeout = 60,\n        ProbeTimeout = 3,\n        IgnoreDownResponse = \"disabled\",\n        Transparent = \"disabled\",\n        Reverse = \"disabled\",\n        Send = \"ping\",\n        Receive = \"pong\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmMonitorTcp(ctx, \"advanced\", \u0026f5bigip.GtmMonitorTcpArgs{\n\t\t\tName:               pulumi.String(\"/Common/my_tcp_monitor\"),\n\t\t\tDefaultsFrom:       pulumi.String(\"/Common/tcp\"),\n\t\t\tDestination:        pulumi.String(\"*:3306\"),\n\t\t\tInterval:           pulumi.Int(10),\n\t\t\tTimeout:            pulumi.Int(60),\n\t\t\tProbeTimeout:       pulumi.Int(3),\n\t\t\tIgnoreDownResponse: pulumi.String(\"disabled\"),\n\t\t\tTransparent:        pulumi.String(\"disabled\"),\n\t\t\tReverse:            pulumi.String(\"disabled\"),\n\t\t\tSend:               pulumi.String(\"ping\"),\n\t\t\tReceive:            pulumi.String(\"pong\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmMonitorTcp;\nimport com.pulumi.f5bigip.GtmMonitorTcpArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var advanced = new GtmMonitorTcp(\"advanced\", GtmMonitorTcpArgs.builder()\n            .name(\"/Common/my_tcp_monitor\")\n            .defaultsFrom(\"/Common/tcp\")\n            .destination(\"*:3306\")\n            .interval(10)\n            .timeout(60)\n            .probeTimeout(3)\n            .ignoreDownResponse(\"disabled\")\n            .transparent(\"disabled\")\n            .reverse(\"disabled\")\n            .send(\"ping\")\n            .receive(\"pong\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  advanced:\n    type: f5bigip:GtmMonitorTcp\n    properties:\n      name: /Common/my_tcp_monitor\n      defaultsFrom: /Common/tcp\n      destination: '*:3306'\n      interval: 10\n      timeout: 60\n      probeTimeout: 3\n      ignoreDownResponse: disabled\n      transparent: disabled\n      reverse: disabled\n      send: ping\n      receive: pong\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nGTM TCP Monitor resources can be imported using the full path name:\n\n```sh\n$ pulumi import f5bigip:index/gtmMonitorTcp:GtmMonitorTcp example /Common/my_tcp_monitor\n```\n\n",
+            "properties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM TCP monitor"
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Inherit properties from this monitor"
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                },
+                "ignoreDownResponse": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                },
+                "interval": {
+                    "type": "integer",
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the GTM TCP monitor",
+                    "willReplaceOnChanges": true
+                },
+                "probeTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                },
+                "receive": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor looks for in the returned resource"
+                },
+                "reverse": {
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful"
+                },
+                "send": {
+                    "type": "string",
+                    "description": "Specifies the text string that the monitor sends to the target object"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GtmMonitorTcp resources.\n",
+                "properties": {
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Inherit properties from this monitor"
+                    },
+                    "destination": {
+                        "type": "string",
+                        "description": "Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is \"*:*\""
+                    },
+                    "ignoreDownResponse": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor ignores a down response from the system it is monitoring"
+                    },
+                    "interval": {
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the GTM TCP monitor",
+                        "willReplaceOnChanges": true
+                    },
+                    "probeTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system"
+                    },
+                    "receive": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor looks for in the returned resource"
+                    },
+                    "reverse": {
+                        "type": "string",
+                        "description": "Instructs the system to mark the target resource down when the test is successful"
+                    },
+                    "send": {
+                        "type": "string",
+                        "description": "Specifies the text string that the monitor sends to the target object"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request"
+                    },
+                    "transparent": {
+                        "type": "string",
+                        "description": "Specifies whether the monitor operates in transparent mode"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:index/gtmPool:GtmPool": {
             "description": "## #\u003cspan pulumi-lang-nodejs=\" f5bigip.GtmPool \" pulumi-lang-dotnet=\" f5bigip.GtmPool \" pulumi-lang-go=\" GtmPool \" pulumi-lang-python=\" GtmPool \" pulumi-lang-yaml=\" f5bigip.GtmPool \" pulumi-lang-java=\" f5bigip.GtmPool \"\u003e f5bigip.GtmPool \u003c/span\u003eResource\n\nProvides a BIG-IP GTM (Global Traffic Manager) Pool resource. This resource allows you to configure and manage GTM Pool objects on a BIG-IP system.\n\n## Description\n\nA GTM pool is a collection of virtual servers or other pool members that can be distributed across multiple data centers. GTM pools are used by WideIPs to intelligently distribute DNS traffic based on various load balancing algorithms and health monitoring.\n\nGTM Pool types correspond to different DNS record types:\n- **a**: IPv4 address pools\n- **aaaa**: IPv6 address pools\n- **cname**: Canonical name pools\n- **mx**: Mail exchange pools\n- **naptr**: Naming authority pointer pools\n- **srv**: Service locator pools\n\n## Example Usage\n\n### Basic Pool\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example = new f5bigip.GtmPool(\"example\", {\n    name: \"my_pool\",\n    type: \"a\",\n    partition: \"Common\",\n    loadBalancingMode: \"round-robin\",\n    monitor: \"/Common/https\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample = f5bigip.GtmPool(\"example\",\n    name=\"my_pool\",\n    type=\"a\",\n    partition=\"Common\",\n    load_balancing_mode=\"round-robin\",\n    monitor=\"/Common/https\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new F5BigIP.Index.GtmPool(\"example\", new()\n    {\n        Name = \"my_pool\",\n        Type = \"a\",\n        Partition = \"Common\",\n        LoadBalancingMode = \"round-robin\",\n        Monitor = \"/Common/https\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmPool(ctx, \"example\", \u0026f5bigip.GtmPoolArgs{\n\t\t\tName:              pulumi.String(\"my_pool\"),\n\t\t\tType:              pulumi.String(\"a\"),\n\t\t\tPartition:         pulumi.String(\"Common\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitor:           pulumi.String(\"/Common/https\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmPool;\nimport com.pulumi.f5bigip.GtmPoolArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GtmPool(\"example\", GtmPoolArgs.builder()\n            .name(\"my_pool\")\n            .type(\"a\")\n            .partition(\"Common\")\n            .loadBalancingMode(\"round-robin\")\n            .monitor(\"/Common/https\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: f5bigip:GtmPool\n    properties:\n      name: my_pool\n      type: a\n      partition: Common\n      loadBalancingMode: round-robin\n      monitor: /Common/https\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Pool with Members\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst withMembers = new f5bigip.GtmPool(\"with_members\", {\n    name: \"app_pool\",\n    type: \"a\",\n    partition: \"Common\",\n    loadBalancingMode: \"round-robin\",\n    monitor: \"/Common/https\",\n    ttl: 30,\n    members: [\n        {\n            name: \"server1:/Common/vs_app\",\n            enabled: true,\n            ratio: 1,\n            memberOrder: 0,\n        },\n        {\n            name: \"server2:/Common/vs_app\",\n            enabled: true,\n            ratio: 1,\n            memberOrder: 1,\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nwith_members = f5bigip.GtmPool(\"with_members\",\n    name=\"app_pool\",\n    type=\"a\",\n    partition=\"Common\",\n    load_balancing_mode=\"round-robin\",\n    monitor=\"/Common/https\",\n    ttl=30,\n    members=[\n        {\n            \"name\": \"server1:/Common/vs_app\",\n            \"enabled\": True,\n            \"ratio\": 1,\n            \"member_order\": 0,\n        },\n        {\n            \"name\": \"server2:/Common/vs_app\",\n            \"enabled\": True,\n            \"ratio\": 1,\n            \"member_order\": 1,\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var withMembers = new F5BigIP.Index.GtmPool(\"with_members\", new()\n    {\n        Name = \"app_pool\",\n        Type = \"a\",\n        Partition = \"Common\",\n        LoadBalancingMode = \"round-robin\",\n        Monitor = \"/Common/https\",\n        Ttl = 30,\n        Members = new[]\n        {\n            new F5BigIP.Inputs.GtmPoolMemberArgs\n            {\n                Name = \"server1:/Common/vs_app\",\n                Enabled = true,\n                Ratio = 1,\n                MemberOrder = 0,\n            },\n            new F5BigIP.Inputs.GtmPoolMemberArgs\n            {\n                Name = \"server2:/Common/vs_app\",\n                Enabled = true,\n                Ratio = 1,\n                MemberOrder = 1,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmPool(ctx, \"with_members\", \u0026f5bigip.GtmPoolArgs{\n\t\t\tName:              pulumi.String(\"app_pool\"),\n\t\t\tType:              pulumi.String(\"a\"),\n\t\t\tPartition:         pulumi.String(\"Common\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitor:           pulumi.String(\"/Common/https\"),\n\t\t\tTtl:               pulumi.Int(30),\n\t\t\tMembers: f5bigip.GtmPoolMemberArray{\n\t\t\t\t\u0026f5bigip.GtmPoolMemberArgs{\n\t\t\t\t\tName:        pulumi.String(\"server1:/Common/vs_app\"),\n\t\t\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\t\t\tRatio:       pulumi.Int(1),\n\t\t\t\t\tMemberOrder: pulumi.Int(0),\n\t\t\t\t},\n\t\t\t\t\u0026f5bigip.GtmPoolMemberArgs{\n\t\t\t\t\tName:        pulumi.String(\"server2:/Common/vs_app\"),\n\t\t\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\t\t\tRatio:       pulumi.Int(1),\n\t\t\t\t\tMemberOrder: pulumi.Int(1),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmPool;\nimport com.pulumi.f5bigip.GtmPoolArgs;\nimport com.pulumi.f5bigip.inputs.GtmPoolMemberArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var withMembers = new GtmPool(\"withMembers\", GtmPoolArgs.builder()\n            .name(\"app_pool\")\n            .type(\"a\")\n            .partition(\"Common\")\n            .loadBalancingMode(\"round-robin\")\n            .monitor(\"/Common/https\")\n            .ttl(30)\n            .members(            \n                GtmPoolMemberArgs.builder()\n                    .name(\"server1:/Common/vs_app\")\n                    .enabled(true)\n                    .ratio(1)\n                    .memberOrder(0)\n                    .build(),\n                GtmPoolMemberArgs.builder()\n                    .name(\"server2:/Common/vs_app\")\n                    .enabled(true)\n                    .ratio(1)\n                    .memberOrder(1)\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  withMembers:\n    type: f5bigip:GtmPool\n    name: with_members\n    properties:\n      name: app_pool\n      type: a\n      partition: Common\n      loadBalancingMode: round-robin\n      monitor: /Common/https\n      ttl: 30\n      members:\n        - name: server1:/Common/vs_app\n          enabled: true\n          ratio: 1\n          memberOrder: 0\n        - name: server2:/Common/vs_app\n          enabled: true\n          ratio: 1\n          memberOrder: 1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Advanced Pool Configuration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst advanced = new f5bigip.GtmPool(\"advanced\", {\n    name: \"advanced_pool\",\n    type: \"a\",\n    partition: \"Common\",\n    loadBalancingMode: \"round-robin\",\n    alternateMode: \"topology\",\n    fallbackMode: \"return-to-dns\",\n    fallbackIp: \"192.0.2.1\",\n    maxAnswersReturned: 2,\n    ttl: 60,\n    monitor: \"/Common/https\",\n    verifyMemberAvailability: \"enabled\",\n    qosHitRatio: 10,\n    qosHops: 5,\n    qosKilobytesSecond: 5,\n    qosLcs: 50,\n    qosPacketRate: 5,\n    qosRtt: 100,\n    limitMaxConnections: 5000,\n    limitMaxConnectionsStatus: \"enabled\",\n    limitMaxBps: 100000000,\n    limitMaxBpsStatus: \"enabled\",\n    minMembersUpMode: \"at-least\",\n    minMembersUpValue: 2,\n    members: [\n        {\n            name: \"server1:/Common/vs_app\",\n            enabled: true,\n            ratio: 2,\n            memberOrder: 0,\n            monitor: \"default\",\n            limitMaxConnections: 2000,\n            limitMaxConnectionsStatus: \"enabled\",\n        },\n        {\n            name: \"server2:/Common/vs_app\",\n            enabled: true,\n            ratio: 1,\n            memberOrder: 1,\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nadvanced = f5bigip.GtmPool(\"advanced\",\n    name=\"advanced_pool\",\n    type=\"a\",\n    partition=\"Common\",\n    load_balancing_mode=\"round-robin\",\n    alternate_mode=\"topology\",\n    fallback_mode=\"return-to-dns\",\n    fallback_ip=\"192.0.2.1\",\n    max_answers_returned=2,\n    ttl=60,\n    monitor=\"/Common/https\",\n    verify_member_availability=\"enabled\",\n    qos_hit_ratio=10,\n    qos_hops=5,\n    qos_kilobytes_second=5,\n    qos_lcs=50,\n    qos_packet_rate=5,\n    qos_rtt=100,\n    limit_max_connections=5000,\n    limit_max_connections_status=\"enabled\",\n    limit_max_bps=100000000,\n    limit_max_bps_status=\"enabled\",\n    min_members_up_mode=\"at-least\",\n    min_members_up_value=2,\n    members=[\n        {\n            \"name\": \"server1:/Common/vs_app\",\n            \"enabled\": True,\n            \"ratio\": 2,\n            \"member_order\": 0,\n            \"monitor\": \"default\",\n            \"limit_max_connections\": 2000,\n            \"limit_max_connections_status\": \"enabled\",\n        },\n        {\n            \"name\": \"server2:/Common/vs_app\",\n            \"enabled\": True,\n            \"ratio\": 1,\n            \"member_order\": 1,\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var advanced = new F5BigIP.Index.GtmPool(\"advanced\", new()\n    {\n        Name = \"advanced_pool\",\n        Type = \"a\",\n        Partition = \"Common\",\n        LoadBalancingMode = \"round-robin\",\n        AlternateMode = \"topology\",\n        FallbackMode = \"return-to-dns\",\n        FallbackIp = \"192.0.2.1\",\n        MaxAnswersReturned = 2,\n        Ttl = 60,\n        Monitor = \"/Common/https\",\n        VerifyMemberAvailability = \"enabled\",\n        QosHitRatio = 10,\n        QosHops = 5,\n        QosKilobytesSecond = 5,\n        QosLcs = 50,\n        QosPacketRate = 5,\n        QosRtt = 100,\n        LimitMaxConnections = 5000,\n        LimitMaxConnectionsStatus = \"enabled\",\n        LimitMaxBps = 100000000,\n        LimitMaxBpsStatus = \"enabled\",\n        MinMembersUpMode = \"at-least\",\n        MinMembersUpValue = 2,\n        Members = new[]\n        {\n            new F5BigIP.Inputs.GtmPoolMemberArgs\n            {\n                Name = \"server1:/Common/vs_app\",\n                Enabled = true,\n                Ratio = 2,\n                MemberOrder = 0,\n                Monitor = \"default\",\n                LimitMaxConnections = 2000,\n                LimitMaxConnectionsStatus = \"enabled\",\n            },\n            new F5BigIP.Inputs.GtmPoolMemberArgs\n            {\n                Name = \"server2:/Common/vs_app\",\n                Enabled = true,\n                Ratio = 1,\n                MemberOrder = 1,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewGtmPool(ctx, \"advanced\", \u0026f5bigip.GtmPoolArgs{\n\t\t\tName:                      pulumi.String(\"advanced_pool\"),\n\t\t\tType:                      pulumi.String(\"a\"),\n\t\t\tPartition:                 pulumi.String(\"Common\"),\n\t\t\tLoadBalancingMode:         pulumi.String(\"round-robin\"),\n\t\t\tAlternateMode:             pulumi.String(\"topology\"),\n\t\t\tFallbackMode:              pulumi.String(\"return-to-dns\"),\n\t\t\tFallbackIp:                pulumi.String(\"192.0.2.1\"),\n\t\t\tMaxAnswersReturned:        pulumi.Int(2),\n\t\t\tTtl:                       pulumi.Int(60),\n\t\t\tMonitor:                   pulumi.String(\"/Common/https\"),\n\t\t\tVerifyMemberAvailability:  pulumi.String(\"enabled\"),\n\t\t\tQosHitRatio:               pulumi.Int(10),\n\t\t\tQosHops:                   pulumi.Int(5),\n\t\t\tQosKilobytesSecond:        pulumi.Int(5),\n\t\t\tQosLcs:                    pulumi.Int(50),\n\t\t\tQosPacketRate:             pulumi.Int(5),\n\t\t\tQosRtt:                    pulumi.Int(100),\n\t\t\tLimitMaxConnections:       pulumi.Int(5000),\n\t\t\tLimitMaxConnectionsStatus: pulumi.String(\"enabled\"),\n\t\t\tLimitMaxBps:               pulumi.Int(100000000),\n\t\t\tLimitMaxBpsStatus:         pulumi.String(\"enabled\"),\n\t\t\tMinMembersUpMode:          pulumi.String(\"at-least\"),\n\t\t\tMinMembersUpValue:         pulumi.Int(2),\n\t\t\tMembers: f5bigip.GtmPoolMemberArray{\n\t\t\t\t\u0026f5bigip.GtmPoolMemberArgs{\n\t\t\t\t\tName:                      pulumi.String(\"server1:/Common/vs_app\"),\n\t\t\t\t\tEnabled:                   pulumi.Bool(true),\n\t\t\t\t\tRatio:                     pulumi.Int(2),\n\t\t\t\t\tMemberOrder:               pulumi.Int(0),\n\t\t\t\t\tMonitor:                   pulumi.String(\"default\"),\n\t\t\t\t\tLimitMaxConnections:       pulumi.Int(2000),\n\t\t\t\t\tLimitMaxConnectionsStatus: pulumi.String(\"enabled\"),\n\t\t\t\t},\n\t\t\t\t\u0026f5bigip.GtmPoolMemberArgs{\n\t\t\t\t\tName:        pulumi.String(\"server2:/Common/vs_app\"),\n\t\t\t\t\tEnabled:     pulumi.Bool(true),\n\t\t\t\t\tRatio:       pulumi.Int(1),\n\t\t\t\t\tMemberOrder: pulumi.Int(1),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.GtmPool;\nimport com.pulumi.f5bigip.GtmPoolArgs;\nimport com.pulumi.f5bigip.inputs.GtmPoolMemberArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var advanced = new GtmPool(\"advanced\", GtmPoolArgs.builder()\n            .name(\"advanced_pool\")\n            .type(\"a\")\n            .partition(\"Common\")\n            .loadBalancingMode(\"round-robin\")\n            .alternateMode(\"topology\")\n            .fallbackMode(\"return-to-dns\")\n            .fallbackIp(\"192.0.2.1\")\n            .maxAnswersReturned(2)\n            .ttl(60)\n            .monitor(\"/Common/https\")\n            .verifyMemberAvailability(\"enabled\")\n            .qosHitRatio(10)\n            .qosHops(5)\n            .qosKilobytesSecond(5)\n            .qosLcs(50)\n            .qosPacketRate(5)\n            .qosRtt(100)\n            .limitMaxConnections(5000)\n            .limitMaxConnectionsStatus(\"enabled\")\n            .limitMaxBps(100000000)\n            .limitMaxBpsStatus(\"enabled\")\n            .minMembersUpMode(\"at-least\")\n            .minMembersUpValue(2)\n            .members(            \n                GtmPoolMemberArgs.builder()\n                    .name(\"server1:/Common/vs_app\")\n                    .enabled(true)\n                    .ratio(2)\n                    .memberOrder(0)\n                    .monitor(\"default\")\n                    .limitMaxConnections(2000)\n                    .limitMaxConnectionsStatus(\"enabled\")\n                    .build(),\n                GtmPoolMemberArgs.builder()\n                    .name(\"server2:/Common/vs_app\")\n                    .enabled(true)\n                    .ratio(1)\n                    .memberOrder(1)\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  advanced:\n    type: f5bigip:GtmPool\n    properties:\n      name: advanced_pool\n      type: a\n      partition: Common\n      loadBalancingMode: round-robin\n      alternateMode: topology\n      fallbackMode: return-to-dns\n      fallbackIp: 192.0.2.1\n      maxAnswersReturned: 2\n      ttl: 60 # Monitoring\n      monitor: /Common/https\n      verifyMemberAvailability: enabled\n      qosHitRatio: 10\n      qosHops: 5\n      qosKilobytesSecond: 5\n      qosLcs: 50\n      qosPacketRate: 5\n      qosRtt: 100 # Connection limits\n      limitMaxConnections: 5000\n      limitMaxConnectionsStatus: enabled\n      limitMaxBps: 1e+08\n      limitMaxBpsStatus: enabled\n      minMembersUpMode: at-least\n      minMembersUpValue: 2\n      members:\n        - name: server1:/Common/vs_app\n          enabled: true\n          ratio: 2\n          memberOrder: 0\n          monitor: default\n          limitMaxConnections: 2000\n          limitMaxConnectionsStatus: enabled\n        - name: server2:/Common/vs_app\n          enabled: true\n          ratio: 1\n          memberOrder: 1\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Notes\n\n### Pool Member Name Format\n\nPool members must be specified in the format: `\u003cserver_name\u003e:\u003cvirtual_server_name\u003e`\n\nExamples:\n- `server1:/Common/vs_app` - References virtual server \u003cspan pulumi-lang-nodejs=\"`vsApp`\" pulumi-lang-dotnet=\"`VsApp`\" pulumi-lang-go=\"`vsApp`\" pulumi-lang-python=\"`vs_app`\" pulumi-lang-yaml=\"`vsApp`\" pulumi-lang-java=\"`vsApp`\"\u003e`vsApp`\u003c/span\u003e on server \u003cspan pulumi-lang-nodejs=\"`server1`\" pulumi-lang-dotnet=\"`Server1`\" pulumi-lang-go=\"`server1`\" pulumi-lang-python=\"`server1`\" pulumi-lang-yaml=\"`server1`\" pulumi-lang-java=\"`server1`\"\u003e`server1`\u003c/span\u003e\n- `dc1_server:/Prod/app_vs` - References virtual server \u003cspan pulumi-lang-nodejs=\"`appVs`\" pulumi-lang-dotnet=\"`AppVs`\" pulumi-lang-go=\"`appVs`\" pulumi-lang-python=\"`app_vs`\" pulumi-lang-yaml=\"`appVs`\" pulumi-lang-java=\"`appVs`\"\u003e`appVs`\u003c/span\u003e in partition `Prod` on server \u003cspan pulumi-lang-nodejs=\"`dc1Server`\" pulumi-lang-dotnet=\"`Dc1Server`\" pulumi-lang-go=\"`dc1Server`\" pulumi-lang-python=\"`dc1_server`\" pulumi-lang-yaml=\"`dc1Server`\" pulumi-lang-java=\"`dc1Server`\"\u003e`dc1Server`\u003c/span\u003e\n\nThe server and virtual server must already exist in the GTM configuration.\n\n### Load Balancing Modes\n\nThe \u003cspan pulumi-lang-nodejs=\"`loadBalancingMode`\" pulumi-lang-dotnet=\"`LoadBalancingMode`\" pulumi-lang-go=\"`loadBalancingMode`\" pulumi-lang-python=\"`load_balancing_mode`\" pulumi-lang-yaml=\"`loadBalancingMode`\" pulumi-lang-java=\"`loadBalancingMode`\"\u003e`loadBalancingMode`\u003c/span\u003e determines how GTM distributes DNS queries across pool members:\n\n- **round-robin**: Distributes queries equally across all available members\n- **ratio**: Distributes queries based on member ratios\n- **topology**: Uses topology records to determine the best member\n- **global-availability**: Considers member availability and load\n- **virtual-server-capacity**: Based on virtual server capacity\n- **least-connections**: Selects member with fewest active connections\n- **lowest-round-trip-time**: Selects member with lowest RTT\n- **fewest-hops**: Selects member with fewest network hops\n- **packet-rate**: Based on packet transmission rate\n- **cpu**: Based on CPU utilization\n- **completion-rate**: Based on connection completion rate\n- **quality-of-service**: Based on QoS metrics\n- **kilobytes-per-second**: Based on throughput\n- **dynamic-ratio**: Dynamically adjusts member ratios\n- **drop-packet**: Drops DNS packets (used for testing)\n- **fallback-ip**: Returns a fallback IP address\n- **virtual-server-score**: Based on virtual server scores\n\n### QoS Weights\n\nQoS (Quality of Service) weights are used when the load balancing mode is set to `quality-of-service`. Higher weights give more importance to specific metrics:\n\n- **qos_hit_ratio**: Cache hit ratio\n- **qos_hops**: Number of router hops\n- **qos_kilobytes_second**: Data throughput\n- **qos_lcs**: Link capacity score\n- **qos_packet_rate**: Packet transmission rate\n- **qos_rtt**: Round trip time\n- **qos_topology**: Topology distance\n- **qos_vs_capacity**: Virtual server capacity\n- **qos_vs_score**: Virtual server score\n\n### Connection Limits\n\nConnection limits can be set at both the pool level and individual member level:\n- Pool-level limits apply to the entire pool\n- Member-level limits apply to individual members\n- Both limits must have their corresponding `_status` field set to \u003cspan pulumi-lang-nodejs=\"`enabled`\" pulumi-lang-dotnet=\"`Enabled`\" pulumi-lang-go=\"`enabled`\" pulumi-lang-python=\"`enabled`\" pulumi-lang-yaml=\"`enabled`\" pulumi-lang-java=\"`enabled`\"\u003e`enabled`\u003c/span\u003e to take effect\n\n### Minimum Members\n\nThe \u003cspan pulumi-lang-nodejs=\"`minMembersUpMode`\" pulumi-lang-dotnet=\"`MinMembersUpMode`\" pulumi-lang-go=\"`minMembersUpMode`\" pulumi-lang-python=\"`min_members_up_mode`\" pulumi-lang-yaml=\"`minMembersUpMode`\" pulumi-lang-java=\"`minMembersUpMode`\"\u003e`minMembersUpMode`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`minMembersUpValue`\" pulumi-lang-dotnet=\"`MinMembersUpValue`\" pulumi-lang-go=\"`minMembersUpValue`\" pulumi-lang-python=\"`min_members_up_value`\" pulumi-lang-yaml=\"`minMembersUpValue`\" pulumi-lang-java=\"`minMembersUpValue`\"\u003e`minMembersUpValue`\u003c/span\u003e work together:\n- **off**: No minimum requirement\n- **at-least**: At least \u003cspan pulumi-lang-nodejs=\"`minMembersUpValue`\" pulumi-lang-dotnet=\"`MinMembersUpValue`\" pulumi-lang-go=\"`minMembersUpValue`\" pulumi-lang-python=\"`min_members_up_value`\" pulumi-lang-yaml=\"`minMembersUpValue`\" pulumi-lang-java=\"`minMembersUpValue`\"\u003e`minMembersUpValue`\u003c/span\u003e members must be up\n- **percent**: At least \u003cspan pulumi-lang-nodejs=\"`minMembersUpValue`\" pulumi-lang-dotnet=\"`MinMembersUpValue`\" pulumi-lang-go=\"`minMembersUpValue`\" pulumi-lang-python=\"`min_members_up_value`\" pulumi-lang-yaml=\"`minMembersUpValue`\" pulumi-lang-java=\"`minMembersUpValue`\"\u003e`minMembersUpValue`\u003c/span\u003e percent of members must be up\n\nExample: If you have 5 members and set \u003cspan pulumi-lang-nodejs=\"`minMembersUpMode \" pulumi-lang-dotnet=\"`MinMembersUpMode \" pulumi-lang-go=\"`minMembersUpMode \" pulumi-lang-python=\"`min_members_up_mode \" pulumi-lang-yaml=\"`minMembersUpMode \" pulumi-lang-java=\"`minMembersUpMode \"\u003e`minMembersUpMode \u003c/span\u003e= \"at-least\"` and \u003cspan pulumi-lang-nodejs=\"`minMembersUpValue \" pulumi-lang-dotnet=\"`MinMembersUpValue \" pulumi-lang-go=\"`minMembersUpValue \" pulumi-lang-python=\"`min_members_up_value \" pulumi-lang-yaml=\"`minMembersUpValue \" pulumi-lang-java=\"`minMembersUpValue \"\u003e`minMembersUpValue \u003c/span\u003e= 2`, the pool will be marked down if fewer than 2 members are available.\n\n## API Endpoints\n\nThis resource interacts with the following BIG-IP API endpoints:\n\n- `GET /mgmt/tm/gtm/pool/\u003ctype\u003e/\u003cname\u003e?expandSubcollections=true` - Read pool configuration\n- `POST /mgmt/tm/gtm/pool/\u003ctype\u003e` - Create pool\n- `PUT /mgmt/tm/gtm/pool/\u003ctype\u003e/\u003cname\u003e` - Update pool configuration\n- `DELETE /mgmt/tm/gtm/pool/\u003ctype\u003e/\u003cname\u003e` - Delete pool\n\n## Related Resources\n\n- \u003cspan pulumi-lang-nodejs=\"`f5bigip.GtmWideip`\" pulumi-lang-dotnet=\"`f5bigip.GtmWideip`\" pulumi-lang-go=\"`GtmWideip`\" pulumi-lang-python=\"`GtmWideip`\" pulumi-lang-yaml=\"`f5bigip.GtmWideip`\" pulumi-lang-java=\"`f5bigip.GtmWideip`\"\u003e`f5bigip.GtmWideip`\u003c/span\u003e - Manages GTM WideIPs that reference pools\n- \u003cspan pulumi-lang-nodejs=\"`f5bigip.GtmServer`\" pulumi-lang-dotnet=\"`f5bigip.GtmServer`\" pulumi-lang-go=\"`GtmServer`\" pulumi-lang-python=\"`GtmServer`\" pulumi-lang-yaml=\"`f5bigip.GtmServer`\" pulumi-lang-java=\"`f5bigip.GtmServer`\"\u003e`f5bigip.GtmServer`\u003c/span\u003e - Manages GTM servers that contain virtual servers\n- \u003cspan pulumi-lang-nodejs=\"`f5bigip.GtmDatacenter`\" pulumi-lang-dotnet=\"`f5bigip.GtmDatacenter`\" pulumi-lang-go=\"`GtmDatacenter`\" pulumi-lang-python=\"`GtmDatacenter`\" pulumi-lang-yaml=\"`f5bigip.GtmDatacenter`\" pulumi-lang-java=\"`f5bigip.GtmDatacenter`\"\u003e`f5bigip.GtmDatacenter`\u003c/span\u003e - Manages GTM data centers\n- \u003cspan pulumi-lang-nodejs=\"`bigipGtmMonitor`\" pulumi-lang-dotnet=\"`BigipGtmMonitor`\" pulumi-lang-go=\"`bigipGtmMonitor`\" pulumi-lang-python=\"`bigip_gtm_monitor`\" pulumi-lang-yaml=\"`bigipGtmMonitor`\" pulumi-lang-java=\"`bigipGtmMonitor`\"\u003e`bigipGtmMonitor`\u003c/span\u003e - Manages GTM health monitors\n\n## Import\n\nGTM Pool resources can be imported using the format `/\u003cpartition\u003e/\u003cname\u003e:\u003ctype\u003e`. For example:\n\n```sh\n$ pulumi import f5bigip:index/gtmPool:GtmPool example /Common/my_pool:a\n```\n\n",
             "properties": {

@@ -202,6 +202,21 @@
             "bigip_gtm_datacenter": {
                 "current": "f5bigip:index/gtmDatacenter:GtmDatacenter"
             },
+            "bigip_gtm_monitor_bigip": {
+                "current": "f5bigip:index/gtmMonitorBigip:GtmMonitorBigip"
+            },
+            "bigip_gtm_monitor_http": {
+                "current": "f5bigip:index/gtmMonitorHttp:GtmMonitorHttp"
+            },
+            "bigip_gtm_monitor_https": {
+                "current": "f5bigip:index/gtmMonitorHttps:GtmMonitorHttps"
+            },
+            "bigip_gtm_monitor_postgresql": {
+                "current": "f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql"
+            },
+            "bigip_gtm_monitor_tcp": {
+                "current": "f5bigip:index/gtmMonitorTcp:GtmMonitorTcp"
+            },
             "bigip_gtm_pool": {
                 "current": "f5bigip:index/gtmPool:GtmPool",
                 "fields": {

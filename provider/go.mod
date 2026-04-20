@@ -3,13 +3,19 @@ module github.com/pulumi/pulumi-f5bigip/provider/v3
 go 1.25.8
 
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.25.1
+	github.com/F5Networks/terraform-provider-bigip v1.26.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.126.0
 	github.com/pulumi/pulumi/sdk/v3 v3.228.0
 )
 
 // Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
 replace github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
+
+// Upstream v1.26.0 updates these vendored modules but does not expose matching
+// changes via its published module graph, so we target the vendored copies.
+replace github.com/f5devcentral/go-bigip => ../upstream/vendor/github.com/f5devcentral/go-bigip
+
+replace github.com/f5devcentral/go-bigip/f5teem => ../upstream/vendor/github.com/f5devcentral/go-bigip/f5teem
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20260318212141-5525259d096b
 
