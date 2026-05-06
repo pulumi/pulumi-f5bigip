@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example1 = new F5BigIP.Index.NetTunnel("example1", new()
+    ///     var example1 = new F5BigIP.NetTunnel("example1", new()
     ///     {
     ///         Name = "example1",
     ///         LocalAddress = "192.16.81.240",

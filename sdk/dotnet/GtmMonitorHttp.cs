@@ -30,7 +30,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.Index.GtmMonitorHttp("example", new()
+    ///     var example = new F5BigIP.GtmMonitorHttp("example", new()
     ///     {
     ///         Name = "/Common/my_http_monitor",
     ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new F5BigIP.Index.GtmMonitorHttp("advanced", new()
+    ///     var advanced = new F5BigIP.GtmMonitorHttp("advanced", new()
     ///     {
     ///         Name = "/Common/my_http_monitor",
     ///         DefaultsFrom = "/Common/http",

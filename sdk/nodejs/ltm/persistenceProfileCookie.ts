@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     cookieName: "ham",
  *     expiration: "1:0:0",
  *     hashLength: 0,
+ * }, {
+ *     ignoreChanges: ["cookieEncryptionPassphrase"],
  * });
  * ```
  *

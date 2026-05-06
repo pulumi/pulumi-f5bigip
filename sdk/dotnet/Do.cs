@@ -24,9 +24,9 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var do_example = new F5BigIP.Index.Do("do-example", new()
+    ///     var do_example = new F5BigIP.Do("do-example", new()
     ///     {
-    ///         DoJson = Std.Index.File.Invoke(new()
+    ///         DoJson = Std.File.Invoke(new()
     ///         {
     ///             Input = "example.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

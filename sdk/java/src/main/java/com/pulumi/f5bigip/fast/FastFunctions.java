@@ -38,8 +38,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAwsServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAwsServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -120,8 +120,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAwsServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAwsServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -202,8 +202,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAwsServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -243,8 +243,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -329,8 +329,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -372,8 +372,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -415,8 +415,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -458,8 +458,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetConsulServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -499,8 +499,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetConsulServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -540,8 +540,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetConsulServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetConsulServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -622,8 +622,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetConsulServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -663,8 +663,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -705,8 +705,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -747,8 +747,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -789,8 +789,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -831,8 +831,8 @@ public final class FastFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.fast.FastFunctions;
      * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

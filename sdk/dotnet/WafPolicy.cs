@@ -56,7 +56,7 @@ namespace Pulumi.F5BigIP
     ///         Name = "URL2",
     ///     });
     /// 
-    ///     var test_awaf = new F5BigIP.Index.WafPolicy("test-awaf", new()
+    ///     var test_awaf = new F5BigIP.WafPolicy("test-awaf", new()
     ///     {
     ///         Name = "testpolicyravi",
     ///         Partition = "Common",

@@ -42,7 +42,9 @@ import (
 //				CookieName:                 pulumi.String("ham"),
 //				Expiration:                 pulumi.String("1:0:0"),
 //				HashLength:                 pulumi.Int(0),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"cookieEncryptionPassphrase",
+//			}))
 //			if err != nil {
 //				return err
 //			}
