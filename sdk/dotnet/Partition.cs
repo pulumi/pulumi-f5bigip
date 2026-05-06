@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_partition = new F5BigIP.Index.Partition("test-partition", new()
+    ///     var test_partition = new F5BigIP.Partition("test-partition", new()
     ///     {
     ///         Name = "test-partition",
     ///         Description = "created by terraform",

@@ -29,7 +29,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///     var rule = new F5BigIP.Ltm.IRule("rule", new()
     ///     {
     ///         Name = "/Common/terraform_irule",
-    ///         Irule = Std.Index.File.Invoke(new()
+    ///         Irule = Std.File.Invoke(new()
     ///         {
     ///             Input = "myirule.tcl",
     ///         }).Apply(invoke =&gt; invoke.Result),

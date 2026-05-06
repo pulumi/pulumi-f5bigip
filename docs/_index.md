@@ -164,11 +164,11 @@ config:
 ```yaml
 configuration:
   hostname:
-    type: dynamic
+    type: object
   username:
-    type: dynamic
+    type: object
   password:
-    type: dynamic
+    type: object
 ```
 
 {{% /choosable %}}
@@ -193,8 +193,8 @@ package generated_program;
 import com.pulumi.Context;
 import com.pulumi.Pulumi;
 import com.pulumi.core.Output;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.io.File;
 import java.nio.file.Files;

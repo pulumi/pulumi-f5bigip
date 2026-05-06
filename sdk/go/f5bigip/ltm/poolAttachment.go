@@ -182,7 +182,7 @@ import (
 //				return err
 //			}
 //			var k8sprod []*ltm.PoolAttachment
-//			for key0, _ := range interface{}(std.Toset(ctx, &std.TosetArgs{
+//			for key0, _ := range []interface{}(std.Toset(ctx, &std.TosetArgs{
 //				Input: pulumi.StringArray{
 //					node1.Name,
 //					node2.Name,

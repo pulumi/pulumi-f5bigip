@@ -647,7 +647,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             cookie_encryption_passphrase="iam",
             cookie_name="ham",
             expiration="1:0:0",
-            hash_length=0)
+            hash_length=0,
+            opts = pulumi.ResourceOptions(ignore_changes=["cookieEncryptionPassphrase"]))
         ```
 
         ## Reference
@@ -744,7 +745,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             cookie_encryption_passphrase="iam",
             cookie_name="ham",
             expiration="1:0:0",
-            hash_length=0)
+            hash_length=0,
+            opts = pulumi.ResourceOptions(ignore_changes=["cookieEncryptionPassphrase"]))
         ```
 
         ## Reference

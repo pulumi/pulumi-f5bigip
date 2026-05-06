@@ -24,7 +24,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_selector = new F5BigIP.Index.TrafficSelector("test-selector", new()
+    ///     var test_selector = new F5BigIP.TrafficSelector("test-selector", new()
     ///     {
     ///         Name = "/Common/test-selector",
     ///         DestinationAddress = "3.10.11.2/32",
