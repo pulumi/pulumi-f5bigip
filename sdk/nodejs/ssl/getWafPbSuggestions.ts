@@ -113,7 +113,7 @@ export interface GetWafPbSuggestionsOutputArgs {
     /**
      * System generated id of the WAF policy
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * WAF policy name from which PB suggestions should be exported.
      */

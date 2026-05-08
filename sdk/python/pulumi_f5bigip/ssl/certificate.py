@@ -21,11 +21,11 @@ class CertificateArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocsp: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -76,75 +76,75 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full Path Name of ssl certificate
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerCert")
-    def issuer_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the issuer certificate.
         """
         return pulumi.get(self, "issuer_cert")
 
     @issuer_cert.setter
-    def issuer_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringType")
-    def monitoring_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitoring_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of monitoring used.
         """
         return pulumi.get(self, "monitoring_type")
 
     @monitoring_type.setter
-    def monitoring_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitoring_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitoring_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def ocsp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the OCSP responder.
         """
         return pulumi.get(self, "ocsp")
 
     @ocsp.setter
-    def ocsp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
 
 @pulumi.input_type
 class _CertificateState:
     def __init__(__self__, *,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocsp: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None):
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
 
@@ -173,86 +173,86 @@ class _CertificateState:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Full Path Name of ssl certificate
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerCert")
-    def issuer_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the issuer certificate.
         """
         return pulumi.get(self, "issuer_cert")
 
     @issuer_cert.setter
-    def issuer_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringType")
-    def monitoring_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitoring_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of monitoring used.
         """
         return pulumi.get(self, "monitoring_type")
 
     @monitoring_type.setter
-    def monitoring_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitoring_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitoring_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SSL Certificate to be Imported on to BIGIP
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ocsp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ocsp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the OCSP responder.
         """
         return pulumi.get(self, "ocsp")
 
     @ocsp.setter
-    def ocsp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ocsp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ocsp", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in full_path format.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
 
@@ -262,13 +262,13 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocsp: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
@@ -337,13 +337,13 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ocsp: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -376,13 +376,13 @@ class Certificate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            content: Optional[pulumi.Input[_builtins.str]] = None,
-            full_path: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            monitoring_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ocsp: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None) -> 'Certificate':
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

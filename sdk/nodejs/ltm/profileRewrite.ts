@@ -218,63 +218,63 @@ export interface ProfileRewriteState {
     /**
      * Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
      */
-    bypassLists?: pulumi.Input<pulumi.Input<string>[]>;
+    bypassLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
      */
-    caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
      */
-    cacheType?: pulumi.Input<string>;
+    cacheType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
      */
-    cookieRules?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteCookieRule>[]>;
+    cookieRules?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteCookieRule>[] | undefined>;
     /**
      * Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */
-    requests?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteRequest>[]>;
+    requests?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteRequest>[] | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */
-    responses?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteResponse>[] | undefined>;
     /**
      * Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
      */
-    rewriteLists?: pulumi.Input<pulumi.Input<string>[]>;
+    rewriteLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
      */
-    rewriteMode?: pulumi.Input<string>;
+    rewriteMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )
      */
-    signingCert?: pulumi.Input<string>;
+    signingCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )
      */
-    signingKey?: pulumi.Input<string>;
+    signingKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.
      */
-    signingKeyPassword?: pulumi.Input<string>;
+    signingKeyPassword?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `true, false`
      */
-    splitTunneling?: pulumi.Input<string>;
+    splitTunneling?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,27 +284,27 @@ export interface ProfileRewriteArgs {
     /**
      * Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
      */
-    bypassLists?: pulumi.Input<pulumi.Input<string>[]>;
+    bypassLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
      */
-    caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
      */
-    cacheType?: pulumi.Input<string>;
+    cacheType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
      */
-    cookieRules?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteCookieRule>[]>;
+    cookieRules?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteCookieRule>[] | undefined>;
     /**
      * Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
      */
@@ -312,15 +312,15 @@ export interface ProfileRewriteArgs {
     /**
      * Block type. Each request is block type with following arguments.
      */
-    requests?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteRequest>[]>;
+    requests?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteRequest>[] | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */
-    responses?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteResponse>[] | undefined>;
     /**
      * Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
      */
-    rewriteLists?: pulumi.Input<pulumi.Input<string>[]>;
+    rewriteLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
      */
@@ -328,17 +328,17 @@ export interface ProfileRewriteArgs {
     /**
      * Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )
      */
-    signingCert?: pulumi.Input<string>;
+    signingCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )
      */
-    signingKey?: pulumi.Input<string>;
+    signingKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.
      */
-    signingKeyPassword?: pulumi.Input<string>;
+    signingKeyPassword?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of Client caching. Valid choices are: `true, false`
      */
-    splitTunneling?: pulumi.Input<string>;
+    splitTunneling?: pulumi.Input<string | undefined>;
 }

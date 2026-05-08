@@ -43,7 +43,7 @@ import (
 //			monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
 //				Name:     pulumi.String("/Common/terraform_monitor"),
 //				Parent:   pulumi.String("/Common/http"),
-//				Send:     pulumi.String("GET /some/path\n"),
+//				Send:     pulumi.String("GET /some/path\r\n"),
 //				Timeout:  pulumi.Int(999),
 //				Interval: pulumi.Int(998),
 //			})
@@ -103,7 +103,7 @@ import (
 //			monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
 //				Name:     pulumi.String("/Common/terraform_monitor"),
 //				Parent:   pulumi.String("/Common/http"),
-//				Send:     pulumi.String("GET /some/path\n"),
+//				Send:     pulumi.String("GET /some/path\r\n"),
 //				Timeout:  pulumi.Int(999),
 //				Interval: pulumi.Int(998),
 //			})
@@ -182,7 +182,7 @@ import (
 //				return err
 //			}
 //			var k8sprod []*ltm.PoolAttachment
-//			for key0, _ := range interface{}(std.Toset(ctx, &std.TosetArgs{
+//			for key0, _ := range []interface{}(std.Toset(ctx, &std.TosetArgs{
 //				Input: pulumi.StringArray{
 //					node1.Name,
 //					node2.Name,

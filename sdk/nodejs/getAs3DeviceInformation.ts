@@ -44,6 +44,6 @@ export function getAs3DeviceInformationOutput(args: GetAs3DeviceInformationOutpu
  * A collection of arguments for invoking getAs3DeviceInformation.
  */
 export interface GetAs3DeviceInformationOutputArgs {
-    applications?: pulumi.Input<pulumi.Input<string>[]>;
+    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     tenant: pulumi.Input<string>;
 }

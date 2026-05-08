@@ -30,7 +30,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.Index.GtmMonitorPostgresql("example", new()
+    ///     var example = new F5BigIP.GtmMonitorPostgresql("example", new()
     ///     {
     ///         Name = "/Common/my_postgresql_monitor",
     ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new F5BigIP.Index.GtmMonitorPostgresql("advanced", new()
+    ///     var advanced = new F5BigIP.GtmMonitorPostgresql("advanced", new()
     ///     {
     ///         Name = "/Common/my_postgresql_monitor",
     ///         DefaultsFrom = "/Common/postgresql",

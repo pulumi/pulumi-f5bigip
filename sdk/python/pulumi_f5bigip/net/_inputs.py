@@ -20,11 +20,11 @@ __all__ = [
 ]
 
 class VlanInterfaceArgsDict(TypedDict):
-    tagged: NotRequired[pulumi.Input[_builtins.bool]]
+    tagged: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
     """
-    vlanport: NotRequired[pulumi.Input[_builtins.str]]
+    vlanport: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Physical or virtual port used for traffic
     """
@@ -32,8 +32,8 @@ class VlanInterfaceArgsDict(TypedDict):
 @pulumi.input_type
 class VlanInterfaceArgs:
     def __init__(__self__, *,
-                 tagged: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vlanport: Optional[pulumi.Input[_builtins.str]] = None):
+                 tagged: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vlanport: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] tagged: Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
         :param pulumi.Input[_builtins.str] vlanport: Physical or virtual port used for traffic
@@ -45,26 +45,26 @@ class VlanInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tagged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tagged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
         """
         return pulumi.get(self, "tagged")
 
     @tagged.setter
-    def tagged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tagged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tagged", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlanport(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vlanport(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical or virtual port used for traffic
         """
         return pulumi.get(self, "vlanport")
 
     @vlanport.setter
-    def vlanport(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vlanport(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vlanport", value)
 
 

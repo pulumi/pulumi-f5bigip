@@ -235,15 +235,15 @@ def get_waf_entity_url(cross_origin_requests_enforcements: Optional[Sequence[Uni
         protocol=pulumi.get(__ret__, 'protocol'),
         signature_overrides_disables=pulumi.get(__ret__, 'signature_overrides_disables'),
         type=pulumi.get(__ret__, 'type'))
-def get_waf_entity_url_output(cross_origin_requests_enforcements: Optional[pulumi.Input[Optional[Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']]]]] = None,
-                              description: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              method: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              method_overrides: Optional[pulumi.Input[Optional[Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']]]]] = None,
-                              name: Optional[pulumi.Input[_builtins.str]] = None,
-                              perform_staging: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                              protocol: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              signature_overrides_disables: Optional[pulumi.Input[Optional[Sequence[_builtins.int]]]] = None,
-                              type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_waf_entity_url_output(cross_origin_requests_enforcements: pulumi.Input[Optional[Optional[Sequence[Union['GetWafEntityUrlCrossOriginRequestsEnforcementArgs', 'GetWafEntityUrlCrossOriginRequestsEnforcementArgsDict']]]]] = None,
+                              description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              method: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              method_overrides: pulumi.Input[Optional[Optional[Sequence[Union['GetWafEntityUrlMethodOverrideArgs', 'GetWafEntityUrlMethodOverrideArgsDict']]]]] = None,
+                              name: pulumi.Input[Optional[_builtins.str]] = None,
+                              perform_staging: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                              protocol: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              signature_overrides_disables: pulumi.Input[Optional[Optional[Sequence[_builtins.int]]]] = None,
+                              type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafEntityUrlResult]:
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.

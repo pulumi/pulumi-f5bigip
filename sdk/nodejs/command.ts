@@ -87,15 +87,15 @@ export interface CommandState {
     /**
      * The resulting output from the `commands` executed.
      */
-    commandResults?: pulumi.Input<pulumi.Input<string>[]>;
+    commandResults?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
-    commands?: pulumi.Input<pulumi.Input<string>[]>;
+    commands?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * default value will be `apply`,can be set to `destroy` for terraform destroy call.
      */
-    when?: pulumi.Input<string>;
+    when?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface CommandArgs {
     /**
      * The resulting output from the `commands` executed.
      */
-    commandResults?: pulumi.Input<pulumi.Input<string>[]>;
+    commandResults?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
@@ -113,5 +113,5 @@ export interface CommandArgs {
     /**
      * default value will be `apply`,can be set to `destroy` for terraform destroy call.
      */
-    when?: pulumi.Input<string>;
+    when?: pulumi.Input<string | undefined>;
 }

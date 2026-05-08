@@ -20,15 +20,15 @@ __all__ = ['ProfileOneConnectArgs', 'ProfileOneConnect']
 class ProfileOneConnectArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_reuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_pools: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileOneConnect resource.
 
@@ -77,126 +77,126 @@ class ProfileOneConnectArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutOverride")
-    def idle_timeout_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idle_timeout_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         """
         return pulumi.get(self, "idle_timeout_override")
 
     @idle_timeout_override.setter
-    def idle_timeout_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idle_timeout_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idle_timeout_override", value)
 
     @_builtins.property
     @pulumi.getter(name="limitType")
-    def limit_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
         """
         return pulumi.get(self, "limit_type")
 
     @limit_type.setter
-    def limit_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_type", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
     @_builtins.property
     @pulumi.getter(name="maxReuse")
-    def max_reuse(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_reuse(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
         """
         return pulumi.get(self, "max_reuse")
 
     @max_reuse.setter
-    def max_reuse(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_reuse(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_reuse", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePools")
-    def share_pools(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_pools(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify if you want to share the pool, default value is `disabled`.
         """
         return pulumi.get(self, "share_pools")
 
     @share_pools.setter
-    def share_pools(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_pools(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMask")
-    def source_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         """
         return pulumi.get(self, "source_mask")
 
     @source_mask.setter
-    def source_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_mask", value)
 
 
 @pulumi.input_type
 class _ProfileOneConnectState:
     def __init__(__self__, *,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_reuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_pools: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileOneConnect resources.
 
@@ -234,122 +234,122 @@ class _ProfileOneConnectState:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutOverride")
-    def idle_timeout_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idle_timeout_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         """
         return pulumi.get(self, "idle_timeout_override")
 
     @idle_timeout_override.setter
-    def idle_timeout_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idle_timeout_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idle_timeout_override", value)
 
     @_builtins.property
     @pulumi.getter(name="limitType")
-    def limit_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
         """
         return pulumi.get(self, "limit_type")
 
     @limit_type.setter
-    def limit_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_type", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
     @_builtins.property
     @pulumi.getter(name="maxReuse")
-    def max_reuse(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_reuse(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
         """
         return pulumi.get(self, "max_reuse")
 
     @max_reuse.setter
-    def max_reuse(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_reuse(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_reuse", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePools")
-    def share_pools(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_pools(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify if you want to share the pool, default value is `disabled`.
         """
         return pulumi.get(self, "share_pools")
 
     @share_pools.setter
-    def share_pools(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_pools(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_pools", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMask")
-    def source_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         """
         return pulumi.get(self, "source_mask")
 
     @source_mask.setter
-    def source_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_mask", value)
 
 
@@ -359,16 +359,16 @@ class ProfileOneConnect(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_reuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_pools: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mask: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mask: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
@@ -450,16 +450,16 @@ class ProfileOneConnect(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_reuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_pools: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_mask: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_mask: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,16 +491,16 @@ class ProfileOneConnect(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_timeout_override: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_type: Optional[pulumi.Input[_builtins.str]] = None,
-            max_age: Optional[pulumi.Input[_builtins.int]] = None,
-            max_reuse: Optional[pulumi.Input[_builtins.int]] = None,
-            max_size: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            share_pools: Optional[pulumi.Input[_builtins.str]] = None,
-            source_mask: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileOneConnect':
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+            max_age: pulumi.Input[Optional[_builtins.int]] = None,
+            max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+            source_mask: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileOneConnect':
         """
         Get an existing ProfileOneConnect resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -129,15 +129,15 @@ class As3DeleteAppsArgs:
 
 
 class EventServiceDiscoveryNodeArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     name of node
     """
-    ip: NotRequired[pulumi.Input[_builtins.str]]
+    ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ip of nonde
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port
     """
@@ -145,9 +145,9 @@ class EventServiceDiscoveryNodeArgsDict(TypedDict):
 @pulumi.input_type
 class EventServiceDiscoveryNodeArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] id: name of node
         :param pulumi.Input[_builtins.str] ip: ip of nonde
@@ -162,63 +162,63 @@ class EventServiceDiscoveryNodeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of node
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ip of nonde
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
 class FastHttpAppMonitorArgsDict(TypedDict):
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
     """
-    monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    monitor_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     password for web access on FAST-Generated Pool Monitor.
     """
-    response: NotRequired[pulumi.Input[_builtins.str]]
+    response: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The presence of this string anywhere in the HTTP response implies availability.
     """
-    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    send_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify data to be sent during each health check for FAST-Generated Pool Monitor.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     username for web access on FAST-Generated Pool Monitor.
     """
@@ -226,12 +226,12 @@ class FastHttpAppMonitorArgsDict(TypedDict):
 @pulumi.input_type
 class FastHttpAppMonitorArgs:
     def __init__(__self__, *,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 response: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 response: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         :param pulumi.Input[_builtins.bool] monitor_auth: set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -255,74 +255,74 @@ class FastHttpAppMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorAuth")
-    def monitor_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitor_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
         """
         return pulumi.get(self, "monitor_auth")
 
     @monitor_auth.setter
-    def monitor_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitor_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitor_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         password for web access on FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The presence of this string anywhere in the HTTP response implies availability.
         """
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response", value)
 
     @_builtins.property
     @pulumi.getter(name="sendString")
-    def send_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify data to be sent during each health check for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "send_string")
 
     @send_string.setter
-    def send_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         username for web access on FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -331,19 +331,19 @@ class FastHttpAppPoolMemberArgsDict(TypedDict):
     """
     List of server address to be used for FAST-Generated Pool.
     """
-    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    connection_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     connectionLimit value to be used for FAST-Generated Pool.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port number of serviceport to be used for FAST-Generated Pool.
     """
-    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    priority_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     priorityGroup value to be used for FAST-Generated Pool.
     """
-    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    share_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     shareNodes value to be used for FAST-Generated Pool.
     """
@@ -352,10 +352,10 @@ class FastHttpAppPoolMemberArgsDict(TypedDict):
 class FastHttpAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_nodes: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_nodes: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of server address to be used for FAST-Generated Pool.
         :param pulumi.Input[_builtins.int] connection_limit: connectionLimit value to be used for FAST-Generated Pool.
@@ -387,50 +387,50 @@ class FastHttpAppPoolMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         connectionLimit value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port number of serviceport to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         priorityGroup value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter(name="shareNodes")
-    def share_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         shareNodes value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "share_nodes")
 
     @share_nodes.setter
-    def share_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_nodes", value)
 
 
@@ -510,27 +510,27 @@ class FastHttpAppWafSecurityPolicyArgs:
 
 
 class FastHttpsAppMonitorArgsDict(TypedDict):
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
     """
-    monitor_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    monitor_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     password for web access on FAST-Generated Pool Monitor.
     """
-    response: NotRequired[pulumi.Input[_builtins.str]]
+    response: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The presence of this string anywhere in the HTTP response implies availability.
     """
-    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    send_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specify data to be sent during each health check for FAST-Generated Pool Monitor.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     username for web access on FAST-Generated Pool Monitor.
     """
@@ -538,12 +538,12 @@ class FastHttpsAppMonitorArgsDict(TypedDict):
 @pulumi.input_type
 class FastHttpsAppMonitorArgs:
     def __init__(__self__, *,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 response: Optional[pulumi.Input[_builtins.str]] = None,
-                 send_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 response: pulumi.Input[Optional[_builtins.str]] = None,
+                 send_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         :param pulumi.Input[_builtins.bool] monitor_auth: set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -567,74 +567,74 @@ class FastHttpsAppMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorAuth")
-    def monitor_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def monitor_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
         """
         return pulumi.get(self, "monitor_auth")
 
     @monitor_auth.setter
-    def monitor_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def monitor_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "monitor_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         password for web access on FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The presence of this string anywhere in the HTTP response implies availability.
         """
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response", value)
 
     @_builtins.property
     @pulumi.getter(name="sendString")
-    def send_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify data to be sent during each health check for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "send_string")
 
     @send_string.setter
-    def send_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         username for web access on FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -643,19 +643,19 @@ class FastHttpsAppPoolMemberArgsDict(TypedDict):
     """
     List of server address to be used for FAST-Generated Pool.
     """
-    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    connection_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     connectionLimit value to be used for FAST-Generated Pool.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port number of serviceport to be used for FAST-Generated Pool.
     """
-    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    priority_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     priorityGroup value to be used for FAST-Generated Pool.
     """
-    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    share_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     shareNodes value to be used for FAST-Generated Pool.
     """
@@ -664,10 +664,10 @@ class FastHttpsAppPoolMemberArgsDict(TypedDict):
 class FastHttpsAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_nodes: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_nodes: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of server address to be used for FAST-Generated Pool.
         :param pulumi.Input[_builtins.int] connection_limit: connectionLimit value to be used for FAST-Generated Pool.
@@ -699,50 +699,50 @@ class FastHttpsAppPoolMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         connectionLimit value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port number of serviceport to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         priorityGroup value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter(name="shareNodes")
-    def share_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         shareNodes value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "share_nodes")
 
     @share_nodes.setter
-    def share_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_nodes", value)
 
 
@@ -916,7 +916,7 @@ class FastHttpsAppWafSecurityPolicyArgs:
 
 
 class FastTcpAppMonitorArgsDict(TypedDict):
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
     """
@@ -924,7 +924,7 @@ class FastTcpAppMonitorArgsDict(TypedDict):
 @pulumi.input_type
 class FastTcpAppMonitorArgs:
     def __init__(__self__, *,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None):
+                 interval: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
@@ -933,14 +933,14 @@ class FastTcpAppMonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
 
@@ -949,19 +949,19 @@ class FastTcpAppPoolMemberArgsDict(TypedDict):
     """
     List of server address to be used for FAST-Generated Pool.
     """
-    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    connection_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     connectionLimit value to be used for FAST-Generated Pool.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port number of serviceport to be used for FAST-Generated Pool.
     """
-    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    priority_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     priorityGroup value to be used for FAST-Generated Pool.
     """
-    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    share_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     shareNodes value to be used for FAST-Generated Pool.
     """
@@ -970,10 +970,10 @@ class FastTcpAppPoolMemberArgsDict(TypedDict):
 class FastTcpAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_nodes: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_nodes: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of server address to be used for FAST-Generated Pool.
         :param pulumi.Input[_builtins.int] connection_limit: connectionLimit value to be used for FAST-Generated Pool.
@@ -1005,50 +1005,50 @@ class FastTcpAppPoolMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         connectionLimit value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port number of serviceport to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         priorityGroup value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter(name="shareNodes")
-    def share_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         shareNodes value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "share_nodes")
 
     @share_nodes.setter
-    def share_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_nodes", value)
 
 
@@ -1100,15 +1100,15 @@ class FastTcpAppVirtualServerArgs:
 
 
 class FastUdpAppMonitorArgsDict(TypedDict):
-    expected_response: NotRequired[pulumi.Input[_builtins.str]]
+    expected_response: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The presence of this optional string is required in the response, if specified it confirms availability.
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
     """
-    send_string: NotRequired[pulumi.Input[_builtins.str]]
+    send_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Optional data to be sent during each health check.
     """
@@ -1116,9 +1116,9 @@ class FastUdpAppMonitorArgsDict(TypedDict):
 @pulumi.input_type
 class FastUdpAppMonitorArgs:
     def __init__(__self__, *,
-                 expected_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_string: Optional[pulumi.Input[_builtins.str]] = None):
+                 expected_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_string: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expected_response: The presence of this optional string is required in the response, if specified it confirms availability.
         :param pulumi.Input[_builtins.int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
@@ -1133,38 +1133,38 @@ class FastUdpAppMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedResponse")
-    def expected_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The presence of this optional string is required in the response, if specified it confirms availability.
         """
         return pulumi.get(self, "expected_response")
 
     @expected_response.setter
-    def expected_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="sendString")
-    def send_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional data to be sent during each health check.
         """
         return pulumi.get(self, "send_string")
 
     @send_string.setter
-    def send_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send_string", value)
 
 
@@ -1173,19 +1173,19 @@ class FastUdpAppPoolMemberArgsDict(TypedDict):
     """
     List of server address to be used for FAST-Generated Pool.
     """
-    connection_limit: NotRequired[pulumi.Input[_builtins.int]]
+    connection_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     connectionLimit value to be used for FAST-Generated Pool.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     port number of serviceport to be used for FAST-Generated Pool.
     """
-    priority_group: NotRequired[pulumi.Input[_builtins.int]]
+    priority_group: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     priorityGroup value to be used for FAST-Generated Pool.
     """
-    share_nodes: NotRequired[pulumi.Input[_builtins.bool]]
+    share_nodes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     shareNodes value to be used for FAST-Generated Pool.
     """
@@ -1194,10 +1194,10 @@ class FastUdpAppPoolMemberArgsDict(TypedDict):
 class FastUdpAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 share_nodes: Optional[pulumi.Input[_builtins.bool]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 share_nodes: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: List of server address to be used for FAST-Generated Pool.
         :param pulumi.Input[_builtins.int] connection_limit: connectionLimit value to be used for FAST-Generated Pool.
@@ -1229,50 +1229,50 @@ class FastUdpAppPoolMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         connectionLimit value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         port number of serviceport to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         priorityGroup value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter(name="shareNodes")
-    def share_nodes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def share_nodes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         shareNodes value to be used for FAST-Generated Pool.
         """
         return pulumi.get(self, "share_nodes")
 
     @share_nodes.setter
-    def share_nodes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def share_nodes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "share_nodes", value)
 
 
@@ -1328,47 +1328,47 @@ class GtmPoolMemberArgsDict(TypedDict):
     """
     Name of the pool member (format: <server_name>:<virtual_server_name>)
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Disabled state of the pool member
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable or disable the pool member
     """
-    limit_max_bps: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_bps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum allowable data throughput rate for this member
     """
-    limit_max_bps_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_bps_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enables or disables the limit_max_bps option for this member
     """
-    limit_max_connections: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_connections: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum number of concurrent connections for this member
     """
-    limit_max_connections_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_connections_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enables or disables the limit_max_connections option for this member
     """
-    limit_max_pps: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_pps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum allowable data transfer rate in packets per second for this member
     """
-    limit_max_pps_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_pps_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enables or disables the limit_max_pps option for this member
     """
-    member_order: NotRequired[pulumi.Input[_builtins.int]]
+    member_order: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the order in which the member will be used
     """
-    monitor: NotRequired[pulumi.Input[_builtins.str]]
+    monitor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the health monitor for this pool member
     """
-    ratio: NotRequired[pulumi.Input[_builtins.int]]
+    ratio: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the weight of the pool member for load balancing
     """
@@ -1377,17 +1377,17 @@ class GtmPoolMemberArgsDict(TypedDict):
 class GtmPoolMemberArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the pool member (format: <server_name>:<virtual_server_name>)
         :param pulumi.Input[_builtins.bool] disabled: Disabled state of the pool member
@@ -1440,134 +1440,134 @@ class GtmPoolMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disabled state of the pool member
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the pool member
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data throughput rate for this member
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_bps option for this member
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of concurrent connections for this member
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_connections option for this member
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data transfer rate in packets per second for this member
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_pps option for this member
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="memberOrder")
-    def member_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def member_order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which the member will be used
         """
         return pulumi.get(self, "member_order")
 
     @member_order.setter
-    def member_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def member_order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "member_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the health monitor for this pool member
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight of the pool member for load balancing
         """
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ratio", value)
 
 
@@ -1576,11 +1576,11 @@ class GtmServerAddressArgsDict(TypedDict):
     """
     IP address
     """
-    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    device_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Device name associated with the address
     """
-    translation: NotRequired[pulumi.Input[_builtins.str]]
+    translation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     IP translation address. Default is `none`
     """
@@ -1589,8 +1589,8 @@ class GtmServerAddressArgsDict(TypedDict):
 class GtmServerAddressArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation: Optional[pulumi.Input[_builtins.str]] = None):
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: IP address
         :param pulumi.Input[_builtins.str] device_name: Device name associated with the address
@@ -1616,26 +1616,26 @@ class GtmServerAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device name associated with the address
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP translation address. Default is `none`
         """
         return pulumi.get(self, "translation")
 
     @translation.setter
-    def translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translation", value)
 
 
@@ -1648,47 +1648,47 @@ class GtmServerVirtualServerArgsDict(TypedDict):
     """
     Name of the virtual server
     """
-    depends_on: NotRequired[pulumi.Input[_builtins.str]]
+    depends_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Virtual server dependency
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable the virtual server. Default is `true`
     """
-    limit_max_bps: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_bps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum bits per second for this virtual server
     """
-    limit_max_bps_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_bps_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable/disable the bps limit
     """
-    limit_max_connections: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_connections: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum concurrent connections
     """
-    limit_max_connections_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_connections_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable/disable the connections limit
     """
-    limit_max_pps: NotRequired[pulumi.Input[_builtins.int]]
+    limit_max_pps: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum packets per second
     """
-    limit_max_pps_status: NotRequired[pulumi.Input[_builtins.str]]
+    limit_max_pps_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable/disable the pps limit
     """
-    monitor: NotRequired[pulumi.Input[_builtins.str]]
+    monitor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Monitor assigned to check virtual server health
     """
-    translation_address: NotRequired[pulumi.Input[_builtins.str]]
+    translation_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Translation address for NAT scenarios. Default is `none`
     """
-    translation_port: NotRequired[pulumi.Input[_builtins.int]]
+    translation_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Translation port for NAT scenarios. Default is `0`
     """
@@ -1698,17 +1698,17 @@ class GtmServerVirtualServerArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 depends_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 depends_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] destination: Destination address in format `<ip>:<port>` (e.g., `192.168.1.100:80`)
         :param pulumi.Input[_builtins.str] name: Name of the virtual server
@@ -1775,134 +1775,134 @@ class GtmServerVirtualServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def depends_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual server dependency
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def depends_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable the virtual server. Default is `true`
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum bits per second for this virtual server
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable/disable the bps limit
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum concurrent connections
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable/disable the connections limit
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum packets per second
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable/disable the pps limit
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Monitor assigned to check virtual server health
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="translationAddress")
-    def translation_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translation_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Translation address for NAT scenarios. Default is `none`
         """
         return pulumi.get(self, "translation_address")
 
     @translation_address.setter
-    def translation_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translation_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translation_address", value)
 
     @_builtins.property
     @pulumi.getter(name="translationPort")
-    def translation_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def translation_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Translation port for NAT scenarios. Default is `0`
         """
         return pulumi.get(self, "translation_port")
 
     @translation_port.setter
-    def translation_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def translation_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "translation_port", value)
 
 
@@ -1911,23 +1911,23 @@ class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
     """
     Unique name for the protected endpoint
     """
-    endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the path to the web page to be protected by BD. For example, `/login`.
     """
-    host: NotRequired[pulumi.Input[_builtins.str]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     hostname or IP address of the web page to be protected by the Bot Defense
     """
-    mitigation_action: NotRequired[pulumi.Input[_builtins.str]]
+    mitigation_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
     """
-    post: NotRequired[pulumi.Input[_builtins.str]]
+    post: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     POST field to protect the path when it has a POST method, `enabled` or `disabled`
     """
-    put: NotRequired[pulumi.Input[_builtins.str]]
+    put: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
     """
@@ -1936,11 +1936,11 @@ class SaasBotDefenseProfileProtectedEndpointArgsDict(TypedDict):
 class SaasBotDefenseProfileProtectedEndpointArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 mitigation_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 post: Optional[pulumi.Input[_builtins.str]] = None,
-                 put: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 mitigation_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 post: pulumi.Input[Optional[_builtins.str]] = None,
+                 put: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Unique name for the protected endpoint
         :param pulumi.Input[_builtins.str] endpoint: Specifies the path to the web page to be protected by BD. For example, `/login`.
@@ -1975,77 +1975,77 @@ class SaasBotDefenseProfileProtectedEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the path to the web page to be protected by BD. For example, `/login`.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         hostname or IP address of the web page to be protected by the Bot Defense
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="mitigationAction")
-    def mitigation_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mitigation_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the BIG-IP or F5 XC Bot Defense handles mitigation of malicious HTTP requests. This field is enabled only if the Service Level field is set to Advanced/Premium
         """
         return pulumi.get(self, "mitigation_action")
 
     @mitigation_action.setter
-    def mitigation_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mitigation_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mitigation_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def post(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def post(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         POST field to protect the path when it has a POST method, `enabled` or `disabled`
         """
         return pulumi.get(self, "post")
 
     @post.setter
-    def post(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def post(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "post", value)
 
     @_builtins.property
     @pulumi.getter
-    def put(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def put(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         PUT field to protect the path when it has a PUT method,`enabled` or `disabled`
         """
         return pulumi.get(self, "put")
 
     @put.setter
-    def put(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def put(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "put", value)
 
 
 class WafPolicyFileTypeArgsDict(TypedDict):
-    allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    allowed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
     * No allowed file type matched the file type of the request.
     * The file type of the request matched a disallowed file type.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the file type name as appearing in the URL extension.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
     """
@@ -2053,9 +2053,9 @@ class WafPolicyFileTypeArgsDict(TypedDict):
 @pulumi.input_type
 class WafPolicyFileTypeArgs:
     def __init__(__self__, *,
-                 allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
                * No allowed file type matched the file type of the request.
@@ -2072,7 +2072,7 @@ class WafPolicyFileTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
         * No allowed file type matched the file type of the request.
@@ -2081,31 +2081,31 @@ class WafPolicyFileTypeArgs:
         return pulumi.get(self, "allowed")
 
     @allowed.setter
-    def allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allowed", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file type name as appearing in the URL extension.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -2114,15 +2114,15 @@ class WafPolicyGraphqlProfileArgsDict(TypedDict):
     """
     The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
     """
-    attack_signatures_check: NotRequired[pulumi.Input[_builtins.bool]]
+    attack_signatures_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
     """
-    defense_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgsDict']]]]
+    defense_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]]
     """
     defense_attributes settings for policy
     """
-    metachar_elementcheck: NotRequired[pulumi.Input[_builtins.bool]]
+    metachar_elementcheck: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
     """
@@ -2131,9 +2131,9 @@ class WafPolicyGraphqlProfileArgsDict(TypedDict):
 class WafPolicyGraphqlProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 attack_signatures_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defense_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]] = None,
-                 metachar_elementcheck: Optional[pulumi.Input[_builtins.bool]] = None):
+                 attack_signatures_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defense_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]] = None,
+                 metachar_elementcheck: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         :param pulumi.Input[_builtins.bool] attack_signatures_check: Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
@@ -2162,64 +2162,64 @@ class WafPolicyGraphqlProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="attackSignaturesCheck")
-    def attack_signatures_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def attack_signatures_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled
         """
         return pulumi.get(self, "attack_signatures_check")
 
     @attack_signatures_check.setter
-    def attack_signatures_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def attack_signatures_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "attack_signatures_check", value)
 
     @_builtins.property
     @pulumi.getter(name="defenseAttributes")
-    def defense_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]:
+    def defense_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]:
         """
         defense_attributes settings for policy
         """
         return pulumi.get(self, "defense_attributes")
 
     @defense_attributes.setter
-    def defense_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]):
+    def defense_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]):
         pulumi.set(self, "defense_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="metacharElementcheck")
-    def metachar_elementcheck(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def metachar_elementcheck(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled
         """
         return pulumi.get(self, "metachar_elementcheck")
 
     @metachar_elementcheck.setter
-    def metachar_elementcheck(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def metachar_elementcheck(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "metachar_elementcheck", value)
 
 
 class WafPolicyGraphqlProfileDefenseAttributeArgsDict(TypedDict):
-    allow_introspection_queries: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_introspection_queries: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Introspection queries can also be enforced to prevent attackers from using them to
     understand the API structure and potentially breach an application.
     """
-    maximum_batched_queries: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_batched_queries: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the highest number of batched queries allowed by the security policy.
     """
-    maximum_structure_depth: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_structure_depth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
     """
-    maximum_total_length: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_total_length: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
     """
-    maximum_value_length: NotRequired[pulumi.Input[_builtins.str]]
+    maximum_value_length: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
     """
-    tolerate_parsing_warnings: NotRequired[pulumi.Input[_builtins.bool]]
+    tolerate_parsing_warnings: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
     """
@@ -2227,12 +2227,12 @@ class WafPolicyGraphqlProfileDefenseAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class WafPolicyGraphqlProfileDefenseAttributeArgs:
     def __init__(__self__, *,
-                 allow_introspection_queries: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maximum_batched_queries: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_structure_depth: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_total_length: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_value_length: Optional[pulumi.Input[_builtins.str]] = None,
-                 tolerate_parsing_warnings: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_introspection_queries: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maximum_batched_queries: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_structure_depth: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_total_length: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_value_length: pulumi.Input[Optional[_builtins.str]] = None,
+                 tolerate_parsing_warnings: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_introspection_queries: Introspection queries can also be enforced to prevent attackers from using them to
                understand the API structure and potentially breach an application.
@@ -2257,7 +2257,7 @@ class WafPolicyGraphqlProfileDefenseAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowIntrospectionQueries")
-    def allow_introspection_queries(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_introspection_queries(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Introspection queries can also be enforced to prevent attackers from using them to
         understand the API structure and potentially breach an application.
@@ -2265,72 +2265,72 @@ class WafPolicyGraphqlProfileDefenseAttributeArgs:
         return pulumi.get(self, "allow_introspection_queries")
 
     @allow_introspection_queries.setter
-    def allow_introspection_queries(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_introspection_queries(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_introspection_queries", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumBatchedQueries")
-    def maximum_batched_queries(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_batched_queries(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the highest number of batched queries allowed by the security policy.
         """
         return pulumi.get(self, "maximum_batched_queries")
 
     @maximum_batched_queries.setter
-    def maximum_batched_queries(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_batched_queries(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_batched_queries", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumStructureDepth")
-    def maximum_structure_depth(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_structure_depth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
         """
         return pulumi.get(self, "maximum_structure_depth")
 
     @maximum_structure_depth.setter
-    def maximum_structure_depth(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_structure_depth(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_structure_depth", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumTotalLength")
-    def maximum_total_length(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_total_length(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
         """
         return pulumi.get(self, "maximum_total_length")
 
     @maximum_total_length.setter
-    def maximum_total_length(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_total_length(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_total_length", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumValueLength")
-    def maximum_value_length(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_value_length(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
         """
         return pulumi.get(self, "maximum_value_length")
 
     @maximum_value_length.setter
-    def maximum_value_length(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_value_length(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_value_length", value)
 
     @_builtins.property
     @pulumi.getter(name="tolerateParsingWarnings")
-    def tolerate_parsing_warnings(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tolerate_parsing_warnings(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
         """
         return pulumi.get(self, "tolerate_parsing_warnings")
 
     @tolerate_parsing_warnings.setter
-    def tolerate_parsing_warnings(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tolerate_parsing_warnings(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tolerate_parsing_warnings", value)
 
 
 class WafPolicyHostNameArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
     """
@@ -2338,7 +2338,7 @@ class WafPolicyHostNameArgsDict(TypedDict):
 @pulumi.input_type
 class WafPolicyHostNameArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         """
@@ -2347,14 +2347,14 @@ class WafPolicyHostNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -2367,23 +2367,23 @@ class WafPolicyIpExceptionArgsDict(TypedDict):
     """
     Specifies the netmask of the exceptional IP address. This is an optional field.
     """
-    block_requests: NotRequired[pulumi.Input[_builtins.str]]
+    block_requests: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the description of the policy.
     """
-    ignore_anomalies: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_anomalies: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
     """
-    ignore_ipreputation: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_ipreputation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
     """
-    trustedby_policybuilder: NotRequired[pulumi.Input[_builtins.bool]]
+    trustedby_policybuilder: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
     """
@@ -2393,11 +2393,11 @@ class WafPolicyIpExceptionArgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[_builtins.str],
                  ip_mask: pulumi.Input[_builtins.str],
-                 block_requests: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_anomalies: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_ipreputation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 trustedby_policybuilder: Optional[pulumi.Input[_builtins.bool]] = None):
+                 block_requests: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_anomalies: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_ipreputation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 trustedby_policybuilder: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] ip_address: Specifies the IP address that you want the system to trust.
         :param pulumi.Input[_builtins.str] ip_mask: Specifies the netmask of the exceptional IP address. This is an optional field.
@@ -2446,67 +2446,67 @@ class WafPolicyIpExceptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockRequests")
-    def block_requests(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_requests(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
         """
         return pulumi.get(self, "block_requests")
 
     @block_requests.setter
-    def block_requests(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_requests(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_requests", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreAnomalies")
-    def ignore_anomalies(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_anomalies(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
         """
         return pulumi.get(self, "ignore_anomalies")
 
     @ignore_anomalies.setter
-    def ignore_anomalies(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_anomalies(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_anomalies", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreIpreputation")
-    def ignore_ipreputation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_ipreputation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
         """
         return pulumi.get(self, "ignore_ipreputation")
 
     @ignore_ipreputation.setter
-    def ignore_ipreputation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_ipreputation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_ipreputation", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedbyPolicybuilder")
-    def trustedby_policybuilder(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trustedby_policybuilder(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
         """
         return pulumi.get(self, "trustedby_policybuilder")
 
     @trustedby_policybuilder.setter
-    def trustedby_policybuilder(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trustedby_policybuilder(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trustedby_policybuilder", value)
 
 
 class WafPolicyPolicyBuilderArgsDict(TypedDict):
-    learning_mode: NotRequired[pulumi.Input[_builtins.str]]
+    learning_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
     """
@@ -2514,7 +2514,7 @@ class WafPolicyPolicyBuilderArgsDict(TypedDict):
 @pulumi.input_type
 class WafPolicyPolicyBuilderArgs:
     def __init__(__self__, *,
-                 learning_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 learning_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] learning_mode: learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
         """
@@ -2523,20 +2523,20 @@ class WafPolicyPolicyBuilderArgs:
 
     @_builtins.property
     @pulumi.getter(name="learningMode")
-    def learning_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def learning_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
         """
         return pulumi.get(self, "learning_mode")
 
     @learning_mode.setter
-    def learning_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def learning_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "learning_mode", value)
 
 
 class WafPolicySignaturesSettingArgsDict(TypedDict):
-    placesignatures_in_staging: NotRequired[pulumi.Input[_builtins.bool]]
-    signature_staging: NotRequired[pulumi.Input[_builtins.bool]]
+    placesignatures_in_staging: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    signature_staging: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     setting true will enforce all signature from staging
     """
@@ -2544,8 +2544,8 @@ class WafPolicySignaturesSettingArgsDict(TypedDict):
 @pulumi.input_type
 class WafPolicySignaturesSettingArgs:
     def __init__(__self__, *,
-                 placesignatures_in_staging: Optional[pulumi.Input[_builtins.bool]] = None,
-                 signature_staging: Optional[pulumi.Input[_builtins.bool]] = None):
+                 placesignatures_in_staging: pulumi.Input[Optional[_builtins.bool]] = None,
+                 signature_staging: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] signature_staging: setting true will enforce all signature from staging
         """
@@ -2556,23 +2556,23 @@ class WafPolicySignaturesSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="placesignaturesInStaging")
-    def placesignatures_in_staging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def placesignatures_in_staging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "placesignatures_in_staging")
 
     @placesignatures_in_staging.setter
-    def placesignatures_in_staging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def placesignatures_in_staging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "placesignatures_in_staging", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureStaging")
-    def signature_staging(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def signature_staging(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         setting true will enforce all signature from staging
         """
         return pulumi.get(self, "signature_staging")
 
     @signature_staging.setter
-    def signature_staging(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def signature_staging(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "signature_staging", value)
 
 

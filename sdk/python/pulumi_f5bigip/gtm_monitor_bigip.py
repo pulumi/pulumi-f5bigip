@@ -20,12 +20,12 @@ __all__ = ['GtmMonitorBigipArgs', 'GtmMonitorBigip']
 class GtmMonitorBigipArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a GtmMonitorBigip resource.
 
@@ -65,87 +65,87 @@ class GtmMonitorBigipArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system combines monitor information for a monitored pool. The default is none
         """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
-    def aggregation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inherit properties from this monitor
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDownResponse")
-    def ignore_down_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_down_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor ignores a down response from the system it is monitoring
         """
         return pulumi.get(self, "ignore_down_response")
 
     @ignore_down_response.setter
-    def ignore_down_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_down_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_down_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
 class _GtmMonitorBigipState:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering GtmMonitorBigip resources.
 
@@ -174,86 +174,86 @@ class _GtmMonitorBigipState:
 
     @_builtins.property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aggregation_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system combines monitor information for a monitored pool. The default is none
         """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
-    def aggregation_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aggregation_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aggregation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inherit properties from this monitor
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDownResponse")
-    def ignore_down_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_down_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor ignores a down response from the system it is monitoring
         """
         return pulumi.get(self, "ignore_down_response")
 
     @ignore_down_response.setter
-    def ignore_down_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_down_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_down_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the GTM BIG-IP monitor
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
@@ -263,13 +263,13 @@ class GtmMonitorBigip(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         ## # GtmMonitorBigip Resource
@@ -406,13 +406,13 @@ class GtmMonitorBigip(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -441,13 +441,13 @@ class GtmMonitorBigip(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregation_type: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None) -> 'GtmMonitorBigip':
+            aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None) -> 'GtmMonitorBigip':
         """
         Get an existing GtmMonitorBigip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

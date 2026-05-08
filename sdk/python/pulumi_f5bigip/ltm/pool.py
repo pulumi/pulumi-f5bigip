@@ -20,15 +20,15 @@ __all__ = ['PoolArgs', 'Pool']
 class PoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allow_nat: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_snat: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_active_members: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reselect_tries: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_down_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Pool resource.
 
@@ -77,126 +77,126 @@ class PoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowNat")
-    def allow_nat(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_nat(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_nat")
 
     @allow_nat.setter
-    def allow_nat(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_nat(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_nat", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSnat")
-    def allow_snat(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_snat(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_snat")
 
     @allow_snat.setter
-    def allow_snat(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_snat(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_snat", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumActiveMembers")
-    def minimum_active_members(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_active_members(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         """
         return pulumi.get(self, "minimum_active_members")
 
     @minimum_active_members.setter
-    def minimum_active_members(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_active_members(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_active_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def monitors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of monitor names to associate with the pool
         """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def monitors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "monitors", value)
 
     @_builtins.property
     @pulumi.getter(name="reselectTries")
-    def reselect_tries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reselect_tries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of times the system tries to contact a new pool member after a passive failure.
         """
         return pulumi.get(self, "reselect_tries")
 
     @reselect_tries.setter
-    def reselect_tries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reselect_tries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reselect_tries", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDownAction")
-    def service_down_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_down_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         """
         return pulumi.get(self, "service_down_action")
 
     @service_down_action.setter
-    def service_down_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_down_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_down_action", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slow_ramp_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
         return pulumi.get(self, "slow_ramp_time")
 
     @slow_ramp_time.setter
-    def slow_ramp_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slow_ramp_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slow_ramp_time", value)
 
 
 @pulumi.input_type
 class _PoolState:
     def __init__(__self__, *,
-                 allow_nat: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_snat: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_active_members: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reselect_tries: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_down_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
 
@@ -234,122 +234,122 @@ class _PoolState:
 
     @_builtins.property
     @pulumi.getter(name="allowNat")
-    def allow_nat(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_nat(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_nat")
 
     @allow_nat.setter
-    def allow_nat(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_nat(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_nat", value)
 
     @_builtins.property
     @pulumi.getter(name="allowSnat")
-    def allow_snat(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_snat(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_snat")
 
     @allow_snat.setter
-    def allow_snat(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_snat(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_snat", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the pool.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumActiveMembers")
-    def minimum_active_members(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_active_members(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         """
         return pulumi.get(self, "minimum_active_members")
 
     @minimum_active_members.setter
-    def minimum_active_members(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_active_members(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_active_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def monitors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of monitor names to associate with the pool
         """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def monitors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "monitors", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reselectTries")
-    def reselect_tries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def reselect_tries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of times the system tries to contact a new pool member after a passive failure.
         """
         return pulumi.get(self, "reselect_tries")
 
     @reselect_tries.setter
-    def reselect_tries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def reselect_tries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "reselect_tries", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDownAction")
-    def service_down_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_down_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         """
         return pulumi.get(self, "service_down_action")
 
     @service_down_action.setter
-    def service_down_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_down_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_down_action", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slow_ramp_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
         return pulumi.get(self, "slow_ramp_time")
 
     @slow_ramp_time.setter
-    def slow_ramp_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slow_ramp_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slow_ramp_time", value)
 
 
@@ -359,16 +359,16 @@ class Pool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_nat: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_snat: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_active_members: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reselect_tries: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_down_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
+                 allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
@@ -468,16 +468,16 @@ class Pool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_nat: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_snat: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 minimum_active_members: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reselect_tries: Optional[pulumi.Input[_builtins.int]] = None,
-                 service_down_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
+                 allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+                 service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -509,16 +509,16 @@ class Pool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_nat: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_snat: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            minimum_active_members: Optional[pulumi.Input[_builtins.int]] = None,
-            monitors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            reselect_tries: Optional[pulumi.Input[_builtins.int]] = None,
-            service_down_action: Optional[pulumi.Input[_builtins.str]] = None,
-            slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None) -> 'Pool':
+            allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+            monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+            service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+            slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

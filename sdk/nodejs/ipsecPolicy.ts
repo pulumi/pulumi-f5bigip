@@ -165,53 +165,53 @@ export interface IpsecPolicyState {
      * Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
      * aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
      */
-    authAlgorithm?: pulumi.Input<string>;
+    authAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Description of the IPSec policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
      * aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
      */
-    encryptAlgorithm?: pulumi.Input<string>;
+    encryptAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
      */
-    ipcomp?: pulumi.Input<string>;
+    ipcomp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the length of time before the IKE security association expires, in kilobytes.
      */
-    kbLifetime?: pulumi.Input<number>;
+    kbLifetime?: pulumi.Input<number | undefined>;
     /**
      * Specifies the length of time before the IKE security association expires, in minutes.
      */
-    lifetime?: pulumi.Input<number>;
+    lifetime?: pulumi.Input<number | undefined>;
     /**
      * Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
      * modp4096, modp6144, modp8192`
      */
-    perfectForwardSecrecy?: pulumi.Input<string>;
+    perfectForwardSecrecy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IPsec protocol. Valid choices are: `ah, esp`
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    tunnelLocalAddress?: pulumi.Input<string>;
+    tunnelLocalAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    tunnelRemoteAddress?: pulumi.Input<string>;
+    tunnelRemoteAddress?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -222,32 +222,32 @@ export interface IpsecPolicyArgs {
      * Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
      * aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
      */
-    authAlgorithm?: pulumi.Input<string>;
+    authAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Description of the IPSec policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
      * aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
      */
-    encryptAlgorithm?: pulumi.Input<string>;
+    encryptAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
      */
-    ipcomp?: pulumi.Input<string>;
+    ipcomp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the length of time before the IKE security association expires, in kilobytes.
      */
-    kbLifetime?: pulumi.Input<number>;
+    kbLifetime?: pulumi.Input<number | undefined>;
     /**
      * Specifies the length of time before the IKE security association expires, in minutes.
      */
-    lifetime?: pulumi.Input<number>;
+    lifetime?: pulumi.Input<number | undefined>;
     /**
      * Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
      */
@@ -256,17 +256,17 @@ export interface IpsecPolicyArgs {
      * Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
      * modp4096, modp6144, modp8192`
      */
-    perfectForwardSecrecy?: pulumi.Input<string>;
+    perfectForwardSecrecy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IPsec protocol. Valid choices are: `ah, esp`
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    tunnelLocalAddress?: pulumi.Input<string>;
+    tunnelLocalAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
      */
-    tunnelRemoteAddress?: pulumi.Input<string>;
+    tunnelRemoteAddress?: pulumi.Input<string | undefined>;
 }

@@ -167,39 +167,39 @@ export interface GetAwsServiceDiscoveryOutputArgs {
     /**
      * Specifies whether to look for public or private IP addresses,default `private`.
      */
-    addressRealm?: pulumi.Input<string>;
+    addressRealm?: pulumi.Input<string | undefined>;
     /**
      * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
-    awsAccessKey?: pulumi.Input<string>;
+    awsAccessKey?: pulumi.Input<string | undefined>;
     /**
      * AWS region in which ADC is running,default Empty string.
      */
-    awsRegion?: pulumi.Input<string>;
+    awsRegion?: pulumi.Input<string | undefined>;
     /**
      * Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `awsSecretAccessKey` field)
      */
-    awsSecretAccessKey?: pulumi.Input<string>;
+    awsSecretAccessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether you are updating your credentials,default `false`.
      */
-    credentialUpdate?: pulumi.Input<boolean>;
+    credentialUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * AWS externalID field.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * Member is down when fewer than minimum monitors report it healthy.
      */
-    minimumMonitors?: pulumi.Input<string>;
+    minimumMonitors?: pulumi.Input<string | undefined>;
     /**
      * Port to be used for AWS service discovery,default `80`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Assume a role (also requires the `externalId` field)
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The tag key associated with the node to add to this pool.
      */
@@ -208,13 +208,13 @@ export interface GetAwsServiceDiscoveryOutputArgs {
      * The tag value associated with the node to add to this pool.
      */
     tagValue: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Action to take when node cannot be detected,default `remove`.
      */
-    undetectableAction?: pulumi.Input<string>;
+    undetectableAction?: pulumi.Input<string | undefined>;
     /**
      * Update interval for service discovery.
      */
-    updateInterval?: pulumi.Input<string>;
+    updateInterval?: pulumi.Input<string | undefined>;
 }

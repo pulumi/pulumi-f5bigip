@@ -131,10 +131,10 @@ def get_data_group(name: Optional[_builtins.str] = None,
         partition=pulumi.get(__ret__, 'partition'),
         records=pulumi.get(__ret__, 'records'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                          partition: Optional[pulumi.Input[_builtins.str]] = None,
-                          records: Optional[pulumi.Input[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]]]] = None,
-                          type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_data_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                          partition: pulumi.Input[Optional[_builtins.str]] = None,
+                          records: pulumi.Input[Optional[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]]]] = None,
+                          type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataGroupResult]:
     """
     Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP

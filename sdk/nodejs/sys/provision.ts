@@ -138,12 +138,12 @@ export interface ProvisionState {
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    cpuRatio?: pulumi.Input<number>;
+    cpuRatio?: pulumi.Input<number | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    diskRatio?: pulumi.Input<number>;
-    fullPath?: pulumi.Input<string>;
+    diskRatio?: pulumi.Input<number | undefined>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
      * default is `nominal`
@@ -153,11 +153,11 @@ export interface ProvisionState {
      * * none
      * * dedicated
      */
-    level?: pulumi.Input<string>;
+    level?: pulumi.Input<string | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    memoryRatio?: pulumi.Input<number>;
+    memoryRatio?: pulumi.Input<number | undefined>;
     /**
      * Name of module to provision in BIG-IP. 
      * possible options:
@@ -178,7 +178,7 @@ export interface ProvisionState {
      * * swg
      * * urldb
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -188,12 +188,12 @@ export interface ProvisionArgs {
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    cpuRatio?: pulumi.Input<number>;
+    cpuRatio?: pulumi.Input<number | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    diskRatio?: pulumi.Input<number>;
-    fullPath?: pulumi.Input<string>;
+    diskRatio?: pulumi.Input<number | undefined>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
      * default is `nominal`
@@ -203,11 +203,11 @@ export interface ProvisionArgs {
      * * none
      * * dedicated
      */
-    level?: pulumi.Input<string>;
+    level?: pulumi.Input<string | undefined>;
     /**
      * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
-    memoryRatio?: pulumi.Input<number>;
+    memoryRatio?: pulumi.Input<number | undefined>;
     /**
      * Name of module to provision in BIG-IP. 
      * possible options:

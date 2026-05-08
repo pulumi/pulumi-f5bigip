@@ -452,115 +452,115 @@ export interface GtmServerState {
     /**
      * List of IP addresses for the server. Each address block supports:
      */
-    addresses?: pulumi.Input<pulumi.Input<inputs.GtmServerAddress>[]>;
+    addresses?: pulumi.Input<pulumi.Input<inputs.GtmServerAddress>[] | undefined>;
     /**
      * The datacenter where this server resides. Must be a valid datacenter name or full path (e.g., `/Common/datacenter1`).
      */
-    datacenter?: pulumi.Input<string>;
+    datacenter?: pulumi.Input<string | undefined>;
     /**
      * Description of the GTM server
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the GTM server
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Allow GTM server to expose route domains. Default is `false`.
      */
-    exposeRouteDomains?: pulumi.Input<boolean>;
+    exposeRouteDomains?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery path probing. Default is `true`.
      */
-    iqAllowPath?: pulumi.Input<boolean>;
+    iqAllowPath?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery service checking. Default is `true`.
      */
-    iqAllowServiceCheck?: pulumi.Input<boolean>;
+    iqAllowServiceCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery SNMP. Default is `true`.
      */
-    iqAllowSnmp?: pulumi.Input<boolean>;
+    iqAllowSnmp?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum CPU usage allowed (percent). 0 means no limit. Default is `0`.
      */
-    limitCpuUsage?: pulumi.Input<number>;
+    limitCpuUsage?: pulumi.Input<number | undefined>;
     /**
      * CPU usage limit status.
      */
-    limitCpuUsageStatus?: pulumi.Input<string>;
+    limitCpuUsageStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum bits per second. 0 means no limit. Default is `0`.
      */
-    limitMaxBps?: pulumi.Input<number>;
+    limitMaxBps?: pulumi.Input<number | undefined>;
     /**
      * Maximum bps limit status.
      */
-    limitMaxBpsStatus?: pulumi.Input<string>;
+    limitMaxBpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum concurrent connections. 0 means no limit. Default is `0`.
      */
-    limitMaxConnections?: pulumi.Input<number>;
+    limitMaxConnections?: pulumi.Input<number | undefined>;
     /**
      * Maximum connections limit status.
      */
-    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    limitMaxConnectionsStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum packets per second. 0 means no limit. Default is `0`.
      */
-    limitMaxPps?: pulumi.Input<number>;
+    limitMaxPps?: pulumi.Input<number | undefined>;
     /**
      * Maximum pps limit status.
      */
-    limitMaxPpsStatus?: pulumi.Input<string>;
+    limitMaxPpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Available memory limit (MB). 0 means no limit. Default is `0`.
      */
-    limitMemAvail?: pulumi.Input<number>;
+    limitMemAvail?: pulumi.Input<number | undefined>;
     /**
      * Available memory limit status.
      */
-    limitMemAvailStatus?: pulumi.Input<string>;
+    limitMemAvailStatus?: pulumi.Input<string | undefined>;
     /**
      * Link discovery mode. Valid values:
      */
-    linkDiscovery?: pulumi.Input<string>;
+    linkDiscovery?: pulumi.Input<string | undefined>;
     /**
      * Monitor assigned to check server health (e.g., `/Common/bigip`, `/Common/tcp`).
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM server. Must be unique within the partition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition or tenant the server belongs to. Default is `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Fallback prober selection. Valid values:
      */
-    proberFallback?: pulumi.Input<string>;
+    proberFallback?: pulumi.Input<string | undefined>;
     /**
      * Prober pool to use when proberPreference or proberFallback is set to pool
      */
-    proberPool?: pulumi.Input<string>;
+    proberPool?: pulumi.Input<string | undefined>;
     /**
      * Preferred type of prober. Valid values:
      */
-    proberPreference?: pulumi.Input<string>;
+    proberPreference?: pulumi.Input<string | undefined>;
     /**
      * Type of server. Valid values are:
      */
-    product?: pulumi.Input<string>;
+    product?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
      */
-    virtualServerDiscovery?: pulumi.Input<string>;
+    virtualServerDiscovery?: pulumi.Input<string | undefined>;
     /**
      * List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtualServers block supports:
      */
-    virtualServers?: pulumi.Input<pulumi.Input<inputs.GtmServerVirtualServer>[]>;
+    virtualServers?: pulumi.Input<pulumi.Input<inputs.GtmServerVirtualServer>[] | undefined>;
 }
 
 /**
@@ -570,7 +570,7 @@ export interface GtmServerArgs {
     /**
      * List of IP addresses for the server. Each address block supports:
      */
-    addresses?: pulumi.Input<pulumi.Input<inputs.GtmServerAddress>[]>;
+    addresses?: pulumi.Input<pulumi.Input<inputs.GtmServerAddress>[] | undefined>;
     /**
      * The datacenter where this server resides. Must be a valid datacenter name or full path (e.g., `/Common/datacenter1`).
      */
@@ -578,75 +578,75 @@ export interface GtmServerArgs {
     /**
      * Description of the GTM server
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the GTM server
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Allow GTM server to expose route domains. Default is `false`.
      */
-    exposeRouteDomains?: pulumi.Input<boolean>;
+    exposeRouteDomains?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery path probing. Default is `true`.
      */
-    iqAllowPath?: pulumi.Input<boolean>;
+    iqAllowPath?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery service checking. Default is `true`.
      */
-    iqAllowServiceCheck?: pulumi.Input<boolean>;
+    iqAllowServiceCheck?: pulumi.Input<boolean | undefined>;
     /**
      * Enable iQuery SNMP. Default is `true`.
      */
-    iqAllowSnmp?: pulumi.Input<boolean>;
+    iqAllowSnmp?: pulumi.Input<boolean | undefined>;
     /**
      * Maximum CPU usage allowed (percent). 0 means no limit. Default is `0`.
      */
-    limitCpuUsage?: pulumi.Input<number>;
+    limitCpuUsage?: pulumi.Input<number | undefined>;
     /**
      * CPU usage limit status.
      */
-    limitCpuUsageStatus?: pulumi.Input<string>;
+    limitCpuUsageStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum bits per second. 0 means no limit. Default is `0`.
      */
-    limitMaxBps?: pulumi.Input<number>;
+    limitMaxBps?: pulumi.Input<number | undefined>;
     /**
      * Maximum bps limit status.
      */
-    limitMaxBpsStatus?: pulumi.Input<string>;
+    limitMaxBpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum concurrent connections. 0 means no limit. Default is `0`.
      */
-    limitMaxConnections?: pulumi.Input<number>;
+    limitMaxConnections?: pulumi.Input<number | undefined>;
     /**
      * Maximum connections limit status.
      */
-    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    limitMaxConnectionsStatus?: pulumi.Input<string | undefined>;
     /**
      * Maximum packets per second. 0 means no limit. Default is `0`.
      */
-    limitMaxPps?: pulumi.Input<number>;
+    limitMaxPps?: pulumi.Input<number | undefined>;
     /**
      * Maximum pps limit status.
      */
-    limitMaxPpsStatus?: pulumi.Input<string>;
+    limitMaxPpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Available memory limit (MB). 0 means no limit. Default is `0`.
      */
-    limitMemAvail?: pulumi.Input<number>;
+    limitMemAvail?: pulumi.Input<number | undefined>;
     /**
      * Available memory limit status.
      */
-    limitMemAvailStatus?: pulumi.Input<string>;
+    limitMemAvailStatus?: pulumi.Input<string | undefined>;
     /**
      * Link discovery mode. Valid values:
      */
-    linkDiscovery?: pulumi.Input<string>;
+    linkDiscovery?: pulumi.Input<string | undefined>;
     /**
      * Monitor assigned to check server health (e.g., `/Common/bigip`, `/Common/tcp`).
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM server. Must be unique within the partition.
      */
@@ -654,29 +654,29 @@ export interface GtmServerArgs {
     /**
      * Partition or tenant the server belongs to. Default is `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Fallback prober selection. Valid values:
      */
-    proberFallback?: pulumi.Input<string>;
+    proberFallback?: pulumi.Input<string | undefined>;
     /**
      * Prober pool to use when proberPreference or proberFallback is set to pool
      */
-    proberPool?: pulumi.Input<string>;
+    proberPool?: pulumi.Input<string | undefined>;
     /**
      * Preferred type of prober. Valid values:
      */
-    proberPreference?: pulumi.Input<string>;
+    proberPreference?: pulumi.Input<string | undefined>;
     /**
      * Type of server. Valid values are:
      */
-    product?: pulumi.Input<string>;
+    product?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
      */
-    virtualServerDiscovery?: pulumi.Input<string>;
+    virtualServerDiscovery?: pulumi.Input<string | undefined>;
     /**
      * List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtualServers block supports:
      */
-    virtualServers?: pulumi.Input<pulumi.Input<inputs.GtmServerVirtualServer>[]>;
+    virtualServers?: pulumi.Input<pulumi.Input<inputs.GtmServerVirtualServer>[] | undefined>;
 }

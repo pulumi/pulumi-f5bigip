@@ -153,23 +153,23 @@ export interface GetConsulServiceDiscoveryOutputArgs {
     /**
      * Specifies whether to look for public or private IP addresses,default `private`.
      */
-    addressRealm?: pulumi.Input<string>;
+    addressRealm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether you are updating your credentials,default `false`.
      */
-    credentialUpdate?: pulumi.Input<boolean>;
+    credentialUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Base 64 encoded bearer token to make requests to the Consul API. Will be stored in the declaration in an encrypted format.
      */
-    encodedToken?: pulumi.Input<string>;
+    encodedToken?: pulumi.Input<string | undefined>;
     /**
      * Custom JMESPath Query.
      */
-    jmesPathQuery?: pulumi.Input<string>;
+    jmesPathQuery?: pulumi.Input<string | undefined>;
     /**
      * Member is down when fewer than minimum monitors report it healthy.
      */
-    minimumMonitors?: pulumi.Input<string>;
+    minimumMonitors?: pulumi.Input<string | undefined>;
     /**
      * Port to be used for AWS service discovery,default `80`.
      */
@@ -177,20 +177,20 @@ export interface GetConsulServiceDiscoveryOutputArgs {
     /**
      * If true, the server certificate is verified against the list of supplied/default CAs when making requests to the Consul API.
      */
-    rejectUnauthorized?: pulumi.Input<boolean>;
+    rejectUnauthorized?: pulumi.Input<boolean | undefined>;
     /**
      * CA Bundle to validate server certificates.
      */
-    trustCa?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    trustCa?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Action to take when node cannot be detected,default `remove`.
      */
-    undetectableAction?: pulumi.Input<string>;
+    undetectableAction?: pulumi.Input<string | undefined>;
     /**
      * Update interval for service discovery.
      */
-    updateInterval?: pulumi.Input<string>;
+    updateInterval?: pulumi.Input<string | undefined>;
     /**
      * The location of the node data.
      */

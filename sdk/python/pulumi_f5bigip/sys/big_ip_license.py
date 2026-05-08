@@ -58,8 +58,8 @@ class BigIpLicenseArgs:
 @pulumi.input_type
 class _BigIpLicenseState:
     def __init__(__self__, *,
-                 command: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 command: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BigIpLicense resources.
 
@@ -73,26 +73,26 @@ class _BigIpLicenseState:
 
     @_builtins.property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tmsh command to execute tmsh commands like install
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "command", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationKey")
-    def registration_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registration_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique Key F5 provides for Licensing BIG-IP
         """
         return pulumi.get(self, "registration_key")
 
     @registration_key.setter
-    def registration_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registration_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_key", value)
 
 
@@ -102,8 +102,8 @@ class BigIpLicense(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 command: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create a BigIpLicense resource with the given unique name, props, and options.
@@ -137,8 +137,8 @@ class BigIpLicense(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[_builtins.str]] = None,
-                 registration_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 command: pulumi.Input[Optional[_builtins.str]] = None,
+                 registration_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,8 +164,8 @@ class BigIpLicense(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            command: Optional[pulumi.Input[_builtins.str]] = None,
-            registration_key: Optional[pulumi.Input[_builtins.str]] = None) -> 'BigIpLicense':
+            command: pulumi.Input[Optional[_builtins.str]] = None,
+            registration_key: pulumi.Input[Optional[_builtins.str]] = None) -> 'BigIpLicense':
         """
         Get an existing BigIpLicense resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

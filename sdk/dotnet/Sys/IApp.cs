@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Sys
     ///     var simplehttp = new F5BigIP.Sys.IApp("simplehttp", new()
     ///     {
     ///         Name = "simplehttp",
-    ///         Jsonfile = Std.Index.File.Invoke(new()
+    ///         Jsonfile = Std.File.Invoke(new()
     ///         {
     ///             Input = "simplehttp.json",
     ///         }).Apply(invoke =&gt; invoke.Result),

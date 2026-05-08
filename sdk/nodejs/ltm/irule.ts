@@ -109,11 +109,11 @@ export interface IRuleState {
     /**
      * Body of the iRule
      */
-    irule?: pulumi.Input<string>;
+    irule?: pulumi.Input<string | undefined>;
     /**
      * Name of the iRule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**

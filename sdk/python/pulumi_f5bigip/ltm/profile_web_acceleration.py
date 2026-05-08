@@ -20,19 +20,19 @@ __all__ = ['ProfileWebAccelerationArgs', 'ProfileWebAcceleration']
 class ProfileWebAccelerationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 cache_aging_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_client_cache_control_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_insert_age_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_include_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_pinneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileWebAcceleration resource.
 
@@ -93,178 +93,178 @@ class ProfileWebAccelerationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheAgingRate")
-    def cache_aging_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_aging_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
         """
         return pulumi.get(self, "cache_aging_rate")
 
     @cache_aging_rate.setter
-    def cache_aging_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_aging_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_aging_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClientCacheControlMode")
-    def cache_client_cache_control_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_client_cache_control_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
         """
         return pulumi.get(self, "cache_client_cache_control_mode")
 
     @cache_client_cache_control_mode.setter
-    def cache_client_cache_control_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_client_cache_control_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_client_cache_control_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheInsertAgeHeader")
-    def cache_insert_age_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_insert_age_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inserts Age and Date headers in the response. The default value is `enabled`.
         """
         return pulumi.get(self, "cache_insert_age_header")
 
     @cache_insert_age_header.setter
-    def cache_insert_age_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_insert_age_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_insert_age_header", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheMaxAge")
-    def cache_max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
         """
         return pulumi.get(self, "cache_max_age")
 
     @cache_max_age.setter
-    def cache_max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_max_age", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheMaxEntries")
-    def cache_max_entries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_max_entries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
         """
         return pulumi.get(self, "cache_max_entries")
 
     @cache_max_entries.setter
-    def cache_max_entries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_max_entries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_max_entries", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheObjectMaxSize")
-    def cache_object_max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_object_max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
         """
         return pulumi.get(self, "cache_object_max_size")
 
     @cache_object_max_size.setter
-    def cache_object_max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_object_max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_object_max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheObjectMinSize")
-    def cache_object_min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_object_min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
         """
         return pulumi.get(self, "cache_object_min_size")
 
     @cache_object_min_size.setter
-    def cache_object_min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_object_min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_object_min_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
         """
         return pulumi.get(self, "cache_size")
 
     @cache_size.setter
-    def cache_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriExcludes")
-    def cache_uri_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
         """
         return pulumi.get(self, "cache_uri_excludes")
 
     @cache_uri_excludes.setter
-    def cache_uri_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriIncludeOverrides")
-    def cache_uri_include_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_include_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
         """
         return pulumi.get(self, "cache_uri_include_overrides")
 
     @cache_uri_include_overrides.setter
-    def cache_uri_include_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_include_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_include_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriIncludes")
-    def cache_uri_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
         """
         return pulumi.get(self, "cache_uri_includes")
 
     @cache_uri_includes.setter
-    def cache_uri_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriPinneds")
-    def cache_uri_pinneds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_pinneds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
         """
         return pulumi.get(self, "cache_uri_pinneds")
 
     @cache_uri_pinneds.setter
-    def cache_uri_pinneds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_pinneds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_pinneds", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
 
 @pulumi.input_type
 class _ProfileWebAccelerationState:
     def __init__(__self__, *,
-                 cache_aging_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_client_cache_control_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_insert_age_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_include_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_pinneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileWebAcceleration resources.
 
@@ -314,170 +314,170 @@ class _ProfileWebAccelerationState:
 
     @_builtins.property
     @pulumi.getter(name="cacheAgingRate")
-    def cache_aging_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_aging_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
         """
         return pulumi.get(self, "cache_aging_rate")
 
     @cache_aging_rate.setter
-    def cache_aging_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_aging_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_aging_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClientCacheControlMode")
-    def cache_client_cache_control_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_client_cache_control_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
         """
         return pulumi.get(self, "cache_client_cache_control_mode")
 
     @cache_client_cache_control_mode.setter
-    def cache_client_cache_control_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_client_cache_control_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_client_cache_control_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheInsertAgeHeader")
-    def cache_insert_age_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_insert_age_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inserts Age and Date headers in the response. The default value is `enabled`.
         """
         return pulumi.get(self, "cache_insert_age_header")
 
     @cache_insert_age_header.setter
-    def cache_insert_age_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_insert_age_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_insert_age_header", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheMaxAge")
-    def cache_max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
         """
         return pulumi.get(self, "cache_max_age")
 
     @cache_max_age.setter
-    def cache_max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_max_age", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheMaxEntries")
-    def cache_max_entries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_max_entries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
         """
         return pulumi.get(self, "cache_max_entries")
 
     @cache_max_entries.setter
-    def cache_max_entries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_max_entries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_max_entries", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheObjectMaxSize")
-    def cache_object_max_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_object_max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
         """
         return pulumi.get(self, "cache_object_max_size")
 
     @cache_object_max_size.setter
-    def cache_object_max_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_object_max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_object_max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheObjectMinSize")
-    def cache_object_min_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_object_min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
         """
         return pulumi.get(self, "cache_object_min_size")
 
     @cache_object_min_size.setter
-    def cache_object_min_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_object_min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_object_min_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
         """
         return pulumi.get(self, "cache_size")
 
     @cache_size.setter
-    def cache_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriExcludes")
-    def cache_uri_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
         """
         return pulumi.get(self, "cache_uri_excludes")
 
     @cache_uri_excludes.setter
-    def cache_uri_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriIncludeOverrides")
-    def cache_uri_include_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_include_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
         """
         return pulumi.get(self, "cache_uri_include_overrides")
 
     @cache_uri_include_overrides.setter
-    def cache_uri_include_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_include_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_include_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriIncludes")
-    def cache_uri_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
         """
         return pulumi.get(self, "cache_uri_includes")
 
     @cache_uri_includes.setter
-    def cache_uri_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheUriPinneds")
-    def cache_uri_pinneds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cache_uri_pinneds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
         """
         return pulumi.get(self, "cache_uri_pinneds")
 
     @cache_uri_pinneds.setter
-    def cache_uri_pinneds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cache_uri_pinneds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cache_uri_pinneds", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -487,20 +487,20 @@ class ProfileWebAcceleration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_aging_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_client_cache_control_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_insert_age_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_include_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_pinneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileWebAcceleration` Configures a custom web-acceleration profile for use.
@@ -578,20 +578,20 @@ class ProfileWebAcceleration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_aging_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_client_cache_control_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_insert_age_header: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_max_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_max_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_object_min_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_include_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cache_uri_pinneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -627,20 +627,20 @@ class ProfileWebAcceleration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache_aging_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_client_cache_control_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_insert_age_header: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_max_age: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_object_max_size: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_object_min_size: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cache_uri_include_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cache_uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cache_uri_pinneds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileWebAcceleration':
+            cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileWebAcceleration':
         """
         Get an existing ProfileWebAcceleration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

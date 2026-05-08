@@ -93,8 +93,8 @@ def get_as3_device_information(applications: Optional[Sequence[_builtins.str]] =
         as3_json=pulumi.get(__ret__, 'as3_json'),
         id=pulumi.get(__ret__, 'id'),
         tenant=pulumi.get(__ret__, 'tenant'))
-def get_as3_device_information_output(applications: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                      tenant: Optional[pulumi.Input[_builtins.str]] = None,
+def get_as3_device_information_output(applications: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                      tenant: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAs3DeviceInformationResult]:
     """
     Use this data source to access information about an existing resource.

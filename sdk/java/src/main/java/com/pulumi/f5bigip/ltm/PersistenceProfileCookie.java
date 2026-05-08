@@ -28,8 +28,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.f5bigip.ltm.PersistenceProfileCookie;
  * import com.pulumi.f5bigip.ltm.PersistenceProfileCookieArgs;
- * import java.util.List;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -55,7 +56,9 @@ import javax.annotation.Nullable;
  *             .cookieName("ham")
  *             .expiration("1:0:0")
  *             .hashLength(0)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("cookieEncryptionPassphrase")
+ *                 .build());
  * 
  *     }
  * }

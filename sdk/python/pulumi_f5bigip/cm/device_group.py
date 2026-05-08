@@ -21,16 +21,16 @@ __all__ = ['DeviceGroupArgs', 'DeviceGroup']
 @pulumi.input_type
 class DeviceGroupArgs:
     def __init__(__self__, *,
-                 auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
-                 full_load_on_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_config: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_failover: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 save_on_auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
+                 full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DeviceGroup resource.
 
@@ -68,138 +68,138 @@ class DeviceGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoSync")
-    def auto_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will automatically sync configuration data to its members
         """
         return pulumi.get(self, "auto_sync")
 
     @auto_sync.setter
-    def auto_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Device group
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]:
         """
         Name of the device to be included in device group, this need to be configured before using devicegroup resource
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="fullLoadOnSync")
-    def full_load_on_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_load_on_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will perform a full-load upon sync
         """
         return pulumi.get(self, "full_load_on_sync")
 
     @full_load_on_sync.setter
-    def full_load_on_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_load_on_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_load_on_sync", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalConfig")
-    def incremental_config(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def incremental_config(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         """
         return pulumi.get(self, "incremental_config")
 
     @incremental_config.setter
-    def incremental_config(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def incremental_config(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "incremental_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Is the name of the device Group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFailover")
-    def network_failover(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_failover(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will use a network connection for failover
         """
         return pulumi.get(self, "network_failover")
 
     @network_failover.setter
-    def network_failover(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_failover(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_failover", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device administrative partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="saveOnAutoSync")
-    def save_on_auto_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def save_on_auto_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the configuration should be saved upon auto-sync.
         """
         return pulumi.get(self, "save_on_auto_sync")
 
     @save_on_auto_sync.setter
-    def save_on_auto_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def save_on_auto_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "save_on_auto_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will be used for failover or resource syncing
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _DeviceGroupState:
     def __init__(__self__, *,
-                 auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
-                 full_load_on_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_config: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_failover: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 save_on_auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
+                 full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeviceGroup resources.
 
@@ -237,122 +237,122 @@ class _DeviceGroupState:
 
     @_builtins.property
     @pulumi.getter(name="autoSync")
-    def auto_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will automatically sync configuration data to its members
         """
         return pulumi.get(self, "auto_sync")
 
     @auto_sync.setter
-    def auto_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Device group
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]:
+    def devices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]:
         """
         Name of the device to be included in device group, this need to be configured before using devicegroup resource
         """
         return pulumi.get(self, "devices")
 
     @devices.setter
-    def devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]):
+    def devices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]]):
         pulumi.set(self, "devices", value)
 
     @_builtins.property
     @pulumi.getter(name="fullLoadOnSync")
-    def full_load_on_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_load_on_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will perform a full-load upon sync
         """
         return pulumi.get(self, "full_load_on_sync")
 
     @full_load_on_sync.setter
-    def full_load_on_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_load_on_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_load_on_sync", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalConfig")
-    def incremental_config(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def incremental_config(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         """
         return pulumi.get(self, "incremental_config")
 
     @incremental_config.setter
-    def incremental_config(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def incremental_config(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "incremental_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Is the name of the device Group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFailover")
-    def network_failover(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_failover(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will use a network connection for failover
         """
         return pulumi.get(self, "network_failover")
 
     @network_failover.setter
-    def network_failover(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_failover(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_failover", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Device administrative partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="saveOnAutoSync")
-    def save_on_auto_sync(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def save_on_auto_sync(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the configuration should be saved upon auto-sync.
         """
         return pulumi.get(self, "save_on_auto_sync")
 
     @save_on_auto_sync.setter
-    def save_on_auto_sync(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def save_on_auto_sync(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "save_on_auto_sync", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the device-group will be used for failover or resource syncing
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -362,16 +362,16 @@ class DeviceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
-                 full_load_on_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_config: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_failover: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 save_on_auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
+                 full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
@@ -457,16 +457,16 @@ class DeviceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
-                 full_load_on_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_config: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_failover: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 save_on_auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
+                 full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -496,16 +496,16 @@ class DeviceGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
-            full_load_on_sync: Optional[pulumi.Input[_builtins.str]] = None,
-            incremental_config: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_failover: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            save_on_auto_sync: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'DeviceGroup':
+            auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict']]]]] = None,
+            full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'DeviceGroup':
         """
         Get an existing DeviceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

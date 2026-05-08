@@ -107,19 +107,19 @@ export interface DnsState {
     /**
      * Provide description for your DNS server
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      */
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    numberOfDots?: pulumi.Input<number>;
+    numberOfDots?: pulumi.Input<number | undefined>;
     /**
      * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
-    searches?: pulumi.Input<pulumi.Input<string>[]>;
+    searches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface DnsArgs {
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    numberOfDots?: pulumi.Input<number>;
+    numberOfDots?: pulumi.Input<number | undefined>;
     /**
      * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
-    searches?: pulumi.Input<pulumi.Input<string>[]>;
+    searches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

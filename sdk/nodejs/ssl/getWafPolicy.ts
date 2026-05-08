@@ -87,5 +87,5 @@ export interface GetWafPolicyOutputArgs {
     /**
      * Exported WAF policy JSON
      */
-    policyJson?: pulumi.Input<string>;
+    policyJson?: pulumi.Input<string | undefined>;
 }

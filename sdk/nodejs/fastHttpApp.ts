@@ -253,87 +253,87 @@ export interface FastHttpAppState {
     /**
      * Name of the FAST HTTPS application.
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * List of LTM Policies to be applied FAST HTTP Application.
      */
-    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
-    existingMonitor?: pulumi.Input<string>;
+    existingMonitor?: pulumi.Input<string | undefined>;
     /**
      * Select an existing BIG-IP Pool
      */
-    existingPool?: pulumi.Input<string>;
+    existingPool?: pulumi.Input<string | undefined>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
-    existingSnatPool?: pulumi.Input<string>;
+    existingSnatPool?: pulumi.Input<string | undefined>;
     /**
      * Name of an existing WAF Security policy.
      */
-    existingWafSecurityPolicy?: pulumi.Input<string>;
+    existingWafSecurityPolicy?: pulumi.Input<string | undefined>;
     /**
      * Type of fallback persistence record to be created for each new client connection.
      */
-    fallbackPersistence?: pulumi.Input<string>;
+    fallbackPersistence?: pulumi.Input<string | undefined>;
     /**
      * Json payload for FAST HTTP application.
      */
-    fastHttpJson?: pulumi.Input<string>;
+    fastHttpJson?: pulumi.Input<string | undefined>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * `monitor` block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
-    monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
+    monitor?: pulumi.Input<inputs.FastHttpAppMonitor | undefined>;
     /**
      * Name of an existing BIG-IP persistence profile to be used.
      */
-    persistenceProfile?: pulumi.Input<string>;
+    persistenceProfile?: pulumi.Input<string | undefined>;
     /**
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      */
-    persistenceType?: pulumi.Input<string>;
+    persistenceType?: pulumi.Input<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[] | undefined>;
     /**
      * List of security log profiles to be used for FAST application
      */
-    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
-    slowRampTime?: pulumi.Input<number>;
+    slowRampTime?: pulumi.Input<number | undefined>;
     /**
      * List of address to be used for FAST-Generated SNAT Pool.
      */
-    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
-    virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
+    virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer | undefined>;
     /**
      * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
-    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;
+    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy | undefined>;
 }
 
 /**
@@ -347,65 +347,65 @@ export interface FastHttpAppArgs {
     /**
      * List of LTM Policies to be applied FAST HTTP Application.
      */
-    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
-    existingMonitor?: pulumi.Input<string>;
+    existingMonitor?: pulumi.Input<string | undefined>;
     /**
      * Select an existing BIG-IP Pool
      */
-    existingPool?: pulumi.Input<string>;
+    existingPool?: pulumi.Input<string | undefined>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
-    existingSnatPool?: pulumi.Input<string>;
+    existingSnatPool?: pulumi.Input<string | undefined>;
     /**
      * Name of an existing WAF Security policy.
      */
-    existingWafSecurityPolicy?: pulumi.Input<string>;
+    existingWafSecurityPolicy?: pulumi.Input<string | undefined>;
     /**
      * Type of fallback persistence record to be created for each new client connection.
      */
-    fallbackPersistence?: pulumi.Input<string>;
+    fallbackPersistence?: pulumi.Input<string | undefined>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * `monitor` block takes input for FAST-Generated Pool Monitor.
      * See Pool Monitor below for more details.
      */
-    monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
+    monitor?: pulumi.Input<inputs.FastHttpAppMonitor | undefined>;
     /**
      * Name of an existing BIG-IP persistence profile to be used.
      */
-    persistenceProfile?: pulumi.Input<string>;
+    persistenceProfile?: pulumi.Input<string | undefined>;
     /**
      * Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
      */
-    persistenceType?: pulumi.Input<string>;
+    persistenceType?: pulumi.Input<string | undefined>;
     /**
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[] | undefined>;
     /**
      * List of security log profiles to be used for FAST application
      */
-    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
-    slowRampTime?: pulumi.Input<number>;
+    slowRampTime?: pulumi.Input<number | undefined>;
     /**
      * List of address to be used for FAST-Generated SNAT Pool.
      */
-    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
@@ -414,10 +414,10 @@ export interface FastHttpAppArgs {
      * `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
      * See virtual server below for more details.
      */
-    virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
+    virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer | undefined>;
     /**
      * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
      * See WAF Security Policy below for more details.
      */
-    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;
+    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy | undefined>;
 }

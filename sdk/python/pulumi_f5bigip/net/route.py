@@ -21,9 +21,9 @@ class RouteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  network: pulumi.Input[_builtins.str],
-                 gw: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 gw: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -68,49 +68,49 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def gw(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gw(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a gateway address for the route.
         """
         return pulumi.get(self, "gw")
 
     @gw.setter
-    def gw(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gw(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gw", value)
 
     @_builtins.property
     @pulumi.getter
-    def reject(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reject(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         reject route
         """
         return pulumi.get(self, "reject")
 
     @reject.setter
-    def reject(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reject(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reject", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelRef")
-    def tunnel_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         tunnel_ref to route traffic
         """
         return pulumi.get(self, "tunnel_ref")
 
     @tunnel_ref.setter
-    def tunnel_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_ref", value)
 
 
 @pulumi.input_type
 class _RouteState:
     def __init__(__self__, *,
-                 gw: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None):
+                 gw: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
 
@@ -133,62 +133,62 @@ class _RouteState:
 
     @_builtins.property
     @pulumi.getter
-    def gw(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gw(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a gateway address for the route.
         """
         return pulumi.get(self, "gw")
 
     @gw.setter
-    def gw(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gw(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gw", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination subnet and netmask for the route.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter
-    def reject(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reject(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         reject route
         """
         return pulumi.get(self, "reject")
 
     @reject.setter
-    def reject(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reject(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reject", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelRef")
-    def tunnel_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         tunnel_ref to route traffic
         """
         return pulumi.get(self, "tunnel_ref")
 
     @tunnel_ref.setter
-    def tunnel_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_ref", value)
 
 
@@ -198,11 +198,11 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gw: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None,
+                 gw: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `net.Route` Manages a route configuration
@@ -269,11 +269,11 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gw: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[_builtins.str]] = None,
-                 reject: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None,
+                 gw: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[_builtins.str]] = None,
+                 reject: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,11 +302,11 @@ class Route(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            gw: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network: Optional[pulumi.Input[_builtins.str]] = None,
-            reject: Optional[pulumi.Input[_builtins.bool]] = None,
-            tunnel_ref: Optional[pulumi.Input[_builtins.str]] = None) -> 'Route':
+            gw: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[_builtins.str]] = None,
+            reject: pulumi.Input[Optional[_builtins.bool]] = None,
+            tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None) -> 'Route':
         """
         Get an existing Route resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -23,18 +23,18 @@ class FastTcpAppArgs:
     def __init__(__self__, *,
                  application: pulumi.Input[_builtins.str],
                  tenant: pulumi.Input[_builtins.str],
-                 existing_monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_snat_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
-                 persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
+                 existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional['FastTcpAppMonitorArgs']] = None,
+                 persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_server: pulumi.Input[Optional['FastTcpAppVirtualServerArgs']] = None):
         """
         The set of arguments for constructing a FastTcpApp resource.
 
@@ -109,67 +109,67 @@ class FastTcpAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="existingMonitor")
-    def existing_monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         """
         return pulumi.get(self, "existing_monitor")
 
     @existing_monitor.setter
-    def existing_monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="existingPool")
-    def existing_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP pool.
         """
         return pulumi.get(self, "existing_pool")
 
     @existing_pool.setter
-    def existing_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="existingSnatPool")
-    def existing_snat_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_snat_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP SNAT pool.
         """
         return pulumi.get(self, "existing_snat_pool")
 
     @existing_snat_pool.setter
-    def existing_snat_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_snat_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_snat_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackPersistence")
-    def fallback_persistence(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_persistence(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of fallback persistence record to be created for each new client connection.
         """
         return pulumi.get(self, "fallback_persistence")
 
     @fallback_persistence.setter
-    def fallback_persistence(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_persistence(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_persistence", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['FastTcpAppMonitorArgs']]:
         """
         `monitor` block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
@@ -177,36 +177,36 @@ class FastTcpAppArgs:
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['FastTcpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceProfile")
-    def persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP persistence profile to be used.
         """
         return pulumi.get(self, "persistence_profile")
 
     @persistence_profile.setter
-    def persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceType")
-    def persistence_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         """
         return pulumi.get(self, "persistence_type")
 
     @persistence_type.setter
-    def persistence_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_type", value)
 
     @_builtins.property
     @pulumi.getter(name="poolMembers")
-    def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
+    def pool_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
         """
         `pool_members` block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
@@ -214,36 +214,36 @@ class FastTcpAppArgs:
         return pulumi.get(self, "pool_members")
 
     @pool_members.setter
-    def pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
+    def pool_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
         pulumi.set(self, "pool_members", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slow_ramp_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         """
         return pulumi.get(self, "slow_ramp_time")
 
     @slow_ramp_time.setter
-    def slow_ramp_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slow_ramp_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slow_ramp_time", value)
 
     @_builtins.property
     @pulumi.getter(name="snatPoolAddresses")
-    def snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snat_pool_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of address to be used for FAST-Generated SNAT Pool.
         """
         return pulumi.get(self, "snat_pool_addresses")
 
     @snat_pool_addresses.setter
-    def snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snat_pool_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snat_pool_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServer")
-    def virtual_server(self) -> Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]:
+    def virtual_server(self) -> pulumi.Input[Optional['FastTcpAppVirtualServerArgs']]:
         """
         `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
@@ -251,28 +251,28 @@ class FastTcpAppArgs:
         return pulumi.get(self, "virtual_server")
 
     @virtual_server.setter
-    def virtual_server(self, value: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]):
+    def virtual_server(self, value: pulumi.Input[Optional['FastTcpAppVirtualServerArgs']]):
         pulumi.set(self, "virtual_server", value)
 
 
 @pulumi.input_type
 class _FastTcpAppState:
     def __init__(__self__, *,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_snat_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_tcp_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
-                 persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_tcp_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional['FastTcpAppMonitorArgs']] = None,
+                 persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server: pulumi.Input[Optional['FastTcpAppVirtualServerArgs']] = None):
         """
         Input properties used for looking up and filtering FastTcpApp resources.
 
@@ -328,91 +328,91 @@ class _FastTcpAppState:
 
     @_builtins.property
     @pulumi.getter
-    def application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the FAST TCP application.
         """
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application", value)
 
     @_builtins.property
     @pulumi.getter(name="existingMonitor")
-    def existing_monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         """
         return pulumi.get(self, "existing_monitor")
 
     @existing_monitor.setter
-    def existing_monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="existingPool")
-    def existing_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP pool.
         """
         return pulumi.get(self, "existing_pool")
 
     @existing_pool.setter
-    def existing_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="existingSnatPool")
-    def existing_snat_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def existing_snat_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP SNAT pool.
         """
         return pulumi.get(self, "existing_snat_pool")
 
     @existing_snat_pool.setter
-    def existing_snat_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def existing_snat_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "existing_snat_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackPersistence")
-    def fallback_persistence(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_persistence(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of fallback persistence record to be created for each new client connection.
         """
         return pulumi.get(self, "fallback_persistence")
 
     @fallback_persistence.setter
-    def fallback_persistence(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_persistence(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_persistence", value)
 
     @_builtins.property
     @pulumi.getter(name="fastTcpJson")
-    def fast_tcp_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fast_tcp_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Json payload for FAST TCP application.
         """
         return pulumi.get(self, "fast_tcp_json")
 
     @fast_tcp_json.setter
-    def fast_tcp_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fast_tcp_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fast_tcp_json", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
+    def monitor(self) -> pulumi.Input[Optional['FastTcpAppMonitorArgs']]:
         """
         `monitor` block takes input for FAST-Generated Pool Monitor.
         See Pool Monitor below for more details.
@@ -420,36 +420,36 @@ class _FastTcpAppState:
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
+    def monitor(self, value: pulumi.Input[Optional['FastTcpAppMonitorArgs']]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceProfile")
-    def persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of an existing BIG-IP persistence profile to be used.
         """
         return pulumi.get(self, "persistence_profile")
 
     @persistence_profile.setter
-    def persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceType")
-    def persistence_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
         """
         return pulumi.get(self, "persistence_type")
 
     @persistence_type.setter
-    def persistence_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence_type", value)
 
     @_builtins.property
     @pulumi.getter(name="poolMembers")
-    def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
+    def pool_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
         """
         `pool_members` block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
@@ -457,48 +457,48 @@ class _FastTcpAppState:
         return pulumi.get(self, "pool_members")
 
     @pool_members.setter
-    def pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
+    def pool_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
         pulumi.set(self, "pool_members", value)
 
     @_builtins.property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def slow_ramp_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         """
         return pulumi.get(self, "slow_ramp_time")
 
     @slow_ramp_time.setter
-    def slow_ramp_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def slow_ramp_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "slow_ramp_time", value)
 
     @_builtins.property
     @pulumi.getter(name="snatPoolAddresses")
-    def snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def snat_pool_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of address to be used for FAST-Generated SNAT Pool.
         """
         return pulumi.get(self, "snat_pool_addresses")
 
     @snat_pool_addresses.setter
-    def snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def snat_pool_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "snat_pool_addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the FAST TCP application tenant.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServer")
-    def virtual_server(self) -> Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]:
+    def virtual_server(self) -> pulumi.Input[Optional['FastTcpAppVirtualServerArgs']]:
         """
         `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
         See virtual server below for more details.
@@ -506,7 +506,7 @@ class _FastTcpAppState:
         return pulumi.get(self, "virtual_server")
 
     @virtual_server.setter
-    def virtual_server(self, value: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']]):
+    def virtual_server(self, value: pulumi.Input[Optional['FastTcpAppVirtualServerArgs']]):
         pulumi.set(self, "virtual_server", value)
 
 
@@ -516,20 +516,20 @@ class FastTcpApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_snat_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
-                 persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server: Optional[pulumi.Input[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
+                 persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None,
                  __props__=None):
         """
         `FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
@@ -630,20 +630,20 @@ class FastTcpApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 existing_snat_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
-                 persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server: Optional[pulumi.Input[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
+                 persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
+                 slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -682,21 +682,21 @@ class FastTcpApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application: Optional[pulumi.Input[_builtins.str]] = None,
-            existing_monitor: Optional[pulumi.Input[_builtins.str]] = None,
-            existing_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            existing_snat_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            fallback_persistence: Optional[pulumi.Input[_builtins.str]] = None,
-            fast_tcp_json: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor: Optional[pulumi.Input[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
-            persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            persistence_type: Optional[pulumi.Input[_builtins.str]] = None,
-            pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
-            slow_ramp_time: Optional[pulumi.Input[_builtins.int]] = None,
-            snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tenant: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_server: Optional[pulumi.Input[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None) -> 'FastTcpApp':
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_tcp_json: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict']]] = None,
+            persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict']]]]] = None,
+            slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+            snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_server: pulumi.Input[Optional[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict']]] = None) -> 'FastTcpApp':
         """
         Get an existing FastTcpApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

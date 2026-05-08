@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fast_udp_app = new F5BigIP.Index.FastUdpApp("fast-udp-app", new()
+    ///     var fast_udp_app = new F5BigIP.FastUdpApp("fast-udp-app", new()
     ///     {
     ///         Application = "udp_app_2",
     ///         Tenant = "udp_app_tenant",

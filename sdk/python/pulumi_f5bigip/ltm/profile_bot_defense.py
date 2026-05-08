@@ -20,10 +20,10 @@ __all__ = ['ProfileBotDefenseArgs', 'ProfileBotDefense']
 class ProfileBotDefenseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileBotDefense resource.
 
@@ -57,61 +57,61 @@ class ProfileBotDefenseArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description for Bot Defense profile
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Select the enforcement mode, possible values are `transparent` and `blocking`.
         """
         return pulumi.get(self, "enforcement_mode")
 
     @enforcement_mode.setter
-    def enforcement_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
 
 @pulumi.input_type
 class _ProfileBotDefenseState:
     def __init__(__self__, *,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileBotDefense resources.
 
@@ -134,62 +134,62 @@ class _ProfileBotDefenseState:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description for Bot Defense profile
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Select the enforcement mode, possible values are `transparent` and `blocking`.
         """
         return pulumi.get(self, "enforcement_mode")
 
     @enforcement_mode.setter
-    def enforcement_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Bot Defense profile
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
 
@@ -199,11 +199,11 @@ class ProfileBotDefense(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create a ProfileBotDefense resource with the given unique name, props, and options.
@@ -240,11 +240,11 @@ class ProfileBotDefense(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,11 +271,11 @@ class ProfileBotDefense(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            template: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileBotDefense':
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileBotDefense':
         """
         Get an existing ProfileBotDefense resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

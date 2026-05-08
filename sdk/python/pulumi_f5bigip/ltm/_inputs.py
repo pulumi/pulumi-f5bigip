@@ -60,7 +60,7 @@ class DataGroupRecordArgsDict(TypedDict):
     """
     , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
     """
-    data: NotRequired[pulumi.Input[_builtins.str]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
     """
@@ -69,7 +69,7 @@ class DataGroupRecordArgsDict(TypedDict):
 class DataGroupRecordArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 data: Optional[pulumi.Input[_builtins.str]] = None):
+                 data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         :param pulumi.Input[_builtins.str] data: , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
@@ -92,35 +92,35 @@ class DataGroupRecordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data", value)
 
 
 class NodeFqdnArgsDict(TypedDict):
-    address_family: NotRequired[pulumi.Input[_builtins.str]]
+    address_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
     """
-    autopopulate: NotRequired[pulumi.Input[_builtins.str]]
+    autopopulate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
     """
-    downinterval: NotRequired[pulumi.Input[_builtins.int]]
+    downinterval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of attempts to resolve a domain name. (Default: `5`)
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the amount of time before sending the next DNS query. (Default: `3600`)
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified domain name of the node. Cannot configure with the `address` argument.
     """
@@ -128,11 +128,11 @@ class NodeFqdnArgsDict(TypedDict):
 @pulumi.input_type
 class NodeFqdnArgs:
     def __init__(__self__, *,
-                 address_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-                 downinterval: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+                 downinterval: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address_family: Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
         :param pulumi.Input[_builtins.str] autopopulate: Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
@@ -153,62 +153,62 @@ class NodeFqdnArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the node's address family. Can be `all`, `ipv4` or `ipv6` (Default: `ipv4`)
         """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
-    def address_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_family", value)
 
     @_builtins.property
     @pulumi.getter
-    def autopopulate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autopopulate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies if the node should scale to the IP address set returned by DNS. (Default: `disabled`)
         """
         return pulumi.get(self, "autopopulate")
 
     @autopopulate.setter
-    def autopopulate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autopopulate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autopopulate", value)
 
     @_builtins.property
     @pulumi.getter
-    def downinterval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def downinterval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of attempts to resolve a domain name. (Default: `5`)
         """
         return pulumi.get(self, "downinterval")
 
     @downinterval.setter
-    def downinterval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def downinterval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "downinterval", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the amount of time before sending the next DNS query. (Default: `3600`)
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified domain name of the node. Cannot configure with the `address` argument.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -217,15 +217,15 @@ class PolicyRuleArgsDict(TypedDict):
     """
     Name of Rule to be applied in policy.
     """
-    actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgsDict']]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]]
     """
     Block type. See action block for more details.
     """
-    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgsDict']]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]]
     """
     Block type. See condition block for more details.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies descriptive text that identifies the irule attached to policy.
     """
@@ -234,9 +234,9 @@ class PolicyRuleArgsDict(TypedDict):
 class PolicyRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]] actions: Block type. See action block for more details.
@@ -265,263 +265,263 @@ class PolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]:
         """
         Block type. See action block for more details.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]:
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]:
         """
         Block type. See condition block for more details.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]):
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the irule attached to policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 class PolicyRuleActionArgsDict(TypedDict):
-    app_service: NotRequired[pulumi.Input[_builtins.str]]
-    application: NotRequired[pulumi.Input[_builtins.str]]
-    asm: NotRequired[pulumi.Input[_builtins.bool]]
-    avr: NotRequired[pulumi.Input[_builtins.bool]]
-    cache: NotRequired[pulumi.Input[_builtins.bool]]
-    carp: NotRequired[pulumi.Input[_builtins.bool]]
-    category: NotRequired[pulumi.Input[_builtins.str]]
-    classify: NotRequired[pulumi.Input[_builtins.bool]]
-    clone_pool: NotRequired[pulumi.Input[_builtins.str]]
-    code: NotRequired[pulumi.Input[_builtins.int]]
-    compress: NotRequired[pulumi.Input[_builtins.bool]]
-    connection: NotRequired[pulumi.Input[_builtins.bool]]
+    app_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    application: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    asm: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    avr: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    carp: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    classify: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    clone_pool: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    compress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    connection: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
     """
-    content: NotRequired[pulumi.Input[_builtins.str]]
-    cookie_hash: NotRequired[pulumi.Input[_builtins.bool]]
-    cookie_insert: NotRequired[pulumi.Input[_builtins.bool]]
-    cookie_passive: NotRequired[pulumi.Input[_builtins.bool]]
-    cookie_rewrite: NotRequired[pulumi.Input[_builtins.bool]]
-    decompress: NotRequired[pulumi.Input[_builtins.bool]]
-    defer: NotRequired[pulumi.Input[_builtins.bool]]
-    destination_address: NotRequired[pulumi.Input[_builtins.bool]]
-    disable: NotRequired[pulumi.Input[_builtins.bool]]
-    domain: NotRequired[pulumi.Input[_builtins.str]]
-    enable: NotRequired[pulumi.Input[_builtins.bool]]
-    expiry: NotRequired[pulumi.Input[_builtins.str]]
-    expiry_secs: NotRequired[pulumi.Input[_builtins.int]]
-    expression: NotRequired[pulumi.Input[_builtins.str]]
-    extension: NotRequired[pulumi.Input[_builtins.str]]
-    facility: NotRequired[pulumi.Input[_builtins.str]]
-    forward: NotRequired[pulumi.Input[_builtins.bool]]
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    cookie_hash: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cookie_insert: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cookie_passive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cookie_rewrite: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    decompress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    defer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    destination_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    disable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expiry_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    extension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    facility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    forward: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This action will affect forwarding.
     """
-    from_profile: NotRequired[pulumi.Input[_builtins.str]]
-    hash: NotRequired[pulumi.Input[_builtins.bool]]
-    host: NotRequired[pulumi.Input[_builtins.str]]
-    http: NotRequired[pulumi.Input[_builtins.bool]]
-    http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-    http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-    http_header: NotRequired[pulumi.Input[_builtins.bool]]
-    http_host: NotRequired[pulumi.Input[_builtins.bool]]
-    http_referer: NotRequired[pulumi.Input[_builtins.bool]]
-    http_reply: NotRequired[pulumi.Input[_builtins.bool]]
-    http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-    http_uri: NotRequired[pulumi.Input[_builtins.bool]]
-    ifile: NotRequired[pulumi.Input[_builtins.str]]
-    insert: NotRequired[pulumi.Input[_builtins.bool]]
-    internal_virtual: NotRequired[pulumi.Input[_builtins.str]]
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    l7dos: NotRequired[pulumi.Input[_builtins.bool]]
-    length: NotRequired[pulumi.Input[_builtins.int]]
-    location: NotRequired[pulumi.Input[_builtins.str]]
-    log: NotRequired[pulumi.Input[_builtins.bool]]
-    ltm_policy: NotRequired[pulumi.Input[_builtins.bool]]
-    member: NotRequired[pulumi.Input[_builtins.str]]
-    message: NotRequired[pulumi.Input[_builtins.str]]
-    netmask: NotRequired[pulumi.Input[_builtins.str]]
-    nexthop: NotRequired[pulumi.Input[_builtins.str]]
-    node: NotRequired[pulumi.Input[_builtins.str]]
-    offset: NotRequired[pulumi.Input[_builtins.int]]
-    path: NotRequired[pulumi.Input[_builtins.str]]
-    pem: NotRequired[pulumi.Input[_builtins.bool]]
-    persist: NotRequired[pulumi.Input[_builtins.bool]]
-    pin: NotRequired[pulumi.Input[_builtins.bool]]
-    policy: NotRequired[pulumi.Input[_builtins.str]]
-    pool: NotRequired[pulumi.Input[_builtins.str]]
+    from_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    hash: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    http: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_basic_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_cookie: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_header: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_host: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_referer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_reply: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_set_cookie: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_uri: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ifile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    insert: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    internal_virtual: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    l7dos: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ltm_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    member: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    netmask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    nexthop: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    node: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pem: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    persist: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    pin: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pool: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This action will direct the stream to this pool.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
-    priority: NotRequired[pulumi.Input[_builtins.str]]
-    profile: NotRequired[pulumi.Input[_builtins.str]]
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
-    query_string: NotRequired[pulumi.Input[_builtins.str]]
-    rateclass: NotRequired[pulumi.Input[_builtins.str]]
-    redirect: NotRequired[pulumi.Input[_builtins.bool]]
-    remove: NotRequired[pulumi.Input[_builtins.bool]]
-    replace: NotRequired[pulumi.Input[_builtins.bool]]
-    request: NotRequired[pulumi.Input[_builtins.bool]]
-    request_adapt: NotRequired[pulumi.Input[_builtins.bool]]
-    reset: NotRequired[pulumi.Input[_builtins.bool]]
-    response: NotRequired[pulumi.Input[_builtins.bool]]
-    response_adapt: NotRequired[pulumi.Input[_builtins.bool]]
-    scheme: NotRequired[pulumi.Input[_builtins.str]]
-    script: NotRequired[pulumi.Input[_builtins.str]]
-    select: NotRequired[pulumi.Input[_builtins.bool]]
-    server_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-    set_variable: NotRequired[pulumi.Input[_builtins.bool]]
-    shutdown: NotRequired[pulumi.Input[_builtins.bool]]
-    snat: NotRequired[pulumi.Input[_builtins.str]]
-    snatpool: NotRequired[pulumi.Input[_builtins.str]]
-    source_address: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_session_id: NotRequired[pulumi.Input[_builtins.bool]]
-    status: NotRequired[pulumi.Input[_builtins.int]]
-    tcl: NotRequired[pulumi.Input[_builtins.bool]]
-    tcp_nagle: NotRequired[pulumi.Input[_builtins.bool]]
-    text: NotRequired[pulumi.Input[_builtins.str]]
-    timeout: NotRequired[pulumi.Input[_builtins.int]]
-    tm_name: NotRequired[pulumi.Input[_builtins.str]]
-    uie: NotRequired[pulumi.Input[_builtins.bool]]
-    universal: NotRequired[pulumi.Input[_builtins.bool]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    virtual: NotRequired[pulumi.Input[_builtins.str]]
-    vlan: NotRequired[pulumi.Input[_builtins.str]]
-    vlan_id: NotRequired[pulumi.Input[_builtins.int]]
-    wam: NotRequired[pulumi.Input[_builtins.bool]]
-    write: NotRequired[pulumi.Input[_builtins.bool]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rateclass: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    redirect: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    remove: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    replace: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    request: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    request_adapt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    reset: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    response: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    response_adapt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    scheme: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    select: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    server_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    set_variable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    shutdown: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    snat: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    snatpool: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    source_address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_client_hello: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_server_handshake: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_server_hello: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_session_id: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    tcl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    tcp_nagle: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    tm_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    uie: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    universal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    virtual: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    vlan: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    vlan_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    wam: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    write: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyRuleActionArgs:
     def __init__(__self__, *,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 asm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 avr: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache: Optional[pulumi.Input[_builtins.bool]] = None,
-                 carp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 classify: Optional[pulumi.Input[_builtins.bool]] = None,
-                 clone_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 code: Optional[pulumi.Input[_builtins.int]] = None,
-                 compress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 connection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 content: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookie_hash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cookie_insert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cookie_passive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cookie_rewrite: Optional[pulumi.Input[_builtins.bool]] = None,
-                 decompress: Optional[pulumi.Input[_builtins.bool]] = None,
-                 defer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 disable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiry_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 extension: Optional[pulumi.Input[_builtins.str]] = None,
-                 facility: Optional[pulumi.Input[_builtins.str]] = None,
-                 forward: Optional[pulumi.Input[_builtins.bool]] = None,
-                 from_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 hash: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 http: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_cookie: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_referer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_reply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_set_cookie: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_uri: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ifile: Optional[pulumi.Input[_builtins.str]] = None,
-                 insert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 internal_virtual: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 l7dos: Optional[pulumi.Input[_builtins.bool]] = None,
-                 length: Optional[pulumi.Input[_builtins.int]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 log: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ltm_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 member: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 netmask: Optional[pulumi.Input[_builtins.str]] = None,
-                 nexthop: Optional[pulumi.Input[_builtins.str]] = None,
-                 node: Optional[pulumi.Input[_builtins.str]] = None,
-                 offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 pem: Optional[pulumi.Input[_builtins.bool]] = None,
-                 persist: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pin: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 rateclass: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove: Optional[pulumi.Input[_builtins.bool]] = None,
-                 replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request_adapt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reset: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response_adapt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 script: Optional[pulumi.Input[_builtins.str]] = None,
-                 select: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 set_variable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shutdown: Optional[pulumi.Input[_builtins.bool]] = None,
-                 snat: Optional[pulumi.Input[_builtins.str]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_client_hello: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_server_handshake: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_server_hello: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_session_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.int]] = None,
-                 tcl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tcp_nagle: Optional[pulumi.Input[_builtins.bool]] = None,
-                 text: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 tm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uie: Optional[pulumi.Input[_builtins.bool]] = None,
-                 universal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan_id: Optional[pulumi.Input[_builtins.int]] = None,
-                 wam: Optional[pulumi.Input[_builtins.bool]] = None,
-                 write: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 asm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 avr: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache: pulumi.Input[Optional[_builtins.bool]] = None,
+                 carp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 classify: pulumi.Input[Optional[_builtins.bool]] = None,
+                 clone_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 code: pulumi.Input[Optional[_builtins.int]] = None,
+                 compress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 content: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookie_hash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cookie_insert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cookie_passive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cookie_rewrite: pulumi.Input[Optional[_builtins.bool]] = None,
+                 decompress: pulumi.Input[Optional[_builtins.bool]] = None,
+                 defer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiry_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension: pulumi.Input[Optional[_builtins.str]] = None,
+                 facility: pulumi.Input[Optional[_builtins.str]] = None,
+                 forward: pulumi.Input[Optional[_builtins.bool]] = None,
+                 from_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 http: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_cookie: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_referer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_reply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_set_cookie: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_uri: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ifile: pulumi.Input[Optional[_builtins.str]] = None,
+                 insert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internal_virtual: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 l7dos: pulumi.Input[Optional[_builtins.bool]] = None,
+                 length: pulumi.Input[Optional[_builtins.int]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 log: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ltm_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 member: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 netmask: pulumi.Input[Optional[_builtins.str]] = None,
+                 nexthop: pulumi.Input[Optional[_builtins.str]] = None,
+                 node: pulumi.Input[Optional[_builtins.str]] = None,
+                 offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 pem: pulumi.Input[Optional[_builtins.bool]] = None,
+                 persist: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pin: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 rateclass: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request_adapt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reset: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_adapt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 script: pulumi.Input[Optional[_builtins.str]] = None,
+                 select: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 set_variable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shutdown: pulumi.Input[Optional[_builtins.bool]] = None,
+                 snat: pulumi.Input[Optional[_builtins.str]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_client_hello: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_server_handshake: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_server_hello: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_session_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.int]] = None,
+                 tcl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tcp_nagle: pulumi.Input[Optional[_builtins.bool]] = None,
+                 text: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 tm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uie: pulumi.Input[Optional[_builtins.bool]] = None,
+                 universal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 wam: pulumi.Input[Optional[_builtins.bool]] = None,
+                 write: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] connection: This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
         :param pulumi.Input[_builtins.bool] forward: This action will affect forwarding.
@@ -738,1141 +738,1141 @@ class PolicyRuleActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application", value)
 
     @_builtins.property
     @pulumi.getter
-    def asm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def asm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "asm")
 
     @asm.setter
-    def asm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def asm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "asm", value)
 
     @_builtins.property
     @pulumi.getter
-    def avr(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def avr(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "avr")
 
     @avr.setter
-    def avr(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def avr(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "avr", value)
 
     @_builtins.property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache", value)
 
     @_builtins.property
     @pulumi.getter
-    def carp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def carp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "carp")
 
     @carp.setter
-    def carp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def carp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "carp", value)
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category", value)
 
     @_builtins.property
     @pulumi.getter
-    def classify(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def classify(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "classify")
 
     @classify.setter
-    def classify(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def classify(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "classify", value)
 
     @_builtins.property
     @pulumi.getter(name="clonePool")
-    def clone_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def clone_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "clone_pool")
 
     @clone_pool.setter
-    def clone_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def clone_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "clone_pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def compress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def compress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "compress")
 
     @compress.setter
-    def compress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def compress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "compress", value)
 
     @_builtins.property
     @pulumi.getter
-    def connection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def connection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
         """
         return pulumi.get(self, "connection")
 
     @connection.setter
-    def connection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def connection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "connection", value)
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieHash")
-    def cookie_hash(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cookie_hash(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cookie_hash")
 
     @cookie_hash.setter
-    def cookie_hash(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cookie_hash(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cookie_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieInsert")
-    def cookie_insert(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cookie_insert(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cookie_insert")
 
     @cookie_insert.setter
-    def cookie_insert(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cookie_insert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cookie_insert", value)
 
     @_builtins.property
     @pulumi.getter(name="cookiePassive")
-    def cookie_passive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cookie_passive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cookie_passive")
 
     @cookie_passive.setter
-    def cookie_passive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cookie_passive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cookie_passive", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieRewrite")
-    def cookie_rewrite(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cookie_rewrite(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cookie_rewrite")
 
     @cookie_rewrite.setter
-    def cookie_rewrite(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cookie_rewrite(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cookie_rewrite", value)
 
     @_builtins.property
     @pulumi.getter
-    def decompress(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def decompress(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "decompress")
 
     @decompress.setter
-    def decompress(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def decompress(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "decompress", value)
 
     @_builtins.property
     @pulumi.getter
-    def defer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def defer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "defer")
 
     @defer.setter
-    def defer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def defer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "defer", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddress")
-    def destination_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def destination_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "destination_address")
 
     @destination_address.setter
-    def destination_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def destination_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "destination_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def disable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disable")
 
     @disable.setter
-    def disable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter(name="expirySecs")
-    def expiry_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiry_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "expiry_secs")
 
     @expiry_secs.setter
-    def expiry_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiry_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiry_secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def extension(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def extension(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def facility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def facility(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "facility")
 
     @facility.setter
-    def facility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def facility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "facility", value)
 
     @_builtins.property
     @pulumi.getter
-    def forward(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def forward(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This action will affect forwarding.
         """
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def forward(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "forward", value)
 
     @_builtins.property
     @pulumi.getter(name="fromProfile")
-    def from_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "from_profile")
 
     @from_profile.setter
-    def from_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def hash(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hash(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "hash")
 
     @hash.setter
-    def hash(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hash(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCookie")
-    def http_cookie(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_cookie(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_cookie")
 
     @http_cookie.setter
-    def http_cookie(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_cookie(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_cookie", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeader")
-    def http_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_header")
 
     @http_header.setter
-    def http_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_header", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHost")
-    def http_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_host")
 
     @http_host.setter
-    def http_host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_host", value)
 
     @_builtins.property
     @pulumi.getter(name="httpReferer")
-    def http_referer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_referer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_referer")
 
     @http_referer.setter
-    def http_referer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_referer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_referer", value)
 
     @_builtins.property
     @pulumi.getter(name="httpReply")
-    def http_reply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_reply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_reply")
 
     @http_reply.setter
-    def http_reply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_reply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_reply", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSetCookie")
-    def http_set_cookie(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_set_cookie(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_set_cookie")
 
     @http_set_cookie.setter
-    def http_set_cookie(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_set_cookie(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_set_cookie", value)
 
     @_builtins.property
     @pulumi.getter(name="httpUri")
-    def http_uri(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_uri(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_uri")
 
     @http_uri.setter
-    def http_uri(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_uri(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def ifile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ifile(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ifile")
 
     @ifile.setter
-    def ifile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ifile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ifile", value)
 
     @_builtins.property
     @pulumi.getter
-    def insert(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insert(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "insert")
 
     @insert.setter
-    def insert(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insert", value)
 
     @_builtins.property
     @pulumi.getter(name="internalVirtual")
-    def internal_virtual(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def internal_virtual(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "internal_virtual")
 
     @internal_virtual.setter
-    def internal_virtual(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def internal_virtual(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "internal_virtual", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def l7dos(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def l7dos(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "l7dos")
 
     @l7dos.setter
-    def l7dos(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def l7dos(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "l7dos", value)
 
     @_builtins.property
     @pulumi.getter
-    def length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def length(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "length", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def log(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def log(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "log")
 
     @log.setter
-    def log(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def log(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "log", value)
 
     @_builtins.property
     @pulumi.getter(name="ltmPolicy")
-    def ltm_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ltm_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ltm_policy")
 
     @ltm_policy.setter
-    def ltm_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ltm_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ltm_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def member(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "member")
 
     @member.setter
-    def member(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def netmask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def netmask(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "netmask")
 
     @netmask.setter
-    def netmask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def netmask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "netmask", value)
 
     @_builtins.property
     @pulumi.getter
-    def nexthop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nexthop(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "nexthop")
 
     @nexthop.setter
-    def nexthop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nexthop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nexthop", value)
 
     @_builtins.property
     @pulumi.getter
-    def node(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "node")
 
     @node.setter
-    def node(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node", value)
 
     @_builtins.property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def pem(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pem(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "pem")
 
     @pem.setter
-    def pem(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pem(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pem", value)
 
     @_builtins.property
     @pulumi.getter
-    def persist(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def persist(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "persist")
 
     @persist.setter
-    def persist(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def persist(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "persist", value)
 
     @_builtins.property
     @pulumi.getter
-    def pin(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pin(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "pin")
 
     @pin.setter
-    def pin(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pin(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pin", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This action will direct the stream to this pool.
         """
         return pulumi.get(self, "pool")
 
     @pool.setter
-    def pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def rateclass(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rateclass(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "rateclass")
 
     @rateclass.setter
-    def rateclass(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rateclass(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rateclass", value)
 
     @_builtins.property
     @pulumi.getter
-    def redirect(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def redirect(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "redirect")
 
     @redirect.setter
-    def redirect(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def redirect(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "redirect", value)
 
     @_builtins.property
     @pulumi.getter
-    def remove(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "remove")
 
     @remove.setter
-    def remove(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove", value)
 
     @_builtins.property
     @pulumi.getter
-    def replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "replace")
 
     @replace.setter
-    def replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter(name="requestAdapt")
-    def request_adapt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_adapt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "request_adapt")
 
     @request_adapt.setter
-    def request_adapt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_adapt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_adapt", value)
 
     @_builtins.property
     @pulumi.getter
-    def reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reset(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "reset")
 
     @reset.setter
-    def reset(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reset(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reset", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def response(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def response(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "response", value)
 
     @_builtins.property
     @pulumi.getter(name="responseAdapt")
-    def response_adapt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def response_adapt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "response_adapt")
 
     @response_adapt.setter
-    def response_adapt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def response_adapt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "response_adapt", value)
 
     @_builtins.property
     @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheme", value)
 
     @_builtins.property
     @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def script(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "script")
 
     @script.setter
-    def script(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def script(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script", value)
 
     @_builtins.property
     @pulumi.getter
-    def select(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def select(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "select")
 
     @select.setter
-    def select(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def select(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "select", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSsl")
-    def server_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def server_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "server_ssl")
 
     @server_ssl.setter
-    def server_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def server_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "server_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="setVariable")
-    def set_variable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def set_variable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "set_variable")
 
     @set_variable.setter
-    def set_variable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def set_variable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "set_variable", value)
 
     @_builtins.property
     @pulumi.getter
-    def shutdown(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def shutdown(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "shutdown")
 
     @shutdown.setter
-    def shutdown(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def shutdown(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "shutdown", value)
 
     @_builtins.property
     @pulumi.getter
-    def snat(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snat(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "snat")
 
     @snat.setter
-    def snat(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snat(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snat", value)
 
     @_builtins.property
     @pulumi.getter
-    def snatpool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snatpool(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "snatpool")
 
     @snatpool.setter
-    def snatpool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snatpool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snatpool", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddress")
-    def source_address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def source_address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "source_address")
 
     @source_address.setter
-    def source_address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def source_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "source_address", value)
 
     @_builtins.property
     @pulumi.getter(name="sslClientHello")
-    def ssl_client_hello(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_client_hello(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_client_hello")
 
     @ssl_client_hello.setter
-    def ssl_client_hello(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_client_hello(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_client_hello", value)
 
     @_builtins.property
     @pulumi.getter(name="sslServerHandshake")
-    def ssl_server_handshake(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_server_handshake(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_server_handshake")
 
     @ssl_server_handshake.setter
-    def ssl_server_handshake(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_server_handshake(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_server_handshake", value)
 
     @_builtins.property
     @pulumi.getter(name="sslServerHello")
-    def ssl_server_hello(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_server_hello(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_server_hello")
 
     @ssl_server_hello.setter
-    def ssl_server_hello(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_server_hello(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_server_hello", value)
 
     @_builtins.property
     @pulumi.getter(name="sslSessionId")
-    def ssl_session_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_session_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_session_id")
 
     @ssl_session_id.setter
-    def ssl_session_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_session_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_session_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tcl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "tcl")
 
     @tcl.setter
-    def tcl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcl", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpNagle")
-    def tcp_nagle(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp_nagle(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "tcp_nagle")
 
     @tcp_nagle.setter
-    def tcp_nagle(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp_nagle(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp_nagle", value)
 
     @_builtins.property
     @pulumi.getter
-    def text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "text")
 
     @text.setter
-    def text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="tmName")
-    def tm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tm_name")
 
     @tm_name.setter
-    def tm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tm_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def uie(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def uie(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "uie")
 
     @uie.setter
-    def uie(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def uie(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "uie", value)
 
     @_builtins.property
     @pulumi.getter
-    def universal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def universal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "universal")
 
     @universal.setter
-    def universal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def universal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "universal", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def virtual(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "virtual")
 
     @virtual.setter
-    def virtual(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vlan(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "vlan")
 
     @vlan.setter
-    def vlan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vlan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vlan", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def vlan_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "vlan_id")
 
     @vlan_id.setter
-    def vlan_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def vlan_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "vlan_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def wam(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def wam(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "wam")
 
     @wam.setter
-    def wam(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def wam(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "wam", value)
 
     @_builtins.property
     @pulumi.getter
-    def write(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "write")
 
     @write.setter
-    def write(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def write(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "write", value)
 
 
 class PolicyRuleConditionArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.bool]]
-    all: NotRequired[pulumi.Input[_builtins.bool]]
-    app_service: NotRequired[pulumi.Input[_builtins.str]]
-    browser_type: NotRequired[pulumi.Input[_builtins.bool]]
-    browser_version: NotRequired[pulumi.Input[_builtins.bool]]
-    case_insensitive: NotRequired[pulumi.Input[_builtins.bool]]
-    case_sensitive: NotRequired[pulumi.Input[_builtins.bool]]
-    cipher: NotRequired[pulumi.Input[_builtins.bool]]
-    cipher_bits: NotRequired[pulumi.Input[_builtins.bool]]
-    client_accepted: NotRequired[pulumi.Input[_builtins.bool]]
-    client_ssl: NotRequired[pulumi.Input[_builtins.bool]]
-    code: NotRequired[pulumi.Input[_builtins.bool]]
-    common_name: NotRequired[pulumi.Input[_builtins.bool]]
-    contains: NotRequired[pulumi.Input[_builtins.bool]]
-    continent: NotRequired[pulumi.Input[_builtins.bool]]
-    country_code: NotRequired[pulumi.Input[_builtins.bool]]
-    country_name: NotRequired[pulumi.Input[_builtins.bool]]
-    cpu_usage: NotRequired[pulumi.Input[_builtins.bool]]
-    datagroup: NotRequired[pulumi.Input[_builtins.str]]
-    device_make: NotRequired[pulumi.Input[_builtins.bool]]
-    device_model: NotRequired[pulumi.Input[_builtins.bool]]
-    domain: NotRequired[pulumi.Input[_builtins.bool]]
-    ends_with: NotRequired[pulumi.Input[_builtins.bool]]
-    equals: NotRequired[pulumi.Input[_builtins.bool]]
-    exists: NotRequired[pulumi.Input[_builtins.bool]]
-    expiry: NotRequired[pulumi.Input[_builtins.bool]]
-    extension: NotRequired[pulumi.Input[_builtins.bool]]
-    external: NotRequired[pulumi.Input[_builtins.bool]]
-    geoip: NotRequired[pulumi.Input[_builtins.bool]]
-    greater: NotRequired[pulumi.Input[_builtins.bool]]
-    greater_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
-    host: NotRequired[pulumi.Input[_builtins.bool]]
-    http_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-    http_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-    http_header: NotRequired[pulumi.Input[_builtins.bool]]
-    http_host: NotRequired[pulumi.Input[_builtins.bool]]
-    http_method: NotRequired[pulumi.Input[_builtins.bool]]
-    http_referer: NotRequired[pulumi.Input[_builtins.bool]]
-    http_set_cookie: NotRequired[pulumi.Input[_builtins.bool]]
-    http_status: NotRequired[pulumi.Input[_builtins.bool]]
-    http_uri: NotRequired[pulumi.Input[_builtins.bool]]
-    http_user_agent: NotRequired[pulumi.Input[_builtins.bool]]
-    http_version: NotRequired[pulumi.Input[_builtins.bool]]
-    index: NotRequired[pulumi.Input[_builtins.int]]
-    internal: NotRequired[pulumi.Input[_builtins.bool]]
-    isp: NotRequired[pulumi.Input[_builtins.bool]]
-    last15secs: NotRequired[pulumi.Input[_builtins.bool]]
-    last1min: NotRequired[pulumi.Input[_builtins.bool]]
-    last5mins: NotRequired[pulumi.Input[_builtins.bool]]
-    less: NotRequired[pulumi.Input[_builtins.bool]]
-    less_or_equal: NotRequired[pulumi.Input[_builtins.bool]]
-    local: NotRequired[pulumi.Input[_builtins.bool]]
-    major: NotRequired[pulumi.Input[_builtins.bool]]
-    matches: NotRequired[pulumi.Input[_builtins.bool]]
-    minor: NotRequired[pulumi.Input[_builtins.bool]]
-    missing: NotRequired[pulumi.Input[_builtins.bool]]
-    mss: NotRequired[pulumi.Input[_builtins.bool]]
-    not_: NotRequired[pulumi.Input[_builtins.bool]]
-    org: NotRequired[pulumi.Input[_builtins.bool]]
-    password: NotRequired[pulumi.Input[_builtins.bool]]
-    path: NotRequired[pulumi.Input[_builtins.bool]]
-    path_segment: NotRequired[pulumi.Input[_builtins.bool]]
-    port: NotRequired[pulumi.Input[_builtins.bool]]
-    present: NotRequired[pulumi.Input[_builtins.bool]]
-    protocol: NotRequired[pulumi.Input[_builtins.bool]]
-    query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
-    query_string: NotRequired[pulumi.Input[_builtins.bool]]
-    region_code: NotRequired[pulumi.Input[_builtins.bool]]
-    region_name: NotRequired[pulumi.Input[_builtins.bool]]
-    remote: NotRequired[pulumi.Input[_builtins.bool]]
-    request: NotRequired[pulumi.Input[_builtins.bool]]
-    response: NotRequired[pulumi.Input[_builtins.bool]]
-    route_domain: NotRequired[pulumi.Input[_builtins.bool]]
-    rtt: NotRequired[pulumi.Input[_builtins.bool]]
-    scheme: NotRequired[pulumi.Input[_builtins.bool]]
-    server_name: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_cert: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_client_hello: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_extension: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_server_handshake: NotRequired[pulumi.Input[_builtins.bool]]
-    ssl_server_hello: NotRequired[pulumi.Input[_builtins.bool]]
-    starts_with: NotRequired[pulumi.Input[_builtins.bool]]
-    tcp: NotRequired[pulumi.Input[_builtins.bool]]
-    text: NotRequired[pulumi.Input[_builtins.bool]]
-    tm_name: NotRequired[pulumi.Input[_builtins.str]]
-    unnamed_query_parameter: NotRequired[pulumi.Input[_builtins.bool]]
-    user_agent_token: NotRequired[pulumi.Input[_builtins.bool]]
-    username: NotRequired[pulumi.Input[_builtins.bool]]
-    value: NotRequired[pulumi.Input[_builtins.bool]]
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    version: NotRequired[pulumi.Input[_builtins.bool]]
-    vlan: NotRequired[pulumi.Input[_builtins.bool]]
-    vlan_id: NotRequired[pulumi.Input[_builtins.bool]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    all: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    app_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    browser_type: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    browser_version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    case_insensitive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    case_sensitive: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cipher: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cipher_bits: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    client_accepted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    client_ssl: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    contains: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    continent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    country_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    country_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    cpu_usage: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    datagroup: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    device_make: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    device_model: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    domain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ends_with: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    equals: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    exists: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    expiry: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    external: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    geoip: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    greater: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    greater_or_equal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    host: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_basic_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_cookie: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_header: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_host: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_method: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_referer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_set_cookie: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_status: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_uri: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_user_agent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    http_version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    internal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    isp: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    last15secs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    last1min: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    last5mins: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    less: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    less_or_equal: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    local: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    major: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    matches: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    minor: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    missing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    mss: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    not_: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    org: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    path_segment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    present: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    query_parameter: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    region_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    region_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    remote: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    request: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    response: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    route_domain: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    rtt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    scheme: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_cert: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_client_hello: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_extension: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_server_handshake: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ssl_server_hello: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    starts_with: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    tcp: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    text: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    tm_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    unnamed_query_parameter: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    user_agent_token: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vlan: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vlan_id: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class PolicyRuleConditionArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.bool]] = None,
-                 all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 browser_type: Optional[pulumi.Input[_builtins.bool]] = None,
-                 browser_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 case_sensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cipher: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cipher_bits: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_accepted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_ssl: Optional[pulumi.Input[_builtins.bool]] = None,
-                 code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 common_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 contains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 continent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 country_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cpu_usage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 datagroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_make: Optional[pulumi.Input[_builtins.bool]] = None,
-                 device_model: Optional[pulumi.Input[_builtins.bool]] = None,
-                 domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ends_with: Optional[pulumi.Input[_builtins.bool]] = None,
-                 equals: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exists: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expiry: Optional[pulumi.Input[_builtins.bool]] = None,
-                 extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 external: Optional[pulumi.Input[_builtins.bool]] = None,
-                 geoip: Optional[pulumi.Input[_builtins.bool]] = None,
-                 greater: Optional[pulumi.Input[_builtins.bool]] = None,
-                 greater_or_equal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_cookie: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_header: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_host: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_method: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_referer: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_set_cookie: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_status: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_uri: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_user_agent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 index: Optional[pulumi.Input[_builtins.int]] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 isp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last15secs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last1min: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last5mins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 less: Optional[pulumi.Input[_builtins.bool]] = None,
-                 less_or_equal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local: Optional[pulumi.Input[_builtins.bool]] = None,
-                 major: Optional[pulumi.Input[_builtins.bool]] = None,
-                 matches: Optional[pulumi.Input[_builtins.bool]] = None,
-                 minor: Optional[pulumi.Input[_builtins.bool]] = None,
-                 missing: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mss: Optional[pulumi.Input[_builtins.bool]] = None,
-                 not_: Optional[pulumi.Input[_builtins.bool]] = None,
-                 org: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 path_segment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.bool]] = None,
-                 present: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query_parameter: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region_code: Optional[pulumi.Input[_builtins.bool]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remote: Optional[pulumi.Input[_builtins.bool]] = None,
-                 request: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response: Optional[pulumi.Input[_builtins.bool]] = None,
-                 route_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rtt: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scheme: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_cert: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_client_hello: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_extension: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_server_handshake: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ssl_server_hello: Optional[pulumi.Input[_builtins.bool]] = None,
-                 starts_with: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tcp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 text: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 unnamed_query_parameter: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_agent_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vlan_id: Optional[pulumi.Input[_builtins.bool]] = None):
+                 address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_type: pulumi.Input[Optional[_builtins.bool]] = None,
+                 browser_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 case_sensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cipher: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cipher_bits: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
+                 code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 common_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 contains: pulumi.Input[Optional[_builtins.bool]] = None,
+                 continent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 country_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cpu_usage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 datagroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_make: pulumi.Input[Optional[_builtins.bool]] = None,
+                 device_model: pulumi.Input[Optional[_builtins.bool]] = None,
+                 domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ends_with: pulumi.Input[Optional[_builtins.bool]] = None,
+                 equals: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exists: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expiry: pulumi.Input[Optional[_builtins.bool]] = None,
+                 extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 external: pulumi.Input[Optional[_builtins.bool]] = None,
+                 geoip: pulumi.Input[Optional[_builtins.bool]] = None,
+                 greater: pulumi.Input[Optional[_builtins.bool]] = None,
+                 greater_or_equal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_cookie: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_header: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_host: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_method: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_referer: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_set_cookie: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_status: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_uri: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_user_agent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 index: pulumi.Input[Optional[_builtins.int]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 isp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last15secs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last1min: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last5mins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 less: pulumi.Input[Optional[_builtins.bool]] = None,
+                 less_or_equal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local: pulumi.Input[Optional[_builtins.bool]] = None,
+                 major: pulumi.Input[Optional[_builtins.bool]] = None,
+                 matches: pulumi.Input[Optional[_builtins.bool]] = None,
+                 minor: pulumi.Input[Optional[_builtins.bool]] = None,
+                 missing: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mss: pulumi.Input[Optional[_builtins.bool]] = None,
+                 not_: pulumi.Input[Optional[_builtins.bool]] = None,
+                 org: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path_segment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.bool]] = None,
+                 present: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query_parameter: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region_code: pulumi.Input[Optional[_builtins.bool]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remote: pulumi.Input[Optional[_builtins.bool]] = None,
+                 request: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response: pulumi.Input[Optional[_builtins.bool]] = None,
+                 route_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rtt: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scheme: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_cert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_client_hello: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_extension: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_server_handshake: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ssl_server_hello: pulumi.Input[Optional[_builtins.bool]] = None,
+                 starts_with: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tcp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 text: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unnamed_query_parameter: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_agent_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vlan_id: pulumi.Input[Optional[_builtins.bool]] = None):
         if address is not None:
             pulumi.set(__self__, "address", address)
         if all is not None:
@@ -2062,860 +2062,860 @@ class PolicyRuleConditionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "all")
 
     @all.setter
-    def all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all", value)
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="browserType")
-    def browser_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def browser_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "browser_type")
 
     @browser_type.setter
-    def browser_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def browser_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "browser_type", value)
 
     @_builtins.property
     @pulumi.getter(name="browserVersion")
-    def browser_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def browser_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "browser_version")
 
     @browser_version.setter
-    def browser_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def browser_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "browser_version", value)
 
     @_builtins.property
     @pulumi.getter(name="caseInsensitive")
-    def case_insensitive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def case_insensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "case_insensitive")
 
     @case_insensitive.setter
-    def case_insensitive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def case_insensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "case_insensitive", value)
 
     @_builtins.property
     @pulumi.getter(name="caseSensitive")
-    def case_sensitive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def case_sensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "case_sensitive")
 
     @case_sensitive.setter
-    def case_sensitive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def case_sensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "case_sensitive", value)
 
     @_builtins.property
     @pulumi.getter
-    def cipher(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cipher(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cipher")
 
     @cipher.setter
-    def cipher(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cipher(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cipher", value)
 
     @_builtins.property
     @pulumi.getter(name="cipherBits")
-    def cipher_bits(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cipher_bits(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cipher_bits")
 
     @cipher_bits.setter
-    def cipher_bits(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cipher_bits(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cipher_bits", value)
 
     @_builtins.property
     @pulumi.getter(name="clientAccepted")
-    def client_accepted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_accepted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "client_accepted")
 
     @client_accepted.setter
-    def client_accepted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_accepted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_accepted", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSsl")
-    def client_ssl(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def client_ssl(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "client_ssl")
 
     @client_ssl.setter
-    def client_ssl(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def client_ssl(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "client_ssl", value)
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def contains(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def contains(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "contains")
 
     @contains.setter
-    def contains(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def contains(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "contains", value)
 
     @_builtins.property
     @pulumi.getter
-    def continent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def continent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "continent")
 
     @continent.setter
-    def continent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def continent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "continent", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="countryName")
-    def country_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def country_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "country_name")
 
     @country_name.setter
-    def country_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def country_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "country_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuUsage")
-    def cpu_usage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cpu_usage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "cpu_usage")
 
     @cpu_usage.setter
-    def cpu_usage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cpu_usage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cpu_usage", value)
 
     @_builtins.property
     @pulumi.getter
-    def datagroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datagroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "datagroup")
 
     @datagroup.setter
-    def datagroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datagroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datagroup", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceMake")
-    def device_make(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_make(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "device_make")
 
     @device_make.setter
-    def device_make(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_make(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_make", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceModel")
-    def device_model(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_model(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "device_model")
 
     @device_model.setter
-    def device_model(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_model(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_model", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="endsWith")
-    def ends_with(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ends_with(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ends_with")
 
     @ends_with.setter
-    def ends_with(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ends_with(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ends_with", value)
 
     @_builtins.property
     @pulumi.getter
-    def equals(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def equals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "equals")
 
     @equals.setter
-    def equals(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def equals(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "equals", value)
 
     @_builtins.property
     @pulumi.getter
-    def exists(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exists(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "exists")
 
     @exists.setter
-    def exists(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exists(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exists", value)
 
     @_builtins.property
     @pulumi.getter
-    def expiry(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expiry(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "expiry")
 
     @expiry.setter
-    def expiry(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expiry(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expiry", value)
 
     @_builtins.property
     @pulumi.getter
-    def extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "extension")
 
     @extension.setter
-    def extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "extension", value)
 
     @_builtins.property
     @pulumi.getter
-    def external(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def external(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "external")
 
     @external.setter
-    def external(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def external(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "external", value)
 
     @_builtins.property
     @pulumi.getter
-    def geoip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def geoip(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "geoip")
 
     @geoip.setter
-    def geoip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def geoip(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "geoip", value)
 
     @_builtins.property
     @pulumi.getter
-    def greater(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def greater(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "greater")
 
     @greater.setter
-    def greater(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def greater(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "greater", value)
 
     @_builtins.property
     @pulumi.getter(name="greaterOrEqual")
-    def greater_or_equal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def greater_or_equal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "greater_or_equal")
 
     @greater_or_equal.setter
-    def greater_or_equal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def greater_or_equal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "greater_or_equal", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="httpCookie")
-    def http_cookie(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_cookie(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_cookie")
 
     @http_cookie.setter
-    def http_cookie(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_cookie(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_cookie", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHeader")
-    def http_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_header")
 
     @http_header.setter
-    def http_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_header", value)
 
     @_builtins.property
     @pulumi.getter(name="httpHost")
-    def http_host(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_host(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_host")
 
     @http_host.setter
-    def http_host(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_host(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_host", value)
 
     @_builtins.property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_method(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_method(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_method", value)
 
     @_builtins.property
     @pulumi.getter(name="httpReferer")
-    def http_referer(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_referer(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_referer")
 
     @http_referer.setter
-    def http_referer(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_referer(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_referer", value)
 
     @_builtins.property
     @pulumi.getter(name="httpSetCookie")
-    def http_set_cookie(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_set_cookie(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_set_cookie")
 
     @http_set_cookie.setter
-    def http_set_cookie(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_set_cookie(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_set_cookie", value)
 
     @_builtins.property
     @pulumi.getter(name="httpStatus")
-    def http_status(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_status(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_status")
 
     @http_status.setter
-    def http_status(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_status(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_status", value)
 
     @_builtins.property
     @pulumi.getter(name="httpUri")
-    def http_uri(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_uri(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_uri")
 
     @http_uri.setter
-    def http_uri(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_uri(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="httpUserAgent")
-    def http_user_agent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_user_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_user_agent")
 
     @http_user_agent.setter
-    def http_user_agent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_user_agent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_user_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "http_version")
 
     @http_version.setter
-    def http_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def index(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "index", value)
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter
-    def isp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def isp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "isp")
 
     @isp.setter
-    def isp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def isp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "isp", value)
 
     @_builtins.property
     @pulumi.getter
-    def last15secs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def last15secs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "last15secs")
 
     @last15secs.setter
-    def last15secs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def last15secs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "last15secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def last1min(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def last1min(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "last1min")
 
     @last1min.setter
-    def last1min(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def last1min(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "last1min", value)
 
     @_builtins.property
     @pulumi.getter
-    def last5mins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def last5mins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "last5mins")
 
     @last5mins.setter
-    def last5mins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def last5mins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "last5mins", value)
 
     @_builtins.property
     @pulumi.getter
-    def less(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def less(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "less")
 
     @less.setter
-    def less(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def less(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "less", value)
 
     @_builtins.property
     @pulumi.getter(name="lessOrEqual")
-    def less_or_equal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def less_or_equal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "less_or_equal")
 
     @less_or_equal.setter
-    def less_or_equal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def less_or_equal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "less_or_equal", value)
 
     @_builtins.property
     @pulumi.getter
-    def local(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def local(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local")
 
     @local.setter
-    def local(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def local(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local", value)
 
     @_builtins.property
     @pulumi.getter
-    def major(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def major(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "major")
 
     @major.setter
-    def major(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def major(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "major", value)
 
     @_builtins.property
     @pulumi.getter
-    def matches(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def matches(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "matches")
 
     @matches.setter
-    def matches(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def matches(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "matches", value)
 
     @_builtins.property
     @pulumi.getter
-    def minor(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def minor(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "minor")
 
     @minor.setter
-    def minor(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def minor(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "minor", value)
 
     @_builtins.property
     @pulumi.getter
-    def missing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def missing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "missing")
 
     @missing.setter
-    def missing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def missing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "missing", value)
 
     @_builtins.property
     @pulumi.getter
-    def mss(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mss(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "mss")
 
     @mss.setter
-    def mss(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mss(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mss", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def not_(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def not_(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def org(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def org(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "org")
 
     @org.setter
-    def org(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def org(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "org", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="pathSegment")
-    def path_segment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def path_segment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "path_segment")
 
     @path_segment.setter
-    def path_segment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def path_segment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "path_segment", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def present(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def present(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "present")
 
     @present.setter
-    def present(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def present(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "present", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="queryParameter")
-    def query_parameter(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_parameter(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "query_parameter")
 
     @query_parameter.setter
-    def query_parameter(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_parameter(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_parameter", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter(name="regionCode")
-    def region_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def region_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "region_code")
 
     @region_code.setter
-    def region_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def region_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "region_code", value)
 
     @_builtins.property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def region_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "region_name")
 
     @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def region_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "region_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def remote(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remote(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "remote")
 
     @remote.setter
-    def remote(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remote(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remote", value)
 
     @_builtins.property
     @pulumi.getter
-    def request(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "request")
 
     @request.setter
-    def request(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request", value)
 
     @_builtins.property
     @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def response(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "response")
 
     @response.setter
-    def response(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def response(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "response", value)
 
     @_builtins.property
     @pulumi.getter(name="routeDomain")
-    def route_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def route_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "route_domain")
 
     @route_domain.setter
-    def route_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def route_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "route_domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def rtt(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rtt(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "rtt")
 
     @rtt.setter
-    def rtt(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rtt(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rtt", value)
 
     @_builtins.property
     @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scheme(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scheme(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sslCert")
-    def ssl_cert(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_cert(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_cert")
 
     @ssl_cert.setter
-    def ssl_cert(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_cert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="sslClientHello")
-    def ssl_client_hello(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_client_hello(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_client_hello")
 
     @ssl_client_hello.setter
-    def ssl_client_hello(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_client_hello(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_client_hello", value)
 
     @_builtins.property
     @pulumi.getter(name="sslExtension")
-    def ssl_extension(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_extension(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_extension")
 
     @ssl_extension.setter
-    def ssl_extension(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_extension(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_extension", value)
 
     @_builtins.property
     @pulumi.getter(name="sslServerHandshake")
-    def ssl_server_handshake(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_server_handshake(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_server_handshake")
 
     @ssl_server_handshake.setter
-    def ssl_server_handshake(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_server_handshake(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_server_handshake", value)
 
     @_builtins.property
     @pulumi.getter(name="sslServerHello")
-    def ssl_server_hello(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ssl_server_hello(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "ssl_server_hello")
 
     @ssl_server_hello.setter
-    def ssl_server_hello(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ssl_server_hello(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ssl_server_hello", value)
 
     @_builtins.property
     @pulumi.getter(name="startsWith")
-    def starts_with(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def starts_with(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "starts_with")
 
     @starts_with.setter
-    def starts_with(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def starts_with(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "starts_with", value)
 
     @_builtins.property
     @pulumi.getter
-    def tcp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tcp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "tcp")
 
     @tcp.setter
-    def tcp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tcp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tcp", value)
 
     @_builtins.property
     @pulumi.getter
-    def text(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def text(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "text")
 
     @text.setter
-    def text(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def text(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "text", value)
 
     @_builtins.property
     @pulumi.getter(name="tmName")
-    def tm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "tm_name")
 
     @tm_name.setter
-    def tm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="unnamedQueryParameter")
-    def unnamed_query_parameter(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unnamed_query_parameter(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "unnamed_query_parameter")
 
     @unnamed_query_parameter.setter
-    def unnamed_query_parameter(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unnamed_query_parameter(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unnamed_query_parameter", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgentToken")
-    def user_agent_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_agent_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "user_agent_token")
 
     @user_agent_token.setter
-    def user_agent_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_agent_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_agent_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlan(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlan(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "vlan")
 
     @vlan.setter
-    def vlan(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlan(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlan", value)
 
     @_builtins.property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlan_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "vlan_id")
 
     @vlan_id.setter
-    def vlan_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlan_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlan_id", value)
 
 
 class ProfileClientSslCertKeyChainArgsDict(TypedDict):
-    cert: NotRequired[pulumi.Input[_builtins.str]]
+    cert: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
     """
-    chain: NotRequired[pulumi.Input[_builtins.str]]
+    chain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies a certificate chain file that a server can use for authentication. The default is `None`.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the file name of the SSL key. The default is `default`
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of Cert-key-chain
     """
-    passphrase: NotRequired[pulumi.Input[_builtins.str]]
+    passphrase: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type the name of the pass phrase used to encrypt the key.
     """
@@ -2923,11 +2923,11 @@ class ProfileClientSslCertKeyChainArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileClientSslCertKeyChainArgs:
     def __init__(__self__, *,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None):
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[_builtins.str] chain: Specifies a certificate chain file that a server can use for authentication. The default is `None`.
@@ -2948,79 +2948,79 @@ class ProfileClientSslCertKeyChainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         """
         return pulumi.get(self, "cert")
 
     @cert.setter
-    def cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a certificate chain file that a server can use for authentication. The default is `None`.
         """
         return pulumi.get(self, "chain")
 
     @chain.setter
-    def chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chain", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file name of the SSL key. The default is `default`
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Cert-key-chain
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type the name of the pass phrase used to encrypt the key.
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
 
 class ProfileHttpEnforcementArgsDict(TypedDict):
-    known_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    known_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
     """
-    max_header_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_header_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
     """
-    max_header_size: NotRequired[pulumi.Input[_builtins.int]]
+    max_header_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
     """
-    unknown_method: NotRequired[pulumi.Input[_builtins.str]]
+    unknown_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
     """
@@ -3028,10 +3028,10 @@ class ProfileHttpEnforcementArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileHttpEnforcementArgs:
     def __init__(__self__, *,
-                 known_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_header_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_header_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 unknown_method: Optional[pulumi.Input[_builtins.str]] = None):
+                 known_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_header_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_header_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 unknown_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] known_methods: Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
         :param pulumi.Input[_builtins.int] max_header_count: Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
@@ -3049,67 +3049,67 @@ class ProfileHttpEnforcementArgs:
 
     @_builtins.property
     @pulumi.getter(name="knownMethods")
-    def known_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def known_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned by BigIP. In order to remove it, [""] list is to be passed. If known_methods is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK] explicitly.
         """
         return pulumi.get(self, "known_methods")
 
     @known_methods.setter
-    def known_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def known_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "known_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="maxHeaderCount")
-    def max_header_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_header_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified while creating, then default value will be assigned by BigIP. If max_header_count is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "64" explicitly.
         """
         return pulumi.get(self, "max_header_count")
 
     @max_header_count.setter
-    def max_header_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_header_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_header_count", value)
 
     @_builtins.property
     @pulumi.getter(name="maxHeaderSize")
-    def max_header_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_header_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum header size. The default value is 32768. If no string is specified while creating, then default value will be assigned by BigIP. If max_header_size is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "32768" explicitly.
         """
         return pulumi.get(self, "max_header_size")
 
     @max_header_size.setter
-    def max_header_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_header_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_header_size", value)
 
     @_builtins.property
     @pulumi.getter(name="unknownMethod")
-    def unknown_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unknown_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is "allow". If no string is specified while creating, then default value will be assigned by BigIP. If unknown_method is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "allow" explicitly.
         """
         return pulumi.get(self, "unknown_method")
 
     @unknown_method.setter
-    def unknown_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unknown_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unknown_method", value)
 
 
 class ProfileHttpHttpStrictTransportSecurityArgsDict(TypedDict):
-    include_subdomains: NotRequired[pulumi.Input[_builtins.str]]
+    include_subdomains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
     """
-    maximum_age: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
     """
-    mode: NotRequired[pulumi.Input[_builtins.str]]
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
     """
-    preload: NotRequired[pulumi.Input[_builtins.str]]
+    preload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
     """
@@ -3117,10 +3117,10 @@ class ProfileHttpHttpStrictTransportSecurityArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileHttpHttpStrictTransportSecurityArgs:
     def __init__(__self__, *,
-                 include_subdomains: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 preload: Optional[pulumi.Input[_builtins.str]] = None):
+                 include_subdomains: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 preload: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] include_subdomains: The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
         :param pulumi.Input[_builtins.int] maximum_age: The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
@@ -3138,50 +3138,50 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeSubdomains")
-    def include_subdomains(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def include_subdomains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Include Subdomains setting applies the HSTS policy to the HSTS host and its subdomains. The default is "enabled". If no string is specified during Create, then default value will be assigned by BigIp. If include_subdomains is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "enabled" explicitly.
         """
         return pulumi.get(self, "include_subdomains")
 
     @include_subdomains.setter
-    def include_subdomains(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def include_subdomains(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "include_subdomains", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumAge")
-    def maximum_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Maximum Age value specifies the length of time, in seconds, that HSTS functionality requests that clients only use HTTPS to connect to the current host and any subdomains of the current host's domain name.  The default is 16070400 seconds. If no value is specified during Create, then default value will be assigned by BigIp. If maximum_age is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value , we need to pass 16070400 explicitly.
         """
         return pulumi.get(self, "maximum_age")
 
     @maximum_age.setter
-    def maximum_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_age", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Mode setting enables and disables HSTS functionality within the HTTP profile. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If mode is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def preload(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preload(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An HSTS preload list is a list of domains built into a web browser. When you enable the Preload setting, the domain for the web site that this HTTP profile is associated with is submitted for inclusion in the browser's preload list. The default is "disabled". If no string is specified during Create, then default value will be assigned by BigIp. If preload is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "disabled" explicitly.
         """
         return pulumi.get(self, "preload")
 
     @preload.setter
-    def preload(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preload(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preload", value)
 
 
@@ -3262,19 +3262,19 @@ class ProfileRewriteCookieRuleArgs:
 
 
 class ProfileRewriteRequestArgsDict(TypedDict):
-    insert_xfwd_for: NotRequired[pulumi.Input[_builtins.str]]
+    insert_xfwd_for: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
     """
-    insert_xfwd_host: NotRequired[pulumi.Input[_builtins.str]]
+    insert_xfwd_host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
     """
-    insert_xfwd_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    insert_xfwd_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
     """
-    rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_headers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
     """
@@ -3282,10 +3282,10 @@ class ProfileRewriteRequestArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileRewriteRequestArgs:
     def __init__(__self__, *,
-                 insert_xfwd_for: Optional[pulumi.Input[_builtins.str]] = None,
-                 insert_xfwd_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 insert_xfwd_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_headers: Optional[pulumi.Input[_builtins.str]] = None):
+                 insert_xfwd_for: pulumi.Input[Optional[_builtins.str]] = None,
+                 insert_xfwd_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 insert_xfwd_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_headers: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] insert_xfwd_for: Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
         :param pulumi.Input[_builtins.str] insert_xfwd_host: Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
@@ -3303,59 +3303,59 @@ class ProfileRewriteRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="insertXfwdFor")
-    def insert_xfwd_for(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insert_xfwd_for(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to add the X-Forwarded For (XFF) header, to specify the originating IP address of the client. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "insert_xfwd_for")
 
     @insert_xfwd_for.setter
-    def insert_xfwd_for(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insert_xfwd_for(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insert_xfwd_for", value)
 
     @_builtins.property
     @pulumi.getter(name="insertXfwdHost")
-    def insert_xfwd_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insert_xfwd_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to add the X-Forwarded Host header, to specify the originating host of the client. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "insert_xfwd_host")
 
     @insert_xfwd_host.setter
-    def insert_xfwd_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insert_xfwd_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insert_xfwd_host", value)
 
     @_builtins.property
     @pulumi.getter(name="insertXfwdProtocol")
-    def insert_xfwd_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insert_xfwd_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to add the X-Forwarded Proto header, to specify the originating protocol of the client. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "insert_xfwd_protocol")
 
     @insert_xfwd_protocol.setter
-    def insert_xfwd_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insert_xfwd_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insert_xfwd_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteHeaders")
-    def rewrite_headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to rewrite headers in Request settings. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "rewrite_headers")
 
     @rewrite_headers.setter
-    def rewrite_headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_headers", value)
 
 
 class ProfileRewriteResponseArgsDict(TypedDict):
-    rewrite_content: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
     """
-    rewrite_headers: NotRequired[pulumi.Input[_builtins.str]]
+    rewrite_headers: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
     """
@@ -3363,8 +3363,8 @@ class ProfileRewriteResponseArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileRewriteResponseArgs:
     def __init__(__self__, *,
-                 rewrite_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 rewrite_headers: Optional[pulumi.Input[_builtins.str]] = None):
+                 rewrite_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 rewrite_headers: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rewrite_content: Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
         :param pulumi.Input[_builtins.str] rewrite_headers: Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
@@ -3376,26 +3376,26 @@ class ProfileRewriteResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="rewriteContent")
-    def rewrite_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to rewrite links in content in the response. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "rewrite_content")
 
     @rewrite_content.setter
-    def rewrite_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_content", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteHeaders")
-    def rewrite_headers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_headers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable to rewrite headers in the response. Valid choices are: `enabled, disabled`
         """
         return pulumi.get(self, "rewrite_headers")
 
     @rewrite_headers.setter
-    def rewrite_headers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_headers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_headers", value)
 
 
@@ -3408,11 +3408,11 @@ class ProfileRewriteUriRulesClientArgsDict(TypedDict):
     """
     Scheme part of the uri, e.g. `https`, `ftp`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path part of the uri, must always end with `/`. Default value is: `/`
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port part of the uri. Default value is: `none`
     """
@@ -3422,8 +3422,8 @@ class ProfileRewriteUriRulesClientArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[_builtins.str],
                  scheme: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] host: Host part of the uri, e.g. `www.foo.com`.
         :param pulumi.Input[_builtins.str] scheme: Scheme part of the uri, e.g. `https`, `ftp`.
@@ -3463,26 +3463,26 @@ class ProfileRewriteUriRulesClientArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path part of the uri, must always end with `/`. Default value is: `/`
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port part of the uri. Default value is: `none`
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
 
@@ -3495,11 +3495,11 @@ class ProfileRewriteUriRulesServerArgsDict(TypedDict):
     """
     Scheme part of the uri, e.g. `https`, `ftp`.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Path part of the uri, must always end with `/`. Default value is: `/`
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port part of the uri. Default value is: `none`
     """
@@ -3509,8 +3509,8 @@ class ProfileRewriteUriRulesServerArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[_builtins.str],
                  scheme: pulumi.Input[_builtins.str],
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] host: Host part of the uri, e.g. `www.foo.com`.
         :param pulumi.Input[_builtins.str] scheme: Scheme part of the uri, e.g. `https`, `ftp`.
@@ -3550,35 +3550,35 @@ class ProfileRewriteUriRulesServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path part of the uri, must always end with `/`. Default value is: `/`
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port part of the uri. Default value is: `none`
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
 
 class SnatOriginArgsDict(TypedDict):
-    app_service: NotRequired[pulumi.Input[_builtins.str]]
+    app_service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     app service
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
     """
@@ -3586,8 +3586,8 @@ class SnatOriginArgsDict(TypedDict):
 @pulumi.input_type
 class SnatOriginArgs:
     def __init__(__self__, *,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] app_service: app service
         :param pulumi.Input[_builtins.str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -3599,26 +3599,26 @@ class SnatOriginArgs:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         app service
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

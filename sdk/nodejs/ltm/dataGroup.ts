@@ -105,24 +105,24 @@ export interface DataGroupState {
     /**
      * Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
      */
-    internal?: pulumi.Input<boolean>;
+    internal?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the datagroup
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[] | undefined>;
     /**
      * Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
      * This should be used in conjunction with `internal` attribute set `false`
      */
-    recordsSrc?: pulumi.Input<string>;
+    recordsSrc?: pulumi.Input<string | undefined>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface DataGroupArgs {
     /**
      * Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
      */
-    internal?: pulumi.Input<boolean>;
+    internal?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the datagroup
      */
@@ -140,12 +140,12 @@ export interface DataGroupArgs {
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[] | undefined>;
     /**
      * Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
      * This should be used in conjunction with `internal` attribute set `false`
      */
-    recordsSrc?: pulumi.Input<string>;
+    recordsSrc?: pulumi.Input<string | undefined>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */

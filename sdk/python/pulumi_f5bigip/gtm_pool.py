@@ -23,37 +23,37 @@ class GtmPoolArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 alternate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fallback_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_answers_returned: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]] = None,
-                 min_members_up_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_members_up_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_hit_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_hops: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_kilobytes_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_lcs: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_packet_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_rtt: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_topology: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_score: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 verify_member_availability: Optional[pulumi.Input[_builtins.str]] = None):
+                 alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]] = None,
+                 min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GtmPool resource.
 
@@ -181,410 +181,410 @@ class GtmPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="alternateMode")
-    def alternate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alternate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode to use if the preferred and alternate modes are unsuccessful
         """
         return pulumi.get(self, "alternate_mode")
 
     @alternate_mode.setter
-    def alternate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alternate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alternate_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disabled state of the pool
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the dynamic ratio load balancing algorithm
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the pool
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackIp")
-    def fallback_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPv4 or IPv6 address of the server to which the system directs requests when it cannot use one of its pools
         """
         return pulumi.get(self, "fallback_ip")
 
     @fallback_ip.setter
-    def fallback_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackMode")
-    def fallback_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode that the system uses if the pool's preferred and alternate modes are unsuccessful
         """
         return pulumi.get(self, "fallback_mode")
 
     @fallback_mode.setter
-    def fallback_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data throughput rate in bits per second
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_bps option
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of concurrent connections
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_connections option
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data transfer rate in packets per second
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_pps option
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the preferred load balancing mode for the pool
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="manualResume")
-    def manual_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether manual resume is enabled
         """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
-    def manual_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAnswersReturned")
-    def max_answers_returned(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_answers_returned(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of available virtual servers that the system lists in a response
         """
         return pulumi.get(self, "max_answers_returned")
 
     @max_answers_returned.setter
-    def max_answers_returned(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_answers_returned(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_answers_returned", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]:
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter(name="minMembersUpMode")
-    def min_members_up_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_members_up_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the minimum number of members must be up for the pool to be active
         """
         return pulumi.get(self, "min_members_up_mode")
 
     @min_members_up_mode.setter
-    def min_members_up_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_members_up_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_members_up_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="minMembersUpValue")
-    def min_members_up_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_members_up_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of pool members that must be up
         """
         return pulumi.get(self, "min_members_up_value")
 
     @min_members_up_value.setter
-    def min_members_up_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_members_up_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_members_up_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the health monitor for the pool
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which the pool resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="qosHitRatio")
-    def qos_hit_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_hit_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS hit ratio
         """
         return pulumi.get(self, "qos_hit_ratio")
 
     @qos_hit_ratio.setter
-    def qos_hit_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_hit_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_hit_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="qosHops")
-    def qos_hops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_hops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS hops
         """
         return pulumi.get(self, "qos_hops")
 
     @qos_hops.setter
-    def qos_hops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_hops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_hops", value)
 
     @_builtins.property
     @pulumi.getter(name="qosKilobytesSecond")
-    def qos_kilobytes_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_kilobytes_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS kilobytes per second
         """
         return pulumi.get(self, "qos_kilobytes_second")
 
     @qos_kilobytes_second.setter
-    def qos_kilobytes_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_kilobytes_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_kilobytes_second", value)
 
     @_builtins.property
     @pulumi.getter(name="qosLcs")
-    def qos_lcs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_lcs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS link capacity
         """
         return pulumi.get(self, "qos_lcs")
 
     @qos_lcs.setter
-    def qos_lcs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_lcs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_lcs", value)
 
     @_builtins.property
     @pulumi.getter(name="qosPacketRate")
-    def qos_packet_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_packet_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS packet rate
         """
         return pulumi.get(self, "qos_packet_rate")
 
     @qos_packet_rate.setter
-    def qos_packet_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_packet_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_packet_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="qosRtt")
-    def qos_rtt(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_rtt(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS round trip time
         """
         return pulumi.get(self, "qos_rtt")
 
     @qos_rtt.setter
-    def qos_rtt(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_rtt(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_rtt", value)
 
     @_builtins.property
     @pulumi.getter(name="qosTopology")
-    def qos_topology(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_topology(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS topology
         """
         return pulumi.get(self, "qos_topology")
 
     @qos_topology.setter
-    def qos_topology(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_topology(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_topology", value)
 
     @_builtins.property
     @pulumi.getter(name="qosVsCapacity")
-    def qos_vs_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_vs_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS virtual server capacity
         """
         return pulumi.get(self, "qos_vs_capacity")
 
     @qos_vs_capacity.setter
-    def qos_vs_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_vs_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_vs_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="qosVsScore")
-    def qos_vs_score(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_vs_score(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS virtual server score
         """
         return pulumi.get(self, "qos_vs_score")
 
     @qos_vs_score.setter
-    def qos_vs_score(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_vs_score(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_vs_score", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (TTL) for the pool
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyMemberAvailability")
-    def verify_member_availability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_member_availability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system verifies the availability of pool members before sending traffic
         """
         return pulumi.get(self, "verify_member_availability")
 
     @verify_member_availability.setter
-    def verify_member_availability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_member_availability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_member_availability", value)
 
 
 @pulumi.input_type
 class _GtmPoolState:
     def __init__(__self__, *,
-                 alternate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fallback_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_answers_returned: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]] = None,
-                 min_members_up_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_members_up_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_hit_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_hops: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_kilobytes_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_lcs: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_packet_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_rtt: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_topology: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_score: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 verify_member_availability: Optional[pulumi.Input[_builtins.str]] = None):
+                 alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]] = None,
+                 min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GtmPool resources.
 
@@ -690,395 +690,395 @@ class _GtmPoolState:
 
     @_builtins.property
     @pulumi.getter(name="alternateMode")
-    def alternate_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alternate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode to use if the preferred and alternate modes are unsuccessful
         """
         return pulumi.get(self, "alternate_mode")
 
     @alternate_mode.setter
-    def alternate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alternate_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alternate_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disabled state of the pool
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the dynamic ratio load balancing algorithm
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the pool
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackIp")
-    def fallback_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPv4 or IPv6 address of the server to which the system directs requests when it cannot use one of its pools
         """
         return pulumi.get(self, "fallback_ip")
 
     @fallback_ip.setter
-    def fallback_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackMode")
-    def fallback_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode that the system uses if the pool's preferred and alternate modes are unsuccessful
         """
         return pulumi.get(self, "fallback_mode")
 
     @fallback_mode.setter
-    def fallback_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data throughput rate in bits per second
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_bps option
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of concurrent connections
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_connections option
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowable data transfer rate in packets per second
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the limit_max_pps option
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the preferred load balancing mode for the pool
         """
         return pulumi.get(self, "load_balancing_mode")
 
     @load_balancing_mode.setter
-    def load_balancing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancing_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="manualResume")
-    def manual_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether manual resume is enabled
         """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
-    def manual_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAnswersReturned")
-    def max_answers_returned(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_answers_returned(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of available virtual servers that the system lists in a response
         """
         return pulumi.get(self, "max_answers_returned")
 
     @max_answers_returned.setter
-    def max_answers_returned(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_answers_returned(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_answers_returned", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]:
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmPoolMemberArgs']]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter(name="minMembersUpMode")
-    def min_members_up_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def min_members_up_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the minimum number of members must be up for the pool to be active
         """
         return pulumi.get(self, "min_members_up_mode")
 
     @min_members_up_mode.setter
-    def min_members_up_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def min_members_up_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "min_members_up_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="minMembersUpValue")
-    def min_members_up_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_members_up_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of pool members that must be up
         """
         return pulumi.get(self, "min_members_up_value")
 
     @min_members_up_value.setter
-    def min_members_up_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_members_up_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_members_up_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the health monitor for the pool
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the GTM pool
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which the pool resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="qosHitRatio")
-    def qos_hit_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_hit_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS hit ratio
         """
         return pulumi.get(self, "qos_hit_ratio")
 
     @qos_hit_ratio.setter
-    def qos_hit_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_hit_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_hit_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="qosHops")
-    def qos_hops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_hops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS hops
         """
         return pulumi.get(self, "qos_hops")
 
     @qos_hops.setter
-    def qos_hops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_hops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_hops", value)
 
     @_builtins.property
     @pulumi.getter(name="qosKilobytesSecond")
-    def qos_kilobytes_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_kilobytes_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS kilobytes per second
         """
         return pulumi.get(self, "qos_kilobytes_second")
 
     @qos_kilobytes_second.setter
-    def qos_kilobytes_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_kilobytes_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_kilobytes_second", value)
 
     @_builtins.property
     @pulumi.getter(name="qosLcs")
-    def qos_lcs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_lcs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS link capacity
         """
         return pulumi.get(self, "qos_lcs")
 
     @qos_lcs.setter
-    def qos_lcs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_lcs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_lcs", value)
 
     @_builtins.property
     @pulumi.getter(name="qosPacketRate")
-    def qos_packet_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_packet_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS packet rate
         """
         return pulumi.get(self, "qos_packet_rate")
 
     @qos_packet_rate.setter
-    def qos_packet_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_packet_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_packet_rate", value)
 
     @_builtins.property
     @pulumi.getter(name="qosRtt")
-    def qos_rtt(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_rtt(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS round trip time
         """
         return pulumi.get(self, "qos_rtt")
 
     @qos_rtt.setter
-    def qos_rtt(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_rtt(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_rtt", value)
 
     @_builtins.property
     @pulumi.getter(name="qosTopology")
-    def qos_topology(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_topology(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS topology
         """
         return pulumi.get(self, "qos_topology")
 
     @qos_topology.setter
-    def qos_topology(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_topology(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_topology", value)
 
     @_builtins.property
     @pulumi.getter(name="qosVsCapacity")
-    def qos_vs_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_vs_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS virtual server capacity
         """
         return pulumi.get(self, "qos_vs_capacity")
 
     @qos_vs_capacity.setter
-    def qos_vs_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_vs_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_vs_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="qosVsScore")
-    def qos_vs_score(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def qos_vs_score(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the weight for QoS virtual server score
         """
         return pulumi.get(self, "qos_vs_score")
 
     @qos_vs_score.setter
-    def qos_vs_score(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def qos_vs_score(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "qos_vs_score", value)
 
     @_builtins.property
     @pulumi.getter
-    def ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time to live (TTL) for the pool
         """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
-    def ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of GTM pool (a, aaaa, cname, mx, naptr, srv)
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyMemberAvailability")
-    def verify_member_availability(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_member_availability(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system verifies the availability of pool members before sending traffic
         """
         return pulumi.get(self, "verify_member_availability")
 
     @verify_member_availability.setter
-    def verify_member_availability(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_member_availability(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_member_availability", value)
 
 
@@ -1088,39 +1088,39 @@ class GtmPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fallback_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_answers_returned: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
-                 min_members_up_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_members_up_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_hit_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_hops: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_kilobytes_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_lcs: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_packet_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_rtt: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_topology: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_score: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 verify_member_availability: Optional[pulumi.Input[_builtins.str]] = None,
+                 alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+                 min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## # GtmPool Resource
@@ -1578,39 +1578,39 @@ class GtmPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fallback_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_answers_returned: Optional[pulumi.Input[_builtins.int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
-                 min_members_up_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_members_up_value: Optional[pulumi.Input[_builtins.int]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 qos_hit_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_hops: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_kilobytes_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_lcs: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_packet_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_rtt: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_topology: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 qos_vs_score: Optional[pulumi.Input[_builtins.int]] = None,
-                 ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 verify_member_availability: Optional[pulumi.Input[_builtins.str]] = None,
+                 alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+                 min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1667,39 +1667,39 @@ class GtmPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alternate_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            dynamic_ratio: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fallback_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            fallback_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancing_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-            max_answers_returned: Optional[pulumi.Input[_builtins.int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
-            min_members_up_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            min_members_up_value: Optional[pulumi.Input[_builtins.int]] = None,
-            monitor: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            qos_hit_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_hops: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_kilobytes_second: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_lcs: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_packet_rate: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_rtt: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_topology: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_vs_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-            qos_vs_score: Optional[pulumi.Input[_builtins.int]] = None,
-            ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            verify_member_availability: Optional[pulumi.Input[_builtins.str]] = None) -> 'GtmPool':
+            alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+            min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None) -> 'GtmPool':
         """
         Get an existing GtmPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

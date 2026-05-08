@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.Index.GtmMonitorBigip("example", new()
+    ///     var example = new F5BigIP.GtmMonitorBigip("example", new()
     ///     {
     ///         Name = "/Common/my_bigip_monitor",
     ///     });
@@ -55,7 +55,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new F5BigIP.Index.GtmMonitorBigip("advanced", new()
+    ///     var advanced = new F5BigIP.GtmMonitorBigip("advanced", new()
     ///     {
     ///         Name = "/Common/my_bigip_monitor",
     ///         DefaultsFrom = "/Common/bigip",

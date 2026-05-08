@@ -214,67 +214,67 @@ export interface ProfileFtpState {
     /**
      * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
-    allowActiveMode?: pulumi.Input<string>;
+    allowActiveMode?: pulumi.Input<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    allowFtps?: pulumi.Input<string>;
+    allowFtps?: pulumi.Input<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      */
-    enforceTlssessionReuse?: pulumi.Input<string>;
+    enforceTlssessionReuse?: pulumi.Input<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    ftpsMode?: pulumi.Input<string>;
+    ftpsMode?: pulumi.Input<string | undefined>;
     /**
      * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      */
-    inheritParentProfile?: pulumi.Input<string>;
+    inheritParentProfile?: pulumi.Input<string | undefined>;
     /**
      * inherent vlan list
      */
-    inheritVlanList?: pulumi.Input<string>;
+    inheritVlanList?: pulumi.Input<string | undefined>;
     /**
      * Configures the ALG log profile that controls logging
      */
-    logProfile?: pulumi.Input<string>;
+    logProfile?: pulumi.Input<string | undefined>;
     /**
      * Configures the log publisher that handles events logging for this profile
      */
-    logPublisher?: pulumi.Input<string>;
+    logPublisher?: pulumi.Input<string | undefined>;
     /**
      * Name of the profile_ftp
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      */
-    security?: pulumi.Input<string>;
+    security?: pulumi.Input<string | undefined>;
     /**
      * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      */
-    translateExtended?: pulumi.Input<string>;
+    translateExtended?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -284,47 +284,47 @@ export interface ProfileFtpArgs {
     /**
      * Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
      */
-    allowActiveMode?: pulumi.Input<string>;
+    allowActiveMode?: pulumi.Input<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    allowFtps?: pulumi.Input<string>;
+    allowFtps?: pulumi.Input<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
      */
-    enforceTlssessionReuse?: pulumi.Input<string>;
+    enforceTlssessionReuse?: pulumi.Input<string | undefined>;
     /**
      * Allows explicit FTPS negotiation
      */
-    ftpsMode?: pulumi.Input<string>;
+    ftpsMode?: pulumi.Input<string | undefined>;
     /**
      * Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
      */
-    inheritParentProfile?: pulumi.Input<string>;
+    inheritParentProfile?: pulumi.Input<string | undefined>;
     /**
      * inherent vlan list
      */
-    inheritVlanList?: pulumi.Input<string>;
+    inheritVlanList?: pulumi.Input<string | undefined>;
     /**
      * Configures the ALG log profile that controls logging
      */
-    logProfile?: pulumi.Input<string>;
+    logProfile?: pulumi.Input<string | undefined>;
     /**
      * Configures the log publisher that handles events logging for this profile
      */
-    logPublisher?: pulumi.Input<string>;
+    logPublisher?: pulumi.Input<string | undefined>;
     /**
      * Name of the profile_ftp
      */
@@ -332,17 +332,17 @@ export interface ProfileFtpArgs {
     /**
      * Displays the administrative partition within which this profile resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
      */
-    security?: pulumi.Input<string>;
+    security?: pulumi.Input<string | undefined>;
     /**
      * This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
      */
-    translateExtended?: pulumi.Input<string>;
+    translateExtended?: pulumi.Input<string | undefined>;
 }

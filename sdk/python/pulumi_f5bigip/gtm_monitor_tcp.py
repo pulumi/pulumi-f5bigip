@@ -20,16 +20,16 @@ __all__ = ['GtmMonitorTcpArgs', 'GtmMonitorTcp']
 class GtmMonitorTcpArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 probe_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GtmMonitorTcp resource.
 
@@ -81,139 +81,139 @@ class GtmMonitorTcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inherit properties from this monitor
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDownResponse")
-    def ignore_down_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_down_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor ignores a down response from the system it is monitoring
         """
         return pulumi.get(self, "ignore_down_response")
 
     @ignore_down_response.setter
-    def ignore_down_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_down_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_down_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="probeTimeout")
-    def probe_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
         """
         return pulumi.get(self, "probe_timeout")
 
     @probe_timeout.setter
-    def probe_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def receive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor looks for in the returned resource
         """
         return pulumi.get(self, "receive")
 
     @receive.setter
-    def receive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive", value)
 
     @_builtins.property
     @pulumi.getter
-    def reverse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructs the system to mark the target resource down when the test is successful
         """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
-    def reverse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor sends to the target object
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor operates in transparent mode
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
 
 @pulumi.input_type
 class _GtmMonitorTcpState:
     def __init__(__self__, *,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GtmMonitorTcp resources.
 
@@ -254,134 +254,134 @@ class _GtmMonitorTcpState:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inherit properties from this monitor
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreDownResponse")
-    def ignore_down_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ignore_down_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor ignores a down response from the system it is monitoring
         """
         return pulumi.get(self, "ignore_down_response")
 
     @ignore_down_response.setter
-    def ignore_down_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ignore_down_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ignore_down_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the GTM TCP monitor
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="probeTimeout")
-    def probe_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def probe_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
         """
         return pulumi.get(self, "probe_timeout")
 
     @probe_timeout.setter
-    def probe_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def probe_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "probe_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def receive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor looks for in the returned resource
         """
         return pulumi.get(self, "receive")
 
     @receive.setter
-    def receive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive", value)
 
     @_builtins.property
     @pulumi.getter
-    def reverse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructs the system to mark the target resource down when the test is successful
         """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
-    def reverse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor sends to the target object
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor operates in transparent mode
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
 
@@ -391,17 +391,17 @@ class GtmMonitorTcp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## # GtmMonitorTcp Resource
@@ -536,17 +536,17 @@ class GtmMonitorTcp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -579,17 +579,17 @@ class GtmMonitorTcp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_down_response: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            probe_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            receive: Optional[pulumi.Input[_builtins.str]] = None,
-            reverse: Optional[pulumi.Input[_builtins.str]] = None,
-            send: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            transparent: Optional[pulumi.Input[_builtins.str]] = None) -> 'GtmMonitorTcp':
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            receive: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None) -> 'GtmMonitorTcp':
         """
         Get an existing GtmMonitorTcp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

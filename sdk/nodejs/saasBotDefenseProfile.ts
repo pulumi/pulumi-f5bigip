@@ -140,39 +140,39 @@ export interface SaasBotDefenseProfileState {
     /**
      * Specifies the API key, enter the value provided by F5 Support.
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Bot Defense API application ID, enter the value provided by F5 Support
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies descriptive text that identifies the BD profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the Distributed Cloud Services Bot Defense profile
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Use these settings to configure which pages on the website will be protected by BD
      */
-    protectedEndpoints?: pulumi.Input<pulumi.Input<inputs.SaasBotDefenseProfileProtectedEndpoint>[]>;
+    protectedEndpoints?: pulumi.Input<pulumi.Input<inputs.SaasBotDefenseProfileProtectedEndpoint>[] | undefined>;
     /**
      * Specifies the web hostname to which API requests are made
      */
-    shapeProtectionPool?: pulumi.Input<string>;
+    shapeProtectionPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies a server-side SSL profile that is different from what the application pool uses
      */
-    sslProfile?: pulumi.Input<string>;
+    sslProfile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the tenant ID, enter the value provided by F5 Support
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,11 +190,11 @@ export interface SaasBotDefenseProfileArgs {
     /**
      * Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies descriptive text that identifies the BD profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the Distributed Cloud Services Bot Defense profile
      */

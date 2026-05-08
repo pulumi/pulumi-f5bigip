@@ -20,8 +20,8 @@ __all__ = ['PartitionArgs', 'Partition']
 class PartitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Partition resource.
 
@@ -49,35 +49,35 @@ class PartitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the partition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="routeDomainId")
-    def route_domain_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def route_domain_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Route domain id of the partition.
         """
         return pulumi.get(self, "route_domain_id")
 
     @route_domain_id.setter
-    def route_domain_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def route_domain_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "route_domain_id", value)
 
 
 @pulumi.input_type
 class _PartitionState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain_id: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Partition resources.
 
@@ -94,38 +94,38 @@ class _PartitionState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the partition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the partition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="routeDomainId")
-    def route_domain_id(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def route_domain_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Route domain id of the partition.
         """
         return pulumi.get(self, "route_domain_id")
 
     @route_domain_id.setter
-    def route_domain_id(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def route_domain_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "route_domain_id", value)
 
 
@@ -135,9 +135,9 @@ class Partition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `Partition` Manages F5 BIG-IP partitions
@@ -220,9 +220,9 @@ class Partition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain_id: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain_id: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,9 +247,9 @@ class Partition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            route_domain_id: Optional[pulumi.Input[_builtins.int]] = None) -> 'Partition':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            route_domain_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'Partition':
         """
         Get an existing Partition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

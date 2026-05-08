@@ -151,23 +151,23 @@ export interface ProfileRewriteUriRulesState {
     /**
      * Block type. Each request is block type with following arguments.
      */
-    clients?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteUriRulesClient>[]>;
+    clients?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteUriRulesClient>[] | undefined>;
     /**
      * Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the uri rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
      */
-    ruleType?: pulumi.Input<string>;
+    ruleType?: pulumi.Input<string | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */
-    servers?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteUriRulesServer>[]>;
+    servers?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileRewriteUriRulesServer>[] | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface ProfileRewriteUriRulesArgs {
     /**
      * Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
      */
-    ruleType?: pulumi.Input<string>;
+    ruleType?: pulumi.Input<string | undefined>;
     /**
      * Block type. Each request is block type with following arguments.
      */

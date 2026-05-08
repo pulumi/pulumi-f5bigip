@@ -201,19 +201,19 @@ export interface GetWafEntityUrlOutputArgs {
      * A list of options that enables your web-application to share data with a website hosted on a
      * different domain.
      */
-    crossOriginRequestsEnforcements?: pulumi.Input<pulumi.Input<inputs.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs>[]>;
+    crossOriginRequestsEnforcements?: pulumi.Input<pulumi.Input<inputs.ssl.GetWafEntityUrlCrossOriginRequestsEnforcementArgs>[] | undefined>;
     /**
      * A description of the URL.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Select a Method for the URL to create an API endpoint. Default is : *.
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * A list of methods that are allowed or disallowed for a specific URL.
      */
-    methodOverrides?: pulumi.Input<pulumi.Input<inputs.ssl.GetWafEntityUrlMethodOverrideArgs>[]>;
+    methodOverrides?: pulumi.Input<pulumi.Input<inputs.ssl.GetWafEntityUrlMethodOverrideArgs>[] | undefined>;
     /**
      * WAF entity URL name.
      */
@@ -221,17 +221,17 @@ export interface GetWafEntityUrlOutputArgs {
     /**
      * If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.
      */
-    performStaging?: pulumi.Input<boolean>;
+    performStaging?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the protocol for the URL is 'http' or 'https'. Default is: http.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * List of Attack Signature Ids which are disabled for this particular URL.
      */
-    signatureOverridesDisables?: pulumi.Input<pulumi.Input<number>[]>;
+    signatureOverridesDisables?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies whether the parameter is an 'explicit' or a 'wildcard' attribute. Default is: wildcard.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

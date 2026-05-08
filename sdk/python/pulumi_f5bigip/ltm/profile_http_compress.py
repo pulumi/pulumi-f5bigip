@@ -20,18 +20,18 @@ __all__ = ['ProfileHttpCompressArgs', 'ProfileHttpCompress']
 class ProfileHttpCompressArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 compression_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cpu_saver: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 gzip_compression_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_memory_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 keep_accept_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vary_header: Optional[pulumi.Input[_builtins.str]] = None):
+                 compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vary_header: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileHttpCompress resource.
 
@@ -89,165 +89,165 @@ class ProfileHttpCompressArgs:
 
     @_builtins.property
     @pulumi.getter(name="compressionBuffersize")
-    def compression_buffersize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def compression_buffersize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
         """
         return pulumi.get(self, "compression_buffersize")
 
     @compression_buffersize.setter
-    def compression_buffersize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def compression_buffersize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "compression_buffersize", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeExcludes")
-    def content_type_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def content_type_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
         return pulumi.get(self, "content_type_excludes")
 
     @content_type_excludes.setter
-    def content_type_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def content_type_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "content_type_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeIncludes")
-    def content_type_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def content_type_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
         return pulumi.get(self, "content_type_includes")
 
     @content_type_includes.setter
-    def content_type_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def content_type_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "content_type_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuSaver")
-    def cpu_saver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_saver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
         """
         return pulumi.get(self, "cpu_saver")
 
     @cpu_saver.setter
-    def cpu_saver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_saver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_saver", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipCompressionLevel")
-    def gzip_compression_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_compression_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
         """
         return pulumi.get(self, "gzip_compression_level")
 
     @gzip_compression_level.setter
-    def gzip_compression_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_compression_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_compression_level", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipMemoryLevel")
-    def gzip_memory_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_memory_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
         """
         return pulumi.get(self, "gzip_memory_level")
 
     @gzip_memory_level.setter
-    def gzip_memory_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_memory_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_memory_level", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipWindowSize")
-    def gzip_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_window_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
         """
         return pulumi.get(self, "gzip_window_size")
 
     @gzip_window_size.setter
-    def gzip_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_window_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_window_size", value)
 
     @_builtins.property
     @pulumi.getter(name="keepAcceptEncoding")
-    def keep_accept_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keep_accept_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
         """
         return pulumi.get(self, "keep_accept_encoding")
 
     @keep_accept_encoding.setter
-    def keep_accept_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keep_accept_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keep_accept_encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="uriExcludes")
-    def uri_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uri_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         """
         return pulumi.get(self, "uri_excludes")
 
     @uri_excludes.setter
-    def uri_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uri_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uri_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="uriIncludes")
-    def uri_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uri_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         """
         return pulumi.get(self, "uri_includes")
 
     @uri_includes.setter
-    def uri_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uri_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uri_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="varyHeader")
-    def vary_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vary_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
         """
         return pulumi.get(self, "vary_header")
 
     @vary_header.setter
-    def vary_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vary_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vary_header", value)
 
 
 @pulumi.input_type
 class _ProfileHttpCompressState:
     def __init__(__self__, *,
-                 compression_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cpu_saver: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 gzip_compression_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_memory_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 keep_accept_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vary_header: Optional[pulumi.Input[_builtins.str]] = None):
+                 compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vary_header: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileHttpCompress resources.
 
@@ -294,158 +294,158 @@ class _ProfileHttpCompressState:
 
     @_builtins.property
     @pulumi.getter(name="compressionBuffersize")
-    def compression_buffersize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def compression_buffersize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
         """
         return pulumi.get(self, "compression_buffersize")
 
     @compression_buffersize.setter
-    def compression_buffersize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def compression_buffersize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "compression_buffersize", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeExcludes")
-    def content_type_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def content_type_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
         return pulumi.get(self, "content_type_excludes")
 
     @content_type_excludes.setter
-    def content_type_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def content_type_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "content_type_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeIncludes")
-    def content_type_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def content_type_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
         return pulumi.get(self, "content_type_includes")
 
     @content_type_includes.setter
-    def content_type_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def content_type_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "content_type_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuSaver")
-    def cpu_saver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu_saver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
         """
         return pulumi.get(self, "cpu_saver")
 
     @cpu_saver.setter
-    def cpu_saver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu_saver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu_saver", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipCompressionLevel")
-    def gzip_compression_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_compression_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
         """
         return pulumi.get(self, "gzip_compression_level")
 
     @gzip_compression_level.setter
-    def gzip_compression_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_compression_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_compression_level", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipMemoryLevel")
-    def gzip_memory_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_memory_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
         """
         return pulumi.get(self, "gzip_memory_level")
 
     @gzip_memory_level.setter
-    def gzip_memory_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_memory_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_memory_level", value)
 
     @_builtins.property
     @pulumi.getter(name="gzipWindowSize")
-    def gzip_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def gzip_window_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
         """
         return pulumi.get(self, "gzip_window_size")
 
     @gzip_window_size.setter
-    def gzip_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def gzip_window_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "gzip_window_size", value)
 
     @_builtins.property
     @pulumi.getter(name="keepAcceptEncoding")
-    def keep_accept_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keep_accept_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
         """
         return pulumi.get(self, "keep_accept_encoding")
 
     @keep_accept_encoding.setter
-    def keep_accept_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keep_accept_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keep_accept_encoding", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="uriExcludes")
-    def uri_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uri_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         """
         return pulumi.get(self, "uri_excludes")
 
     @uri_excludes.setter
-    def uri_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uri_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uri_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="uriIncludes")
-    def uri_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def uri_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         """
         return pulumi.get(self, "uri_includes")
 
     @uri_includes.setter
-    def uri_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def uri_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "uri_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="varyHeader")
-    def vary_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vary_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
         """
         return pulumi.get(self, "vary_header")
 
     @vary_header.setter
-    def vary_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vary_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vary_header", value)
 
 
@@ -455,19 +455,19 @@ class ProfileHttpCompress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cpu_saver: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 gzip_compression_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_memory_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 keep_accept_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vary_header: Optional[pulumi.Input[_builtins.str]] = None,
+                 compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vary_header: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
@@ -570,19 +570,19 @@ class ProfileHttpCompress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compression_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cpu_saver: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 gzip_compression_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_memory_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 gzip_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 keep_accept_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vary_header: Optional[pulumi.Input[_builtins.str]] = None,
+                 compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vary_header: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -617,19 +617,19 @@ class ProfileHttpCompress(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compression_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-            content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cpu_saver: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            gzip_compression_level: Optional[pulumi.Input[_builtins.int]] = None,
-            gzip_memory_level: Optional[pulumi.Input[_builtins.int]] = None,
-            gzip_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-            keep_accept_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            vary_header: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileHttpCompress':
+            compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+            content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+            gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+            gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+            keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vary_header: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileHttpCompress':
         """
         Get an existing ProfileHttpCompress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

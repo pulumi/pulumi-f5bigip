@@ -20,22 +20,22 @@ __all__ = ['OcspArgs', 'Ocsp']
 class OcspArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 cache_error_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 concurrent_connections_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_resolver: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_server_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 strict_resp_cert_check: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_responders: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_responders: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Ocsp resource.
 
@@ -105,217 +105,217 @@ class OcspArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheErrorTimeout")
-    def cache_error_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_error_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
         """
         return pulumi.get(self, "cache_error_timeout")
 
     @cache_error_timeout.setter
-    def cache_error_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_error_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_error_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
         """
         return pulumi.get(self, "cache_timeout")
 
     @cache_timeout.setter
-    def cache_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="clockSkew")
-    def clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
         """
         return pulumi.get(self, "clock_skew")
 
     @clock_skew.setter
-    def clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "clock_skew", value)
 
     @_builtins.property
     @pulumi.getter(name="concurrentConnectionsLimit")
-    def concurrent_connections_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrent_connections_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
         """
         return pulumi.get(self, "concurrent_connections_limit")
 
     @concurrent_connections_limit.setter
-    def concurrent_connections_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrent_connections_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrent_connections_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionTimeout")
-    def connection_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
         """
         return pulumi.get(self, "connection_timeout")
 
     @connection_timeout.setter
-    def connection_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsResolver")
-    def dns_resolver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_resolver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
         """
         return pulumi.get(self, "dns_resolver")
 
     @dns_resolver.setter
-    def dns_resolver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_resolver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_resolver", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a passphrase used to sign an OCSP request.
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyServerPool")
-    def proxy_server_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_server_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
         """
         return pulumi.get(self, "proxy_server_pool")
 
     @proxy_server_pool.setter
-    def proxy_server_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_server_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_server_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responderUrl")
-    def responder_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responder_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL of the OCSP responder.
         """
         return pulumi.get(self, "responder_url")
 
     @responder_url.setter
-    def responder_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responder_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responder_url", value)
 
     @_builtins.property
     @pulumi.getter(name="routeDomain")
-    def route_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the route domain for the OCSP responder.
         """
         return pulumi.get(self, "route_domain")
 
     @route_domain.setter
-    def route_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="signHash")
-    def sign_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
         """
         return pulumi.get(self, "sign_hash")
 
     @sign_hash.setter
-    def sign_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="signerCert")
-    def signer_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signer_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificate used to sign the OCSP request.
         """
         return pulumi.get(self, "signer_cert")
 
     @signer_cert.setter
-    def signer_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signer_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signer_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="signerKey")
-    def signer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the key used to sign the OCSP request.
         """
         return pulumi.get(self, "signer_key")
 
     @signer_key.setter
-    def signer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="statusAge")
-    def status_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def status_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.
         """
         return pulumi.get(self, "status_age")
 
     @status_age.setter
-    def status_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def status_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "status_age", value)
 
     @_builtins.property
     @pulumi.getter(name="strictRespCertCheck")
-    def strict_resp_cert_check(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_resp_cert_check(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
         """
         return pulumi.get(self, "strict_resp_cert_check")
 
     @strict_resp_cert_check.setter
-    def strict_resp_cert_check(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_resp_cert_check(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_resp_cert_check", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedResponders")
-    def trusted_responders(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_responders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificates used for validating the OCSP response.
         """
         return pulumi.get(self, "trusted_responders")
 
     @trusted_responders.setter
-    def trusted_responders(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_responders(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_responders", value)
 
 
 @pulumi.input_type
 class _OcspState:
     def __init__(__self__, *,
-                 cache_error_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 concurrent_connections_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_resolver: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_server_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 strict_resp_cert_check: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_responders: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_responders: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ocsp resources.
 
@@ -374,206 +374,206 @@ class _OcspState:
 
     @_builtins.property
     @pulumi.getter(name="cacheErrorTimeout")
-    def cache_error_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_error_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
         """
         return pulumi.get(self, "cache_error_timeout")
 
     @cache_error_timeout.setter
-    def cache_error_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_error_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_error_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
         """
         return pulumi.get(self, "cache_timeout")
 
     @cache_timeout.setter
-    def cache_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="clockSkew")
-    def clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
         """
         return pulumi.get(self, "clock_skew")
 
     @clock_skew.setter
-    def clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "clock_skew", value)
 
     @_builtins.property
     @pulumi.getter(name="concurrentConnectionsLimit")
-    def concurrent_connections_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def concurrent_connections_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
         """
         return pulumi.get(self, "concurrent_connections_limit")
 
     @concurrent_connections_limit.setter
-    def concurrent_connections_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def concurrent_connections_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "concurrent_connections_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionTimeout")
-    def connection_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
         """
         return pulumi.get(self, "connection_timeout")
 
     @connection_timeout.setter
-    def connection_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsResolver")
-    def dns_resolver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_resolver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
         """
         return pulumi.get(self, "dns_resolver")
 
     @dns_resolver.setter
-    def dns_resolver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_resolver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_resolver", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a passphrase used to sign an OCSP request.
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyServerPool")
-    def proxy_server_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_server_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
         """
         return pulumi.get(self, "proxy_server_pool")
 
     @proxy_server_pool.setter
-    def proxy_server_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_server_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_server_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responderUrl")
-    def responder_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responder_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL of the OCSP responder.
         """
         return pulumi.get(self, "responder_url")
 
     @responder_url.setter
-    def responder_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responder_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responder_url", value)
 
     @_builtins.property
     @pulumi.getter(name="routeDomain")
-    def route_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def route_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the route domain for the OCSP responder.
         """
         return pulumi.get(self, "route_domain")
 
     @route_domain.setter
-    def route_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def route_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "route_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="signHash")
-    def sign_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
         """
         return pulumi.get(self, "sign_hash")
 
     @sign_hash.setter
-    def sign_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="signerCert")
-    def signer_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signer_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificate used to sign the OCSP request.
         """
         return pulumi.get(self, "signer_cert")
 
     @signer_cert.setter
-    def signer_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signer_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signer_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="signerKey")
-    def signer_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the key used to sign the OCSP request.
         """
         return pulumi.get(self, "signer_key")
 
     @signer_key.setter
-    def signer_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signer_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signer_key", value)
 
     @_builtins.property
     @pulumi.getter(name="statusAge")
-    def status_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def status_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.
         """
         return pulumi.get(self, "status_age")
 
     @status_age.setter
-    def status_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def status_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "status_age", value)
 
     @_builtins.property
     @pulumi.getter(name="strictRespCertCheck")
-    def strict_resp_cert_check(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_resp_cert_check(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
         """
         return pulumi.get(self, "strict_resp_cert_check")
 
     @strict_resp_cert_check.setter
-    def strict_resp_cert_check(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_resp_cert_check(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_resp_cert_check", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedResponders")
-    def trusted_responders(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_responders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificates used for validating the OCSP response.
         """
         return pulumi.get(self, "trusted_responders")
 
     @trusted_responders.setter
-    def trusted_responders(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_responders(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_responders", value)
 
 
@@ -583,23 +583,23 @@ class Ocsp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_error_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 concurrent_connections_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_resolver: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_server_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 strict_resp_cert_check: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_responders: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_responders: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
@@ -694,23 +694,23 @@ class Ocsp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_error_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 concurrent_connections_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 dns_resolver: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_server_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responder_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signer_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 status_age: Optional[pulumi.Input[_builtins.int]] = None,
-                 strict_resp_cert_check: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_responders: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_age: pulumi.Input[Optional[_builtins.int]] = None,
+                 strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_responders: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -751,23 +751,23 @@ class Ocsp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache_error_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-            concurrent_connections_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            connection_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            dns_resolver: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_server_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            responder_url: Optional[pulumi.Input[_builtins.str]] = None,
-            route_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-            signer_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            signer_key: Optional[pulumi.Input[_builtins.str]] = None,
-            status_age: Optional[pulumi.Input[_builtins.int]] = None,
-            strict_resp_cert_check: Optional[pulumi.Input[_builtins.str]] = None,
-            trusted_responders: Optional[pulumi.Input[_builtins.str]] = None) -> 'Ocsp':
+            cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+            route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+            status_age: pulumi.Input[Optional[_builtins.int]] = None,
+            strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_responders: pulumi.Input[Optional[_builtins.str]] = None) -> 'Ocsp':
         """
         Get an existing Ocsp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

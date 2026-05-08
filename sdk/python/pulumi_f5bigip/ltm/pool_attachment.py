@@ -21,14 +21,14 @@ class PoolAttachmentArgs:
     def __init__(__self__, *,
                  node: pulumi.Input[_builtins.str],
                  pool: pulumi.Input[_builtins.str],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn_autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PoolAttachment resource.
 
@@ -88,114 +88,114 @@ class PoolAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionRateLimit")
-    def connection_rate_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         """
         return pulumi.get(self, "connection_rate_limit")
 
     @connection_rate_limit.setter
-    def connection_rate_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_rate_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="fqdnAutopopulate")
-    def fqdn_autopopulate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn_autopopulate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
         """
         return pulumi.get(self, "fqdn_autopopulate")
 
     @fqdn_autopopulate.setter
-    def fqdn_autopopulate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn_autopopulate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn_autopopulate", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
 class _PoolAttachmentState:
     def __init__(__self__, *,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn_autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 node: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 node: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PoolAttachment resources.
 
@@ -233,122 +233,122 @@ class _PoolAttachmentState:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionRateLimit")
-    def connection_rate_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         """
         return pulumi.get(self, "connection_rate_limit")
 
     @connection_rate_limit.setter
-    def connection_rate_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_rate_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="fqdnAutopopulate")
-    def fqdn_autopopulate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fqdn_autopopulate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
         """
         return pulumi.get(self, "fqdn_autopopulate")
 
     @fqdn_autopopulate.setter
-    def fqdn_autopopulate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fqdn_autopopulate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fqdn_autopopulate", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def node(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         """
         return pulumi.get(self, "node")
 
     @node.setter
-    def node(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node", value)
 
     @_builtins.property
     @pulumi.getter
-    def pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         """
         return pulumi.get(self, "pool")
 
     @pool.setter
-    def pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool", value)
 
     @_builtins.property
     @pulumi.getter(name="priorityGroup")
-    def priority_group(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority_group(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         """
         return pulumi.get(self, "priority_group")
 
     @priority_group.setter
-    def priority_group(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority_group(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -358,16 +358,16 @@ class PoolAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn_autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 node: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 node: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.PoolAttachment` Manages nodes membership in pools
@@ -442,6 +442,7 @@ class PoolAttachment(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_f5bigip as f5bigip
         import pulumi_std as std
 
@@ -452,7 +453,7 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod = []
+        k8sprod: list[Any] = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
             node1.name,
             node2.name,
@@ -564,6 +565,7 @@ class PoolAttachment(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_f5bigip as f5bigip
         import pulumi_std as std
 
@@ -574,7 +576,7 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod = []
+        k8sprod: list[Any] = []
         for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
             node1.name,
             node2.name,
@@ -609,16 +611,16 @@ class PoolAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 connection_rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn_autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 node: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 node: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -652,16 +654,16 @@ class PoolAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            connection_rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-            dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            fqdn_autopopulate: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor: Optional[pulumi.Input[_builtins.str]] = None,
-            node: Optional[pulumi.Input[_builtins.str]] = None,
-            pool: Optional[pulumi.Input[_builtins.str]] = None,
-            priority_group: Optional[pulumi.Input[_builtins.int]] = None,
-            ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None) -> 'PoolAttachment':
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            node: pulumi.Input[Optional[_builtins.str]] = None,
+            pool: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+            ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> 'PoolAttachment':
         """
         Get an existing PoolAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

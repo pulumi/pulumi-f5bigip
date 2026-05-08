@@ -452,244 +452,244 @@ export interface ProfileClientSslState {
     /**
      * Alert time out
      */
-    alertTimeout?: pulumi.Input<string>;
+    alertTimeout?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
      */
-    allowExpiredCrl?: pulumi.Input<string>;
+    allowExpiredCrl?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      */
-    allowNonSsl?: pulumi.Input<string>;
+    allowNonSsl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
      * When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
      */
-    authenticate?: pulumi.Input<string>;
+    authenticate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of certificates to be traversed in a client certificate chain
      */
-    authenticateDepth?: pulumi.Input<number>;
+    authenticateDepth?: pulumi.Input<number | undefined>;
     /**
      * Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
      */
-    c3dClientFallbackCert?: pulumi.Input<string>;
+    c3dClientFallbackCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
      */
-    c3dDropUnknownOcspStatus?: pulumi.Input<string>;
+    c3dDropUnknownOcspStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
      */
-    c3dOcsp?: pulumi.Input<string>;
+    c3dOcsp?: pulumi.Input<string | undefined>;
     /**
      * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      */
-    caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string | undefined>;
     /**
      * Cache size (sessions).
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Cache time out
      */
-    cacheTimeout?: pulumi.Input<number>;
+    cacheTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      */
-    cert?: pulumi.Input<string>;
+    cert?: pulumi.Input<string | undefined>;
     /**
      * Cert extension includes for ssl forward proxy
      */
-    certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      *
      * > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      */
-    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
+    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain | undefined>;
     /**
      * Life span of the certificate in days for ssl forward proxy
      */
-    certLifeSpan?: pulumi.Input<number>;
+    certLifeSpan?: pulumi.Input<number | undefined>;
     /**
      * Cert lookup by ip address and port enabled / disabled
      */
-    certLookupByIpaddrPort?: pulumi.Input<string>;
+    certLookupByIpaddrPort?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      */
-    chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      */
-    cipherGroup?: pulumi.Input<string>;
+    cipherGroup?: pulumi.Input<string | undefined>;
     /**
      * BigIP Cipher string.
      */
-    ciphers?: pulumi.Input<string>;
+    ciphers?: pulumi.Input<string | undefined>;
     /**
      * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      */
-    clientCertCa?: pulumi.Input<string>;
+    clientCertCa?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Forward proxy bypass default action. (enabled / disabled)
      */
-    forwardProxyBypassDefaultAction?: pulumi.Input<string>;
+    forwardProxyBypassDefaultAction?: pulumi.Input<string | undefined>;
     /**
      * full path of the profile
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * generation
      */
-    generation?: pulumi.Input<number>;
+    generation?: pulumi.Input<number | undefined>;
     /**
      * Generic alerts enabled / disabled.
      */
-    genericAlert?: pulumi.Input<string>;
+    genericAlert?: pulumi.Input<string | undefined>;
     /**
      * Handshake time out (seconds)
      */
-    handshakeTimeout?: pulumi.Input<string>;
+    handshakeTimeout?: pulumi.Input<string | undefined>;
     /**
      * Inherit cert key chain
      */
-    inheritCertKeychain?: pulumi.Input<string>;
+    inheritCertKeychain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file name of the SSL key. The default is `default`
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    modSslMethods?: pulumi.Input<string>;
+    modSslMethods?: pulumi.Input<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
      */
-    ocspStapling?: pulumi.Input<string>;
+    ocspStapling?: pulumi.Input<string | undefined>;
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Client Certificate Constrained Delegation CA passphrase
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      */
-    peerCertMode?: pulumi.Input<string>;
+    peerCertMode?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Cert
      */
-    proxyCaCert?: pulumi.Input<string>;
+    proxyCaCert?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Key
      */
-    proxyCaKey?: pulumi.Input<string>;
+    proxyCaKey?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Passphrase
      */
-    proxyCaPassphrase?: pulumi.Input<string>;
+    proxyCaPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Proxy SSL enabled / disabled.  Default is disabled.
      */
-    proxySsl?: pulumi.Input<string>;
+    proxySsl?: pulumi.Input<string | undefined>;
     /**
      * Proxy SSL passthrough enabled / disabled.  Default is disabled.
      */
-    proxySslPassthrough?: pulumi.Input<string>;
+    proxySslPassthrough?: pulumi.Input<string | undefined>;
     /**
      * Renogotiate Period (seconds)
      */
-    renegotiatePeriod?: pulumi.Input<string>;
+    renegotiatePeriod?: pulumi.Input<string | undefined>;
     /**
      * Renogotiate Size
      */
-    renegotiateSize?: pulumi.Input<string>;
+    renegotiateSize?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      */
-    renegotiation?: pulumi.Input<string>;
+    renegotiation?: pulumi.Input<string | undefined>;
     /**
      * When `true`, client certificate is retained in SSL session.
      */
-    retainCertificate?: pulumi.Input<string>;
+    retainCertificate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
      * When `request` is set the system request secure renegotation of SSL connections.
      * `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      */
-    secureRenegotiation?: pulumi.Input<string>;
+    secureRenegotiation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * Session Mirroring (enabled / disabled)
      */
-    sessionMirroring?: pulumi.Input<string>;
+    sessionMirroring?: pulumi.Input<string | undefined>;
     /**
      * Session Ticket (enabled / disabled)
      */
-    sessionTicket?: pulumi.Input<string>;
+    sessionTicket?: pulumi.Input<string | undefined>;
     /**
      * Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
      * There can be only one SSL profile with this setting enabled.
      */
-    sniDefault?: pulumi.Input<string>;
+    sniDefault?: pulumi.Input<string | undefined>;
     /**
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      */
-    sniRequire?: pulumi.Input<string>;
+    sniRequire?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
      */
-    sslC3d?: pulumi.Input<string>;
+    sslC3d?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
-    sslForwardProxy?: pulumi.Input<string>;
+    sslForwardProxy?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
-    sslForwardProxyBypass?: pulumi.Input<string>;
+    sslForwardProxyBypass?: pulumi.Input<string | undefined>;
     /**
      * SSL sign hash (any, sha1, sha256, sha384)
      */
-    sslSignHash?: pulumi.Input<string>;
+    sslSignHash?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
-    strictResume?: pulumi.Input<string>;
+    strictResume?: pulumi.Input<string | undefined>;
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
      * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
      */
-    tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    tmOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unclean Shutdown (enabled / disabled)
      */
-    uncleanShutdown?: pulumi.Input<string>;
+    uncleanShutdown?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -699,131 +699,131 @@ export interface ProfileClientSslArgs {
     /**
      * Alert time out
      */
-    alertTimeout?: pulumi.Input<string>;
+    alertTimeout?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to use the specified CRL file even if it has expired. The default is `disabled`.
      */
-    allowExpiredCrl?: pulumi.Input<string>;
+    allowExpiredCrl?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
      */
-    allowNonSsl?: pulumi.Input<string>;
+    allowNonSsl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
      * When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
      */
-    authenticate?: pulumi.Input<string>;
+    authenticate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of certificates to be traversed in a client certificate chain
      */
-    authenticateDepth?: pulumi.Input<number>;
+    authenticateDepth?: pulumi.Input<number | undefined>;
     /**
      * Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
      */
-    c3dClientFallbackCert?: pulumi.Input<string>;
+    c3dClientFallbackCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
      */
-    c3dDropUnknownOcspStatus?: pulumi.Input<string>;
+    c3dDropUnknownOcspStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
      */
-    c3dOcsp?: pulumi.Input<string>;
+    c3dOcsp?: pulumi.Input<string | undefined>;
     /**
      * (Trusted Certificate Authorities)Specifies a client CA that the system trusts. The default is `None`.
      */
-    caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string | undefined>;
     /**
      * Cache size (sessions).
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Cache time out
      */
-    cacheTimeout?: pulumi.Input<number>;
+    cacheTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
      */
-    cert?: pulumi.Input<string>;
+    cert?: pulumi.Input<string | undefined>;
     /**
      * Cert extension includes for ssl forward proxy
      */
-    certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * `certKeyChain` Specifies one or more certificates and keys to associate with the SSL profile.
      * See Cert Key Chain below for more details.
      *
      * > **NOTE**  `certKeyChain` is recommend way for adding cert-key-chain to profile. If `certKeyChain` block provided, we should not provide `cert`, `key` and `chain`.
      */
-    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
+    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain | undefined>;
     /**
      * Life span of the certificate in days for ssl forward proxy
      */
-    certLifeSpan?: pulumi.Input<number>;
+    certLifeSpan?: pulumi.Input<number | undefined>;
     /**
      * Cert lookup by ip address and port enabled / disabled
      */
-    certLookupByIpaddrPort?: pulumi.Input<string>;
+    certLookupByIpaddrPort?: pulumi.Input<string | undefined>;
     /**
      * Specifies a certificate chain file that a server can use for authentication. The default is `None`.
      */
-    chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      */
-    cipherGroup?: pulumi.Input<string>;
+    cipherGroup?: pulumi.Input<string | undefined>;
     /**
      * BigIP Cipher string.
      */
-    ciphers?: pulumi.Input<string>;
+    ciphers?: pulumi.Input<string | undefined>;
     /**
      * (Advertised Certificate Authorities)Specifies that the CAs that the system advertises to clients is being trusted by the profile. The default is `None`.
      */
-    clientCertCa?: pulumi.Input<string>;
+    clientCertCa?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of a file containing a list of revoked client certificates. The default is `None`.
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Forward proxy bypass default action. (enabled / disabled)
      */
-    forwardProxyBypassDefaultAction?: pulumi.Input<string>;
+    forwardProxyBypassDefaultAction?: pulumi.Input<string | undefined>;
     /**
      * full path of the profile
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * generation
      */
-    generation?: pulumi.Input<number>;
+    generation?: pulumi.Input<number | undefined>;
     /**
      * Generic alerts enabled / disabled.
      */
-    genericAlert?: pulumi.Input<string>;
+    genericAlert?: pulumi.Input<string | undefined>;
     /**
      * Handshake time out (seconds)
      */
-    handshakeTimeout?: pulumi.Input<string>;
+    handshakeTimeout?: pulumi.Input<string | undefined>;
     /**
      * Inherit cert key chain
      */
-    inheritCertKeychain?: pulumi.Input<string>;
+    inheritCertKeychain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file name of the SSL key. The default is `default`
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    modSslMethods?: pulumi.Input<string>;
+    modSslMethods?: pulumi.Input<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled.  Default is disabled.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
@@ -831,110 +831,110 @@ export interface ProfileClientSslArgs {
     /**
      * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
      */
-    ocspStapling?: pulumi.Input<string>;
+    ocspStapling?: pulumi.Input<string | undefined>;
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Client Certificate Constrained Delegation CA passphrase
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      */
-    peerCertMode?: pulumi.Input<string>;
+    peerCertMode?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Cert
      */
-    proxyCaCert?: pulumi.Input<string>;
+    proxyCaCert?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Key
      */
-    proxyCaKey?: pulumi.Input<string>;
+    proxyCaKey?: pulumi.Input<string | undefined>;
     /**
      * Proxy CA Passphrase
      */
-    proxyCaPassphrase?: pulumi.Input<string>;
+    proxyCaPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Proxy SSL enabled / disabled.  Default is disabled.
      */
-    proxySsl?: pulumi.Input<string>;
+    proxySsl?: pulumi.Input<string | undefined>;
     /**
      * Proxy SSL passthrough enabled / disabled.  Default is disabled.
      */
-    proxySslPassthrough?: pulumi.Input<string>;
+    proxySslPassthrough?: pulumi.Input<string | undefined>;
     /**
      * Renogotiate Period (seconds)
      */
-    renegotiatePeriod?: pulumi.Input<string>;
+    renegotiatePeriod?: pulumi.Input<string | undefined>;
     /**
      * Renogotiate Size
      */
-    renegotiateSize?: pulumi.Input<string>;
+    renegotiateSize?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      */
-    renegotiation?: pulumi.Input<string>;
+    renegotiation?: pulumi.Input<string | undefined>;
     /**
      * When `true`, client certificate is retained in SSL session.
      */
-    retainCertificate?: pulumi.Input<string>;
+    retainCertificate?: pulumi.Input<string | undefined>;
     /**
      * Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
      * When `request` is set the system request secure renegotation of SSL connections.
      * `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      */
-    secureRenegotiation?: pulumi.Input<string>;
+    secureRenegotiation?: pulumi.Input<string | undefined>;
     /**
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * Session Mirroring (enabled / disabled)
      */
-    sessionMirroring?: pulumi.Input<string>;
+    sessionMirroring?: pulumi.Input<string | undefined>;
     /**
      * Session Ticket (enabled / disabled)
      */
-    sessionTicket?: pulumi.Input<string>;
+    sessionTicket?: pulumi.Input<string | undefined>;
     /**
      * Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
      * There can be only one SSL profile with this setting enabled.
      */
-    sniDefault?: pulumi.Input<string>;
+    sniDefault?: pulumi.Input<string | undefined>;
     /**
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      */
-    sniRequire?: pulumi.Input<string>;
+    sniRequire?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
      */
-    sslC3d?: pulumi.Input<string>;
+    sslC3d?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
-    sslForwardProxy?: pulumi.Input<string>;
+    sslForwardProxy?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
-    sslForwardProxyBypass?: pulumi.Input<string>;
+    sslForwardProxyBypass?: pulumi.Input<string | undefined>;
     /**
      * SSL sign hash (any, sha1, sha256, sha384)
      */
-    sslSignHash?: pulumi.Input<string>;
+    sslSignHash?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
-    strictResume?: pulumi.Input<string>;
+    strictResume?: pulumi.Input<string | undefined>;
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
      * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
      */
-    tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    tmOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Unclean Shutdown (enabled / disabled)
      */
-    uncleanShutdown?: pulumi.Input<string>;
+    uncleanShutdown?: pulumi.Input<string | undefined>;
 }

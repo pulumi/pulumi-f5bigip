@@ -129,35 +129,35 @@ export interface VirtualAddressState {
     /**
      * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
-    advertizeRoute?: pulumi.Input<string>;
+    advertizeRoute?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    arp?: pulumi.Input<boolean>;
+    arp?: pulumi.Input<boolean | undefined>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    autoDelete?: pulumi.Input<boolean>;
+    autoDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Max number of connections for virtual address
      */
-    connLimit?: pulumi.Input<number>;
+    connLimit?: pulumi.Input<number | undefined>;
     /**
      * Enable or disable the virtual address
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
-    icmpEcho?: pulumi.Input<string>;
+    icmpEcho?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual address
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specify the partition and traffic group
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,27 +167,27 @@ export interface VirtualAddressArgs {
     /**
      * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
-    advertizeRoute?: pulumi.Input<string>;
+    advertizeRoute?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    arp?: pulumi.Input<boolean>;
+    arp?: pulumi.Input<boolean | undefined>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    autoDelete?: pulumi.Input<boolean>;
+    autoDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Max number of connections for virtual address
      */
-    connLimit?: pulumi.Input<number>;
+    connLimit?: pulumi.Input<number | undefined>;
     /**
      * Enable or disable the virtual address
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
-    icmpEcho?: pulumi.Input<string>;
+    icmpEcho?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual address
      */
@@ -195,5 +195,5 @@ export interface VirtualAddressArgs {
     /**
      * Specify the partition and traffic group
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
 }

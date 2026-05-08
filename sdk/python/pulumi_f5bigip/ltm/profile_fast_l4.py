@@ -20,20 +20,20 @@ __all__ = ['ProfileFastL4Args', 'ProfileFastL4']
 class ProfileFastL4Args:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 explicitflow_migration: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_syncookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toclient: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toserver: Optional[pulumi.Input[_builtins.str]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_close: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_initiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileFastL4 resource.
 
@@ -97,191 +97,191 @@ class ProfileFastL4Args:
 
     @_builtins.property
     @pulumi.getter(name="clientTimeout")
-    def client_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         """
         return pulumi.get(self, "client_timeout")
 
     @client_timeout.setter
-    def client_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitflowMigration")
-    def explicitflow_migration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def explicitflow_migration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
         """
         return pulumi.get(self, "explicitflow_migration")
 
     @explicitflow_migration.setter
-    def explicitflow_migration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def explicitflow_migration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "explicitflow_migration", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareSyncookie")
-    def hardware_syncookie(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hardware_syncookie(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
         """
         return pulumi.get(self, "hardware_syncookie")
 
     @hardware_syncookie.setter
-    def hardware_syncookie(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hardware_syncookie(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hardware_syncookie", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="iptosToclient")
-    def iptos_toclient(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iptos_toclient(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         """
         return pulumi.get(self, "iptos_toclient")
 
     @iptos_toclient.setter
-    def iptos_toclient(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iptos_toclient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iptos_toclient", value)
 
     @_builtins.property
     @pulumi.getter(name="iptosToserver")
-    def iptos_toserver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iptos_toserver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         """
         return pulumi.get(self, "iptos_toserver")
 
     @iptos_toserver.setter
-    def iptos_toserver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iptos_toserver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iptos_toserver", value)
 
     @_builtins.property
     @pulumi.getter(name="keepaliveInterval")
-    def keepalive_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keepalive_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
         """
         return pulumi.get(self, "keepalive_interval")
 
     @keepalive_interval.setter
-    def keepalive_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keepalive_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keepalive_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="lateBinding")
-    def late_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def late_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
         """
         return pulumi.get(self, "late_binding")
 
     @late_binding.setter
-    def late_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def late_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "late_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="looseClose")
-    def loose_close(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loose_close(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
         """
         return pulumi.get(self, "loose_close")
 
     @loose_close.setter
-    def loose_close(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loose_close(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loose_close", value)
 
     @_builtins.property
     @pulumi.getter(name="looseInitiation")
-    def loose_initiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loose_initiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
         """
         return pulumi.get(self, "loose_initiation")
 
     @loose_initiation.setter
-    def loose_initiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loose_initiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loose_initiation", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWindowsize")
-    def receive_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
         """
         return pulumi.get(self, "receive_windowsize")
 
     @receive_windowsize.setter
-    def receive_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpHandshakeTimeout")
-    def tcp_handshake_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tcp_handshake_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         return pulumi.get(self, "tcp_handshake_timeout")
 
     @tcp_handshake_timeout.setter
-    def tcp_handshake_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tcp_handshake_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tcp_handshake_timeout", value)
 
 
 @pulumi.input_type
 class _ProfileFastL4State:
     def __init__(__self__, *,
-                 client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 explicitflow_migration: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_syncookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toclient: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toserver: Optional[pulumi.Input[_builtins.str]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_close: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_initiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFastL4 resources.
 
@@ -334,182 +334,182 @@ class _ProfileFastL4State:
 
     @_builtins.property
     @pulumi.getter(name="clientTimeout")
-    def client_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         """
         return pulumi.get(self, "client_timeout")
 
     @client_timeout.setter
-    def client_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitflowMigration")
-    def explicitflow_migration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def explicitflow_migration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
         """
         return pulumi.get(self, "explicitflow_migration")
 
     @explicitflow_migration.setter
-    def explicitflow_migration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def explicitflow_migration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "explicitflow_migration", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareSyncookie")
-    def hardware_syncookie(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hardware_syncookie(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
         """
         return pulumi.get(self, "hardware_syncookie")
 
     @hardware_syncookie.setter
-    def hardware_syncookie(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hardware_syncookie(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hardware_syncookie", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="iptosToclient")
-    def iptos_toclient(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iptos_toclient(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         """
         return pulumi.get(self, "iptos_toclient")
 
     @iptos_toclient.setter
-    def iptos_toclient(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iptos_toclient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iptos_toclient", value)
 
     @_builtins.property
     @pulumi.getter(name="iptosToserver")
-    def iptos_toserver(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iptos_toserver(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         """
         return pulumi.get(self, "iptos_toserver")
 
     @iptos_toserver.setter
-    def iptos_toserver(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iptos_toserver(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iptos_toserver", value)
 
     @_builtins.property
     @pulumi.getter(name="keepaliveInterval")
-    def keepalive_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def keepalive_interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
         """
         return pulumi.get(self, "keepalive_interval")
 
     @keepalive_interval.setter
-    def keepalive_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def keepalive_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "keepalive_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="lateBinding")
-    def late_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def late_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
         """
         return pulumi.get(self, "late_binding")
 
     @late_binding.setter
-    def late_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def late_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "late_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="looseClose")
-    def loose_close(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loose_close(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
         """
         return pulumi.get(self, "loose_close")
 
     @loose_close.setter
-    def loose_close(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loose_close(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loose_close", value)
 
     @_builtins.property
     @pulumi.getter(name="looseInitiation")
-    def loose_initiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def loose_initiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
         """
         return pulumi.get(self, "loose_initiation")
 
     @loose_initiation.setter
-    def loose_initiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def loose_initiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "loose_initiation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWindowsize")
-    def receive_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
         """
         return pulumi.get(self, "receive_windowsize")
 
     @receive_windowsize.setter
-    def receive_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpHandshakeTimeout")
-    def tcp_handshake_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tcp_handshake_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         return pulumi.get(self, "tcp_handshake_timeout")
 
     @tcp_handshake_timeout.setter
-    def tcp_handshake_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tcp_handshake_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tcp_handshake_timeout", value)
 
 
@@ -519,21 +519,21 @@ class ProfileFastL4(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 explicitflow_migration: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_syncookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toclient: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toserver: Optional[pulumi.Input[_builtins.str]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_close: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_initiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
@@ -638,21 +638,21 @@ class ProfileFastL4(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 explicitflow_migration: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware_syncookie: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toclient: Optional[pulumi.Input[_builtins.str]] = None,
-                 iptos_toserver: Optional[pulumi.Input[_builtins.str]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_close: Optional[pulumi.Input[_builtins.str]] = None,
-                 loose_initiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+                 iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+                 loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -689,21 +689,21 @@ class ProfileFastL4(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            explicitflow_migration: Optional[pulumi.Input[_builtins.str]] = None,
-            hardware_syncookie: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            iptos_toclient: Optional[pulumi.Input[_builtins.str]] = None,
-            iptos_toserver: Optional[pulumi.Input[_builtins.str]] = None,
-            keepalive_interval: Optional[pulumi.Input[_builtins.str]] = None,
-            late_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            loose_close: Optional[pulumi.Input[_builtins.str]] = None,
-            loose_initiation: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-            tcp_handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileFastL4':
+            client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+            hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+            iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+            keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+            late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+            loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileFastL4':
         """
         Get an existing ProfileFastL4 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

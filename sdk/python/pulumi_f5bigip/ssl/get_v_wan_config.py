@@ -190,9 +190,9 @@ def get_v_wan_config(azure_vwan_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         preshared_key=pulumi.get(__ret__, 'preshared_key'),
         vwan_gw_addresses=pulumi.get(__ret__, 'vwan_gw_addresses'))
-def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            azure_vwan_resourcegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                            azure_vwan_vpnsite: Optional[pulumi.Input[_builtins.str]] = None,
+def get_v_wan_config_output(azure_vwan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            azure_vwan_resourcegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                            azure_vwan_vpnsite: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVWanConfigResult]:
     """
     Use this data source (`ssl_get_v_wan_config`) to get the vWAN site config from Azure VWAN Site

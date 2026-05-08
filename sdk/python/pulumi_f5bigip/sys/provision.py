@@ -20,11 +20,11 @@ __all__ = ['ProvisionArgs', 'Provision']
 class ProvisionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 cpu_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_ratio: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_ratio: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Provision resource.
 
@@ -100,40 +100,40 @@ class ProvisionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuRatio")
-    def cpu_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "cpu_ratio")
 
     @cpu_ratio.setter
-    def cpu_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="diskRatio")
-    def disk_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "disk_ratio")
 
     @disk_ratio.setter
-    def disk_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
         default is `nominal`
@@ -146,31 +146,31 @@ class ProvisionArgs:
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRatio")
-    def memory_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "memory_ratio")
 
     @memory_ratio.setter
-    def memory_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_ratio", value)
 
 
 @pulumi.input_type
 class _ProvisionState:
     def __init__(__self__, *,
-                 cpu_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Provision resources.
 
@@ -218,40 +218,40 @@ class _ProvisionState:
 
     @_builtins.property
     @pulumi.getter(name="cpuRatio")
-    def cpu_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "cpu_ratio")
 
     @cpu_ratio.setter
-    def cpu_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="diskRatio")
-    def disk_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "disk_ratio")
 
     @disk_ratio.setter
-    def disk_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk_ratio", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
         default is `nominal`
@@ -264,24 +264,24 @@ class _ProvisionState:
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "level", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryRatio")
-    def memory_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "memory_ratio")
 
     @memory_ratio.setter
-    def memory_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of module to provision in BIG-IP. 
         possible options:
@@ -305,7 +305,7 @@ class _ProvisionState:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -315,12 +315,12 @@ class Provision(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
@@ -410,12 +410,12 @@ class Provision(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 disk_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 level: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,12 +443,12 @@ class Provision(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cpu_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            disk_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            full_path: Optional[pulumi.Input[_builtins.str]] = None,
-            level: Optional[pulumi.Input[_builtins.str]] = None,
-            memory_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Provision':
+            cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            level: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Provision':
         """
         Get an existing Provision resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

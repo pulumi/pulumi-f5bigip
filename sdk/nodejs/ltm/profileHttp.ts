@@ -271,119 +271,119 @@ export interface ProfileHttpState {
     /**
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
-    acceptXff?: pulumi.Input<string>;
+    acceptXff?: pulumi.Input<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
-    basicAuthRealm?: pulumi.Input<string>;
+    basicAuthRealm?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies user-defined description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
-    encryptCookieSecret?: pulumi.Input<string>;
+    encryptCookieSecret?: pulumi.Input<string | undefined>;
     /**
      * Type the cookie names for the system to encrypt.
      */
-    encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    encryptCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * See Enforcement below for more details.
      */
-    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[]>;
+    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[] | undefined>;
     /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
-    fallbackHost?: pulumi.Input<string>;
+    fallbackHost?: pulumi.Input<string | undefined>;
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
-    fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[]>;
+    fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
-    headErase?: pulumi.Input<string>;
+    headErase?: pulumi.Input<string | undefined>;
     /**
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
-    headInsert?: pulumi.Input<string>;
+    headInsert?: pulumi.Input<string | undefined>;
     /**
      * See Http_Strict_Transport_Security below for more details.
      */
-    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[]>;
+    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[] | undefined>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
-    insertXforwardedFor?: pulumi.Input<string>;
+    insertXforwardedFor?: pulumi.Input<string | undefined>;
     /**
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
-    lwsSeparator?: pulumi.Input<string>;
+    lwsSeparator?: pulumi.Input<string | undefined>;
     /**
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
-    lwsWidth?: pulumi.Input<number>;
+    lwsWidth?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
      */
-    oneconnectTransformations?: pulumi.Input<string>;
+    oneconnectTransformations?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
-    proxyType?: pulumi.Input<string>;
+    proxyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
-    redirectRewrite?: pulumi.Input<string>;
+    redirectRewrite?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
-    requestChunking?: pulumi.Input<string>;
+    requestChunking?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
-    responseChunking?: pulumi.Input<string>;
+    responseChunking?: pulumi.Input<string | undefined>;
     /**
      * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
-    responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
+    responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
-    serverAgentName?: pulumi.Input<string>;
+    serverAgentName?: pulumi.Input<string | undefined>;
     /**
      * Displays the administrative partition within which this profile resides.
      */
-    tmPartition?: pulumi.Input<string>;
+    tmPartition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hostname to include into Via header
      */
-    viaHostName?: pulumi.Input<string>;
+    viaHostName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    viaRequest?: pulumi.Input<string>;
+    viaRequest?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    viaResponse?: pulumi.Input<string>;
+    viaResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
-    xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -393,67 +393,67 @@ export interface ProfileHttpArgs {
     /**
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
-    acceptXff?: pulumi.Input<string>;
+    acceptXff?: pulumi.Input<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
-    basicAuthRealm?: pulumi.Input<string>;
+    basicAuthRealm?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies user-defined description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
      */
-    encryptCookieSecret?: pulumi.Input<string>;
+    encryptCookieSecret?: pulumi.Input<string | undefined>;
     /**
      * Type the cookie names for the system to encrypt.
      */
-    encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    encryptCookies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * See Enforcement below for more details.
      */
-    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[]>;
+    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[] | undefined>;
     /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
-    fallbackHost?: pulumi.Input<string>;
+    fallbackHost?: pulumi.Input<string | undefined>;
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
-    fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[]>;
+    fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
-    headErase?: pulumi.Input<string>;
+    headErase?: pulumi.Input<string | undefined>;
     /**
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
-    headInsert?: pulumi.Input<string>;
+    headInsert?: pulumi.Input<string | undefined>;
     /**
      * See Http_Strict_Transport_Security below for more details.
      */
-    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[]>;
+    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[] | undefined>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
-    insertXforwardedFor?: pulumi.Input<string>;
+    insertXforwardedFor?: pulumi.Input<string | undefined>;
     /**
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
-    lwsSeparator?: pulumi.Input<string>;
+    lwsSeparator?: pulumi.Input<string | undefined>;
     /**
      * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
      */
-    lwsWidth?: pulumi.Input<number>;
+    lwsWidth?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
@@ -461,49 +461,49 @@ export interface ProfileHttpArgs {
     /**
      * Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
      */
-    oneconnectTransformations?: pulumi.Input<string>;
+    oneconnectTransformations?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
-    proxyType?: pulumi.Input<string>;
+    proxyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
-    redirectRewrite?: pulumi.Input<string>;
+    redirectRewrite?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
-    requestChunking?: pulumi.Input<string>;
+    requestChunking?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
-    responseChunking?: pulumi.Input<string>;
+    responseChunking?: pulumi.Input<string | undefined>;
     /**
      * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
-    responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
+    responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If serverAgentName is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
      */
-    serverAgentName?: pulumi.Input<string>;
+    serverAgentName?: pulumi.Input<string | undefined>;
     /**
      * Displays the administrative partition within which this profile resides.
      */
-    tmPartition?: pulumi.Input<string>;
+    tmPartition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hostname to include into Via header
      */
-    viaHostName?: pulumi.Input<string>;
+    viaHostName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    viaRequest?: pulumi.Input<string>;
+    viaRequest?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    viaResponse?: pulumi.Input<string>;
+    viaResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
-    xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

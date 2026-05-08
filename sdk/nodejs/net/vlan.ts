@@ -117,23 +117,23 @@ export interface VlanState {
     /**
      * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
      */
-    cmpHash?: pulumi.Input<string>;
+    cmpHash?: pulumi.Input<string | undefined>;
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[] | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * Name of the vlan
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    tag?: pulumi.Input<number>;
+    tag?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -143,15 +143,15 @@ export interface VlanArgs {
     /**
      * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
      */
-    cmpHash?: pulumi.Input<string>;
+    cmpHash?: pulumi.Input<string | undefined>;
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[] | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * Name of the vlan
      */
@@ -159,5 +159,5 @@ export interface VlanArgs {
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    tag?: pulumi.Input<number>;
+    tag?: pulumi.Input<number | undefined>;
 }

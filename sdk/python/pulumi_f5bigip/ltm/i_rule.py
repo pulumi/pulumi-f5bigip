@@ -58,8 +58,8 @@ class IRuleArgs:
 @pulumi.input_type
 class _IRuleState:
     def __init__(__self__, *,
-                 irule: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 irule: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IRule resources.
 
@@ -73,26 +73,26 @@ class _IRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def irule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def irule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Body of the iRule
         """
         return pulumi.get(self, "irule")
 
     @irule.setter
-    def irule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def irule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "irule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the iRule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -102,8 +102,8 @@ class IRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 irule: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 irule: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.IRule` Creates iRule on BIG-IP F5 device
@@ -185,8 +185,8 @@ class IRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 irule: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 irule: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,8 +212,8 @@ class IRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            irule: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'IRule':
+            irule: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IRule':
         """
         Get an existing IRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

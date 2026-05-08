@@ -28,11 +28,11 @@ __all__ = [
 ]
 
 class IAppListArgsDict(TypedDict):
-    encrypted: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
@@ -40,8 +40,8 @@ class IAppListArgsDict(TypedDict):
 @pulumi.input_type
 class IAppListArgs:
     def __init__(__self__, *,
-                 encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encrypted: Name of origin
         :param pulumi.Input[_builtins.str] value: Name of origin
@@ -53,35 +53,35 @@ class IAppListArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class IAppMetadataArgsDict(TypedDict):
-    persists: NotRequired[pulumi.Input[_builtins.str]]
+    persists: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
@@ -89,8 +89,8 @@ class IAppMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class IAppMetadataArgs:
     def __init__(__self__, *,
-                 persists: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 persists: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] persists: Name of origin
         :param pulumi.Input[_builtins.str] value: Name of origin
@@ -102,48 +102,48 @@ class IAppMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def persists(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persists(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "persists")
 
     @persists.setter
-    def persists(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persists(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persists", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class IAppTableArgsDict(TypedDict):
-    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    encrypted_columns: NotRequired[pulumi.Input[_builtins.str]]
+    column_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    encrypted_columns: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the iApp.
     """
-    rows: NotRequired[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgsDict']]]]
+    rows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgs']]]]]
 
 @pulumi.input_type
 class IAppTableArgs:
     def __init__(__self__, *,
-                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encrypted_columns: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rows: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None):
+                 column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 encrypted_columns: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rows: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] encrypted_columns: Name of origin
         :param pulumi.Input[_builtins.str] name: Name of the iApp.
@@ -159,77 +159,77 @@ class IAppTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def column_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "column_names")
 
     @column_names.setter
-    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def column_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "column_names", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptedColumns")
-    def encrypted_columns(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted_columns(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "encrypted_columns")
 
     @encrypted_columns.setter
-    def encrypted_columns(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted_columns(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted_columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the iApp.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]]:
+    def rows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgs']]]]:
         return pulumi.get(self, "rows")
 
     @rows.setter
-    def rows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]]):
+    def rows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgs']]]]):
         pulumi.set(self, "rows", value)
 
 
 class IAppTableRowArgsDict(TypedDict):
-    rows: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    rows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class IAppTableRowArgs:
     def __init__(__self__, *,
-                 rows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 rows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if rows is not None:
             pulumi.set(__self__, "rows", rows)
 
     @_builtins.property
     @pulumi.getter
-    def rows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "rows")
 
     @rows.setter
-    def rows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rows", value)
 
 
 class IAppVariableArgsDict(TypedDict):
-    encrypted: NotRequired[pulumi.Input[_builtins.str]]
+    encrypted: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the iApp.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of origin
     """
@@ -237,9 +237,9 @@ class IAppVariableArgsDict(TypedDict):
 @pulumi.input_type
 class IAppVariableArgs:
     def __init__(__self__, *,
-                 encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encrypted: Name of origin
         :param pulumi.Input[_builtins.str] name: Name of the iApp.
@@ -254,38 +254,38 @@ class IAppVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the iApp.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of origin
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

@@ -165,47 +165,47 @@ export interface SslKeyCertState {
     /**
      * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function.
      */
-    certContent?: pulumi.Input<string>;
+    certContent?: pulumi.Input<string | undefined>;
     /**
      * full path of the SSL certificate on the BIGIP.
      */
-    certFullPath?: pulumi.Input<string>;
+    certFullPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of monitoring used.
      */
-    certMonitoringType?: pulumi.Input<string>;
+    certMonitoringType?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
-    certName?: pulumi.Input<string>;
+    certName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the OCSP responder.
      */
-    certOcsp?: pulumi.Input<string>;
+    certOcsp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the issuer certificate.
      */
-    issuerCert?: pulumi.Input<string>;
+    issuerCert?: pulumi.Input<string | undefined>;
     /**
      * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      */
-    keyContent?: pulumi.Input<string>;
+    keyContent?: pulumi.Input<string | undefined>;
     /**
      * full path of the SSL key on the BIGIP.
      */
-    keyFullPath?: pulumi.Input<string>;
+    keyFullPath?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL key to be Imported on to BIGIP.
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Partition on to SSL certificate and key to be imported.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Passphrase on the SSL key.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -219,11 +219,11 @@ export interface SslKeyCertArgs {
     /**
      * full path of the SSL certificate on the BIGIP.
      */
-    certFullPath?: pulumi.Input<string>;
+    certFullPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of monitoring used.
      */
-    certMonitoringType?: pulumi.Input<string>;
+    certMonitoringType?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
@@ -231,11 +231,11 @@ export interface SslKeyCertArgs {
     /**
      * Specifies the OCSP responder.
      */
-    certOcsp?: pulumi.Input<string>;
+    certOcsp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the issuer certificate.
      */
-    issuerCert?: pulumi.Input<string>;
+    issuerCert?: pulumi.Input<string | undefined>;
     /**
      * Content of SSL key on Local Disk,path of SSL key will be provided to terraform `file` function.
      */
@@ -243,7 +243,7 @@ export interface SslKeyCertArgs {
     /**
      * full path of the SSL key on the BIGIP.
      */
-    keyFullPath?: pulumi.Input<string>;
+    keyFullPath?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL key to be Imported on to BIGIP.
      */
@@ -251,9 +251,9 @@ export interface SslKeyCertArgs {
     /**
      * Partition on to SSL certificate and key to be imported.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Passphrase on the SSL key.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
 }

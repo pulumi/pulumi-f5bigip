@@ -287,139 +287,139 @@ export interface NetIkePeerState {
     /**
      * The application service that the object belongs to
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * the trusted root and intermediate certificate authorities
      */
-    caCertFile?: pulumi.Input<string>;
+    caCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds between Dead Peer Detection messages
      */
-    dpdDelay?: pulumi.Input<number>;
+    dpdDelay?: pulumi.Input<number | undefined>;
     /**
      * Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
      */
-    generatePolicy?: pulumi.Input<string>;
+    generatePolicy?: pulumi.Input<string | undefined>;
     /**
      * Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
      */
-    lifetime?: pulumi.Input<number>;
+    lifetime?: pulumi.Input<number | undefined>;
     /**
      * Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate file object
      */
-    myCertFile?: pulumi.Input<string>;
+    myCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate key file object
      */
-    myCertKeyFile?: pulumi.Input<string>;
+    myCertKeyFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the passphrase of the key used for my-cert-key-file
      */
-    myCertKeyPassphrase?: pulumi.Input<string>;
+    myCertKeyPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
      */
-    myIdType?: pulumi.Input<string>;
+    myIdType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier value sent to the remote host in the phase 1 negotiation
      */
-    myIdValue?: pulumi.Input<string>;
+    myIdValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the ike_peer
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Enables use of the NAT-Traversal IPsec extension
      */
-    natTraversal?: pulumi.Input<string>;
+    natTraversal?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
      */
-    passive?: pulumi.Input<string>;
+    passive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the peer’s certificate for authentication
      */
-    peersCertFile?: pulumi.Input<string>;
+    peersCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies that the only peers-cert-type supported is certfile
      */
-    peersCertType?: pulumi.Input<string>;
+    peersCertType?: pulumi.Input<string | undefined>;
     /**
      * Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
      */
-    peersIdType?: pulumi.Input<string>;
+    peersIdType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the peer’s identifier to be received
      */
-    peersIdValue?: pulumi.Input<string>;
+    peersIdValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies the authentication method used for phase 1 negotiation
      */
-    phase1AuthMethod?: pulumi.Input<string>;
+    phase1AuthMethod?: pulumi.Input<string | undefined>;
     /**
      * Specifies the encryption algorithm used for the isakmp phase 1 negotiation
      */
-    phase1EncryptAlgorithm?: pulumi.Input<string>;
+    phase1EncryptAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Defines the hash algorithm used for the isakmp phase 1 negotiation
      */
-    phase1HashAlgorithm?: pulumi.Input<string>;
+    phase1HashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
      */
-    phase1PerfectForwardSecrecy?: pulumi.Input<string>;
+    phase1PerfectForwardSecrecy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the preshared key for ISAKMP SAs
      */
-    presharedKey?: pulumi.Input<string>;
+    presharedKey?: pulumi.Input<string | undefined>;
     /**
      * Display the encrypted preshared-key for the IKE remote node
      */
-    presharedKeyEncrypted?: pulumi.Input<string>;
+    presharedKeyEncrypted?: pulumi.Input<string | undefined>;
     /**
      * Specifies the pseudo-random function used to derive keying material for all cryptographic operations
      */
-    prf?: pulumi.Input<string>;
+    prf?: pulumi.Input<string | undefined>;
     /**
      * If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
      */
-    proxySupport?: pulumi.Input<string>;
+    proxySupport?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address of the IKE remote node
      */
-    remoteAddress?: pulumi.Input<string>;
+    remoteAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
      */
-    replayWindowSize?: pulumi.Input<number>;
+    replayWindowSize?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables this IKE remote node
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Specifies the names of the traffic-selector objects associated with this ike-peer
      */
-    trafficSelectors?: pulumi.Input<pulumi.Input<string>[]>;
+    trafficSelectors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
      */
-    verifyCert?: pulumi.Input<string>;
+    verifyCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies which version of IKE to be used
      */
-    versions?: pulumi.Input<pulumi.Input<string>[]>;
+    versions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -429,55 +429,55 @@ export interface NetIkePeerArgs {
     /**
      * The application service that the object belongs to
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * the trusted root and intermediate certificate authorities
      */
-    caCertFile?: pulumi.Input<string>;
+    caCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
      */
-    crlFile?: pulumi.Input<string>;
+    crlFile?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds between Dead Peer Detection messages
      */
-    dpdDelay?: pulumi.Input<number>;
+    dpdDelay?: pulumi.Input<number | undefined>;
     /**
      * Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
      */
-    generatePolicy?: pulumi.Input<string>;
+    generatePolicy?: pulumi.Input<string | undefined>;
     /**
      * Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
      */
-    lifetime?: pulumi.Input<number>;
+    lifetime?: pulumi.Input<number | undefined>;
     /**
      * Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate file object
      */
-    myCertFile?: pulumi.Input<string>;
+    myCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the certificate key file object
      */
-    myCertKeyFile?: pulumi.Input<string>;
+    myCertKeyFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the passphrase of the key used for my-cert-key-file
      */
-    myCertKeyPassphrase?: pulumi.Input<string>;
+    myCertKeyPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
      */
-    myIdType?: pulumi.Input<string>;
+    myIdType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier value sent to the remote host in the phase 1 negotiation
      */
-    myIdValue?: pulumi.Input<string>;
+    myIdValue?: pulumi.Input<string | undefined>;
     /**
      * Name of the ike_peer
      */
@@ -485,59 +485,59 @@ export interface NetIkePeerArgs {
     /**
      * Enables use of the NAT-Traversal IPsec extension
      */
-    natTraversal?: pulumi.Input<string>;
+    natTraversal?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
      */
-    passive?: pulumi.Input<string>;
+    passive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the peer’s certificate for authentication
      */
-    peersCertFile?: pulumi.Input<string>;
+    peersCertFile?: pulumi.Input<string | undefined>;
     /**
      * Specifies that the only peers-cert-type supported is certfile
      */
-    peersCertType?: pulumi.Input<string>;
+    peersCertType?: pulumi.Input<string | undefined>;
     /**
      * Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
      */
-    peersIdType?: pulumi.Input<string>;
+    peersIdType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the peer’s identifier to be received
      */
-    peersIdValue?: pulumi.Input<string>;
+    peersIdValue?: pulumi.Input<string | undefined>;
     /**
      * Specifies the authentication method used for phase 1 negotiation
      */
-    phase1AuthMethod?: pulumi.Input<string>;
+    phase1AuthMethod?: pulumi.Input<string | undefined>;
     /**
      * Specifies the encryption algorithm used for the isakmp phase 1 negotiation
      */
-    phase1EncryptAlgorithm?: pulumi.Input<string>;
+    phase1EncryptAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Defines the hash algorithm used for the isakmp phase 1 negotiation
      */
-    phase1HashAlgorithm?: pulumi.Input<string>;
+    phase1HashAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
      */
-    phase1PerfectForwardSecrecy?: pulumi.Input<string>;
+    phase1PerfectForwardSecrecy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the preshared key for ISAKMP SAs
      */
-    presharedKey?: pulumi.Input<string>;
+    presharedKey?: pulumi.Input<string | undefined>;
     /**
      * Display the encrypted preshared-key for the IKE remote node
      */
-    presharedKeyEncrypted?: pulumi.Input<string>;
+    presharedKeyEncrypted?: pulumi.Input<string | undefined>;
     /**
      * Specifies the pseudo-random function used to derive keying material for all cryptographic operations
      */
-    prf?: pulumi.Input<string>;
+    prf?: pulumi.Input<string | undefined>;
     /**
      * If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
      */
-    proxySupport?: pulumi.Input<string>;
+    proxySupport?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address of the IKE remote node
      */
@@ -545,21 +545,21 @@ export interface NetIkePeerArgs {
     /**
      * Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
      */
-    replayWindowSize?: pulumi.Input<number>;
+    replayWindowSize?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables this IKE remote node
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Specifies the names of the traffic-selector objects associated with this ike-peer
      */
-    trafficSelectors?: pulumi.Input<pulumi.Input<string>[]>;
+    trafficSelectors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
      */
-    verifyCert?: pulumi.Input<string>;
+    verifyCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies which version of IKE to be used
      */
-    versions?: pulumi.Input<pulumi.Input<string>[]>;
+    versions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

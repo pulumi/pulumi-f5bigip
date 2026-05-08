@@ -23,21 +23,21 @@ class IAppArgs:
     def __init__(__self__, *,
                  jsonfile: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 execute_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_updates: Optional[pulumi.Input[_builtins.str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_prerequisite_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 lists: pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         The set of arguments for constructing a IApp resource.
 
@@ -116,199 +116,199 @@ class IAppArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def devicegroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def devicegroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIG-IP password
         """
         return pulumi.get(self, "devicegroup")
 
     @devicegroup.setter
-    def devicegroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def devicegroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "devicegroup", value)
 
     @_builtins.property
     @pulumi.getter(name="executeAction")
-    def execute_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execute_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         """
         return pulumi.get(self, "execute_action")
 
     @execute_action.setter
-    def execute_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execute_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execute_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedDevicegroup")
-    def inherited_devicegroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherited_devicegroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_devicegroup")
 
     @inherited_devicegroup.setter
-    def inherited_devicegroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherited_devicegroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherited_devicegroup", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedTrafficGroup")
-    def inherited_traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherited_traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_traffic_group")
 
     @inherited_traffic_group.setter
-    def inherited_traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherited_traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherited_traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]:
+    def lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]]:
         """
         string values
         """
         return pulumi.get(self, "lists")
 
     @lists.setter
-    def lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]):
+    def lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]]):
         pulumi.set(self, "lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
+    def metadatas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
         """
         User defined generic data for the application service. It is a name and value pair.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]):
+    def metadatas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which the application resides.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="strictUpdates")
-    def strict_updates(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_updates(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         """
         return pulumi.get(self, "strict_updates")
 
     @strict_updates.setter
-    def strict_updates(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_updates(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_updates", value)
 
     @_builtins.property
     @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]:
+    def tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]]:
         return pulumi.get(self, "tables")
 
     @tables.setter
-    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]):
+    def tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]]):
         pulumi.set(self, "tables", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter(name="templateModified")
-    def template_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         """
         return pulumi.get(self, "template_modified")
 
     @template_modified.setter
-    def template_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_modified", value)
 
     @_builtins.property
     @pulumi.getter(name="templatePrerequisiteErrors")
-    def template_prerequisite_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_prerequisite_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates any missing prerequisites associated with the template that defines this application.
         """
         return pulumi.get(self, "template_prerequisite_errors")
 
     @template_prerequisite_errors.setter
-    def template_prerequisite_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_prerequisite_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_prerequisite_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the traffic group that the application service is assigned to.
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]]:
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
 @pulumi.input_type
 class _IAppState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 execute_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 jsonfile: Optional[pulumi.Input[_builtins.str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_updates: Optional[pulumi.Input[_builtins.str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_prerequisite_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 jsonfile: pulumi.Input[Optional[_builtins.str]] = None,
+                 lists: pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering IApp resources.
 
@@ -365,200 +365,200 @@ class _IAppState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def devicegroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def devicegroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIG-IP password
         """
         return pulumi.get(self, "devicegroup")
 
     @devicegroup.setter
-    def devicegroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def devicegroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "devicegroup", value)
 
     @_builtins.property
     @pulumi.getter(name="executeAction")
-    def execute_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execute_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         """
         return pulumi.get(self, "execute_action")
 
     @execute_action.setter
-    def execute_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execute_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execute_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedDevicegroup")
-    def inherited_devicegroup(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherited_devicegroup(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_devicegroup")
 
     @inherited_devicegroup.setter
-    def inherited_devicegroup(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherited_devicegroup(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherited_devicegroup", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritedTrafficGroup")
-    def inherited_traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherited_traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_traffic_group")
 
     @inherited_traffic_group.setter
-    def inherited_traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherited_traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherited_traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def jsonfile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jsonfile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Refer to the Json file which will be deployed on F5 BIG-IP.
         """
         return pulumi.get(self, "jsonfile")
 
     @jsonfile.setter
-    def jsonfile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jsonfile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jsonfile", value)
 
     @_builtins.property
     @pulumi.getter
-    def lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]:
+    def lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]]:
         """
         string values
         """
         return pulumi.get(self, "lists")
 
     @lists.setter
-    def lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]):
+    def lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppListArgs']]]]):
         pulumi.set(self, "lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
+    def metadatas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
         """
         User defined generic data for the application service. It is a name and value pair.
         """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
-    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]):
+    def metadatas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppMetadataArgs']]]]):
         pulumi.set(self, "metadatas", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the iApp.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which the application resides.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="strictUpdates")
-    def strict_updates(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_updates(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         """
         return pulumi.get(self, "strict_updates")
 
     @strict_updates.setter
-    def strict_updates(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_updates(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_updates", value)
 
     @_builtins.property
     @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]:
+    def tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]]:
         return pulumi.get(self, "tables")
 
     @tables.setter
-    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]):
+    def tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableArgs']]]]):
         pulumi.set(self, "tables", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter(name="templateModified")
-    def template_modified(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_modified(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         """
         return pulumi.get(self, "template_modified")
 
     @template_modified.setter
-    def template_modified(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_modified(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_modified", value)
 
     @_builtins.property
     @pulumi.getter(name="templatePrerequisiteErrors")
-    def template_prerequisite_errors(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_prerequisite_errors(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates any missing prerequisites associated with the template that defines this application.
         """
         return pulumi.get(self, "template_prerequisite_errors")
 
     @template_prerequisite_errors.setter
-    def template_prerequisite_errors(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_prerequisite_errors(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_prerequisite_errors", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the traffic group that the application service is assigned to.
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]:
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]]:
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]):
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IAppVariableArgs']]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -568,23 +568,23 @@ class IApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 execute_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 jsonfile: Optional[pulumi.Input[_builtins.str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_updates: Optional[pulumi.Input[_builtins.str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_prerequisite_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 jsonfile: pulumi.Input[Optional[_builtins.str]] = None,
+                 lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
@@ -661,23 +661,23 @@ class IApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 execute_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherited_traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 jsonfile: Optional[pulumi.Input[_builtins.str]] = None,
-                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
-                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_updates: Optional[pulumi.Input[_builtins.str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_modified: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_prerequisite_errors: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 jsonfile: pulumi.Input[Optional[_builtins.str]] = None,
+                 lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -718,23 +718,23 @@ class IApp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-            execute_action: Optional[pulumi.Input[_builtins.str]] = None,
-            inherited_devicegroup: Optional[pulumi.Input[_builtins.str]] = None,
-            inherited_traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-            jsonfile: Optional[pulumi.Input[_builtins.str]] = None,
-            lists: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
-            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            strict_updates: Optional[pulumi.Input[_builtins.str]] = None,
-            tables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
-            template: Optional[pulumi.Input[_builtins.str]] = None,
-            template_modified: Optional[pulumi.Input[_builtins.str]] = None,
-            template_prerequisite_errors: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None) -> 'IApp':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+            execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            jsonfile: pulumi.Input[Optional[_builtins.str]] = None,
+            lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict']]]]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+            tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict']]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict']]]]] = None) -> 'IApp':
         """
         Get an existing IApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

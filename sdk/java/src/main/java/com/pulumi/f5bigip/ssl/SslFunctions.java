@@ -47,8 +47,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -89,8 +89,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -131,8 +131,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -173,8 +173,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -215,8 +215,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetCertificateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -257,8 +257,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetVWanConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -313,8 +313,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetVWanConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -369,8 +369,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetVWanConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -425,8 +425,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetVWanConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -481,8 +481,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetVWanConfigArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -552,8 +552,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -621,8 +621,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -690,8 +690,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -759,8 +759,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -828,8 +828,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -897,8 +897,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPbSuggestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -939,8 +939,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPbSuggestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -981,8 +981,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPbSuggestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1023,8 +1023,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPbSuggestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1065,8 +1065,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPbSuggestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1107,8 +1107,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1147,8 +1147,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1187,8 +1187,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1227,8 +1227,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1267,8 +1267,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1307,8 +1307,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafSignaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1347,8 +1347,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafSignaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1387,8 +1387,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafSignaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1427,8 +1427,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafSignaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1467,8 +1467,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafSignaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

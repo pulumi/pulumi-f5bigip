@@ -94,23 +94,23 @@ export interface ProfileBotDefenseState {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * User defined description for Bot Defense profile
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Select the enforcement mode, possible values are `transparent` and `blocking`.
      */
-    enforcementMode?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<string | undefined>;
     /**
      * Name of the Bot Defense profile
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -120,15 +120,15 @@ export interface ProfileBotDefenseArgs {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * User defined description for Bot Defense profile
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Select the enforcement mode, possible values are `transparent` and `blocking`.
      */
-    enforcementMode?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<string | undefined>;
     /**
      * Name of the Bot Defense profile
      */
@@ -136,5 +136,5 @@ export interface ProfileBotDefenseArgs {
     /**
      * Profile templates specify Mitigation and Verification Settings default values. possible ptions `balanced`,`relaxed` and `strict`
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }

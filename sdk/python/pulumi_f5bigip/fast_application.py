@@ -20,7 +20,7 @@ __all__ = ['FastApplicationArgs', 'FastApplication']
 class FastApplicationArgs:
     def __init__(__self__, *,
                  fast_json: pulumi.Input[_builtins.str],
-                 template: Optional[pulumi.Input[_builtins.str]] = None):
+                 template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FastApplication resource.
 
@@ -45,24 +45,24 @@ class FastApplicationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
 
 @pulumi.input_type
 class _FastApplicationState:
     def __init__(__self__, *,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None):
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FastApplication resources.
 
@@ -86,7 +86,7 @@ class _FastApplicationState:
 
     @_builtins.property
     @pulumi.getter
-    def application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A FAST application name.
 
@@ -97,43 +97,43 @@ class _FastApplicationState:
         return pulumi.get(self, "application")
 
     @application.setter
-    def application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application", value)
 
     @_builtins.property
     @pulumi.getter(name="fastJson")
-    def fast_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fast_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "fast_json")
 
     @fast_json.setter
-    def fast_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fast_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fast_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         """
         return pulumi.get(self, "template")
 
     @template.setter
-    def template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A FAST tenant name on which you want to manage application.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
 
@@ -143,8 +143,8 @@ class FastApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fast_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 fast_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
@@ -204,8 +204,8 @@ class FastApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fast_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
+                 fast_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,10 +231,10 @@ class FastApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application: Optional[pulumi.Input[_builtins.str]] = None,
-            fast_json: Optional[pulumi.Input[_builtins.str]] = None,
-            template: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant: Optional[pulumi.Input[_builtins.str]] = None) -> 'FastApplication':
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_json: pulumi.Input[Optional[_builtins.str]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None) -> 'FastApplication':
         """
         Get an existing FastApplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

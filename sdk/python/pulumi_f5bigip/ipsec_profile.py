@@ -20,9 +20,9 @@ __all__ = ['IpsecProfileArgs', 'IpsecProfile']
 class IpsecProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selector: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selector: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpsecProfile resource.
 
@@ -53,48 +53,48 @@ class IpsecProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the IPsec interface tunnel profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="parentProfile")
-    def parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
         """
         return pulumi.get(self, "parent_profile")
 
     @parent_profile.setter
-    def parent_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSelector")
-    def traffic_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
         """
         return pulumi.get(self, "traffic_selector")
 
     @traffic_selector.setter
-    def traffic_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_selector", value)
 
 
 @pulumi.input_type
 class _IpsecProfileState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selector: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selector: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpsecProfile resources.
 
@@ -114,50 +114,50 @@ class _IpsecProfileState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the IPsec interface tunnel profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentProfile")
-    def parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
         """
         return pulumi.get(self, "parent_profile")
 
     @parent_profile.setter
-    def parent_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSelector")
-    def traffic_selector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_selector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
         """
         return pulumi.get(self, "traffic_selector")
 
     @traffic_selector.setter
-    def traffic_selector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_selector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_selector", value)
 
 
@@ -167,10 +167,10 @@ class IpsecProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selector: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selector: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `IpsecProfile` Manage IPSec Profiles on a BIG-IP
@@ -232,10 +232,10 @@ class IpsecProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selector: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selector: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,10 +261,10 @@ class IpsecProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_selector: Optional[pulumi.Input[_builtins.str]] = None) -> 'IpsecProfile':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_selector: pulumi.Input[Optional[_builtins.str]] = None) -> 'IpsecProfile':
         """
         Get an existing IpsecProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

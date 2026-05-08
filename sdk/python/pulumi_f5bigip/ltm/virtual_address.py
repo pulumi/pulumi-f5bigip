@@ -20,13 +20,13 @@ __all__ = ['VirtualAddressArgs', 'VirtualAddress']
 class VirtualAddressArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 advertize_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 arp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conn_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 icmp_echo: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 arp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualAddress resource.
 
@@ -69,100 +69,100 @@ class VirtualAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="advertizeRoute")
-    def advertize_route(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def advertize_route(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
         """
         return pulumi.get(self, "advertize_route")
 
     @advertize_route.setter
-    def advertize_route(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def advertize_route(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "advertize_route", value)
 
     @_builtins.property
     @pulumi.getter
-    def arp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def arp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable ARP for the virtual address
         """
         return pulumi.get(self, "arp")
 
     @arp.setter
-    def arp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def arp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "arp", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDelete")
-    def auto_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically delete the virtual address with the virtual server
         """
         return pulumi.get(self, "auto_delete")
 
     @auto_delete.setter
-    def auto_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="connLimit")
-    def conn_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def conn_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max number of connections for virtual address
         """
         return pulumi.get(self, "conn_limit")
 
     @conn_limit.setter
-    def conn_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def conn_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "conn_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the virtual address
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpEcho")
-    def icmp_echo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icmp_echo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         """
         return pulumi.get(self, "icmp_echo")
 
     @icmp_echo.setter
-    def icmp_echo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icmp_echo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icmp_echo", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the partition and traffic group
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
 
 @pulumi.input_type
 class _VirtualAddressState:
     def __init__(__self__, *,
-                 advertize_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 arp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conn_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 icmp_echo: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 arp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering VirtualAddress resources.
 
@@ -194,98 +194,98 @@ class _VirtualAddressState:
 
     @_builtins.property
     @pulumi.getter(name="advertizeRoute")
-    def advertize_route(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def advertize_route(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
         """
         return pulumi.get(self, "advertize_route")
 
     @advertize_route.setter
-    def advertize_route(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def advertize_route(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "advertize_route", value)
 
     @_builtins.property
     @pulumi.getter
-    def arp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def arp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable ARP for the virtual address
         """
         return pulumi.get(self, "arp")
 
     @arp.setter
-    def arp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def arp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "arp", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDelete")
-    def auto_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Automatically delete the virtual address with the virtual server
         """
         return pulumi.get(self, "auto_delete")
 
     @auto_delete.setter
-    def auto_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_delete", value)
 
     @_builtins.property
     @pulumi.getter(name="connLimit")
-    def conn_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def conn_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max number of connections for virtual address
         """
         return pulumi.get(self, "conn_limit")
 
     @conn_limit.setter
-    def conn_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def conn_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "conn_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the virtual address
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="icmpEcho")
-    def icmp_echo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def icmp_echo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         """
         return pulumi.get(self, "icmp_echo")
 
     @icmp_echo.setter
-    def icmp_echo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def icmp_echo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "icmp_echo", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the virtual address
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the partition and traffic group
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
 
@@ -295,14 +295,14 @@ class VirtualAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advertize_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 arp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conn_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 icmp_echo: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 arp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.VirtualAddress` Configures Virtual Server
@@ -370,14 +370,14 @@ class VirtualAddress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advertize_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 arp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-                 conn_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 icmp_echo: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 arp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+                 conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,14 +407,14 @@ class VirtualAddress(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advertize_route: Optional[pulumi.Input[_builtins.str]] = None,
-            arp: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_delete: Optional[pulumi.Input[_builtins.bool]] = None,
-            conn_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            icmp_echo: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_group: Optional[pulumi.Input[_builtins.str]] = None) -> 'VirtualAddress':
+            advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+            arp: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualAddress':
         """
         Get an existing VirtualAddress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

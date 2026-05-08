@@ -21,23 +21,23 @@ class GtmWideipArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_rcode: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 last_resort_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_decision_log_verbosities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimal_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_cidr_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_cidr_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_lb_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 topology_prefer_edns0_client_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl_persistence: Optional[pulumi.Input[_builtins.int]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a GtmWideip resource.
 
@@ -124,231 +124,231 @@ class GtmWideipArgs:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies alternate domain names for the WideIP
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-defined description of the WideIP
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disabled state of the WideIP
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the WideIP
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcode")
-    def failure_rcode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_rcode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the DNS RCODE used when failure_rcode_response is enabled (noerror, formerr, servfail, nxdomain, notimp, refused, yxdomain, yxrrset, nxrrset, notauth, notzone)
         """
         return pulumi.get(self, "failure_rcode")
 
     @failure_rcode.setter
-    def failure_rcode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_rcode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_rcode", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcodeResponse")
-    def failure_rcode_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_rcode_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to return a RCODE response to DNS queries when the WideIP is unavailable (enabled or disabled)
         """
         return pulumi.get(self, "failure_rcode_response")
 
     @failure_rcode_response.setter
-    def failure_rcode_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_rcode_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_rcode_response", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcodeTtl")
-    def failure_rcode_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_rcode_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the negative caching TTL of the SOA for the RCODE response
         """
         return pulumi.get(self, "failure_rcode_ttl")
 
     @failure_rcode_ttl.setter
-    def failure_rcode_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_rcode_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_rcode_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="lastResortPool")
-    def last_resort_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_resort_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the last resort pool for the WideIP. Format: <type> <partition>/<pool_name> (e.g., 'a /Common/firstpool')
         """
         return pulumi.get(self, "last_resort_pool")
 
     @last_resort_pool.setter
-    def last_resort_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_resort_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_resort_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingDecisionLogVerbosities")
-    def load_balancing_decision_log_verbosities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancing_decision_log_verbosities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the amount of detail logged when making load balancing decisions. Example: ['pool-selection']
         """
         return pulumi.get(self, "load_balancing_decision_log_verbosities")
 
     @load_balancing_decision_log_verbosities.setter
-    def load_balancing_decision_log_verbosities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancing_decision_log_verbosities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancing_decision_log_verbosities", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalResponse")
-    def minimal_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimal_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to minimize the response to the DNS query (enabled or disabled)
         """
         return pulumi.get(self, "minimal_response")
 
     @minimal_response.setter
-    def minimal_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimal_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimal_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which the WideIP resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="persistCidrIpv4")
-    def persist_cidr_ipv4(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_cidr_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the CIDR for IPv4 persistence
         """
         return pulumi.get(self, "persist_cidr_ipv4")
 
     @persist_cidr_ipv4.setter
-    def persist_cidr_ipv4(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_cidr_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_cidr_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="persistCidrIpv6")
-    def persist_cidr_ipv6(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_cidr_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the CIDR for IPv6 persistence
         """
         return pulumi.get(self, "persist_cidr_ipv6")
 
     @persist_cidr_ipv6.setter
-    def persist_cidr_ipv6(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_cidr_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_cidr_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def persistence(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies persistence for the WideIP (disabled or enabled)
         """
         return pulumi.get(self, "persistence")
 
     @persistence.setter
-    def persistence(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence", value)
 
     @_builtins.property
     @pulumi.getter(name="poolLbMode")
-    def pool_lb_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_lb_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode for pools in the WideIP (round-robin, ratio, topology, global-availability)
         """
         return pulumi.get(self, "pool_lb_mode")
 
     @pool_lb_mode.setter
-    def pool_lb_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_lb_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_lb_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="topologyPreferEdns0ClientSubnet")
-    def topology_prefer_edns0_client_subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topology_prefer_edns0_client_subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to prefer EDNS0 client subnet data for topology-based load balancing (enabled or disabled)
         """
         return pulumi.get(self, "topology_prefer_edns0_client_subnet")
 
     @topology_prefer_edns0_client_subnet.setter
-    def topology_prefer_edns0_client_subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topology_prefer_edns0_client_subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topology_prefer_edns0_client_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="ttlPersistence")
-    def ttl_persistence(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl_persistence(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the TTL for the persistence of the WideIP
         """
         return pulumi.get(self, "ttl_persistence")
 
     @ttl_persistence.setter
-    def ttl_persistence(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl_persistence(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl_persistence", value)
 
 
 @pulumi.input_type
 class _GtmWideipState:
     def __init__(__self__, *,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_rcode: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 last_resort_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_decision_log_verbosities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimal_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_cidr_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_cidr_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_lb_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 topology_prefer_edns0_client_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl_persistence: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GtmWideip resources.
 
@@ -413,230 +413,230 @@ class _GtmWideipState:
 
     @_builtins.property
     @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies alternate domain names for the WideIP
         """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "aliases", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-defined description of the WideIP
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Disabled state of the WideIP
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the WideIP
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcode")
-    def failure_rcode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_rcode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the DNS RCODE used when failure_rcode_response is enabled (noerror, formerr, servfail, nxdomain, notimp, refused, yxdomain, yxrrset, nxrrset, notauth, notzone)
         """
         return pulumi.get(self, "failure_rcode")
 
     @failure_rcode.setter
-    def failure_rcode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_rcode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_rcode", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcodeResponse")
-    def failure_rcode_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failure_rcode_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to return a RCODE response to DNS queries when the WideIP is unavailable (enabled or disabled)
         """
         return pulumi.get(self, "failure_rcode_response")
 
     @failure_rcode_response.setter
-    def failure_rcode_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failure_rcode_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failure_rcode_response", value)
 
     @_builtins.property
     @pulumi.getter(name="failureRcodeTtl")
-    def failure_rcode_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_rcode_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the negative caching TTL of the SOA for the RCODE response
         """
         return pulumi.get(self, "failure_rcode_ttl")
 
     @failure_rcode_ttl.setter
-    def failure_rcode_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_rcode_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_rcode_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="lastResortPool")
-    def last_resort_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_resort_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the last resort pool for the WideIP. Format: <type> <partition>/<pool_name> (e.g., 'a /Common/firstpool')
         """
         return pulumi.get(self, "last_resort_pool")
 
     @last_resort_pool.setter
-    def last_resort_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_resort_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_resort_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancingDecisionLogVerbosities")
-    def load_balancing_decision_log_verbosities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def load_balancing_decision_log_verbosities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the amount of detail logged when making load balancing decisions. Example: ['pool-selection']
         """
         return pulumi.get(self, "load_balancing_decision_log_verbosities")
 
     @load_balancing_decision_log_verbosities.setter
-    def load_balancing_decision_log_verbosities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def load_balancing_decision_log_verbosities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "load_balancing_decision_log_verbosities", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalResponse")
-    def minimal_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def minimal_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to minimize the response to the DNS query (enabled or disabled)
         """
         return pulumi.get(self, "minimal_response")
 
     @minimal_response.setter
-    def minimal_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def minimal_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "minimal_response", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the WideIP. Example: testwideip.local
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which the WideIP resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="persistCidrIpv4")
-    def persist_cidr_ipv4(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_cidr_ipv4(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the CIDR for IPv4 persistence
         """
         return pulumi.get(self, "persist_cidr_ipv4")
 
     @persist_cidr_ipv4.setter
-    def persist_cidr_ipv4(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_cidr_ipv4(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_cidr_ipv4", value)
 
     @_builtins.property
     @pulumi.getter(name="persistCidrIpv6")
-    def persist_cidr_ipv6(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def persist_cidr_ipv6(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the CIDR for IPv6 persistence
         """
         return pulumi.get(self, "persist_cidr_ipv6")
 
     @persist_cidr_ipv6.setter
-    def persist_cidr_ipv6(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def persist_cidr_ipv6(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "persist_cidr_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def persistence(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def persistence(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies persistence for the WideIP (disabled or enabled)
         """
         return pulumi.get(self, "persistence")
 
     @persistence.setter
-    def persistence(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def persistence(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "persistence", value)
 
     @_builtins.property
     @pulumi.getter(name="poolLbMode")
-    def pool_lb_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_lb_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the load balancing mode for pools in the WideIP (round-robin, ratio, topology, global-availability)
         """
         return pulumi.get(self, "pool_lb_mode")
 
     @pool_lb_mode.setter
-    def pool_lb_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_lb_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_lb_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="topologyPreferEdns0ClientSubnet")
-    def topology_prefer_edns0_client_subnet(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topology_prefer_edns0_client_subnet(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to prefer EDNS0 client subnet data for topology-based load balancing (enabled or disabled)
         """
         return pulumi.get(self, "topology_prefer_edns0_client_subnet")
 
     @topology_prefer_edns0_client_subnet.setter
-    def topology_prefer_edns0_client_subnet(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topology_prefer_edns0_client_subnet(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topology_prefer_edns0_client_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="ttlPersistence")
-    def ttl_persistence(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ttl_persistence(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the TTL for the persistence of the WideIP
         """
         return pulumi.get(self, "ttl_persistence")
 
     @ttl_persistence.setter
-    def ttl_persistence(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ttl_persistence(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl_persistence", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of WideIP (a, aaaa, cname, mx, naptr, srv)
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -646,25 +646,25 @@ class GtmWideip(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_rcode: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 last_resort_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_decision_log_verbosities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimal_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_cidr_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_cidr_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_lb_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 topology_prefer_edns0_client_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl_persistence: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## # GtmWideip Resource
@@ -1137,25 +1137,25 @@ class GtmWideip(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_rcode: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_rcode_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 last_resort_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancing_decision_log_verbosities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 minimal_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 persist_cidr_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-                 persist_cidr_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-                 persistence: Optional[pulumi.Input[_builtins.str]] = None,
-                 pool_lb_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 topology_prefer_edns0_client_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-                 ttl_persistence: Optional[pulumi.Input[_builtins.int]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+                 persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+                 persistence: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+                 ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1198,25 +1198,25 @@ class GtmWideip(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            failure_rcode: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_rcode_response: Optional[pulumi.Input[_builtins.str]] = None,
-            failure_rcode_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-            last_resort_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            load_balancing_decision_log_verbosities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            minimal_response: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            persist_cidr_ipv4: Optional[pulumi.Input[_builtins.int]] = None,
-            persist_cidr_ipv6: Optional[pulumi.Input[_builtins.int]] = None,
-            persistence: Optional[pulumi.Input[_builtins.str]] = None,
-            pool_lb_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            topology_prefer_edns0_client_subnet: Optional[pulumi.Input[_builtins.str]] = None,
-            ttl_persistence: Optional[pulumi.Input[_builtins.int]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'GtmWideip':
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            persistence: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'GtmWideip':
         """
         Get an existing GtmWideip resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

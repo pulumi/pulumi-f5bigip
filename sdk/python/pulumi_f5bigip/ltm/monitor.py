@@ -21,34 +21,34 @@ class MonitorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  parent: pulumi.Input[_builtins.str],
-                 adaptive: Optional[pulumi.Input[_builtins.str]] = None,
-                 adaptive_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 base: Optional[pulumi.Input[_builtins.str]] = None,
-                 chase_referrals: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_dscp: Optional[pulumi.Input[_builtins.int]] = None,
-                 mandatory_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_disable: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_until_up: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 up_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+                 adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 base: pulumi.Input[Optional[_builtins.str]] = None,
+                 chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+                 mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
 
@@ -168,374 +168,374 @@ class MonitorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def adaptive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adaptive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         """
         return pulumi.get(self, "adaptive")
 
     @adaptive.setter
-    def adaptive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adaptive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adaptive", value)
 
     @_builtins.property
     @pulumi.getter(name="adaptiveLimit")
-    def adaptive_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def adaptive_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
 
     @adaptive_limit.setter
-    def adaptive_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def adaptive_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "adaptive_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def base(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location in the LDAP tree from which the monitor starts the health check
         """
         return pulumi.get(self, "base")
 
     @base.setter
-    def base(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base", value)
 
     @_builtins.property
     @pulumi.getter(name="chaseReferrals")
-    def chase_referrals(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chase_referrals(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         """
         return pulumi.get(self, "chase_referrals")
 
     @chase_referrals.setter
-    def chase_referrals(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chase_referrals(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chase_referrals", value)
 
     @_builtins.property
     @pulumi.getter
-    def compatibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
-    def compatibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility", value)
 
     @_builtins.property
     @pulumi.getter(name="customParent")
-    def custom_parent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_parent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "custom_parent")
 
     @custom_parent.setter
-    def custom_parent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_parent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_parent", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the database in which the user is created
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify an alias address for monitoring
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an LDAP key for which the monitor searches
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="ipDscp")
-    def ip_dscp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ip_dscp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         """
         return pulumi.get(self, "ip_dscp")
 
     @ip_dscp.setter
-    def ip_dscp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ip_dscp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ip_dscp", value)
 
     @_builtins.property
     @pulumi.getter(name="mandatoryAttributes")
-    def mandatory_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mandatory_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         """
         return pulumi.get(self, "mandatory_attributes")
 
     @mandatory_attributes.setter
-    def mandatory_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mandatory_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mandatory_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="manualResume")
-    def manual_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
-    def manual_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_resume", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password if the monitored target requires authentication
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def receive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         """
         return pulumi.get(self, "receive")
 
     @receive.setter
-    def receive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveDisable")
-    def receive_disable(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive_disable(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         """
         return pulumi.get(self, "receive_disable")
 
     @receive_disable.setter
-    def receive_disable(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive_disable(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive_disable", value)
 
     @_builtins.property
     @pulumi.getter
-    def reverse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructs the system to mark the target resource down when the test is successful.
         """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
-    def reverse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfile")
-    def ssl_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         """
         return pulumi.get(self, "ssl_profile")
 
     @ssl_profile.setter
-    def ssl_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="timeUntilUp")
-    def time_until_up(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_until_up(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         """
         return pulumi.get(self, "time_until_up")
 
     @time_until_up.setter
-    def time_until_up(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_until_up(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_until_up", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor operates in transparent mode.
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
     @_builtins.property
     @pulumi.getter(name="upInterval")
-    def up_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def up_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         """
         return pulumi.get(self, "up_interval")
 
     @up_interval.setter
-    def up_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def up_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "up_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user name if the monitored target requires authentication
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
 class _MonitorState:
     def __init__(__self__, *,
-                 adaptive: Optional[pulumi.Input[_builtins.str]] = None,
-                 adaptive_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 base: Optional[pulumi.Input[_builtins.str]] = None,
-                 chase_referrals: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_dscp: Optional[pulumi.Input[_builtins.int]] = None,
-                 mandatory_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_disable: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_until_up: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 up_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+                 adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 base: pulumi.Input[Optional[_builtins.str]] = None,
+                 chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+                 mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
 
@@ -633,362 +633,362 @@ class _MonitorState:
 
     @_builtins.property
     @pulumi.getter
-    def adaptive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adaptive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         """
         return pulumi.get(self, "adaptive")
 
     @adaptive.setter
-    def adaptive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adaptive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adaptive", value)
 
     @_builtins.property
     @pulumi.getter(name="adaptiveLimit")
-    def adaptive_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def adaptive_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
 
     @adaptive_limit.setter
-    def adaptive_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def adaptive_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "adaptive_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def base(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the location in the LDAP tree from which the monitor starts the health check
         """
         return pulumi.get(self, "base")
 
     @base.setter
-    def base(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base", value)
 
     @_builtins.property
     @pulumi.getter(name="chaseReferrals")
-    def chase_referrals(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chase_referrals(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
         """
         return pulumi.get(self, "chase_referrals")
 
     @chase_referrals.setter
-    def chase_referrals(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chase_referrals(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chase_referrals", value)
 
     @_builtins.property
     @pulumi.getter
-    def compatibility(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compatibility(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
-    def compatibility(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compatibility(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compatibility", value)
 
     @_builtins.property
     @pulumi.getter(name="customParent")
-    def custom_parent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_parent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "custom_parent")
 
     @custom_parent.setter
-    def custom_parent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_parent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_parent", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the database in which the user is created
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify an alias address for monitoring
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def filename(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filename(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         """
         return pulumi.get(self, "filename")
 
     @filename.setter
-    def filename(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filename(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filename", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an LDAP key for which the monitor searches
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter(name="ipDscp")
-    def ip_dscp(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ip_dscp(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
         """
         return pulumi.get(self, "ip_dscp")
 
     @ip_dscp.setter
-    def ip_dscp(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ip_dscp(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ip_dscp", value)
 
     @_builtins.property
     @pulumi.getter(name="mandatoryAttributes")
-    def mandatory_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mandatory_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
         """
         return pulumi.get(self, "mandatory_attributes")
 
     @mandatory_attributes.setter
-    def mandatory_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mandatory_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mandatory_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="manualResume")
-    def manual_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manual_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
-    def manual_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manual_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manual_resume", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the password if the monitored target requires authentication
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def receive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         """
         return pulumi.get(self, "receive")
 
     @receive.setter
-    def receive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveDisable")
-    def receive_disable(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def receive_disable(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         """
         return pulumi.get(self, "receive_disable")
 
     @receive_disable.setter
-    def receive_disable(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def receive_disable(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "receive_disable", value)
 
     @_builtins.property
     @pulumi.getter
-    def reverse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reverse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instructs the system to mark the target resource down when the test is successful.
         """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
-    def reverse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reverse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reverse", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def send(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
 
     @send.setter
-    def send(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def send(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "send", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfile")
-    def ssl_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         """
         return pulumi.get(self, "ssl_profile")
 
     @ssl_profile.setter
-    def ssl_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="timeUntilUp")
-    def time_until_up(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_until_up(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         """
         return pulumi.get(self, "time_until_up")
 
     @time_until_up.setter
-    def time_until_up(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_until_up(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_until_up", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the monitor operates in transparent mode.
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
     @_builtins.property
     @pulumi.getter(name="upInterval")
-    def up_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def up_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         """
         return pulumi.get(self, "up_interval")
 
     @up_interval.setter
-    def up_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def up_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "up_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user name if the monitored target requires authentication
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -998,36 +998,36 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adaptive: Optional[pulumi.Input[_builtins.str]] = None,
-                 adaptive_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 base: Optional[pulumi.Input[_builtins.str]] = None,
-                 chase_referrals: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_dscp: Optional[pulumi.Input[_builtins.int]] = None,
-                 mandatory_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_disable: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_until_up: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 up_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+                 adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 base: pulumi.Input[Optional[_builtins.str]] = None,
+                 chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+                 mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.Monitor` Configures a custom monitor for use by health checks.
@@ -1219,36 +1219,36 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 adaptive: Optional[pulumi.Input[_builtins.str]] = None,
-                 adaptive_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 base: Optional[pulumi.Input[_builtins.str]] = None,
-                 chase_referrals: Optional[pulumi.Input[_builtins.str]] = None,
-                 compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 filename: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_dscp: Optional[pulumi.Input[_builtins.int]] = None,
-                 mandatory_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_disable: Optional[pulumi.Input[_builtins.str]] = None,
-                 reverse: Optional[pulumi.Input[_builtins.str]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 send: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_until_up: Optional[pulumi.Input[_builtins.int]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 up_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
+                 adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+                 adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 base: pulumi.Input[Optional[_builtins.str]] = None,
+                 chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+                 compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 filename: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+                 mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+                 reverse: pulumi.Input[Optional[_builtins.str]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 send: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1304,36 +1304,36 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            adaptive: Optional[pulumi.Input[_builtins.str]] = None,
-            adaptive_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            base: Optional[pulumi.Input[_builtins.str]] = None,
-            chase_referrals: Optional[pulumi.Input[_builtins.str]] = None,
-            compatibility: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_parent: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            filename: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[_builtins.str]] = None,
-            interval: Optional[pulumi.Input[_builtins.int]] = None,
-            ip_dscp: Optional[pulumi.Input[_builtins.int]] = None,
-            mandatory_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-            manual_resume: Optional[pulumi.Input[_builtins.str]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            receive: Optional[pulumi.Input[_builtins.str]] = None,
-            receive_disable: Optional[pulumi.Input[_builtins.str]] = None,
-            reverse: Optional[pulumi.Input[_builtins.str]] = None,
-            security: Optional[pulumi.Input[_builtins.str]] = None,
-            send: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            time_until_up: Optional[pulumi.Input[_builtins.int]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            transparent: Optional[pulumi.Input[_builtins.str]] = None,
-            up_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            username: Optional[pulumi.Input[_builtins.str]] = None) -> 'Monitor':
+            adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+            adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            base: pulumi.Input[Optional[_builtins.str]] = None,
+            chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+            mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            receive: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse: pulumi.Input[Optional[_builtins.str]] = None,
+            security: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None,
+            up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

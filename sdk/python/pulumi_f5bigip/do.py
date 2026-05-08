@@ -20,13 +20,13 @@ __all__ = ['DoArgs', 'Do']
 class DoArgs:
     def __init__(__self__, *,
                  do_json: pulumi.Input[_builtins.str],
-                 bigip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigip_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Do resource.
 
@@ -84,7 +84,7 @@ class DoArgs:
 
     @_builtins.property
     @pulumi.getter(name="bigipAddress")
-    def bigip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address of BIGIP Host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -92,12 +92,12 @@ class DoArgs:
         return pulumi.get(self, "bigip_address")
 
     @bigip_address.setter
-    def bigip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipPassword")
-    def bigip_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of  BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -113,12 +113,12 @@ class DoArgs:
         return pulumi.get(self, "bigip_password")
 
     @bigip_password.setter
-    def bigip_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_password", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipPort")
-    def bigip_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port number of BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -126,24 +126,24 @@ class DoArgs:
         return pulumi.get(self, "bigip_port")
 
     @bigip_port.setter
-    def bigip_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipTokenAuth")
-    def bigip_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigip_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to use an external authentication source (LDAP, TACACS, etc)
         """
         return pulumi.get(self, "bigip_token_auth")
 
     @bigip_token_auth.setter
-    def bigip_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigip_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigip_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipUser")
-    def bigip_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UserName of BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -151,46 +151,46 @@ class DoArgs:
         return pulumi.get(self, "bigip_user")
 
     @bigip_user.setter
-    def bigip_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_user", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
     @_utilities.deprecated("""this attribute is no longer in use""")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         unique identifier for DO resource
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         DO json
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
 @pulumi.input_type
 class _DoState:
     def __init__(__self__, *,
-                 bigip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigip_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Do resources.
 
@@ -237,7 +237,7 @@ class _DoState:
 
     @_builtins.property
     @pulumi.getter(name="bigipAddress")
-    def bigip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP Address of BIGIP Host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -245,12 +245,12 @@ class _DoState:
         return pulumi.get(self, "bigip_address")
 
     @bigip_address.setter
-    def bigip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipPassword")
-    def bigip_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of  BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -266,12 +266,12 @@ class _DoState:
         return pulumi.get(self, "bigip_password")
 
     @bigip_password.setter
-    def bigip_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_password", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipPort")
-    def bigip_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port number of BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -279,24 +279,24 @@ class _DoState:
         return pulumi.get(self, "bigip_port")
 
     @bigip_port.setter
-    def bigip_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipTokenAuth")
-    def bigip_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigip_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to use an external authentication source (LDAP, TACACS, etc)
         """
         return pulumi.get(self, "bigip_token_auth")
 
     @bigip_token_auth.setter
-    def bigip_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigip_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigip_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="bigipUser")
-    def bigip_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigip_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         UserName of BIGIP host to be used for this resource,this is optional parameter.
         whenever we specify this parameter it gets overwrite provider configuration
@@ -304,44 +304,44 @@ class _DoState:
         return pulumi.get(self, "bigip_user")
 
     @bigip_user.setter
-    def bigip_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigip_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigip_user", value)
 
     @_builtins.property
     @pulumi.getter(name="doJson")
-    def do_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def do_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the of the Declarative DO JSON file
         """
         return pulumi.get(self, "do_json")
 
     @do_json.setter
-    def do_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def do_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "do_json", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
     @_utilities.deprecated("""this attribute is no longer in use""")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         unique identifier for DO resource
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         DO json
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
 
@@ -351,14 +351,14 @@ class Do(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bigip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigip_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `Do` provides details about bigip do resource
@@ -460,14 +460,14 @@ class Do(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bigip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigip_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigip_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 do_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 do_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -499,14 +499,14 @@ class Do(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bigip_address: Optional[pulumi.Input[_builtins.str]] = None,
-            bigip_password: Optional[pulumi.Input[_builtins.str]] = None,
-            bigip_port: Optional[pulumi.Input[_builtins.str]] = None,
-            bigip_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-            bigip_user: Optional[pulumi.Input[_builtins.str]] = None,
-            do_json: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
-            timeout: Optional[pulumi.Input[_builtins.int]] = None) -> 'Do':
+            bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+            do_json: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None) -> 'Do':
         """
         Get an existing Do resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

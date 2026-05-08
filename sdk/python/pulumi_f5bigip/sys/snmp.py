@@ -19,9 +19,9 @@ __all__ = ['SnmpArgs', 'Snmp']
 @pulumi.input_type
 class SnmpArgs:
     def __init__(__self__, *,
-                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sys_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 sys_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 sys_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Snmp resource.
 
@@ -38,47 +38,47 @@ class SnmpArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allowedaddresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowedaddresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         """
         return pulumi.get(self, "allowedaddresses")
 
     @allowedaddresses.setter
-    def allowedaddresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowedaddresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowedaddresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sysContact")
-    def sys_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sys_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the contact information for the system administrator.
         """
         return pulumi.get(self, "sys_contact")
 
     @sys_contact.setter
-    def sys_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sys_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sys_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="sysLocation")
-    def sys_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sys_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the system's physical location.
         """
         return pulumi.get(self, "sys_location")
 
     @sys_location.setter
-    def sys_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sys_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sys_location", value)
 
 
 @pulumi.input_type
 class _SnmpState:
     def __init__(__self__, *,
-                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sys_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 sys_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 sys_location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Snmp resources.
 
@@ -95,38 +95,38 @@ class _SnmpState:
 
     @_builtins.property
     @pulumi.getter
-    def allowedaddresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowedaddresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         """
         return pulumi.get(self, "allowedaddresses")
 
     @allowedaddresses.setter
-    def allowedaddresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowedaddresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowedaddresses", value)
 
     @_builtins.property
     @pulumi.getter(name="sysContact")
-    def sys_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sys_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the contact information for the system administrator.
         """
         return pulumi.get(self, "sys_contact")
 
     @sys_contact.setter
-    def sys_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sys_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sys_contact", value)
 
     @_builtins.property
     @pulumi.getter(name="sysLocation")
-    def sys_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sys_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Describes the system's physical location.
         """
         return pulumi.get(self, "sys_location")
 
     @sys_location.setter
-    def sys_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sys_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sys_location", value)
 
 
@@ -136,9 +136,9 @@ class Snmp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sys_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 sys_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 sys_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
@@ -197,9 +197,9 @@ class Snmp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sys_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 sys_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 sys_location: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,9 +222,9 @@ class Snmp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sys_contact: Optional[pulumi.Input[_builtins.str]] = None,
-            sys_location: Optional[pulumi.Input[_builtins.str]] = None) -> 'Snmp':
+            allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+            sys_location: pulumi.Input[Optional[_builtins.str]] = None) -> 'Snmp':
         """
         Get an existing Snmp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

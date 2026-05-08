@@ -23,15 +23,15 @@ class NodeArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input['NodeFqdnArgs']] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 session: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional['NodeFqdnArgs']] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 session: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Node resource.
 
@@ -93,124 +93,124 @@ class NodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections allowed for the node or node address.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-defined description give ltm_node
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input['NodeFqdnArgs']]:
+    def fqdn(self) -> pulumi.Input[Optional['NodeFqdnArgs']]:
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input['NodeFqdnArgs']]):
+    def fqdn(self, value: pulumi.Input[Optional['NodeFqdnArgs']]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         specifies the name of the monitor or monitor rule that you want to associate with the node.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rate_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the ratio number for the node.
         """
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def session(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         """
         return pulumi.get(self, "session")
 
     @session.setter
-    def session(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
 class _NodeState:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input['NodeFqdnArgs']] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 session: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional['NodeFqdnArgs']] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 session: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Node resources.
 
@@ -250,131 +250,131 @@ class _NodeState:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP or hostname of the node
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections allowed for the node or node address.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User-defined description give ltm_node
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dynamic_ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
         return pulumi.get(self, "dynamic_ratio")
 
     @dynamic_ratio.setter
-    def dynamic_ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dynamic_ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dynamic_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input['NodeFqdnArgs']]:
+    def fqdn(self) -> pulumi.Input[Optional['NodeFqdnArgs']]:
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input['NodeFqdnArgs']]):
+    def fqdn(self, value: pulumi.Input[Optional['NodeFqdnArgs']]):
         pulumi.set(self, "fqdn", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         specifies the name of the monitor or monitor rule that you want to associate with the node.
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the node
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rate_limit", value)
 
     @_builtins.property
     @pulumi.getter
-    def ratio(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ratio(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets the ratio number for the node.
         """
         return pulumi.get(self, "ratio")
 
     @ratio.setter
-    def ratio(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ratio(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def session(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         """
         return pulumi.get(self, "session")
 
     @session.setter
-    def session(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
 
@@ -384,17 +384,17 @@ class Node(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 session: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 session: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.Node` Manages a node configuration
@@ -506,17 +506,17 @@ class Node(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 ratio: Optional[pulumi.Input[_builtins.int]] = None,
-                 session: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 ratio: pulumi.Input[Optional[_builtins.int]] = None,
+                 session: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -551,17 +551,17 @@ class Node(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address: Optional[pulumi.Input[_builtins.str]] = None,
-            connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dynamic_ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            fqdn: Optional[pulumi.Input[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
-            monitor: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rate_limit: Optional[pulumi.Input[_builtins.str]] = None,
-            ratio: Optional[pulumi.Input[_builtins.int]] = None,
-            session: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None) -> 'Node':
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            session: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> 'Node':
         """
         Get an existing Node resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

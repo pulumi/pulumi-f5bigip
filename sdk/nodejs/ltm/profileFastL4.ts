@@ -186,63 +186,63 @@ export interface ProfileFastL4State {
     /**
      * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
-    clientTimeout?: pulumi.Input<number>;
+    clientTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      */
-    explicitflowMigration?: pulumi.Input<string>;
+    explicitflowMigration?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      */
-    hardwareSyncookie?: pulumi.Input<string>;
+    hardwareSyncookie?: pulumi.Input<string | undefined>;
     /**
      * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
-    idleTimeout?: pulumi.Input<string>;
+    idleTimeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      */
-    iptosToclient?: pulumi.Input<string>;
+    iptosToclient?: pulumi.Input<string | undefined>;
     /**
      * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      */
-    iptosToserver?: pulumi.Input<string>;
+    iptosToserver?: pulumi.Input<string | undefined>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      */
-    keepaliveInterval?: pulumi.Input<string>;
+    keepaliveInterval?: pulumi.Input<string | undefined>;
     /**
      * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
      */
-    lateBinding?: pulumi.Input<string>;
+    lateBinding?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
      */
-    looseClose?: pulumi.Input<string>;
+    looseClose?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
      */
-    looseInitiation?: pulumi.Input<string>;
+    looseInitiation?: pulumi.Input<string | undefined>;
     /**
      * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
      */
-    receiveWindowsize?: pulumi.Input<number>;
+    receiveWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
      */
-    tcpHandshakeTimeout?: pulumi.Input<string>;
+    tcpHandshakeTimeout?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,47 +252,47 @@ export interface ProfileFastL4Args {
     /**
      * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
-    clientTimeout?: pulumi.Input<number>;
+    clientTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      */
-    explicitflowMigration?: pulumi.Input<string>;
+    explicitflowMigration?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      */
-    hardwareSyncookie?: pulumi.Input<string>;
+    hardwareSyncookie?: pulumi.Input<string | undefined>;
     /**
      * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
-    idleTimeout?: pulumi.Input<string>;
+    idleTimeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      */
-    iptosToclient?: pulumi.Input<string>;
+    iptosToclient?: pulumi.Input<string | undefined>;
     /**
      * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      */
-    iptosToserver?: pulumi.Input<string>;
+    iptosToserver?: pulumi.Input<string | undefined>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      */
-    keepaliveInterval?: pulumi.Input<string>;
+    keepaliveInterval?: pulumi.Input<string | undefined>;
     /**
      * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
      */
-    lateBinding?: pulumi.Input<string>;
+    lateBinding?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
      */
-    looseClose?: pulumi.Input<string>;
+    looseClose?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
      */
-    looseInitiation?: pulumi.Input<string>;
+    looseInitiation?: pulumi.Input<string | undefined>;
     /**
      * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      */
@@ -300,13 +300,13 @@ export interface ProfileFastL4Args {
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
      */
-    receiveWindowsize?: pulumi.Input<number>;
+    receiveWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
      */
-    tcpHandshakeTimeout?: pulumi.Input<string>;
+    tcpHandshakeTimeout?: pulumi.Input<string | undefined>;
 }

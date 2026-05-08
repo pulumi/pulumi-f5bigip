@@ -20,17 +20,17 @@ __all__ = ['IpsecPolicyArgs', 'IpsecPolicy']
 class IpsecPolicyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 auth_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipcomp: Optional[pulumi.Input[_builtins.str]] = None,
-                 kb_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipcomp: pulumi.Input[Optional[_builtins.str]] = None,
+                 kb_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_remote_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IpsecPolicy resource.
 
@@ -88,7 +88,7 @@ class IpsecPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="authAlgorithm")
-    def auth_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
         aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
@@ -96,24 +96,24 @@ class IpsecPolicyArgs:
         return pulumi.get(self, "auth_algorithm")
 
     @auth_algorithm.setter
-    def auth_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the IPSec policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptAlgorithm")
-    def encrypt_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypt_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
         aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
@@ -121,60 +121,60 @@ class IpsecPolicyArgs:
         return pulumi.get(self, "encrypt_algorithm")
 
     @encrypt_algorithm.setter
-    def encrypt_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypt_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypt_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipcomp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipcomp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
         """
         return pulumi.get(self, "ipcomp")
 
     @ipcomp.setter
-    def ipcomp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipcomp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipcomp", value)
 
     @_builtins.property
     @pulumi.getter(name="kbLifetime")
-    def kb_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kb_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the length of time before the IKE security association expires, in kilobytes.
         """
         return pulumi.get(self, "kb_lifetime")
 
     @kb_lifetime.setter
-    def kb_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kb_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kb_lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the length of time before the IKE security association expires, in minutes.
         """
         return pulumi.get(self, "lifetime")
 
     @lifetime.setter
-    def lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="perfectForwardSecrecy")
-    def perfect_forward_secrecy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def perfect_forward_secrecy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
         modp4096, modp6144, modp8192`
@@ -182,61 +182,61 @@ class IpsecPolicyArgs:
         return pulumi.get(self, "perfect_forward_secrecy")
 
     @perfect_forward_secrecy.setter
-    def perfect_forward_secrecy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def perfect_forward_secrecy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "perfect_forward_secrecy", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPsec protocol. Valid choices are: `ah, esp`
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelLocalAddress")
-    def tunnel_local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_local_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
         return pulumi.get(self, "tunnel_local_address")
 
     @tunnel_local_address.setter
-    def tunnel_local_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_local_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_local_address", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelRemoteAddress")
-    def tunnel_remote_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_remote_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
         return pulumi.get(self, "tunnel_remote_address")
 
     @tunnel_remote_address.setter
-    def tunnel_remote_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_remote_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_remote_address", value)
 
 
 @pulumi.input_type
 class _IpsecPolicyState:
     def __init__(__self__, *,
-                 auth_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipcomp: Optional[pulumi.Input[_builtins.str]] = None,
-                 kb_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipcomp: pulumi.Input[Optional[_builtins.str]] = None,
+                 kb_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_remote_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering IpsecPolicy resources.
 
@@ -283,7 +283,7 @@ class _IpsecPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="authAlgorithm")
-    def auth_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
         aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
@@ -291,24 +291,24 @@ class _IpsecPolicyState:
         return pulumi.get(self, "auth_algorithm")
 
     @auth_algorithm.setter
-    def auth_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the IPSec policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptAlgorithm")
-    def encrypt_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypt_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
         aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
@@ -316,72 +316,72 @@ class _IpsecPolicyState:
         return pulumi.get(self, "encrypt_algorithm")
 
     @encrypt_algorithm.setter
-    def encrypt_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypt_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypt_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def ipcomp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipcomp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
         """
         return pulumi.get(self, "ipcomp")
 
     @ipcomp.setter
-    def ipcomp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipcomp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipcomp", value)
 
     @_builtins.property
     @pulumi.getter(name="kbLifetime")
-    def kb_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kb_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the length of time before the IKE security association expires, in kilobytes.
         """
         return pulumi.get(self, "kb_lifetime")
 
     @kb_lifetime.setter
-    def kb_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kb_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kb_lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the length of time before the IKE security association expires, in minutes.
         """
         return pulumi.get(self, "lifetime")
 
     @lifetime.setter
-    def lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perfectForwardSecrecy")
-    def perfect_forward_secrecy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def perfect_forward_secrecy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
         modp4096, modp6144, modp8192`
@@ -389,43 +389,43 @@ class _IpsecPolicyState:
         return pulumi.get(self, "perfect_forward_secrecy")
 
     @perfect_forward_secrecy.setter
-    def perfect_forward_secrecy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def perfect_forward_secrecy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "perfect_forward_secrecy", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPsec protocol. Valid choices are: `ah, esp`
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelLocalAddress")
-    def tunnel_local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_local_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
         return pulumi.get(self, "tunnel_local_address")
 
     @tunnel_local_address.setter
-    def tunnel_local_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_local_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_local_address", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelRemoteAddress")
-    def tunnel_remote_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_remote_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
         return pulumi.get(self, "tunnel_remote_address")
 
     @tunnel_remote_address.setter
-    def tunnel_remote_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_remote_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_remote_address", value)
 
 
@@ -435,18 +435,18 @@ class IpsecPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipcomp: Optional[pulumi.Input[_builtins.str]] = None,
-                 kb_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipcomp: pulumi.Input[Optional[_builtins.str]] = None,
+                 kb_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_remote_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `IpsecPolicy` Manage IPSec policies on a BIG-IP
@@ -537,18 +537,18 @@ class IpsecPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipcomp: Optional[pulumi.Input[_builtins.str]] = None,
-                 kb_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipcomp: pulumi.Input[Optional[_builtins.str]] = None,
+                 kb_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_remote_address: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -582,18 +582,18 @@ class IpsecPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            ipcomp: Optional[pulumi.Input[_builtins.str]] = None,
-            kb_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            tunnel_local_address: Optional[pulumi.Input[_builtins.str]] = None,
-            tunnel_remote_address: Optional[pulumi.Input[_builtins.str]] = None) -> 'IpsecPolicy':
+            auth_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            ipcomp: pulumi.Input[Optional[_builtins.str]] = None,
+            kb_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            tunnel_local_address: pulumi.Input[Optional[_builtins.str]] = None,
+            tunnel_remote_address: pulumi.Input[Optional[_builtins.str]] = None) -> 'IpsecPolicy':
         """
         Get an existing IpsecPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

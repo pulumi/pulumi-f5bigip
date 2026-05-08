@@ -120,9 +120,9 @@ def get_irule(irule: Optional[_builtins.str] = None,
         irule=pulumi.get(__ret__, 'irule'),
         name=pulumi.get(__ret__, 'name'),
         partition=pulumi.get(__ret__, 'partition'))
-def get_irule_output(irule: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name: Optional[pulumi.Input[_builtins.str]] = None,
-                     partition: Optional[pulumi.Input[_builtins.str]] = None,
+def get_irule_output(irule: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
+                     partition: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIruleResult]:
     """
     Use this data source (`ltm.IRule`) to get the ltm irule details available on BIG-IP

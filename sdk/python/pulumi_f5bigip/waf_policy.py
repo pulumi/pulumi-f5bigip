@@ -23,30 +23,30 @@ class WafPolicyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  template_name: pulumi.Input[_builtins.str],
-                 application_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_passivemode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
-                 modifications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_import_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_independent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
-                 template_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_types: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
+                 graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+                 ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
+                 modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+                 template_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WafPolicy resource.
 
@@ -158,67 +158,67 @@ class WafPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLanguage")
-    def application_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
         """
         return pulumi.get(self, "application_language")
 
     @application_language.setter
-    def application_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_language", value)
 
     @_builtins.property
     @pulumi.getter(name="caseInsensitive")
-    def case_insensitive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def case_insensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
         """
         return pulumi.get(self, "case_insensitive")
 
     @case_insensitive.setter
-    def case_insensitive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def case_insensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "case_insensitive", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePassivemode")
-    def enable_passivemode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_passivemode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         """
         return pulumi.get(self, "enable_passivemode")
 
     @enable_passivemode.setter
-    def enable_passivemode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_passivemode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_passivemode", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the system processes a request that triggers a security policy violation
         """
         return pulumi.get(self, "enforcement_mode")
 
     @enforcement_mode.setter
-    def enforcement_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
-    def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
+    def file_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
         """
         `file_types` takes list of file-types options to be used for policy builder.
         See file types below for more details.
@@ -226,12 +226,12 @@ class WafPolicyArgs:
         return pulumi.get(self, "file_types")
 
     @file_types.setter
-    def file_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]):
+    def file_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]):
         pulumi.set(self, "file_types", value)
 
     @_builtins.property
     @pulumi.getter(name="graphqlProfiles")
-    def graphql_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
+    def graphql_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
         """
         `graphql_profiles` takes list of graphql profile options to be used for policy builder.
         See graphql profiles below for more details.
@@ -239,24 +239,24 @@ class WafPolicyArgs:
         return pulumi.get(self, "graphql_profiles")
 
     @graphql_profiles.setter
-    def graphql_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
+    def graphql_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
         pulumi.set(self, "graphql_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
         """
         specify the list of host name that is used to access the application
         """
         return pulumi.get(self, "host_names")
 
     @host_names.setter
-    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
         pulumi.set(self, "host_names", value)
 
     @_builtins.property
     @pulumi.getter(name="ipExceptions")
-    def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
+    def ip_exceptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
         """
         `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         See IP Exceptions below for more details.
@@ -264,60 +264,60 @@ class WafPolicyArgs:
         return pulumi.get(self, "ip_exceptions")
 
     @ip_exceptions.setter
-    def ip_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
+    def ip_exceptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
         pulumi.set(self, "ip_exceptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def modifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def modifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         """
         return pulumi.get(self, "modifications")
 
     @modifications.setter
-    def modifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def modifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "modifications", value)
 
     @_builtins.property
     @pulumi.getter(name="openApiFiles")
-    def open_api_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def open_api_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines the Link for open api files on the policy.
         """
         return pulumi.get(self, "open_api_files")
 
     @open_api_files.setter
-    def open_api_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def open_api_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "open_api_files", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines parameters that the security policy permits in requests.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the partition of the policy. Default is `Common`
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="policyBuilders")
-    def policy_builders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
+    def policy_builders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
         """
         `policy_builder` block will provide `learning_mode` options to be used for policy builder.
         See policy builder below for more details.
@@ -325,160 +325,160 @@ class WafPolicyArgs:
         return pulumi.get(self, "policy_builders")
 
     @policy_builders.setter
-    def policy_builders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]):
+    def policy_builders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]):
         pulumi.set(self, "policy_builders", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyImportJson")
-    def policy_import_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_import_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         """
         return pulumi.get(self, "policy_import_json")
 
     @policy_import_json.setter
-    def policy_import_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_import_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_import_json", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolIndependent")
-    def protocol_independent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protocol_independent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
         """
         return pulumi.get(self, "protocol_independent")
 
     @protocol_independent.setter
-    def protocol_independent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protocol_independent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protocol_independent", value)
 
     @_builtins.property
     @pulumi.getter(name="serverTechnologies")
-    def server_technologies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_technologies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
         """
         return pulumi.get(self, "server_technologies")
 
     @server_technologies.setter
-    def server_technologies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_technologies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_technologies", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureSets")
-    def signature_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def signature_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         """
         return pulumi.get(self, "signature_sets")
 
     @signature_sets.setter
-    def signature_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def signature_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "signature_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def signatures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def signatures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines the properties of a signature on the policy.
         """
         return pulumi.get(self, "signatures")
 
     @signatures.setter
-    def signatures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def signatures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "signatures", value)
 
     @_builtins.property
     @pulumi.getter(name="signaturesSettings")
-    def signatures_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]:
+    def signatures_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]:
         """
         bulk signature setting
         """
         return pulumi.get(self, "signatures_settings")
 
     @signatures_settings.setter
-    def signatures_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]):
+    def signatures_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]):
         pulumi.set(self, "signatures_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="templateLink")
-    def template_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Link of the template used for the policy creation.
         """
         return pulumi.get(self, "template_link")
 
     @template_link.setter
-    def template_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of policy you want to create. The default policy type is `security`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
         """
         return pulumi.get(self, "urls")
 
     @urls.setter
-    def urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "urls", value)
 
 
 @pulumi.input_type
 class _WafPolicyState:
     def __init__(__self__, *,
-                 application_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_passivemode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
-                 modifications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
-                 policy_export_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_import_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_independent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
-                 template_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_types: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
+                 graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+                 ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
+                 modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
+                 policy_export_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+                 template_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering WafPolicy resources.
 
@@ -571,67 +571,67 @@ class _WafPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="applicationLanguage")
-    def application_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
         """
         return pulumi.get(self, "application_language")
 
     @application_language.setter
-    def application_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_language", value)
 
     @_builtins.property
     @pulumi.getter(name="caseInsensitive")
-    def case_insensitive(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def case_insensitive(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
         """
         return pulumi.get(self, "case_insensitive")
 
     @case_insensitive.setter
-    def case_insensitive(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def case_insensitive(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "case_insensitive", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePassivemode")
-    def enable_passivemode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_passivemode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
         """
         return pulumi.get(self, "enable_passivemode")
 
     @enable_passivemode.setter
-    def enable_passivemode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_passivemode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_passivemode", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforcement_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How the system processes a request that triggers a security policy violation
         """
         return pulumi.get(self, "enforcement_mode")
 
     @enforcement_mode.setter
-    def enforcement_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforcement_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforcement_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="fileTypes")
-    def file_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
+    def file_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]:
         """
         `file_types` takes list of file-types options to be used for policy builder.
         See file types below for more details.
@@ -639,12 +639,12 @@ class _WafPolicyState:
         return pulumi.get(self, "file_types")
 
     @file_types.setter
-    def file_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]):
+    def file_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]]):
         pulumi.set(self, "file_types", value)
 
     @_builtins.property
     @pulumi.getter(name="graphqlProfiles")
-    def graphql_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
+    def graphql_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]:
         """
         `graphql_profiles` takes list of graphql profile options to be used for policy builder.
         See graphql profiles below for more details.
@@ -652,24 +652,24 @@ class _WafPolicyState:
         return pulumi.get(self, "graphql_profiles")
 
     @graphql_profiles.setter
-    def graphql_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
+    def graphql_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
         pulumi.set(self, "graphql_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="hostNames")
-    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
         """
         specify the list of host name that is used to access the application
         """
         return pulumi.get(self, "host_names")
 
     @host_names.setter
-    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
         pulumi.set(self, "host_names", value)
 
     @_builtins.property
     @pulumi.getter(name="ipExceptions")
-    def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
+    def ip_exceptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
         """
         `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
         See IP Exceptions below for more details.
@@ -677,72 +677,72 @@ class _WafPolicyState:
         return pulumi.get(self, "ip_exceptions")
 
     @ip_exceptions.setter
-    def ip_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
+    def ip_exceptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
         pulumi.set(self, "ip_exceptions", value)
 
     @_builtins.property
     @pulumi.getter
-    def modifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def modifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
         """
         return pulumi.get(self, "modifications")
 
     @modifications.setter
-    def modifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def modifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "modifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="openApiFiles")
-    def open_api_files(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def open_api_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines the Link for open api files on the policy.
         """
         return pulumi.get(self, "open_api_files")
 
     @open_api_files.setter
-    def open_api_files(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def open_api_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "open_api_files", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines parameters that the security policy permits in requests.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the partition of the policy. Default is `Common`
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="policyBuilders")
-    def policy_builders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
+    def policy_builders(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]:
         """
         `policy_builder` block will provide `learning_mode` options to be used for policy builder.
         See policy builder below for more details.
@@ -750,151 +750,151 @@ class _WafPolicyState:
         return pulumi.get(self, "policy_builders")
 
     @policy_builders.setter
-    def policy_builders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]):
+    def policy_builders(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]):
         pulumi.set(self, "policy_builders", value)
 
     @_builtins.property
     @pulumi.getter(name="policyExportJson")
-    def policy_export_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_export_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Exported WAF policy deployed on BIGIP.
         """
         return pulumi.get(self, "policy_export_json")
 
     @policy_export_json.setter
-    def policy_export_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_export_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_export_json", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyImportJson")
-    def policy_import_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_import_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         """
         return pulumi.get(self, "policy_import_json")
 
     @policy_import_json.setter
-    def policy_import_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_import_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_import_json", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolIndependent")
-    def protocol_independent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def protocol_independent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
         """
         return pulumi.get(self, "protocol_independent")
 
     @protocol_independent.setter
-    def protocol_independent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def protocol_independent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "protocol_independent", value)
 
     @_builtins.property
     @pulumi.getter(name="serverTechnologies")
-    def server_technologies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_technologies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
         """
         return pulumi.get(self, "server_technologies")
 
     @server_technologies.setter
-    def server_technologies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_technologies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_technologies", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureSets")
-    def signature_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def signature_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         """
         return pulumi.get(self, "signature_sets")
 
     @signature_sets.setter
-    def signature_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def signature_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "signature_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def signatures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def signatures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This section defines the properties of a signature on the policy.
         """
         return pulumi.get(self, "signatures")
 
     @signatures.setter
-    def signatures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def signatures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "signatures", value)
 
     @_builtins.property
     @pulumi.getter(name="signaturesSettings")
-    def signatures_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]:
+    def signatures_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]:
         """
         bulk signature setting
         """
         return pulumi.get(self, "signatures_settings")
 
     @signatures_settings.setter
-    def signatures_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]):
+    def signatures_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]]):
         pulumi.set(self, "signatures_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="templateLink")
-    def template_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Link of the template used for the policy creation.
         """
         return pulumi.get(self, "template_link")
 
     @template_link.setter
-    def template_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_link", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the template used for the policy creation.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of policy you want to create. The default policy type is `security`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
         """
         return pulumi.get(self, "urls")
 
     @urls.setter
-    def urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "urls", value)
 
 
@@ -904,32 +904,32 @@ class WafPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_passivemode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
-                 modifications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_import_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_independent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
-                 template_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+                 graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+                 ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
+                 modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
+                 template_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
@@ -1103,32 +1103,32 @@ class WafPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_passivemode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
-                 graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
-                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
-                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
-                 modifications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_import_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_independent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
-                 template_link: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 application_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+                 graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+                 ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
+                 modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
+                 template_link: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1179,33 +1179,33 @@ class WafPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_language: Optional[pulumi.Input[_builtins.str]] = None,
-            case_insensitive: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_passivemode: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforcement_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            file_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
-            graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
-            host_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
-            ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
-            modifications: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
-            policy_export_json: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_import_json: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol_independent: Optional[pulumi.Input[_builtins.bool]] = None,
-            server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            signatures: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
-            template_link: Optional[pulumi.Input[_builtins.str]] = None,
-            template_name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'WafPolicy':
+            application_language: pulumi.Input[Optional[_builtins.str]] = None,
+            case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            file_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict']]]]] = None,
+            graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict']]]]] = None,
+            host_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict']]]]] = None,
+            ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict']]]]] = None,
+            modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict']]]]] = None,
+            policy_export_json: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict']]]]] = None,
+            template_link: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'WafPolicy':
         """
         Get an existing WafPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

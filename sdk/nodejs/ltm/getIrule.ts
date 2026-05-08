@@ -100,7 +100,7 @@ export interface GetIruleOutputArgs {
     /**
      * Irule configured on bigip
      */
-    irule?: pulumi.Input<string>;
+    irule?: pulumi.Input<string | undefined>;
     /**
      * Name of the irule
      */

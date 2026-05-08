@@ -149,21 +149,21 @@ export interface GetWafSignaturesOutputArgs {
     /**
      * The relative detection accuracy of the signature.
      */
-    accuracy?: pulumi.Input<string>;
+    accuracy?: pulumi.Input<string | undefined>;
     /**
      * Description of the signature.
      */
-    description?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
+    description?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the signature as configured on the system.
      */
-    name?: pulumi.Input<string>;
-    performStaging?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string | undefined>;
+    performStaging?: pulumi.Input<boolean | undefined>;
     /**
      * The relative risk level of the attack that matches this signature.
      */
-    risk?: pulumi.Input<string>;
+    risk?: pulumi.Input<string | undefined>;
     /**
      * ID of the signature in the BIG-IP WAF database.
      */
@@ -171,10 +171,10 @@ export interface GetWafSignaturesOutputArgs {
     /**
      * System generated ID of the signature.
      */
-    systemSignatureId?: pulumi.Input<string>;
-    tag?: pulumi.Input<string>;
+    systemSignatureId?: pulumi.Input<string | undefined>;
+    tag?: pulumi.Input<string | undefined>;
     /**
      * Type of the signature.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

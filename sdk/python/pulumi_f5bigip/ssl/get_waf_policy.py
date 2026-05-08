@@ -99,8 +99,8 @@ def get_waf_policy(policy_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         policy_json=pulumi.get(__ret__, 'policy_json'))
-def get_waf_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          policy_json: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_waf_policy_output(policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          policy_json: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafPolicyResult]:
     """
     Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.

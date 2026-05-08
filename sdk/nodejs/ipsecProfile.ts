@@ -104,19 +104,19 @@ export interface IpsecProfileState {
     /**
      * Specifies descriptive text that identifies the IPsec interface tunnel profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
      */
-    parentProfile?: pulumi.Input<string>;
+    parentProfile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
      */
-    trafficSelector?: pulumi.Input<string>;
+    trafficSelector?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface IpsecProfileArgs {
     /**
      * Specifies descriptive text that identifies the IPsec interface tunnel profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
      */
@@ -134,9 +134,9 @@ export interface IpsecProfileArgs {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
      */
-    parentProfile?: pulumi.Input<string>;
+    parentProfile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
      */
-    trafficSelector?: pulumi.Input<string>;
+    trafficSelector?: pulumi.Input<string | undefined>;
 }

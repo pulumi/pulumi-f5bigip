@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.Index.GtmPool("example", new()
+    ///     var example = new F5BigIP.GtmPool("example", new()
     ///     {
     ///         Name = "my_pool",
     ///         Type = "a",
@@ -60,7 +60,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var withMembers = new F5BigIP.Index.GtmPool("with_members", new()
+    ///     var withMembers = new F5BigIP.GtmPool("with_members", new()
     ///     {
     ///         Name = "app_pool",
     ///         Type = "a",
@@ -100,7 +100,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new F5BigIP.Index.GtmPool("advanced", new()
+    ///     var advanced = new F5BigIP.GtmPool("advanced", new()
     ///     {
     ///         Name = "advanced_pool",
     ///         Type = "a",

@@ -20,56 +20,56 @@ __all__ = ['ProfileServerSslArgs', 'ProfileServerSsl']
 class ProfileServerSslArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 alert_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_lifespan: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_certificate_extensions: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 cipher_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ciphers: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation: Optional[pulumi.Input[_builtins.int]] = None,
-                 generic_alert: Optional[pulumi.Input[_builtins.str]] = None,
-                 handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 mod_ssl_methods: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ssl: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_mirroring: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_ticket: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_require: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_c3d: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy_bypass: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 unclean_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate_depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_cert_extension_custom_oids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_lifespan: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_certificate_extensions: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 cipher_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ciphers: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.int]] = None,
+                 generic_alert: pulumi.Input[Optional[_builtins.str]] = None,
+                 handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mod_ssl_methods: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ssl: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_mirroring: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_ticket: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_require: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_c3d: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy_bypass: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unclean_shutdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 untrusted_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileServerSsl resource.
 
@@ -273,19 +273,19 @@ class ProfileServerSslArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertTimeout")
-    def alert_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert time out
         """
         return pulumi.get(self, "alert_timeout")
 
     @alert_timeout.setter
-    def alert_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def authenticate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authenticate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
         When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
@@ -293,36 +293,36 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "authenticate")
 
     @authenticate.setter
-    def authenticate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authenticate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authenticate", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticateDepth")
-    def authenticate_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def authenticate_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Client certificate chain traversal depth.  Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
 
     @authenticate_depth.setter
-    def authenticate_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def authenticate_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "authenticate_depth", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaCert")
-    def c3d_ca_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         """
         return pulumi.get(self, "c3d_ca_cert")
 
     @c3d_ca_cert.setter
-    def c3d_ca_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaKey")
-    def c3d_ca_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
 
@@ -333,36 +333,36 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "c3d_ca_key")
 
     @c3d_ca_key.setter
-    def c3d_ca_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_key", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaPassphrase")
-    def c3d_ca_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CA Passphrase. Default
         """
         return pulumi.get(self, "c3d_ca_passphrase")
 
     @c3d_ca_passphrase.setter
-    def c3d_ca_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertExtensionCustomOids")
-    def c3d_cert_extension_custom_oids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def c3d_cert_extension_custom_oids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Certificate Extensions List.  Default
         """
         return pulumi.get(self, "c3d_cert_extension_custom_oids")
 
     @c3d_cert_extension_custom_oids.setter
-    def c3d_cert_extension_custom_oids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def c3d_cert_extension_custom_oids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "c3d_cert_extension_custom_oids", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertExtensionIncludes")
-    def c3d_cert_extension_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def c3d_cert_extension_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 
@@ -390,348 +390,348 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "c3d_cert_extension_includes")
 
     @c3d_cert_extension_includes.setter
-    def c3d_cert_extension_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def c3d_cert_extension_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "c3d_cert_extension_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertLifespan")
-    def c3d_cert_lifespan(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def c3d_cert_lifespan(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Certificate Lifespan.  Default
         """
         return pulumi.get(self, "c3d_cert_lifespan")
 
     @c3d_cert_lifespan.setter
-    def c3d_cert_lifespan(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def c3d_cert_lifespan(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "c3d_cert_lifespan", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertificateExtensions")
-    def c3d_certificate_extensions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_certificate_extensions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CA Passphrase. Default enabled
         """
         return pulumi.get(self, "c3d_certificate_extensions")
 
     @c3d_certificate_extensions.setter
-    def c3d_certificate_extensions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_certificate_extensions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_certificate_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="caFile")
-    def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client certificate file path.  Default None.
         """
         return pulumi.get(self, "ca_file")
 
     @ca_file.setter
-    def ca_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_file", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache size (sessions).
         """
         return pulumi.get(self, "cache_size")
 
     @cache_size.setter
-    def cache_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache time out
         """
         return pulumi.get(self, "cache_timeout")
 
     @cache_timeout.setter
-    def cache_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate that the system uses for server-side SSL processing.
         """
         return pulumi.get(self, "cert")
 
     @cert.setter
-    def cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificates-key chain to associate with the SSL profile
         """
         return pulumi.get(self, "chain")
 
     @chain.setter
-    def chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chain", value)
 
     @_builtins.property
     @pulumi.getter(name="cipherGroup")
-    def cipher_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cipher_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         """
         return pulumi.get(self, "cipher_group")
 
     @cipher_group.setter
-    def cipher_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cipher_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cipher_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def ciphers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ciphers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         """
         return pulumi.get(self, "ciphers")
 
     @ciphers.setter
-    def ciphers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ciphers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ciphers", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="expireCertResponseControl")
-    def expire_cert_response_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expire_cert_response_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Response if the cert is expired (drop / ignore).
         """
         return pulumi.get(self, "expire_cert_response_control")
 
     @expire_cert_response_control.setter
-    def expire_cert_response_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expire_cert_response_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expire_cert_response_control", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         full path of the profile
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def generation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def generation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         generation
         """
         return pulumi.get(self, "generation")
 
     @generation.setter
-    def generation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def generation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="genericAlert")
-    def generic_alert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generic_alert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Generic alerts enabled / disabled.
         """
         return pulumi.get(self, "generic_alert")
 
     @generic_alert.setter
-    def generic_alert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generic_alert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generic_alert", value)
 
     @_builtins.property
     @pulumi.getter(name="handshakeTimeout")
-    def handshake_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handshake_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Handshake time out (seconds)
         """
         return pulumi.get(self, "handshake_timeout")
 
     @handshake_timeout.setter
-    def handshake_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handshake_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handshake_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file name of the SSL key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="modSslMethods")
-    def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mod_ssl_methods(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
     @mod_ssl_methods.setter
-    def mod_ssl_methods(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mod_ssl_methods(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mod_ssl_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Certificate Constrained Delegation CA passphrase
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="peerCertMode")
-    def peer_cert_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_cert_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         """
         return pulumi.get(self, "peer_cert_mode")
 
     @peer_cert_mode.setter
-    def peer_cert_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_cert_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_cert_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyCaCert")
-    def proxy_ca_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ca_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy CA Cert
         """
         return pulumi.get(self, "proxy_ca_cert")
 
     @proxy_ca_cert.setter
-    def proxy_ca_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ca_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ca_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyCaKey")
-    def proxy_ca_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ca_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy CA Key
         """
         return pulumi.get(self, "proxy_ca_key")
 
     @proxy_ca_key.setter
-    def proxy_ca_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ca_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ca_key", value)
 
     @_builtins.property
     @pulumi.getter(name="proxySsl")
-    def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ssl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
     @proxy_ssl.setter
-    def proxy_ssl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ssl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="renegotiatePeriod")
-    def renegotiate_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiate_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renogotiate Period (seconds)
         """
         return pulumi.get(self, "renegotiate_period")
 
     @renegotiate_period.setter
-    def renegotiate_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiate_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiate_period", value)
 
     @_builtins.property
     @pulumi.getter(name="renegotiateSize")
-    def renegotiate_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiate_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renogotiate Size
         """
         return pulumi.get(self, "renegotiate_size")
 
     @renegotiate_size.setter
-    def renegotiate_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiate_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiate_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def renegotiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
         """
         return pulumi.get(self, "renegotiation")
 
     @renegotiation.setter
-    def renegotiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiation", value)
 
     @_builtins.property
     @pulumi.getter(name="retainCertificate")
-    def retain_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retain_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When `true`, client certificate is retained in SSL session.
         """
         return pulumi.get(self, "retain_certificate")
 
     @retain_certificate.setter
-    def retain_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retain_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retain_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="secureRenegotiation")
-    def secure_renegotiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_renegotiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
         When `request` is set the system request secure renegotation of SSL connections.
@@ -741,48 +741,48 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "secure_renegotiation")
 
     @secure_renegotiation.setter
-    def secure_renegotiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_renegotiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_renegotiation", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionMirroring")
-    def session_mirroring(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_mirroring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session Mirroring (enabled / disabled)
         """
         return pulumi.get(self, "session_mirroring")
 
     @session_mirroring.setter
-    def session_mirroring(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_mirroring(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_mirroring", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTicket")
-    def session_ticket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_ticket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session Ticket (enabled / disabled)
         """
         return pulumi.get(self, "session_ticket")
 
     @session_ticket.setter
-    def session_ticket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_ticket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_ticket", value)
 
     @_builtins.property
     @pulumi.getter(name="sniDefault")
-    def sni_default(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sni_default(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
         There can be only one SSL profile with this setting enabled.
@@ -790,24 +790,24 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "sni_default")
 
     @sni_default.setter
-    def sni_default(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sni_default(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sni_default", value)
 
     @_builtins.property
     @pulumi.getter(name="sniRequire")
-    def sni_require(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sni_require(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
         """
         return pulumi.get(self, "sni_require")
 
     @sni_require.setter
-    def sni_require(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sni_require(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sni_require", value)
 
     @_builtins.property
     @pulumi.getter(name="sslC3d")
-    def ssl_c3d(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_c3d(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables SSL forward proxy bypass on receiving
         handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
@@ -815,60 +815,60 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "ssl_c3d")
 
     @ssl_c3d.setter
-    def ssl_c3d(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_c3d(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_c3d", value)
 
     @_builtins.property
     @pulumi.getter(name="sslForwardProxy")
-    def ssl_forward_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_forward_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy")
 
     @ssl_forward_proxy.setter
-    def ssl_forward_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_forward_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_forward_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="sslForwardProxyBypass")
-    def ssl_forward_proxy_bypass(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_forward_proxy_bypass(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy_bypass")
 
     @ssl_forward_proxy_bypass.setter
-    def ssl_forward_proxy_bypass(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_forward_proxy_bypass(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_forward_proxy_bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="sslSignHash")
-    def ssl_sign_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_sign_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSL sign hash (any, sha1, sha256, sha384)
         """
         return pulumi.get(self, "ssl_sign_hash")
 
     @ssl_sign_hash.setter
-    def ssl_sign_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_sign_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_sign_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="strictResume")
-    def strict_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         """
         return pulumi.get(self, "strict_resume")
 
     @strict_resume.setter
-    def strict_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="tmOptions")
-    def tm_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tm_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
         Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
@@ -876,88 +876,88 @@ class ProfileServerSslArgs:
         return pulumi.get(self, "tm_options")
 
     @tm_options.setter
-    def tm_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tm_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tm_options", value)
 
     @_builtins.property
     @pulumi.getter(name="uncleanShutdown")
-    def unclean_shutdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unclean_shutdown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unclean Shutdown (enabled / disabled)
         """
         return pulumi.get(self, "unclean_shutdown")
 
     @unclean_shutdown.setter
-    def unclean_shutdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unclean_shutdown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unclean_shutdown", value)
 
     @_builtins.property
     @pulumi.getter(name="untrustedCertResponseControl")
-    def untrusted_cert_response_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def untrusted_cert_response_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unclean Shutdown (drop / ignore)
         """
         return pulumi.get(self, "untrusted_cert_response_control")
 
     @untrusted_cert_response_control.setter
-    def untrusted_cert_response_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def untrusted_cert_response_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "untrusted_cert_response_control", value)
 
 
 @pulumi.input_type
 class _ProfileServerSslState:
     def __init__(__self__, *,
-                 alert_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_lifespan: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_certificate_extensions: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 cipher_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ciphers: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation: Optional[pulumi.Input[_builtins.int]] = None,
-                 generic_alert: Optional[pulumi.Input[_builtins.str]] = None,
-                 handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 mod_ssl_methods: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ssl: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_mirroring: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_ticket: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_require: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_c3d: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy_bypass: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 unclean_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None):
+                 alert_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate_depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_cert_extension_custom_oids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_lifespan: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_certificate_extensions: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 cipher_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ciphers: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.int]] = None,
+                 generic_alert: pulumi.Input[Optional[_builtins.str]] = None,
+                 handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mod_ssl_methods: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ssl: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_mirroring: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_ticket: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_require: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_c3d: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy_bypass: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unclean_shutdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 untrusted_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileServerSsl resources.
 
@@ -1150,19 +1150,19 @@ class _ProfileServerSslState:
 
     @_builtins.property
     @pulumi.getter(name="alertTimeout")
-    def alert_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alert time out
         """
         return pulumi.get(self, "alert_timeout")
 
     @alert_timeout.setter
-    def alert_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def authenticate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authenticate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
         When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
@@ -1170,36 +1170,36 @@ class _ProfileServerSslState:
         return pulumi.get(self, "authenticate")
 
     @authenticate.setter
-    def authenticate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authenticate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authenticate", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticateDepth")
-    def authenticate_depth(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def authenticate_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Client certificate chain traversal depth.  Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
 
     @authenticate_depth.setter
-    def authenticate_depth(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def authenticate_depth(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "authenticate_depth", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaCert")
-    def c3d_ca_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
         """
         return pulumi.get(self, "c3d_ca_cert")
 
     @c3d_ca_cert.setter
-    def c3d_ca_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaKey")
-    def c3d_ca_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
 
@@ -1210,36 +1210,36 @@ class _ProfileServerSslState:
         return pulumi.get(self, "c3d_ca_key")
 
     @c3d_ca_key.setter
-    def c3d_ca_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_key", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCaPassphrase")
-    def c3d_ca_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_ca_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CA Passphrase. Default
         """
         return pulumi.get(self, "c3d_ca_passphrase")
 
     @c3d_ca_passphrase.setter
-    def c3d_ca_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_ca_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_ca_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertExtensionCustomOids")
-    def c3d_cert_extension_custom_oids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def c3d_cert_extension_custom_oids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Certificate Extensions List.  Default
         """
         return pulumi.get(self, "c3d_cert_extension_custom_oids")
 
     @c3d_cert_extension_custom_oids.setter
-    def c3d_cert_extension_custom_oids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def c3d_cert_extension_custom_oids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "c3d_cert_extension_custom_oids", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertExtensionIncludes")
-    def c3d_cert_extension_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def c3d_cert_extension_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
 
@@ -1267,360 +1267,360 @@ class _ProfileServerSslState:
         return pulumi.get(self, "c3d_cert_extension_includes")
 
     @c3d_cert_extension_includes.setter
-    def c3d_cert_extension_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def c3d_cert_extension_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "c3d_cert_extension_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertLifespan")
-    def c3d_cert_lifespan(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def c3d_cert_lifespan(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Certificate Lifespan.  Default
         """
         return pulumi.get(self, "c3d_cert_lifespan")
 
     @c3d_cert_lifespan.setter
-    def c3d_cert_lifespan(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def c3d_cert_lifespan(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "c3d_cert_lifespan", value)
 
     @_builtins.property
     @pulumi.getter(name="c3dCertificateExtensions")
-    def c3d_certificate_extensions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def c3d_certificate_extensions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CA Passphrase. Default enabled
         """
         return pulumi.get(self, "c3d_certificate_extensions")
 
     @c3d_certificate_extensions.setter
-    def c3d_certificate_extensions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def c3d_certificate_extensions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "c3d_certificate_extensions", value)
 
     @_builtins.property
     @pulumi.getter(name="caFile")
-    def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client certificate file path.  Default None.
         """
         return pulumi.get(self, "ca_file")
 
     @ca_file.setter
-    def ca_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_file", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache size (sessions).
         """
         return pulumi.get(self, "cache_size")
 
     @cache_size.setter
-    def cache_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_size", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cache_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Cache time out
         """
         return pulumi.get(self, "cache_timeout")
 
     @cache_timeout.setter
-    def cache_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cache_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cache_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate that the system uses for server-side SSL processing.
         """
         return pulumi.get(self, "cert")
 
     @cert.setter
-    def cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificates-key chain to associate with the SSL profile
         """
         return pulumi.get(self, "chain")
 
     @chain.setter
-    def chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "chain", value)
 
     @_builtins.property
     @pulumi.getter(name="cipherGroup")
-    def cipher_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cipher_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         """
         return pulumi.get(self, "cipher_group")
 
     @cipher_group.setter
-    def cipher_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cipher_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cipher_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def ciphers(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ciphers(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         """
         return pulumi.get(self, "ciphers")
 
     @ciphers.setter
-    def ciphers(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ciphers(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ciphers", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="expireCertResponseControl")
-    def expire_cert_response_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expire_cert_response_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Response if the cert is expired (drop / ignore).
         """
         return pulumi.get(self, "expire_cert_response_control")
 
     @expire_cert_response_control.setter
-    def expire_cert_response_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expire_cert_response_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expire_cert_response_control", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         full path of the profile
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def generation(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def generation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         generation
         """
         return pulumi.get(self, "generation")
 
     @generation.setter
-    def generation(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def generation(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter(name="genericAlert")
-    def generic_alert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generic_alert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Generic alerts enabled / disabled.
         """
         return pulumi.get(self, "generic_alert")
 
     @generic_alert.setter
-    def generic_alert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generic_alert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generic_alert", value)
 
     @_builtins.property
     @pulumi.getter(name="handshakeTimeout")
-    def handshake_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handshake_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Handshake time out (seconds)
         """
         return pulumi.get(self, "handshake_timeout")
 
     @handshake_timeout.setter
-    def handshake_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handshake_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handshake_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file name of the SSL key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="modSslMethods")
-    def mod_ssl_methods(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mod_ssl_methods(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mod_ssl_methods")
 
     @mod_ssl_methods.setter
-    def mod_ssl_methods(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mod_ssl_methods(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mod_ssl_methods", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ModSSL Methods enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Certificate Constrained Delegation CA passphrase
         """
         return pulumi.get(self, "passphrase")
 
     @passphrase.setter
-    def passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="peerCertMode")
-    def peer_cert_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peer_cert_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         """
         return pulumi.get(self, "peer_cert_mode")
 
     @peer_cert_mode.setter
-    def peer_cert_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peer_cert_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peer_cert_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyCaCert")
-    def proxy_ca_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ca_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy CA Cert
         """
         return pulumi.get(self, "proxy_ca_cert")
 
     @proxy_ca_cert.setter
-    def proxy_ca_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ca_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ca_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyCaKey")
-    def proxy_ca_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ca_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy CA Key
         """
         return pulumi.get(self, "proxy_ca_key")
 
     @proxy_ca_key.setter
-    def proxy_ca_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ca_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ca_key", value)
 
     @_builtins.property
     @pulumi.getter(name="proxySsl")
-    def proxy_ssl(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_ssl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Proxy SSL enabled / disabled.  Default is disabled.
         """
         return pulumi.get(self, "proxy_ssl")
 
     @proxy_ssl.setter
-    def proxy_ssl(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_ssl(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_ssl", value)
 
     @_builtins.property
     @pulumi.getter(name="renegotiatePeriod")
-    def renegotiate_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiate_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renogotiate Period (seconds)
         """
         return pulumi.get(self, "renegotiate_period")
 
     @renegotiate_period.setter
-    def renegotiate_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiate_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiate_period", value)
 
     @_builtins.property
     @pulumi.getter(name="renegotiateSize")
-    def renegotiate_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiate_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Renogotiate Size
         """
         return pulumi.get(self, "renegotiate_size")
 
     @renegotiate_size.setter
-    def renegotiate_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiate_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiate_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def renegotiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def renegotiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
         """
         return pulumi.get(self, "renegotiation")
 
     @renegotiation.setter
-    def renegotiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def renegotiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "renegotiation", value)
 
     @_builtins.property
     @pulumi.getter(name="retainCertificate")
-    def retain_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def retain_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When `true`, client certificate is retained in SSL session.
         """
         return pulumi.get(self, "retain_certificate")
 
     @retain_certificate.setter
-    def retain_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def retain_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "retain_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="secureRenegotiation")
-    def secure_renegotiation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secure_renegotiation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
         When `request` is set the system request secure renegotation of SSL connections.
@@ -1630,48 +1630,48 @@ class _ProfileServerSslState:
         return pulumi.get(self, "secure_renegotiation")
 
     @secure_renegotiation.setter
-    def secure_renegotiation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secure_renegotiation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secure_renegotiation", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionMirroring")
-    def session_mirroring(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_mirroring(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session Mirroring (enabled / disabled)
         """
         return pulumi.get(self, "session_mirroring")
 
     @session_mirroring.setter
-    def session_mirroring(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_mirroring(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_mirroring", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionTicket")
-    def session_ticket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_ticket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session Ticket (enabled / disabled)
         """
         return pulumi.get(self, "session_ticket")
 
     @session_ticket.setter
-    def session_ticket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_ticket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_ticket", value)
 
     @_builtins.property
     @pulumi.getter(name="sniDefault")
-    def sni_default(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sni_default(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
         There can be only one SSL profile with this setting enabled.
@@ -1679,24 +1679,24 @@ class _ProfileServerSslState:
         return pulumi.get(self, "sni_default")
 
     @sni_default.setter
-    def sni_default(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sni_default(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sni_default", value)
 
     @_builtins.property
     @pulumi.getter(name="sniRequire")
-    def sni_require(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sni_require(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
         """
         return pulumi.get(self, "sni_require")
 
     @sni_require.setter
-    def sni_require(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sni_require(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sni_require", value)
 
     @_builtins.property
     @pulumi.getter(name="sslC3d")
-    def ssl_c3d(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_c3d(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables SSL forward proxy bypass on receiving
         handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
@@ -1704,60 +1704,60 @@ class _ProfileServerSslState:
         return pulumi.get(self, "ssl_c3d")
 
     @ssl_c3d.setter
-    def ssl_c3d(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_c3d(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_c3d", value)
 
     @_builtins.property
     @pulumi.getter(name="sslForwardProxy")
-    def ssl_forward_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_forward_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy")
 
     @ssl_forward_proxy.setter
-    def ssl_forward_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_forward_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_forward_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="sslForwardProxyBypass")
-    def ssl_forward_proxy_bypass(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_forward_proxy_bypass(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy_bypass")
 
     @ssl_forward_proxy_bypass.setter
-    def ssl_forward_proxy_bypass(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_forward_proxy_bypass(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_forward_proxy_bypass", value)
 
     @_builtins.property
     @pulumi.getter(name="sslSignHash")
-    def ssl_sign_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_sign_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SSL sign hash (any, sha1, sha256, sha384)
         """
         return pulumi.get(self, "ssl_sign_hash")
 
     @ssl_sign_hash.setter
-    def ssl_sign_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_sign_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_sign_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="strictResume")
-    def strict_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strict_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         """
         return pulumi.get(self, "strict_resume")
 
     @strict_resume.setter
-    def strict_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strict_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strict_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="tmOptions")
-    def tm_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tm_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
         Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
@@ -1765,31 +1765,31 @@ class _ProfileServerSslState:
         return pulumi.get(self, "tm_options")
 
     @tm_options.setter
-    def tm_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tm_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tm_options", value)
 
     @_builtins.property
     @pulumi.getter(name="uncleanShutdown")
-    def unclean_shutdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unclean_shutdown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unclean Shutdown (enabled / disabled)
         """
         return pulumi.get(self, "unclean_shutdown")
 
     @unclean_shutdown.setter
-    def unclean_shutdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unclean_shutdown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unclean_shutdown", value)
 
     @_builtins.property
     @pulumi.getter(name="untrustedCertResponseControl")
-    def untrusted_cert_response_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def untrusted_cert_response_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unclean Shutdown (drop / ignore)
         """
         return pulumi.get(self, "untrusted_cert_response_control")
 
     @untrusted_cert_response_control.setter
-    def untrusted_cert_response_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def untrusted_cert_response_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "untrusted_cert_response_control", value)
 
 
@@ -1799,57 +1799,57 @@ class ProfileServerSsl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_lifespan: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_certificate_extensions: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 cipher_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ciphers: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation: Optional[pulumi.Input[_builtins.int]] = None,
-                 generic_alert: Optional[pulumi.Input[_builtins.str]] = None,
-                 handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 mod_ssl_methods: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ssl: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_mirroring: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_ticket: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_require: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_c3d: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy_bypass: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 unclean_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate_depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_cert_extension_custom_oids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_lifespan: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_certificate_extensions: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 cipher_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ciphers: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.int]] = None,
+                 generic_alert: pulumi.Input[Optional[_builtins.str]] = None,
+                 handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mod_ssl_methods: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ssl: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_mirroring: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_ticket: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_require: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_c3d: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy_bypass: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unclean_shutdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 untrusted_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP
@@ -2014,57 +2014,57 @@ class ProfileServerSsl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate: Optional[pulumi.Input[_builtins.str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_ca_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 c3d_cert_lifespan: Optional[pulumi.Input[_builtins.int]] = None,
-                 c3d_certificate_extensions: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 cipher_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 ciphers: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 generation: Optional[pulumi.Input[_builtins.int]] = None,
-                 generic_alert: Optional[pulumi.Input[_builtins.str]] = None,
-                 handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 mod_ssl_methods: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 peer_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_ssl: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiate_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_mirroring: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_ticket: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_default: Optional[pulumi.Input[_builtins.str]] = None,
-                 sni_require: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_c3d: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_forward_proxy_bypass: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 strict_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 unclean_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
+                 alert_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate: pulumi.Input[Optional[_builtins.str]] = None,
+                 authenticate_depth: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_ca_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 c3d_cert_extension_custom_oids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 c3d_cert_lifespan: pulumi.Input[Optional[_builtins.int]] = None,
+                 c3d_certificate_extensions: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 cipher_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 ciphers: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.int]] = None,
+                 generic_alert: pulumi.Input[Optional[_builtins.str]] = None,
+                 handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mod_ssl_methods: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 peer_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_ssl: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiate_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_mirroring: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_ticket: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_default: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_require: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_c3d: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_forward_proxy_bypass: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 strict_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unclean_shutdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 untrusted_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2139,57 +2139,57 @@ class ProfileServerSsl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            authenticate: Optional[pulumi.Input[_builtins.str]] = None,
-            authenticate_depth: Optional[pulumi.Input[_builtins.int]] = None,
-            c3d_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            c3d_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-            c3d_ca_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            c3d_cert_lifespan: Optional[pulumi.Input[_builtins.int]] = None,
-            c3d_certificate_extensions: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_size: Optional[pulumi.Input[_builtins.int]] = None,
-            cache_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            cert: Optional[pulumi.Input[_builtins.str]] = None,
-            chain: Optional[pulumi.Input[_builtins.str]] = None,
-            cipher_group: Optional[pulumi.Input[_builtins.str]] = None,
-            ciphers: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            expire_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None,
-            full_path: Optional[pulumi.Input[_builtins.str]] = None,
-            generation: Optional[pulumi.Input[_builtins.int]] = None,
-            generic_alert: Optional[pulumi.Input[_builtins.str]] = None,
-            handshake_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            mod_ssl_methods: Optional[pulumi.Input[_builtins.str]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            peer_cert_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_ca_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_ca_key: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_ssl: Optional[pulumi.Input[_builtins.str]] = None,
-            renegotiate_period: Optional[pulumi.Input[_builtins.str]] = None,
-            renegotiate_size: Optional[pulumi.Input[_builtins.str]] = None,
-            renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-            retain_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            secure_renegotiation: Optional[pulumi.Input[_builtins.str]] = None,
-            server_name: Optional[pulumi.Input[_builtins.str]] = None,
-            session_mirroring: Optional[pulumi.Input[_builtins.str]] = None,
-            session_ticket: Optional[pulumi.Input[_builtins.str]] = None,
-            sni_default: Optional[pulumi.Input[_builtins.str]] = None,
-            sni_require: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_c3d: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_forward_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_forward_proxy_bypass: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_sign_hash: Optional[pulumi.Input[_builtins.str]] = None,
-            strict_resume: Optional[pulumi.Input[_builtins.str]] = None,
-            tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            unclean_shutdown: Optional[pulumi.Input[_builtins.str]] = None,
-            untrusted_cert_response_control: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileServerSsl':
+            alert_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            authenticate: pulumi.Input[Optional[_builtins.str]] = None,
+            authenticate_depth: pulumi.Input[Optional[_builtins.int]] = None,
+            c3d_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            c3d_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+            c3d_ca_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            c3d_cert_extension_custom_oids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            c3d_cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            c3d_cert_lifespan: pulumi.Input[Optional[_builtins.int]] = None,
+            c3d_certificate_extensions: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cert: pulumi.Input[Optional[_builtins.str]] = None,
+            chain: pulumi.Input[Optional[_builtins.str]] = None,
+            cipher_group: pulumi.Input[Optional[_builtins.str]] = None,
+            ciphers: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            expire_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            generation: pulumi.Input[Optional[_builtins.int]] = None,
+            generic_alert: pulumi.Input[Optional[_builtins.str]] = None,
+            handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            mod_ssl_methods: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            peer_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_ca_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_ca_key: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_ssl: pulumi.Input[Optional[_builtins.str]] = None,
+            renegotiate_period: pulumi.Input[Optional[_builtins.str]] = None,
+            renegotiate_size: pulumi.Input[Optional[_builtins.str]] = None,
+            renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            secure_renegotiation: pulumi.Input[Optional[_builtins.str]] = None,
+            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+            session_mirroring: pulumi.Input[Optional[_builtins.str]] = None,
+            session_ticket: pulumi.Input[Optional[_builtins.str]] = None,
+            sni_default: pulumi.Input[Optional[_builtins.str]] = None,
+            sni_require: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_c3d: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_forward_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_forward_proxy_bypass: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            strict_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            tm_options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            unclean_shutdown: pulumi.Input[Optional[_builtins.str]] = None,
+            untrusted_cert_response_control: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileServerSsl':
         """
         Get an existing ProfileServerSsl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

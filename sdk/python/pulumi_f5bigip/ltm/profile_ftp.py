@@ -20,21 +20,21 @@ __all__ = ['ProfileFtpArgs', 'ProfileFtp']
 class ProfileFtpArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allow_active_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_ftps: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_tlssession_reuse: Optional[pulumi.Input[_builtins.str]] = None,
-                 ftps_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_vlan_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_extended: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+                 ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_extended: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileFtp resource.
 
@@ -101,204 +101,204 @@ class ProfileFtpArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowActiveMode")
-    def allow_active_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_active_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         """
         return pulumi.get(self, "allow_active_mode")
 
     @allow_active_mode.setter
-    def allow_active_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_active_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_active_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="allowFtps")
-    def allow_ftps(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_ftps(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "allow_ftps")
 
     @allow_ftps.setter
-    def allow_ftps(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_ftps(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_ftps", value)
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service to which the object belongs.
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceTlssessionReuse")
-    def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforce_tlssession_reuse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
     @enforce_tlssession_reuse.setter
-    def enforce_tlssession_reuse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforce_tlssession_reuse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforce_tlssession_reuse", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpsMode")
-    def ftps_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ftps_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "ftps_mode")
 
     @ftps_mode.setter
-    def ftps_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ftps_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ftps_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritParentProfile")
-    def inherit_parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherit_parent_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         """
         return pulumi.get(self, "inherit_parent_profile")
 
     @inherit_parent_profile.setter
-    def inherit_parent_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherit_parent_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherit_parent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritVlanList")
-    def inherit_vlan_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherit_vlan_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         inherent vlan list
         """
         return pulumi.get(self, "inherit_vlan_list")
 
     @inherit_vlan_list.setter
-    def inherit_vlan_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherit_vlan_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherit_vlan_list", value)
 
     @_builtins.property
     @pulumi.getter(name="logProfile")
-    def log_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the ALG log profile that controls logging
         """
         return pulumi.get(self, "log_profile")
 
     @log_profile.setter
-    def log_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="logPublisher")
-    def log_publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the log publisher that handles events logging for this profile
         """
         return pulumi.get(self, "log_publisher")
 
     @log_publisher.setter
-    def log_publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter(name="translateExtended")
-    def translate_extended(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_extended(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
     @translate_extended.setter
-    def translate_extended(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_extended(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_extended", value)
 
 
 @pulumi.input_type
 class _ProfileFtpState:
     def __init__(__self__, *,
-                 allow_active_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_ftps: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_tlssession_reuse: Optional[pulumi.Input[_builtins.str]] = None,
-                 ftps_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_vlan_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_extended: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+                 ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_extended: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFtp resources.
 
@@ -354,194 +354,194 @@ class _ProfileFtpState:
 
     @_builtins.property
     @pulumi.getter(name="allowActiveMode")
-    def allow_active_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_active_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
         """
         return pulumi.get(self, "allow_active_mode")
 
     @allow_active_mode.setter
-    def allow_active_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_active_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_active_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="allowFtps")
-    def allow_ftps(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_ftps(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "allow_ftps")
 
     @allow_ftps.setter
-    def allow_ftps(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_ftps(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_ftps", value)
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service to which the object belongs.
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enforceTlssessionReuse")
-    def enforce_tlssession_reuse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enforce_tlssession_reuse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled).
         """
         return pulumi.get(self, "enforce_tlssession_reuse")
 
     @enforce_tlssession_reuse.setter
-    def enforce_tlssession_reuse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enforce_tlssession_reuse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enforce_tlssession_reuse", value)
 
     @_builtins.property
     @pulumi.getter(name="ftpsMode")
-    def ftps_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ftps_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allows explicit FTPS negotiation
         """
         return pulumi.get(self, "ftps_mode")
 
     @ftps_mode.setter
-    def ftps_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ftps_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ftps_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritParentProfile")
-    def inherit_parent_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherit_parent_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.
         """
         return pulumi.get(self, "inherit_parent_profile")
 
     @inherit_parent_profile.setter
-    def inherit_parent_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherit_parent_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherit_parent_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="inheritVlanList")
-    def inherit_vlan_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inherit_vlan_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         inherent vlan list
         """
         return pulumi.get(self, "inherit_vlan_list")
 
     @inherit_vlan_list.setter
-    def inherit_vlan_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inherit_vlan_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inherit_vlan_list", value)
 
     @_builtins.property
     @pulumi.getter(name="logProfile")
-    def log_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the ALG log profile that controls logging
         """
         return pulumi.get(self, "log_profile")
 
     @log_profile.setter
-    def log_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="logPublisher")
-    def log_publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures the log publisher that handles events logging for this profile
         """
         return pulumi.get(self, "log_publisher")
 
     @log_publisher.setter
-    def log_publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the profile_ftp
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def security(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         """
         return pulumi.get(self, "security")
 
     @security.setter
-    def security(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security", value)
 
     @_builtins.property
     @pulumi.getter(name="translateExtended")
-    def translate_extended(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_extended(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This setting is enabled by default, and thus, automatically translates RFC 2428 extended requests EPSV and EPRT to PASV and PORT when communicating with IPv4 servers.
         """
         return pulumi.get(self, "translate_extended")
 
     @translate_extended.setter
-    def translate_extended(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_extended(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_extended", value)
 
 
@@ -551,22 +551,22 @@ class ProfileFtp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_active_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_ftps: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_tlssession_reuse: Optional[pulumi.Input[_builtins.str]] = None,
-                 ftps_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_vlan_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_extended: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+                 ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_extended: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileFtp` Configures a custom profile_ftp.
@@ -714,22 +714,22 @@ class ProfileFtp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_active_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 allow_ftps: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforce_tlssession_reuse: Optional[pulumi.Input[_builtins.str]] = None,
-                 ftps_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 inherit_vlan_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 security: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_extended: Optional[pulumi.Input[_builtins.str]] = None,
+                 allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+                 ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 security: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_extended: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -767,22 +767,22 @@ class ProfileFtp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_active_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            allow_ftps: Optional[pulumi.Input[_builtins.str]] = None,
-            app_service: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enforce_tlssession_reuse: Optional[pulumi.Input[_builtins.str]] = None,
-            ftps_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            inherit_parent_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            inherit_vlan_list: Optional[pulumi.Input[_builtins.str]] = None,
-            log_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            log_publisher: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            security: Optional[pulumi.Input[_builtins.str]] = None,
-            translate_extended: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileFtp':
+            allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+            ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+            log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            security: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_extended: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileFtp':
         """
         Get an existing ProfileFtp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

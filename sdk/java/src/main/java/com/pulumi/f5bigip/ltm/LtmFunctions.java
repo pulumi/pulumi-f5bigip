@@ -44,8 +44,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetDataGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -85,8 +85,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetDataGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -126,8 +126,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetDataGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -167,8 +167,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetDataGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -208,8 +208,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetDataGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -249,8 +249,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetIruleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -291,8 +291,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetIruleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -333,8 +333,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetIruleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -375,8 +375,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetIruleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -417,8 +417,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetIruleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -459,8 +459,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -500,8 +500,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -541,8 +541,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -582,8 +582,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -623,8 +623,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetMonitorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -699,8 +699,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -740,8 +740,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -781,8 +781,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -822,8 +822,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -863,8 +863,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -904,8 +904,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -945,8 +945,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -986,8 +986,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1027,8 +1027,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1068,8 +1068,8 @@ public final class LtmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ltm.LtmFunctions;
      * import com.pulumi.f5bigip.ltm.inputs.GetPoolArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

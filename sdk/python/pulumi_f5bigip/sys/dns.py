@@ -21,8 +21,8 @@ class DnsArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  name_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 number_of_dots: Optional[pulumi.Input[_builtins.int]] = None,
-                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 number_of_dots: pulumi.Input[Optional[_builtins.int]] = None,
+                 searches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Dns resource.
 
@@ -64,36 +64,36 @@ class DnsArgs:
 
     @_builtins.property
     @pulumi.getter(name="numberOfDots")
-    def number_of_dots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_dots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Configures the number of dots needed in a name before an initial absolute query will be made.
         """
         return pulumi.get(self, "number_of_dots")
 
     @number_of_dots.setter
-    def number_of_dots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_dots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_dots", value)
 
     @_builtins.property
     @pulumi.getter
-    def searches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def searches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
         return pulumi.get(self, "searches")
 
     @searches.setter
-    def searches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def searches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "searches", value)
 
 
 @pulumi.input_type
 class _DnsState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_dots: Optional[pulumi.Input[_builtins.int]] = None,
-                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_dots: pulumi.Input[Optional[_builtins.int]] = None,
+                 searches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Dns resources.
 
@@ -113,50 +113,50 @@ class _DnsState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide description for your DNS server
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def name_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
-    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def name_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfDots")
-    def number_of_dots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_dots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Configures the number of dots needed in a name before an initial absolute query will be made.
         """
         return pulumi.get(self, "number_of_dots")
 
     @number_of_dots.setter
-    def number_of_dots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_dots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_dots", value)
 
     @_builtins.property
     @pulumi.getter
-    def searches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def searches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
         return pulumi.get(self, "searches")
 
     @searches.setter
-    def searches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def searches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "searches", value)
 
 
@@ -166,10 +166,10 @@ class Dns(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_dots: Optional[pulumi.Input[_builtins.int]] = None,
-                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_dots: pulumi.Input[Optional[_builtins.int]] = None,
+                 searches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `sys.Dns` Configures DNS Name server on F5 BIG-IP
@@ -231,10 +231,10 @@ class Dns(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 number_of_dots: Optional[pulumi.Input[_builtins.int]] = None,
-                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 number_of_dots: pulumi.Input[Optional[_builtins.int]] = None,
+                 searches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,10 +262,10 @@ class Dns(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            number_of_dots: Optional[pulumi.Input[_builtins.int]] = None,
-            searches: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Dns':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            number_of_dots: pulumi.Input[Optional[_builtins.int]] = None,
+            searches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Dns':
         """
         Get an existing Dns resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

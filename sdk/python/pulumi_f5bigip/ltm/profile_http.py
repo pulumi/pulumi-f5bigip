@@ -22,34 +22,34 @@ __all__ = ['ProfileHttpArgs', 'ProfileHttp']
 class ProfileHttpArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 accept_xff: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookie_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
-                 fallback_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 head_erase: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_insert: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
-                 insert_xforwarded_for: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_width: Optional[pulumi.Input[_builtins.int]] = None,
-                 oneconnect_transformations: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_rewrite: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+                 fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+                 insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+                 oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfileHttp resource.
 
@@ -155,373 +155,373 @@ class ProfileHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptXff")
-    def accept_xff(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_xff(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         """
         return pulumi.get(self, "accept_xff")
 
     @accept_xff.setter
-    def accept_xff(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_xff(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_xff", value)
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service to which the object belongs.
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthRealm")
-    def basic_auth_realm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_realm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         """
         return pulumi.get(self, "basic_auth_realm")
 
     @basic_auth_realm.setter
-    def basic_auth_realm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_realm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_realm", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies user-defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptCookieSecret")
-    def encrypt_cookie_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypt_cookie_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         """
         return pulumi.get(self, "encrypt_cookie_secret")
 
     @encrypt_cookie_secret.setter
-    def encrypt_cookie_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypt_cookie_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypt_cookie_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptCookies")
-    def encrypt_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def encrypt_cookies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Type the cookie names for the system to encrypt.
         """
         return pulumi.get(self, "encrypt_cookies")
 
     @encrypt_cookies.setter
-    def encrypt_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def encrypt_cookies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "encrypt_cookies", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforcements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
+    def enforcements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
         """
         See Enforcement below for more details.
         """
         return pulumi.get(self, "enforcements")
 
     @enforcements.setter
-    def enforcements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
+    def enforcements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
         pulumi.set(self, "enforcements", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackHost")
-    def fallback_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         """
         return pulumi.get(self, "fallback_host")
 
     @fallback_host.setter
-    def fallback_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_host", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackStatusCodes")
-    def fallback_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fallback_status_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         """
         return pulumi.get(self, "fallback_status_codes")
 
     @fallback_status_codes.setter
-    def fallback_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fallback_status_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fallback_status_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="headErase")
-    def head_erase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_erase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         """
         return pulumi.get(self, "head_erase")
 
     @head_erase.setter
-    def head_erase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_erase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_erase", value)
 
     @_builtins.property
     @pulumi.getter(name="headInsert")
-    def head_insert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_insert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         """
         return pulumi.get(self, "head_insert")
 
     @head_insert.setter
-    def head_insert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_insert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_insert", value)
 
     @_builtins.property
     @pulumi.getter(name="httpStrictTransportSecurities")
-    def http_strict_transport_securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
+    def http_strict_transport_securities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
         """
         See Http_Strict_Transport_Security below for more details.
         """
         return pulumi.get(self, "http_strict_transport_securities")
 
     @http_strict_transport_securities.setter
-    def http_strict_transport_securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
+    def http_strict_transport_securities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
         pulumi.set(self, "http_strict_transport_securities", value)
 
     @_builtins.property
     @pulumi.getter(name="insertXforwardedFor")
-    def insert_xforwarded_for(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insert_xforwarded_for(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         """
         return pulumi.get(self, "insert_xforwarded_for")
 
     @insert_xforwarded_for.setter
-    def insert_xforwarded_for(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insert_xforwarded_for(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insert_xforwarded_for", value)
 
     @_builtins.property
     @pulumi.getter(name="lwsSeparator")
-    def lws_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lws_separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_separator")
 
     @lws_separator.setter
-    def lws_separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lws_separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lws_separator", value)
 
     @_builtins.property
     @pulumi.getter(name="lwsWidth")
-    def lws_width(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lws_width(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_width")
 
     @lws_width.setter
-    def lws_width(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lws_width(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lws_width", value)
 
     @_builtins.property
     @pulumi.getter(name="oneconnectTransformations")
-    def oneconnect_transformations(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oneconnect_transformations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
         """
         return pulumi.get(self, "oneconnect_transformations")
 
     @oneconnect_transformations.setter
-    def oneconnect_transformations(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oneconnect_transformations(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oneconnect_transformations", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyType")
-    def proxy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
         """
         return pulumi.get(self, "proxy_type")
 
     @proxy_type.setter
-    def proxy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectRewrite")
-    def redirect_rewrite(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_rewrite(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
         """
         return pulumi.get(self, "redirect_rewrite")
 
     @redirect_rewrite.setter
-    def redirect_rewrite(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_rewrite(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_rewrite", value)
 
     @_builtins.property
     @pulumi.getter(name="requestChunking")
-    def request_chunking(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_chunking(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         """
         return pulumi.get(self, "request_chunking")
 
     @request_chunking.setter
-    def request_chunking(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_chunking(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_chunking", value)
 
     @_builtins.property
     @pulumi.getter(name="responseChunking")
-    def response_chunking(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_chunking(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         """
         return pulumi.get(self, "response_chunking")
 
     @response_chunking.setter
-    def response_chunking(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_chunking(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_chunking", value)
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPermitteds")
-    def response_headers_permitteds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def response_headers_permitteds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
         """
         return pulumi.get(self, "response_headers_permitteds")
 
     @response_headers_permitteds.setter
-    def response_headers_permitteds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def response_headers_permitteds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_headers_permitteds", value)
 
     @_builtins.property
     @pulumi.getter(name="serverAgentName")
-    def server_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         """
         return pulumi.get(self, "server_agent_name")
 
     @server_agent_name.setter
-    def server_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tmPartition")
-    def tm_partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tm_partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides.
         """
         return pulumi.get(self, "tm_partition")
 
     @tm_partition.setter
-    def tm_partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tm_partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tm_partition", value)
 
     @_builtins.property
     @pulumi.getter(name="viaHostName")
-    def via_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hostname to include into Via header
         """
         return pulumi.get(self, "via_host_name")
 
     @via_host_name.setter
-    def via_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="viaRequest")
-    def via_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
         return pulumi.get(self, "via_request")
 
     @via_request.setter
-    def via_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_request", value)
 
     @_builtins.property
     @pulumi.getter(name="viaResponse")
-    def via_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
         return pulumi.get(self, "via_response")
 
     @via_response.setter
-    def via_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_response", value)
 
     @_builtins.property
     @pulumi.getter(name="xffAlternativeNames")
-    def xff_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def xff_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
         return pulumi.get(self, "xff_alternative_names")
 
     @xff_alternative_names.setter
-    def xff_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def xff_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "xff_alternative_names", value)
 
 
 @pulumi.input_type
 class _ProfileHttpState:
     def __init__(__self__, *,
-                 accept_xff: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookie_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
-                 fallback_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 head_erase: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_insert: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
-                 insert_xforwarded_for: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_width: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oneconnect_transformations: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_rewrite: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+                 fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+                 insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ProfileHttp resources.
 
@@ -616,350 +616,350 @@ class _ProfileHttpState:
 
     @_builtins.property
     @pulumi.getter(name="acceptXff")
-    def accept_xff(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_xff(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         """
         return pulumi.get(self, "accept_xff")
 
     @accept_xff.setter
-    def accept_xff(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_xff(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_xff", value)
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service to which the object belongs.
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthRealm")
-    def basic_auth_realm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def basic_auth_realm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         """
         return pulumi.get(self, "basic_auth_realm")
 
     @basic_auth_realm.setter
-    def basic_auth_realm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def basic_auth_realm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "basic_auth_realm", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies user-defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptCookieSecret")
-    def encrypt_cookie_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encrypt_cookie_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         """
         return pulumi.get(self, "encrypt_cookie_secret")
 
     @encrypt_cookie_secret.setter
-    def encrypt_cookie_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encrypt_cookie_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encrypt_cookie_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptCookies")
-    def encrypt_cookies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def encrypt_cookies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Type the cookie names for the system to encrypt.
         """
         return pulumi.get(self, "encrypt_cookies")
 
     @encrypt_cookies.setter
-    def encrypt_cookies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def encrypt_cookies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "encrypt_cookies", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforcements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
+    def enforcements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
         """
         See Enforcement below for more details.
         """
         return pulumi.get(self, "enforcements")
 
     @enforcements.setter
-    def enforcements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
+    def enforcements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
         pulumi.set(self, "enforcements", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackHost")
-    def fallback_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         """
         return pulumi.get(self, "fallback_host")
 
     @fallback_host.setter
-    def fallback_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_host", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackStatusCodes")
-    def fallback_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def fallback_status_codes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         """
         return pulumi.get(self, "fallback_status_codes")
 
     @fallback_status_codes.setter
-    def fallback_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def fallback_status_codes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fallback_status_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="headErase")
-    def head_erase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_erase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         """
         return pulumi.get(self, "head_erase")
 
     @head_erase.setter
-    def head_erase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_erase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_erase", value)
 
     @_builtins.property
     @pulumi.getter(name="headInsert")
-    def head_insert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def head_insert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         """
         return pulumi.get(self, "head_insert")
 
     @head_insert.setter
-    def head_insert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def head_insert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "head_insert", value)
 
     @_builtins.property
     @pulumi.getter(name="httpStrictTransportSecurities")
-    def http_strict_transport_securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
+    def http_strict_transport_securities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
         """
         See Http_Strict_Transport_Security below for more details.
         """
         return pulumi.get(self, "http_strict_transport_securities")
 
     @http_strict_transport_securities.setter
-    def http_strict_transport_securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
+    def http_strict_transport_securities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
         pulumi.set(self, "http_strict_transport_securities", value)
 
     @_builtins.property
     @pulumi.getter(name="insertXforwardedFor")
-    def insert_xforwarded_for(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def insert_xforwarded_for(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         """
         return pulumi.get(self, "insert_xforwarded_for")
 
     @insert_xforwarded_for.setter
-    def insert_xforwarded_for(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def insert_xforwarded_for(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "insert_xforwarded_for", value)
 
     @_builtins.property
     @pulumi.getter(name="lwsSeparator")
-    def lws_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lws_separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_separator")
 
     @lws_separator.setter
-    def lws_separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lws_separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lws_separator", value)
 
     @_builtins.property
     @pulumi.getter(name="lwsWidth")
-    def lws_width(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lws_width(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         """
         return pulumi.get(self, "lws_width")
 
     @lws_width.setter
-    def lws_width(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lws_width(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lws_width", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oneconnectTransformations")
-    def oneconnect_transformations(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oneconnect_transformations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
         """
         return pulumi.get(self, "oneconnect_transformations")
 
     @oneconnect_transformations.setter
-    def oneconnect_transformations(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oneconnect_transformations(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oneconnect_transformations", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyType")
-    def proxy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
         """
         return pulumi.get(self, "proxy_type")
 
     @proxy_type.setter
-    def proxy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_type", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectRewrite")
-    def redirect_rewrite(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_rewrite(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
         """
         return pulumi.get(self, "redirect_rewrite")
 
     @redirect_rewrite.setter
-    def redirect_rewrite(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_rewrite(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_rewrite", value)
 
     @_builtins.property
     @pulumi.getter(name="requestChunking")
-    def request_chunking(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_chunking(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         """
         return pulumi.get(self, "request_chunking")
 
     @request_chunking.setter
-    def request_chunking(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_chunking(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_chunking", value)
 
     @_builtins.property
     @pulumi.getter(name="responseChunking")
-    def response_chunking(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_chunking(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         """
         return pulumi.get(self, "response_chunking")
 
     @response_chunking.setter
-    def response_chunking(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_chunking(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_chunking", value)
 
     @_builtins.property
     @pulumi.getter(name="responseHeadersPermitteds")
-    def response_headers_permitteds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def response_headers_permitteds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
         """
         return pulumi.get(self, "response_headers_permitteds")
 
     @response_headers_permitteds.setter
-    def response_headers_permitteds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def response_headers_permitteds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_headers_permitteds", value)
 
     @_builtins.property
     @pulumi.getter(name="serverAgentName")
-    def server_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. In order to remove it, "none" string is to be passed. If server_agent_name is commented (or not passed) during the update call, then no changes would be applied and previous value will persist. In order to put default value, we need to pass "BigIP" explicitly.
         """
         return pulumi.get(self, "server_agent_name")
 
     @server_agent_name.setter
-    def server_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tmPartition")
-    def tm_partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tm_partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the administrative partition within which this profile resides.
         """
         return pulumi.get(self, "tm_partition")
 
     @tm_partition.setter
-    def tm_partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tm_partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tm_partition", value)
 
     @_builtins.property
     @pulumi.getter(name="viaHostName")
-    def via_host_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hostname to include into Via header
         """
         return pulumi.get(self, "via_host_name")
 
     @via_host_name.setter
-    def via_host_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="viaRequest")
-    def via_request(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_request(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
         return pulumi.get(self, "via_request")
 
     @via_request.setter
-    def via_request(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_request(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_request", value)
 
     @_builtins.property
     @pulumi.getter(name="viaResponse")
-    def via_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def via_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
         return pulumi.get(self, "via_response")
 
     @via_response.setter
-    def via_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def via_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "via_response", value)
 
     @_builtins.property
     @pulumi.getter(name="xffAlternativeNames")
-    def xff_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def xff_alternative_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
         return pulumi.get(self, "xff_alternative_names")
 
     @xff_alternative_names.setter
-    def xff_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def xff_alternative_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "xff_alternative_names", value)
 
 
@@ -969,35 +969,35 @@ class ProfileHttp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_xff: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookie_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
-                 fallback_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 head_erase: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_insert: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
-                 insert_xforwarded_for: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_width: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oneconnect_transformations: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_rewrite: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+                 fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+                 insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
@@ -1114,35 +1114,35 @@ class ProfileHttp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_xff: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 basic_auth_realm: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookie_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
-                 fallback_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 head_erase: Optional[pulumi.Input[_builtins.str]] = None,
-                 head_insert: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
-                 insert_xforwarded_for: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 lws_width: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oneconnect_transformations: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_rewrite: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tm_partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_request: Optional[pulumi.Input[_builtins.str]] = None,
-                 via_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+                 fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+                 head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+                 insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_request: pulumi.Input[Optional[_builtins.str]] = None,
+                 via_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1193,35 +1193,35 @@ class ProfileHttp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accept_xff: Optional[pulumi.Input[_builtins.str]] = None,
-            app_service: Optional[pulumi.Input[_builtins.str]] = None,
-            basic_auth_realm: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypt_cookie_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
-            fallback_host: Optional[pulumi.Input[_builtins.str]] = None,
-            fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            head_erase: Optional[pulumi.Input[_builtins.str]] = None,
-            head_insert: Optional[pulumi.Input[_builtins.str]] = None,
-            http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
-            insert_xforwarded_for: Optional[pulumi.Input[_builtins.str]] = None,
-            lws_separator: Optional[pulumi.Input[_builtins.str]] = None,
-            lws_width: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            oneconnect_transformations: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            redirect_rewrite: Optional[pulumi.Input[_builtins.str]] = None,
-            request_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-            response_chunking: Optional[pulumi.Input[_builtins.str]] = None,
-            response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            server_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-            tm_partition: Optional[pulumi.Input[_builtins.str]] = None,
-            via_host_name: Optional[pulumi.Input[_builtins.str]] = None,
-            via_request: Optional[pulumi.Input[_builtins.str]] = None,
-            via_response: Optional[pulumi.Input[_builtins.str]] = None,
-            xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProfileHttp':
+            accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+            fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+            head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+            http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+            insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+            lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+            lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+            request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+            response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+            response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+            via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            via_request: pulumi.Input[Optional[_builtins.str]] = None,
+            via_response: pulumi.Input[Optional[_builtins.str]] = None,
+            xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ProfileHttp':
         """
         Get an existing ProfileHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

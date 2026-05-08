@@ -173,55 +173,55 @@ export interface ProfileHttp2State {
     /**
      * This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
      */
-    activationModes?: pulumi.Input<pulumi.Input<string>[]>;
+    activationModes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
-    concurrentStreamsPerConnection?: pulumi.Input<number>;
+    concurrentStreamsPerConnection?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
      */
-    connectionIdleTimeout?: pulumi.Input<number>;
+    connectionIdleTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
      */
-    enforceTlsRequirements?: pulumi.Input<string>;
+    enforceTlsRequirements?: pulumi.Input<string | undefined>;
     /**
      * The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
      */
-    frameSize?: pulumi.Input<number>;
+    frameSize?: pulumi.Input<number | undefined>;
     /**
      * The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
      */
-    headerTableSize?: pulumi.Input<number>;
+    headerTableSize?: pulumi.Input<number | undefined>;
     /**
      * Enable to include content-length in HTTP/2 headers,Default : disabled
      */
-    includeContentLength?: pulumi.Input<string>;
+    includeContentLength?: pulumi.Input<string | undefined>;
     /**
      * This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
      */
-    insertHeader?: pulumi.Input<string>;
+    insertHeader?: pulumi.Input<string | undefined>;
     /**
      * This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
      */
-    insertHeaderName?: pulumi.Input<string>;
+    insertHeaderName?: pulumi.Input<string | undefined>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The flow-control size for upload streams, in KB. `Default: 32`.
      */
-    receiveWindow?: pulumi.Input<number>;
+    receiveWindow?: pulumi.Input<number | undefined>;
     /**
      * The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
      */
-    writeSize?: pulumi.Input<number>;
+    writeSize?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -231,43 +231,43 @@ export interface ProfileHttp2Args {
     /**
      * This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
      */
-    activationModes?: pulumi.Input<pulumi.Input<string>[]>;
+    activationModes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
-    concurrentStreamsPerConnection?: pulumi.Input<number>;
+    concurrentStreamsPerConnection?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
      */
-    connectionIdleTimeout?: pulumi.Input<number>;
+    connectionIdleTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
      */
-    enforceTlsRequirements?: pulumi.Input<string>;
+    enforceTlsRequirements?: pulumi.Input<string | undefined>;
     /**
      * The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
      */
-    frameSize?: pulumi.Input<number>;
+    frameSize?: pulumi.Input<number | undefined>;
     /**
      * The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
      */
-    headerTableSize?: pulumi.Input<number>;
+    headerTableSize?: pulumi.Input<number | undefined>;
     /**
      * Enable to include content-length in HTTP/2 headers,Default : disabled
      */
-    includeContentLength?: pulumi.Input<string>;
+    includeContentLength?: pulumi.Input<string | undefined>;
     /**
      * This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
      */
-    insertHeader?: pulumi.Input<string>;
+    insertHeader?: pulumi.Input<string | undefined>;
     /**
      * This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
      */
-    insertHeaderName?: pulumi.Input<string>;
+    insertHeaderName?: pulumi.Input<string | undefined>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
      */
@@ -275,9 +275,9 @@ export interface ProfileHttp2Args {
     /**
      * The flow-control size for upload streams, in KB. `Default: 32`.
      */
-    receiveWindow?: pulumi.Input<number>;
+    receiveWindow?: pulumi.Input<number | undefined>;
     /**
      * The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
      */
-    writeSize?: pulumi.Input<number>;
+    writeSize?: pulumi.Input<number | undefined>;
 }

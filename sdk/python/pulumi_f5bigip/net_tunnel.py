@@ -22,20 +22,20 @@ class NetTunnelArgs:
                  local_address: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  profile: pulumi.Input[_builtins.str],
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_last_hop: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 key: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_pmtu: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 key: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pmtu: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetTunnel resource.
 
@@ -127,193 +127,193 @@ class NetTunnelArgs:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service that the object belongs to
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="autoLastHop")
-    def auto_last_hop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_last_hop(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether auto lasthop is enabled or not
         """
         return pulumi.get(self, "auto_last_hop")
 
     @auto_last_hop.setter
-    def auto_last_hop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_last_hop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_last_hop", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies an idle timeout for wildcard tunnels in seconds
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The key field may represent different values depending on the type of the tunnel
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the tunnel carries traffic
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum transmission unit (MTU) of the tunnel
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the admin-partition within which this component resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAddress")
-    def remote_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a remote IP address
         """
         return pulumi.get(self, "remote_address")
 
     @remote_address.setter
-    def remote_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_address", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAddress")
-    def secondary_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a secondary non-floating IP address when the local-address is set to a floating address
         """
         return pulumi.get(self, "secondary_address")
 
     @secondary_address.setter
-    def secondary_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def tos(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tos(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
         """
         return pulumi.get(self, "tos")
 
     @tos.setter
-    def tos(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tos(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tos", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a traffic-group for use with the tunnel
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the tunnel to be transparent
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
     @_builtins.property
     @pulumi.getter(name="usePmtu")
-    def use_pmtu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_pmtu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
         """
         return pulumi.get(self, "use_pmtu")
 
     @use_pmtu.setter
-    def use_pmtu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_pmtu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_pmtu", value)
 
 
 @pulumi.input_type
 class _NetTunnelState:
     def __init__(__self__, *,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_last_hop: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 key: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_pmtu: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 key: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pmtu: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetTunnel resources.
 
@@ -372,206 +372,206 @@ class _NetTunnelState:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service that the object belongs to
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="autoLastHop")
-    def auto_last_hop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_last_hop(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether auto lasthop is enabled or not
         """
         return pulumi.get(self, "auto_last_hop")
 
     @auto_last_hop.setter
-    def auto_last_hop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_last_hop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_last_hop", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies an idle timeout for wildcard tunnels in seconds
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The key field may represent different values depending on the type of the tunnel
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="localAddress")
-    def local_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a local IP address. This option is required
         """
         return pulumi.get(self, "local_address")
 
     @local_address.setter
-    def local_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the tunnel carries traffic
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum transmission unit (MTU) of the tunnel
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the tunnel
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays the admin-partition within which this component resides
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to associate with the tunnel
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAddress")
-    def remote_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a remote IP address
         """
         return pulumi.get(self, "remote_address")
 
     @remote_address.setter
-    def remote_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_address", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryAddress")
-    def secondary_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a secondary non-floating IP address when the local-address is set to a floating address
         """
         return pulumi.get(self, "secondary_address")
 
     @secondary_address.setter
-    def secondary_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def tos(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tos(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
         """
         return pulumi.get(self, "tos")
 
     @tos.setter
-    def tos(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tos(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tos", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a traffic-group for use with the tunnel
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def transparent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transparent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the tunnel to be transparent
         """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
-    def transparent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transparent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent", value)
 
     @_builtins.property
     @pulumi.getter(name="usePmtu")
-    def use_pmtu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_pmtu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
         """
         return pulumi.get(self, "use_pmtu")
 
     @use_pmtu.setter
-    def use_pmtu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_pmtu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_pmtu", value)
 
 
@@ -581,23 +581,23 @@ class NetTunnel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_last_hop: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 key: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_pmtu: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 key: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pmtu: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `NetTunnel` Manages a tunnel configuration
@@ -672,23 +672,23 @@ class NetTunnel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_last_hop: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 key: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_pmtu: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 key: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pmtu: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -731,23 +731,23 @@ class NetTunnel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_last_hop: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            key: Optional[pulumi.Input[_builtins.int]] = None,
-            local_address: Optional[pulumi.Input[_builtins.str]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            mtu: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            profile: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_address: Optional[pulumi.Input[_builtins.str]] = None,
-            tos: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-            transparent: Optional[pulumi.Input[_builtins.str]] = None,
-            use_pmtu: Optional[pulumi.Input[_builtins.str]] = None) -> 'NetTunnel':
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            key: pulumi.Input[Optional[_builtins.int]] = None,
+            local_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            profile: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+            tos: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None,
+            use_pmtu: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetTunnel':
         """
         Get an existing NetTunnel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
