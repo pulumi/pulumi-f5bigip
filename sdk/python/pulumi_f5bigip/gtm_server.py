@@ -23,32 +23,32 @@ class GtmServerArgs:
     def __init__(__self__, *,
                  datacenter: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_route_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_service_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_snmp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_cpu_usage: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_cpu_usage_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_mem_avail: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_mem_avail_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_servers: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]] = None):
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]] = None):
         """
         The set of arguments for constructing a GtmServer resource.
 
@@ -162,348 +162,348 @@ class GtmServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]]:
+    def addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]]:
         """
         List of IP addresses for the server. Each address block supports:
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]]):
+    def addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]]):
         pulumi.set(self, "addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the GTM server
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the GTM server
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeRouteDomains")
-    def expose_route_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expose_route_domains(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow GTM server to expose route domains. Default is `false`.
         """
         return pulumi.get(self, "expose_route_domains")
 
     @expose_route_domains.setter
-    def expose_route_domains(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expose_route_domains(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expose_route_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowPath")
-    def iq_allow_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery path probing. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_path")
 
     @iq_allow_path.setter
-    def iq_allow_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_path", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowServiceCheck")
-    def iq_allow_service_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_service_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery service checking. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_service_check")
 
     @iq_allow_service_check.setter
-    def iq_allow_service_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_service_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_service_check", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowSnmp")
-    def iq_allow_snmp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_snmp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery SNMP. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_snmp")
 
     @iq_allow_snmp.setter
-    def iq_allow_snmp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_snmp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_snmp", value)
 
     @_builtins.property
     @pulumi.getter(name="limitCpuUsage")
-    def limit_cpu_usage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_cpu_usage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum CPU usage allowed (percent). 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_cpu_usage")
 
     @limit_cpu_usage.setter
-    def limit_cpu_usage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_cpu_usage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_cpu_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="limitCpuUsageStatus")
-    def limit_cpu_usage_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_cpu_usage_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU usage limit status.
         """
         return pulumi.get(self, "limit_cpu_usage_status")
 
     @limit_cpu_usage_status.setter
-    def limit_cpu_usage_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_cpu_usage_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_cpu_usage_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum bits per second. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum bps limit status.
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum concurrent connections. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum connections limit status.
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum packets per second. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum pps limit status.
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMemAvail")
-    def limit_mem_avail(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_mem_avail(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Available memory limit (MB). 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_mem_avail")
 
     @limit_mem_avail.setter
-    def limit_mem_avail(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_mem_avail(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_mem_avail", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMemAvailStatus")
-    def limit_mem_avail_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_mem_avail_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Available memory limit status.
         """
         return pulumi.get(self, "limit_mem_avail_status")
 
     @limit_mem_avail_status.setter
-    def limit_mem_avail_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_mem_avail_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_mem_avail_status", value)
 
     @_builtins.property
     @pulumi.getter(name="linkDiscovery")
-    def link_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link discovery mode. Valid values:
         """
         return pulumi.get(self, "link_discovery")
 
     @link_discovery.setter
-    def link_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_discovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Monitor assigned to check server health (e.g., `/Common/bigip`, `/Common/tcp`).
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition or tenant the server belongs to. Default is `Common`.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proberFallback")
-    def prober_fallback(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_fallback(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fallback prober selection. Valid values:
         """
         return pulumi.get(self, "prober_fallback")
 
     @prober_fallback.setter
-    def prober_fallback(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_fallback(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_fallback", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPool")
-    def prober_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prober pool to use when prober_preference or prober_fallback is set to pool
         """
         return pulumi.get(self, "prober_pool")
 
     @prober_pool.setter
-    def prober_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPreference")
-    def prober_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preferred type of prober. Valid values:
         """
         return pulumi.get(self, "prober_preference")
 
     @prober_preference.setter
-    def prober_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of server. Valid values are:
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServerDiscovery")
-    def virtual_server_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_server_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
         """
         return pulumi.get(self, "virtual_server_discovery")
 
     @virtual_server_discovery.setter
-    def virtual_server_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_server_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_server_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServers")
-    def virtual_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]:
+    def virtual_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]:
         """
         List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
         """
         return pulumi.get(self, "virtual_servers")
 
     @virtual_servers.setter
-    def virtual_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]):
+    def virtual_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]):
         pulumi.set(self, "virtual_servers", value)
 
 
 @pulumi.input_type
 class _GtmServerState:
     def __init__(__self__, *,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_route_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_service_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_snmp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_cpu_usage: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_cpu_usage_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_mem_avail: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_mem_avail_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_servers: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]] = None):
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]] = None):
         """
         Input properties used for looking up and filtering GtmServer resources.
 
@@ -595,338 +595,338 @@ class _GtmServerState:
 
     @_builtins.property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]]:
+    def addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]]:
         """
         List of IP addresses for the server. Each address block supports:
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerAddressArgs']]]]):
+    def addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerAddressArgs']]]]):
         pulumi.set(self, "addresses", value)
 
     @_builtins.property
     @pulumi.getter
-    def datacenter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datacenter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The datacenter where this server resides. Must be a valid datacenter name or full path (e.g., `/Common/datacenter1`).
         """
         return pulumi.get(self, "datacenter")
 
     @datacenter.setter
-    def datacenter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datacenter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the GTM server
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the GTM server
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeRouteDomains")
-    def expose_route_domains(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expose_route_domains(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow GTM server to expose route domains. Default is `false`.
         """
         return pulumi.get(self, "expose_route_domains")
 
     @expose_route_domains.setter
-    def expose_route_domains(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expose_route_domains(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expose_route_domains", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowPath")
-    def iq_allow_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery path probing. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_path")
 
     @iq_allow_path.setter
-    def iq_allow_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_path", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowServiceCheck")
-    def iq_allow_service_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_service_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery service checking. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_service_check")
 
     @iq_allow_service_check.setter
-    def iq_allow_service_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_service_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_service_check", value)
 
     @_builtins.property
     @pulumi.getter(name="iqAllowSnmp")
-    def iq_allow_snmp(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def iq_allow_snmp(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable iQuery SNMP. Default is `true`.
         """
         return pulumi.get(self, "iq_allow_snmp")
 
     @iq_allow_snmp.setter
-    def iq_allow_snmp(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def iq_allow_snmp(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "iq_allow_snmp", value)
 
     @_builtins.property
     @pulumi.getter(name="limitCpuUsage")
-    def limit_cpu_usage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_cpu_usage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum CPU usage allowed (percent). 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_cpu_usage")
 
     @limit_cpu_usage.setter
-    def limit_cpu_usage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_cpu_usage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_cpu_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="limitCpuUsageStatus")
-    def limit_cpu_usage_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_cpu_usage_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU usage limit status.
         """
         return pulumi.get(self, "limit_cpu_usage_status")
 
     @limit_cpu_usage_status.setter
-    def limit_cpu_usage_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_cpu_usage_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_cpu_usage_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBps")
-    def limit_max_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum bits per second. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_bps")
 
     @limit_max_bps.setter
-    def limit_max_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_bps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxBpsStatus")
-    def limit_max_bps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_bps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum bps limit status.
         """
         return pulumi.get(self, "limit_max_bps_status")
 
     @limit_max_bps_status.setter
-    def limit_max_bps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_bps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_bps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnections")
-    def limit_max_connections(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_connections(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum concurrent connections. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_connections")
 
     @limit_max_connections.setter
-    def limit_max_connections(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_connections", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxConnectionsStatus")
-    def limit_max_connections_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_connections_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum connections limit status.
         """
         return pulumi.get(self, "limit_max_connections_status")
 
     @limit_max_connections_status.setter
-    def limit_max_connections_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_connections_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_connections_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPps")
-    def limit_max_pps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_max_pps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum packets per second. 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_max_pps")
 
     @limit_max_pps.setter
-    def limit_max_pps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_max_pps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_max_pps", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMaxPpsStatus")
-    def limit_max_pps_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_max_pps_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Maximum pps limit status.
         """
         return pulumi.get(self, "limit_max_pps_status")
 
     @limit_max_pps_status.setter
-    def limit_max_pps_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_max_pps_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_max_pps_status", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMemAvail")
-    def limit_mem_avail(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def limit_mem_avail(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Available memory limit (MB). 0 means no limit. Default is `0`.
         """
         return pulumi.get(self, "limit_mem_avail")
 
     @limit_mem_avail.setter
-    def limit_mem_avail(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def limit_mem_avail(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "limit_mem_avail", value)
 
     @_builtins.property
     @pulumi.getter(name="limitMemAvailStatus")
-    def limit_mem_avail_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def limit_mem_avail_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Available memory limit status.
         """
         return pulumi.get(self, "limit_mem_avail_status")
 
     @limit_mem_avail_status.setter
-    def limit_mem_avail_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def limit_mem_avail_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "limit_mem_avail_status", value)
 
     @_builtins.property
     @pulumi.getter(name="linkDiscovery")
-    def link_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link discovery mode. Valid values:
         """
         return pulumi.get(self, "link_discovery")
 
     @link_discovery.setter
-    def link_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link_discovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def monitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Monitor assigned to check server health (e.g., `/Common/bigip`, `/Common/tcp`).
         """
         return pulumi.get(self, "monitor")
 
     @monitor.setter
-    def monitor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def monitor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monitor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the GTM server. Must be unique within the partition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition or tenant the server belongs to. Default is `Common`.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proberFallback")
-    def prober_fallback(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_fallback(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fallback prober selection. Valid values:
         """
         return pulumi.get(self, "prober_fallback")
 
     @prober_fallback.setter
-    def prober_fallback(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_fallback(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_fallback", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPool")
-    def prober_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prober pool to use when prober_preference or prober_fallback is set to pool
         """
         return pulumi.get(self, "prober_pool")
 
     @prober_pool.setter
-    def prober_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPreference")
-    def prober_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preferred type of prober. Valid values:
         """
         return pulumi.get(self, "prober_preference")
 
     @prober_preference.setter
-    def prober_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of server. Valid values are:
         """
         return pulumi.get(self, "product")
 
     @product.setter
-    def product(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServerDiscovery")
-    def virtual_server_discovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_server_discovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
         """
         return pulumi.get(self, "virtual_server_discovery")
 
     @virtual_server_discovery.setter
-    def virtual_server_discovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_server_discovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_server_discovery", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualServers")
-    def virtual_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]:
+    def virtual_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]:
         """
         List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
         """
         return pulumi.get(self, "virtual_servers")
 
     @virtual_servers.setter
-    def virtual_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]):
+    def virtual_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GtmServerVirtualServerArgs']]]]):
         pulumi.set(self, "virtual_servers", value)
 
 
@@ -936,34 +936,34 @@ class GtmServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_route_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_service_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_snmp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_cpu_usage: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_cpu_usage_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_mem_avail: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_mem_avail_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
                  __props__=None):
         """
         ## # GtmServer
@@ -1435,34 +1435,34 @@ class GtmServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
-                 datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 expose_route_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_service_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iq_allow_snmp: Optional[pulumi.Input[_builtins.bool]] = None,
-                 limit_cpu_usage: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_cpu_usage_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 limit_mem_avail: Optional[pulumi.Input[_builtins.int]] = None,
-                 limit_mem_avail_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
-                 product: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_server_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+                 datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+                 limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+                 limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 product: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1514,34 +1514,34 @@ class GtmServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
-            datacenter: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            expose_route_domains: Optional[pulumi.Input[_builtins.bool]] = None,
-            iq_allow_path: Optional[pulumi.Input[_builtins.bool]] = None,
-            iq_allow_service_check: Optional[pulumi.Input[_builtins.bool]] = None,
-            iq_allow_snmp: Optional[pulumi.Input[_builtins.bool]] = None,
-            limit_cpu_usage: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_cpu_usage_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_bps: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_bps_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_connections: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_connections_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_max_pps: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_max_pps_status: Optional[pulumi.Input[_builtins.str]] = None,
-            limit_mem_avail: Optional[pulumi.Input[_builtins.int]] = None,
-            limit_mem_avail_status: Optional[pulumi.Input[_builtins.str]] = None,
-            link_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-            monitor: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-            prober_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
-            product: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_server_discovery: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None) -> 'GtmServer':
+            addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+            limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+            link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            product: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None) -> 'GtmServer':
         """
         Get an existing GtmServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

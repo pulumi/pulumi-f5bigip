@@ -20,18 +20,18 @@ __all__ = ['GuestArgs', 'Guest']
 class GuestArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 cores_per_slot: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_virtual_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_hotfix: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Guest resource.
 
@@ -89,167 +89,167 @@ class GuestArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedSlots")
-    def allowed_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def allowed_slots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Contains those slots to which the guest is allowed to be assigned.
         """
         return pulumi.get(self, "allowed_slots")
 
     @allowed_slots.setter
-    def allowed_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def allowed_slots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "allowed_slots", value)
 
     @_builtins.property
     @pulumi.getter(name="coresPerSlot")
-    def cores_per_slot(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cores_per_slot(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of cores the system allocates to the guest.
         """
         return pulumi.get(self, "cores_per_slot")
 
     @cores_per_slot.setter
-    def cores_per_slot(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cores_per_slot(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cores_per_slot", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteVirtualDisk")
-    def delete_virtual_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_virtual_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
         """
         return pulumi.get(self, "delete_virtual_disk")
 
     @delete_virtual_disk.setter
-    def delete_virtual_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_virtual_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_virtual_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="initialHotfix")
-    def initial_hotfix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_hotfix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hotfix ISO image file which is applied on top of the base image.
         """
         return pulumi.get(self, "initial_hotfix")
 
     @initial_hotfix.setter
-    def initial_hotfix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_hotfix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_hotfix", value)
 
     @_builtins.property
     @pulumi.getter(name="initialImage")
-    def initial_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
         """
         return pulumi.get(self, "initial_image")
 
     @initial_image.setter
-    def initial_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_image", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtAddress")
-    def mgmt_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
         """
         return pulumi.get(self, "mgmt_address")
 
     @mgmt_address.setter
-    def mgmt_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_address", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtNetwork")
-    def mgmt_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
         """
         return pulumi.get(self, "mgmt_network")
 
     @mgmt_network.setter
-    def mgmt_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_network", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtRoute")
-    def mgmt_route(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_route(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
         """
         return pulumi.get(self, "mgmt_route")
 
     @mgmt_route.setter
-    def mgmt_route(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_route(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_route", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumberOfSlots")
-    def min_number_of_slots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_number_of_slots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of slots the guest must be assigned to in order to deploy.
         """
         return pulumi.get(self, "min_number_of_slots")
 
     @min_number_of_slots.setter
-    def min_number_of_slots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_number_of_slots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_number_of_slots", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfSlots")
-    def number_of_slots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_slots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of slots for the system to use when creating the guest.
         """
         return pulumi.get(self, "number_of_slots")
 
     @number_of_slots.setter
-    def number_of_slots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_slots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_slots", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
 
 @pulumi.input_type
 class _GuestState:
     def __init__(__self__, *,
-                 allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 cores_per_slot: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_virtual_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_hotfix: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_disk: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_disk: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Guest resources.
 
@@ -302,182 +302,182 @@ class _GuestState:
 
     @_builtins.property
     @pulumi.getter(name="allowedSlots")
-    def allowed_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def allowed_slots(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Contains those slots to which the guest is allowed to be assigned.
         """
         return pulumi.get(self, "allowed_slots")
 
     @allowed_slots.setter
-    def allowed_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def allowed_slots(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "allowed_slots", value)
 
     @_builtins.property
     @pulumi.getter(name="coresPerSlot")
-    def cores_per_slot(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cores_per_slot(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of cores the system allocates to the guest.
         """
         return pulumi.get(self, "cores_per_slot")
 
     @cores_per_slot.setter
-    def cores_per_slot(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cores_per_slot(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cores_per_slot", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteVirtualDisk")
-    def delete_virtual_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_virtual_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
         """
         return pulumi.get(self, "delete_virtual_disk")
 
     @delete_virtual_disk.setter
-    def delete_virtual_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_virtual_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_virtual_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource name including prepended partition path.
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter(name="initialHotfix")
-    def initial_hotfix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_hotfix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the hotfix ISO image file which is applied on top of the base image.
         """
         return pulumi.get(self, "initial_hotfix")
 
     @initial_hotfix.setter
-    def initial_hotfix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_hotfix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_hotfix", value)
 
     @_builtins.property
     @pulumi.getter(name="initialImage")
-    def initial_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initial_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
         """
         return pulumi.get(self, "initial_image")
 
     @initial_image.setter
-    def initial_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initial_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initial_image", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtAddress")
-    def mgmt_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
         """
         return pulumi.get(self, "mgmt_address")
 
     @mgmt_address.setter
-    def mgmt_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_address", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtNetwork")
-    def mgmt_network(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_network(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
         """
         return pulumi.get(self, "mgmt_network")
 
     @mgmt_network.setter
-    def mgmt_network(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_network(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_network", value)
 
     @_builtins.property
     @pulumi.getter(name="mgmtRoute")
-    def mgmt_route(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mgmt_route(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the gateway address for the `mgmt_address`. Can be set to `none` to remove the value from the configuration.
         """
         return pulumi.get(self, "mgmt_route")
 
     @mgmt_route.setter
-    def mgmt_route(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mgmt_route(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mgmt_route", value)
 
     @_builtins.property
     @pulumi.getter(name="minNumberOfSlots")
-    def min_number_of_slots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_number_of_slots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of slots the guest must be assigned to in order to deploy.
         """
         return pulumi.get(self, "min_number_of_slots")
 
     @min_number_of_slots.setter
-    def min_number_of_slots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_number_of_slots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_number_of_slots", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the vCMP guest
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfSlots")
-    def number_of_slots(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_slots(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of slots for the system to use when creating the guest.
         """
         return pulumi.get(self, "number_of_slots")
 
     @number_of_slots.setter
-    def number_of_slots(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_slots(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_slots", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualDisk")
-    def virtual_disk(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_disk(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Virtual disk associated with vCMP guest.
         """
         return pulumi.get(self, "virtual_disk")
 
     @virtual_disk.setter
-    def virtual_disk(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_disk(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_disk", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
 
@@ -487,19 +487,19 @@ class Guest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 cores_per_slot: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_virtual_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_hotfix: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `vcmp.Guest` Manages a vCMP guest configuration
@@ -586,19 +586,19 @@ class Guest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 cores_per_slot: Optional[pulumi.Input[_builtins.int]] = None,
-                 delete_virtual_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 initial_hotfix: Optional[pulumi.Input[_builtins.str]] = None,
-                 initial_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_network: Optional[pulumi.Input[_builtins.str]] = None,
-                 mgmt_route: Optional[pulumi.Input[_builtins.str]] = None,
-                 min_number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+                 delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+                 initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+                 mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+                 min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -635,21 +635,21 @@ class Guest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            cores_per_slot: Optional[pulumi.Input[_builtins.int]] = None,
-            delete_virtual_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-            full_path: Optional[pulumi.Input[_builtins.str]] = None,
-            initial_hotfix: Optional[pulumi.Input[_builtins.str]] = None,
-            initial_image: Optional[pulumi.Input[_builtins.str]] = None,
-            mgmt_address: Optional[pulumi.Input[_builtins.str]] = None,
-            mgmt_network: Optional[pulumi.Input[_builtins.str]] = None,
-            mgmt_route: Optional[pulumi.Input[_builtins.str]] = None,
-            min_number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_slots: Optional[pulumi.Input[_builtins.int]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            virtual_disk: Optional[pulumi.Input[_builtins.str]] = None,
-            vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Guest':
+            allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+            delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+            min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_disk: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Guest':
         """
         Get an existing Guest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -302,115 +302,115 @@ export interface WafPolicyState {
     /**
      * The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
      */
-    applicationLanguage?: pulumi.Input<string>;
+    applicationLanguage?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
      */
-    caseInsensitive?: pulumi.Input<boolean>;
+    caseInsensitive?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
      */
-    enablePassivemode?: pulumi.Input<boolean>;
+    enablePassivemode?: pulumi.Input<boolean | undefined>;
     /**
      * How the system processes a request that triggers a security policy violation
      */
-    enforcementMode?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<string | undefined>;
     /**
      * `fileTypes` takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
-    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
+    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[] | undefined>;
     /**
      * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
-    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[] | undefined>;
     /**
      * specify the list of host name that is used to access the application
      */
-    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[] | undefined>;
     /**
      * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
-    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
+    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[] | undefined>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      */
-    modifications?: pulumi.Input<pulumi.Input<string>[]>;
+    modifications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * This section defines the Link for open api files on the policy.
      */
-    openApiFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    openApiFiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
-    parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    parameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the partition of the policy. Default is `Common`
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
-    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
+    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[] | undefined>;
     /**
      * Exported WAF policy deployed on BIGIP.
      */
-    policyExportJson?: pulumi.Input<string>;
+    policyExportJson?: pulumi.Input<string | undefined>;
     /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
-    policyImportJson?: pulumi.Input<string>;
+    policyImportJson?: pulumi.Input<string | undefined>;
     /**
      * When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
      */
-    protocolIndependent?: pulumi.Input<boolean>;
+    protocolIndependent?: pulumi.Input<boolean | undefined>;
     /**
      * The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
      */
-    serverTechnologies?: pulumi.Input<pulumi.Input<string>[]>;
+    serverTechnologies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
      */
-    signatureSets?: pulumi.Input<pulumi.Input<string>[]>;
+    signatureSets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This section defines the properties of a signature on the policy.
      */
-    signatures?: pulumi.Input<pulumi.Input<string>[]>;
+    signatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * bulk signature setting
      */
-    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
+    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[] | undefined>;
     /**
      * Specifies the Link of the template used for the policy creation.
      */
-    templateLink?: pulumi.Input<string>;
+    templateLink?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the template used for the policy creation.
      */
-    templateName?: pulumi.Input<string>;
+    templateName?: pulumi.Input<string | undefined>;
     /**
      * The type of policy you want to create. The default policy type is `security`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
      */
-    urls?: pulumi.Input<pulumi.Input<string>[]>;
+    urls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -420,46 +420,46 @@ export interface WafPolicyArgs {
     /**
      * The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
      */
-    applicationLanguage?: pulumi.Input<string>;
+    applicationLanguage?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
      */
-    caseInsensitive?: pulumi.Input<boolean>;
+    caseInsensitive?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
      */
-    enablePassivemode?: pulumi.Input<boolean>;
+    enablePassivemode?: pulumi.Input<boolean | undefined>;
     /**
      * How the system processes a request that triggers a security policy violation
      */
-    enforcementMode?: pulumi.Input<string>;
+    enforcementMode?: pulumi.Input<string | undefined>;
     /**
      * `fileTypes` takes list of file-types options to be used for policy builder.
      * See file types below for more details.
      */
-    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
+    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[] | undefined>;
     /**
      * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
      * See graphql profiles below for more details.
      */
-    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[] | undefined>;
     /**
      * specify the list of host name that is used to access the application
      */
-    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[] | undefined>;
     /**
      * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
      * See IP Exceptions below for more details.
      */
-    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
+    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[] | undefined>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments section. The modifications section is updated manually, with the changes generally driven by the learning suggestions provided by the BIG-IP.
      */
-    modifications?: pulumi.Input<pulumi.Input<string>[]>;
+    modifications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
@@ -467,52 +467,52 @@ export interface WafPolicyArgs {
     /**
      * This section defines the Link for open api files on the policy.
      */
-    openApiFiles?: pulumi.Input<pulumi.Input<string>[]>;
+    openApiFiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
-    parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    parameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the partition of the policy. Default is `Common`
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
      * See policy builder below for more details.
      */
-    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
+    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[] | undefined>;
     /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
-    policyImportJson?: pulumi.Input<string>;
+    policyImportJson?: pulumi.Input<string | undefined>;
     /**
      * When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
      */
-    protocolIndependent?: pulumi.Input<boolean>;
+    protocolIndependent?: pulumi.Input<boolean | undefined>;
     /**
      * The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
      */
-    serverTechnologies?: pulumi.Input<pulumi.Input<string>[]>;
+    serverTechnologies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
      */
-    signatureSets?: pulumi.Input<pulumi.Input<string>[]>;
+    signatureSets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This section defines the properties of a signature on the policy.
      */
-    signatures?: pulumi.Input<pulumi.Input<string>[]>;
+    signatures?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * bulk signature setting
      */
-    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
+    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[] | undefined>;
     /**
      * Specifies the Link of the template used for the policy creation.
      */
-    templateLink?: pulumi.Input<string>;
+    templateLink?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the template used for the policy creation.
      */
@@ -520,9 +520,9 @@ export interface WafPolicyArgs {
     /**
      * The type of policy you want to create. The default policy type is `security`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
      */
-    urls?: pulumi.Input<pulumi.Input<string>[]>;
+    urls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

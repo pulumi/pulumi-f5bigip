@@ -99,11 +99,11 @@ export interface SnatPoolState {
     /**
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the snatpool
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**

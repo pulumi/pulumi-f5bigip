@@ -178,63 +178,63 @@ export interface GuestState {
     /**
      * Contains those slots to which the guest is allowed to be assigned.
      */
-    allowedSlots?: pulumi.Input<pulumi.Input<number>[]>;
+    allowedSlots?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies the number of cores the system allocates to the guest.
      */
-    coresPerSlot?: pulumi.Input<number>;
+    coresPerSlot?: pulumi.Input<number | undefined>;
     /**
      * Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
      */
-    deleteVirtualDisk?: pulumi.Input<boolean>;
+    deleteVirtualDisk?: pulumi.Input<boolean | undefined>;
     /**
      * Resource name including prepended partition path.
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hotfix ISO image file which is applied on top of the base image.
      */
-    initialHotfix?: pulumi.Input<string>;
+    initialHotfix?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
      */
-    initialImage?: pulumi.Input<string>;
+    initialImage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
      */
-    mgmtAddress?: pulumi.Input<string>;
+    mgmtAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
      */
-    mgmtNetwork?: pulumi.Input<string>;
+    mgmtNetwork?: pulumi.Input<string | undefined>;
     /**
      * Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      */
-    mgmtRoute?: pulumi.Input<string>;
+    mgmtRoute?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimum number of slots the guest must be assigned to in order to deploy.
      */
-    minNumberOfSlots?: pulumi.Input<number>;
+    minNumberOfSlots?: pulumi.Input<number | undefined>;
     /**
      * Name of the vCMP guest
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of slots for the system to use when creating the guest.
      */
-    numberOfSlots?: pulumi.Input<number>;
+    numberOfSlots?: pulumi.Input<number | undefined>;
     /**
      * Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Virtual disk associated with vCMP guest.
      */
-    virtualDisk?: pulumi.Input<string>;
+    virtualDisk?: pulumi.Input<string | undefined>;
     /**
      * Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
      */
-    vlans?: pulumi.Input<pulumi.Input<string>[]>;
+    vlans?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -244,39 +244,39 @@ export interface GuestArgs {
     /**
      * Contains those slots to which the guest is allowed to be assigned.
      */
-    allowedSlots?: pulumi.Input<pulumi.Input<number>[]>;
+    allowedSlots?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies the number of cores the system allocates to the guest.
      */
-    coresPerSlot?: pulumi.Input<number>;
+    coresPerSlot?: pulumi.Input<number | undefined>;
     /**
      * Indicates if virtual disk associated with vCMP guest should be removed during remove operation.  The default is `true`
      */
-    deleteVirtualDisk?: pulumi.Input<boolean>;
+    deleteVirtualDisk?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the hotfix ISO image file which is applied on top of the base image.
      */
-    initialHotfix?: pulumi.Input<string>;
+    initialHotfix?: pulumi.Input<string | undefined>;
     /**
      * Specifies the base software release ISO image file for installing the TMOS hypervisor instance.
      */
-    initialImage?: pulumi.Input<string>;
+    initialImage?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and subnet or subnet mask you use to access the guest when you want to manage a module running within the guest.
      */
-    mgmtAddress?: pulumi.Input<string>;
+    mgmtAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies the method by which the management address is used in the vCMP guest. options : [`bridged`,`isolated`,`host-only`].
      */
-    mgmtNetwork?: pulumi.Input<string>;
+    mgmtNetwork?: pulumi.Input<string | undefined>;
     /**
      * Specifies the gateway address for the `mgmtAddress`. Can be set to `none` to remove the value from the configuration.
      */
-    mgmtRoute?: pulumi.Input<string>;
+    mgmtRoute?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimum number of slots the guest must be assigned to in order to deploy.
      */
-    minNumberOfSlots?: pulumi.Input<number>;
+    minNumberOfSlots?: pulumi.Input<number | undefined>;
     /**
      * Name of the vCMP guest
      */
@@ -284,13 +284,13 @@ export interface GuestArgs {
     /**
      * Specifies the number of slots for the system to use when creating the guest.
      */
-    numberOfSlots?: pulumi.Input<number>;
+    numberOfSlots?: pulumi.Input<number | undefined>;
     /**
      * Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
      */
-    vlans?: pulumi.Input<pulumi.Input<string>[]>;
+    vlans?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

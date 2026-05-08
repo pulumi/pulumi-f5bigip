@@ -112,9 +112,9 @@ export interface GetDataGroupOutputArgs {
     /**
      * Specifies record of type (string/ip/integer)
      */
-    records?: pulumi.Input<pulumi.Input<inputs.ltm.GetDataGroupRecordArgs>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.GetDataGroupRecordArgs>[] | undefined>;
     /**
      * The Data Group type (string, ip, integer)"
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

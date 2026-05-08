@@ -23,9 +23,9 @@ class DataGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
-                 records_src: Optional[pulumi.Input[_builtins.str]] = None):
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
+                 records_src: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataGroup resource.
 
@@ -71,31 +71,31 @@ class DataGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]]:
+    def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]]:
         """
         a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]]):
+    def records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]]):
         pulumi.set(self, "records", value)
 
     @_builtins.property
     @pulumi.getter(name="recordsSrc")
-    def records_src(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def records_src(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
         This should be used in conjunction with `internal` attribute set `false`
@@ -103,18 +103,18 @@ class DataGroupArgs:
         return pulumi.get(self, "records_src")
 
     @records_src.setter
-    def records_src(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def records_src(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "records_src", value)
 
 
 @pulumi.input_type
 class _DataGroupState:
     def __init__(__self__, *,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
-                 records_src: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
+                 records_src: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataGroup resources.
 
@@ -138,43 +138,43 @@ class _DataGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def internal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def internal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
         """
         return pulumi.get(self, "internal")
 
     @internal.setter
-    def internal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def internal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "internal", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the datagroup
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]]:
+    def records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]]:
         """
         a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         """
         return pulumi.get(self, "records")
 
     @records.setter
-    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]]):
+    def records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataGroupRecordArgs']]]]):
         pulumi.set(self, "records", value)
 
     @_builtins.property
     @pulumi.getter(name="recordsSrc")
-    def records_src(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def records_src(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
         This should be used in conjunction with `internal` attribute set `false`
@@ -182,19 +182,19 @@ class _DataGroupState:
         return pulumi.get(self, "records_src")
 
     @records_src.setter
-    def records_src(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def records_src(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "records_src", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -204,11 +204,11 @@ class DataGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
-                 records_src: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
+                 records_src: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.DataGroup` Manages internal (in-line) datagroup configuration
@@ -252,11 +252,11 @@ class DataGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 internal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
-                 records_src: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 internal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
+                 records_src: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,11 +285,11 @@ class DataGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            internal: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
-            records_src: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'DataGroup':
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict']]]]] = None,
+            records_src: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'DataGroup':
         """
         Get an existing DataGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -110,8 +110,8 @@ def get_pool(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         partition=pulumi.get(__ret__, 'partition'))
-def get_pool_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                    partition: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                    partition: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP

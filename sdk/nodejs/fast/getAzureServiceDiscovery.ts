@@ -150,19 +150,19 @@ export interface GetAzureServiceDiscoveryOutputArgs {
     /**
      * Specifies whether to look for public or private IP addresses,default `private`.
      */
-    addressRealm?: pulumi.Input<string>;
+    addressRealm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether you are updating your credentials,default `false`.
      */
-    credentialUpdate?: pulumi.Input<boolean>;
+    credentialUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Member is down when fewer than minimum monitors report it healthy.
      */
-    minimumMonitors?: pulumi.Input<string>;
+    minimumMonitors?: pulumi.Input<string | undefined>;
     /**
      * Port to be used for Azure service discovery,default `80`.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Azure Resource Group name.
      */
@@ -174,18 +174,18 @@ export interface GetAzureServiceDiscoveryOutputArgs {
     /**
      * The tag key associated with the node to add to this pool.
      */
-    tagKey?: pulumi.Input<string>;
+    tagKey?: pulumi.Input<string | undefined>;
     /**
      * The tag value associated with the node to add to this pool.
      */
-    tagValue?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Action to take when node cannot be detected,default `remove`.
      */
-    undetectableAction?: pulumi.Input<string>;
+    undetectableAction?: pulumi.Input<string | undefined>;
     /**
      * Update interval for service discovery.
      */
-    updateInterval?: pulumi.Input<string>;
+    updateInterval?: pulumi.Input<string | undefined>;
 }

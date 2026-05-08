@@ -22,7 +22,7 @@ __all__ = ['EventServiceDiscoveryArgs', 'EventServiceDiscovery']
 class EventServiceDiscoveryArgs:
     def __init__(__self__, *,
                  taskid: pulumi.Input[_builtins.str],
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None):
+                 nodes: pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None):
         """
         The set of arguments for constructing a EventServiceDiscovery resource.
 
@@ -92,7 +92,7 @@ class EventServiceDiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
+    def nodes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
         """
         Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 
@@ -144,15 +144,15 @@ class EventServiceDiscoveryArgs:
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
+    def nodes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
         pulumi.set(self, "nodes", value)
 
 
 @pulumi.input_type
 class _EventServiceDiscoveryState:
     def __init__(__self__, *,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
-                 taskid: Optional[pulumi.Input[_builtins.str]] = None):
+                 nodes: pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
+                 taskid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventServiceDiscovery resources.
 
@@ -211,7 +211,7 @@ class _EventServiceDiscoveryState:
 
     @_builtins.property
     @pulumi.getter
-    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
+    def nodes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
         """
         Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 
@@ -263,19 +263,19 @@ class _EventServiceDiscoveryState:
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
+    def nodes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
         pulumi.set(self, "nodes", value)
 
     @_builtins.property
     @pulumi.getter
-    def taskid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def taskid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         return pulumi.get(self, "taskid")
 
     @taskid.setter
-    def taskid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def taskid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "taskid", value)
 
 
@@ -285,8 +285,8 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
-                 taskid: Optional[pulumi.Input[_builtins.str]] = None,
+                 nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
+                 taskid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `EventServiceDiscovery` Terraform resource to update pool members based on event driven Service Discovery.
@@ -415,8 +415,8 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
-                 taskid: Optional[pulumi.Input[_builtins.str]] = None,
+                 nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
+                 taskid: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,8 +440,8 @@ class EventServiceDiscovery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
-            taskid: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventServiceDiscovery':
+            nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict']]]]] = None,
+            taskid: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventServiceDiscovery':
         """
         Get an existing EventServiceDiscovery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

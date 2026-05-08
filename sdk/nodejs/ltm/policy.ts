@@ -153,33 +153,33 @@ export interface PolicyState {
     /**
      * Specifies the controls
      */
-    controls?: pulumi.Input<pulumi.Input<string>[]>;
+    controls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies descriptive text that identifies the ltm policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      *
      * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
-    publishedCopy?: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol
      */
-    requires?: pulumi.Input<pulumi.Input<string>[]>;
+    requires?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[] | undefined>;
     /**
      * Specifies the match strategy
      */
-    strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,11 +189,11 @@ export interface PolicyArgs {
     /**
      * Specifies the controls
      */
-    controls?: pulumi.Input<pulumi.Input<string>[]>;
+    controls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies descriptive text that identifies the ltm policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
@@ -203,17 +203,17 @@ export interface PolicyArgs {
      *
      * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
-    publishedCopy?: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol
      */
-    requires?: pulumi.Input<pulumi.Input<string>[]>;
+    requires?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[] | undefined>;
     /**
      * Specifies the match strategy
      */
-    strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string | undefined>;
 }

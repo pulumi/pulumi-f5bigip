@@ -20,34 +20,34 @@ __all__ = ['VirtualServerArgs', 'VirtualServer']
 class VirtualServerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_enforced_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 irules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_flow_request_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 trafficmatching_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a VirtualServer resource.
 
@@ -152,325 +152,325 @@ class VirtualServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientProfiles")
-    def client_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         """
         return pulumi.get(self, "client_profiles")
 
     @client_profiles.setter
-    def client_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections allowed for the virtual server.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPersistenceProfile")
-    def default_persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "default_persistence_profile")
 
     @default_persistence_profile.setter
-    def default_persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Virtual server
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination IP
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackPersistenceProfile")
-    def fallback_persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         """
         return pulumi.get(self, "fallback_persistence_profile")
 
     @fallback_persistence_profile.setter
-    def fallback_persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallEnforcedPolicy")
-    def firewall_enforced_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_enforced_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         """
         return pulumi.get(self, "firewall_enforced_policy")
 
     @firewall_enforced_policy.setter
-    def firewall_enforced_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_enforced_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_enforced_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
-    def ip_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def irules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def irules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         """
         return pulumi.get(self, "irules")
 
     @irules.setter
-    def irules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def irules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "irules", value)
 
     @_builtins.property
     @pulumi.getter
-    def mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         """
         return pulumi.get(self, "mask")
 
     @mask.setter
-    def mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mask", value)
 
     @_builtins.property
     @pulumi.getter(name="perFlowRequestAccessPolicy")
-    def per_flow_request_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def per_flow_request_access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "per_flow_request_access_policy")
 
     @per_flow_request_access_policy.setter
-    def per_flow_request_access_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def per_flow_request_access_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "per_flow_request_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceProfiles")
-    def persistence_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def persistence_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of persistence profiles associated with the Virtual Server.
         """
         return pulumi.get(self, "persistence_profiles")
 
     @persistence_profiles.setter
-    def persistence_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def persistence_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "persistence_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the policies for the virtual server.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default pool name
         """
         return pulumi.get(self, "pool")
 
     @pool.setter
-    def pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Listen port for the virtual server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         """
         return pulumi.get(self, "profiles")
 
     @profiles.setter
-    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="securityLogProfiles")
-    def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_log_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the log profile applied to the virtual server.
         """
         return pulumi.get(self, "security_log_profiles")
 
     @security_log_profiles.setter
-    def security_log_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_log_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_log_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="serverProfiles")
-    def server_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         """
         return pulumi.get(self, "server_profiles")
 
     @server_profiles.setter
-    def server_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def snatpool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snatpool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         """
         return pulumi.get(self, "snatpool")
 
     @snatpool.setter
-    def snatpool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snatpool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snatpool", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP address or network from which the virtual server will accept traffic.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressTranslation")
-    def source_address_translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_translation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """
         return pulumi.get(self, "source_address_translation")
 
     @source_address_translation.setter
-    def source_address_translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_translation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_translation", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePort")
-    def source_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         """
         return pulumi.get(self, "source_port")
 
     @source_port.setter
-    def source_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficmatchingCriteria")
-    def trafficmatching_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trafficmatching_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies destination traffic matching information to which the virtual server sends traffic
         """
         return pulumi.get(self, "trafficmatching_criteria")
 
     @trafficmatching_criteria.setter
-    def trafficmatching_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trafficmatching_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trafficmatching_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="translateAddress")
-    def translate_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         """
         return pulumi.get(self, "translate_address")
 
     @translate_address.setter
-    def translate_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_address", value)
 
     @_builtins.property
     @pulumi.getter(name="translatePort")
-    def translate_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         """
         return pulumi.get(self, "translate_port")
 
     @translate_port.setter
-    def translate_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
     @_builtins.property
     @pulumi.getter(name="vlansEnabled")
-    def vlans_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlans_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the virtual server on the VLANs specified by the `vlans` option.
         By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
@@ -478,42 +478,42 @@ class VirtualServerArgs:
         return pulumi.get(self, "vlans_enabled")
 
     @vlans_enabled.setter
-    def vlans_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlans_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlans_enabled", value)
 
 
 @pulumi.input_type
 class _VirtualServerState:
     def __init__(__self__, *,
-                 client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_enforced_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 irules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_flow_request_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 trafficmatching_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering VirtualServer resources.
 
@@ -607,337 +607,337 @@ class _VirtualServerState:
 
     @_builtins.property
     @pulumi.getter(name="clientProfiles")
-    def client_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         """
         return pulumi.get(self, "client_profiles")
 
     @client_profiles.setter
-    def client_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections allowed for the virtual server.
         """
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
-    def connection_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPersistenceProfile")
-    def default_persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "default_persistence_profile")
 
     @default_persistence_profile.setter
-    def default_persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of Virtual server
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Destination IP
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="fallbackPersistenceProfile")
-    def fallback_persistence_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fallback_persistence_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         """
         return pulumi.get(self, "fallback_persistence_profile")
 
     @fallback_persistence_profile.setter
-    def fallback_persistence_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fallback_persistence_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fallback_persistence_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallEnforcedPolicy")
-    def firewall_enforced_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_enforced_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         """
         return pulumi.get(self, "firewall_enforced_policy")
 
     @firewall_enforced_policy.setter
-    def firewall_enforced_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_enforced_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_enforced_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
-    def ip_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def irules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def irules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         """
         return pulumi.get(self, "irules")
 
     @irules.setter
-    def irules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def irules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "irules", value)
 
     @_builtins.property
     @pulumi.getter
-    def mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         """
         return pulumi.get(self, "mask")
 
     @mask.setter
-    def mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mask", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the virtual server
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perFlowRequestAccessPolicy")
-    def per_flow_request_access_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def per_flow_request_access_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "per_flow_request_access_policy")
 
     @per_flow_request_access_policy.setter
-    def per_flow_request_access_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def per_flow_request_access_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "per_flow_request_access_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="persistenceProfiles")
-    def persistence_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def persistence_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of persistence profiles associated with the Virtual Server.
         """
         return pulumi.get(self, "persistence_profiles")
 
     @persistence_profiles.setter
-    def persistence_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def persistence_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "persistence_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the policies for the virtual server.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default pool name
         """
         return pulumi.get(self, "pool")
 
     @pool.setter
-    def pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Listen port for the virtual server
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         """
         return pulumi.get(self, "profiles")
 
     @profiles.setter
-    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="securityLogProfiles")
-    def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_log_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the log profile applied to the virtual server.
         """
         return pulumi.get(self, "security_log_profiles")
 
     @security_log_profiles.setter
-    def security_log_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_log_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_log_profiles", value)
 
     @_builtins.property
     @pulumi.getter(name="serverProfiles")
-    def server_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def server_profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         """
         return pulumi.get(self, "server_profiles")
 
     @server_profiles.setter
-    def server_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def server_profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "server_profiles", value)
 
     @_builtins.property
     @pulumi.getter
-    def snatpool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snatpool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         """
         return pulumi.get(self, "snatpool")
 
     @snatpool.setter
-    def snatpool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snatpool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snatpool", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an IP address or network from which the virtual server will accept traffic.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddressTranslation")
-    def source_address_translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address_translation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """
         return pulumi.get(self, "source_address_translation")
 
     @source_address_translation.setter
-    def source_address_translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address_translation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address_translation", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePort")
-    def source_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         """
         return pulumi.get(self, "source_port")
 
     @source_port.setter
-    def source_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficmatchingCriteria")
-    def trafficmatching_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trafficmatching_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies destination traffic matching information to which the virtual server sends traffic
         """
         return pulumi.get(self, "trafficmatching_criteria")
 
     @trafficmatching_criteria.setter
-    def trafficmatching_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trafficmatching_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trafficmatching_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="translateAddress")
-    def translate_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         """
         return pulumi.get(self, "translate_address")
 
     @translate_address.setter
-    def translate_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_address", value)
 
     @_builtins.property
     @pulumi.getter(name="translatePort")
-    def translate_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translate_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         """
         return pulumi.get(self, "translate_port")
 
     @translate_port.setter
-    def translate_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translate_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translate_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
     @_builtins.property
     @pulumi.getter(name="vlansEnabled")
-    def vlans_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlans_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the virtual server on the VLANs specified by the `vlans` option.
         By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
@@ -945,7 +945,7 @@ class _VirtualServerState:
         return pulumi.get(self, "vlans_enabled")
 
     @vlans_enabled.setter
-    def vlans_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlans_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlans_enabled", value)
 
 
@@ -955,35 +955,35 @@ class VirtualServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_enforced_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 irules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_flow_request_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 trafficmatching_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         `ltm.VirtualServer` Configures Virtual Server
@@ -1067,35 +1067,35 @@ class VirtualServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 fallback_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_enforced_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 irules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mask: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 per_flow_request_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_address_translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 trafficmatching_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 translate_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+                 default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mask: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1146,35 +1146,35 @@ class VirtualServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            connection_limit: Optional[pulumi.Input[_builtins.int]] = None,
-            default_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            fallback_persistence_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            firewall_enforced_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            irules: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mask: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            per_flow_request_access_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            pool: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-            source: Optional[pulumi.Input[_builtins.str]] = None,
-            source_address_translation: Optional[pulumi.Input[_builtins.str]] = None,
-            source_port: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            trafficmatching_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-            translate_address: Optional[pulumi.Input[_builtins.str]] = None,
-            translate_port: Optional[pulumi.Input[_builtins.str]] = None,
-            vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            vlans_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'VirtualServer':
+            client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mask: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pool: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'VirtualServer':
         """
         Get an existing VirtualServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

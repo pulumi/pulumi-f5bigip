@@ -23,11 +23,11 @@ class BigIqAs3Args:
                  bigiq_address: pulumi.Input[_builtins.str],
                  bigiq_password: pulumi.Input[_builtins.str],
                  bigiq_user: pulumi.Input[_builtins.str],
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None):
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BigIqAs3 resource.
 
@@ -162,43 +162,43 @@ class BigIqAs3Args:
 
     @_builtins.property
     @pulumi.getter(name="bigiqLoginRef")
-    def bigiq_login_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_login_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
     @bigiq_login_ref.setter
-    def bigiq_login_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_login_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_login_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPort")
-    def bigiq_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
     @bigiq_port.setter
-    def bigiq_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqTokenAuth")
-    def bigiq_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigiq_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
     @bigiq_token_auth.setter
-    def bigiq_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigiq_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigiq_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMetadata")
-    def ignore_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to `true`
 
@@ -261,34 +261,34 @@ class BigIqAs3Args:
         return pulumi.get(self, "ignore_metadata")
 
     @ignore_metadata.setter
-    def ignore_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Tenant
         """
         return pulumi.get(self, "tenant_list")
 
     @tenant_list.setter
-    def tenant_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_list", value)
 
 
 @pulumi.input_type
 class _BigIqAs3State:
     def __init__(__self__, *,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None):
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering BigIqAs3 resources.
 
@@ -379,91 +379,91 @@ class _BigIqAs3State:
 
     @_builtins.property
     @pulumi.getter(name="as3Json")
-    def as3_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def as3_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
     @as3_json.setter
-    def as3_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def as3_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "as3_json", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqAddress")
-    def bigiq_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_address")
 
     @bigiq_address.setter
-    def bigiq_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_address", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqLoginRef")
-    def bigiq_login_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_login_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
     @bigiq_login_ref.setter
-    def bigiq_login_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_login_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_login_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPassword")
-    def bigiq_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Password of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_password")
 
     @bigiq_password.setter
-    def bigiq_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_password", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPort")
-    def bigiq_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
     @bigiq_port.setter
-    def bigiq_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqTokenAuth")
-    def bigiq_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigiq_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
     @bigiq_token_auth.setter
-    def bigiq_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigiq_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigiq_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqUser")
-    def bigiq_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name  of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_user")
 
     @bigiq_user.setter
-    def bigiq_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_user", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMetadata")
-    def ignore_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to `true`
 
@@ -526,19 +526,19 @@ class _BigIqAs3State:
         return pulumi.get(self, "ignore_metadata")
 
     @ignore_metadata.setter
-    def ignore_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Tenant
         """
         return pulumi.get(self, "tenant_list")
 
     @tenant_list.setter
-    def tenant_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_list", value)
 
 
@@ -548,15 +548,15 @@ class BigIqAs3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `BigIqAs3` provides details about bigiq as3 resource
@@ -689,15 +689,15 @@ class BigIqAs3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -736,15 +736,15 @@ class BigIqAs3(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-            bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-            ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-            tenant_list: Optional[pulumi.Input[_builtins.str]] = None) -> 'BigIqAs3':
+            as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            tenant_list: pulumi.Input[Optional[_builtins.str]] = None) -> 'BigIqAs3':
         """
         Get an existing BigIqAs3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -214,83 +214,83 @@ export interface RequestLogProfileState {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies user-defined description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxyResponse?: pulumi.Input<string>;
+    proxyResponse?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxycloseOnError?: pulumi.Input<string>;
+    proxycloseOnError?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxyrespondOnLoggingerror?: pulumi.Input<string>;
+    proxyrespondOnLoggingerror?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    requestLogging?: pulumi.Input<string>;
+    requestLogging?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    requestlogErrorPool?: pulumi.Input<string>;
+    requestlogErrorPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    requestlogErrorProtocol?: pulumi.Input<string>;
+    requestlogErrorProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    requestlogErrorTemplate?: pulumi.Input<string>;
+    requestlogErrorTemplate?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
      */
-    requestlogPool?: pulumi.Input<string>;
+    requestlogPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    requestlogProtocol?: pulumi.Input<string>;
+    requestlogProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    requestlogTemplate?: pulumi.Input<string>;
+    requestlogTemplate?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    responseLogging?: pulumi.Input<string>;
+    responseLogging?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging response errors. The default is `none`.
      */
-    responselogErrorPool?: pulumi.Input<string>;
+    responselogErrorPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    responselogErrorProtocol?: pulumi.Input<string>;
+    responselogErrorProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    responselogErrorTemplate?: pulumi.Input<string>;
+    responselogErrorTemplate?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
      */
-    responselogPool?: pulumi.Input<string>;
+    responselogPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    responselogProtocol?: pulumi.Input<string>;
+    responselogProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    responselogTemplate?: pulumi.Input<string>;
+    responselogTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -300,11 +300,11 @@ export interface RequestLogProfileArgs {
     /**
      * Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies user-defined description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
      */
@@ -312,69 +312,69 @@ export interface RequestLogProfileArgs {
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxyResponse?: pulumi.Input<string>;
+    proxyResponse?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxycloseOnError?: pulumi.Input<string>;
+    proxycloseOnError?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    proxyrespondOnLoggingerror?: pulumi.Input<string>;
+    proxyrespondOnLoggingerror?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    requestLogging?: pulumi.Input<string>;
+    requestLogging?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging request errors. The default is None.
      */
-    requestlogErrorPool?: pulumi.Input<string>;
+    requestlogErrorPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    requestlogErrorProtocol?: pulumi.Input<string>;
+    requestlogErrorProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    requestlogErrorTemplate?: pulumi.Input<string>;
+    requestlogErrorTemplate?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
      */
-    requestlogPool?: pulumi.Input<string>;
+    requestlogPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    requestlogProtocol?: pulumi.Input<string>;
+    requestlogProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on requestlogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    requestlogTemplate?: pulumi.Input<string>;
+    requestlogTemplate?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
      */
-    responseLogging?: pulumi.Input<string>;
+    responseLogging?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool associated with logging response errors. The default is `none`.
      */
-    responselogErrorPool?: pulumi.Input<string>;
+    responselogErrorPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    responselogErrorProtocol?: pulumi.Input<string>;
+    responselogErrorProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged for request errors.
      */
-    responselogErrorTemplate?: pulumi.Input<string>;
+    responselogErrorTemplate?: pulumi.Input<string | undefined>;
     /**
      * Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
      */
-    responselogPool?: pulumi.Input<string>;
+    responselogPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
      */
-    responselogProtocol?: pulumi.Input<string>;
+    responselogProtocol?: pulumi.Input<string | undefined>;
     /**
      * Specifies the directives and entries to be logged. More infor on responselogTemplate can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
      */
-    responselogTemplate?: pulumi.Input<string>;
+    responselogTemplate?: pulumi.Input<string | undefined>;
 }

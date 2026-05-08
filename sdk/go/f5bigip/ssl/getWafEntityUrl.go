@@ -24,49 +24,51 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
-// Name: "/foobar",
-// Description: pulumi.StringRef("this is a test"),
-// Type: pulumi.StringRef("explicit"),
-// Protocol: pulumi.StringRef("HTTP"),
-// PerformStaging: pulumi.BoolRef(true),
-// SignatureOverridesDisables: interface{}{
-// 12345678,
-// 87654321,
-// },
-// MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
-// {
-// Allow: false,
-// Method: "BCOPY",
-// },
-// {
-// Allow: true,
-// Method: "BDELETE",
-// },
-// },
-// CrossOriginRequestsEnforcements: []ssl.GetWafEntityUrlCrossOriginRequestsEnforcement{
-// {
-// IncludeSubdomains: pulumi.BoolRef(true),
-// OriginName: "app1.com",
-// OriginPort: "80",
-// OriginProtocol: "http",
-// },
-// {
-// IncludeSubdomains: pulumi.BoolRef(true),
-// OriginName: "app2.com",
-// OriginPort: "443",
-// OriginProtocol: "http",
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//				Name:           "/foobar",
+//				Description:    pulumi.StringRef("this is a test"),
+//				Type:           pulumi.StringRef("explicit"),
+//				Protocol:       pulumi.StringRef("HTTP"),
+//				PerformStaging: pulumi.BoolRef(true),
+//				SignatureOverridesDisables: []int{
+//					12345678,
+//					87654321,
+//				},
+//				MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
+//					{
+//						Allow:  false,
+//						Method: "BCOPY",
+//					},
+//					{
+//						Allow:  true,
+//						Method: "BDELETE",
+//					},
+//				},
+//				CrossOriginRequestsEnforcements: []ssl.GetWafEntityUrlCrossOriginRequestsEnforcement{
+//					{
+//						IncludeSubdomains: pulumi.BoolRef(true),
+//						OriginName:        "app1.com",
+//						OriginPort:        "80",
+//						OriginProtocol:    "http",
+//					},
+//					{
+//						IncludeSubdomains: pulumi.BoolRef(true),
+//						OriginName:        "app2.com",
+//						OriginPort:        "443",
+//						OriginProtocol:    "http",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetWafEntityUrl(ctx *pulumi.Context, args *GetWafEntityUrlArgs, opts ...pulumi.InvokeOption) (*GetWafEntityUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

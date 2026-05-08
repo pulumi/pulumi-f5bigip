@@ -251,27 +251,27 @@ export interface IfileState {
     /**
      * MD5 checksum of the iFile content, automatically calculated by BIG-IP.
      */
-    checksum?: pulumi.Input<string>;
+    checksum?: pulumi.Input<string | undefined>;
     /**
      * The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Name of the system iFile to be created on BIG-IP. Changing this forces a new resource to be created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition where the iFile will be stored. Defaults to `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Size of the iFile content in bytes.
      */
-    size?: pulumi.Input<number>;
+    size?: pulumi.Input<number | undefined>;
     /**
      * Subdirectory within the partition for organizing iFiles hierarchically.
      */
-    subPath?: pulumi.Input<string>;
+    subPath?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -289,9 +289,9 @@ export interface IfileArgs {
     /**
      * Partition where the iFile will be stored. Defaults to `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory within the partition for organizing iFiles hierarchically.
      */
-    subPath?: pulumi.Input<string>;
+    subPath?: pulumi.Input<string | undefined>;
 }

@@ -79,11 +79,11 @@ export interface BigIpLicenseState {
     /**
      * Tmsh command to execute tmsh commands like install
      */
-    command?: pulumi.Input<string>;
+    command?: pulumi.Input<string | undefined>;
     /**
      * A unique Key F5 provides for Licensing BIG-IP
      */
-    registrationKey?: pulumi.Input<string>;
+    registrationKey?: pulumi.Input<string | undefined>;
 }
 
 /**

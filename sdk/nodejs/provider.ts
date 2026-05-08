@@ -100,55 +100,55 @@ export interface ProviderArgs {
     /**
      * Domain name/IP of the BigIP
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * Amount of times to retry AS3 API requests. Default: 10.
      */
-    apiRetries?: pulumi.Input<number>;
+    apiRetries?: pulumi.Input<number | undefined>;
     /**
      * A timeout for AS3 requests, represented as a number of seconds. Default: 60
      */
-    apiTimeout?: pulumi.Input<number>;
+    apiTimeout?: pulumi.Input<number | undefined>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
-    loginRef?: pulumi.Input<string>;
+    loginRef?: pulumi.Input<string | undefined>;
     /**
      * The user's password. Leave empty if using token_value
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Management Port to connect to Bigip
      */
-    port?: pulumi.Input<string>;
+    port?: pulumi.Input<string | undefined>;
     /**
      * If this flag set to true,sending telemetry data to TEEM will be disabled
      */
-    teemDisable?: pulumi.Input<boolean>;
+    teemDisable?: pulumi.Input<boolean | undefined>;
     /**
      * Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
      */
-    tokenAuth?: pulumi.Input<boolean>;
+    tokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
      */
-    tokenTimeout?: pulumi.Input<number>;
+    tokenTimeout?: pulumi.Input<number | undefined>;
     /**
      * A token generated outside the provider, in place of password
      */
-    tokenValue?: pulumi.Input<string>;
+    tokenValue?: pulumi.Input<string | undefined>;
     /**
      * Valid Trusted Certificate path
      */
-    trustedCertPath?: pulumi.Input<string>;
+    trustedCertPath?: pulumi.Input<string | undefined>;
     /**
      * Username with API access to the BigIP
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * If set to true, Disables TLS certificate check on BIG-IP. Default : True
      */
-    validateCertsDisable?: pulumi.Input<boolean>;
+    validateCertsDisable?: pulumi.Input<boolean | undefined>;
 }
 
 export namespace Provider {

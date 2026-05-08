@@ -21,15 +21,15 @@ __all__ = ['As3Args', 'As3']
 @pulumi.input_type
 class As3Args:
     def __init__(__self__, *,
-                 application_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 delete_apps: Optional[pulumi.Input['As3DeleteAppsArgs']] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_apps: pulumi.Input[Optional['As3DeleteAppsArgs']] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a As3 resource.
 
@@ -248,55 +248,55 @@ class As3Args:
 
     @_builtins.property
     @pulumi.getter(name="applicationList")
-    def application_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of applications currently deployed on the Big-Ip
         """
         return pulumi.get(self, "application_list")
 
     @application_list.setter
-    def application_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_list", value)
 
     @_builtins.property
     @pulumi.getter(name="as3Json")
-    def as3_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def as3_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
     @as3_json.setter
-    def as3_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def as3_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "as3_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def controls(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def controls(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteApps")
-    def delete_apps(self) -> Optional[pulumi.Input['As3DeleteAppsArgs']]:
+    def delete_apps(self) -> pulumi.Input[Optional['As3DeleteAppsArgs']]:
         """
         Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         """
         return pulumi.get(self, "delete_apps")
 
     @delete_apps.setter
-    def delete_apps(self, value: Optional[pulumi.Input['As3DeleteAppsArgs']]):
+    def delete_apps(self, value: pulumi.Input[Optional['As3DeleteAppsArgs']]):
         pulumi.set(self, "delete_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMetadata")
-    def ignore_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to false
 
@@ -487,71 +487,71 @@ class As3Args:
         return pulumi.get(self, "ignore_metadata")
 
     @ignore_metadata.setter
-    def ignore_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of AS3 post declaration async task
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantFilter")
-    def tenant_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         """
         return pulumi.get(self, "tenant_filter")
 
     @tenant_filter.setter
-    def tenant_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of tenants currently deployed on the Big-Ip
         """
         return pulumi.get(self, "tenant_list")
 
     @tenant_list.setter
-    def tenant_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_list", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
 
 @pulumi.input_type
 class _As3State:
     def __init__(__self__, *,
-                 application_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 delete_apps: Optional[pulumi.Input['As3DeleteAppsArgs']] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 per_app_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_apps: pulumi.Input[Optional['As3DeleteAppsArgs']] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 per_app_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering As3 resources.
 
@@ -773,55 +773,55 @@ class _As3State:
 
     @_builtins.property
     @pulumi.getter(name="applicationList")
-    def application_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of applications currently deployed on the Big-Ip
         """
         return pulumi.get(self, "application_list")
 
     @application_list.setter
-    def application_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_list", value)
 
     @_builtins.property
     @pulumi.getter(name="as3Json")
-    def as3_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def as3_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
     @as3_json.setter
-    def as3_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def as3_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "as3_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def controls(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def controls(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "controls", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteApps")
-    def delete_apps(self) -> Optional[pulumi.Input['As3DeleteAppsArgs']]:
+    def delete_apps(self) -> pulumi.Input[Optional['As3DeleteAppsArgs']]:
         """
         Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3_json`**: only one of `delete_apps` or `as3_json` can be set in a resource block.
         """
         return pulumi.get(self, "delete_apps")
 
     @delete_apps.setter
-    def delete_apps(self, value: Optional[pulumi.Input['As3DeleteAppsArgs']]):
+    def delete_apps(self, value: pulumi.Input[Optional['As3DeleteAppsArgs']]):
         pulumi.set(self, "delete_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreMetadata")
-    def ignore_metadata(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_metadata(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to false
 
@@ -1012,67 +1012,67 @@ class _As3State:
         return pulumi.get(self, "ignore_metadata")
 
     @ignore_metadata.setter
-    def ignore_metadata(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_metadata(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="perAppMode")
-    def per_app_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def per_app_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Will specify whether is deployment is done via Per-Application Way or Traditional Way
         """
         return pulumi.get(self, "per_app_mode")
 
     @per_app_mode.setter
-    def per_app_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def per_app_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "per_app_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="taskId")
-    def task_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of AS3 post declaration async task
         """
         return pulumi.get(self, "task_id")
 
     @task_id.setter
-    def task_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantFilter")
-    def tenant_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         """
         return pulumi.get(self, "tenant_filter")
 
     @tenant_filter.setter
-    def tenant_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_list(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         List of tenants currently deployed on the Big-Ip
         """
         return pulumi.get(self, "tenant_list")
 
     @tenant_list.setter
-    def tenant_list(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_list(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_list", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
         """
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_name", value)
 
 
@@ -1082,15 +1082,15 @@ class As3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 delete_apps: Optional[pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_apps: pulumi.Input[Optional[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `As3` provides details about bigip as3 resource
@@ -1867,15 +1867,15 @@ class As3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 delete_apps: Optional[pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
-                 ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-                 task_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 delete_apps: pulumi.Input[Optional[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
+                 ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+                 task_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1905,16 +1905,16 @@ class As3(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_list: Optional[pulumi.Input[_builtins.str]] = None,
-            as3_json: Optional[pulumi.Input[_builtins.str]] = None,
-            controls: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            delete_apps: Optional[pulumi.Input[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
-            ignore_metadata: Optional[pulumi.Input[_builtins.bool]] = None,
-            per_app_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-            task_id: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_list: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'As3':
+            application_list: pulumi.Input[Optional[_builtins.str]] = None,
+            as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+            controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            delete_apps: pulumi.Input[Optional[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict']]] = None,
+            ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            per_app_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            task_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'As3':
         """
         Get an existing As3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

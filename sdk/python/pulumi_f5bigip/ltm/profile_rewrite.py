@@ -23,19 +23,19 @@ class ProfileRewriteArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  rewrite_mode: pulumi.Input[_builtins.str],
-                 bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]] = None,
-                 rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 signing_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 split_tunneling: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]] = None,
+                 rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 split_tunneling: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileRewrite resource.
 
@@ -110,179 +110,179 @@ class ProfileRewriteArgs:
 
     @_builtins.property
     @pulumi.getter(name="bypassLists")
-    def bypass_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bypass_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
         """
         return pulumi.get(self, "bypass_lists")
 
     @bypass_lists.setter
-    def bypass_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bypass_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bypass_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="caFile")
-    def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
         """
         return pulumi.get(self, "ca_file")
 
     @ca_file.setter
-    def ca_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_file", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheType")
-    def cache_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
         """
         return pulumi.get(self, "cache_type")
 
     @cache_type.setter
-    def cache_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieRules")
-    def cookie_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]:
+    def cookie_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]:
         """
         Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "cookie_rules")
 
     @cookie_rules.setter
-    def cookie_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]):
+    def cookie_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]):
         pulumi.set(self, "cookie_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="crlFile")
-    def crl_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
         """
         return pulumi.get(self, "crl_file")
 
     @crl_file.setter
-    def crl_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_file", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]:
+    def requests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]):
+    def requests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]):
         pulumi.set(self, "requests", value)
 
     @_builtins.property
     @pulumi.getter
-    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]:
+    def responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "responses")
 
     @responses.setter
-    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]):
+    def responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]):
         pulumi.set(self, "responses", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteLists")
-    def rewrite_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rewrite_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
         """
         return pulumi.get(self, "rewrite_lists")
 
     @rewrite_lists.setter
-    def rewrite_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rewrite_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rewrite_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="signingCert")
-    def signing_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )
         """
         return pulumi.get(self, "signing_cert")
 
     @signing_cert.setter
-    def signing_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="signingKey")
-    def signing_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )
         """
         return pulumi.get(self, "signing_key")
 
     @signing_key.setter
-    def signing_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_key", value)
 
     @_builtins.property
     @pulumi.getter(name="signingKeyPassword")
-    def signing_key_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.
         """
         return pulumi.get(self, "signing_key_password")
 
     @signing_key_password.setter
-    def signing_key_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_key_password", value)
 
     @_builtins.property
     @pulumi.getter(name="splitTunneling")
-    def split_tunneling(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def split_tunneling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Client caching. Valid choices are: `true, false`
         """
         return pulumi.get(self, "split_tunneling")
 
     @split_tunneling.setter
-    def split_tunneling(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def split_tunneling(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "split_tunneling", value)
 
 
 @pulumi.input_type
 class _ProfileRewriteState:
     def __init__(__self__, *,
-                 bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]] = None,
-                 rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rewrite_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 split_tunneling: Optional[pulumi.Input[_builtins.str]] = None):
+                 bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]] = None,
+                 rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rewrite_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 split_tunneling: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileRewrite resources.
 
@@ -335,182 +335,182 @@ class _ProfileRewriteState:
 
     @_builtins.property
     @pulumi.getter(name="bypassLists")
-    def bypass_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def bypass_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
         """
         return pulumi.get(self, "bypass_lists")
 
     @bypass_lists.setter
-    def bypass_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def bypass_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bypass_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="caFile")
-    def ca_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a CA against which to verify signed Java applets signatures. (name should be in full path which is combination of partition and CA file name )
         """
         return pulumi.get(self, "ca_file")
 
     @ca_file.setter
-    def ca_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_file", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheType")
-    def cache_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Client caching. Valid choices are: `cache-css-js, cache-all, no-cache, cache-img-css-js`. Default value: `cache-img-css-js`
         """
         return pulumi.get(self, "cache_type")
 
     @cache_type.setter
-    def cache_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieRules")
-    def cookie_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]:
+    def cookie_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]:
         """
         Specifies the cookie rewrite rules. Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "cookie_rules")
 
     @cookie_rules.setter
-    def cookie_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]):
+    def cookie_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteCookieRuleArgs']]]]):
         pulumi.set(self, "cookie_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="crlFile")
-    def crl_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a CRL against which to verify signed Java applets signature certificates. The default option is `none`.
         """
         return pulumi.get(self, "crl_file")
 
     @crl_file.setter
-    def crl_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_file", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `rewrite` profile.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rewrite profile. ( profile name should be in full path which is combination of partition and profile name )
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]:
+    def requests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]):
+    def requests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteRequestArgs']]]]):
         pulumi.set(self, "requests", value)
 
     @_builtins.property
     @pulumi.getter
-    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]:
+    def responses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "responses")
 
     @responses.setter
-    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]):
+    def responses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteResponseArgs']]]]):
         pulumi.set(self, "responses", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteLists")
-    def rewrite_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rewrite_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a list of URIs to rewrite inside a web page when the page is accessed using Portal Access.
         """
         return pulumi.get(self, "rewrite_lists")
 
     @rewrite_lists.setter
-    def rewrite_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rewrite_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rewrite_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="rewriteMode")
-    def rewrite_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rewrite_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Client caching. Valid choices are: `portal, uri-translation`
         """
         return pulumi.get(self, "rewrite_mode")
 
     @rewrite_mode.setter
-    def rewrite_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rewrite_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rewrite_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="signingCert")
-    def signing_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and certificate name )
         """
         return pulumi.get(self, "signing_cert")
 
     @signing_cert.setter
-    def signing_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_cert", value)
 
     @_builtins.property
     @pulumi.getter(name="signingKey")
-    def signing_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a certificate to use for re-signing of signed Java applets after patching. (name should be in full path which is combination of partition and key name )
         """
         return pulumi.get(self, "signing_key")
 
     @signing_key.setter
-    def signing_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_key", value)
 
     @_builtins.property
     @pulumi.getter(name="signingKeyPassword")
-    def signing_key_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signing_key_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a pass phrase to use for encrypting the private signing key. Since it's a sensitive entity idempotency will fail in the update call.
         """
         return pulumi.get(self, "signing_key_password")
 
     @signing_key_password.setter
-    def signing_key_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signing_key_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signing_key_password", value)
 
     @_builtins.property
     @pulumi.getter(name="splitTunneling")
-    def split_tunneling(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def split_tunneling(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of Client caching. Valid choices are: `true, false`
         """
         return pulumi.get(self, "split_tunneling")
 
     @split_tunneling.setter
-    def split_tunneling(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def split_tunneling(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "split_tunneling", value)
 
 
@@ -520,21 +520,21 @@ class ProfileRewrite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
-                 rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rewrite_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 split_tunneling: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
+                 rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rewrite_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 split_tunneling: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `bigip_ltm_rewrite_profile` Configures ltm policies to manage traffic assigned to a virtual server
@@ -687,21 +687,21 @@ class ProfileRewrite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
-                 responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
-                 rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rewrite_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 signing_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 split_tunneling: Optional[pulumi.Input[_builtins.str]] = None,
+                 bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
+                 rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rewrite_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 split_tunneling: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -742,21 +742,21 @@ class ProfileRewrite(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bypass_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ca_file: Optional[pulumi.Input[_builtins.str]] = None,
-            cache_type: Optional[pulumi.Input[_builtins.str]] = None,
-            cookie_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
-            crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            requests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
-            responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
-            rewrite_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rewrite_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_key: Optional[pulumi.Input[_builtins.str]] = None,
-            signing_key_password: Optional[pulumi.Input[_builtins.str]] = None,
-            split_tunneling: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileRewrite':
+            bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict']]]]] = None,
+            crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict']]]]] = None,
+            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict']]]]] = None,
+            rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rewrite_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+            split_tunneling: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileRewrite':
         """
         Get an existing ProfileRewrite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

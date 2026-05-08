@@ -115,23 +115,23 @@ export interface RouteState {
     /**
      * Specifies a gateway address for the route.
      */
-    gw?: pulumi.Input<string>;
+    gw?: pulumi.Input<string | undefined>;
     /**
      * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The destination subnet and netmask for the route.
      */
-    network?: pulumi.Input<string>;
+    network?: pulumi.Input<string | undefined>;
     /**
      * reject route
      */
-    reject?: pulumi.Input<boolean>;
+    reject?: pulumi.Input<boolean | undefined>;
     /**
      * tunnel_ref to route traffic
      */
-    tunnelRef?: pulumi.Input<string>;
+    tunnelRef?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -141,7 +141,7 @@ export interface RouteArgs {
     /**
      * Specifies a gateway address for the route.
      */
-    gw?: pulumi.Input<string>;
+    gw?: pulumi.Input<string | undefined>;
     /**
      * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
@@ -153,9 +153,9 @@ export interface RouteArgs {
     /**
      * reject route
      */
-    reject?: pulumi.Input<boolean>;
+    reject?: pulumi.Input<boolean | undefined>;
     /**
      * tunnel_ref to route traffic
      */
-    tunnelRef?: pulumi.Input<string>;
+    tunnelRef?: pulumi.Input<string | undefined>;
 }

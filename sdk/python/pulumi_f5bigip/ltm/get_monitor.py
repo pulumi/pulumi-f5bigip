@@ -331,8 +331,8 @@ def get_monitor(name: Optional[_builtins.str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         transparent=pulumi.get(__ret__, 'transparent'),
         username=pulumi.get(__ret__, 'username'))
-def get_monitor_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                       partition: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                       partition: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP

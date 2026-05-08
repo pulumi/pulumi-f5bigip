@@ -21,8 +21,8 @@ class DeviceArgs:
     def __init__(__self__, *,
                  configsync_ip: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 mirror_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 mirror_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
 
@@ -64,36 +64,36 @@ class DeviceArgs:
 
     @_builtins.property
     @pulumi.getter(name="mirrorIp")
-    def mirror_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address used for state mirroring
         """
         return pulumi.get(self, "mirror_ip")
 
     @mirror_ip.setter
-    def mirror_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="mirrorSecondaryIp")
-    def mirror_secondary_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_secondary_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IP address used for state mirroring
         """
         return pulumi.get(self, "mirror_secondary_ip")
 
     @mirror_secondary_ip.setter
-    def mirror_secondary_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_secondary_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_secondary_ip", value)
 
 
 @pulumi.input_type
 class _DeviceState:
     def __init__(__self__, *,
-                 configsync_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configsync_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Device resources.
 
@@ -113,50 +113,50 @@ class _DeviceState:
 
     @_builtins.property
     @pulumi.getter(name="configsyncIp")
-    def configsync_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configsync_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address used for config sync
         """
         return pulumi.get(self, "configsync_ip")
 
     @configsync_ip.setter
-    def configsync_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configsync_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configsync_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="mirrorIp")
-    def mirror_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IP address used for state mirroring
         """
         return pulumi.get(self, "mirror_ip")
 
     @mirror_ip.setter
-    def mirror_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="mirrorSecondaryIp")
-    def mirror_secondary_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror_secondary_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary IP address used for state mirroring
         """
         return pulumi.get(self, "mirror_secondary_ip")
 
     @mirror_secondary_ip.setter
-    def mirror_secondary_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror_secondary_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror_secondary_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Address of the Device which needs to be Deviceensed
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -166,10 +166,10 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configsync_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configsync_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `cm.Device` provides details about a specific bigip
@@ -235,10 +235,10 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configsync_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configsync_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,10 +266,10 @@ class Device(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configsync_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            mirror_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            mirror_secondary_ip: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Device':
+            configsync_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            mirror_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            mirror_secondary_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Device':
         """
         Get an existing Device resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

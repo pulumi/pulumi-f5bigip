@@ -33,7 +33,7 @@ import (
 //			_, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
 //				Name:        pulumi.String("/Common/terraform_monitor"),
 //				Parent:      pulumi.String("/Common/http"),
-//				Send:        pulumi.String("GET /some/path\n"),
+//				Send:        pulumi.String("GET /some/path\r\n"),
 //				Timeout:     pulumi.Int(999),
 //				Interval:    pulumi.Int(998),
 //				Destination: pulumi.String("1.2.3.4:1234"),
@@ -45,7 +45,7 @@ import (
 //				Name:       pulumi.String("/Common/terraform_monitor"),
 //				Parent:     pulumi.String("/Common/http"),
 //				SslProfile: pulumi.String("/Common/serverssl"),
-//				Send:       pulumi.String("GET /some/path\n"),
+//				Send:       pulumi.String("GET /some/path\r\n"),
 //				Interval:   pulumi.Int(999),
 //				Timeout:    pulumi.Int(1000),
 //			})
@@ -83,7 +83,7 @@ import (
 //				Parent:   pulumi.String("/Common/http"),
 //				Interval: pulumi.Int(999),
 //				Timeout:  pulumi.Int(1000),
-//				Send:     pulumi.String("GET /\n"),
+//				Send:     pulumi.String("GET /\r\n"),
 //				Receive:  pulumi.String("200"),
 //			})
 //			if err != nil {
@@ -95,7 +95,7 @@ import (
 //				Name:         pulumi.String("/Common/child"),
 //				Parent:       pulumi.String("/Common/http"),
 //				CustomParent: parent_monitor.Name,
-//				Send:         pulumi.String("GET /custom\n"),
+//				Send:         pulumi.String("GET /custom\r\n"),
 //			})
 //			if err != nil {
 //				return err

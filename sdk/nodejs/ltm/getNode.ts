@@ -119,16 +119,16 @@ export interface GetNodeOutputArgs {
     /**
      * The address of the node.
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * User defined description of the node.
      */
-    description?: pulumi.Input<string>;
-    fqdn?: pulumi.Input<inputs.ltm.GetNodeFqdnArgs>;
+    description?: pulumi.Input<string | undefined>;
+    fqdn?: pulumi.Input<inputs.ltm.GetNodeFqdnArgs | undefined>;
     /**
      * Full path of the node (partition and name)
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Name of the node.
      */

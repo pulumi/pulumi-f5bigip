@@ -23,15 +23,15 @@ class SnatArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  origins: pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]],
-                 autolasthop: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 sourceport: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Snat resource.
 
@@ -94,127 +94,127 @@ class SnatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def autolasthop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autolasthop(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
         return pulumi.get(self, "autolasthop")
 
     @autolasthop.setter
-    def autolasthop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autolasthop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autolasthop", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fullpath
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def mirror(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables mirroring of SNAT connections.
         """
         return pulumi.get(self, "mirror")
 
     @mirror.setter
-    def mirror(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition or path to which the SNAT belongs
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def snatpool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snatpool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         """
         return pulumi.get(self, "snatpool")
 
     @snatpool.setter
-    def snatpool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snatpool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snatpool", value)
 
     @_builtins.property
     @pulumi.getter
-    def sourceport(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sourceport(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SNAT object handles the client's source port. The default is `preserve`.
         """
         return pulumi.get(self, "sourceport")
 
     @sourceport.setter
-    def sourceport(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sourceport(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sourceport", value)
 
     @_builtins.property
     @pulumi.getter
-    def translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
         """
         return pulumi.get(self, "translation")
 
     @translation.setter
-    def translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translation", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlansdisabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlansdisabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         return pulumi.get(self, "vlansdisabled")
 
     @vlansdisabled.setter
-    def vlansdisabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlansdisabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlansdisabled", value)
 
 
 @pulumi.input_type
 class _SnatState:
     def __init__(__self__, *,
-                 autolasthop: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 sourceport: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Snat resources.
 
@@ -255,134 +255,134 @@ class _SnatState:
 
     @_builtins.property
     @pulumi.getter
-    def autolasthop(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def autolasthop(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
         return pulumi.get(self, "autolasthop")
 
     @autolasthop.setter
-    def autolasthop(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def autolasthop(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "autolasthop", value)
 
     @_builtins.property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def full_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fullpath
         """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
-    def full_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def full_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "full_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def mirror(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mirror(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables mirroring of SNAT connections.
         """
         return pulumi.get(self, "mirror")
 
     @mirror.setter
-    def mirror(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mirror(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mirror", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]]:
+    def origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SnatOriginArgs']]]]:
         """
         Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         """
         return pulumi.get(self, "origins")
 
     @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]]):
+    def origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SnatOriginArgs']]]]):
         pulumi.set(self, "origins", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition or path to which the SNAT belongs
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter
-    def snatpool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snatpool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         """
         return pulumi.get(self, "snatpool")
 
     @snatpool.setter
-    def snatpool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snatpool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snatpool", value)
 
     @_builtins.property
     @pulumi.getter
-    def sourceport(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sourceport(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the SNAT object handles the client's source port. The default is `preserve`.
         """
         return pulumi.get(self, "sourceport")
 
     @sourceport.setter
-    def sourceport(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sourceport(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sourceport", value)
 
     @_builtins.property
     @pulumi.getter
-    def translation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def translation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
         """
         return pulumi.get(self, "translation")
 
     @translation.setter
-    def translation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def translation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "translation", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vlans(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         """
         return pulumi.get(self, "vlans")
 
     @vlans.setter
-    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vlans(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vlans", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlansdisabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def vlansdisabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         return pulumi.get(self, "vlansdisabled")
 
     @vlansdisabled.setter
-    def vlansdisabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def vlansdisabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "vlansdisabled", value)
 
 
@@ -392,17 +392,17 @@ class Snat(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autolasthop: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 sourceport: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         `ltm.Snat` Manages a SNAT configuration
@@ -485,17 +485,17 @@ class Snat(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 autolasthop: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 mirror: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-                 sourceport: Optional[pulumi.Input[_builtins.str]] = None,
-                 translation: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 mirror: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+                 sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+                 translation: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -530,17 +530,17 @@ class Snat(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            autolasthop: Optional[pulumi.Input[_builtins.str]] = None,
-            full_path: Optional[pulumi.Input[_builtins.str]] = None,
-            mirror: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            snatpool: Optional[pulumi.Input[_builtins.str]] = None,
-            sourceport: Optional[pulumi.Input[_builtins.str]] = None,
-            translation: Optional[pulumi.Input[_builtins.str]] = None,
-            vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            vlansdisabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Snat':
+            autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            mirror: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+            sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+            translation: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Snat':
         """
         Get an existing Snat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

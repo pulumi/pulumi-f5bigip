@@ -19,19 +19,19 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 teem_disable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 token_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_certs_disable: Optional[pulumi.Input[_builtins.bool]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 teem_disable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 token_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_cert_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_certs_disable: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -78,158 +78,158 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name/IP of the BigIP
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="apiRetries")
-    def api_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of times to retry AS3 API requests. Default: 10.
         """
         return pulumi.get(self, "api_retries")
 
     @api_retries.setter
-    def api_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="apiTimeout")
-    def api_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def api_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A timeout for AS3 requests, represented as a number of seconds. Default: 60
         """
         return pulumi.get(self, "api_timeout")
 
     @api_timeout.setter
-    def api_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def api_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "api_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="loginRef")
-    def login_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login reference for token authentication (see BIG-IP REST docs for details)
         """
         return pulumi.get(self, "login_ref")
 
     @login_ref.setter
-    def login_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user's password. Leave empty if using token_value
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Management Port to connect to Bigip
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="teemDisable")
-    def teem_disable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def teem_disable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If this flag set to true,sending telemetry data to TEEM will be disabled
         """
         return pulumi.get(self, "teem_disable")
 
     @teem_disable.setter
-    def teem_disable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def teem_disable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "teem_disable", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenAuth")
-    def token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable to use token authentication. Can be set via the BIGIP_TOKEN_AUTH environment variable
         """
         return pulumi.get(self, "token_auth")
 
     @token_auth.setter
-    def token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenTimeout")
-    def token_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def token_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A lifespan to request for the AS3 auth token, represented as a number of seconds. Default: 1200
         """
         return pulumi.get(self, "token_timeout")
 
     @token_timeout.setter
-    def token_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def token_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "token_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenValue")
-    def token_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A token generated outside the provider, in place of password
         """
         return pulumi.get(self, "token_value")
 
     @token_value.setter
-    def token_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_value", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trusted_cert_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Valid Trusted Certificate path
         """
         return pulumi.get(self, "trusted_cert_path")
 
     @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trusted_cert_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_cert_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username with API access to the BigIP
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="validateCertsDisable")
-    def validate_certs_disable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate_certs_disable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, Disables TLS certificate check on BIG-IP. Default : True
         """
         return pulumi.get(self, "validate_certs_disable")
 
     @validate_certs_disable.setter
-    def validate_certs_disable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate_certs_disable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate_certs_disable", value)
 
 
@@ -239,19 +239,19 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 teem_disable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 token_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_certs_disable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 teem_disable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 token_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_cert_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_certs_disable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         The provider type for the bigip package. By default, resources use package-wide configuration
@@ -304,19 +304,19 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 api_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 teem_disable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 token_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusted_cert_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate_certs_disable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 api_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 teem_disable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 token_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusted_cert_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate_certs_disable: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

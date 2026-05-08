@@ -158,31 +158,31 @@ export interface GtmMonitorBigipState {
     /**
      * Specifies how the system combines monitor information for a monitored pool. The default is none
      */
-    aggregationType?: pulumi.Input<string>;
+    aggregationType?: pulumi.Input<string | undefined>;
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM BIG-IP monitor
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -192,23 +192,23 @@ export interface GtmMonitorBigipArgs {
     /**
      * Specifies how the system combines monitor information for a monitored pool. The default is none
      */
-    aggregationType?: pulumi.Input<string>;
+    aggregationType?: pulumi.Input<string | undefined>;
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM BIG-IP monitor
      */
@@ -216,5 +216,5 @@ export interface GtmMonitorBigipArgs {
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

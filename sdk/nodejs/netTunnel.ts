@@ -188,71 +188,71 @@ export interface NetTunnelState {
     /**
      * The application service that the object belongs to
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether auto lasthop is enabled or not
      */
-    autoLastHop?: pulumi.Input<string>;
+    autoLastHop?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies an idle timeout for wildcard tunnels in seconds
      */
-    idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number | undefined>;
     /**
      * The key field may represent different values depending on the type of the tunnel
      */
-    key?: pulumi.Input<number>;
+    key?: pulumi.Input<number | undefined>;
     /**
      * Specifies a local IP address. This option is required
      */
-    localAddress?: pulumi.Input<string>;
+    localAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies how the tunnel carries traffic
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) of the tunnel
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * Name of the tunnel
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Displays the admin-partition within which this component resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to associate with the tunnel
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * Specifies a remote IP address
      */
-    remoteAddress?: pulumi.Input<string>;
+    remoteAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies a secondary non-floating IP address when the local-address is set to a floating address
      */
-    secondaryAddress?: pulumi.Input<string>;
+    secondaryAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
      */
-    tos?: pulumi.Input<string>;
+    tos?: pulumi.Input<string | undefined>;
     /**
      * Specifies a traffic-group for use with the tunnel
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the tunnel to be transparent
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
      */
-    usePmtu?: pulumi.Input<string>;
+    usePmtu?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -262,23 +262,23 @@ export interface NetTunnelArgs {
     /**
      * The application service that the object belongs to
      */
-    appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether auto lasthop is enabled or not
      */
-    autoLastHop?: pulumi.Input<string>;
+    autoLastHop?: pulumi.Input<string | undefined>;
     /**
      * User defined description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies an idle timeout for wildcard tunnels in seconds
      */
-    idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number | undefined>;
     /**
      * The key field may represent different values depending on the type of the tunnel
      */
-    key?: pulumi.Input<number>;
+    key?: pulumi.Input<number | undefined>;
     /**
      * Specifies a local IP address. This option is required
      */
@@ -286,11 +286,11 @@ export interface NetTunnelArgs {
     /**
      * Specifies how the tunnel carries traffic
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum transmission unit (MTU) of the tunnel
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * Name of the tunnel
      */
@@ -298,7 +298,7 @@ export interface NetTunnelArgs {
     /**
      * Displays the admin-partition within which this component resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to associate with the tunnel
      */
@@ -306,25 +306,25 @@ export interface NetTunnelArgs {
     /**
      * Specifies a remote IP address
      */
-    remoteAddress?: pulumi.Input<string>;
+    remoteAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies a secondary non-floating IP address when the local-address is set to a floating address
      */
-    secondaryAddress?: pulumi.Input<string>;
+    secondaryAddress?: pulumi.Input<string | undefined>;
     /**
      * Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
      */
-    tos?: pulumi.Input<string>;
+    tos?: pulumi.Input<string | undefined>;
     /**
      * Specifies a traffic-group for use with the tunnel
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the tunnel to be transparent
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
     /**
      * Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
      */
-    usePmtu?: pulumi.Input<string>;
+    usePmtu?: pulumi.Input<string | undefined>;
 }

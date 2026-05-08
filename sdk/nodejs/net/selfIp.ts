@@ -182,23 +182,23 @@ export interface SelfIpState {
     /**
      * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
-    ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string | undefined>;
     /**
      * Name of the selfip
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
-    portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
+    portLockdowns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
-    vlan?: pulumi.Input<string>;
+    vlan?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -216,11 +216,11 @@ export interface SelfIpArgs {
     /**
      * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
-    portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
+    portLockdowns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string | undefined>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */

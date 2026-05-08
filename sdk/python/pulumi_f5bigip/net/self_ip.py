@@ -22,8 +22,8 @@ class SelfIpArgs:
                  ip: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.str],
-                 port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 port_lockdowns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SelfIp resource.
 
@@ -79,37 +79,37 @@ class SelfIpArgs:
 
     @_builtins.property
     @pulumi.getter(name="portLockdowns")
-    def port_lockdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def port_lockdowns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the port lockdown, defaults to `Allow None` if not specified.
         """
         return pulumi.get(self, "port_lockdowns")
 
     @port_lockdowns.setter
-    def port_lockdowns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def port_lockdowns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "port_lockdowns", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
 
 @pulumi.input_type
 class _SelfIpState:
     def __init__(__self__, *,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.str]] = None):
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_lockdowns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SelfIp resources.
 
@@ -132,62 +132,62 @@ class _SelfIpState:
 
     @_builtins.property
     @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         """
         return pulumi.get(self, "ip")
 
     @ip.setter
-    def ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the selfip
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="portLockdowns")
-    def port_lockdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def port_lockdowns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the port lockdown, defaults to `Allow None` if not specified.
         """
         return pulumi.get(self, "port_lockdowns")
 
     @port_lockdowns.setter
-    def port_lockdowns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def port_lockdowns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "port_lockdowns", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def traffic_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         """
         return pulumi.get(self, "traffic_group")
 
     @traffic_group.setter
-    def traffic_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def traffic_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "traffic_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def vlan(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vlan(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
         return pulumi.get(self, "vlan")
 
     @vlan.setter
-    def vlan(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vlan(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vlan", value)
 
 
@@ -197,11 +197,11 @@ class SelfIp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_lockdowns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `net.SelfIp` Manages a selfip configuration
@@ -380,11 +380,11 @@ class SelfIp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port_lockdowns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -415,11 +415,11 @@ class SelfIp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ip: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            traffic_group: Optional[pulumi.Input[_builtins.str]] = None,
-            vlan: Optional[pulumi.Input[_builtins.str]] = None) -> 'SelfIp':
+            ip: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port_lockdowns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            vlan: pulumi.Input[Optional[_builtins.str]] = None) -> 'SelfIp':
         """
         Get an existing SelfIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

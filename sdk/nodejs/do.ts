@@ -159,7 +159,7 @@ export interface DoState {
      * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipAddress?: pulumi.Input<string>;
+    bigipAddress?: pulumi.Input<string | undefined>;
     /**
      * Password of  BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
@@ -172,35 +172,35 @@ export interface DoState {
      * > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
      * state to empty and won't throw error.
      */
-    bigipPassword?: pulumi.Input<string>;
+    bigipPassword?: pulumi.Input<string | undefined>;
     /**
      * Port number of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipPort?: pulumi.Input<string>;
+    bigipPort?: pulumi.Input<string | undefined>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    bigipTokenAuth?: pulumi.Input<boolean>;
+    bigipTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * UserName of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipUser?: pulumi.Input<string>;
+    bigipUser?: pulumi.Input<string | undefined>;
     /**
      * Name of the of the Declarative DO JSON file
      */
-    doJson?: pulumi.Input<string>;
+    doJson?: pulumi.Input<string | undefined>;
     /**
      * unique identifier for DO resource
      *
      * @deprecated this attribute is no longer in use
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
     /**
      * DO json
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -211,7 +211,7 @@ export interface DoArgs {
      * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipAddress?: pulumi.Input<string>;
+    bigipAddress?: pulumi.Input<string | undefined>;
     /**
      * Password of  BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
@@ -224,21 +224,21 @@ export interface DoArgs {
      * > **Note:** Delete method is not supported by DO, so terraform destroy won't delete configuration in bigip but we will set the terrform
      * state to empty and won't throw error.
      */
-    bigipPassword?: pulumi.Input<string>;
+    bigipPassword?: pulumi.Input<string | undefined>;
     /**
      * Port number of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipPort?: pulumi.Input<string>;
+    bigipPort?: pulumi.Input<string | undefined>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    bigipTokenAuth?: pulumi.Input<boolean>;
+    bigipTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * UserName of BIGIP host to be used for this resource,this is optional parameter.
      * whenever we specify this parameter it gets overwrite provider configuration
      */
-    bigipUser?: pulumi.Input<string>;
+    bigipUser?: pulumi.Input<string | undefined>;
     /**
      * Name of the of the Declarative DO JSON file
      */
@@ -248,9 +248,9 @@ export interface DoArgs {
      *
      * @deprecated this attribute is no longer in use
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
     /**
      * DO json
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

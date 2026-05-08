@@ -165,23 +165,23 @@ export interface IfileState {
     /**
      * The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with `f5bigip.sys.Ifile`.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * The complete path of the LTM iFile on the BIG-IP system.
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Name of the LTM iFile to be created on BIG-IP.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition where the LTM iFile will be created. Defaults to `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory within the partition for organizing iFiles.
      */
-    subPath?: pulumi.Input<string>;
+    subPath?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,9 +199,9 @@ export interface IfileArgs {
     /**
      * Partition where the LTM iFile will be created. Defaults to `Common`.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Subdirectory within the partition for organizing iFiles.
      */
-    subPath?: pulumi.Input<string>;
+    subPath?: pulumi.Input<string | undefined>;
 }

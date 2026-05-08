@@ -20,25 +20,25 @@ __all__ = ['RequestLogProfileArgs', 'RequestLogProfile']
 class RequestLogProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyclose_on_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyrespond_on_loggingerror: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RequestLogProfile resource.
 
@@ -117,256 +117,256 @@ class RequestLogProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies user-defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyResponse")
-    def proxy_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxy_response")
 
     @proxy_response.setter
-    def proxy_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_response", value)
 
     @_builtins.property
     @pulumi.getter(name="proxycloseOnError")
-    def proxyclose_on_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxyclose_on_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxyclose_on_error")
 
     @proxyclose_on_error.setter
-    def proxyclose_on_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxyclose_on_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxyclose_on_error", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyrespondOnLoggingerror")
-    def proxyrespond_on_loggingerror(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxyrespond_on_loggingerror(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxyrespond_on_loggingerror")
 
     @proxyrespond_on_loggingerror.setter
-    def proxyrespond_on_loggingerror(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxyrespond_on_loggingerror(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxyrespond_on_loggingerror", value)
 
     @_builtins.property
     @pulumi.getter(name="requestLogging")
-    def request_logging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_logging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "request_logging")
 
     @request_logging.setter
-    def request_logging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_logging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorPool")
-    def requestlog_error_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "requestlog_error_pool")
 
     @requestlog_error_pool.setter
-    def requestlog_error_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorProtocol")
-    def requestlog_error_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "requestlog_error_protocol")
 
     @requestlog_error_protocol.setter
-    def requestlog_error_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorTemplate")
-    def requestlog_error_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged for request errors.
         """
         return pulumi.get(self, "requestlog_error_template")
 
     @requestlog_error_template.setter
-    def requestlog_error_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_template", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogPool")
-    def requestlog_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
         """
         return pulumi.get(self, "requestlog_pool")
 
     @requestlog_pool.setter
-    def requestlog_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogProtocol")
-    def requestlog_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "requestlog_protocol")
 
     @requestlog_protocol.setter
-    def requestlog_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogTemplate")
-    def requestlog_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         """
         return pulumi.get(self, "requestlog_template")
 
     @requestlog_template.setter
-    def requestlog_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseLogging")
-    def response_logging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_logging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "response_logging")
 
     @response_logging.setter
-    def response_logging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_logging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorPool")
-    def responselog_error_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging response errors. The default is `none`.
         """
         return pulumi.get(self, "responselog_error_pool")
 
     @responselog_error_pool.setter
-    def responselog_error_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorProtocol")
-    def responselog_error_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "responselog_error_protocol")
 
     @responselog_error_protocol.setter
-    def responselog_error_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorTemplate")
-    def responselog_error_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged for request errors.
         """
         return pulumi.get(self, "responselog_error_template")
 
     @responselog_error_template.setter
-    def responselog_error_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogPool")
-    def responselog_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
         """
         return pulumi.get(self, "responselog_pool")
 
     @responselog_pool.setter
-    def responselog_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogProtocol")
-    def responselog_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "responselog_protocol")
 
     @responselog_protocol.setter
-    def responselog_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogTemplate")
-    def responselog_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         """
         return pulumi.get(self, "responselog_template")
 
     @responselog_template.setter
-    def responselog_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_template", value)
 
 
 @pulumi.input_type
 class _RequestLogProfileState:
     def __init__(__self__, *,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyclose_on_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyrespond_on_loggingerror: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestLogProfile resources.
 
@@ -434,242 +434,242 @@ class _RequestLogProfileState:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies user-defined description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Request Logging profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/request-log-profile-tc1`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyResponse")
-    def proxy_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxy_response")
 
     @proxy_response.setter
-    def proxy_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_response", value)
 
     @_builtins.property
     @pulumi.getter(name="proxycloseOnError")
-    def proxyclose_on_error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxyclose_on_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxyclose_on_error")
 
     @proxyclose_on_error.setter
-    def proxyclose_on_error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxyclose_on_error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxyclose_on_error", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyrespondOnLoggingerror")
-    def proxyrespond_on_loggingerror(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxyrespond_on_loggingerror(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "proxyrespond_on_loggingerror")
 
     @proxyrespond_on_loggingerror.setter
-    def proxyrespond_on_loggingerror(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxyrespond_on_loggingerror(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxyrespond_on_loggingerror", value)
 
     @_builtins.property
     @pulumi.getter(name="requestLogging")
-    def request_logging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_logging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables request logging. The default is `disabled`, possible values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "request_logging")
 
     @request_logging.setter
-    def request_logging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_logging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorPool")
-    def requestlog_error_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging request errors. The default is None.
         """
         return pulumi.get(self, "requestlog_error_pool")
 
     @requestlog_error_pool.setter
-    def requestlog_error_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorProtocol")
-    def requestlog_error_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of request errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "requestlog_error_protocol")
 
     @requestlog_error_protocol.setter
-    def requestlog_error_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogErrorTemplate")
-    def requestlog_error_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_error_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged for request errors.
         """
         return pulumi.get(self, "requestlog_error_template")
 
     @requestlog_error_template.setter
-    def requestlog_error_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_error_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_error_template", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogPool")
-    def requestlog_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool to send logs to. Typically, the pool will contain one or more syslog servers. It is recommended that you create a pool specifically for logging requests. The default is `none`.
         """
         return pulumi.get(self, "requestlog_pool")
 
     @requestlog_pool.setter
-    def requestlog_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogProtocol")
-    def requestlog_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of requests. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "requestlog_protocol")
 
     @requestlog_protocol.setter
-    def requestlog_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="requestlogTemplate")
-    def requestlog_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def requestlog_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged. More infor on requestlog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         """
         return pulumi.get(self, "requestlog_template")
 
     @requestlog_template.setter
-    def requestlog_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def requestlog_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requestlog_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responseLogging")
-    def response_logging(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_logging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables response logging. The default is `disabled`, possible values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "response_logging")
 
     @response_logging.setter
-    def response_logging(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_logging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorPool")
-    def responselog_error_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool associated with logging response errors. The default is `none`.
         """
         return pulumi.get(self, "responselog_error_pool")
 
     @responselog_error_pool.setter
-    def responselog_error_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorProtocol")
-    def responselog_error_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of response errors. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "responselog_error_protocol")
 
     @responselog_error_protocol.setter
-    def responselog_error_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogErrorTemplate")
-    def responselog_error_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_error_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged for request errors.
         """
         return pulumi.get(self, "responselog_error_template")
 
     @responselog_error_template.setter
-    def responselog_error_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_error_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_error_template", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogPool")
-    def responselog_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the pool to send logs to. Typically, the pool contains one or more syslog servers. It is recommended that you create a pool specifically for logging responses. The default is `none`.
         """
         return pulumi.get(self, "responselog_pool")
 
     @responselog_pool.setter
-    def responselog_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogProtocol")
-    def responselog_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol to be used for high-speed logging of responses. The default is `mds-udp`,possible values are `mds-udp` and `mds-tcp`.
         """
         return pulumi.get(self, "responselog_protocol")
 
     @responselog_protocol.setter
-    def responselog_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="responselogTemplate")
-    def responselog_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def responselog_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the directives and entries to be logged. More infor on responselog_template can be found [here](https://techdocs.f5.com/en-us/bigip-15-0-0/external-monitoring-of-big-ip-systems-implementations/configuring-request-logging.html). how to use can be find [here](https://my.f5.com/manage/s/article/K00847516).
         """
         return pulumi.get(self, "responselog_template")
 
     @responselog_template.setter
-    def responselog_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def responselog_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "responselog_template", value)
 
 
@@ -679,26 +679,26 @@ class RequestLogProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyclose_on_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyrespond_on_loggingerror: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.RequestLogProfile` Resource used for Configures request logging using the Request Logging profile
@@ -804,26 +804,26 @@ class RequestLogProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_response: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyclose_on_error: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxyrespond_on_loggingerror: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 requestlog_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_logging: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 responselog_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 responselog_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -865,26 +865,26 @@ class RequestLogProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_response: Optional[pulumi.Input[_builtins.str]] = None,
-            proxyclose_on_error: Optional[pulumi.Input[_builtins.str]] = None,
-            proxyrespond_on_loggingerror: Optional[pulumi.Input[_builtins.str]] = None,
-            request_logging: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            requestlog_template: Optional[pulumi.Input[_builtins.str]] = None,
-            response_logging: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_error_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_error_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_error_template: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            responselog_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'RequestLogProfile':
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+            request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+            response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'RequestLogProfile':
         """
         Get an existing RequestLogProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

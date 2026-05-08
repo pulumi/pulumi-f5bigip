@@ -466,132 +466,132 @@ export interface GtmPoolState {
     /**
      * Specifies the load balancing mode to use if the preferred and alternate modes are unsuccessful
      */
-    alternateMode?: pulumi.Input<string>;
+    alternateMode?: pulumi.Input<string | undefined>;
     /**
      * Disabled state of the pool
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enables or disables the dynamic ratio load balancing algorithm
      */
-    dynamicRatio?: pulumi.Input<string>;
+    dynamicRatio?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the pool
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the IPv4 or IPv6 address of the server to which the system directs requests when it cannot use one of its pools
      */
-    fallbackIp?: pulumi.Input<string>;
+    fallbackIp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing mode that the system uses if the pool's preferred and alternate modes are unsuccessful
      */
-    fallbackMode?: pulumi.Input<string>;
+    fallbackMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowable data throughput rate in bits per second
      */
-    limitMaxBps?: pulumi.Input<number>;
+    limitMaxBps?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxBps option
      */
-    limitMaxBpsStatus?: pulumi.Input<string>;
+    limitMaxBpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of concurrent connections
      */
-    limitMaxConnections?: pulumi.Input<number>;
+    limitMaxConnections?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxConnections option
      */
-    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    limitMaxConnectionsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowable data transfer rate in packets per second
      */
-    limitMaxPps?: pulumi.Input<number>;
+    limitMaxPps?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxPps option
      */
-    limitMaxPpsStatus?: pulumi.Input<string>;
+    limitMaxPpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the preferred load balancing mode for the pool
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether manual resume is enabled
      */
-    manualResume?: pulumi.Input<string>;
+    manualResume?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of available virtual servers that the system lists in a response
      */
-    maxAnswersReturned?: pulumi.Input<number>;
-    members?: pulumi.Input<pulumi.Input<inputs.GtmPoolMember>[]>;
+    maxAnswersReturned?: pulumi.Input<number | undefined>;
+    members?: pulumi.Input<pulumi.Input<inputs.GtmPoolMember>[] | undefined>;
     /**
      * Specifies whether the minimum number of members must be up for the pool to be active
      */
-    minMembersUpMode?: pulumi.Input<string>;
+    minMembersUpMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimum number of pool members that must be up
      */
-    minMembersUpValue?: pulumi.Input<number>;
+    minMembersUpValue?: pulumi.Input<number | undefined>;
     /**
      * Specifies the health monitor for the pool
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM pool
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition in which the pool resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the weight for QoS hit ratio
      */
-    qosHitRatio?: pulumi.Input<number>;
+    qosHitRatio?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS hops
      */
-    qosHops?: pulumi.Input<number>;
+    qosHops?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS kilobytes per second
      */
-    qosKilobytesSecond?: pulumi.Input<number>;
+    qosKilobytesSecond?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS link capacity
      */
-    qosLcs?: pulumi.Input<number>;
+    qosLcs?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS packet rate
      */
-    qosPacketRate?: pulumi.Input<number>;
+    qosPacketRate?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS round trip time
      */
-    qosRtt?: pulumi.Input<number>;
+    qosRtt?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS topology
      */
-    qosTopology?: pulumi.Input<number>;
+    qosTopology?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS virtual server capacity
      */
-    qosVsCapacity?: pulumi.Input<number>;
+    qosVsCapacity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS virtual server score
      */
-    qosVsScore?: pulumi.Input<number>;
+    qosVsScore?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time to live (TTL) for the pool
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Type of GTM pool (a, aaaa, cname, mx, naptr, srv)
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system verifies the availability of pool members before sending traffic
      */
-    verifyMemberAvailability?: pulumi.Input<string>;
+    verifyMemberAvailability?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -601,76 +601,76 @@ export interface GtmPoolArgs {
     /**
      * Specifies the load balancing mode to use if the preferred and alternate modes are unsuccessful
      */
-    alternateMode?: pulumi.Input<string>;
+    alternateMode?: pulumi.Input<string | undefined>;
     /**
      * Disabled state of the pool
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enables or disables the dynamic ratio load balancing algorithm
      */
-    dynamicRatio?: pulumi.Input<string>;
+    dynamicRatio?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the pool
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the IPv4 or IPv6 address of the server to which the system directs requests when it cannot use one of its pools
      */
-    fallbackIp?: pulumi.Input<string>;
+    fallbackIp?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing mode that the system uses if the pool's preferred and alternate modes are unsuccessful
      */
-    fallbackMode?: pulumi.Input<string>;
+    fallbackMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowable data throughput rate in bits per second
      */
-    limitMaxBps?: pulumi.Input<number>;
+    limitMaxBps?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxBps option
      */
-    limitMaxBpsStatus?: pulumi.Input<string>;
+    limitMaxBpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of concurrent connections
      */
-    limitMaxConnections?: pulumi.Input<number>;
+    limitMaxConnections?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxConnections option
      */
-    limitMaxConnectionsStatus?: pulumi.Input<string>;
+    limitMaxConnectionsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowable data transfer rate in packets per second
      */
-    limitMaxPps?: pulumi.Input<number>;
+    limitMaxPps?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the limitMaxPps option
      */
-    limitMaxPpsStatus?: pulumi.Input<string>;
+    limitMaxPpsStatus?: pulumi.Input<string | undefined>;
     /**
      * Specifies the preferred load balancing mode for the pool
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether manual resume is enabled
      */
-    manualResume?: pulumi.Input<string>;
+    manualResume?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of available virtual servers that the system lists in a response
      */
-    maxAnswersReturned?: pulumi.Input<number>;
-    members?: pulumi.Input<pulumi.Input<inputs.GtmPoolMember>[]>;
+    maxAnswersReturned?: pulumi.Input<number | undefined>;
+    members?: pulumi.Input<pulumi.Input<inputs.GtmPoolMember>[] | undefined>;
     /**
      * Specifies whether the minimum number of members must be up for the pool to be active
      */
-    minMembersUpMode?: pulumi.Input<string>;
+    minMembersUpMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the minimum number of pool members that must be up
      */
-    minMembersUpValue?: pulumi.Input<number>;
+    minMembersUpValue?: pulumi.Input<number | undefined>;
     /**
      * Specifies the health monitor for the pool
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM pool
      */
@@ -678,47 +678,47 @@ export interface GtmPoolArgs {
     /**
      * Partition in which the pool resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the weight for QoS hit ratio
      */
-    qosHitRatio?: pulumi.Input<number>;
+    qosHitRatio?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS hops
      */
-    qosHops?: pulumi.Input<number>;
+    qosHops?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS kilobytes per second
      */
-    qosKilobytesSecond?: pulumi.Input<number>;
+    qosKilobytesSecond?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS link capacity
      */
-    qosLcs?: pulumi.Input<number>;
+    qosLcs?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS packet rate
      */
-    qosPacketRate?: pulumi.Input<number>;
+    qosPacketRate?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS round trip time
      */
-    qosRtt?: pulumi.Input<number>;
+    qosRtt?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS topology
      */
-    qosTopology?: pulumi.Input<number>;
+    qosTopology?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS virtual server capacity
      */
-    qosVsCapacity?: pulumi.Input<number>;
+    qosVsCapacity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the weight for QoS virtual server score
      */
-    qosVsScore?: pulumi.Input<number>;
+    qosVsScore?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time to live (TTL) for the pool
      */
-    ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number | undefined>;
     /**
      * Type of GTM pool (a, aaaa, cname, mx, naptr, srv)
      */
@@ -726,5 +726,5 @@ export interface GtmPoolArgs {
     /**
      * Specifies whether the system verifies the availability of pool members before sending traffic
      */
-    verifyMemberAvailability?: pulumi.Input<string>;
+    verifyMemberAvailability?: pulumi.Input<string | undefined>;
 }

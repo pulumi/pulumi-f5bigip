@@ -179,47 +179,47 @@ export interface GtmMonitorTcpState {
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM TCP monitor
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
      */
-    probeTimeout?: pulumi.Input<number>;
+    probeTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the text string that the monitor looks for in the returned resource
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to mark the target resource down when the test is successful
      */
-    reverse?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object
      */
-    send?: pulumi.Input<string>;
+    send?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the monitor operates in transparent mode
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -229,19 +229,19 @@ export interface GtmMonitorTcpArgs {
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM TCP monitor
      */
@@ -249,25 +249,25 @@ export interface GtmMonitorTcpArgs {
     /**
      * Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
      */
-    probeTimeout?: pulumi.Input<number>;
+    probeTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the text string that the monitor looks for in the returned resource
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to mark the target resource down when the test is successful
      */
-    reverse?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object
      */
-    send?: pulumi.Input<string>;
+    send?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the monitor operates in transparent mode
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
 }

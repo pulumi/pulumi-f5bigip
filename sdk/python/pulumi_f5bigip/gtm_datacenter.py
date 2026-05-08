@@ -20,13 +20,13 @@ __all__ = ['GtmDatacenterArgs', 'GtmDatacenter']
 class GtmDatacenterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GtmDatacenter resource.
 
@@ -74,67 +74,67 @@ class GtmDatacenterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact information for the datacenter administrator.
         """
         return pulumi.get(self, "contact")
 
     @contact.setter
-    def contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the datacenter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the datacenter. Default is `true`. When set to `false`, the datacenter is disabled and will not be used for load balancing decisions.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical location of the datacenter. This is a free-form text field.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which to create the datacenter. Default is `Common`. Cannot be changed after creation.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proberFallback")
-    def prober_fallback(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_fallback(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of prober to use as fallback when the preferred prober is unavailable. Default is `any-available`. Valid options are:
         - `any-available` - Use any available prober
@@ -144,12 +144,12 @@ class GtmDatacenterArgs:
         return pulumi.get(self, "prober_fallback")
 
     @prober_fallback.setter
-    def prober_fallback(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_fallback(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_fallback", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPreference")
-    def prober_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of prober to prefer when monitoring resources in this datacenter. Default is `inside-datacenter`. Valid options are:
         - `inside-datacenter` - Prefer probers inside this datacenter
@@ -158,21 +158,21 @@ class GtmDatacenterArgs:
         return pulumi.get(self, "prober_preference")
 
     @prober_preference.setter
-    def prober_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_preference", value)
 
 
 @pulumi.input_type
 class _GtmDatacenterState:
     def __init__(__self__, *,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GtmDatacenter resources.
 
@@ -209,79 +209,79 @@ class _GtmDatacenterState:
 
     @_builtins.property
     @pulumi.getter
-    def contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact information for the datacenter administrator.
         """
         return pulumi.get(self, "contact")
 
     @contact.setter
-    def contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the datacenter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable the datacenter. Default is `true`. When set to `false`, the datacenter is disabled and will not be used for load balancing decisions.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Physical location of the datacenter. This is a free-form text field.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the GTM datacenter. Cannot be changed after creation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Partition in which to create the datacenter. Default is `Common`. Cannot be changed after creation.
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proberFallback")
-    def prober_fallback(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_fallback(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of prober to use as fallback when the preferred prober is unavailable. Default is `any-available`. Valid options are:
         - `any-available` - Use any available prober
@@ -291,12 +291,12 @@ class _GtmDatacenterState:
         return pulumi.get(self, "prober_fallback")
 
     @prober_fallback.setter
-    def prober_fallback(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_fallback(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_fallback", value)
 
     @_builtins.property
     @pulumi.getter(name="proberPreference")
-    def prober_preference(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prober_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of prober to prefer when monitoring resources in this datacenter. Default is `inside-datacenter`. Valid options are:
         - `inside-datacenter` - Prefer probers inside this datacenter
@@ -305,7 +305,7 @@ class _GtmDatacenterState:
         return pulumi.get(self, "prober_preference")
 
     @prober_preference.setter
-    def prober_preference(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prober_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prober_preference", value)
 
 
@@ -315,14 +315,14 @@ class GtmDatacenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## # GtmDatacenter
@@ -513,14 +513,14 @@ class GtmDatacenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-                 prober_preference: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -550,14 +550,14 @@ class GtmDatacenter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            location: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            prober_fallback: Optional[pulumi.Input[_builtins.str]] = None,
-            prober_preference: Optional[pulumi.Input[_builtins.str]] = None) -> 'GtmDatacenter':
+            contact: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_preference: pulumi.Input[Optional[_builtins.str]] = None) -> 'GtmDatacenter':
         """
         Get an existing GtmDatacenter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

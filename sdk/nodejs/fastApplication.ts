@@ -114,19 +114,19 @@ export interface FastApplicationState {
      *
      * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      */
-    application?: pulumi.Input<string>;
+    application?: pulumi.Input<string | undefined>;
     /**
      * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
      */
-    fastJson?: pulumi.Input<string>;
+    fastJson?: pulumi.Input<string | undefined>;
     /**
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
     /**
      * A FAST tenant name on which you want to manage application.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,5 +140,5 @@ export interface FastApplicationArgs {
     /**
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
 }

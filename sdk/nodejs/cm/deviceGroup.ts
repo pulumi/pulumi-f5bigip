@@ -148,43 +148,43 @@ export interface DeviceGroupState {
     /**
      * Specifies if the device-group will automatically sync configuration data to its members
      */
-    autoSync?: pulumi.Input<string>;
+    autoSync?: pulumi.Input<string | undefined>;
     /**
      * Description of Device group
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[]>;
+    devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
-    fullLoadOnSync?: pulumi.Input<string>;
+    fullLoadOnSync?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
      */
-    incrementalConfig?: pulumi.Input<number>;
+    incrementalConfig?: pulumi.Input<number | undefined>;
     /**
      * Is the name of the device Group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the device-group will use a network connection for failover
      */
-    networkFailover?: pulumi.Input<string>;
+    networkFailover?: pulumi.Input<string | undefined>;
     /**
      * Device administrative partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the configuration should be saved upon auto-sync.
      */
-    saveOnAutoSync?: pulumi.Input<string>;
+    saveOnAutoSync?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the device-group will be used for failover or resource syncing
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -194,41 +194,41 @@ export interface DeviceGroupArgs {
     /**
      * Specifies if the device-group will automatically sync configuration data to its members
      */
-    autoSync?: pulumi.Input<string>;
+    autoSync?: pulumi.Input<string | undefined>;
     /**
      * Description of Device group
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[]>;
+    devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
-    fullLoadOnSync?: pulumi.Input<string>;
+    fullLoadOnSync?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
      */
-    incrementalConfig?: pulumi.Input<number>;
+    incrementalConfig?: pulumi.Input<number | undefined>;
     /**
      * Is the name of the device Group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the device-group will use a network connection for failover
      */
-    networkFailover?: pulumi.Input<string>;
+    networkFailover?: pulumi.Input<string | undefined>;
     /**
      * Device administrative partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the configuration should be saved upon auto-sync.
      */
-    saveOnAutoSync?: pulumi.Input<string>;
+    saveOnAutoSync?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the device-group will be used for failover or resource syncing
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

@@ -146,43 +146,43 @@ export interface ProfileOneConnectState {
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
      */
-    idleTimeoutOverride?: pulumi.Input<string>;
+    idleTimeoutOverride?: pulumi.Input<string | undefined>;
     /**
      * Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
      */
-    limitType?: pulumi.Input<string>;
+    limitType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
      */
-    maxAge?: pulumi.Input<number>;
+    maxAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
      */
-    maxReuse?: pulumi.Input<number>;
+    maxReuse?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
      */
-    maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number | undefined>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specify if you want to share the pool, default value is `disabled`.
      */
-    sharePools?: pulumi.Input<string>;
+    sharePools?: pulumi.Input<string | undefined>;
     /**
      * Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
      */
-    sourceMask?: pulumi.Input<string>;
+    sourceMask?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,27 +192,27 @@ export interface ProfileOneConnectArgs {
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
      */
-    idleTimeoutOverride?: pulumi.Input<string>;
+    idleTimeoutOverride?: pulumi.Input<string | undefined>;
     /**
      * Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
      */
-    limitType?: pulumi.Input<string>;
+    limitType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
      */
-    maxAge?: pulumi.Input<number>;
+    maxAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
      */
-    maxReuse?: pulumi.Input<number>;
+    maxReuse?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
      */
-    maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number | undefined>;
     /**
      * Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
      */
@@ -220,13 +220,13 @@ export interface ProfileOneConnectArgs {
     /**
      * Displays the administrative partition within which this profile resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specify if you want to share the pool, default value is `disabled`.
      */
-    sharePools?: pulumi.Input<string>;
+    sharePools?: pulumi.Input<string | undefined>;
     /**
      * Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
      */
-    sourceMask?: pulumi.Input<string>;
+    sourceMask?: pulumi.Input<string | undefined>;
 }

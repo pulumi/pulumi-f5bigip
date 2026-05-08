@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new F5BigIP.Index.GtmWideip("example", new()
+    ///     var example = new F5BigIP.GtmWideip("example", new()
     ///     {
     ///         Name = "testwideip.local",
     ///         Type = "a",
@@ -59,7 +59,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var withPool = new F5BigIP.Index.GtmWideip("with_pool", new()
+    ///     var withPool = new F5BigIP.GtmWideip("with_pool", new()
     ///     {
     ///         Name = "app.example.com",
     ///         Type = "a",
@@ -83,7 +83,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var advanced = new F5BigIP.Index.GtmWideip("advanced", new()
+    ///     var advanced = new F5BigIP.GtmWideip("advanced", new()
     ///     {
     ///         Name = "advanced.example.com",
     ///         Type = "a",
@@ -126,7 +126,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ipv6 = new F5BigIP.Index.GtmWideip("ipv6", new()
+    ///     var ipv6 = new F5BigIP.GtmWideip("ipv6", new()
     ///     {
     ///         Name = "ipv6.example.com",
     ///         Type = "aaaa",
@@ -204,7 +204,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var app = new F5BigIP.Index.GtmWideip("app", new()
+    ///     var app = new F5BigIP.GtmWideip("app", new()
     ///     {
     ///         Name = "app.example.com",
     ///         Type = "a",

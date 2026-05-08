@@ -170,44 +170,44 @@ export interface NodeState {
     /**
      * IP or hostname of the node
      */
-    address?: pulumi.Input<string>;
+    address?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number | undefined>;
     /**
      * User-defined description give ltm_node
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    dynamicRatio?: pulumi.Input<number>;
-    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
+    dynamicRatio?: pulumi.Input<number | undefined>;
+    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn | undefined>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the node
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
-    rateLimit?: pulumi.Input<string>;
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Sets the ratio number for the node.
      */
-    ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      */
-    session?: pulumi.Input<string>;
+    session?: pulumi.Input<string | undefined>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -221,20 +221,20 @@ export interface NodeArgs {
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number | undefined>;
     /**
      * User-defined description give ltm_node
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    dynamicRatio?: pulumi.Input<number>;
-    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
+    dynamicRatio?: pulumi.Input<number | undefined>;
+    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn | undefined>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string | undefined>;
     /**
      * Name of the node
      */
@@ -242,17 +242,17 @@ export interface NodeArgs {
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
-    rateLimit?: pulumi.Input<string>;
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Sets the ratio number for the node.
      */
-    ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number | undefined>;
     /**
      * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
      */
-    session?: pulumi.Input<string>;
+    session?: pulumi.Input<string | undefined>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
 }

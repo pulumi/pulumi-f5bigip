@@ -322,123 +322,123 @@ export interface MonitorState {
     /**
      * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
-    adaptive?: pulumi.Input<string>;
+    adaptive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
-    adaptiveLimit?: pulumi.Input<number>;
+    adaptiveLimit?: pulumi.Input<number | undefined>;
     /**
      * Specifies the location in the LDAP tree from which the monitor starts the health check
      */
-    base?: pulumi.Input<string>;
+    base?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
      */
-    chaseReferrals?: pulumi.Input<string>;
+    chaseReferrals?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    compatibility?: pulumi.Input<string>;
+    compatibility?: pulumi.Input<string | undefined>;
     /**
      * Custom parent monitor for the system to use for setting initial values for the new monitor.
      */
-    customParent?: pulumi.Input<string>;
+    customParent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the database in which the user is created
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specify an alias address for monitoring
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string | undefined>;
     /**
      * Specifies an LDAP key for which the monitor searches
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
-    ipDscp?: pulumi.Input<number>;
+    ipDscp?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      */
-    mandatoryAttributes?: pulumi.Input<string>;
+    mandatoryAttributes?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
-    manualResume?: pulumi.Input<string>;
+    manualResume?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Parent monitor for the system to use for setting initial values for the new monitor.
      */
-    parent?: pulumi.Input<string>;
+    parent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
-    receiveDisable?: pulumi.Input<string>;
+    receiveDisable?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to mark the target resource down when the test is successful.
      */
-    reverse?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      */
-    security?: pulumi.Input<string>;
+    security?: pulumi.Input<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */
-    send?: pulumi.Input<string>;
+    send?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
      */
-    sslProfile?: pulumi.Input<string>;
+    sslProfile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
-    timeUntilUp?: pulumi.Input<number>;
+    timeUntilUp?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the monitor operates in transparent mode.
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
      */
-    upInterval?: pulumi.Input<number>;
+    upInterval?: pulumi.Input<number | undefined>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -448,67 +448,67 @@ export interface MonitorArgs {
     /**
      * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
-    adaptive?: pulumi.Input<string>;
+    adaptive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
-    adaptiveLimit?: pulumi.Input<number>;
+    adaptiveLimit?: pulumi.Input<number | undefined>;
     /**
      * Specifies the location in the LDAP tree from which the monitor starts the health check
      */
-    base?: pulumi.Input<string>;
+    base?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system will query the LDAP servers pointed to by any referrals in the query results.
      */
-    chaseReferrals?: pulumi.Input<string>;
+    chaseReferrals?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    compatibility?: pulumi.Input<string>;
+    compatibility?: pulumi.Input<string | undefined>;
     /**
      * Custom parent monitor for the system to use for setting initial values for the new monitor.
      */
-    customParent?: pulumi.Input<string>;
+    customParent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the database in which the user is created
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specify an alias address for monitoring
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies the domain name to check, for example, Domain is allowed only in case of Parent as /Common/smtp.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string | undefined>;
     /**
      * Specifies an LDAP key for which the monitor searches
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
      */
-    ipDscp?: pulumi.Input<number>;
+    ipDscp?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the target must include attributes in its response to be considered up. The options are no (Specifies that the system performs only a one-level search (based on the Filter setting), and does not require that the target returns any attributes.) and yes (Specifies that the system performs a sub-tree search, and if the target returns no attributes, the target is considered down.)
      */
-    mandatoryAttributes?: pulumi.Input<string>;
+    mandatoryAttributes?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
      */
-    manualResume?: pulumi.Input<string>;
+    manualResume?: pulumi.Input<string | undefined>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
@@ -520,49 +520,49 @@ export interface MonitorArgs {
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
-    receiveDisable?: pulumi.Input<string>;
+    receiveDisable?: pulumi.Input<string | undefined>;
     /**
      * Instructs the system to mark the target resource down when the test is successful.
      */
-    reverse?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the secure communications protocol that the monitor uses to communicate with the target. The options are none (Specifies that the system does not use a security protocol for communications with the target.), ssl (Specifies that the system uses the SSL protocol for communications with the target.), and tls (Specifies that the system uses the TLS protocol for communications with the target.)
      */
-    security?: pulumi.Input<string>;
+    security?: pulumi.Input<string | undefined>;
     /**
      * Specifies the text string that the monitor sends to the target object.
      */
-    send?: pulumi.Input<string>;
+    send?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
      */
-    sslProfile?: pulumi.Input<string>;
+    sslProfile?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
-    timeUntilUp?: pulumi.Input<number>;
+    timeUntilUp?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the monitor operates in transparent mode.
      */
-    transparent?: pulumi.Input<string>;
+    transparent?: pulumi.Input<string | undefined>;
     /**
      * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
      */
-    upInterval?: pulumi.Input<number>;
+    upInterval?: pulumi.Input<number | undefined>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

@@ -124,22 +124,22 @@ export interface GetPolicyOutputArgs {
     /**
      * Specifies the controls.
      */
-    controls?: pulumi.Input<pulumi.Input<string>[]>;
+    controls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy which includes partion ( /partition/policy-name )
      */
     name: pulumi.Input<string>;
-    publishedCopy?: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string | undefined>;
     /**
      * Specifies the protocol.
      */
-    requires?: pulumi.Input<pulumi.Input<string>[]>;
+    requires?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Rules defined in the policy.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.ltm.GetPolicyRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.GetPolicyRuleArgs>[] | undefined>;
     /**
      * Specifies the match strategy.
      */
-    strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string | undefined>;
 }

@@ -195,40 +195,40 @@ export interface GtmDatacenterState {
     /**
      * Contact information for the datacenter administrator.
      */
-    contact?: pulumi.Input<string>;
+    contact?: pulumi.Input<string | undefined>;
     /**
      * Description of the datacenter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the datacenter. Default is `true`. When set to `false`, the datacenter is disabled and will not be used for load balancing decisions.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Physical location of the datacenter. This is a free-form text field.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM datacenter. Cannot be changed after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition in which to create the datacenter. Default is `Common`. Cannot be changed after creation.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of prober to use as fallback when the preferred prober is unavailable. Default is `any-available`. Valid options are:
      * - `any-available` - Use any available prober
      * - `inside-datacenter` - Fallback to probers inside this datacenter
      * - `outside-datacenter` - Fallback to probers outside this datacenter
      */
-    proberFallback?: pulumi.Input<string>;
+    proberFallback?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of prober to prefer when monitoring resources in this datacenter. Default is `inside-datacenter`. Valid options are:
      * - `inside-datacenter` - Prefer probers inside this datacenter
      * - `outside-datacenter` - Prefer probers outside this datacenter
      */
-    proberPreference?: pulumi.Input<string>;
+    proberPreference?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -238,19 +238,19 @@ export interface GtmDatacenterArgs {
     /**
      * Contact information for the datacenter administrator.
      */
-    contact?: pulumi.Input<string>;
+    contact?: pulumi.Input<string | undefined>;
     /**
      * Description of the datacenter.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the datacenter. Default is `true`. When set to `false`, the datacenter is disabled and will not be used for load balancing decisions.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Physical location of the datacenter. This is a free-form text field.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the GTM datacenter. Cannot be changed after creation.
      */
@@ -258,18 +258,18 @@ export interface GtmDatacenterArgs {
     /**
      * Partition in which to create the datacenter. Default is `Common`. Cannot be changed after creation.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of prober to use as fallback when the preferred prober is unavailable. Default is `any-available`. Valid options are:
      * - `any-available` - Use any available prober
      * - `inside-datacenter` - Fallback to probers inside this datacenter
      * - `outside-datacenter` - Fallback to probers outside this datacenter
      */
-    proberFallback?: pulumi.Input<string>;
+    proberFallback?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of prober to prefer when monitoring resources in this datacenter. Default is `inside-datacenter`. Valid options are:
      * - `inside-datacenter` - Prefer probers inside this datacenter
      * - `outside-datacenter` - Prefer probers outside this datacenter
      */
-    proberPreference?: pulumi.Input<string>;
+    proberPreference?: pulumi.Input<string | undefined>;
 }

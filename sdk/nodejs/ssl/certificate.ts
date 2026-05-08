@@ -131,31 +131,31 @@ export interface CertificateState {
     /**
      * Content of certificate on Local Disk,path of SSL certificate will be provided to terraform `file` function
      */
-    content?: pulumi.Input<string>;
+    content?: pulumi.Input<string | undefined>;
     /**
      * Full Path Name of ssl certificate
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the issuer certificate.
      */
-    issuerCert?: pulumi.Input<string>;
+    issuerCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of monitoring used.
      */
-    monitoringType?: pulumi.Input<string>;
+    monitoringType?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the OCSP responder.
      */
-    ocsp?: pulumi.Input<string>;
+    ocsp?: pulumi.Input<string | undefined>;
     /**
      * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,15 +169,15 @@ export interface CertificateArgs {
     /**
      * Full Path Name of ssl certificate
      */
-    fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string | undefined>;
     /**
      * Specifies the issuer certificate.
      */
-    issuerCert?: pulumi.Input<string>;
+    issuerCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of monitoring used.
      */
-    monitoringType?: pulumi.Input<string>;
+    monitoringType?: pulumi.Input<string | undefined>;
     /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
@@ -185,9 +185,9 @@ export interface CertificateArgs {
     /**
      * Specifies the OCSP responder.
      */
-    ocsp?: pulumi.Input<string>;
+    ocsp?: pulumi.Input<string | undefined>;
     /**
      * Partition on to SSL Certificate to be imported. The parameter is not required when running terraform import operation. In such case the name must be provided in fullPath format.
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
 }

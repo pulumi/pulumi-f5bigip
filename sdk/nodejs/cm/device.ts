@@ -109,19 +109,19 @@ export interface DeviceState {
     /**
      * IP address used for config sync
      */
-    configsyncIp?: pulumi.Input<string>;
+    configsyncIp?: pulumi.Input<string | undefined>;
     /**
      * IP address used for state mirroring
      */
-    mirrorIp?: pulumi.Input<string>;
+    mirrorIp?: pulumi.Input<string | undefined>;
     /**
      * Secondary IP address used for state mirroring
      */
-    mirrorSecondaryIp?: pulumi.Input<string>;
+    mirrorSecondaryIp?: pulumi.Input<string | undefined>;
     /**
      * Address of the Device which needs to be Deviceensed
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -135,11 +135,11 @@ export interface DeviceArgs {
     /**
      * IP address used for state mirroring
      */
-    mirrorIp?: pulumi.Input<string>;
+    mirrorIp?: pulumi.Input<string | undefined>;
     /**
      * Secondary IP address used for state mirroring
      */
-    mirrorSecondaryIp?: pulumi.Input<string>;
+    mirrorSecondaryIp?: pulumi.Input<string | undefined>;
     /**
      * Address of the Device which needs to be Deviceensed
      */

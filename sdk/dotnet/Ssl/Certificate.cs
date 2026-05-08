@@ -27,7 +27,7 @@ namespace Pulumi.F5BigIP.Ssl
     ///     var test_cert = new F5BigIP.Ssl.Certificate("test-cert", new()
     ///     {
     ///         Name = "servercert.crt",
-    ///         Content = Std.Index.File.Invoke(new()
+    ///         Content = Std.File.Invoke(new()
     ///         {
     ///             Input = "servercert.crt",
     ///         }).Apply(invoke =&gt; invoke.Result),

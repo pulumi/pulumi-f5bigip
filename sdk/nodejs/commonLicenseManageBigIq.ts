@@ -177,67 +177,67 @@ export interface CommonLicenseManageBigIqState {
     /**
      * The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
      */
-    assignmentType?: pulumi.Input<string>;
+    assignmentType?: pulumi.Input<string | undefined>;
     /**
      * BIGIQ License Manager IP Address, variable type `string`
      */
-    bigiqAddress?: pulumi.Input<string>;
+    bigiqAddress?: pulumi.Input<string | undefined>;
     /**
      * BIGIQ Login reference for token authentication
      */
-    bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string | undefined>;
     /**
      * BIGIQ License Manager password.  variable type `string`
      */
-    bigiqPassword?: pulumi.Input<string>;
+    bigiqPassword?: pulumi.Input<string | undefined>;
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * BIGIQ License Manager username, variable type `string`
      */
-    bigiqUser?: pulumi.Input<string>;
+    bigiqUser?: pulumi.Input<string | undefined>;
     /**
      * Status of Licence Assignment
      */
-    deviceLicenseStatus?: pulumi.Input<string>;
+    deviceLicenseStatus?: pulumi.Input<string | undefined>;
     /**
      * Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
      */
-    hypervisor?: pulumi.Input<string>;
+    hypervisor?: pulumi.Input<string | undefined>;
     /**
      * License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A name given to the license pool. type `string`
      */
-    licensePoolname?: pulumi.Input<string>;
+    licensePoolname?: pulumi.Input<string | undefined>;
     /**
      * MAC address of the BIG-IP. type `string`
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    skukeyword1?: pulumi.Input<string>;
+    skukeyword1?: pulumi.Input<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    skukeyword2?: pulumi.Input<string>;
+    skukeyword2?: pulumi.Input<string | undefined>;
     /**
      * For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * The units used to measure billing. For example, “hourly” or “daily”. Type `string`
      */
-    unitOfMeasure?: pulumi.Input<string>;
+    unitOfMeasure?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,7 +255,7 @@ export interface CommonLicenseManageBigIqArgs {
     /**
      * BIGIQ Login reference for token authentication
      */
-    bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string | undefined>;
     /**
      * BIGIQ License Manager password.  variable type `string`
      */
@@ -263,11 +263,11 @@ export interface CommonLicenseManageBigIqArgs {
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * BIGIQ License Manager username, variable type `string`
      */
@@ -275,15 +275,15 @@ export interface CommonLicenseManageBigIqArgs {
     /**
      * Status of Licence Assignment
      */
-    deviceLicenseStatus?: pulumi.Input<string>;
+    deviceLicenseStatus?: pulumi.Input<string | undefined>;
     /**
      * Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
      */
-    hypervisor?: pulumi.Input<string>;
+    hypervisor?: pulumi.Input<string | undefined>;
     /**
      * License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * A name given to the license pool. type `string`
      */
@@ -291,21 +291,21 @@ export interface CommonLicenseManageBigIqArgs {
     /**
      * MAC address of the BIG-IP. type `string`
      */
-    macAddress?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    skukeyword1?: pulumi.Input<string>;
+    skukeyword1?: pulumi.Input<string | undefined>;
     /**
      * An optional offering name. type `string`
      */
-    skukeyword2?: pulumi.Input<string>;
+    skukeyword2?: pulumi.Input<string | undefined>;
     /**
      * For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
      */
-    tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string | undefined>;
     /**
      * The units used to measure billing. For example, “hourly” or “daily”. Type `string`
      */
-    unitOfMeasure?: pulumi.Input<string>;
+    unitOfMeasure?: pulumi.Input<string | undefined>;
 }

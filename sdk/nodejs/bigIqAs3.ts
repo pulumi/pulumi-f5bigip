@@ -208,31 +208,31 @@ export interface BigIqAs3State {
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    as3Json?: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string | undefined>;
     /**
      * Address of the BIG-IQ to which your targer BIG-IP is attached
      */
-    bigiqAddress?: pulumi.Input<string>;
+    bigiqAddress?: pulumi.Input<string | undefined>;
     /**
      * BIGIQ Login reference for token authentication
      */
-    bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string | undefined>;
     /**
      * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
-    bigiqPassword?: pulumi.Input<string>;
+    bigiqPassword?: pulumi.Input<string | undefined>;
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
-    bigiqUser?: pulumi.Input<string>;
+    bigiqUser?: pulumi.Input<string | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to `true`
      *
@@ -292,11 +292,11 @@ export interface BigIqAs3State {
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
-    ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * Name of Tenant
      */
-    tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -314,7 +314,7 @@ export interface BigIqAs3Args {
     /**
      * BIGIQ Login reference for token authentication
      */
-    bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string | undefined>;
     /**
      * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
@@ -322,11 +322,11 @@ export interface BigIqAs3Args {
     /**
      * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
-    bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string | undefined>;
     /**
      * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
-    bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean | undefined>;
     /**
      * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
@@ -390,9 +390,9 @@ export interface BigIqAs3Args {
      *
      * >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
      */
-    ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * Name of Tenant
      */
-    tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string | undefined>;
 }

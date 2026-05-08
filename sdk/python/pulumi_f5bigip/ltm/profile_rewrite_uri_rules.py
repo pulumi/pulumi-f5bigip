@@ -25,7 +25,7 @@ class ProfileRewriteUriRulesArgs:
                  profile_name: pulumi.Input[_builtins.str],
                  rule_name: pulumi.Input[_builtins.str],
                  servers: pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]],
-                 rule_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 rule_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileRewriteUriRules resource.
 
@@ -92,25 +92,25 @@ class ProfileRewriteUriRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
         """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
-    def rule_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_type", value)
 
 
 @pulumi.input_type
 class _ProfileRewriteUriRulesState:
     def __init__(__self__, *,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]] = None):
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 servers: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]] = None):
         """
         Input properties used for looking up and filtering ProfileRewriteUriRules resources.
 
@@ -133,62 +133,62 @@ class _ProfileRewriteUriRulesState:
 
     @_builtins.property
     @pulumi.getter
-    def clients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]]:
+    def clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "clients")
 
     @clients.setter
-    def clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]]):
+    def clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesClientArgs']]]]):
         pulumi.set(self, "clients", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
-    def profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rewrite profile. ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
-    def profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the uri rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the uri rule. Valid choices are: `request, response, both`. Default value is: `both`
         """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
-    def rule_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]]:
+    def servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]]:
         """
         Block type. Each request is block type with following arguments.
         """
         return pulumi.get(self, "servers")
 
     @servers.setter
-    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]]):
+    def servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileRewriteUriRulesServerArgs']]]]):
         pulumi.set(self, "servers", value)
 
 
@@ -198,11 +198,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
                  __props__=None):
         """
         `ltm.ProfileRewriteUriRules` Configures uri rewrite rules attached to the ltm rewrite profile
@@ -321,11 +321,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
+                 clients: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,11 +358,11 @@ class ProfileRewriteUriRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            clients: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
-            profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-            rule_type: Optional[pulumi.Input[_builtins.str]] = None,
-            servers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None) -> 'ProfileRewriteUriRules':
+            clients: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesClientArgs', 'ProfileRewriteUriRulesClientArgsDict']]]]] = None,
+            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+            servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteUriRulesServerArgs', 'ProfileRewriteUriRulesServerArgsDict']]]]] = None) -> 'ProfileRewriteUriRules':
         """
         Get an existing ProfileRewriteUriRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -167,59 +167,59 @@ export interface ProfileWebAccelerationState {
     /**
      * Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
      */
-    cacheAgingRate?: pulumi.Input<number>;
+    cacheAgingRate?: pulumi.Input<number | undefined>;
     /**
      * Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
      */
-    cacheClientCacheControlMode?: pulumi.Input<string>;
+    cacheClientCacheControlMode?: pulumi.Input<string | undefined>;
     /**
      * Inserts Age and Date headers in the response. The default value is `enabled`.
      */
-    cacheInsertAgeHeader?: pulumi.Input<string>;
+    cacheInsertAgeHeader?: pulumi.Input<string | undefined>;
     /**
      * Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
      */
-    cacheMaxAge?: pulumi.Input<number>;
+    cacheMaxAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
      */
-    cacheMaxEntries?: pulumi.Input<number>;
+    cacheMaxEntries?: pulumi.Input<number | undefined>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    cacheObjectMaxSize?: pulumi.Input<number>;
+    cacheObjectMaxSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    cacheObjectMinSize?: pulumi.Input<number>;
+    cacheObjectMinSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
      */
-    cacheUriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
      */
-    cacheUriIncludeOverrides?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriIncludeOverrides?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
      */
-    cacheUriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
      */
-    cacheUriPinneds?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriPinneds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -229,55 +229,55 @@ export interface ProfileWebAccelerationArgs {
     /**
      * Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
      */
-    cacheAgingRate?: pulumi.Input<number>;
+    cacheAgingRate?: pulumi.Input<number | undefined>;
     /**
      * Specifies which cache disabling headers sent by clients the system ignores. The default value is `all`.
      */
-    cacheClientCacheControlMode?: pulumi.Input<string>;
+    cacheClientCacheControlMode?: pulumi.Input<string | undefined>;
     /**
      * Inserts Age and Date headers in the response. The default value is `enabled`.
      */
-    cacheInsertAgeHeader?: pulumi.Input<string>;
+    cacheInsertAgeHeader?: pulumi.Input<string | undefined>;
     /**
      * Specifies how long the system considers the cached content to be valid. The default value is `3600 seconds`.
      */
-    cacheMaxAge?: pulumi.Input<number>;
+    cacheMaxAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of entries that can be in the cache. The default value is `0` (zero), which means that the system does not limit the maximum entries.
      */
-    cacheMaxEntries?: pulumi.Input<number>;
+    cacheMaxEntries?: pulumi.Input<number | undefined>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    cacheObjectMaxSize?: pulumi.Input<number>;
+    cacheObjectMaxSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the smallest object that the system considers eligible for caching. The default value is `500 bytes`.
      */
-    cacheObjectMinSize?: pulumi.Input<number>;
+    cacheObjectMinSize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum size for the cache. When the cache reaches the maximum size, the system starts removing the oldest entries. The default value is `100 megabytes`.
      */
-    cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number | undefined>;
     /**
      * Configures a list of URIs to exclude from the cache. The default value of `none` specifies no URIs are excluded.
      */
-    cacheUriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to include in the cache even if they would normally be excluded due to factors like object size or HTTP request type. The default value of none specifies no URIs are to be forced into the cache.
      */
-    cacheUriIncludeOverrides?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriIncludeOverrides?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to include in the cache. The default value of `.*` specifies that all URIs are cacheable.
      */
-    cacheUriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configures a list of URIs to keep in the cache. The pinning process keeps URIs in cache when they would normally be evicted to make room for more active URIs.
      */
-    cacheUriPinneds?: pulumi.Input<pulumi.Input<string>[]>;
+    cacheUriPinneds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the web acceleration profile service ,name of Profile should be full path. Full path is the combination of the `partition + web acceleration profile name`,For example `/Common/sample-resource`.
      */

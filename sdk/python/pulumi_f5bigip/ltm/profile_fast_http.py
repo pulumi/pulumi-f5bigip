@@ -20,16 +20,16 @@ __all__ = ['ProfileFastHttpArgs', 'ProfileFastHttp']
 class ProfileFastHttpArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 connpool_maxreuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_maxsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_minsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_replenish: Optional[pulumi.Input[_builtins.str]] = None,
-                 connpool_step: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpoolidle_timeoutoverride: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 forcehttp10response: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 maxheader_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+                 connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 maxheader_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ProfileFastHttp resource.
 
@@ -81,139 +81,139 @@ class ProfileFastHttpArgs:
 
     @_builtins.property
     @pulumi.getter(name="connpoolMaxreuse")
-    def connpool_maxreuse(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_maxreuse(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
         """
         return pulumi.get(self, "connpool_maxreuse")
 
     @connpool_maxreuse.setter
-    def connpool_maxreuse(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_maxreuse(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_maxreuse", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolMaxsize")
-    def connpool_maxsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_maxsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
         """
         return pulumi.get(self, "connpool_maxsize")
 
     @connpool_maxsize.setter
-    def connpool_maxsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_maxsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_maxsize", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolMinsize")
-    def connpool_minsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_minsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
         """
         return pulumi.get(self, "connpool_minsize")
 
     @connpool_minsize.setter
-    def connpool_minsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_minsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_minsize", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolReplenish")
-    def connpool_replenish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connpool_replenish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value is enabled. When this option is enabled, the system replenishes the number of connections to a load balancing pool to the number of connections that existed when the server closed the connection to the pool. When disabled, the system replenishes the connection that was closed by the server, only when there are fewer connections to the pool than the number of connections set in the connpool-min-size connections option. Also see the connpool-min-size option..
         """
         return pulumi.get(self, "connpool_replenish")
 
     @connpool_replenish.setter
-    def connpool_replenish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connpool_replenish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connpool_replenish", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolStep")
-    def connpool_step(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_step(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the increment in which the system makes additional connections available, when all available connections are in use. The default value is 4.
         """
         return pulumi.get(self, "connpool_step")
 
     @connpool_step.setter
-    def connpool_step(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_step(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_step", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolidleTimeoutoverride")
-    def connpoolidle_timeoutoverride(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpoolidle_timeoutoverride(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds after which a server-side connection in a OneConnect pool is eligible for deletion, when the connection has no traffic.The value of this option overrides the idle-timeout value that you specify. The default value is 0 (zero) seconds, which disables the override setting.
         """
         return pulumi.get(self, "connpoolidle_timeoutoverride")
 
     @connpoolidle_timeoutoverride.setter
-    def connpoolidle_timeoutoverride(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpoolidle_timeoutoverride(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpoolidle_timeoutoverride", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def forcehttp10response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forcehttp10response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to rewrite the HTTP version in the status line of the server to HTTP 1.0 to discourage the client from pipelining or chunking data. The default value is disabled.
         """
         return pulumi.get(self, "forcehttp10response")
 
     @forcehttp10response.setter
-    def forcehttp10response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forcehttp10response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forcehttp10response", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="maxheaderSize")
-    def maxheader_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maxheader_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         """
         return pulumi.get(self, "maxheader_size")
 
     @maxheader_size.setter
-    def maxheader_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maxheader_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maxheader_size", value)
 
 
 @pulumi.input_type
 class _ProfileFastHttpState:
     def __init__(__self__, *,
-                 connpool_maxreuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_maxsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_minsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_replenish: Optional[pulumi.Input[_builtins.str]] = None,
-                 connpool_step: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpoolidle_timeoutoverride: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 forcehttp10response: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 maxheader_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+                 connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 maxheader_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProfileFastHttp resources.
 
@@ -254,134 +254,134 @@ class _ProfileFastHttpState:
 
     @_builtins.property
     @pulumi.getter(name="connpoolMaxreuse")
-    def connpool_maxreuse(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_maxreuse(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
         """
         return pulumi.get(self, "connpool_maxreuse")
 
     @connpool_maxreuse.setter
-    def connpool_maxreuse(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_maxreuse(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_maxreuse", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolMaxsize")
-    def connpool_maxsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_maxsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
         """
         return pulumi.get(self, "connpool_maxsize")
 
     @connpool_maxsize.setter
-    def connpool_maxsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_maxsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_maxsize", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolMinsize")
-    def connpool_minsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_minsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
         """
         return pulumi.get(self, "connpool_minsize")
 
     @connpool_minsize.setter
-    def connpool_minsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_minsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_minsize", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolReplenish")
-    def connpool_replenish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connpool_replenish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The default value is enabled. When this option is enabled, the system replenishes the number of connections to a load balancing pool to the number of connections that existed when the server closed the connection to the pool. When disabled, the system replenishes the connection that was closed by the server, only when there are fewer connections to the pool than the number of connections set in the connpool-min-size connections option. Also see the connpool-min-size option..
         """
         return pulumi.get(self, "connpool_replenish")
 
     @connpool_replenish.setter
-    def connpool_replenish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connpool_replenish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connpool_replenish", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolStep")
-    def connpool_step(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpool_step(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the increment in which the system makes additional connections available, when all available connections are in use. The default value is 4.
         """
         return pulumi.get(self, "connpool_step")
 
     @connpool_step.setter
-    def connpool_step(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpool_step(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpool_step", value)
 
     @_builtins.property
     @pulumi.getter(name="connpoolidleTimeoutoverride")
-    def connpoolidle_timeoutoverride(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connpoolidle_timeoutoverride(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds after which a server-side connection in a OneConnect pool is eligible for deletion, when the connection has no traffic.The value of this option overrides the idle-timeout value that you specify. The default value is 0 (zero) seconds, which disables the override setting.
         """
         return pulumi.get(self, "connpoolidle_timeoutoverride")
 
     @connpoolidle_timeoutoverride.setter
-    def connpoolidle_timeoutoverride(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connpoolidle_timeoutoverride(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connpoolidle_timeoutoverride", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def forcehttp10response(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def forcehttp10response(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to rewrite the HTTP version in the status line of the server to HTTP 1.0 to discourage the client from pipelining or chunking data. The default value is disabled.
         """
         return pulumi.get(self, "forcehttp10response")
 
     @forcehttp10response.setter
-    def forcehttp10response(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def forcehttp10response(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "forcehttp10response", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="maxheaderSize")
-    def maxheader_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maxheader_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         """
         return pulumi.get(self, "maxheader_size")
 
     @maxheader_size.setter
-    def maxheader_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maxheader_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maxheader_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the profile_fasthttp
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -391,17 +391,17 @@ class ProfileFastHttp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connpool_maxreuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_maxsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_minsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_replenish: Optional[pulumi.Input[_builtins.str]] = None,
-                 connpool_step: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpoolidle_timeoutoverride: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 forcehttp10response: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 maxheader_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+                 connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 maxheader_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.
@@ -490,17 +490,17 @@ class ProfileFastHttp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connpool_maxreuse: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_maxsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_minsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpool_replenish: Optional[pulumi.Input[_builtins.str]] = None,
-                 connpool_step: Optional[pulumi.Input[_builtins.int]] = None,
-                 connpoolidle_timeoutoverride: Optional[pulumi.Input[_builtins.int]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 forcehttp10response: Optional[pulumi.Input[_builtins.str]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 maxheader_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+                 connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+                 connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 maxheader_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,17 +533,17 @@ class ProfileFastHttp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connpool_maxreuse: Optional[pulumi.Input[_builtins.int]] = None,
-            connpool_maxsize: Optional[pulumi.Input[_builtins.int]] = None,
-            connpool_minsize: Optional[pulumi.Input[_builtins.int]] = None,
-            connpool_replenish: Optional[pulumi.Input[_builtins.str]] = None,
-            connpool_step: Optional[pulumi.Input[_builtins.int]] = None,
-            connpoolidle_timeoutoverride: Optional[pulumi.Input[_builtins.int]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            forcehttp10response: Optional[pulumi.Input[_builtins.str]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            maxheader_size: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProfileFastHttp':
+            connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+            connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+            connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            maxheader_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProfileFastHttp':
         """
         Get an existing ProfileFastHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

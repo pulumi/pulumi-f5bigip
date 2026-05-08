@@ -194,71 +194,71 @@ export interface OcspState {
     /**
      * Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
      */
-    cacheErrorTimeout?: pulumi.Input<number>;
+    cacheErrorTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
      */
-    cacheTimeout?: pulumi.Input<string>;
+    cacheTimeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
      */
-    clockSkew?: pulumi.Input<number>;
+    clockSkew?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
      */
-    concurrentConnectionsLimit?: pulumi.Input<number>;
+    concurrentConnectionsLimit?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
      */
-    connectionTimeout?: pulumi.Input<number>;
+    connectionTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
      */
-    dnsResolver?: pulumi.Input<string>;
+    dnsResolver?: pulumi.Input<string | undefined>;
     /**
      * Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a passphrase used to sign an OCSP request.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
      */
-    proxyServerPool?: pulumi.Input<string>;
+    proxyServerPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL of the OCSP responder.
      */
-    responderUrl?: pulumi.Input<string>;
+    responderUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the route domain for the OCSP responder.
      */
-    routeDomain?: pulumi.Input<string>;
+    routeDomain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
      */
-    signHash?: pulumi.Input<string>;
+    signHash?: pulumi.Input<string | undefined>;
     /**
      * Specifies the certificate used to sign the OCSP request.
      */
-    signerCert?: pulumi.Input<string>;
+    signerCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the key used to sign the OCSP request.
      */
-    signerKey?: pulumi.Input<string>;
+    signerKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.
      */
-    statusAge?: pulumi.Input<number>;
+    statusAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
      */
-    strictRespCertCheck?: pulumi.Input<string>;
+    strictRespCertCheck?: pulumi.Input<string | undefined>;
     /**
      * Specifies the certificates used for validating the OCSP response.
      */
-    trustedResponders?: pulumi.Input<string>;
+    trustedResponders?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -268,27 +268,27 @@ export interface OcspArgs {
     /**
      * Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
      */
-    cacheErrorTimeout?: pulumi.Input<number>;
+    cacheErrorTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.
      */
-    cacheTimeout?: pulumi.Input<string>;
+    cacheTimeout?: pulumi.Input<string | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.
      */
-    clockSkew?: pulumi.Input<number>;
+    clockSkew?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.
      */
-    concurrentConnectionsLimit?: pulumi.Input<number>;
+    concurrentConnectionsLimit?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.
      */
-    connectionTimeout?: pulumi.Input<number>;
+    connectionTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.
      */
-    dnsResolver?: pulumi.Input<string>;
+    dnsResolver?: pulumi.Input<string | undefined>;
     /**
      * Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.
      */
@@ -296,41 +296,41 @@ export interface OcspArgs {
     /**
      * Specifies a passphrase used to sign an OCSP request.
      */
-    passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.
      */
-    proxyServerPool?: pulumi.Input<string>;
+    proxyServerPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL of the OCSP responder.
      */
-    responderUrl?: pulumi.Input<string>;
+    responderUrl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the route domain for the OCSP responder.
      */
-    routeDomain?: pulumi.Input<string>;
+    routeDomain?: pulumi.Input<string | undefined>;
     /**
      * Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.
      */
-    signHash?: pulumi.Input<string>;
+    signHash?: pulumi.Input<string | undefined>;
     /**
      * Specifies the certificate used to sign the OCSP request.
      */
-    signerCert?: pulumi.Input<string>;
+    signerCert?: pulumi.Input<string | undefined>;
     /**
      * Specifies the key used to sign the OCSP request.
      */
-    signerKey?: pulumi.Input<string>;
+    signerKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.
      */
-    statusAge?: pulumi.Input<number>;
+    statusAge?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
      */
-    strictRespCertCheck?: pulumi.Input<string>;
+    strictRespCertCheck?: pulumi.Input<string | undefined>;
     /**
      * Specifies the certificates used for validating the OCSP response.
      */
-    trustedResponders?: pulumi.Input<string>;
+    trustedResponders?: pulumi.Input<string | undefined>;
 }

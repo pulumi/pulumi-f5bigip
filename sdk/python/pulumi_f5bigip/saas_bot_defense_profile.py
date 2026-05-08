@@ -28,8 +28,8 @@ class SaasBotDefenseProfileArgs:
                  shape_protection_pool: pulumi.Input[_builtins.str],
                  ssl_profile: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SaasBotDefenseProfile resource.
 
@@ -141,41 +141,41 @@ class SaasBotDefenseProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the BD profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 @pulumi.input_type
 class _SaasBotDefenseProfileState:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]] = None,
-                 shape_protection_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]] = None,
+                 shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SaasBotDefenseProfile resources.
 
@@ -210,110 +210,110 @@ class _SaasBotDefenseProfileState:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the API key, enter the value provided by F5 Support.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Bot Defense API application ID, enter the value provided by F5 Support
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the BD profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name for the Distributed Cloud Services Bot Defense profile
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectedEndpoints")
-    def protected_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]]:
+    def protected_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]]:
         """
         Use these settings to configure which pages on the website will be protected by BD
         """
         return pulumi.get(self, "protected_endpoints")
 
     @protected_endpoints.setter
-    def protected_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]]):
+    def protected_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SaasBotDefenseProfileProtectedEndpointArgs']]]]):
         pulumi.set(self, "protected_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="shapeProtectionPool")
-    def shape_protection_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shape_protection_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the web hostname to which API requests are made
         """
         return pulumi.get(self, "shape_protection_pool")
 
     @shape_protection_pool.setter
-    def shape_protection_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shape_protection_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shape_protection_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProfile")
-    def ssl_profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ssl_profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a server-side SSL profile that is different from what the application pool uses
         """
         return pulumi.get(self, "ssl_profile")
 
     @ssl_profile.setter
-    def ssl_profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ssl_profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ssl_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the tenant ID, enter the value provided by F5 Support
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -323,15 +323,15 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
-                 shape_protection_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+                 shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Create a SaasBotDefenseProfile resource with the given unique name, props, and options.
@@ -372,15 +372,15 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protected_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
-                 shape_protection_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+                 shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -425,15 +425,15 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_key: Optional[pulumi.Input[_builtins.str]] = None,
-            application_id: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            protected_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
-            shape_protection_pool: Optional[pulumi.Input[_builtins.str]] = None,
-            ssl_profile: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'SaasBotDefenseProfile':
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+            shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SaasBotDefenseProfile':
         """
         Get an existing SaasBotDefenseProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

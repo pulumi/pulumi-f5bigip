@@ -20,11 +20,11 @@ __all__ = [
 ]
 
 class DeviceGroupDeviceArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Is the name of the device Group
     """
-    set_sync_leader: NotRequired[pulumi.Input[_builtins.bool]]
+    set_sync_leader: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Name of origin
     """
@@ -32,8 +32,8 @@ class DeviceGroupDeviceArgsDict(TypedDict):
 @pulumi.input_type
 class DeviceGroupDeviceArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 set_sync_leader: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 set_sync_leader: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Is the name of the device Group
         :param pulumi.Input[_builtins.bool] set_sync_leader: Name of origin
@@ -45,26 +45,26 @@ class DeviceGroupDeviceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Is the name of the device Group
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="setSyncLeader")
-    def set_sync_leader(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def set_sync_leader(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Name of origin
         """
         return pulumi.get(self, "set_sync_leader")
 
     @set_sync_leader.setter
-    def set_sync_leader(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def set_sync_leader(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "set_sync_leader", value)
 
 

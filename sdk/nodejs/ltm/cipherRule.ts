@@ -122,23 +122,23 @@ export interface CipherRuleState {
     /**
      * Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
      */
-    cipher?: pulumi.Input<string>;
+    cipher?: pulumi.Input<string | undefined>;
     /**
      * The Partition in which the Cipher Rule will be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the DH Groups algorithms, separated by colons (:).
      */
-    dhGroups?: pulumi.Input<string>;
+    dhGroups?: pulumi.Input<string | undefined>;
     /**
      * Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Signature Algorithms, separated by colons (:).
      */
-    signatureAlgorithms?: pulumi.Input<string>;
+    signatureAlgorithms?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -152,11 +152,11 @@ export interface CipherRuleArgs {
     /**
      * The Partition in which the Cipher Rule will be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the DH Groups algorithms, separated by colons (:).
      */
-    dhGroups?: pulumi.Input<string>;
+    dhGroups?: pulumi.Input<string | undefined>;
     /**
      * Name of the Cipher Rule. Name should be in pattern `partition` + `cipherRuleName`
      */
@@ -164,5 +164,5 @@ export interface CipherRuleArgs {
     /**
      * Specifies the Signature Algorithms, separated by colons (:).
      */
-    signatureAlgorithms?: pulumi.Input<string>;
+    signatureAlgorithms?: pulumi.Input<string | undefined>;
 }

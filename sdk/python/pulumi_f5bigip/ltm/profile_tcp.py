@@ -20,27 +20,27 @@ __all__ = ['ProfileTcpArgs', 'ProfileTcp']
 class ProfileTcpArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 close_wait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 congestion_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferred_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 delayed_acks: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_retransmit: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_open: Optional[pulumi.Input[_builtins.str]] = None,
-                 finwait2timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 finwait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 initial_congestion_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 nagle: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxybuffer_high: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tailloss_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 timewait_recycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+                 finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 nagle: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ProfileTcp resource.
 
@@ -125,282 +125,282 @@ class ProfileTcpArgs:
 
     @_builtins.property
     @pulumi.getter(name="closeWaitTimeout")
-    def close_wait_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def close_wait_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         """
         return pulumi.get(self, "close_wait_timeout")
 
     @close_wait_timeout.setter
-    def close_wait_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def close_wait_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "close_wait_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="congestionControl")
-    def congestion_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def congestion_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
         """
         return pulumi.get(self, "congestion_control")
 
     @congestion_control.setter
-    def congestion_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def congestion_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "congestion_control", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="deferredAccept")
-    def deferred_accept(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deferred_accept(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
         """
         return pulumi.get(self, "deferred_accept")
 
     @deferred_accept.setter
-    def deferred_accept(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deferred_accept(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deferred_accept", value)
 
     @_builtins.property
     @pulumi.getter(name="delayedAcks")
-    def delayed_acks(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delayed_acks(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
         """
         return pulumi.get(self, "delayed_acks")
 
     @delayed_acks.setter
-    def delayed_acks(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delayed_acks(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delayed_acks", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyRetransmit")
-    def early_retransmit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def early_retransmit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
         """
         return pulumi.get(self, "early_retransmit")
 
     @early_retransmit.setter
-    def early_retransmit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def early_retransmit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "early_retransmit", value)
 
     @_builtins.property
     @pulumi.getter(name="fastOpen")
-    def fast_open(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fast_open(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
         """
         return pulumi.get(self, "fast_open")
 
     @fast_open.setter
-    def fast_open(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fast_open(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fast_open", value)
 
     @_builtins.property
     @pulumi.getter
-    def finwait2timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def finwait2timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
         """
         return pulumi.get(self, "finwait2timeout")
 
     @finwait2timeout.setter
-    def finwait2timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def finwait2timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "finwait2timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="finwaitTimeout")
-    def finwait_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def finwait_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
         """
         return pulumi.get(self, "finwait_timeout")
 
     @finwait_timeout.setter
-    def finwait_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def finwait_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "finwait_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="initialCongestionWindowsize")
-    def initial_congestion_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def initial_congestion_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
         """
         return pulumi.get(self, "initial_congestion_windowsize")
 
     @initial_congestion_windowsize.setter
-    def initial_congestion_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def initial_congestion_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "initial_congestion_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="keepaliveInterval")
-    def keepalive_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def keepalive_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         """
         return pulumi.get(self, "keepalive_interval")
 
     @keepalive_interval.setter
-    def keepalive_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def keepalive_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "keepalive_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def nagle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nagle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
         """
         return pulumi.get(self, "nagle")
 
     @nagle.setter
-    def nagle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nagle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nagle", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proxybufferHigh")
-    def proxybuffer_high(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def proxybuffer_high(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the proxy buffer level, in bytes, at which the receive window is closed.
         """
         return pulumi.get(self, "proxybuffer_high")
 
     @proxybuffer_high.setter
-    def proxybuffer_high(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def proxybuffer_high(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "proxybuffer_high", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWindowsize")
-    def receive_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
         """
         return pulumi.get(self, "receive_windowsize")
 
     @receive_windowsize.setter
-    def receive_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="sendBuffersize")
-    def send_buffersize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def send_buffersize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the SEND window size. The default is 131072 bytes.
         """
         return pulumi.get(self, "send_buffersize")
 
     @send_buffersize.setter
-    def send_buffersize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def send_buffersize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "send_buffersize", value)
 
     @_builtins.property
     @pulumi.getter(name="taillossProbe")
-    def tailloss_probe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tailloss_probe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
         """
         return pulumi.get(self, "tailloss_probe")
 
     @tailloss_probe.setter
-    def tailloss_probe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tailloss_probe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tailloss_probe", value)
 
     @_builtins.property
     @pulumi.getter(name="timewaitRecycle")
-    def timewait_recycle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timewait_recycle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
         """
         return pulumi.get(self, "timewait_recycle")
 
     @timewait_recycle.setter
-    def timewait_recycle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timewait_recycle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timewait_recycle", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccept")
-    def verified_accept(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verified_accept(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
         """
         return pulumi.get(self, "verified_accept")
 
     @verified_accept.setter
-    def verified_accept(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verified_accept(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verified_accept", value)
 
     @_builtins.property
     @pulumi.getter(name="zerowindowTimeout")
-    def zerowindow_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def zerowindow_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
         """
         return pulumi.get(self, "zerowindow_timeout")
 
     @zerowindow_timeout.setter
-    def zerowindow_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def zerowindow_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "zerowindow_timeout", value)
 
 
 @pulumi.input_type
 class _ProfileTcpState:
     def __init__(__self__, *,
-                 close_wait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 congestion_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferred_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 delayed_acks: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_retransmit: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_open: Optional[pulumi.Input[_builtins.str]] = None,
-                 finwait2timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 finwait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 initial_congestion_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 nagle: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxybuffer_high: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tailloss_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 timewait_recycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+                 finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 nagle: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ProfileTcp resources.
 
@@ -474,266 +474,266 @@ class _ProfileTcpState:
 
     @_builtins.property
     @pulumi.getter(name="closeWaitTimeout")
-    def close_wait_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def close_wait_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         """
         return pulumi.get(self, "close_wait_timeout")
 
     @close_wait_timeout.setter
-    def close_wait_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def close_wait_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "close_wait_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="congestionControl")
-    def congestion_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def congestion_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
         """
         return pulumi.get(self, "congestion_control")
 
     @congestion_control.setter
-    def congestion_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def congestion_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "congestion_control", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def defaults_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
         return pulumi.get(self, "defaults_from")
 
     @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def defaults_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "defaults_from", value)
 
     @_builtins.property
     @pulumi.getter(name="deferredAccept")
-    def deferred_accept(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deferred_accept(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
         """
         return pulumi.get(self, "deferred_accept")
 
     @deferred_accept.setter
-    def deferred_accept(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deferred_accept(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deferred_accept", value)
 
     @_builtins.property
     @pulumi.getter(name="delayedAcks")
-    def delayed_acks(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delayed_acks(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
         """
         return pulumi.get(self, "delayed_acks")
 
     @delayed_acks.setter
-    def delayed_acks(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delayed_acks(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delayed_acks", value)
 
     @_builtins.property
     @pulumi.getter(name="earlyRetransmit")
-    def early_retransmit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def early_retransmit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
         """
         return pulumi.get(self, "early_retransmit")
 
     @early_retransmit.setter
-    def early_retransmit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def early_retransmit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "early_retransmit", value)
 
     @_builtins.property
     @pulumi.getter(name="fastOpen")
-    def fast_open(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fast_open(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
         """
         return pulumi.get(self, "fast_open")
 
     @fast_open.setter
-    def fast_open(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fast_open(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fast_open", value)
 
     @_builtins.property
     @pulumi.getter
-    def finwait2timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def finwait2timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
         """
         return pulumi.get(self, "finwait2timeout")
 
     @finwait2timeout.setter
-    def finwait2timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def finwait2timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "finwait2timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="finwaitTimeout")
-    def finwait_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def finwait_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
         """
         return pulumi.get(self, "finwait_timeout")
 
     @finwait_timeout.setter
-    def finwait_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def finwait_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "finwait_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def idle_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
         """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
-    def idle_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def idle_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "idle_timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="initialCongestionWindowsize")
-    def initial_congestion_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def initial_congestion_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
         """
         return pulumi.get(self, "initial_congestion_windowsize")
 
     @initial_congestion_windowsize.setter
-    def initial_congestion_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def initial_congestion_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "initial_congestion_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="keepaliveInterval")
-    def keepalive_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def keepalive_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         """
         return pulumi.get(self, "keepalive_interval")
 
     @keepalive_interval.setter
-    def keepalive_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def keepalive_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "keepalive_interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def nagle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nagle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
         """
         return pulumi.get(self, "nagle")
 
     @nagle.setter
-    def nagle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nagle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nagle", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def partition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
-    def partition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partition", value)
 
     @_builtins.property
     @pulumi.getter(name="proxybufferHigh")
-    def proxybuffer_high(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def proxybuffer_high(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the proxy buffer level, in bytes, at which the receive window is closed.
         """
         return pulumi.get(self, "proxybuffer_high")
 
     @proxybuffer_high.setter
-    def proxybuffer_high(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def proxybuffer_high(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "proxybuffer_high", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveWindowsize")
-    def receive_windowsize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_windowsize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
         """
         return pulumi.get(self, "receive_windowsize")
 
     @receive_windowsize.setter
-    def receive_windowsize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_windowsize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_windowsize", value)
 
     @_builtins.property
     @pulumi.getter(name="sendBuffersize")
-    def send_buffersize(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def send_buffersize(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the SEND window size. The default is 131072 bytes.
         """
         return pulumi.get(self, "send_buffersize")
 
     @send_buffersize.setter
-    def send_buffersize(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def send_buffersize(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "send_buffersize", value)
 
     @_builtins.property
     @pulumi.getter(name="taillossProbe")
-    def tailloss_probe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tailloss_probe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
         """
         return pulumi.get(self, "tailloss_probe")
 
     @tailloss_probe.setter
-    def tailloss_probe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tailloss_probe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tailloss_probe", value)
 
     @_builtins.property
     @pulumi.getter(name="timewaitRecycle")
-    def timewait_recycle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timewait_recycle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
         """
         return pulumi.get(self, "timewait_recycle")
 
     @timewait_recycle.setter
-    def timewait_recycle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timewait_recycle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timewait_recycle", value)
 
     @_builtins.property
     @pulumi.getter(name="verifiedAccept")
-    def verified_accept(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verified_accept(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
         """
         return pulumi.get(self, "verified_accept")
 
     @verified_accept.setter
-    def verified_accept(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verified_accept(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verified_accept", value)
 
     @_builtins.property
     @pulumi.getter(name="zerowindowTimeout")
-    def zerowindow_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def zerowindow_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
         """
         return pulumi.get(self, "zerowindow_timeout")
 
     @zerowindow_timeout.setter
-    def zerowindow_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def zerowindow_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "zerowindow_timeout", value)
 
 
@@ -743,28 +743,28 @@ class ProfileTcp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 close_wait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 congestion_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferred_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 delayed_acks: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_retransmit: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_open: Optional[pulumi.Input[_builtins.str]] = None,
-                 finwait2timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 finwait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 initial_congestion_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 nagle: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxybuffer_high: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tailloss_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 timewait_recycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+                 finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 nagle: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
@@ -874,28 +874,28 @@ class ProfileTcp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 close_wait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 congestion_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferred_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 delayed_acks: Optional[pulumi.Input[_builtins.str]] = None,
-                 early_retransmit: Optional[pulumi.Input[_builtins.str]] = None,
-                 fast_open: Optional[pulumi.Input[_builtins.str]] = None,
-                 finwait2timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 finwait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 initial_congestion_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 keepalive_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 nagle: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partition: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxybuffer_high: Optional[pulumi.Input[_builtins.int]] = None,
-                 receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-                 send_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-                 tailloss_probe: Optional[pulumi.Input[_builtins.str]] = None,
-                 timewait_recycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 verified_accept: Optional[pulumi.Input[_builtins.str]] = None,
-                 zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+                 early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+                 fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+                 finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 nagle: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partition: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+                 receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+                 send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+                 tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+                 timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+                 zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -939,28 +939,28 @@ class ProfileTcp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            close_wait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            congestion_control: Optional[pulumi.Input[_builtins.str]] = None,
-            defaults_from: Optional[pulumi.Input[_builtins.str]] = None,
-            deferred_accept: Optional[pulumi.Input[_builtins.str]] = None,
-            delayed_acks: Optional[pulumi.Input[_builtins.str]] = None,
-            early_retransmit: Optional[pulumi.Input[_builtins.str]] = None,
-            fast_open: Optional[pulumi.Input[_builtins.str]] = None,
-            finwait2timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            finwait_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            idle_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-            initial_congestion_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-            keepalive_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            nagle: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            partition: Optional[pulumi.Input[_builtins.str]] = None,
-            proxybuffer_high: Optional[pulumi.Input[_builtins.int]] = None,
-            receive_windowsize: Optional[pulumi.Input[_builtins.int]] = None,
-            send_buffersize: Optional[pulumi.Input[_builtins.int]] = None,
-            tailloss_probe: Optional[pulumi.Input[_builtins.str]] = None,
-            timewait_recycle: Optional[pulumi.Input[_builtins.str]] = None,
-            verified_accept: Optional[pulumi.Input[_builtins.str]] = None,
-            zerowindow_timeout: Optional[pulumi.Input[_builtins.int]] = None) -> 'ProfileTcp':
+            close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+            delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+            early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+            finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            nagle: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+            receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+            tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+            timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+            verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+            zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None) -> 'ProfileTcp':
         """
         Get an existing ProfileTcp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

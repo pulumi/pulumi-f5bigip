@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     cookieName: "ham",
  *     expiration: "1:0:0",
  *     hashLength: 0,
+ * }, {
+ *     ignoreChanges: ["cookieEncryptionPassphrase"],
  * });
  * ```
  *
@@ -243,72 +245,72 @@ export interface PersistenceProfileCookieState {
     /**
      * To enable _ disable always sending cookies
      */
-    alwaysSend?: pulumi.Input<string>;
-    appService?: pulumi.Input<string>;
+    alwaysSend?: pulumi.Input<string | undefined>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * To required, preferred, or disabled policy for cookie encryption
      */
-    cookieEncryption?: pulumi.Input<string>;
+    cookieEncryption?: pulumi.Input<string | undefined>;
     /**
      * Passphrase for encrypted cookies
      */
-    cookieEncryptionPassphrase?: pulumi.Input<string>;
+    cookieEncryptionPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Name of the cookie to track persistence
      */
-    cookieName?: pulumi.Input<string>;
+    cookieName?: pulumi.Input<string | undefined>;
     /**
      * Inherit defaults from parent profile
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Expiration TTL for cookie specified in D:H:M:S or in seconds
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * Length of hash to apply to cookie
      */
-    hashLength?: pulumi.Input<number>;
+    hashLength?: pulumi.Input<number | undefined>;
     /**
      * Number of characters to skip in the cookie for the hash
      */
-    hashOffset?: pulumi.Input<number>;
+    hashOffset?: pulumi.Input<number | undefined>;
     /**
      * To enable _ disable sending only over http
      */
-    httponly?: pulumi.Input<string>;
+    httponly?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across virtual servers with given persistence record
      */
-    matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of cookie processing that the system uses
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable
      */
-    mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string | undefined>;
     /**
      * Name of the persistence profile
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
-    overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string | undefined>;
     /**
      * Timeout for persistence of the session
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -318,20 +320,20 @@ export interface PersistenceProfileCookieArgs {
     /**
      * To enable _ disable always sending cookies
      */
-    alwaysSend?: pulumi.Input<string>;
-    appService?: pulumi.Input<string>;
+    alwaysSend?: pulumi.Input<string | undefined>;
+    appService?: pulumi.Input<string | undefined>;
     /**
      * To required, preferred, or disabled policy for cookie encryption
      */
-    cookieEncryption?: pulumi.Input<string>;
+    cookieEncryption?: pulumi.Input<string | undefined>;
     /**
      * Passphrase for encrypted cookies
      */
-    cookieEncryptionPassphrase?: pulumi.Input<string>;
+    cookieEncryptionPassphrase?: pulumi.Input<string | undefined>;
     /**
      * Name of the cookie to track persistence
      */
-    cookieName?: pulumi.Input<string>;
+    cookieName?: pulumi.Input<string | undefined>;
     /**
      * Inherit defaults from parent profile
      */
@@ -339,39 +341,39 @@ export interface PersistenceProfileCookieArgs {
     /**
      * Expiration TTL for cookie specified in D:H:M:S or in seconds
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * Length of hash to apply to cookie
      */
-    hashLength?: pulumi.Input<number>;
+    hashLength?: pulumi.Input<number | undefined>;
     /**
      * Number of characters to skip in the cookie for the hash
      */
-    hashOffset?: pulumi.Input<number>;
+    hashOffset?: pulumi.Input<number | undefined>;
     /**
      * To enable _ disable sending only over http
      */
-    httponly?: pulumi.Input<string>;
+    httponly?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable match across virtual servers with given persistence record
      */
-    matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of cookie processing that the system uses
      */
-    method?: pulumi.Input<string>;
+    method?: pulumi.Input<string | undefined>;
     /**
      * To enable _ disable
      */
-    mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string | undefined>;
     /**
      * Name of the persistence profile
      */
@@ -379,9 +381,9 @@ export interface PersistenceProfileCookieArgs {
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
      */
-    overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string | undefined>;
     /**
      * Timeout for persistence of the session
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

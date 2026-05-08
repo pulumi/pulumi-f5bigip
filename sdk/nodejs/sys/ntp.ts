@@ -101,15 +101,15 @@ export interface NtpState {
     /**
      * User defined description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the time servers that the system uses to update the system time.
      */
-    servers?: pulumi.Input<pulumi.Input<string>[]>;
+    servers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface NtpArgs {
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }

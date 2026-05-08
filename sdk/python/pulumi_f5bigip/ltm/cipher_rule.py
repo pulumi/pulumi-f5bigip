@@ -21,9 +21,9 @@ class CipherRuleArgs:
     def __init__(__self__, *,
                  cipher: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dh_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dh_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CipherRule resource.
 
@@ -68,49 +68,49 @@ class CipherRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Partition in which the Cipher Rule will be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dhGroups")
-    def dh_groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dh_groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the DH Groups algorithms, separated by colons (:).
         """
         return pulumi.get(self, "dh_groups")
 
     @dh_groups.setter
-    def dh_groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dh_groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dh_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureAlgorithms")
-    def signature_algorithms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_algorithms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Signature Algorithms, separated by colons (:).
         """
         return pulumi.get(self, "signature_algorithms")
 
     @signature_algorithms.setter
-    def signature_algorithms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_algorithms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_algorithms", value)
 
 
 @pulumi.input_type
 class _CipherRuleState:
     def __init__(__self__, *,
-                 cipher: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dh_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None):
+                 cipher: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dh_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CipherRule resources.
 
@@ -133,62 +133,62 @@ class _CipherRuleState:
 
     @_builtins.property
     @pulumi.getter
-    def cipher(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cipher(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
         """
         return pulumi.get(self, "cipher")
 
     @cipher.setter
-    def cipher(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cipher(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cipher", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Partition in which the Cipher Rule will be created.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dhGroups")
-    def dh_groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dh_groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the DH Groups algorithms, separated by colons (:).
         """
         return pulumi.get(self, "dh_groups")
 
     @dh_groups.setter
-    def dh_groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dh_groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dh_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureAlgorithms")
-    def signature_algorithms(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_algorithms(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Signature Algorithms, separated by colons (:).
         """
         return pulumi.get(self, "signature_algorithms")
 
     @signature_algorithms.setter
-    def signature_algorithms(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_algorithms(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_algorithms", value)
 
 
@@ -198,11 +198,11 @@ class CipherRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cipher: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dh_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None,
+                 cipher: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dh_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
@@ -283,11 +283,11 @@ class CipherRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cipher: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dh_groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None,
+                 cipher: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dh_groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -316,11 +316,11 @@ class CipherRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cipher: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dh_groups: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            signature_algorithms: Optional[pulumi.Input[_builtins.str]] = None) -> 'CipherRule':
+            cipher: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dh_groups: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            signature_algorithms: pulumi.Input[Optional[_builtins.str]] = None) -> 'CipherRule':
         """
         Get an existing CipherRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

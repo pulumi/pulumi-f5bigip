@@ -22,10 +22,10 @@ __all__ = ['VlanArgs', 'Vlan']
 class VlanArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 cmp_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag: Optional[pulumi.Input[_builtins.int]] = None):
+                 cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Vlan resource.
 
@@ -59,61 +59,61 @@ class VlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmpHash")
-    def cmp_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmp_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         """
         return pulumi.get(self, "cmp_hash")
 
     @cmp_hash.setter
-    def cmp_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmp_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmp_hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
+    def interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
         """
         Specifies which interfaces you want this VLAN to use for traffic management.
         """
         return pulumi.get(self, "interfaces")
 
     @interfaces.setter
-    def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
+    def interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
         pulumi.set(self, "interfaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
 class _VlanState:
     def __init__(__self__, *,
-                 cmp_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.int]] = None):
+                 cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Vlan resources.
 
@@ -136,62 +136,62 @@ class _VlanState:
 
     @_builtins.property
     @pulumi.getter(name="cmpHash")
-    def cmp_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cmp_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         """
         return pulumi.get(self, "cmp_hash")
 
     @cmp_hash.setter
-    def cmp_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cmp_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cmp_hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
+    def interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
         """
         Specifies which interfaces you want this VLAN to use for traffic management.
         """
         return pulumi.get(self, "interfaces")
 
     @interfaces.setter
-    def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
+    def interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
         pulumi.set(self, "interfaces", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the vlan
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def tag(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def tag(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tag", value)
 
 
@@ -201,11 +201,11 @@ class Vlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmp_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.int]] = None,
+                 cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `net.Vlan` Manages a vlan configuration
@@ -278,11 +278,11 @@ class Vlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmp_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag: Optional[pulumi.Input[_builtins.int]] = None,
+                 cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,11 +309,11 @@ class Vlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cmp_hash: Optional[pulumi.Input[_builtins.str]] = None,
-            interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
-            mtu: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            tag: Optional[pulumi.Input[_builtins.int]] = None) -> 'Vlan':
+            cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tag: pulumi.Input[Optional[_builtins.int]] = None) -> 'Vlan':
         """
         Get an existing Vlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -24,17 +24,17 @@ class CommonLicenseManageBigIqArgs:
                  bigiq_password: pulumi.Input[_builtins.str],
                  bigiq_user: pulumi.Input[_builtins.str],
                  license_poolname: pulumi.Input[_builtins.str],
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 device_license_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword1: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword2: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CommonLicenseManageBigIq resource.
 
@@ -145,156 +145,156 @@ class CommonLicenseManageBigIqArgs:
 
     @_builtins.property
     @pulumi.getter(name="bigiqLoginRef")
-    def bigiq_login_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_login_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
     @bigiq_login_ref.setter
-    def bigiq_login_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_login_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_login_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPort")
-    def bigiq_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
     @bigiq_port.setter
-    def bigiq_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqTokenAuth")
-    def bigiq_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigiq_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
     @bigiq_token_auth.setter
-    def bigiq_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigiq_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigiq_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceLicenseStatus")
-    def device_license_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_license_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of Licence Assignment
         """
         return pulumi.get(self, "device_license_status")
 
     @device_license_status.setter
-    def device_license_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_license_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_license_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def hypervisor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hypervisor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
         """
         return pulumi.get(self, "hypervisor")
 
     @hypervisor.setter
-    def hypervisor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hypervisor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hypervisor", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MAC address of the BIG-IP. type `string`
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def skukeyword1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skukeyword1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional offering name. type `string`
         """
         return pulumi.get(self, "skukeyword1")
 
     @skukeyword1.setter
-    def skukeyword1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skukeyword1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skukeyword1", value)
 
     @_builtins.property
     @pulumi.getter
-    def skukeyword2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skukeyword2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional offering name. type `string`
         """
         return pulumi.get(self, "skukeyword2")
 
     @skukeyword2.setter
-    def skukeyword2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skukeyword2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skukeyword2", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="unitOfMeasure")
-    def unit_of_measure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_of_measure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The units used to measure billing. For example, “hourly” or “daily”. Type `string`
         """
         return pulumi.get(self, "unit_of_measure")
 
     @unit_of_measure.setter
-    def unit_of_measure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_of_measure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_of_measure", value)
 
 
 @pulumi.input_type
 class _CommonLicenseManageBigIqState:
     def __init__(__self__, *,
-                 assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_license_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_poolname: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword1: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword2: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None):
+                 assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_poolname: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CommonLicenseManageBigIq resources.
 
@@ -350,194 +350,194 @@ class _CommonLicenseManageBigIqState:
 
     @_builtins.property
     @pulumi.getter(name="assignmentType")
-    def assignment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assignment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
         """
         return pulumi.get(self, "assignment_type")
 
     @assignment_type.setter
-    def assignment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assignment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assignment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqAddress")
-    def bigiq_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ License Manager IP Address, variable type `string`
         """
         return pulumi.get(self, "bigiq_address")
 
     @bigiq_address.setter
-    def bigiq_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_address", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqLoginRef")
-    def bigiq_login_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_login_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
     @bigiq_login_ref.setter
-    def bigiq_login_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_login_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_login_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPassword")
-    def bigiq_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ License Manager password.  variable type `string`
         """
         return pulumi.get(self, "bigiq_password")
 
     @bigiq_password.setter
-    def bigiq_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_password", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqPort")
-    def bigiq_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
     @bigiq_port.setter
-    def bigiq_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_port", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqTokenAuth")
-    def bigiq_token_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bigiq_token_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
     @bigiq_token_auth.setter
-    def bigiq_token_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bigiq_token_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bigiq_token_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="bigiqUser")
-    def bigiq_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bigiq_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         BIGIQ License Manager username, variable type `string`
         """
         return pulumi.get(self, "bigiq_user")
 
     @bigiq_user.setter
-    def bigiq_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bigiq_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bigiq_user", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceLicenseStatus")
-    def device_license_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_license_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of Licence Assignment
         """
         return pulumi.get(self, "device_license_status")
 
     @device_license_status.setter
-    def device_license_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_license_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_license_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def hypervisor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hypervisor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
         """
         return pulumi.get(self, "hypervisor")
 
     @hypervisor.setter
-    def hypervisor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hypervisor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hypervisor", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="licensePoolname")
-    def license_poolname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_poolname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name given to the license pool. type `string`
         """
         return pulumi.get(self, "license_poolname")
 
     @license_poolname.setter
-    def license_poolname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_poolname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_poolname", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MAC address of the BIG-IP. type `string`
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def skukeyword1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skukeyword1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional offering name. type `string`
         """
         return pulumi.get(self, "skukeyword1")
 
     @skukeyword1.setter
-    def skukeyword1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skukeyword1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skukeyword1", value)
 
     @_builtins.property
     @pulumi.getter
-    def skukeyword2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def skukeyword2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional offering name. type `string`
         """
         return pulumi.get(self, "skukeyword2")
 
     @skukeyword2.setter
-    def skukeyword2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def skukeyword2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "skukeyword2", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
         """
         return pulumi.get(self, "tenant")
 
     @tenant.setter
-    def tenant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant", value)
 
     @_builtins.property
     @pulumi.getter(name="unitOfMeasure")
-    def unit_of_measure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_of_measure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The units used to measure billing. For example, “hourly” or “daily”. Type `string`
         """
         return pulumi.get(self, "unit_of_measure")
 
     @unit_of_measure.setter
-    def unit_of_measure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_of_measure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_of_measure", value)
 
 
@@ -547,22 +547,22 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_license_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_poolname: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword1: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword2: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_poolname: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
@@ -612,22 +612,22 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_license_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_poolname: Optional[pulumi.Input[_builtins.str]] = None,
-                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword1: Optional[pulumi.Input[_builtins.str]] = None,
-                 skukeyword2: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None,
+                 assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_poolname: pulumi.Input[Optional[_builtins.str]] = None,
+                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+                 skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -675,22 +675,22 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assignment_type: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_address: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_login_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_password: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_port: Optional[pulumi.Input[_builtins.str]] = None,
-            bigiq_token_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-            bigiq_user: Optional[pulumi.Input[_builtins.str]] = None,
-            device_license_status: Optional[pulumi.Input[_builtins.str]] = None,
-            hypervisor: Optional[pulumi.Input[_builtins.str]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            license_poolname: Optional[pulumi.Input[_builtins.str]] = None,
-            mac_address: Optional[pulumi.Input[_builtins.str]] = None,
-            skukeyword1: Optional[pulumi.Input[_builtins.str]] = None,
-            skukeyword2: Optional[pulumi.Input[_builtins.str]] = None,
-            tenant: Optional[pulumi.Input[_builtins.str]] = None,
-            unit_of_measure: Optional[pulumi.Input[_builtins.str]] = None) -> 'CommonLicenseManageBigIq':
+            assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+            device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+            hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            license_poolname: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+            skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None) -> 'CommonLicenseManageBigIq':
         """
         Get an existing CommonLicenseManageBigIq resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

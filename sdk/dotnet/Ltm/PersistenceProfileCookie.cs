@@ -37,6 +37,12 @@ namespace Pulumi.F5BigIP.Ltm
     ///         CookieName = "ham",
     ///         Expiration = "1:0:0",
     ///         HashLength = 0,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "cookieEncryptionPassphrase",
+    ///         },
     ///     });
     /// 
     /// });

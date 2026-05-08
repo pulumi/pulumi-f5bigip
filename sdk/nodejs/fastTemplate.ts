@@ -105,15 +105,15 @@ export interface FastTemplateState {
     /**
      * MD5 hash of the zip archive file containing FAST template
      */
-    md5Hash?: pulumi.Input<string>;
+    md5Hash?: pulumi.Input<string | undefined>;
     /**
      * Name of the FAST template set to be created on to BIGIP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Path to the zip archive file containing FAST template set on Local Disk
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -127,7 +127,7 @@ export interface FastTemplateArgs {
     /**
      * Name of the FAST template set to be created on to BIGIP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Path to the zip archive file containing FAST template set on Local Disk
      */

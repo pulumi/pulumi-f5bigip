@@ -20,10 +20,10 @@ __all__ = ['CipherGroupArgs', 'CipherGroup']
 class CipherGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ordering: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CipherGroup resource.
 
@@ -57,61 +57,61 @@ class CipherGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "allows")
 
     @allows.setter
-    def allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allows", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the cipher rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def ordering(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ordering(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         """
         return pulumi.get(self, "ordering")
 
     @ordering.setter
-    def ordering(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ordering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ordering", value)
 
     @_builtins.property
     @pulumi.getter
-    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def requires(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "requires")
 
     @requires.setter
-    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def requires(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "requires", value)
 
 
 @pulumi.input_type
 class _CipherGroupState:
     def __init__(__self__, *,
-                 allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ordering: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CipherGroup resources.
 
@@ -134,62 +134,62 @@ class _CipherGroupState:
 
     @_builtins.property
     @pulumi.getter
-    def allows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "allows")
 
     @allows.setter
-    def allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allows", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies descriptive text that identifies the cipher rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def ordering(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ordering(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed. The default is `default`.
         """
         return pulumi.get(self, "ordering")
 
     @ordering.setter
-    def ordering(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ordering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ordering", value)
 
     @_builtins.property
     @pulumi.getter
-    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def requires(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no restricted ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
         """
         return pulumi.get(self, "requires")
 
     @requires.setter
-    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def requires(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "requires", value)
 
 
@@ -199,11 +199,11 @@ class CipherGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ordering: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
@@ -286,11 +286,11 @@ class CipherGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ordering: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -317,11 +317,11 @@ class CipherGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allows: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            ordering: Optional[pulumi.Input[_builtins.str]] = None,
-            requires: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CipherGroup':
+            allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ordering: pulumi.Input[Optional[_builtins.str]] = None,
+            requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CipherGroup':
         """
         Get an existing CipherGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

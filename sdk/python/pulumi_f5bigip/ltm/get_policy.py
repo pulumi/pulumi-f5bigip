@@ -165,12 +165,12 @@ def get_policy(controls: Optional[Sequence[_builtins.str]] = None,
         requires=pulumi.get(__ret__, 'requires'),
         rules=pulumi.get(__ret__, 'rules'),
         strategy=pulumi.get(__ret__, 'strategy'))
-def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      published_copy: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      requires: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                      rules: Optional[pulumi.Input[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]]]] = None,
-                      strategy: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_policy_output(controls: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      published_copy: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      requires: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                      rules: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]]]] = None,
+                      strategy: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP

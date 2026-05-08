@@ -137,29 +137,29 @@ export function getWafEntityParameterOutput(args: GetWafEntityParameterOutputArg
  * A collection of arguments for invoking getWafEntityParameter.
  */
 export interface GetWafEntityParameterOutputArgs {
-    allowEmptyType?: pulumi.Input<boolean>;
-    allowRepeatedParameterName?: pulumi.Input<boolean>;
-    attackSignaturesCheck?: pulumi.Input<boolean>;
-    checkMaxValueLength?: pulumi.Input<boolean>;
-    checkMinValueLength?: pulumi.Input<boolean>;
-    dataType?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    enableRegularExpression?: pulumi.Input<boolean>;
-    isBase64?: pulumi.Input<boolean>;
-    isCookie?: pulumi.Input<boolean>;
-    isHeader?: pulumi.Input<boolean>;
-    json?: pulumi.Input<string>;
-    level?: pulumi.Input<string>;
-    mandatory?: pulumi.Input<boolean>;
-    maxValueLength?: pulumi.Input<number>;
-    metacharsOnParameterValueCheck?: pulumi.Input<boolean>;
-    minValueLength?: pulumi.Input<number>;
+    allowEmptyType?: pulumi.Input<boolean | undefined>;
+    allowRepeatedParameterName?: pulumi.Input<boolean | undefined>;
+    attackSignaturesCheck?: pulumi.Input<boolean | undefined>;
+    checkMaxValueLength?: pulumi.Input<boolean | undefined>;
+    checkMinValueLength?: pulumi.Input<boolean | undefined>;
+    dataType?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    enableRegularExpression?: pulumi.Input<boolean | undefined>;
+    isBase64?: pulumi.Input<boolean | undefined>;
+    isCookie?: pulumi.Input<boolean | undefined>;
+    isHeader?: pulumi.Input<boolean | undefined>;
+    json?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    mandatory?: pulumi.Input<boolean | undefined>;
+    maxValueLength?: pulumi.Input<number | undefined>;
+    metacharsOnParameterValueCheck?: pulumi.Input<boolean | undefined>;
+    minValueLength?: pulumi.Input<number | undefined>;
     name: pulumi.Input<string>;
-    parameterLocation?: pulumi.Input<string>;
-    performStaging?: pulumi.Input<boolean>;
-    sensitiveParameter?: pulumi.Input<boolean>;
-    signatureOverridesDisables?: pulumi.Input<pulumi.Input<number>[]>;
-    type?: pulumi.Input<string>;
-    url?: pulumi.Input<inputs.ssl.GetWafEntityParameterUrlArgs>;
-    valueType?: pulumi.Input<string>;
+    parameterLocation?: pulumi.Input<string | undefined>;
+    performStaging?: pulumi.Input<boolean | undefined>;
+    sensitiveParameter?: pulumi.Input<boolean | undefined>;
+    signatureOverridesDisables?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<inputs.ssl.GetWafEntityParameterUrlArgs | undefined>;
+    valueType?: pulumi.Input<string | undefined>;
 }

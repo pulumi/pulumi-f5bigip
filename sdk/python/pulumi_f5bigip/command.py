@@ -20,8 +20,8 @@ __all__ = ['CommandArgs', 'Command']
 class CommandArgs:
     def __init__(__self__, *,
                  commands: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 when: Optional[pulumi.Input[_builtins.str]] = None):
+                 command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 when: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Command resource.
 
@@ -49,35 +49,35 @@ class CommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="commandResults")
-    def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def command_results(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resulting output from the `commands` executed.
         """
         return pulumi.get(self, "command_results")
 
     @command_results.setter
-    def command_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def command_results(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command_results", value)
 
     @_builtins.property
     @pulumi.getter
-    def when(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def when(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         return pulumi.get(self, "when")
 
     @when.setter
-    def when(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def when(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "when", value)
 
 
 @pulumi.input_type
 class _CommandState:
     def __init__(__self__, *,
-                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 when: Optional[pulumi.Input[_builtins.str]] = None):
+                 command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 when: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Command resources.
 
@@ -94,38 +94,38 @@ class _CommandState:
 
     @_builtins.property
     @pulumi.getter(name="commandResults")
-    def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def command_results(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The resulting output from the `commands` executed.
         """
         return pulumi.get(self, "command_results")
 
     @command_results.setter
-    def command_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def command_results(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command_results", value)
 
     @_builtins.property
     @pulumi.getter
-    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def commands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         return pulumi.get(self, "commands")
 
     @commands.setter
-    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def commands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "commands", value)
 
     @_builtins.property
     @pulumi.getter
-    def when(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def when(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         default value will be `apply`,can be set to `destroy` for terraform destroy call.
         """
         return pulumi.get(self, "when")
 
     @when.setter
-    def when(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def when(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "when", value)
 
 
@@ -135,9 +135,9 @@ class Command(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 when: Optional[pulumi.Input[_builtins.str]] = None,
+                 command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 when: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `Command` Run TMSH commands on F5 devices
@@ -178,9 +178,9 @@ class Command(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 when: Optional[pulumi.Input[_builtins.str]] = None,
+                 command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 when: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,9 +205,9 @@ class Command(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            command_results: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            commands: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            when: Optional[pulumi.Input[_builtins.str]] = None) -> 'Command':
+            command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            when: pulumi.Input[Optional[_builtins.str]] = None) -> 'Command':
         """
         Get an existing Command resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

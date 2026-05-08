@@ -588,19 +588,19 @@ export interface As3State {
     /**
      * List of applications currently deployed on the Big-Ip
      */
-    applicationList?: pulumi.Input<string>;
+    applicationList?: pulumi.Input<string | undefined>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    as3Json?: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string | undefined>;
     /**
      * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
      */
-    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      */
-    deleteApps?: pulumi.Input<inputs.As3DeleteApps>;
+    deleteApps?: pulumi.Input<inputs.As3DeleteApps | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *
@@ -788,27 +788,27 @@ export interface As3State {
      *
      * > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      */
-    ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * Will specify whether is deployment is done via Per-Application Way or Traditional Way
      */
-    perAppMode?: pulumi.Input<boolean>;
+    perAppMode?: pulumi.Input<boolean | undefined>;
     /**
      * ID of AS3 post declaration async task
      */
-    taskId?: pulumi.Input<string>;
+    taskId?: pulumi.Input<string | undefined>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
-    tenantFilter?: pulumi.Input<string>;
+    tenantFilter?: pulumi.Input<string | undefined>;
     /**
      * List of tenants currently deployed on the Big-Ip
      */
-    tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string | undefined>;
     /**
      * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -818,19 +818,19 @@ export interface As3Args {
     /**
      * List of applications currently deployed on the Big-Ip
      */
-    applicationList?: pulumi.Input<string>;
+    applicationList?: pulumi.Input<string | undefined>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    as3Json?: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string | undefined>;
     /**
      * A map that allows you to configure specific behavior controls for the AS3 declaration. Each key represents a particular control setting, and the corresponding value defines its configuration.
      */
-    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    controls?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Block for specifying tenant name and applications to delete from BIG-IP. **Mutually exclusive with `as3Json`**: only one of `deleteApps` or `as3Json` can be set in a resource block.
      */
-    deleteApps?: pulumi.Input<inputs.As3DeleteApps>;
+    deleteApps?: pulumi.Input<inputs.As3DeleteApps | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      *
@@ -1018,21 +1018,21 @@ export interface As3Args {
      *
      * > **Note**: `deleteApps` and `as3Json` are **mutually exclusive**. You must use only one of them in a single `f5bigip.As3` resource block.
      */
-    ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean | undefined>;
     /**
      * ID of AS3 post declaration async task
      */
-    taskId?: pulumi.Input<string>;
+    taskId?: pulumi.Input<string | undefined>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
-    tenantFilter?: pulumi.Input<string>;
+    tenantFilter?: pulumi.Input<string | undefined>;
     /**
      * List of tenants currently deployed on the Big-Ip
      */
-    tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string | undefined>;
     /**
      * Name of Tenant. This name is used only in the case of Per-Application Deployment. If it is not provided, then a random name would be generated.
      */
-    tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string | undefined>;
 }

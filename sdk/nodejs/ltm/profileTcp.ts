@@ -227,91 +227,91 @@ export interface ProfileTcpState {
     /**
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      */
-    closeWaitTimeout?: pulumi.Input<number>;
+    closeWaitTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
      */
-    congestionControl?: pulumi.Input<string>;
+    congestionControl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
      */
-    deferredAccept?: pulumi.Input<string>;
+    deferredAccept?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
      */
-    delayedAcks?: pulumi.Input<string>;
+    delayedAcks?: pulumi.Input<string | undefined>;
     /**
      * Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
      */
-    earlyRetransmit?: pulumi.Input<string>;
+    earlyRetransmit?: pulumi.Input<string | undefined>;
     /**
      * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can't be set to `enabled`.
      */
-    fastOpen?: pulumi.Input<string>;
+    fastOpen?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
      */
-    finwait2timeout?: pulumi.Input<number>;
+    finwait2timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
      */
-    finwaitTimeout?: pulumi.Input<number>;
+    finwaitTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
      */
-    idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
      */
-    initialCongestionWindowsize?: pulumi.Input<number>;
+    initialCongestionWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      */
-    keepaliveInterval?: pulumi.Input<number>;
+    keepaliveInterval?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
      */
-    nagle?: pulumi.Input<string>;
+    nagle?: pulumi.Input<string | undefined>;
     /**
      * Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy buffer level, in bytes, at which the receive window is closed.
      */
-    proxybufferHigh?: pulumi.Input<number>;
+    proxybufferHigh?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
      */
-    receiveWindowsize?: pulumi.Input<number>;
+    receiveWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the SEND window size. The default is 131072 bytes.
      */
-    sendBuffersize?: pulumi.Input<number>;
+    sendBuffersize?: pulumi.Input<number | undefined>;
     /**
      * Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
      */
-    taillossProbe?: pulumi.Input<string>;
+    taillossProbe?: pulumi.Input<string | undefined>;
     /**
      * Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
      */
-    timewaitRecycle?: pulumi.Input<string>;
+    timewaitRecycle?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
      */
-    verifiedAccept?: pulumi.Input<string>;
+    verifiedAccept?: pulumi.Input<string | undefined>;
     /**
      * Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
      */
-    zerowindowTimeout?: pulumi.Input<number>;
+    zerowindowTimeout?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -321,55 +321,55 @@ export interface ProfileTcpArgs {
     /**
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      */
-    closeWaitTimeout?: pulumi.Input<number>;
+    closeWaitTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
      */
-    congestionControl?: pulumi.Input<string>;
+    congestionControl?: pulumi.Input<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
      */
-    deferredAccept?: pulumi.Input<string>;
+    deferredAccept?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
      */
-    delayedAcks?: pulumi.Input<string>;
+    delayedAcks?: pulumi.Input<string | undefined>;
     /**
      * Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
      */
-    earlyRetransmit?: pulumi.Input<string>;
+    earlyRetransmit?: pulumi.Input<string | undefined>;
     /**
      * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fastOpen` set to `enabled`, argument `verifiedAccept` can't be set to `enabled`.
      */
-    fastOpen?: pulumi.Input<string>;
+    fastOpen?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
      */
-    finwait2timeout?: pulumi.Input<number>;
+    finwait2timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
      */
-    finwaitTimeout?: pulumi.Input<number>;
+    finwaitTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
      */
-    idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
      */
-    initialCongestionWindowsize?: pulumi.Input<number>;
+    initialCongestionWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      */
-    keepaliveInterval?: pulumi.Input<number>;
+    keepaliveInterval?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
      */
-    nagle?: pulumi.Input<string>;
+    nagle?: pulumi.Input<string | undefined>;
     /**
      * Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      */
@@ -377,33 +377,33 @@ export interface ProfileTcpArgs {
     /**
      * name of partition
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the proxy buffer level, in bytes, at which the receive window is closed.
      */
-    proxybufferHigh?: pulumi.Input<number>;
+    proxybufferHigh?: pulumi.Input<number | undefined>;
     /**
      * Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
      */
-    receiveWindowsize?: pulumi.Input<number>;
+    receiveWindowsize?: pulumi.Input<number | undefined>;
     /**
      * Specifies the SEND window size. The default is 131072 bytes.
      */
-    sendBuffersize?: pulumi.Input<number>;
+    sendBuffersize?: pulumi.Input<number | undefined>;
     /**
      * Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
      */
-    taillossProbe?: pulumi.Input<string>;
+    taillossProbe?: pulumi.Input<string | undefined>;
     /**
      * Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
      */
-    timewaitRecycle?: pulumi.Input<string>;
+    timewaitRecycle?: pulumi.Input<string | undefined>;
     /**
      * Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
      */
-    verifiedAccept?: pulumi.Input<string>;
+    verifiedAccept?: pulumi.Input<string | undefined>;
     /**
      * Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
      */
-    zerowindowTimeout?: pulumi.Input<number>;
+    zerowindowTimeout?: pulumi.Input<number | undefined>;
 }

@@ -19,20 +19,20 @@ __all__ = ['SnmpTrapsArgs', 'SnmpTraps']
 @pulumi.input_type
 class SnmpTrapsArgs:
     def __init__(__self__, *,
-                 auth_passwordencrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 community: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 privacy_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_password_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 community: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SnmpTraps resource.
 
@@ -82,190 +82,190 @@ class SnmpTrapsArgs:
 
     @_builtins.property
     @pulumi.getter(name="authPasswordencrypted")
-    def auth_passwordencrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_passwordencrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted password
         """
         return pulumi.get(self, "auth_passwordencrypted")
 
     @auth_passwordencrypted.setter
-    def auth_passwordencrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_passwordencrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_passwordencrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="authProtocol")
-    def auth_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol used to authenticate the user.
         """
         return pulumi.get(self, "auth_protocol")
 
     @auth_protocol.setter
-    def auth_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def community(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def community(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the community string used for this trap.
         """
         return pulumi.get(self, "community")
 
     @community.setter
-    def community(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def community(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "community", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port that the trap will be sent to.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="engineId")
-    def engine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authoritative security engine for SNMPv3.
         """
         return pulumi.get(self, "engine_id")
 
     @engine_id.setter
-    def engine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host the trap will be sent to.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the snmp trap.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         User defined description.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyPassword")
-    def privacy_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the clear text password used to encrypt traffic. This field will not be displayed.
         """
         return pulumi.get(self, "privacy_password")
 
     @privacy_password.setter
-    def privacy_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_password", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyPasswordEncrypted")
-    def privacy_password_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_password_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encrypted password used to encrypt traffic.
         """
         return pulumi.get(self, "privacy_password_encrypted")
 
     @privacy_password_encrypted.setter
-    def privacy_password_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_password_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_password_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyProtocol")
-    def privacy_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol used to encrypt traffic.
         """
         return pulumi.get(self, "privacy_protocol")
 
     @privacy_protocol.setter
-    def privacy_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether or not traffic is encrypted and whether or not authentication is required.
         """
         return pulumi.get(self, "security_level")
 
     @security_level.setter
-    def security_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_level", value)
 
     @_builtins.property
     @pulumi.getter(name="securityName")
-    def security_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security name used in conjunction with SNMPv3.
         """
         return pulumi.get(self, "security_name")
 
     @security_name.setter
-    def security_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SNMP version used for sending the trap.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class _SnmpTrapsState:
     def __init__(__self__, *,
-                 auth_passwordencrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 community: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 privacy_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_password_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 community: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SnmpTraps resources.
 
@@ -315,170 +315,170 @@ class _SnmpTrapsState:
 
     @_builtins.property
     @pulumi.getter(name="authPasswordencrypted")
-    def auth_passwordencrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_passwordencrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Encrypted password
         """
         return pulumi.get(self, "auth_passwordencrypted")
 
     @auth_passwordencrypted.setter
-    def auth_passwordencrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_passwordencrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_passwordencrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="authProtocol")
-    def auth_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol used to authenticate the user.
         """
         return pulumi.get(self, "auth_protocol")
 
     @auth_protocol.setter
-    def auth_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def community(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def community(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the community string used for this trap.
         """
         return pulumi.get(self, "community")
 
     @community.setter
-    def community(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def community(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "community", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port that the trap will be sent to.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="engineId")
-    def engine_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authoritative security engine for SNMPv3.
         """
         return pulumi.get(self, "engine_id")
 
     @engine_id.setter
-    def engine_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The host the trap will be sent to.
         """
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "host", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the snmp trap.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         User defined description.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyPassword")
-    def privacy_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the clear text password used to encrypt traffic. This field will not be displayed.
         """
         return pulumi.get(self, "privacy_password")
 
     @privacy_password.setter
-    def privacy_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_password", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyPasswordEncrypted")
-    def privacy_password_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_password_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encrypted password used to encrypt traffic.
         """
         return pulumi.get(self, "privacy_password_encrypted")
 
     @privacy_password_encrypted.setter
-    def privacy_password_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_password_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_password_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="privacyProtocol")
-    def privacy_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def privacy_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the protocol used to encrypt traffic.
         """
         return pulumi.get(self, "privacy_protocol")
 
     @privacy_protocol.setter
-    def privacy_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def privacy_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "privacy_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether or not traffic is encrypted and whether or not authentication is required.
         """
         return pulumi.get(self, "security_level")
 
     @security_level.setter
-    def security_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_level", value)
 
     @_builtins.property
     @pulumi.getter(name="securityName")
-    def security_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security name used in conjunction with SNMPv3.
         """
         return pulumi.get(self, "security_name")
 
     @security_name.setter
-    def security_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SNMP version used for sending the trap.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -488,20 +488,20 @@ class SnmpTraps(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_passwordencrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 community: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 privacy_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_password_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 community: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
@@ -575,20 +575,20 @@ class SnmpTraps(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_passwordencrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 auth_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 community: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 host: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 privacy_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_password_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 privacy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 community: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -622,20 +622,20 @@ class SnmpTraps(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_passwordencrypted: Optional[pulumi.Input[_builtins.str]] = None,
-            auth_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            community: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-            host: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            port: Optional[pulumi.Input[_builtins.int]] = None,
-            privacy_password: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy_password_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-            privacy_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-            security_level: Optional[pulumi.Input[_builtins.str]] = None,
-            security_name: Optional[pulumi.Input[_builtins.str]] = None,
-            version: Optional[pulumi.Input[_builtins.str]] = None) -> 'SnmpTraps':
+            auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            community: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            security_level: pulumi.Input[Optional[_builtins.str]] = None,
+            security_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'SnmpTraps':
         """
         Get an existing SnmpTraps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -157,43 +157,43 @@ export interface PoolState {
     /**
      * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
-    allowNat?: pulumi.Input<string>;
+    allowNat?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
-    allowSnat?: pulumi.Input<string>;
+    allowSnat?: pulumi.Input<string | undefined>;
     /**
      * Specifies descriptive text that identifies the pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
      */
-    minimumActiveMembers?: pulumi.Input<number>;
+    minimumActiveMembers?: pulumi.Input<number | undefined>;
     /**
      * List of monitor names to associate with the pool
      */
-    monitors?: pulumi.Input<pulumi.Input<string>[]>;
+    monitors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
-    reselectTries?: pulumi.Input<number>;
+    reselectTries?: pulumi.Input<number | undefined>;
     /**
      * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
-    serviceDownAction?: pulumi.Input<string>;
+    serviceDownAction?: pulumi.Input<string | undefined>;
     /**
      * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
-    slowRampTime?: pulumi.Input<number>;
+    slowRampTime?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -203,27 +203,27 @@ export interface PoolArgs {
     /**
      * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
-    allowNat?: pulumi.Input<string>;
+    allowNat?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
-    allowSnat?: pulumi.Input<string>;
+    allowSnat?: pulumi.Input<string | undefined>;
     /**
      * Specifies descriptive text that identifies the pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing method. The default is `round-robin`. Possible options: [`dynamic-ratio-member`,`dynamic-ratio-node`, `fastest-app-response`,`fastest-node`, `least-connections-members`,`least-connections-node`,`least-sessions`,`observed-member`,`observed-node`,`predictive-member`,`predictive-node`,`ratio-least-connections-member`,`ratio-least-connections-node`,`ratio-member`,`ratio-node`,`ratio-session`,`round-robin`,`weighted-least-connections-member`,`weighted-least-connections-node`]
      */
-    loadBalancingMode?: pulumi.Input<string>;
+    loadBalancingMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
      */
-    minimumActiveMembers?: pulumi.Input<number>;
+    minimumActiveMembers?: pulumi.Input<number | undefined>;
     /**
      * List of monitor names to associate with the pool
      */
-    monitors?: pulumi.Input<pulumi.Input<string>[]>;
+    monitors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
@@ -231,13 +231,13 @@ export interface PoolArgs {
     /**
      * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
-    reselectTries?: pulumi.Input<number>;
+    reselectTries?: pulumi.Input<number | undefined>;
     /**
      * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
-    serviceDownAction?: pulumi.Input<string>;
+    serviceDownAction?: pulumi.Input<string | undefined>;
     /**
      * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
-    slowRampTime?: pulumi.Input<number>;
+    slowRampTime?: pulumi.Input<number | undefined>;
 }

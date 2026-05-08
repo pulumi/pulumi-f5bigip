@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fast_tcp_app = new F5BigIP.Index.FastTcpApp("fast-tcp-app", new()
+    ///     var fast_tcp_app = new F5BigIP.FastTcpApp("fast-tcp-app", new()
     ///     {
     ///         Application = "tcp_app_2",
     ///         Tenant = "tcp_app_tenant",

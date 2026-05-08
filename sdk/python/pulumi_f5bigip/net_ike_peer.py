@@ -21,38 +21,38 @@ class NetIkePeerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  remote_address: pulumi.Input[_builtins.str],
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dpd_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 generate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_traversal: Optional[pulumi.Input[_builtins.str]] = None,
-                 passive: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 prf: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+                 passive: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 prf: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetIkePeer resource.
 
@@ -184,426 +184,426 @@ class NetIkePeerArgs:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service that the object belongs to
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertFile")
-    def ca_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the trusted root and intermediate certificate authorities
         """
         return pulumi.get(self, "ca_cert_file")
 
     @ca_cert_file.setter
-    def ca_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="crlFile")
-    def crl_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
         """
         return pulumi.get(self, "crl_file")
 
     @crl_file.setter
-    def crl_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dpdDelay")
-    def dpd_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dpd_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds between Dead Peer Detection messages
         """
         return pulumi.get(self, "dpd_delay")
 
     @dpd_delay.setter
-    def dpd_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dpd_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dpd_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="generatePolicy")
-    def generate_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generate_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
         """
         return pulumi.get(self, "generate_policy")
 
     @generate_policy.setter
-    def generate_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generate_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generate_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
         """
         return pulumi.get(self, "lifetime")
 
     @lifetime.setter
-    def lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertFile")
-    def my_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate file object
         """
         return pulumi.get(self, "my_cert_file")
 
     @my_cert_file.setter
-    def my_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertKeyFile")
-    def my_cert_key_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_key_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate key file object
         """
         return pulumi.get(self, "my_cert_key_file")
 
     @my_cert_key_file.setter
-    def my_cert_key_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_key_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_key_file", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertKeyPassphrase")
-    def my_cert_key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the passphrase of the key used for my-cert-key-file
         """
         return pulumi.get(self, "my_cert_key_passphrase")
 
     @my_cert_key_passphrase.setter
-    def my_cert_key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="myIdType")
-    def my_id_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
         """
         return pulumi.get(self, "my_id_type")
 
     @my_id_type.setter
-    def my_id_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_id_type", value)
 
     @_builtins.property
     @pulumi.getter(name="myIdValue")
-    def my_id_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_id_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier value sent to the remote host in the phase 1 negotiation
         """
         return pulumi.get(self, "my_id_value")
 
     @my_id_value.setter
-    def my_id_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_id_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_id_value", value)
 
     @_builtins.property
     @pulumi.getter(name="natTraversal")
-    def nat_traversal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_traversal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables use of the NAT-Traversal IPsec extension
         """
         return pulumi.get(self, "nat_traversal")
 
     @nat_traversal.setter
-    def nat_traversal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_traversal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_traversal", value)
 
     @_builtins.property
     @pulumi.getter
-    def passive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
         """
         return pulumi.get(self, "passive")
 
     @passive.setter
-    def passive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passive", value)
 
     @_builtins.property
     @pulumi.getter(name="peersCertFile")
-    def peers_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the peer’s certificate for authentication
         """
         return pulumi.get(self, "peers_cert_file")
 
     @peers_cert_file.setter
-    def peers_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="peersCertType")
-    def peers_cert_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_cert_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that the only peers-cert-type supported is certfile
         """
         return pulumi.get(self, "peers_cert_type")
 
     @peers_cert_type.setter
-    def peers_cert_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_cert_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_cert_type", value)
 
     @_builtins.property
     @pulumi.getter(name="peersIdType")
-    def peers_id_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
         """
         return pulumi.get(self, "peers_id_type")
 
     @peers_id_type.setter
-    def peers_id_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_id_type", value)
 
     @_builtins.property
     @pulumi.getter(name="peersIdValue")
-    def peers_id_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_id_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the peer’s identifier to be received
         """
         return pulumi.get(self, "peers_id_value")
 
     @peers_id_value.setter
-    def peers_id_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_id_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_id_value", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1AuthMethod")
-    def phase1_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authentication method used for phase 1 negotiation
         """
         return pulumi.get(self, "phase1_auth_method")
 
     @phase1_auth_method.setter
-    def phase1_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1EncryptAlgorithm")
-    def phase1_encrypt_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_encrypt_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encryption algorithm used for the isakmp phase 1 negotiation
         """
         return pulumi.get(self, "phase1_encrypt_algorithm")
 
     @phase1_encrypt_algorithm.setter
-    def phase1_encrypt_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_encrypt_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_encrypt_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1HashAlgorithm")
-    def phase1_hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the hash algorithm used for the isakmp phase 1 negotiation
         """
         return pulumi.get(self, "phase1_hash_algorithm")
 
     @phase1_hash_algorithm.setter
-    def phase1_hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1PerfectForwardSecrecy")
-    def phase1_perfect_forward_secrecy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_perfect_forward_secrecy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
         """
         return pulumi.get(self, "phase1_perfect_forward_secrecy")
 
     @phase1_perfect_forward_secrecy.setter
-    def phase1_perfect_forward_secrecy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_perfect_forward_secrecy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_perfect_forward_secrecy", value)
 
     @_builtins.property
     @pulumi.getter(name="presharedKey")
-    def preshared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preshared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the preshared key for ISAKMP SAs
         """
         return pulumi.get(self, "preshared_key")
 
     @preshared_key.setter
-    def preshared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preshared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preshared_key", value)
 
     @_builtins.property
     @pulumi.getter(name="presharedKeyEncrypted")
-    def preshared_key_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preshared_key_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display the encrypted preshared-key for the IKE remote node
         """
         return pulumi.get(self, "preshared_key_encrypted")
 
     @preshared_key_encrypted.setter
-    def preshared_key_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preshared_key_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preshared_key_encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def prf(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the pseudo-random function used to derive keying material for all cryptographic operations
         """
         return pulumi.get(self, "prf")
 
     @prf.setter
-    def prf(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prf(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prf", value)
 
     @_builtins.property
     @pulumi.getter(name="proxySupport")
-    def proxy_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
         """
         return pulumi.get(self, "proxy_support")
 
     @proxy_support.setter
-    def proxy_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_support", value)
 
     @_builtins.property
     @pulumi.getter(name="replayWindowSize")
-    def replay_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replay_window_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
         """
         return pulumi.get(self, "replay_window_size")
 
     @replay_window_size.setter
-    def replay_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replay_window_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replay_window_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables this IKE remote node
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSelectors")
-    def traffic_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def traffic_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the traffic-selector objects associated with this ike-peer
         """
         return pulumi.get(self, "traffic_selectors")
 
     @traffic_selectors.setter
-    def traffic_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def traffic_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "traffic_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyCert")
-    def verify_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
         """
         return pulumi.get(self, "verify_cert")
 
     @verify_cert.setter
-    def verify_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies which version of IKE to be used
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "versions", value)
 
 
 @pulumi.input_type
 class _NetIkePeerState:
     def __init__(__self__, *,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dpd_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 generate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_traversal: Optional[pulumi.Input[_builtins.str]] = None,
-                 passive: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 prf: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+                 passive: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 prf: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NetIkePeer resources.
 
@@ -713,410 +713,410 @@ class _NetIkePeerState:
 
     @_builtins.property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_service(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application service that the object belongs to
         """
         return pulumi.get(self, "app_service")
 
     @app_service.setter
-    def app_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_service(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_service", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertFile")
-    def ca_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         the trusted root and intermediate certificate authorities
         """
         return pulumi.get(self, "ca_cert_file")
 
     @ca_cert_file.setter
-    def ca_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="crlFile")
-    def crl_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crl_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
         """
         return pulumi.get(self, "crl_file")
 
     @crl_file.setter
-    def crl_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crl_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crl_file", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dpdDelay")
-    def dpd_delay(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dpd_delay(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of seconds between Dead Peer Detection messages
         """
         return pulumi.get(self, "dpd_delay")
 
     @dpd_delay.setter
-    def dpd_delay(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dpd_delay(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dpd_delay", value)
 
     @_builtins.property
     @pulumi.getter(name="generatePolicy")
-    def generate_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def generate_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
         """
         return pulumi.get(self, "generate_policy")
 
     @generate_policy.setter
-    def generate_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def generate_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "generate_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
         """
         return pulumi.get(self, "lifetime")
 
     @lifetime.setter
-    def lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lifetime", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertFile")
-    def my_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate file object
         """
         return pulumi.get(self, "my_cert_file")
 
     @my_cert_file.setter
-    def my_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertKeyFile")
-    def my_cert_key_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_key_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the certificate key file object
         """
         return pulumi.get(self, "my_cert_key_file")
 
     @my_cert_key_file.setter
-    def my_cert_key_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_key_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_key_file", value)
 
     @_builtins.property
     @pulumi.getter(name="myCertKeyPassphrase")
-    def my_cert_key_passphrase(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_cert_key_passphrase(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the passphrase of the key used for my-cert-key-file
         """
         return pulumi.get(self, "my_cert_key_passphrase")
 
     @my_cert_key_passphrase.setter
-    def my_cert_key_passphrase(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_cert_key_passphrase(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_cert_key_passphrase", value)
 
     @_builtins.property
     @pulumi.getter(name="myIdType")
-    def my_id_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
         """
         return pulumi.get(self, "my_id_type")
 
     @my_id_type.setter
-    def my_id_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_id_type", value)
 
     @_builtins.property
     @pulumi.getter(name="myIdValue")
-    def my_id_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def my_id_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier value sent to the remote host in the phase 1 negotiation
         """
         return pulumi.get(self, "my_id_value")
 
     @my_id_value.setter
-    def my_id_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def my_id_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "my_id_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ike_peer
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="natTraversal")
-    def nat_traversal(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_traversal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables use of the NAT-Traversal IPsec extension
         """
         return pulumi.get(self, "nat_traversal")
 
     @nat_traversal.setter
-    def nat_traversal(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_traversal(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_traversal", value)
 
     @_builtins.property
     @pulumi.getter
-    def passive(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def passive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
         """
         return pulumi.get(self, "passive")
 
     @passive.setter
-    def passive(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def passive(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "passive", value)
 
     @_builtins.property
     @pulumi.getter(name="peersCertFile")
-    def peers_cert_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_cert_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the peer’s certificate for authentication
         """
         return pulumi.get(self, "peers_cert_file")
 
     @peers_cert_file.setter
-    def peers_cert_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_cert_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_cert_file", value)
 
     @_builtins.property
     @pulumi.getter(name="peersCertType")
-    def peers_cert_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_cert_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that the only peers-cert-type supported is certfile
         """
         return pulumi.get(self, "peers_cert_type")
 
     @peers_cert_type.setter
-    def peers_cert_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_cert_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_cert_type", value)
 
     @_builtins.property
     @pulumi.getter(name="peersIdType")
-    def peers_id_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
         """
         return pulumi.get(self, "peers_id_type")
 
     @peers_id_type.setter
-    def peers_id_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_id_type", value)
 
     @_builtins.property
     @pulumi.getter(name="peersIdValue")
-    def peers_id_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def peers_id_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the peer’s identifier to be received
         """
         return pulumi.get(self, "peers_id_value")
 
     @peers_id_value.setter
-    def peers_id_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def peers_id_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peers_id_value", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1AuthMethod")
-    def phase1_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the authentication method used for phase 1 negotiation
         """
         return pulumi.get(self, "phase1_auth_method")
 
     @phase1_auth_method.setter
-    def phase1_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1EncryptAlgorithm")
-    def phase1_encrypt_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_encrypt_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the encryption algorithm used for the isakmp phase 1 negotiation
         """
         return pulumi.get(self, "phase1_encrypt_algorithm")
 
     @phase1_encrypt_algorithm.setter
-    def phase1_encrypt_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_encrypt_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_encrypt_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1HashAlgorithm")
-    def phase1_hash_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_hash_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the hash algorithm used for the isakmp phase 1 negotiation
         """
         return pulumi.get(self, "phase1_hash_algorithm")
 
     @phase1_hash_algorithm.setter
-    def phase1_hash_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_hash_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_hash_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="phase1PerfectForwardSecrecy")
-    def phase1_perfect_forward_secrecy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phase1_perfect_forward_secrecy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
         """
         return pulumi.get(self, "phase1_perfect_forward_secrecy")
 
     @phase1_perfect_forward_secrecy.setter
-    def phase1_perfect_forward_secrecy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phase1_perfect_forward_secrecy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phase1_perfect_forward_secrecy", value)
 
     @_builtins.property
     @pulumi.getter(name="presharedKey")
-    def preshared_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preshared_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the preshared key for ISAKMP SAs
         """
         return pulumi.get(self, "preshared_key")
 
     @preshared_key.setter
-    def preshared_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preshared_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preshared_key", value)
 
     @_builtins.property
     @pulumi.getter(name="presharedKeyEncrypted")
-    def preshared_key_encrypted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preshared_key_encrypted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display the encrypted preshared-key for the IKE remote node
         """
         return pulumi.get(self, "preshared_key_encrypted")
 
     @preshared_key_encrypted.setter
-    def preshared_key_encrypted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preshared_key_encrypted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preshared_key_encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def prf(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the pseudo-random function used to derive keying material for all cryptographic operations
         """
         return pulumi.get(self, "prf")
 
     @prf.setter
-    def prf(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prf(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prf", value)
 
     @_builtins.property
     @pulumi.getter(name="proxySupport")
-    def proxy_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def proxy_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
         """
         return pulumi.get(self, "proxy_support")
 
     @proxy_support.setter
-    def proxy_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def proxy_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "proxy_support", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteAddress")
-    def remote_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IP address of the IKE remote node
         """
         return pulumi.get(self, "remote_address")
 
     @remote_address.setter
-    def remote_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_address", value)
 
     @_builtins.property
     @pulumi.getter(name="replayWindowSize")
-    def replay_window_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replay_window_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
         """
         return pulumi.get(self, "replay_window_size")
 
     @replay_window_size.setter
-    def replay_window_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replay_window_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replay_window_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables or disables this IKE remote node
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficSelectors")
-    def traffic_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def traffic_selectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the names of the traffic-selector objects associated with this ike-peer
         """
         return pulumi.get(self, "traffic_selectors")
 
     @traffic_selectors.setter
-    def traffic_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def traffic_selectors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "traffic_selectors", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyCert")
-    def verify_cert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verify_cert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
         """
         return pulumi.get(self, "verify_cert")
 
     @verify_cert.setter
-    def verify_cert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verify_cert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verify_cert", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies which version of IKE to be used
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "versions", value)
 
 
@@ -1126,40 +1126,40 @@ class NetIkePeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dpd_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 generate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_traversal: Optional[pulumi.Input[_builtins.str]] = None,
-                 passive: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 prf: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+                 passive: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 prf: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         `NetIkePeer` Manages a ike_peer configuration
@@ -1251,40 +1251,40 @@ class NetIkePeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_service: Optional[pulumi.Input[_builtins.str]] = None,
-                 ca_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dpd_delay: Optional[pulumi.Input[_builtins.int]] = None,
-                 generate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_cert_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 my_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_traversal: Optional[pulumi.Input[_builtins.str]] = None,
-                 passive: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_cert_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 peers_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 phase1_perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 preshared_key_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-                 prf: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxy_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_cert: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 app_service: pulumi.Input[Optional[_builtins.str]] = None,
+                 ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+                 generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+                 passive: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+                 prf: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1342,40 +1342,40 @@ class NetIkePeer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_service: Optional[pulumi.Input[_builtins.str]] = None,
-            ca_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-            crl_file: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            dpd_delay: Optional[pulumi.Input[_builtins.int]] = None,
-            generate_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            mode: Optional[pulumi.Input[_builtins.str]] = None,
-            my_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-            my_cert_key_file: Optional[pulumi.Input[_builtins.str]] = None,
-            my_cert_key_passphrase: Optional[pulumi.Input[_builtins.str]] = None,
-            my_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-            my_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            nat_traversal: Optional[pulumi.Input[_builtins.str]] = None,
-            passive: Optional[pulumi.Input[_builtins.str]] = None,
-            peers_cert_file: Optional[pulumi.Input[_builtins.str]] = None,
-            peers_cert_type: Optional[pulumi.Input[_builtins.str]] = None,
-            peers_id_type: Optional[pulumi.Input[_builtins.str]] = None,
-            peers_id_value: Optional[pulumi.Input[_builtins.str]] = None,
-            phase1_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-            phase1_encrypt_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            phase1_hash_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            phase1_perfect_forward_secrecy: Optional[pulumi.Input[_builtins.str]] = None,
-            preshared_key: Optional[pulumi.Input[_builtins.str]] = None,
-            preshared_key_encrypted: Optional[pulumi.Input[_builtins.str]] = None,
-            prf: Optional[pulumi.Input[_builtins.str]] = None,
-            proxy_support: Optional[pulumi.Input[_builtins.str]] = None,
-            remote_address: Optional[pulumi.Input[_builtins.str]] = None,
-            replay_window_size: Optional[pulumi.Input[_builtins.int]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            verify_cert: Optional[pulumi.Input[_builtins.str]] = None,
-            versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetIkePeer':
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+            my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+            passive: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+            preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            prf: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+            replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetIkePeer':
         """
         Get an existing NetIkePeer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

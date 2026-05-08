@@ -399,79 +399,79 @@ export interface GtmWideipState {
     /**
      * Specifies alternate domain names for the WideIP
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User-defined description of the WideIP
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Disabled state of the WideIP
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the WideIP
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the DNS RCODE used when failureRcodeResponse is enabled (noerror, formerr, servfail, nxdomain, notimp, refused, yxdomain, yxrrset, nxrrset, notauth, notzone)
      */
-    failureRcode?: pulumi.Input<string>;
+    failureRcode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to return a RCODE response to DNS queries when the WideIP is unavailable (enabled or disabled)
      */
-    failureRcodeResponse?: pulumi.Input<string>;
+    failureRcodeResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the negative caching TTL of the SOA for the RCODE response
      */
-    failureRcodeTtl?: pulumi.Input<number>;
+    failureRcodeTtl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the last resort pool for the WideIP. Format: <type> <partition>/<pool_name> (e.g., 'a /Common/firstpool')
      */
-    lastResortPool?: pulumi.Input<string>;
+    lastResortPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of detail logged when making load balancing decisions. Example: ['pool-selection']
      */
-    loadBalancingDecisionLogVerbosities?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancingDecisionLogVerbosities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether to minimize the response to the DNS query (enabled or disabled)
      */
-    minimalResponse?: pulumi.Input<string>;
+    minimalResponse?: pulumi.Input<string | undefined>;
     /**
      * Name of the WideIP. Example: testwideip.local
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Partition in which the WideIP resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the CIDR for IPv4 persistence
      */
-    persistCidrIpv4?: pulumi.Input<number>;
+    persistCidrIpv4?: pulumi.Input<number | undefined>;
     /**
      * Specifies the CIDR for IPv6 persistence
      */
-    persistCidrIpv6?: pulumi.Input<number>;
+    persistCidrIpv6?: pulumi.Input<number | undefined>;
     /**
      * Specifies persistence for the WideIP (disabled or enabled)
      */
-    persistence?: pulumi.Input<string>;
+    persistence?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing mode for pools in the WideIP (round-robin, ratio, topology, global-availability)
      */
-    poolLbMode?: pulumi.Input<string>;
+    poolLbMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to prefer EDNS0 client subnet data for topology-based load balancing (enabled or disabled)
      */
-    topologyPreferEdns0ClientSubnet?: pulumi.Input<string>;
+    topologyPreferEdns0ClientSubnet?: pulumi.Input<string | undefined>;
     /**
      * Specifies the TTL for the persistence of the WideIP
      */
-    ttlPersistence?: pulumi.Input<number>;
+    ttlPersistence?: pulumi.Input<number | undefined>;
     /**
      * Specifies the type of WideIP (a, aaaa, cname, mx, naptr, srv)
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -481,43 +481,43 @@ export interface GtmWideipArgs {
     /**
      * Specifies alternate domain names for the WideIP
      */
-    aliases?: pulumi.Input<pulumi.Input<string>[]>;
+    aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User-defined description of the WideIP
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Disabled state of the WideIP
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable the WideIP
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the DNS RCODE used when failureRcodeResponse is enabled (noerror, formerr, servfail, nxdomain, notimp, refused, yxdomain, yxrrset, nxrrset, notauth, notzone)
      */
-    failureRcode?: pulumi.Input<string>;
+    failureRcode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to return a RCODE response to DNS queries when the WideIP is unavailable (enabled or disabled)
      */
-    failureRcodeResponse?: pulumi.Input<string>;
+    failureRcodeResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the negative caching TTL of the SOA for the RCODE response
      */
-    failureRcodeTtl?: pulumi.Input<number>;
+    failureRcodeTtl?: pulumi.Input<number | undefined>;
     /**
      * Specifies the last resort pool for the WideIP. Format: <type> <partition>/<pool_name> (e.g., 'a /Common/firstpool')
      */
-    lastResortPool?: pulumi.Input<string>;
+    lastResortPool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of detail logged when making load balancing decisions. Example: ['pool-selection']
      */
-    loadBalancingDecisionLogVerbosities?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancingDecisionLogVerbosities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether to minimize the response to the DNS query (enabled or disabled)
      */
-    minimalResponse?: pulumi.Input<string>;
+    minimalResponse?: pulumi.Input<string | undefined>;
     /**
      * Name of the WideIP. Example: testwideip.local
      */
@@ -525,31 +525,31 @@ export interface GtmWideipArgs {
     /**
      * Partition in which the WideIP resides
      */
-    partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string | undefined>;
     /**
      * Specifies the CIDR for IPv4 persistence
      */
-    persistCidrIpv4?: pulumi.Input<number>;
+    persistCidrIpv4?: pulumi.Input<number | undefined>;
     /**
      * Specifies the CIDR for IPv6 persistence
      */
-    persistCidrIpv6?: pulumi.Input<number>;
+    persistCidrIpv6?: pulumi.Input<number | undefined>;
     /**
      * Specifies persistence for the WideIP (disabled or enabled)
      */
-    persistence?: pulumi.Input<string>;
+    persistence?: pulumi.Input<string | undefined>;
     /**
      * Specifies the load balancing mode for pools in the WideIP (round-robin, ratio, topology, global-availability)
      */
-    poolLbMode?: pulumi.Input<string>;
+    poolLbMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to prefer EDNS0 client subnet data for topology-based load balancing (enabled or disabled)
      */
-    topologyPreferEdns0ClientSubnet?: pulumi.Input<string>;
+    topologyPreferEdns0ClientSubnet?: pulumi.Input<string | undefined>;
     /**
      * Specifies the TTL for the persistence of the WideIP
      */
-    ttlPersistence?: pulumi.Input<number>;
+    ttlPersistence?: pulumi.Input<number | undefined>;
     /**
      * Specifies the type of WideIP (a, aaaa, cname, mx, naptr, srv)
      */

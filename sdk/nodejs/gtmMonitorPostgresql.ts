@@ -194,55 +194,55 @@ export interface GtmMonitorPostgresqlState {
     /**
      * Specifies the database in which the user is created
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor sends error messages and additional information to a log file created and labeled specifically for this monitor
      */
-    debug?: pulumi.Input<string>;
+    debug?: pulumi.Input<string | undefined>;
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of instances for which the system keeps a connection open
      */
-    instanceCount?: pulumi.Input<string>;
+    instanceCount?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM PostgreSQL monitor
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
      */
-    probeTimeout?: pulumi.Input<number>;
+    probeTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the text string that the monitor looks for in the returned resource
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -252,31 +252,31 @@ export interface GtmMonitorPostgresqlArgs {
     /**
      * Specifies the database in which the user is created
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor sends error messages and additional information to a log file created and labeled specifically for this monitor
      */
-    debug?: pulumi.Input<string>;
+    debug?: pulumi.Input<string | undefined>;
     /**
      * Inherit properties from this monitor
      */
-    defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string | undefined>;
     /**
      * Specifies the IP address and service port of the resource that is the destination of this monitor. Format: ip:port. Default is "*:*"
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the monitor ignores a down response from the system it is monitoring
      */
-    ignoreDownResponse?: pulumi.Input<string>;
+    ignoreDownResponse?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of instances for which the system keeps a connection open
      */
-    instanceCount?: pulumi.Input<string>;
+    instanceCount?: pulumi.Input<string | undefined>;
     /**
      * Specifies, in seconds, the frequency at which the system issues the monitor check
      */
-    interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number | undefined>;
     /**
      * Name of the GTM PostgreSQL monitor
      */
@@ -284,21 +284,21 @@ export interface GtmMonitorPostgresqlArgs {
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds after which the BIG-IP system times out the probe request to the BIG-IP system
      */
-    probeTimeout?: pulumi.Input<number>;
+    probeTimeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the text string that the monitor looks for in the returned resource
      */
-    receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds the target has in which to respond to the monitor request
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

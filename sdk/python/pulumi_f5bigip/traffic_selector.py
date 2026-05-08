@@ -22,13 +22,13 @@ class TrafficSelectorArgs:
                  destination_address: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  source_address: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipsec_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipsec_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a TrafficSelector resource.
 
@@ -100,67 +100,67 @@ class TrafficSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the traffic selector.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the IP port used by the application. The default value is `All Ports (0)`
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ip_protocol(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
         """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
-    def ip_protocol(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ip_protocol(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ip_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipsec_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
         """
         return pulumi.get(self, "ipsec_policy")
 
     @ipsec_policy.setter
-    def ipsec_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipsec_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipsec_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
         When creating a new traffic selector, if this parameter is not specified, the default is `last`
@@ -168,35 +168,35 @@ class TrafficSelectorArgs:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePort")
-    def source_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def source_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the IP port used by the application. The default value is `All Ports (0)`.
         """
         return pulumi.get(self, "source_port")
 
     @source_port.setter
-    def source_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def source_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "source_port", value)
 
 
 @pulumi.input_type
 class _TrafficSelectorState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipsec_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipsec_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering TrafficSelector resources.
 
@@ -235,91 +235,91 @@ class _TrafficSelectorState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the traffic selector.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationAddress")
-    def destination_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
         """
         return pulumi.get(self, "destination_address")
 
     @destination_address.setter
-    def destination_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_address", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPort")
-    def destination_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def destination_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the IP port used by the application. The default value is `All Ports (0)`
         """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
-    def destination_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def destination_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "destination_port", value)
 
     @_builtins.property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ip_protocol(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
         """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
-    def ip_protocol(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ip_protocol(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ip_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="ipsecPolicy")
-    def ipsec_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipsec_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
         """
         return pulumi.get(self, "ipsec_policy")
 
     @ipsec_policy.setter
-    def ipsec_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipsec_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipsec_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
         When creating a new traffic selector, if this parameter is not specified, the default is `last`
@@ -327,31 +327,31 @@ class _TrafficSelectorState:
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "order", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceAddress")
-    def source_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
         """
         return pulumi.get(self, "source_address")
 
     @source_address.setter
-    def source_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_address", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePort")
-    def source_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def source_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the IP port used by the application. The default value is `All Ports (0)`.
         """
         return pulumi.get(self, "source_port")
 
     @source_port.setter
-    def source_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def source_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "source_port", value)
 
 
@@ -361,16 +361,16 @@ class TrafficSelector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipsec_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipsec_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         `TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
@@ -443,16 +443,16 @@ class TrafficSelector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipsec_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 order: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipsec_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 order: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,16 +488,16 @@ class TrafficSelector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_address: Optional[pulumi.Input[_builtins.str]] = None,
-            destination_port: Optional[pulumi.Input[_builtins.int]] = None,
-            direction: Optional[pulumi.Input[_builtins.str]] = None,
-            ip_protocol: Optional[pulumi.Input[_builtins.int]] = None,
-            ipsec_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            order: Optional[pulumi.Input[_builtins.int]] = None,
-            source_address: Optional[pulumi.Input[_builtins.str]] = None,
-            source_port: Optional[pulumi.Input[_builtins.int]] = None) -> 'TrafficSelector':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_address: pulumi.Input[Optional[_builtins.str]] = None,
+            destination_port: pulumi.Input[Optional[_builtins.int]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_protocol: pulumi.Input[Optional[_builtins.int]] = None,
+            ipsec_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            order: pulumi.Input[Optional[_builtins.int]] = None,
+            source_address: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrafficSelector':
         """
         Get an existing TrafficSelector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

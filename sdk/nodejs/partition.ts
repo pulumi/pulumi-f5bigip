@@ -109,15 +109,15 @@ export interface PartitionState {
     /**
      * Description of the partition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the partition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Route domain id of the partition.
      */
-    routeDomainId?: pulumi.Input<number>;
+    routeDomainId?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -127,7 +127,7 @@ export interface PartitionArgs {
     /**
      * Description of the partition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the partition.
      */
@@ -135,5 +135,5 @@ export interface PartitionArgs {
     /**
      * Route domain id of the partition.
      */
-    routeDomainId?: pulumi.Input<number>;
+    routeDomainId?: pulumi.Input<number | undefined>;
 }
