@@ -217,11 +217,11 @@ class PolicyRuleArgsDict(TypedDict):
     """
     Name of Rule to be applied in policy.
     """
-    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleActionArgsDict']]]]]
     """
     Block type. See action block for more details.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleConditionArgsDict']]]]]
     """
     Block type. See condition block for more details.
     """

@@ -26,7 +26,7 @@ This provider uses the iControlREST API. All the resources are validated with Bi
 > **NOTE** For AWAF resources, F5 BIG-IP version should be > v16.x , and ASM need to be provisioned.
 ## Example Usage
 
-{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+{{< chooser language "typescript,python,go,csharp,java,yaml,hcl" >}}
 {{% choosable language typescript %}}
 ```yaml
 # Pulumi.yaml provider configuration file
@@ -211,6 +211,17 @@ public class App {
         final var username = config.require("username");
         final var password = config.require("password");
     }
+}
+```
+
+{{% /choosable %}}
+{{% choosable language hcl %}}
+```hcl
+variable "hostname" {
+}
+variable "username" {
+}
+variable "password" {
 }
 ```
 
