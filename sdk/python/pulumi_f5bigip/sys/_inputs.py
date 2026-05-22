@@ -135,7 +135,7 @@ class IAppTableArgsDict(TypedDict):
     """
     Name of the iApp.
     """
-    rows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgs']]]]]
+    rows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IAppTableRowArgsDict']]]]]
 
 @pulumi.input_type
 class IAppTableArgs:
