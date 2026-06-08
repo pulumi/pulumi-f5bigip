@@ -552,6 +552,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -621,6 +623,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -690,6 +694,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -759,6 +765,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -828,6 +836,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

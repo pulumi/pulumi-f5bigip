@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var fast_udp_app = new FastUdpApp("fast-udp-app", FastUdpAppArgs.builder()
  *             .application("udp_app_2")
  *             .tenant("udp_app_tenant")
- *             .virtualServer(FastUdpAppVirtualServerArgs.builder()
+ *             .virtualServer(com.pulumi.f5bigip.inputs.FastUdpAppVirtualServerArgs.builder()
  *                 .ip("11.12.16.30")
  *                 .port(443)
  *                 .build()[0])
