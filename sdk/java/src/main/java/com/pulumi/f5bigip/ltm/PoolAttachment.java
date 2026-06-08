@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  *             .name("/Common/k8prod_Pool")
  *             .build());
  * 
- *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+ *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
  *             .input(            
  *                 node1.name(),
  *                 node2.name())

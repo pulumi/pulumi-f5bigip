@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var fast_tcp_app = new FastTcpApp("fast-tcp-app", FastTcpAppArgs.builder()
  *             .application("tcp_app_2")
  *             .tenant("tcp_app_tenant")
- *             .virtualServer(FastTcpAppVirtualServerArgs.builder()
+ *             .virtualServer(com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs.builder()
  *                 .ip("11.12.16.30")
  *                 .port(443)
  *                 .build()[0])

@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.f5bigip.ltm.Policy;
  * import com.pulumi.f5bigip.ltm.PolicyArgs;
  * import com.pulumi.f5bigip.ltm.inputs.PolicyRuleArgs;
+ * import com.pulumi.f5bigip.ltm.inputs.PolicyRuleActionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
