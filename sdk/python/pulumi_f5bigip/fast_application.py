@@ -68,8 +68,6 @@ class _FastApplicationState:
 
         :param pulumi.Input[_builtins.str] application: A FAST application name.
                
-               
-               
                * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         :param pulumi.Input[_builtins.str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[_builtins.str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
@@ -89,8 +87,6 @@ class _FastApplicationState:
     def application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A FAST application name.
-
-
 
         * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         """
@@ -244,8 +240,6 @@ class FastApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application: A FAST application name.
                
-               
-               
                * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         :param pulumi.Input[_builtins.str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[_builtins.str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
@@ -266,8 +260,6 @@ class FastApplication(pulumi.CustomResource):
     def application(self) -> pulumi.Output[_builtins.str]:
         """
         A FAST application name.
-
-
 
         * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         """

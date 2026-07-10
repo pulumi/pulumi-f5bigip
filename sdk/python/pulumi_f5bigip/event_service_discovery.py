@@ -71,7 +71,6 @@ class EventServiceDiscoveryArgs:
                }
                }
                
-               
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         """
         pulumi.set(__self__, "taskid", taskid)
@@ -138,7 +137,6 @@ class EventServiceDiscoveryArgs:
         }
         }
 
-
         Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         """
         return pulumi.get(self, "nodes")
@@ -200,7 +198,6 @@ class _EventServiceDiscoveryState:
                }
                }
                
-               
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         :param pulumi.Input[_builtins.str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
@@ -256,7 +253,6 @@ class _EventServiceDiscoveryState:
         }
         }
         }
-
 
         Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         """
@@ -361,7 +357,6 @@ class EventServiceDiscovery(pulumi.CustomResource):
                }
                }
                }
-               
                
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         :param pulumi.Input[_builtins.str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
@@ -493,7 +488,6 @@ class EventServiceDiscovery(pulumi.CustomResource):
                }
                }
                
-               
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         :param pulumi.Input[_builtins.str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
@@ -552,7 +546,6 @@ class EventServiceDiscovery(pulumi.CustomResource):
         }
         }
         }
-
 
         Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         """

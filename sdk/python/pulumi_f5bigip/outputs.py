@@ -1547,7 +1547,7 @@ class WafPolicyFileType(dict):
                  name: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        :param _builtins.bool allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
                * No allowed file type matched the file type of the request.
                * The file type of the request matched a disallowed file type.
         :param _builtins.str name: Specifies the file type name as appearing in the URL extension.
@@ -1564,7 +1564,7 @@ class WafPolicyFileType(dict):
     @pulumi.getter
     def allowed(self) -> Optional[_builtins.bool]:
         """
-        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
         * No allowed file type matched the file type of the request.
         * The file type of the request matched a disallowed file type.
         """
