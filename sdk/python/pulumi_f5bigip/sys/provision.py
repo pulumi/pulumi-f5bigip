@@ -28,7 +28,7 @@ class ProvisionArgs:
         """
         The set of arguments for constructing a Provision resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP. 
+        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP.
                possible options:
                * afm
                * am
@@ -73,7 +73,7 @@ class ProvisionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of module to provision in BIG-IP. 
+        Name of module to provision in BIG-IP.
         possible options:
         * afm
         * am
@@ -184,7 +184,7 @@ class _ProvisionState:
                * none
                * dedicated
         :param pulumi.Input[_builtins.int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
-        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP. 
+        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP.
                possible options:
                * afm
                * am
@@ -283,7 +283,7 @@ class _ProvisionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of module to provision in BIG-IP. 
+        Name of module to provision in BIG-IP.
         possible options:
         * afm
         * am
@@ -352,7 +352,7 @@ class Provision(pulumi.CustomResource):
                * none
                * dedicated
         :param pulumi.Input[_builtins.int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
-        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP. 
+        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP.
                possible options:
                * afm
                * am
@@ -466,7 +466,7 @@ class Provision(pulumi.CustomResource):
                * none
                * dedicated
         :param pulumi.Input[_builtins.int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
-        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP. 
+        :param pulumi.Input[_builtins.str] name: Name of module to provision in BIG-IP.
                possible options:
                * afm
                * am
@@ -544,7 +544,7 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of module to provision in BIG-IP. 
+        Name of module to provision in BIG-IP.
         possible options:
         * afm
         * am

@@ -453,14 +453,14 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+        k8sprod: list[f5bigip.ltm.PoolAttachment] = []
+        for k8sprod_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
             node1.name,
             node2.name,
         ]).result)]:
-            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{range['key']}",
+            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
                 pool=k8s_prod.name,
-                node=f"{range['key']}:80"))
+                node=f"{k8sprod_range['key']}:80"))
         ```
 
         ## Importing
@@ -576,14 +576,14 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+        k8sprod: list[f5bigip.ltm.PoolAttachment] = []
+        for k8sprod_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
             node1.name,
             node2.name,
         ]).result)]:
-            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{range['key']}",
+            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
                 pool=k8s_prod.name,
-                node=f"{range['key']}:80"))
+                node=f"{k8sprod_range['key']}:80"))
         ```
 
         ## Importing

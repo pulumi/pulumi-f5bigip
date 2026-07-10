@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-f5bigip"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing F5 BigIP resources."
+                description = $/A Pulumi package for creating and managing F5 BigIP resources./$
 
                 url = "https://github.com/pulumi/pulumi-f5bigip"
 
