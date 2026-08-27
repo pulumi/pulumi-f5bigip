@@ -74,12 +74,8 @@ type LookupDataGroupResult struct {
 }
 
 func LookupDataGroupOutput(ctx *pulumi.Context, args LookupDataGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataGroupResultOutput, error) {
-			args := v.(LookupDataGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:ltm/getDataGroup:getDataGroup", args, LookupDataGroupResultOutput{}, options).(LookupDataGroupResultOutput), nil
-		}).(LookupDataGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:ltm/getDataGroup:getDataGroup", args, LookupDataGroupResultOutput{}, options).(LookupDataGroupResultOutput)
 }
 
 // A collection of arguments for invoking getDataGroup.

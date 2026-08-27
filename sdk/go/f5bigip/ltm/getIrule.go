@@ -73,12 +73,8 @@ type GetIruleResult struct {
 }
 
 func GetIruleOutput(ctx *pulumi.Context, args GetIruleOutputArgs, opts ...pulumi.InvokeOption) GetIruleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIruleResultOutput, error) {
-			args := v.(GetIruleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:ltm/getIrule:getIrule", args, GetIruleResultOutput{}, options).(GetIruleResultOutput), nil
-		}).(GetIruleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:ltm/getIrule:getIrule", args, GetIruleResultOutput{}, options).(GetIruleResultOutput)
 }
 
 // A collection of arguments for invoking getIrule.

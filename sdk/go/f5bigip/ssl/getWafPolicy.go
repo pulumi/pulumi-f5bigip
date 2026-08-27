@@ -66,12 +66,8 @@ type GetWafPolicyResult struct {
 }
 
 func GetWafPolicyOutput(ctx *pulumi.Context, args GetWafPolicyOutputArgs, opts ...pulumi.InvokeOption) GetWafPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWafPolicyResultOutput, error) {
-			args := v.(GetWafPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:ssl/getWafPolicy:getWafPolicy", args, GetWafPolicyResultOutput{}, options).(GetWafPolicyResultOutput), nil
-		}).(GetWafPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:ssl/getWafPolicy:getWafPolicy", args, GetWafPolicyResultOutput{}, options).(GetWafPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getWafPolicy.

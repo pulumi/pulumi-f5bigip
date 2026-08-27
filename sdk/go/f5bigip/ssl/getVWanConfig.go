@@ -94,12 +94,8 @@ type GetVWanConfigResult struct {
 }
 
 func GetVWanConfigOutput(ctx *pulumi.Context, args GetVWanConfigOutputArgs, opts ...pulumi.InvokeOption) GetVWanConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVWanConfigResultOutput, error) {
-			args := v.(GetVWanConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:ssl/getVWanConfig:getVWanConfig", args, GetVWanConfigResultOutput{}, options).(GetVWanConfigResultOutput), nil
-		}).(GetVWanConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:ssl/getVWanConfig:getVWanConfig", args, GetVWanConfigResultOutput{}, options).(GetVWanConfigResultOutput)
 }
 
 // A collection of arguments for invoking getVWanConfig.

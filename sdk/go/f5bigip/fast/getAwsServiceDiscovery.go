@@ -103,12 +103,8 @@ type GetAwsServiceDiscoveryResult struct {
 }
 
 func GetAwsServiceDiscoveryOutput(ctx *pulumi.Context, args GetAwsServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetAwsServiceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAwsServiceDiscoveryResultOutput, error) {
-			args := v.(GetAwsServiceDiscoveryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args, GetAwsServiceDiscoveryResultOutput{}, options).(GetAwsServiceDiscoveryResultOutput), nil
-		}).(GetAwsServiceDiscoveryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args, GetAwsServiceDiscoveryResultOutput{}, options).(GetAwsServiceDiscoveryResultOutput)
 }
 
 // A collection of arguments for invoking getAwsServiceDiscovery.
