@@ -97,12 +97,8 @@ type GetConsulServiceDiscoveryResult struct {
 }
 
 func GetConsulServiceDiscoveryOutput(ctx *pulumi.Context, args GetConsulServiceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) GetConsulServiceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConsulServiceDiscoveryResultOutput, error) {
-			args := v.(GetConsulServiceDiscoveryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args, GetConsulServiceDiscoveryResultOutput{}, options).(GetConsulServiceDiscoveryResultOutput), nil
-		}).(GetConsulServiceDiscoveryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery", args, GetConsulServiceDiscoveryResultOutput{}, options).(GetConsulServiceDiscoveryResultOutput)
 }
 
 // A collection of arguments for invoking getConsulServiceDiscovery.

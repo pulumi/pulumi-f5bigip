@@ -76,12 +76,8 @@ type GetWafPbSuggestionsResult struct {
 }
 
 func GetWafPbSuggestionsOutput(ctx *pulumi.Context, args GetWafPbSuggestionsOutputArgs, opts ...pulumi.InvokeOption) GetWafPbSuggestionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWafPbSuggestionsResultOutput, error) {
-			args := v.(GetWafPbSuggestionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args, GetWafPbSuggestionsResultOutput{}, options).(GetWafPbSuggestionsResultOutput), nil
-		}).(GetWafPbSuggestionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args, GetWafPbSuggestionsResultOutput{}, options).(GetWafPbSuggestionsResultOutput)
 }
 
 // A collection of arguments for invoking getWafPbSuggestions.

@@ -37,12 +37,8 @@ type GetAs3DeviceInformationResult struct {
 }
 
 func GetAs3DeviceInformationOutput(ctx *pulumi.Context, args GetAs3DeviceInformationOutputArgs, opts ...pulumi.InvokeOption) GetAs3DeviceInformationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAs3DeviceInformationResultOutput, error) {
-			args := v.(GetAs3DeviceInformationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("f5bigip:index/getAs3DeviceInformation:getAs3DeviceInformation", args, GetAs3DeviceInformationResultOutput{}, options).(GetAs3DeviceInformationResultOutput), nil
-		}).(GetAs3DeviceInformationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("f5bigip:index/getAs3DeviceInformation:getAs3DeviceInformation", args, GetAs3DeviceInformationResultOutput{}, options).(GetAs3DeviceInformationResultOutput)
 }
 
 // A collection of arguments for invoking getAs3DeviceInformation.
