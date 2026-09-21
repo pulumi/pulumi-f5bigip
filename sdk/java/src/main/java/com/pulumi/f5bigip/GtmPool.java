@@ -100,12 +100,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var withMembers = new GtmPool("withMembers", GtmPoolArgs.builder()
- *             .name("app_pool")
- *             .type("a")
- *             .partition("Common")
- *             .loadBalancingMode("round-robin")
- *             .monitor("/Common/https")
- *             .ttl(30)
  *             .members(            
  *                 GtmPoolMemberArgs.builder()
  *                     .name("server1:/Common/vs_app")
@@ -119,6 +113,12 @@ import javax.annotation.Nullable;
  *                     .ratio(1)
  *                     .memberOrder(1)
  *                     .build())
+ *             .name("app_pool")
+ *             .type("a")
+ *             .partition("Common")
+ *             .loadBalancingMode("round-robin")
+ *             .monitor("/Common/https")
+ *             .ttl(30)
  *             .build());
  * 
  *     }
@@ -152,6 +152,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var advanced = new GtmPool("advanced", GtmPoolArgs.builder()
+ *             .members(            
+ *                 GtmPoolMemberArgs.builder()
+ *                     .name("server1:/Common/vs_app")
+ *                     .enabled(true)
+ *                     .ratio(2)
+ *                     .memberOrder(0)
+ *                     .monitor("default")
+ *                     .limitMaxConnections(2000)
+ *                     .limitMaxConnectionsStatus("enabled")
+ *                     .build(),
+ *                 GtmPoolMemberArgs.builder()
+ *                     .name("server2:/Common/vs_app")
+ *                     .enabled(true)
+ *                     .ratio(1)
+ *                     .memberOrder(1)
+ *                     .build())
  *             .name("advanced_pool")
  *             .type("a")
  *             .partition("Common")
@@ -175,22 +191,6 @@ import javax.annotation.Nullable;
  *             .limitMaxBpsStatus("enabled")
  *             .minMembersUpMode("at-least")
  *             .minMembersUpValue(2)
- *             .members(            
- *                 GtmPoolMemberArgs.builder()
- *                     .name("server1:/Common/vs_app")
- *                     .enabled(true)
- *                     .ratio(2)
- *                     .memberOrder(0)
- *                     .monitor("default")
- *                     .limitMaxConnections(2000)
- *                     .limitMaxConnectionsStatus("enabled")
- *                     .build(),
- *                 GtmPoolMemberArgs.builder()
- *                     .name("server2:/Common/vs_app")
- *                     .enabled(true)
- *                     .ratio(1)
- *                     .memberOrder(1)
- *                     .build())
  *             .build());
  * 
  *     }

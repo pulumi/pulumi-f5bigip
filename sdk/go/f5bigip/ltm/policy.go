@@ -40,17 +40,8 @@ import (
 //				return err
 //			}
 //			_, err = ltm.NewPolicy(ctx, "test-policy", &ltm.PolicyArgs{
-//				Name:     pulumi.String("/Common/test-policy"),
-//				Strategy: pulumi.String("first-match"),
-//				Requires: pulumi.StringArray{
-//					pulumi.String("http"),
-//				},
-//				Controls: pulumi.StringArray{
-//					pulumi.String("forwarding"),
-//				},
 //				Rules: ltm.PolicyRuleArray{
 //					&ltm.PolicyRuleArgs{
-//						Name: pulumi.String("rule6"),
 //						Actions: ltm.PolicyRuleActionArray{
 //							&ltm.PolicyRuleActionArgs{
 //								Forward:    pulumi.Bool(true),
@@ -58,7 +49,16 @@ import (
 //								Pool:       mypool.Name,
 //							},
 //						},
+//						Name: pulumi.String("rule6"),
 //					},
+//				},
+//				Name:     pulumi.String("/Common/test-policy"),
+//				Strategy: pulumi.String("first-match"),
+//				Requires: pulumi.StringArray{
+//					pulumi.String("http"),
+//				},
+//				Controls: pulumi.StringArray{
+//					pulumi.String("forwarding"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				mypool,

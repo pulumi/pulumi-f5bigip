@@ -49,12 +49,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fast_udp_app = new FastUdpApp("fast-udp-app", FastUdpAppArgs.builder()
- *             .application("udp_app_2")
- *             .tenant("udp_app_tenant")
- *             .virtualServer(com.pulumi.f5bigip.inputs.FastUdpAppVirtualServerArgs.builder()
- *                 .ip("11.12.16.30")
- *                 .port(443)
- *                 .build()[0])
  *             .poolMembers(FastUdpAppPoolMemberArgs.builder()
  *                 .addresses(                
  *                     "10.11.34.65",
@@ -64,6 +58,12 @@ import javax.annotation.Nullable;
  *                 .connectionLimit(4)
  *                 .shareNodes(true)
  *                 .build())
+ *             .application("udp_app_2")
+ *             .tenant("udp_app_tenant")
+ *             .virtualServer(com.pulumi.f5bigip.inputs.FastUdpAppVirtualServerArgs.builder()
+ *                 .ip("11.12.16.30")
+ *                 .port(443)
+ *                 .build()[0])
  *             .build());
  * 
  *     }

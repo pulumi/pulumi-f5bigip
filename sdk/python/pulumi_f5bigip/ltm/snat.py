@@ -396,7 +396,7 @@ class Snat(pulumi.CustomResource):
                  full_path: pulumi.Input[Optional[_builtins.str]] = None,
                  mirror: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]]] = None,
                  partition: pulumi.Input[Optional[_builtins.str]] = None,
                  snatpool: pulumi.Input[Optional[_builtins.str]] = None,
                  sourceport: pulumi.Input[Optional[_builtins.str]] = None,
@@ -416,12 +416,12 @@ class Snat(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_snat = f5bigip.ltm.Snat("test-snat",
-            name="/Common/test-snat",
-            translation="/Common/136.1.1.2",
-            sourceport="preserve",
             origins=[{
                 "name": "0.0.0.0/0",
             }],
+            name="/Common/test-snat",
+            translation="/Common/136.1.1.2",
+            sourceport="preserve",
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
@@ -433,7 +433,7 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] full_path: Fullpath
         :param pulumi.Input[_builtins.str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[_builtins.str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[_builtins.str] partition: Partition or path to which the SNAT belongs
         :param pulumi.Input[_builtins.str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         :param pulumi.Input[_builtins.str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
@@ -459,12 +459,12 @@ class Snat(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_snat = f5bigip.ltm.Snat("test-snat",
-            name="/Common/test-snat",
-            translation="/Common/136.1.1.2",
-            sourceport="preserve",
             origins=[{
                 "name": "0.0.0.0/0",
             }],
+            name="/Common/test-snat",
+            translation="/Common/136.1.1.2",
+            sourceport="preserve",
             vlans=["/Common/internal"],
             vlansdisabled=False)
         ```
@@ -489,7 +489,7 @@ class Snat(pulumi.CustomResource):
                  full_path: pulumi.Input[Optional[_builtins.str]] = None,
                  mirror: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]]] = None,
                  partition: pulumi.Input[Optional[_builtins.str]] = None,
                  snatpool: pulumi.Input[Optional[_builtins.str]] = None,
                  sourceport: pulumi.Input[Optional[_builtins.str]] = None,
@@ -534,7 +534,7 @@ class Snat(pulumi.CustomResource):
             full_path: pulumi.Input[Optional[_builtins.str]] = None,
             mirror: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]]] = None,
             partition: pulumi.Input[Optional[_builtins.str]] = None,
             snatpool: pulumi.Input[Optional[_builtins.str]] = None,
             sourceport: pulumi.Input[Optional[_builtins.str]] = None,
@@ -552,7 +552,7 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] full_path: Fullpath
         :param pulumi.Input[_builtins.str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[_builtins.str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[_builtins.str] partition: Partition or path to which the SNAT belongs
         :param pulumi.Input[_builtins.str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         :param pulumi.Input[_builtins.str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.

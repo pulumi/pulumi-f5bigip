@@ -86,31 +86,28 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * as std from "@pulumi/std";
  *
- * export = async () => {
- *     const node1 = new f5bigip.ltm.Node("node1", {
- *         name: "/Common/terraform_node1",
- *         address: "192.168.30.1",
- *     });
- *     const node2 = new f5bigip.ltm.Node("node2", {
- *         name: "/Common/terraform_node2",
- *         address: "192.168.30.2",
- *     });
- *     const k8sProd = new f5bigip.ltm.Pool("k8s_prod", {name: "/Common/k8prod_Pool"});
- *     const k8sprod: f5bigip.ltm.PoolAttachment[] = [];
- *     for (const range of std.toset({
- *         input: [
- *             node1.name,
- *             node2.name,
- *         ],
- *     }).result.map((v, k) => ({key: k, value: v}))) {
- *         k8sprod.push(new f5bigip.ltm.PoolAttachment(`k8sprod-${range.key}`, {
+ * const node1 = new f5bigip.ltm.Node("node1", {
+ *     name: "/Common/terraform_node1",
+ *     address: "192.168.30.1",
+ * });
+ * const node2 = new f5bigip.ltm.Node("node2", {
+ *     name: "/Common/terraform_node2",
+ *     address: "192.168.30.2",
+ * });
+ * const k8sProd = new f5bigip.ltm.Pool("k8s_prod", {name: "/Common/k8prod_Pool"});
+ * const k8sprod: {[key: string]: f5bigip.ltm.PoolAttachment} = {};
+ * pulumi.all([
+ *     node1.name,
+ *     node2.name,
+ * ].reduce((__obj, entry) => ({ ...__obj, [entry]: entry }), {})).apply(rangeBody => {
+ *     for (const range of Object.entries(rangeBody).sort().map(([k, v]) => ({key: k, value: v}))) {
+ *         k8sprod[range.key] = new f5bigip.ltm.PoolAttachment(`k8sprod-${range.key}`, {
  *             pool: k8sProd.name,
  *             node: `${range.key}:80`,
- *         }));
+ *         });
  *     }
- * }
+ * });
  * ```
  *
  * ## Importing

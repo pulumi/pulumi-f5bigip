@@ -27,6 +27,11 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var node = new F5BigIP.Ltm.Node("node", new()
     ///     {
+    ///         Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
+    ///         {
+    ///             AddressFamily = "ipv4",
+    ///             Interval = "3000",
+    ///         },
     ///         Name = "/Common/terraform_node1",
     ///         Address = "192.168.30.1",
     ///         ConnectionLimit = 0,
@@ -34,11 +39,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///         Monitor = "/Common/icmp",
     ///         Description = "Test-Node",
     ///         RateLimit = "disabled",
-    ///         Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             Interval = "3000",
-    ///         },
     ///     });
     /// 
     /// });

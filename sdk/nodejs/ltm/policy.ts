@@ -24,18 +24,18 @@ import * as utilities from "../utilities";
  *     loadBalancingMode: "round-robin",
  * });
  * const test_policy = new f5bigip.ltm.Policy("test-policy", {
- *     name: "/Common/test-policy",
- *     strategy: "first-match",
- *     requires: ["http"],
- *     controls: ["forwarding"],
  *     rules: [{
- *         name: "rule6",
  *         actions: [{
  *             forward: true,
  *             connection: false,
  *             pool: mypool.name,
  *         }],
+ *         name: "rule6",
  *     }],
+ *     name: "/Common/test-policy",
+ *     strategy: "first-match",
+ *     requires: ["http"],
+ *     controls: ["forwarding"],
  * }, {
  *     dependsOn: [mypool],
  * });

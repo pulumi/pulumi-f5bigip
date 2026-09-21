@@ -37,9 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = ltm.NewProfileRewriteUriRules(ctx, "tftestrule1", &ltm.ProfileRewriteUriRulesArgs{
-//				ProfileName: tftest.Name,
-//				RuleName:    pulumi.String("tf_rule"),
-//				RuleType:    pulumi.String("request"),
 //				Clients: ltm.ProfileRewriteUriRulesClientArray{
 //					&ltm.ProfileRewriteUriRulesClientArgs{
 //						Host:   pulumi.String("www.foo.com"),
@@ -54,13 +51,14 @@ import (
 //						Port:   pulumi.String("8888"),
 //					},
 //				},
+//				ProfileName: tftest.Name,
+//				RuleName:    pulumi.String("tf_rule"),
+//				RuleType:    pulumi.String("request"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ltm.NewProfileRewriteUriRules(ctx, "tftestrule2", &ltm.ProfileRewriteUriRulesArgs{
-//				ProfileName: tftest.Name,
-//				RuleName:    pulumi.String("tf_rule2"),
 //				Clients: ltm.ProfileRewriteUriRulesClientArray{
 //					&ltm.ProfileRewriteUriRulesClientArgs{
 //						Host:   pulumi.String("www.baz.com"),
@@ -76,6 +74,8 @@ import (
 //						Scheme: pulumi.String("ftps"),
 //					},
 //				},
+//				ProfileName: tftest.Name,
+//				RuleName:    pulumi.String("tf_rule2"),
 //			})
 //			if err != nil {
 //				return err

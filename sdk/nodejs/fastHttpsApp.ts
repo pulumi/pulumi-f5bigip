@@ -18,12 +18,12 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const fastHttpsApp = new f5bigip.FastHttpsApp("fast_https_app", {
- *     tenant: "fasthttpstenant",
- *     application: "fasthttpsapp",
  *     virtualServer: {
  *         ip: "10.30.40.44",
  *         port: 443,
  *     },
+ *     tenant: "fasthttpstenant",
+ *     application: "fasthttpsapp",
  * });
  * ```
  *
@@ -45,8 +45,6 @@ import * as utilities from "./utilities";
  *     region: "testgceregion",
  * });
  * const fastHttpsApp = new f5bigip.FastHttpsApp("fast_https_app", {
- *     tenant: "fasthttpstenant",
- *     application: "fasthttpsapp",
  *     virtualServer: {
  *         ip: "10.30.40.44",
  *         port: 443,
@@ -59,6 +57,8 @@ import * as utilities from "./utilities";
  *         ],
  *         port: 80,
  *     }],
+ *     tenant: "fasthttpstenant",
+ *     application: "fasthttpsapp",
  *     serviceDiscoveries: [
  *         TC3GetGceServiceDiscovery.then(TC3GetGceServiceDiscovery => TC3GetGceServiceDiscovery.gceSdJson),
  *         TC3.then(TC3 => TC3.azureSdJson),

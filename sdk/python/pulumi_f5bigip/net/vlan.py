@@ -202,7 +202,7 @@ class Vlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
-                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tag: pulumi.Input[Optional[_builtins.int]] = None,
@@ -219,19 +219,19 @@ class Vlan(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
             interfaces=[{
                 "vlanport": "1.2",
                 "tagged": False,
-            }])
+            }],
+            name="/Common/Internal",
+            tag=101)
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[_builtins.int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[_builtins.str] name: Name of the vlan
         :param pulumi.Input[_builtins.int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -254,12 +254,12 @@ class Vlan(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
             interfaces=[{
                 "vlanport": "1.2",
                 "tagged": False,
-            }])
+            }],
+            name="/Common/Internal",
+            tag=101)
         ```
 
 
@@ -279,7 +279,7 @@ class Vlan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
-                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+                 interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tag: pulumi.Input[Optional[_builtins.int]] = None,
@@ -310,7 +310,7 @@ class Vlan(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
-            interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]]] = None,
+            interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]]] = None,
             mtu: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tag: pulumi.Input[Optional[_builtins.int]] = None) -> 'Vlan':
@@ -322,7 +322,7 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[_builtins.int] mtu: Specifies the maximum transmission unit (MTU) for traffic on this VLAN. The default value is `1500`.
         :param pulumi.Input[_builtins.str] name: Name of the vlan
         :param pulumi.Input[_builtins.int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.

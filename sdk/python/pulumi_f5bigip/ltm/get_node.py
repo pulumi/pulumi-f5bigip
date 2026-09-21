@@ -197,7 +197,7 @@ class AwaitableGetNodeResult(GetNodeResult):
 
 def get_node(address: Optional[_builtins.str] = None,
              description: Optional[_builtins.str] = None,
-             fqdn: Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict']] = None,
+             fqdn: Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict', 'outputs.GetNodeFqdnResult']] = None,
              full_path: Optional[_builtins.str] = None,
              name: Optional[_builtins.str] = None,
              partition: Optional[_builtins.str] = None,
@@ -239,7 +239,7 @@ def get_node(address: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'))
 def get_node_output(address: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    fqdn: pulumi.Input[Optional[Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict']]]] = None,
+                    fqdn: pulumi.Input[Optional[Optional[Union['GetNodeFqdnArgs', 'GetNodeFqdnArgsDict', 'outputs.GetNodeFqdnResult']]]] = None,
                     full_path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     name: pulumi.Input[Optional[_builtins.str]] = None,
                     partition: pulumi.Input[Optional[_builtins.str]] = None,

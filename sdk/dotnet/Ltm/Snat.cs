@@ -26,9 +26,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     var test_snat = new F5BigIP.Ltm.Snat("test-snat", new()
     ///     {
-    ///         Name = "/Common/test-snat",
-    ///         Translation = "/Common/136.1.1.2",
-    ///         Sourceport = "preserve",
     ///         Origins = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.SnatOriginArgs
@@ -36,6 +33,9 @@ namespace Pulumi.F5BigIP.Ltm
     ///                 Name = "0.0.0.0/0",
     ///             },
     ///         },
+    ///         Name = "/Common/test-snat",
+    ///         Translation = "/Common/136.1.1.2",
+    ///         Sourceport = "preserve",
     ///         Vlans = new[]
     ///         {
     ///             "/Common/internal",

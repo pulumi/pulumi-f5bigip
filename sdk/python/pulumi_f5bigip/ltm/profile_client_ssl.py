@@ -1946,7 +1946,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  cert: pulumi.Input[Optional[_builtins.str]] = None,
                  cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']]] = None,
+                 cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict', 'outputs.ProfileClientSslCertKeyChain']]] = None,
                  cert_life_span: pulumi.Input[Optional[_builtins.int]] = None,
                  cert_lookup_by_ipaddr_port: pulumi.Input[Optional[_builtins.str]] = None,
                  chain: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2035,7 +2035,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
-        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict', 'outputs.ProfileClientSslCertKeyChain']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
                See Cert Key Chain below for more details.
                
                > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.
@@ -2150,7 +2150,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  cert: pulumi.Input[Optional[_builtins.str]] = None,
                  cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']]] = None,
+                 cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict', 'outputs.ProfileClientSslCertKeyChain']]] = None,
                  cert_life_span: pulumi.Input[Optional[_builtins.int]] = None,
                  cert_lookup_by_ipaddr_port: pulumi.Input[Optional[_builtins.str]] = None,
                  chain: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2289,7 +2289,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             cache_timeout: pulumi.Input[Optional[_builtins.int]] = None,
             cert: pulumi.Input[Optional[_builtins.str]] = None,
             cert_extension_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']]] = None,
+            cert_key_chain: pulumi.Input[Optional[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict', 'outputs.ProfileClientSslCertKeyChain']]] = None,
             cert_life_span: pulumi.Input[Optional[_builtins.int]] = None,
             cert_lookup_by_ipaddr_port: pulumi.Input[Optional[_builtins.str]] = None,
             chain: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2355,7 +2355,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] cache_timeout: Cache time out
         :param pulumi.Input[_builtins.str] cert: Specifies the name of the certificate that the system uses for client-side SSL processing. The default is `default`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
-        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
+        :param pulumi.Input[Union['ProfileClientSslCertKeyChainArgs', 'ProfileClientSslCertKeyChainArgsDict', 'outputs.ProfileClientSslCertKeyChain']] cert_key_chain: `cert_key_chain` Specifies one or more certificates and keys to associate with the SSL profile.
                See Cert Key Chain below for more details.
                
                > **NOTE**  `cert_key_chain` is recommend way for adding cert-key-chain to profile. If `cert_key_chain` block provided, we should not provide `cert`, `key` and `chain`.

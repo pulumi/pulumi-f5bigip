@@ -21,9 +21,6 @@ import * as utilities from "../utilities";
  *     rewriteMode: "uri-translation",
  * });
  * const tftestrule1 = new f5bigip.ltm.ProfileRewriteUriRules("tftestrule1", {
- *     profileName: tftest.name,
- *     ruleName: "tf_rule",
- *     ruleType: "request",
  *     clients: [{
  *         host: "www.foo.com",
  *         scheme: "https",
@@ -34,10 +31,11 @@ import * as utilities from "../utilities";
  *         scheme: "https",
  *         port: "8888",
  *     }],
+ *     profileName: tftest.name,
+ *     ruleName: "tf_rule",
+ *     ruleType: "request",
  * });
  * const tftestrule2 = new f5bigip.ltm.ProfileRewriteUriRules("tftestrule2", {
- *     profileName: tftest.name,
- *     ruleName: "tf_rule2",
  *     clients: [{
  *         host: "www.baz.com",
  *         path: "/that/",
@@ -49,6 +47,8 @@ import * as utilities from "../utilities";
  *         path: "/those/",
  *         scheme: "ftps",
  *     }],
+ *     profileName: tftest.name,
+ *     ruleName: "tf_rule2",
  * });
  * ```
  */

@@ -976,12 +976,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]]] = None,
                  fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
                  fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  head_erase: pulumi.Input[Optional[_builtins.str]] = None,
                  head_insert: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]]] = None,
                  insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
                  lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
                  lws_width: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1039,12 +1039,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies user-defined description.
         :param pulumi.Input[_builtins.str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]] enforcements: See Enforcement below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[_builtins.str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[_builtins.str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
@@ -1121,12 +1121,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+                 enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]]] = None,
                  fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
                  fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  head_erase: pulumi.Input[Optional[_builtins.str]] = None,
                  head_insert: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+                 http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]]] = None,
                  insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
                  lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
                  lws_width: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1200,12 +1200,12 @@ class ProfileHttp(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
             encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]]] = None,
+            enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]]] = None,
             fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
             fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             head_erase: pulumi.Input[Optional[_builtins.str]] = None,
             head_insert: pulumi.Input[Optional[_builtins.str]] = None,
-            http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]]] = None,
+            http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]]] = None,
             insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
             lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
             lws_width: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1236,12 +1236,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies user-defined description.
         :param pulumi.Input[_builtins.str] encrypt_cookie_secret: Type a passphrase for cookie encryption. Note: Since it's a sensitive entity idempotency will fail for it in the update call.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict']]]] enforcements: See Enforcement below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[_builtins.str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[_builtins.str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[_builtins.str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[_builtins.str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[_builtins.str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
         :param pulumi.Input[_builtins.int] lws_width: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.

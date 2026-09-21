@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var server1 = new GtmServer("server1", GtmServerArgs.builder()
- *             .name("bigip_server1")
- *             .datacenter(dc1.name())
- *             .product("bigip")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("10.1.1.1")
  *                 .build())
+ *             .name("bigip_server1")
+ *             .datacenter(dc1.name())
+ *             .product("bigip")
  *             .monitor("/Common/bigip")
  *             .virtualServerDiscovery("true")
  *             .linkDiscovery("disabled")
@@ -108,9 +108,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var multiAddressServer = new GtmServer("multiAddressServer", GtmServerArgs.builder()
- *             .name("multi_server")
- *             .datacenter(dc1.name())
- *             .product("bigip")
  *             .addresses(            
  *                 GtmServerAddressArgs.builder()
  *                     .name("10.1.1.1")
@@ -122,6 +119,9 @@ import javax.annotation.Nullable;
  *                     .deviceName("/Common/bigip2.example.com")
  *                     .translation("none")
  *                     .build())
+ *             .name("multi_server")
+ *             .datacenter(dc1.name())
+ *             .product("bigip")
  *             .monitor("/Common/bigip")
  *             .virtualServerDiscovery("true")
  *             .build());
@@ -163,14 +163,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var natServer = new GtmServer("natServer", GtmServerArgs.builder()
- *             .name("nat_server")
- *             .datacenter(dc1.name())
- *             .product("bigip")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("10.10.10.10")
  *                 .deviceName("/Common/server.example.com")
  *                 .translation("192.168.1.10")
  *                 .build())
+ *             .name("nat_server")
+ *             .datacenter(dc1.name())
+ *             .product("bigip")
  *             .monitor("/Common/bigip")
  *             .virtualServerDiscovery("true")
  *             .build());
@@ -212,12 +212,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var genericHost = new GtmServer("genericHost", GtmServerArgs.builder()
- *             .name("generic_server")
- *             .datacenter(dc1.name())
- *             .product("generic-host")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("10.20.20.20")
  *                 .build())
+ *             .name("generic_server")
+ *             .datacenter(dc1.name())
+ *             .product("generic-host")
  *             .monitor("/Common/tcp")
  *             .virtualServerDiscovery("false")
  *             .linkDiscovery("disabled")
@@ -263,14 +263,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var genericWithVs = new GtmServer("genericWithVs", GtmServerArgs.builder()
- *             .name("generic_app_server")
- *             .datacenter(dc1.name())
- *             .product("generic-host")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("192.168.10.100")
  *                 .build())
- *             .virtualServerDiscovery("disabled")
- *             .linkDiscovery("disabled")
  *             .virtualServers(            
  *                 GtmServerVirtualServerArgs.builder()
  *                     .name("vs_http")
@@ -289,6 +284,11 @@ import javax.annotation.Nullable;
  *                     .translationAddress("none")
  *                     .translationPort(0)
  *                     .build())
+ *             .name("generic_app_server")
+ *             .datacenter(dc1.name())
+ *             .product("generic-host")
+ *             .virtualServerDiscovery("disabled")
+ *             .linkDiscovery("disabled")
  *             .enabled(true)
  *             .build());
  * 
@@ -329,12 +329,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var proberServer = new GtmServer("proberServer", GtmServerArgs.builder()
- *             .name("prober_configured_server")
- *             .datacenter(dc1.name())
- *             .product("bigip")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("10.30.30.30")
  *                 .build())
+ *             .name("prober_configured_server")
+ *             .datacenter(dc1.name())
+ *             .product("bigip")
  *             .monitor("/Common/bigip")
  *             .virtualServerDiscovery("true")
  *             .proberPreference("inside-datacenter")
@@ -381,12 +381,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var limitedServer = new GtmServer("limitedServer", GtmServerArgs.builder()
- *             .name("resource_limited_server")
- *             .datacenter(dc1.name())
- *             .product("bigip")
  *             .addresses(GtmServerAddressArgs.builder()
  *                 .name("10.40.40.40")
  *                 .build())
+ *             .name("resource_limited_server")
+ *             .datacenter(dc1.name())
+ *             .product("bigip")
  *             .monitor("/Common/bigip")
  *             .virtualServerDiscovery("true")
  *             .limitMaxConnections(10000)

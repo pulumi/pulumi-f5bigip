@@ -41,14 +41,14 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "server1", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("bigip_server1"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("bigip"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name: pulumi.String("10.1.1.1"),
 //					},
 //				},
+//				Name:                   pulumi.String("bigip_server1"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("bigip"),
 //				Monitor:                pulumi.String("/Common/bigip"),
 //				VirtualServerDiscovery: pulumi.String("true"),
 //				LinkDiscovery:          pulumi.String("disabled"),
@@ -83,9 +83,6 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "multi_address_server", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("multi_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("bigip"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name:        pulumi.String("10.1.1.1"),
@@ -98,6 +95,9 @@ import (
 //						Translation: pulumi.String("none"),
 //					},
 //				},
+//				Name:                   pulumi.String("multi_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("bigip"),
 //				Monitor:                pulumi.String("/Common/bigip"),
 //				VirtualServerDiscovery: pulumi.String("true"),
 //			})
@@ -131,9 +131,6 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "nat_server", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("nat_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("bigip"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name:        pulumi.String("10.10.10.10"),
@@ -141,6 +138,9 @@ import (
 //						Translation: pulumi.String("192.168.1.10"),
 //					},
 //				},
+//				Name:                   pulumi.String("nat_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("bigip"),
 //				Monitor:                pulumi.String("/Common/bigip"),
 //				VirtualServerDiscovery: pulumi.String("true"),
 //			})
@@ -174,14 +174,14 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "generic_host", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("generic_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("generic-host"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name: pulumi.String("10.20.20.20"),
 //					},
 //				},
+//				Name:                   pulumi.String("generic_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("generic-host"),
 //				Monitor:                pulumi.String("/Common/tcp"),
 //				VirtualServerDiscovery: pulumi.String("false"),
 //				LinkDiscovery:          pulumi.String("disabled"),
@@ -218,16 +218,11 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "generic_with_vs", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("generic_app_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("generic-host"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name: pulumi.String("192.168.10.100"),
 //					},
 //				},
-//				VirtualServerDiscovery: pulumi.String("disabled"),
-//				LinkDiscovery:          pulumi.String("disabled"),
 //				VirtualServers: f5bigip.GtmServerVirtualServerArray{
 //					&f5bigip.GtmServerVirtualServerArgs{
 //						Name:        pulumi.String("vs_http"),
@@ -247,7 +242,12 @@ import (
 //						TranslationPort:    pulumi.Int(0),
 //					},
 //				},
-//				Enabled: pulumi.Bool(true),
+//				Name:                   pulumi.String("generic_app_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("generic-host"),
+//				VirtualServerDiscovery: pulumi.String("disabled"),
+//				LinkDiscovery:          pulumi.String("disabled"),
+//				Enabled:                pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -279,14 +279,14 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "prober_server", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("prober_configured_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("bigip"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name: pulumi.String("10.30.30.30"),
 //					},
 //				},
+//				Name:                   pulumi.String("prober_configured_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("bigip"),
 //				Monitor:                pulumi.String("/Common/bigip"),
 //				VirtualServerDiscovery: pulumi.String("true"),
 //				ProberPreference:       pulumi.String("inside-datacenter"),
@@ -325,14 +325,14 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewGtmServer(ctx, "limited_server", &f5bigip.GtmServerArgs{
-//				Name:       pulumi.String("resource_limited_server"),
-//				Datacenter: dc1.Name,
-//				Product:    pulumi.String("bigip"),
 //				Addresses: f5bigip.GtmServerAddressArray{
 //					&f5bigip.GtmServerAddressArgs{
 //						Name: pulumi.String("10.40.40.40"),
 //					},
 //				},
+//				Name:                   pulumi.String("resource_limited_server"),
+//				Datacenter:             dc1.Name,
+//				Product:                pulumi.String("bigip"),
 //				Monitor:                pulumi.String("/Common/bigip"),
 //				VirtualServerDiscovery: pulumi.String("true"),
 //				LimitMaxConnections:    pulumi.Int(10000),

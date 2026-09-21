@@ -29,12 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewFastTcpApp(ctx, "fast-tcp-app", &f5bigip.FastTcpAppArgs{
-//				Application: pulumi.String("tcp_app_2"),
-//				Tenant:      pulumi.String("tcp_app_tenant"),
-//				VirtualServer: map[string]interface{}{
-//					"ip":   "11.12.16.30",
-//					"port": 443,
-//				}[0],
 //				PoolMembers: f5bigip.FastTcpAppPoolMemberArray{
 //					&f5bigip.FastTcpAppPoolMemberArgs{
 //						Addresses: pulumi.StringArray{
@@ -47,6 +41,12 @@ import (
 //						ShareNodes:      pulumi.Bool(true),
 //					},
 //				},
+//				Application: pulumi.String("tcp_app_2"),
+//				Tenant:      pulumi.String("tcp_app_tenant"),
+//				VirtualServer: map[string]interface{}{
+//					"ip":   "11.12.16.30",
+//					"port": 443,
+//				}[0],
 //			})
 //			if err != nil {
 //				return err

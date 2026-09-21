@@ -31,9 +31,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     ///     var tftestrule1 = new F5BigIP.Ltm.ProfileRewriteUriRules("tftestrule1", new()
     ///     {
-    ///         ProfileName = tftest.Name,
-    ///         RuleName = "tf_rule",
-    ///         RuleType = "request",
     ///         Clients = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesClientArgs
@@ -52,12 +49,13 @@ namespace Pulumi.F5BigIP.Ltm
     ///                 Port = "8888",
     ///             },
     ///         },
+    ///         ProfileName = tftest.Name,
+    ///         RuleName = "tf_rule",
+    ///         RuleType = "request",
     ///     });
     /// 
     ///     var tftestrule2 = new F5BigIP.Ltm.ProfileRewriteUriRules("tftestrule2", new()
     ///     {
-    ///         ProfileName = tftest.Name,
-    ///         RuleName = "tf_rule2",
     ///         Clients = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.ProfileRewriteUriRulesClientArgs
@@ -77,6 +75,8 @@ namespace Pulumi.F5BigIP.Ltm
     ///                 Scheme = "ftps",
     ///             },
     ///         },
+    ///         ProfileName = tftest.Name,
+    ///         RuleName = "tf_rule2",
     ///     });
     /// 
     /// });

@@ -75,12 +75,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewGtmPool(ctx, "with_members", &f5bigip.GtmPoolArgs{
-//				Name:              pulumi.String("app_pool"),
-//				Type:              pulumi.String("a"),
-//				Partition:         pulumi.String("Common"),
-//				LoadBalancingMode: pulumi.String("round-robin"),
-//				Monitor:           pulumi.String("/Common/https"),
-//				Ttl:               pulumi.Int(30),
 //				Members: f5bigip.GtmPoolMemberArray{
 //					&f5bigip.GtmPoolMemberArgs{
 //						Name:        pulumi.String("server1:/Common/vs_app"),
@@ -95,6 +89,12 @@ import (
 //						MemberOrder: pulumi.Int(1),
 //					},
 //				},
+//				Name:              pulumi.String("app_pool"),
+//				Type:              pulumi.String("a"),
+//				Partition:         pulumi.String("Common"),
+//				LoadBalancingMode: pulumi.String("round-robin"),
+//				Monitor:           pulumi.String("/Common/https"),
+//				Ttl:               pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
@@ -120,6 +120,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewGtmPool(ctx, "advanced", &f5bigip.GtmPoolArgs{
+//				Members: f5bigip.GtmPoolMemberArray{
+//					&f5bigip.GtmPoolMemberArgs{
+//						Name:                      pulumi.String("server1:/Common/vs_app"),
+//						Enabled:                   pulumi.Bool(true),
+//						Ratio:                     pulumi.Int(2),
+//						MemberOrder:               pulumi.Int(0),
+//						Monitor:                   pulumi.String("default"),
+//						LimitMaxConnections:       pulumi.Int(2000),
+//						LimitMaxConnectionsStatus: pulumi.String("enabled"),
+//					},
+//					&f5bigip.GtmPoolMemberArgs{
+//						Name:        pulumi.String("server2:/Common/vs_app"),
+//						Enabled:     pulumi.Bool(true),
+//						Ratio:       pulumi.Int(1),
+//						MemberOrder: pulumi.Int(1),
+//					},
+//				},
 //				Name:                      pulumi.String("advanced_pool"),
 //				Type:                      pulumi.String("a"),
 //				Partition:                 pulumi.String("Common"),
@@ -143,23 +160,6 @@ import (
 //				LimitMaxBpsStatus:         pulumi.String("enabled"),
 //				MinMembersUpMode:          pulumi.String("at-least"),
 //				MinMembersUpValue:         pulumi.Int(2),
-//				Members: f5bigip.GtmPoolMemberArray{
-//					&f5bigip.GtmPoolMemberArgs{
-//						Name:                      pulumi.String("server1:/Common/vs_app"),
-//						Enabled:                   pulumi.Bool(true),
-//						Ratio:                     pulumi.Int(2),
-//						MemberOrder:               pulumi.Int(0),
-//						Monitor:                   pulumi.String("default"),
-//						LimitMaxConnections:       pulumi.Int(2000),
-//						LimitMaxConnectionsStatus: pulumi.String("enabled"),
-//					},
-//					&f5bigip.GtmPoolMemberArgs{
-//						Name:        pulumi.String("server2:/Common/vs_app"),
-//						Enabled:     pulumi.Bool(true),
-//						Ratio:       pulumi.Int(1),
-//						MemberOrder: pulumi.Int(1),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

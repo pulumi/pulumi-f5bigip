@@ -35,9 +35,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var server1 = new F5BigIP.GtmServer("server1", new()
     ///     {
-    ///         Name = "bigip_server1",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "bigip",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -45,6 +42,9 @@ namespace Pulumi.F5BigIP
     ///                 Name = "10.1.1.1",
     ///             },
     ///         },
+    ///         Name = "bigip_server1",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "bigip",
     ///         Monitor = "/Common/bigip",
     ///         VirtualServerDiscovery = "true",
     ///         LinkDiscovery = "disabled",
@@ -70,9 +70,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var multiAddressServer = new F5BigIP.GtmServer("multi_address_server", new()
     ///     {
-    ///         Name = "multi_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "bigip",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -88,6 +85,9 @@ namespace Pulumi.F5BigIP
     ///                 Translation = "none",
     ///             },
     ///         },
+    ///         Name = "multi_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "bigip",
     ///         Monitor = "/Common/bigip",
     ///         VirtualServerDiscovery = "true",
     ///     });
@@ -112,9 +112,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var natServer = new F5BigIP.GtmServer("nat_server", new()
     ///     {
-    ///         Name = "nat_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "bigip",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -124,6 +121,9 @@ namespace Pulumi.F5BigIP
     ///                 Translation = "192.168.1.10",
     ///             },
     ///         },
+    ///         Name = "nat_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "bigip",
     ///         Monitor = "/Common/bigip",
     ///         VirtualServerDiscovery = "true",
     ///     });
@@ -148,9 +148,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var genericHost = new F5BigIP.GtmServer("generic_host", new()
     ///     {
-    ///         Name = "generic_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "generic-host",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -158,6 +155,9 @@ namespace Pulumi.F5BigIP
     ///                 Name = "10.20.20.20",
     ///             },
     ///         },
+    ///         Name = "generic_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "generic-host",
     ///         Monitor = "/Common/tcp",
     ///         VirtualServerDiscovery = "false",
     ///         LinkDiscovery = "disabled",
@@ -185,9 +185,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var genericWithVs = new F5BigIP.GtmServer("generic_with_vs", new()
     ///     {
-    ///         Name = "generic_app_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "generic-host",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -195,8 +192,6 @@ namespace Pulumi.F5BigIP
     ///                 Name = "192.168.10.100",
     ///             },
     ///         },
-    ///         VirtualServerDiscovery = "disabled",
-    ///         LinkDiscovery = "disabled",
     ///         VirtualServers = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerVirtualServerArgs
@@ -220,6 +215,11 @@ namespace Pulumi.F5BigIP
     ///                 TranslationPort = 0,
     ///             },
     ///         },
+    ///         Name = "generic_app_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "generic-host",
+    ///         VirtualServerDiscovery = "disabled",
+    ///         LinkDiscovery = "disabled",
     ///         Enabled = true,
     ///     });
     /// 
@@ -243,9 +243,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var proberServer = new F5BigIP.GtmServer("prober_server", new()
     ///     {
-    ///         Name = "prober_configured_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "bigip",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -253,6 +250,9 @@ namespace Pulumi.F5BigIP
     ///                 Name = "10.30.30.30",
     ///             },
     ///         },
+    ///         Name = "prober_configured_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "bigip",
     ///         Monitor = "/Common/bigip",
     ///         VirtualServerDiscovery = "true",
     ///         ProberPreference = "inside-datacenter",
@@ -282,9 +282,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var limitedServer = new F5BigIP.GtmServer("limited_server", new()
     ///     {
-    ///         Name = "resource_limited_server",
-    ///         Datacenter = dc1.Name,
-    ///         Product = "bigip",
     ///         Addresses = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmServerAddressArgs
@@ -292,6 +289,9 @@ namespace Pulumi.F5BigIP
     ///                 Name = "10.40.40.40",
     ///             },
     ///         },
+    ///         Name = "resource_limited_server",
+    ///         Datacenter = dc1.Name,
+    ///         Product = "bigip",
     ///         Monitor = "/Common/bigip",
     ///         VirtualServerDiscovery = "true",
     ///         LimitMaxConnections = 10000,

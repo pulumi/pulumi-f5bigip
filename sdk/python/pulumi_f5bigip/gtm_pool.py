@@ -1103,7 +1103,7 @@ class GtmPool(pulumi.CustomResource):
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
                  max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict', 'outputs.GtmPoolMember']]]]] = None,
                  min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1162,12 +1162,6 @@ class GtmPool(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         with_members = f5bigip.GtmPool("with_members",
-            name="app_pool",
-            type="a",
-            partition="Common",
-            load_balancing_mode="round-robin",
-            monitor="/Common/https",
-            ttl=30,
             members=[
                 {
                     "name": "server1:/Common/vs_app",
@@ -1181,7 +1175,13 @@ class GtmPool(pulumi.CustomResource):
                     "ratio": 1,
                     "member_order": 1,
                 },
-            ])
+            ],
+            name="app_pool",
+            type="a",
+            partition="Common",
+            load_balancing_mode="round-robin",
+            monitor="/Common/https",
+            ttl=30)
         ```
 
         ### Advanced Pool Configuration
@@ -1191,6 +1191,23 @@ class GtmPool(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         advanced = f5bigip.GtmPool("advanced",
+            members=[
+                {
+                    "name": "server1:/Common/vs_app",
+                    "enabled": True,
+                    "ratio": 2,
+                    "member_order": 0,
+                    "monitor": "default",
+                    "limit_max_connections": 2000,
+                    "limit_max_connections_status": "enabled",
+                },
+                {
+                    "name": "server2:/Common/vs_app",
+                    "enabled": True,
+                    "ratio": 1,
+                    "member_order": 1,
+                },
+            ],
             name="advanced_pool",
             type="a",
             partition="Common",
@@ -1213,24 +1230,7 @@ class GtmPool(pulumi.CustomResource):
             limit_max_bps=100000000,
             limit_max_bps_status="enabled",
             min_members_up_mode="at-least",
-            min_members_up_value=2,
-            members=[
-                {
-                    "name": "server1:/Common/vs_app",
-                    "enabled": True,
-                    "ratio": 2,
-                    "member_order": 0,
-                    "monitor": "default",
-                    "limit_max_connections": 2000,
-                    "limit_max_connections_status": "enabled",
-                },
-                {
-                    "name": "server2:/Common/vs_app",
-                    "enabled": True,
-                    "ratio": 1,
-                    "member_order": 1,
-                },
-            ])
+            min_members_up_value=2)
         ```
 
         ## Notes
@@ -1403,12 +1403,6 @@ class GtmPool(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         with_members = f5bigip.GtmPool("with_members",
-            name="app_pool",
-            type="a",
-            partition="Common",
-            load_balancing_mode="round-robin",
-            monitor="/Common/https",
-            ttl=30,
             members=[
                 {
                     "name": "server1:/Common/vs_app",
@@ -1422,7 +1416,13 @@ class GtmPool(pulumi.CustomResource):
                     "ratio": 1,
                     "member_order": 1,
                 },
-            ])
+            ],
+            name="app_pool",
+            type="a",
+            partition="Common",
+            load_balancing_mode="round-robin",
+            monitor="/Common/https",
+            ttl=30)
         ```
 
         ### Advanced Pool Configuration
@@ -1432,6 +1432,23 @@ class GtmPool(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         advanced = f5bigip.GtmPool("advanced",
+            members=[
+                {
+                    "name": "server1:/Common/vs_app",
+                    "enabled": True,
+                    "ratio": 2,
+                    "member_order": 0,
+                    "monitor": "default",
+                    "limit_max_connections": 2000,
+                    "limit_max_connections_status": "enabled",
+                },
+                {
+                    "name": "server2:/Common/vs_app",
+                    "enabled": True,
+                    "ratio": 1,
+                    "member_order": 1,
+                },
+            ],
             name="advanced_pool",
             type="a",
             partition="Common",
@@ -1454,24 +1471,7 @@ class GtmPool(pulumi.CustomResource):
             limit_max_bps=100000000,
             limit_max_bps_status="enabled",
             min_members_up_mode="at-least",
-            min_members_up_value=2,
-            members=[
-                {
-                    "name": "server1:/Common/vs_app",
-                    "enabled": True,
-                    "ratio": 2,
-                    "member_order": 0,
-                    "monitor": "default",
-                    "limit_max_connections": 2000,
-                    "limit_max_connections_status": "enabled",
-                },
-                {
-                    "name": "server2:/Common/vs_app",
-                    "enabled": True,
-                    "ratio": 1,
-                    "member_order": 1,
-                },
-            ])
+            min_members_up_value=2)
         ```
 
         ## Notes
@@ -1593,7 +1593,7 @@ class GtmPool(pulumi.CustomResource):
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
                  max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict', 'outputs.GtmPoolMember']]]]] = None,
                  min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1682,7 +1682,7 @@ class GtmPool(pulumi.CustomResource):
             load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
             manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
             max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
-            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict']]]]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict', 'outputs.GtmPoolMember']]]]] = None,
             min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
             min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
             monitor: pulumi.Input[Optional[_builtins.str]] = None,

@@ -26,8 +26,6 @@ namespace Pulumi.F5BigIP.Net
     /// {
     ///     var vlan1 = new F5BigIP.Net.Vlan("vlan1", new()
     ///     {
-    ///         Name = "/Common/Internal",
-    ///         Tag = 101,
     ///         Interfaces = new[]
     ///         {
     ///             new F5BigIP.Net.Inputs.VlanInterfaceArgs
@@ -36,6 +34,8 @@ namespace Pulumi.F5BigIP.Net
     ///                 Tagged = false,
     ///             },
     ///         },
+    ///         Name = "/Common/Internal",
+    ///         Tag = 101,
     ///     });
     /// 
     ///     var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new()

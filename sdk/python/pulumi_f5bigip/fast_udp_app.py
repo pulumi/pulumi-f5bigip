@@ -717,15 +717,15 @@ class FastUdpApp(pulumi.CustomResource):
                  fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
                  irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict', 'outputs.FastUdpAppMonitor']]] = None,
                  persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict']]]]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict', 'outputs.FastUdpAppPoolMember']]]]] = None,
                  security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tenant: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict']]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict', 'outputs.FastUdpAppVirtualServer']]] = None,
                  vlans_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vlans_rejecteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -739,12 +739,6 @@ class FastUdpApp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
-            application="udp_app_2",
-            tenant="udp_app_tenant",
-            virtual_server={
-                "ip": "11.12.16.30",
-                "port": 443,
-            }[0],
             pool_members=[{
                 "addresses": [
                     "10.11.34.65",
@@ -754,7 +748,13 @@ class FastUdpApp(pulumi.CustomResource):
                 "priority_group": 1,
                 "connection_limit": 4,
                 "share_nodes": True,
-            }])
+            }],
+            application="udp_app_2",
+            tenant="udp_app_tenant",
+            virtual_server={
+                "ip": "11.12.16.30",
+                "port": 443,
+            }[0])
         ```
 
 
@@ -769,17 +769,17 @@ class FastUdpApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[_builtins.str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict', 'outputs.FastUdpAppMonitor']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[_builtins.str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[_builtins.str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict', 'outputs.FastUdpAppPoolMember']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[_builtins.int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST UDP application tenant.
-        :param pulumi.Input[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict', 'outputs.FastUdpAppVirtualServer']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans_rejecteds: Names of existing VLANs to reject.
@@ -800,12 +800,6 @@ class FastUdpApp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
-            application="udp_app_2",
-            tenant="udp_app_tenant",
-            virtual_server={
-                "ip": "11.12.16.30",
-                "port": 443,
-            }[0],
             pool_members=[{
                 "addresses": [
                     "10.11.34.65",
@@ -815,7 +809,13 @@ class FastUdpApp(pulumi.CustomResource):
                 "priority_group": 1,
                 "connection_limit": 4,
                 "share_nodes": True,
-            }])
+            }],
+            application="udp_app_2",
+            tenant="udp_app_tenant",
+            virtual_server={
+                "ip": "11.12.16.30",
+                "port": 443,
+            }[0])
         ```
 
 
@@ -843,15 +843,15 @@ class FastUdpApp(pulumi.CustomResource):
                  fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
                  irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict', 'outputs.FastUdpAppMonitor']]] = None,
                  persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict']]]]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict', 'outputs.FastUdpAppPoolMember']]]]] = None,
                  security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tenant: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict']]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict', 'outputs.FastUdpAppVirtualServer']]] = None,
                  vlans_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vlans_rejecteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -908,15 +908,15 @@ class FastUdpApp(pulumi.CustomResource):
             fast_udp_json: pulumi.Input[Optional[_builtins.str]] = None,
             irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict']]] = None,
+            monitor: pulumi.Input[Optional[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict', 'outputs.FastUdpAppMonitor']]] = None,
             persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
             persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict']]]]] = None,
+            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict', 'outputs.FastUdpAppPoolMember']]]]] = None,
             security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
             snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tenant: pulumi.Input[Optional[_builtins.str]] = None,
-            virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict']]] = None,
+            virtual_server: pulumi.Input[Optional[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict', 'outputs.FastUdpAppVirtualServer']]] = None,
             vlans_alloweds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             vlans_rejecteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'FastUdpApp':
         """
@@ -936,17 +936,17 @@ class FastUdpApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fast_udp_json: Json payload for FAST UDP application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] irules: Irules to attach to Virtual Server.
         :param pulumi.Input[_builtins.str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[Union['FastUdpAppMonitorArgs', 'FastUdpAppMonitorArgsDict', 'outputs.FastUdpAppMonitor']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[_builtins.str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[_builtins.str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FastUdpAppPoolMemberArgs', 'FastUdpAppPoolMemberArgsDict', 'outputs.FastUdpAppPoolMember']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_log_profiles: Existing security log profiles to enable.
         :param pulumi.Input[_builtins.int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST UDP application tenant.
-        :param pulumi.Input[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[Union['FastUdpAppVirtualServerArgs', 'FastUdpAppVirtualServerArgsDict', 'outputs.FastUdpAppVirtualServer']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vlans_rejecteds: Names of existing VLANs to reject.

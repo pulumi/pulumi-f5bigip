@@ -34,9 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.f5bigip.ltm.ProfileRewrite;
  * import com.pulumi.f5bigip.ltm.ProfileRewriteArgs;
+ * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteCookieRuleArgs;
  * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteRequestArgs;
  * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteResponseArgs;
- * import com.pulumi.f5bigip.ltm.inputs.ProfileRewriteCookieRuleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -65,19 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test_profile2 = new ProfileRewrite("test-profile2", ProfileRewriteArgs.builder()
- *             .name("/Common/tf_profile_translate")
- *             .defaultsFrom("/Common/rewrite")
- *             .rewriteMode("uri-translation")
- *             .requests(ProfileRewriteRequestArgs.builder()
- *                 .insertXfwdFor("enabled")
- *                 .insertXfwdHost("disabled")
- *                 .insertXfwdProtocol("enabled")
- *                 .rewriteHeaders("disabled")
- *                 .build())
- *             .responses(ProfileRewriteResponseArgs.builder()
- *                 .rewriteContent("enabled")
- *                 .rewriteHeaders("disabled")
- *                 .build())
  *             .cookieRules(            
  *                 ProfileRewriteCookieRuleArgs.builder()
  *                     .ruleName("cookie1")
@@ -93,6 +80,19 @@ import javax.annotation.Nullable;
  *                     .serverDomain("absolute.com")
  *                     .serverPath("/this/")
  *                     .build())
+ *             .requests(ProfileRewriteRequestArgs.builder()
+ *                 .insertXfwdFor("enabled")
+ *                 .insertXfwdHost("disabled")
+ *                 .insertXfwdProtocol("enabled")
+ *                 .rewriteHeaders("disabled")
+ *                 .build())
+ *             .responses(ProfileRewriteResponseArgs.builder()
+ *                 .rewriteContent("enabled")
+ *                 .rewriteHeaders("disabled")
+ *                 .build())
+ *             .name("/Common/tf_profile_translate")
+ *             .defaultsFrom("/Common/rewrite")
+ *             .rewriteMode("uri-translation")
  *             .build());
  * 
  *     }

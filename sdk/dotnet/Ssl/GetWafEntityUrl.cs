@@ -27,29 +27,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// {
         ///     var WAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
         ///     {
-        ///         Name = "/foobar",
-        ///         Description = "this is a test",
-        ///         Type = "explicit",
-        ///         Protocol = "HTTP",
-        ///         PerformStaging = true,
-        ///         SignatureOverridesDisables = new[]
-        ///         {
-        ///             12345678,
-        ///             87654321,
-        ///         },
-        ///         MethodOverrides = new[]
-        ///         {
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = false,
-        ///                 Method = "BCOPY",
-        ///             },
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = true,
-        ///                 Method = "BDELETE",
-        ///             },
-        ///         },
         ///         CrossOriginRequestsEnforcements = new[]
         ///         {
         ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
@@ -66,6 +43,29 @@ namespace Pulumi.F5BigIP.Ssl
         ///                 OriginPort = "443",
         ///                 OriginProtocol = "http",
         ///             },
+        ///         },
+        ///         MethodOverrides = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
+        ///             },
+        ///         },
+        ///         Name = "/foobar",
+        ///         Description = "this is a test",
+        ///         Type = "explicit",
+        ///         Protocol = "HTTP",
+        ///         PerformStaging = true,
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
         ///         },
         ///     });
         /// 
@@ -91,29 +91,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// {
         ///     var WAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
         ///     {
-        ///         Name = "/foobar",
-        ///         Description = "this is a test",
-        ///         Type = "explicit",
-        ///         Protocol = "HTTP",
-        ///         PerformStaging = true,
-        ///         SignatureOverridesDisables = new[]
-        ///         {
-        ///             12345678,
-        ///             87654321,
-        ///         },
-        ///         MethodOverrides = new[]
-        ///         {
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = false,
-        ///                 Method = "BCOPY",
-        ///             },
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = true,
-        ///                 Method = "BDELETE",
-        ///             },
-        ///         },
         ///         CrossOriginRequestsEnforcements = new[]
         ///         {
         ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
@@ -130,6 +107,29 @@ namespace Pulumi.F5BigIP.Ssl
         ///                 OriginPort = "443",
         ///                 OriginProtocol = "http",
         ///             },
+        ///         },
+        ///         MethodOverrides = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
+        ///             },
+        ///         },
+        ///         Name = "/foobar",
+        ///         Description = "this is a test",
+        ///         Type = "explicit",
+        ///         Protocol = "HTTP",
+        ///         PerformStaging = true,
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
         ///         },
         ///     });
         /// 
@@ -155,29 +155,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// {
         ///     var WAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
         ///     {
-        ///         Name = "/foobar",
-        ///         Description = "this is a test",
-        ///         Type = "explicit",
-        ///         Protocol = "HTTP",
-        ///         PerformStaging = true,
-        ///         SignatureOverridesDisables = new[]
-        ///         {
-        ///             12345678,
-        ///             87654321,
-        ///         },
-        ///         MethodOverrides = new[]
-        ///         {
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = false,
-        ///                 Method = "BCOPY",
-        ///             },
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = true,
-        ///                 Method = "BDELETE",
-        ///             },
-        ///         },
         ///         CrossOriginRequestsEnforcements = new[]
         ///         {
         ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlCrossOriginRequestsEnforcementInputArgs
@@ -194,6 +171,29 @@ namespace Pulumi.F5BigIP.Ssl
         ///                 OriginPort = "443",
         ///                 OriginProtocol = "http",
         ///             },
+        ///         },
+        ///         MethodOverrides = new[]
+        ///         {
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
+        ///             },
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
+        ///             {
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
+        ///             },
+        ///         },
+        ///         Name = "/foobar",
+        ///         Description = "this is a test",
+        ///         Type = "explicit",
+        ///         Protocol = "HTTP",
+        ///         PerformStaging = true,
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
         ///         },
         ///     });
         /// 

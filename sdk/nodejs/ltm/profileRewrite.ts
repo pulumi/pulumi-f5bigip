@@ -31,19 +31,6 @@ import * as utilities from "../utilities";
  *     splitTunneling: "true",
  * });
  * const test_profile2 = new f5bigip.ltm.ProfileRewrite("test-profile2", {
- *     name: "/Common/tf_profile_translate",
- *     defaultsFrom: "/Common/rewrite",
- *     rewriteMode: "uri-translation",
- *     requests: [{
- *         insertXfwdFor: "enabled",
- *         insertXfwdHost: "disabled",
- *         insertXfwdProtocol: "enabled",
- *         rewriteHeaders: "disabled",
- *     }],
- *     responses: [{
- *         rewriteContent: "enabled",
- *         rewriteHeaders: "disabled",
- *     }],
  *     cookieRules: [
  *         {
  *             ruleName: "cookie1",
@@ -60,6 +47,19 @@ import * as utilities from "../utilities";
  *             serverPath: "/this/",
  *         },
  *     ],
+ *     requests: [{
+ *         insertXfwdFor: "enabled",
+ *         insertXfwdHost: "disabled",
+ *         insertXfwdProtocol: "enabled",
+ *         rewriteHeaders: "disabled",
+ *     }],
+ *     responses: [{
+ *         rewriteContent: "enabled",
+ *         rewriteHeaders: "disabled",
+ *     }],
+ *     name: "/Common/tf_profile_translate",
+ *     defaultsFrom: "/Common/rewrite",
+ *     rewriteMode: "uri-translation",
  * });
  * ```
  */

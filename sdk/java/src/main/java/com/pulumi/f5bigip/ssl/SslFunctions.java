@@ -552,8 +552,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -568,23 +568,6 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name("/foobar")
-     *             .description("this is a test")
-     *             .type("explicit")
-     *             .protocol("HTTP")
-     *             .performStaging(true)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .methodOverrides(            
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(false)
-     *                     .method("BCOPY")
-     *                     .build(),
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(true)
-     *                     .method("BDELETE")
-     *                     .build())
      *             .crossOriginRequestsEnforcements(            
      *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
      *                     .includeSubdomains(true)
@@ -598,6 +581,23 @@ public final class SslFunctions {
      *                     .originPort("443")
      *                     .originProtocol("http")
      *                     .build())
+     *             .methodOverrides(            
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(false)
+     *                     .method("BCOPY")
+     *                     .build(),
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(true)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .build());
      * 
      *     }
@@ -623,8 +623,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -639,23 +639,6 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name("/foobar")
-     *             .description("this is a test")
-     *             .type("explicit")
-     *             .protocol("HTTP")
-     *             .performStaging(true)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .methodOverrides(            
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(false)
-     *                     .method("BCOPY")
-     *                     .build(),
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(true)
-     *                     .method("BDELETE")
-     *                     .build())
      *             .crossOriginRequestsEnforcements(            
      *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
      *                     .includeSubdomains(true)
@@ -669,6 +652,23 @@ public final class SslFunctions {
      *                     .originPort("443")
      *                     .originProtocol("http")
      *                     .build())
+     *             .methodOverrides(            
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(false)
+     *                     .method("BCOPY")
+     *                     .build(),
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(true)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .build());
      * 
      *     }
@@ -694,8 +694,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -710,23 +710,6 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name("/foobar")
-     *             .description("this is a test")
-     *             .type("explicit")
-     *             .protocol("HTTP")
-     *             .performStaging(true)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .methodOverrides(            
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(false)
-     *                     .method("BCOPY")
-     *                     .build(),
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(true)
-     *                     .method("BDELETE")
-     *                     .build())
      *             .crossOriginRequestsEnforcements(            
      *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
      *                     .includeSubdomains(true)
@@ -740,6 +723,23 @@ public final class SslFunctions {
      *                     .originPort("443")
      *                     .originProtocol("http")
      *                     .build())
+     *             .methodOverrides(            
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(false)
+     *                     .method("BCOPY")
+     *                     .build(),
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(true)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .build());
      * 
      *     }
@@ -765,8 +765,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -781,23 +781,6 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name("/foobar")
-     *             .description("this is a test")
-     *             .type("explicit")
-     *             .protocol("HTTP")
-     *             .performStaging(true)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .methodOverrides(            
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(false)
-     *                     .method("BCOPY")
-     *                     .build(),
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(true)
-     *                     .method("BDELETE")
-     *                     .build())
      *             .crossOriginRequestsEnforcements(            
      *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
      *                     .includeSubdomains(true)
@@ -811,6 +794,23 @@ public final class SslFunctions {
      *                     .originPort("443")
      *                     .originProtocol("http")
      *                     .build())
+     *             .methodOverrides(            
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(false)
+     *                     .method("BCOPY")
+     *                     .build(),
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(true)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .build());
      * 
      *     }
@@ -836,8 +836,8 @@ public final class SslFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.f5bigip.ssl.SslFunctions;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;
-     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlCrossOriginRequestsEnforcementArgs;
+     * import com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlMethodOverrideArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -852,23 +852,6 @@ public final class SslFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var WAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()
-     *             .name("/foobar")
-     *             .description("this is a test")
-     *             .type("explicit")
-     *             .protocol("HTTP")
-     *             .performStaging(true)
-     *             .signatureOverridesDisables(            
-     *                 12345678,
-     *                 87654321)
-     *             .methodOverrides(            
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(false)
-     *                     .method("BCOPY")
-     *                     .build(),
-     *                 GetWafEntityUrlMethodOverrideArgs.builder()
-     *                     .allow(true)
-     *                     .method("BDELETE")
-     *                     .build())
      *             .crossOriginRequestsEnforcements(            
      *                 GetWafEntityUrlCrossOriginRequestsEnforcementArgs.builder()
      *                     .includeSubdomains(true)
@@ -882,6 +865,23 @@ public final class SslFunctions {
      *                     .originPort("443")
      *                     .originProtocol("http")
      *                     .build())
+     *             .methodOverrides(            
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(false)
+     *                     .method("BCOPY")
+     *                     .build(),
+     *                 GetWafEntityUrlMethodOverrideArgs.builder()
+     *                     .allow(true)
+     *                     .method("BDELETE")
+     *                     .build())
+     *             .name("/foobar")
+     *             .description("this is a test")
+     *             .type("explicit")
+     *             .protocol("HTTP")
+     *             .performStaging(true)
+     *             .signatureOverridesDisables(            
+     *                 12345678,
+     *                 87654321)
      *             .build());
      * 
      *     }

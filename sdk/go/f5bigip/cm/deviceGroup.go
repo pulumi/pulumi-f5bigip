@@ -28,10 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cm.NewDeviceGroup(ctx, "my_new_devicegroup", &cm.DeviceGroupArgs{
-//				Name:           pulumi.String("sanjose_devicegroup"),
-//				AutoSync:       pulumi.String("enabled"),
-//				FullLoadOnSync: pulumi.String("true"),
-//				Type:           pulumi.String("sync-only"),
 //				Devices: cm.DeviceGroupDeviceArray{
 //					&cm.DeviceGroupDeviceArgs{
 //						Name: pulumi.String("bigip1.cisco.com"),
@@ -40,6 +36,10 @@ import (
 //						Name: pulumi.String("bigip200.f5.com"),
 //					},
 //				},
+//				Name:           pulumi.String("sanjose_devicegroup"),
+//				AutoSync:       pulumi.String("enabled"),
+//				FullLoadOnSync: pulumi.String("true"),
+//				Type:           pulumi.String("sync-only"),
 //			})
 //			if err != nil {
 //				return err

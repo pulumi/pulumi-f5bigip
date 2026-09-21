@@ -936,7 +936,7 @@ class GtmServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]]] = None,
                  datacenter: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -963,7 +963,7 @@ class GtmServer(pulumi.CustomResource):
                  prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  product: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]]] = None,
                  __props__=None):
         """
         ## # GtmServer
@@ -982,12 +982,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         server1 = f5bigip.GtmServer("server1",
-            name="bigip_server1",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.1.1.1",
             }],
+            name="bigip_server1",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             link_discovery="disabled")
@@ -1001,9 +1001,6 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         multi_address_server = f5bigip.GtmServer("multi_address_server",
-            name="multi_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[
                 {
                     "name": "10.1.1.1",
@@ -1016,6 +1013,9 @@ class GtmServer(pulumi.CustomResource):
                     "translation": "none",
                 },
             ],
+            name="multi_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true")
         ```
@@ -1028,14 +1028,14 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         nat_server = f5bigip.GtmServer("nat_server",
-            name="nat_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.10.10.10",
                 "device_name": "/Common/server.example.com",
                 "translation": "192.168.1.10",
             }],
+            name="nat_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true")
         ```
@@ -1048,12 +1048,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         generic_host = f5bigip.GtmServer("generic_host",
-            name="generic_server",
-            datacenter=dc1.name,
-            product="generic-host",
             addresses=[{
                 "name": "10.20.20.20",
             }],
+            name="generic_server",
+            datacenter=dc1.name,
+            product="generic-host",
             monitor="/Common/tcp",
             virtual_server_discovery="false",
             link_discovery="disabled")
@@ -1069,14 +1069,9 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         generic_with_vs = f5bigip.GtmServer("generic_with_vs",
-            name="generic_app_server",
-            datacenter=dc1.name,
-            product="generic-host",
             addresses=[{
                 "name": "192.168.10.100",
             }],
-            virtual_server_discovery="disabled",
-            link_discovery="disabled",
             virtual_servers=[
                 {
                     "name": "vs_http",
@@ -1096,6 +1091,11 @@ class GtmServer(pulumi.CustomResource):
                     "translation_port": 0,
                 },
             ],
+            name="generic_app_server",
+            datacenter=dc1.name,
+            product="generic-host",
+            virtual_server_discovery="disabled",
+            link_discovery="disabled",
             enabled=True)
         ```
 
@@ -1107,12 +1107,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         prober_server = f5bigip.GtmServer("prober_server",
-            name="prober_configured_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.30.30.30",
             }],
+            name="prober_configured_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             prober_preference="inside-datacenter",
@@ -1130,12 +1130,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         limited_server = f5bigip.GtmServer("limited_server",
-            name="resource_limited_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.40.40.40",
             }],
+            name="resource_limited_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             limit_max_connections=10000,
@@ -1176,7 +1176,7 @@ class GtmServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]] addresses: List of IP addresses for the server. Each address block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]] addresses: List of IP addresses for the server. Each address block supports:
         :param pulumi.Input[_builtins.str] datacenter: The datacenter where this server resides. Must be a valid datacenter name or full path (e.g., `/Common/datacenter1`).
         :param pulumi.Input[_builtins.str] description: Description of the GTM server
         :param pulumi.Input[_builtins.bool] enabled: Enable or disable the GTM server
@@ -1203,7 +1203,7 @@ class GtmServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] prober_preference: Preferred type of prober. Valid values:
         :param pulumi.Input[_builtins.str] product: Type of server. Valid values are:
         :param pulumi.Input[_builtins.str] virtual_server_discovery: Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]] virtual_servers: List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]] virtual_servers: List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
         """
         ...
     @overload
@@ -1228,12 +1228,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         server1 = f5bigip.GtmServer("server1",
-            name="bigip_server1",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.1.1.1",
             }],
+            name="bigip_server1",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             link_discovery="disabled")
@@ -1247,9 +1247,6 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         multi_address_server = f5bigip.GtmServer("multi_address_server",
-            name="multi_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[
                 {
                     "name": "10.1.1.1",
@@ -1262,6 +1259,9 @@ class GtmServer(pulumi.CustomResource):
                     "translation": "none",
                 },
             ],
+            name="multi_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true")
         ```
@@ -1274,14 +1274,14 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         nat_server = f5bigip.GtmServer("nat_server",
-            name="nat_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.10.10.10",
                 "device_name": "/Common/server.example.com",
                 "translation": "192.168.1.10",
             }],
+            name="nat_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true")
         ```
@@ -1294,12 +1294,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         generic_host = f5bigip.GtmServer("generic_host",
-            name="generic_server",
-            datacenter=dc1.name,
-            product="generic-host",
             addresses=[{
                 "name": "10.20.20.20",
             }],
+            name="generic_server",
+            datacenter=dc1.name,
+            product="generic-host",
             monitor="/Common/tcp",
             virtual_server_discovery="false",
             link_discovery="disabled")
@@ -1315,14 +1315,9 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         generic_with_vs = f5bigip.GtmServer("generic_with_vs",
-            name="generic_app_server",
-            datacenter=dc1.name,
-            product="generic-host",
             addresses=[{
                 "name": "192.168.10.100",
             }],
-            virtual_server_discovery="disabled",
-            link_discovery="disabled",
             virtual_servers=[
                 {
                     "name": "vs_http",
@@ -1342,6 +1337,11 @@ class GtmServer(pulumi.CustomResource):
                     "translation_port": 0,
                 },
             ],
+            name="generic_app_server",
+            datacenter=dc1.name,
+            product="generic-host",
+            virtual_server_discovery="disabled",
+            link_discovery="disabled",
             enabled=True)
         ```
 
@@ -1353,12 +1353,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         prober_server = f5bigip.GtmServer("prober_server",
-            name="prober_configured_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.30.30.30",
             }],
+            name="prober_configured_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             prober_preference="inside-datacenter",
@@ -1376,12 +1376,12 @@ class GtmServer(pulumi.CustomResource):
 
         dc1 = f5bigip.GtmDatacenter("dc1", name="datacenter1")
         limited_server = f5bigip.GtmServer("limited_server",
-            name="resource_limited_server",
-            datacenter=dc1.name,
-            product="bigip",
             addresses=[{
                 "name": "10.40.40.40",
             }],
+            name="resource_limited_server",
+            datacenter=dc1.name,
+            product="bigip",
             monitor="/Common/bigip",
             virtual_server_discovery="true",
             limit_max_connections=10000,
@@ -1435,7 +1435,7 @@ class GtmServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+                 addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]]] = None,
                  datacenter: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1462,7 +1462,7 @@ class GtmServer(pulumi.CustomResource):
                  prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  product: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None,
+                 virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1514,7 +1514,7 @@ class GtmServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]]] = None,
+            addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]]] = None,
             datacenter: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1541,7 +1541,7 @@ class GtmServer(pulumi.CustomResource):
             prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
             product: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
-            virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]]] = None) -> 'GtmServer':
+            virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]]] = None) -> 'GtmServer':
         """
         Get an existing GtmServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1549,7 +1549,7 @@ class GtmServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict']]]] addresses: List of IP addresses for the server. Each address block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]] addresses: List of IP addresses for the server. Each address block supports:
         :param pulumi.Input[_builtins.str] datacenter: The datacenter where this server resides. Must be a valid datacenter name or full path (e.g., `/Common/datacenter1`).
         :param pulumi.Input[_builtins.str] description: Description of the GTM server
         :param pulumi.Input[_builtins.bool] enabled: Enable or disable the GTM server
@@ -1576,7 +1576,7 @@ class GtmServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] prober_preference: Preferred type of prober. Valid values:
         :param pulumi.Input[_builtins.str] product: Type of server. Valid values are:
         :param pulumi.Input[_builtins.str] virtual_server_discovery: Enable or disable virtual server discovery. Default is `true`. When enabled, GTM automatically discovers virtual servers on BIG-IP systems.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict']]]] virtual_servers: List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]] virtual_servers: List of virtual servers for the GTM server. This is particularly useful for generic-host servers where virtual server discovery is not available. Each virtual_servers block supports:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

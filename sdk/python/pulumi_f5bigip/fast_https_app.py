@@ -842,19 +842,19 @@ class FastHttpsApp(pulumi.CustomResource):
                  existing_waf_security_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict', 'outputs.FastHttpsAppMonitor']]] = None,
                  persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict']]]]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict', 'outputs.FastHttpsAppPoolMember']]]]] = None,
                  security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_discoveries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tenant: pulumi.Input[Optional[_builtins.str]] = None,
-                 tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict']]] = None,
-                 tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict']]] = None,
-                 virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict']]] = None,
-                 waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict']]] = None,
+                 tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict', 'outputs.FastHttpsAppTlsClientProfile']]] = None,
+                 tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict', 'outputs.FastHttpsAppTlsServerProfile']]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict', 'outputs.FastHttpsAppVirtualServer']]] = None,
+                 waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict', 'outputs.FastHttpsAppWafSecurityPolicy']]] = None,
                  __props__=None):
         """
         `FastHttpsApp` This resource will create and manage FAST HTTPS applications on BIG-IP
@@ -868,12 +868,12 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
             virtual_server={
                 "ip": "10.30.40.44",
                 "port": 443,
-            })
+            },
+            tenant="fasthttpstenant",
+            application="fasthttpsapp")
         ```
 
         ### With Service Discovery
@@ -890,8 +890,6 @@ class FastHttpsApp(pulumi.CustomResource):
             tag_value="testgcevalue",
             region="testgceregion")
         fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
             virtual_server={
                 "ip": "10.30.40.44",
                 "port": 443,
@@ -904,6 +902,8 @@ class FastHttpsApp(pulumi.CustomResource):
                 ],
                 "port": 80,
             }],
+            tenant="fasthttpstenant",
+            application="fasthttpsapp",
             service_discoveries=[
                 tc3_get_gce_service_discovery.gce_sd_json,
                 tc3.azure_sd_json,
@@ -923,28 +923,28 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] existing_waf_security_policy: Name of an existing WAF Security policy.
         :param pulumi.Input[_builtins.str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[_builtins.str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict', 'outputs.FastHttpsAppMonitor']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[_builtins.str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[_builtins.str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict', 'outputs.FastHttpsAppPoolMember']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[_builtins.int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST HTTPS application tenant.
-        :param pulumi.Input[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict', 'outputs.FastHttpsAppTlsClientProfile']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict', 'outputs.FastHttpsAppTlsServerProfile']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict', 'outputs.FastHttpsAppVirtualServer']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict', 'outputs.FastHttpsAppWafSecurityPolicy']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         ...
@@ -965,12 +965,12 @@ class FastHttpsApp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
             virtual_server={
                 "ip": "10.30.40.44",
                 "port": 443,
-            })
+            },
+            tenant="fasthttpstenant",
+            application="fasthttpsapp")
         ```
 
         ### With Service Discovery
@@ -987,8 +987,6 @@ class FastHttpsApp(pulumi.CustomResource):
             tag_value="testgcevalue",
             region="testgceregion")
         fast_https_app = f5bigip.FastHttpsApp("fast_https_app",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
             virtual_server={
                 "ip": "10.30.40.44",
                 "port": 443,
@@ -1001,6 +999,8 @@ class FastHttpsApp(pulumi.CustomResource):
                 ],
                 "port": 80,
             }],
+            tenant="fasthttpstenant",
+            application="fasthttpsapp",
             service_discoveries=[
                 tc3_get_gce_service_discovery.gce_sd_json,
                 tc3.azure_sd_json,
@@ -1033,19 +1033,19 @@ class FastHttpsApp(pulumi.CustomResource):
                  existing_waf_security_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict']]] = None,
+                 monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict', 'outputs.FastHttpsAppMonitor']]] = None,
                  persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict']]]]] = None,
+                 pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict', 'outputs.FastHttpsAppPoolMember']]]]] = None,
                  security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_discoveries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
                  snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tenant: pulumi.Input[Optional[_builtins.str]] = None,
-                 tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict']]] = None,
-                 tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict']]] = None,
-                 virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict']]] = None,
-                 waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict']]] = None,
+                 tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict', 'outputs.FastHttpsAppTlsClientProfile']]] = None,
+                 tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict', 'outputs.FastHttpsAppTlsServerProfile']]] = None,
+                 virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict', 'outputs.FastHttpsAppVirtualServer']]] = None,
+                 waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict', 'outputs.FastHttpsAppWafSecurityPolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1104,19 +1104,19 @@ class FastHttpsApp(pulumi.CustomResource):
             fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
             fast_https_json: pulumi.Input[Optional[_builtins.str]] = None,
             load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict']]] = None,
+            monitor: pulumi.Input[Optional[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict', 'outputs.FastHttpsAppMonitor']]] = None,
             persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
             persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
-            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict']]]]] = None,
+            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict', 'outputs.FastHttpsAppPoolMember']]]]] = None,
             security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             service_discoveries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
             snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tenant: pulumi.Input[Optional[_builtins.str]] = None,
-            tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict']]] = None,
-            tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict']]] = None,
-            virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict']]] = None,
-            waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict']]] = None) -> 'FastHttpsApp':
+            tls_client_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict', 'outputs.FastHttpsAppTlsClientProfile']]] = None,
+            tls_server_profile: pulumi.Input[Optional[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict', 'outputs.FastHttpsAppTlsServerProfile']]] = None,
+            virtual_server: pulumi.Input[Optional[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict', 'outputs.FastHttpsAppVirtualServer']]] = None,
+            waf_security_policy: pulumi.Input[Optional[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict', 'outputs.FastHttpsAppWafSecurityPolicy']]] = None) -> 'FastHttpsApp':
         """
         Get an existing FastHttpsApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1135,28 +1135,28 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fallback_persistence: Type of fallback persistence record to be created for each new client connection.
         :param pulumi.Input[_builtins.str] fast_https_json: Json payload for FAST HTTPS application.
         :param pulumi.Input[_builtins.str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
-        :param pulumi.Input[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+        :param pulumi.Input[Union['FastHttpsAppMonitorArgs', 'FastHttpsAppMonitorArgsDict', 'outputs.FastHttpsAppMonitor']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
                See Pool Monitor below for more details.
         :param pulumi.Input[_builtins.str] persistence_profile: Name of an existing BIG-IP persistence profile to be used.
         :param pulumi.Input[_builtins.str] persistence_type: Type of persistence profile to be created. Using this option will enable use of FAST generated persistence profiles.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FastHttpsAppPoolMemberArgs', 'FastHttpsAppPoolMemberArgsDict', 'outputs.FastHttpsAppPoolMember']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_log_profiles: List of security log profiles to be used for FAST application
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_discoveries: List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         :param pulumi.Input[_builtins.int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[_builtins.str] tenant: Name of the FAST HTTPS application tenant.
-        :param pulumi.Input[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        :param pulumi.Input[Union['FastHttpsAppTlsClientProfileArgs', 'FastHttpsAppTlsClientProfileArgsDict', 'outputs.FastHttpsAppTlsClientProfile']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
-        :param pulumi.Input[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[Union['FastHttpsAppTlsServerProfileArgs', 'FastHttpsAppTlsServerProfileArgsDict', 'outputs.FastHttpsAppTlsServerProfile']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
                
                > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
-        :param pulumi.Input[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
+        :param pulumi.Input[Union['FastHttpsAppVirtualServerArgs', 'FastHttpsAppVirtualServerArgsDict', 'outputs.FastHttpsAppVirtualServer']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
-        :param pulumi.Input[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        :param pulumi.Input[Union['FastHttpsAppWafSecurityPolicyArgs', 'FastHttpsAppWafSecurityPolicyArgsDict', 'outputs.FastHttpsAppWafSecurityPolicy']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

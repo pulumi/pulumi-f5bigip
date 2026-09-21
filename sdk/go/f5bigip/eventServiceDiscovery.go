@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewEventServiceDiscovery(ctx, "test", &f5bigip.EventServiceDiscoveryArgs{
-//				Taskid: pulumi.String("~Sample_event_sd~My_app~My_pool"),
 //				Nodes: f5bigip.EventServiceDiscoveryNodeArray{
 //					&f5bigip.EventServiceDiscoveryNodeArgs{
 //						Id:   pulumi.String("newNode1"),
@@ -44,6 +43,7 @@ import (
 //						Port: pulumi.Int(8080),
 //					},
 //				},
+//				Taskid: pulumi.String("~Sample_event_sd~My_app~My_pool"),
 //			})
 //			if err != nil {
 //				return err

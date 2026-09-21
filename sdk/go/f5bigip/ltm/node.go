@@ -32,6 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+//				Fqdn: &ltm.NodeFqdnArgs{
+//					AddressFamily: pulumi.String("ipv4"),
+//					Interval:      pulumi.String("3000"),
+//				},
 //				Name:            pulumi.String("/Common/terraform_node1"),
 //				Address:         pulumi.String("192.168.30.1"),
 //				ConnectionLimit: pulumi.Int(0),
@@ -39,10 +43,6 @@ import (
 //				Monitor:         pulumi.String("/Common/icmp"),
 //				Description:     pulumi.String("Test-Node"),
 //				RateLimit:       pulumi.String("disabled"),
-//				Fqdn: &ltm.NodeFqdnArgs{
-//					AddressFamily: pulumi.String("ipv4"),
-//					Interval:      pulumi.String("3000"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -278,7 +278,7 @@ class Policy(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  published_copy: pulumi.Input[Optional[_builtins.str]] = None,
                  requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -298,18 +298,18 @@ class Policy(pulumi.CustomResource):
             allow_snat="yes",
             load_balancing_mode="round-robin")
         test_policy = f5bigip.ltm.Policy("test-policy",
-            name="/Common/test-policy",
-            strategy="first-match",
-            requires=["http"],
-            controls=["forwarding"],
             rules=[{
-                "name": "rule6",
                 "actions": [{
                     "forward": True,
                     "connection": False,
                     "pool": mypool.name,
                 }],
+                "name": "rule6",
             }],
+            name="/Common/test-policy",
+            strategy="first-match",
+            requires=["http"],
+            controls=["forwarding"],
             opts = pulumi.ResourceOptions(depends_on=[mypool]))
         ```
 
@@ -329,7 +329,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[_builtins.str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[_builtins.str] strategy: Specifies the match strategy
         """
         ...
@@ -355,18 +355,18 @@ class Policy(pulumi.CustomResource):
             allow_snat="yes",
             load_balancing_mode="round-robin")
         test_policy = f5bigip.ltm.Policy("test-policy",
-            name="/Common/test-policy",
-            strategy="first-match",
-            requires=["http"],
-            controls=["forwarding"],
             rules=[{
-                "name": "rule6",
                 "actions": [{
                     "forward": True,
                     "connection": False,
                     "pool": mypool.name,
                 }],
+                "name": "rule6",
             }],
+            name="/Common/test-policy",
+            strategy="first-match",
+            requires=["http"],
+            controls=["forwarding"],
             opts = pulumi.ResourceOptions(depends_on=[mypool]))
         ```
 
@@ -399,7 +399,7 @@ class Policy(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  published_copy: pulumi.Input[Optional[_builtins.str]] = None,
                  requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -434,7 +434,7 @@ class Policy(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             published_copy: pulumi.Input[Optional[_builtins.str]] = None,
             requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]]] = None,
             strategy: pulumi.Input[Optional[_builtins.str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
@@ -448,7 +448,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[_builtins.str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[_builtins.str] strategy: Specifies the match strategy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
