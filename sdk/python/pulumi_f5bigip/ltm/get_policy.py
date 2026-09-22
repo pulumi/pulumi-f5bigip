@@ -124,7 +124,7 @@ def get_policy(controls: Optional[Sequence[_builtins.str]] = None,
                name: Optional[_builtins.str] = None,
                published_copy: Optional[_builtins.str] = None,
                requires: Optional[Sequence[_builtins.str]] = None,
-               rules: Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]] = None,
+               rules: Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict', 'outputs.GetPolicyRuleResult']]] = None,
                strategy: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
@@ -144,7 +144,7 @@ def get_policy(controls: Optional[Sequence[_builtins.str]] = None,
     :param Sequence[_builtins.str] controls: Specifies the controls.
     :param _builtins.str name: Name of the policy which includes partion ( /partition/policy-name )
     :param Sequence[_builtins.str] requires: Specifies the protocol.
-    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']] rules: Rules defined in the policy.
+    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict', 'outputs.GetPolicyRuleResult']] rules: Rules defined in the policy.
     :param _builtins.str strategy: Specifies the match strategy.
     """
     __args__ = dict()
@@ -169,7 +169,7 @@ def get_policy_output(controls: pulumi.Input[Optional[Optional[Sequence[_builtin
                       name: pulumi.Input[Optional[_builtins.str]] = None,
                       published_copy: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       requires: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                      rules: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']]]]] = None,
+                      rules: pulumi.Input[Optional[Optional[Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict', 'outputs.GetPolicyRuleResult']]]]] = None,
                       strategy: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
@@ -189,7 +189,7 @@ def get_policy_output(controls: pulumi.Input[Optional[Optional[Sequence[_builtin
     :param Sequence[_builtins.str] controls: Specifies the controls.
     :param _builtins.str name: Name of the policy which includes partion ( /partition/policy-name )
     :param Sequence[_builtins.str] requires: Specifies the protocol.
-    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict']] rules: Rules defined in the policy.
+    :param Sequence[Union['GetPolicyRuleArgs', 'GetPolicyRuleArgsDict', 'outputs.GetPolicyRuleResult']] rules: Rules defined in the policy.
     :param _builtins.str strategy: Specifies the match strategy.
     """
     __args__ = dict()

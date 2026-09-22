@@ -34,21 +34,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     ///     var test_policy = new F5BigIP.Ltm.Policy("test-policy", new()
     ///     {
-    ///         Name = "/Common/test-policy",
-    ///         Strategy = "first-match",
-    ///         Requires = new[]
-    ///         {
-    ///             "http",
-    ///         },
-    ///         Controls = new[]
-    ///         {
-    ///             "forwarding",
-    ///         },
     ///         Rules = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.PolicyRuleArgs
     ///             {
-    ///                 Name = "rule6",
     ///                 Actions = new[]
     ///                 {
     ///                     new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
@@ -58,7 +47,18 @@ namespace Pulumi.F5BigIP.Ltm
     ///                         Pool = mypool.Name,
     ///                     },
     ///                 },
+    ///                 Name = "rule6",
     ///             },
+    ///         },
+    ///         Name = "/Common/test-policy",
+    ///         Strategy = "first-match",
+    ///         Requires = new[]
+    ///         {
+    ///             "http",
+    ///         },
+    ///         Controls = new[]
+    ///         {
+    ///             "forwarding",
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

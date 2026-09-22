@@ -16,25 +16,6 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const WAFURL1 = f5bigip.ssl.getWafEntityUrl({
- *     name: "/foobar",
- *     description: "this is a test",
- *     type: "explicit",
- *     protocol: "HTTP",
- *     performStaging: true,
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     methodOverrides: [
- *         {
- *             allow: false,
- *             method: "BCOPY",
- *         },
- *         {
- *             allow: true,
- *             method: "BDELETE",
- *         },
- *     ],
  *     crossOriginRequestsEnforcements: [
  *         {
  *             includeSubdomains: true,
@@ -48,6 +29,25 @@ import * as utilities from "../utilities";
  *             originPort: "443",
  *             originProtocol: "http",
  *         },
+ *     ],
+ *     methodOverrides: [
+ *         {
+ *             allow: false,
+ *             method: "BCOPY",
+ *         },
+ *         {
+ *             allow: true,
+ *             method: "BDELETE",
+ *         },
+ *     ],
+ *     name: "/foobar",
+ *     description: "this is a test",
+ *     type: "explicit",
+ *     protocol: "HTTP",
+ *     performStaging: true,
+ *     signatureOverridesDisables: [
+ *         12345678,
+ *         87654321,
  *     ],
  * });
  * ```
@@ -142,25 +142,6 @@ export interface GetWafEntityUrlResult {
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const WAFURL1 = f5bigip.ssl.getWafEntityUrl({
- *     name: "/foobar",
- *     description: "this is a test",
- *     type: "explicit",
- *     protocol: "HTTP",
- *     performStaging: true,
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     methodOverrides: [
- *         {
- *             allow: false,
- *             method: "BCOPY",
- *         },
- *         {
- *             allow: true,
- *             method: "BDELETE",
- *         },
- *     ],
  *     crossOriginRequestsEnforcements: [
  *         {
  *             includeSubdomains: true,
@@ -174,6 +155,25 @@ export interface GetWafEntityUrlResult {
  *             originPort: "443",
  *             originProtocol: "http",
  *         },
+ *     ],
+ *     methodOverrides: [
+ *         {
+ *             allow: false,
+ *             method: "BCOPY",
+ *         },
+ *         {
+ *             allow: true,
+ *             method: "BDELETE",
+ *         },
+ *     ],
+ *     name: "/foobar",
+ *     description: "this is a test",
+ *     type: "explicit",
+ *     protocol: "HTTP",
+ *     performStaging: true,
+ *     signatureOverridesDisables: [
+ *         12345678,
+ *         87654321,
  *     ],
  * });
  * ```

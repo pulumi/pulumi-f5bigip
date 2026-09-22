@@ -29,12 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewFastUdpApp(ctx, "fast-udp-app", &f5bigip.FastUdpAppArgs{
-//				Application: pulumi.String("udp_app_2"),
-//				Tenant:      pulumi.String("udp_app_tenant"),
-//				VirtualServer: map[string]interface{}{
-//					"ip":   "11.12.16.30",
-//					"port": 443,
-//				}[0],
 //				PoolMembers: f5bigip.FastUdpAppPoolMemberArray{
 //					&f5bigip.FastUdpAppPoolMemberArgs{
 //						Addresses: pulumi.StringArray{
@@ -47,6 +41,12 @@ import (
 //						ShareNodes:      pulumi.Bool(true),
 //					},
 //				},
+//				Application: pulumi.String("udp_app_2"),
+//				Tenant:      pulumi.String("udp_app_tenant"),
+//				VirtualServer: map[string]interface{}{
+//					"ip":   "11.12.16.30",
+//					"port": 443,
+//				}[0],
 //			})
 //			if err != nil {
 //				return err

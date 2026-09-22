@@ -48,12 +48,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fast_tcp_app = new FastTcpApp("fast-tcp-app", FastTcpAppArgs.builder()
- *             .application("tcp_app_2")
- *             .tenant("tcp_app_tenant")
- *             .virtualServer(com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs.builder()
- *                 .ip("11.12.16.30")
- *                 .port(443)
- *                 .build()[0])
  *             .poolMembers(FastTcpAppPoolMemberArgs.builder()
  *                 .addresses(                
  *                     "10.11.34.65",
@@ -63,6 +57,12 @@ import javax.annotation.Nullable;
  *                 .connectionLimit(4)
  *                 .shareNodes(true)
  *                 .build())
+ *             .application("tcp_app_2")
+ *             .tenant("tcp_app_tenant")
+ *             .virtualServer(com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs.builder()
+ *                 .ip("11.12.16.30")
+ *                 .port(443)
+ *                 .build()[0])
  *             .build());
  * 
  *     }

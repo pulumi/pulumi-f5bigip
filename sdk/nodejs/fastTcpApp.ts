@@ -16,12 +16,6 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const fast_tcp_app = new f5bigip.FastTcpApp("fast-tcp-app", {
- *     application: "tcp_app_2",
- *     tenant: "tcp_app_tenant",
- *     virtualServer: {
- *         ip: "11.12.16.30",
- *         port: 443,
- *     }[0],
  *     poolMembers: [{
  *         addresses: [
  *             "10.11.34.65",
@@ -32,6 +26,12 @@ import * as utilities from "./utilities";
  *         connectionLimit: 4,
  *         shareNodes: true,
  *     }],
+ *     application: "tcp_app_2",
+ *     tenant: "tcp_app_tenant",
+ *     virtualServer: {
+ *         ip: "11.12.16.30",
+ *         port: 443,
+ *     }[0],
  * });
  * ```
  */

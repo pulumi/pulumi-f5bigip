@@ -58,18 +58,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test_policy = new Policy("test-policy", PolicyArgs.builder()
- *             .name("/Common/test-policy")
- *             .strategy("first-match")
- *             .requires("http")
- *             .controls("forwarding")
  *             .rules(PolicyRuleArgs.builder()
- *                 .name("rule6")
  *                 .actions(PolicyRuleActionArgs.builder()
  *                     .forward(true)
  *                     .connection(false)
  *                     .pool(mypool.name())
  *                     .build())
+ *                 .name("rule6")
  *                 .build())
+ *             .name("/Common/test-policy")
+ *             .strategy("first-match")
+ *             .requires("http")
+ *             .controls("forwarding")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(mypool)
  *                 .build());

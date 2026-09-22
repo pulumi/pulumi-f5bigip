@@ -28,25 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
-//				Name:           "/foobar",
-//				Description:    pulumi.StringRef("this is a test"),
-//				Type:           pulumi.StringRef("explicit"),
-//				Protocol:       pulumi.StringRef("HTTP"),
-//				PerformStaging: pulumi.BoolRef(true),
-//				SignatureOverridesDisables: []int{
-//					12345678,
-//					87654321,
-//				},
-//				MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
-//					{
-//						Allow:  false,
-//						Method: "BCOPY",
-//					},
-//					{
-//						Allow:  true,
-//						Method: "BDELETE",
-//					},
-//				},
 //				CrossOriginRequestsEnforcements: []ssl.GetWafEntityUrlCrossOriginRequestsEnforcement{
 //					{
 //						IncludeSubdomains: pulumi.BoolRef(true),
@@ -60,6 +41,25 @@ import (
 //						OriginPort:        "443",
 //						OriginProtocol:    "http",
 //					},
+//				},
+//				MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
+//					{
+//						Allow:  false,
+//						Method: "BCOPY",
+//					},
+//					{
+//						Allow:  true,
+//						Method: "BDELETE",
+//					},
+//				},
+//				Name:           "/foobar",
+//				Description:    pulumi.StringRef("this is a test"),
+//				Type:           pulumi.StringRef("explicit"),
+//				Protocol:       pulumi.StringRef("HTTP"),
+//				PerformStaging: pulumi.BoolRef(true),
+//				SignatureOverridesDisables: []int{
+//					12345678,
+//					87654321,
 //				},
 //			}, nil)
 //			if err != nil {

@@ -55,9 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var tftestrule1 = new ProfileRewriteUriRules("tftestrule1", ProfileRewriteUriRulesArgs.builder()
- *             .profileName(tftest.name())
- *             .ruleName("tf_rule")
- *             .ruleType("request")
  *             .clients(ProfileRewriteUriRulesClientArgs.builder()
  *                 .host("www.foo.com")
  *                 .scheme("https")
@@ -68,11 +65,12 @@ import javax.annotation.Nullable;
  *                 .scheme("https")
  *                 .port("8888")
  *                 .build())
+ *             .profileName(tftest.name())
+ *             .ruleName("tf_rule")
+ *             .ruleType("request")
  *             .build());
  * 
  *         var tftestrule2 = new ProfileRewriteUriRules("tftestrule2", ProfileRewriteUriRulesArgs.builder()
- *             .profileName(tftest.name())
- *             .ruleName("tf_rule2")
  *             .clients(ProfileRewriteUriRulesClientArgs.builder()
  *                 .host("www.baz.com")
  *                 .path("/that/")
@@ -84,6 +82,8 @@ import javax.annotation.Nullable;
  *                 .path("/those/")
  *                 .scheme("ftps")
  *                 .build())
+ *             .profileName(tftest.name())
+ *             .ruleName("tf_rule2")
  *             .build());
  * 
  *     }

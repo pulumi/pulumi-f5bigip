@@ -62,12 +62,6 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var withMembers = new F5BigIP.GtmPool("with_members", new()
     ///     {
-    ///         Name = "app_pool",
-    ///         Type = "a",
-    ///         Partition = "Common",
-    ///         LoadBalancingMode = "round-robin",
-    ///         Monitor = "/Common/https",
-    ///         Ttl = 30,
     ///         Members = new[]
     ///         {
     ///             new F5BigIP.Inputs.GtmPoolMemberArgs
@@ -85,6 +79,12 @@ namespace Pulumi.F5BigIP
     ///                 MemberOrder = 1,
     ///             },
     ///         },
+    ///         Name = "app_pool",
+    ///         Type = "a",
+    ///         Partition = "Common",
+    ///         LoadBalancingMode = "round-robin",
+    ///         Monitor = "/Common/https",
+    ///         Ttl = 30,
     ///     });
     /// 
     /// });
@@ -102,6 +102,26 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var advanced = new F5BigIP.GtmPool("advanced", new()
     ///     {
+    ///         Members = new[]
+    ///         {
+    ///             new F5BigIP.Inputs.GtmPoolMemberArgs
+    ///             {
+    ///                 Name = "server1:/Common/vs_app",
+    ///                 Enabled = true,
+    ///                 Ratio = 2,
+    ///                 MemberOrder = 0,
+    ///                 Monitor = "default",
+    ///                 LimitMaxConnections = 2000,
+    ///                 LimitMaxConnectionsStatus = "enabled",
+    ///             },
+    ///             new F5BigIP.Inputs.GtmPoolMemberArgs
+    ///             {
+    ///                 Name = "server2:/Common/vs_app",
+    ///                 Enabled = true,
+    ///                 Ratio = 1,
+    ///                 MemberOrder = 1,
+    ///             },
+    ///         },
     ///         Name = "advanced_pool",
     ///         Type = "a",
     ///         Partition = "Common",
@@ -125,26 +145,6 @@ namespace Pulumi.F5BigIP
     ///         LimitMaxBpsStatus = "enabled",
     ///         MinMembersUpMode = "at-least",
     ///         MinMembersUpValue = 2,
-    ///         Members = new[]
-    ///         {
-    ///             new F5BigIP.Inputs.GtmPoolMemberArgs
-    ///             {
-    ///                 Name = "server1:/Common/vs_app",
-    ///                 Enabled = true,
-    ///                 Ratio = 2,
-    ///                 MemberOrder = 0,
-    ///                 Monitor = "default",
-    ///                 LimitMaxConnections = 2000,
-    ///                 LimitMaxConnectionsStatus = "enabled",
-    ///             },
-    ///             new F5BigIP.Inputs.GtmPoolMemberArgs
-    ///             {
-    ///                 Name = "server2:/Common/vs_app",
-    ///                 Enabled = true,
-    ///                 Ratio = 1,
-    ///                 MemberOrder = 1,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

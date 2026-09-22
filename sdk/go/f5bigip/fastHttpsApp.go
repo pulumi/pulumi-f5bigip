@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewFastHttpsApp(ctx, "fast_https_app", &f5bigip.FastHttpsAppArgs{
-//				Tenant:      pulumi.String("fasthttpstenant"),
-//				Application: pulumi.String("fasthttpsapp"),
 //				VirtualServer: &f5bigip.FastHttpsAppVirtualServerArgs{
 //					Ip:   pulumi.String("10.30.40.44"),
 //					Port: pulumi.Int(443),
 //				},
+//				Tenant:      pulumi.String("fasthttpstenant"),
+//				Application: pulumi.String("fasthttpsapp"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,8 +80,6 @@ import (
 //				return err
 //			}
 //			_, err = f5bigip.NewFastHttpsApp(ctx, "fast_https_app", &f5bigip.FastHttpsAppArgs{
-//				Tenant:      pulumi.String("fasthttpstenant"),
-//				Application: pulumi.String("fasthttpsapp"),
 //				VirtualServer: &f5bigip.FastHttpsAppVirtualServerArgs{
 //					Ip:   pulumi.String("10.30.40.44"),
 //					Port: pulumi.Int(443),
@@ -96,6 +94,8 @@ import (
 //						Port: pulumi.Int(80),
 //					},
 //				},
+//				Tenant:      pulumi.String("fasthttpstenant"),
+//				Application: pulumi.String("fasthttpsapp"),
 //				ServiceDiscoveries: pulumi.StringArray{
 //					pulumi.String(TC3GetGceServiceDiscovery.GceSdJson),
 //					pulumi.String(TC3.AzureSdJson),

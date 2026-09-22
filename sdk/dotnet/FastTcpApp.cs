@@ -24,13 +24,6 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var fast_tcp_app = new F5BigIP.FastTcpApp("fast-tcp-app", new()
     ///     {
-    ///         Application = "tcp_app_2",
-    ///         Tenant = "tcp_app_tenant",
-    ///         VirtualServer = 
-    ///         {
-    ///             { "ip", "11.12.16.30" },
-    ///             { "port", 443 },
-    ///         }[0],
     ///         PoolMembers = new[]
     ///         {
     ///             new F5BigIP.Inputs.FastTcpAppPoolMemberArgs
@@ -46,6 +39,13 @@ namespace Pulumi.F5BigIP
     ///                 ShareNodes = true,
     ///             },
     ///         },
+    ///         Application = "tcp_app_2",
+    ///         Tenant = "tcp_app_tenant",
+    ///         VirtualServer = 
+    ///         {
+    ///             { "ip", "11.12.16.30" },
+    ///             { "port", 443 },
+    ///         }[0],
     ///     });
     /// 
     /// });

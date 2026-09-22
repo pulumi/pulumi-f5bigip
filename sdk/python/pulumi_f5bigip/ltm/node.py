@@ -388,7 +388,7 @@ class Node(pulumi.CustomResource):
                  connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
-                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict', 'outputs.NodeFqdn']]] = None,
                  monitor: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
@@ -409,17 +409,17 @@ class Node(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         node = f5bigip.ltm.Node("node",
+            fqdn={
+                "address_family": "ipv4",
+                "interval": "3000",
+            },
             name="/Common/terraform_node1",
             address="192.168.30.1",
             connection_limit=0,
             dynamic_ratio=1,
             monitor="/Common/icmp",
             description="Test-Node",
-            rate_limit="disabled",
-            fqdn={
-                "address_family": "ipv4",
-                "interval": "3000",
-            })
+            rate_limit="disabled")
         ```
 
         ## Importing
@@ -466,17 +466,17 @@ class Node(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         node = f5bigip.ltm.Node("node",
+            fqdn={
+                "address_family": "ipv4",
+                "interval": "3000",
+            },
             name="/Common/terraform_node1",
             address="192.168.30.1",
             connection_limit=0,
             dynamic_ratio=1,
             monitor="/Common/icmp",
             description="Test-Node",
-            rate_limit="disabled",
-            fqdn={
-                "address_family": "ipv4",
-                "interval": "3000",
-            })
+            rate_limit="disabled")
         ```
 
         ## Importing
@@ -510,7 +510,7 @@ class Node(pulumi.CustomResource):
                  connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
-                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+                 fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict', 'outputs.NodeFqdn']]] = None,
                  monitor: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
@@ -555,7 +555,7 @@ class Node(pulumi.CustomResource):
             connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
-            fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict']]] = None,
+            fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict', 'outputs.NodeFqdn']]] = None,
             monitor: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rate_limit: pulumi.Input[Optional[_builtins.str]] = None,

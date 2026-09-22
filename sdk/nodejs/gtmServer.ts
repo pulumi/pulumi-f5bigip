@@ -23,12 +23,12 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const server1 = new f5bigip.GtmServer("server1", {
- *     name: "bigip_server1",
- *     datacenter: dc1.name,
- *     product: "bigip",
  *     addresses: [{
  *         name: "10.1.1.1",
  *     }],
+ *     name: "bigip_server1",
+ *     datacenter: dc1.name,
+ *     product: "bigip",
  *     monitor: "/Common/bigip",
  *     virtualServerDiscovery: "true",
  *     linkDiscovery: "disabled",
@@ -43,9 +43,6 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const multiAddressServer = new f5bigip.GtmServer("multi_address_server", {
- *     name: "multi_server",
- *     datacenter: dc1.name,
- *     product: "bigip",
  *     addresses: [
  *         {
  *             name: "10.1.1.1",
@@ -58,6 +55,9 @@ import * as utilities from "./utilities";
  *             translation: "none",
  *         },
  *     ],
+ *     name: "multi_server",
+ *     datacenter: dc1.name,
+ *     product: "bigip",
  *     monitor: "/Common/bigip",
  *     virtualServerDiscovery: "true",
  * });
@@ -71,14 +71,14 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const natServer = new f5bigip.GtmServer("nat_server", {
- *     name: "nat_server",
- *     datacenter: dc1.name,
- *     product: "bigip",
  *     addresses: [{
  *         name: "10.10.10.10",
  *         deviceName: "/Common/server.example.com",
  *         translation: "192.168.1.10",
  *     }],
+ *     name: "nat_server",
+ *     datacenter: dc1.name,
+ *     product: "bigip",
  *     monitor: "/Common/bigip",
  *     virtualServerDiscovery: "true",
  * });
@@ -92,12 +92,12 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const genericHost = new f5bigip.GtmServer("generic_host", {
- *     name: "generic_server",
- *     datacenter: dc1.name,
- *     product: "generic-host",
  *     addresses: [{
  *         name: "10.20.20.20",
  *     }],
+ *     name: "generic_server",
+ *     datacenter: dc1.name,
+ *     product: "generic-host",
  *     monitor: "/Common/tcp",
  *     virtualServerDiscovery: "false",
  *     linkDiscovery: "disabled",
@@ -114,14 +114,9 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const genericWithVs = new f5bigip.GtmServer("generic_with_vs", {
- *     name: "generic_app_server",
- *     datacenter: dc1.name,
- *     product: "generic-host",
  *     addresses: [{
  *         name: "192.168.10.100",
  *     }],
- *     virtualServerDiscovery: "disabled",
- *     linkDiscovery: "disabled",
  *     virtualServers: [
  *         {
  *             name: "vs_http",
@@ -141,6 +136,11 @@ import * as utilities from "./utilities";
  *             translationPort: 0,
  *         },
  *     ],
+ *     name: "generic_app_server",
+ *     datacenter: dc1.name,
+ *     product: "generic-host",
+ *     virtualServerDiscovery: "disabled",
+ *     linkDiscovery: "disabled",
  *     enabled: true,
  * });
  * ```
@@ -153,12 +153,12 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const proberServer = new f5bigip.GtmServer("prober_server", {
- *     name: "prober_configured_server",
- *     datacenter: dc1.name,
- *     product: "bigip",
  *     addresses: [{
  *         name: "10.30.30.30",
  *     }],
+ *     name: "prober_configured_server",
+ *     datacenter: dc1.name,
+ *     product: "bigip",
  *     monitor: "/Common/bigip",
  *     virtualServerDiscovery: "true",
  *     proberPreference: "inside-datacenter",
@@ -177,12 +177,12 @@ import * as utilities from "./utilities";
  *
  * const dc1 = new f5bigip.GtmDatacenter("dc1", {name: "datacenter1"});
  * const limitedServer = new f5bigip.GtmServer("limited_server", {
- *     name: "resource_limited_server",
- *     datacenter: dc1.name,
- *     product: "bigip",
  *     addresses: [{
  *         name: "10.40.40.40",
  *     }],
+ *     name: "resource_limited_server",
+ *     datacenter: dc1.name,
+ *     product: "bigip",
  *     monitor: "/Common/bigip",
  *     virtualServerDiscovery: "true",
  *     limitMaxConnections: 10000,

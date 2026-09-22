@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_snat = new f5bigip.ltm.Snat("test-snat", {
- *     name: "/Common/test-snat",
- *     translation: "/Common/136.1.1.2",
- *     sourceport: "preserve",
  *     origins: [{
  *         name: "0.0.0.0/0",
  *     }],
+ *     name: "/Common/test-snat",
+ *     translation: "/Common/136.1.1.2",
+ *     sourceport: "preserve",
  *     vlans: ["/Common/internal"],
  *     vlansdisabled: false,
  * });

@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vlan1 = new f5bigip.net.Vlan("vlan1", {
- *     name: "/Common/Internal",
- *     tag: 101,
  *     interfaces: [{
  *         vlanport: "1.2",
  *         tagged: false,
  *     }],
+ *     name: "/Common/Internal",
+ *     tag: 101,
  * });
  * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
  *     name: "/Common/internalselfIP",

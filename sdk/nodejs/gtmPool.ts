@@ -47,12 +47,6 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const withMembers = new f5bigip.GtmPool("with_members", {
- *     name: "app_pool",
- *     type: "a",
- *     partition: "Common",
- *     loadBalancingMode: "round-robin",
- *     monitor: "/Common/https",
- *     ttl: 30,
  *     members: [
  *         {
  *             name: "server1:/Common/vs_app",
@@ -67,6 +61,12 @@ import * as utilities from "./utilities";
  *             memberOrder: 1,
  *         },
  *     ],
+ *     name: "app_pool",
+ *     type: "a",
+ *     partition: "Common",
+ *     loadBalancingMode: "round-robin",
+ *     monitor: "/Common/https",
+ *     ttl: 30,
  * });
  * ```
  *
@@ -77,6 +77,23 @@ import * as utilities from "./utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const advanced = new f5bigip.GtmPool("advanced", {
+ *     members: [
+ *         {
+ *             name: "server1:/Common/vs_app",
+ *             enabled: true,
+ *             ratio: 2,
+ *             memberOrder: 0,
+ *             monitor: "default",
+ *             limitMaxConnections: 2000,
+ *             limitMaxConnectionsStatus: "enabled",
+ *         },
+ *         {
+ *             name: "server2:/Common/vs_app",
+ *             enabled: true,
+ *             ratio: 1,
+ *             memberOrder: 1,
+ *         },
+ *     ],
  *     name: "advanced_pool",
  *     type: "a",
  *     partition: "Common",
@@ -100,23 +117,6 @@ import * as utilities from "./utilities";
  *     limitMaxBpsStatus: "enabled",
  *     minMembersUpMode: "at-least",
  *     minMembersUpValue: 2,
- *     members: [
- *         {
- *             name: "server1:/Common/vs_app",
- *             enabled: true,
- *             ratio: 2,
- *             memberOrder: 0,
- *             monitor: "default",
- *             limitMaxConnections: 2000,
- *             limitMaxConnectionsStatus: "enabled",
- *         },
- *         {
- *             name: "server2:/Common/vs_app",
- *             enabled: true,
- *             ratio: 1,
- *             memberOrder: 1,
- *         },
- *     ],
  * });
  * ```
  *

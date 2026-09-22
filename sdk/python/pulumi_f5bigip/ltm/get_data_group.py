@@ -95,7 +95,7 @@ class AwaitableGetDataGroupResult(GetDataGroupResult):
 
 def get_data_group(name: Optional[_builtins.str] = None,
                    partition: Optional[_builtins.str] = None,
-                   records: Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]] = None,
+                   records: Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict', 'outputs.GetDataGroupRecordResult']]] = None,
                    type: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataGroupResult:
     """
@@ -114,7 +114,7 @@ def get_data_group(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Name of the datagroup
     :param _builtins.str partition: partition of the datagroup
-    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']] records: Specifies record of type (string/ip/integer)
+    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict', 'outputs.GetDataGroupRecordResult']] records: Specifies record of type (string/ip/integer)
     :param _builtins.str type: The Data Group type (string, ip, integer)"
     """
     __args__ = dict()
@@ -133,7 +133,7 @@ def get_data_group(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_data_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           partition: pulumi.Input[Optional[_builtins.str]] = None,
-                          records: pulumi.Input[Optional[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']]]]] = None,
+                          records: pulumi.Input[Optional[Optional[Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict', 'outputs.GetDataGroupRecordResult']]]]] = None,
                           type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataGroupResult]:
     """
@@ -152,7 +152,7 @@ def get_data_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str name: Name of the datagroup
     :param _builtins.str partition: partition of the datagroup
-    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict']] records: Specifies record of type (string/ip/integer)
+    :param Sequence[Union['GetDataGroupRecordArgs', 'GetDataGroupRecordArgsDict', 'outputs.GetDataGroupRecordResult']] records: Specifies record of type (string/ip/integer)
     :param _builtins.str type: The Data Group type (string, ip, integer)"
     """
     __args__ = dict()

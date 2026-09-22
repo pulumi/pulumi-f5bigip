@@ -51,23 +51,6 @@ import (
 //				return err
 //			}
 //			_, err = ltm.NewProfileRewrite(ctx, "test-profile2", &ltm.ProfileRewriteArgs{
-//				Name:         pulumi.String("/Common/tf_profile_translate"),
-//				DefaultsFrom: pulumi.String("/Common/rewrite"),
-//				RewriteMode:  pulumi.String("uri-translation"),
-//				Requests: ltm.ProfileRewriteRequestArray{
-//					&ltm.ProfileRewriteRequestArgs{
-//						InsertXfwdFor:      pulumi.String("enabled"),
-//						InsertXfwdHost:     pulumi.String("disabled"),
-//						InsertXfwdProtocol: pulumi.String("enabled"),
-//						RewriteHeaders:     pulumi.String("disabled"),
-//					},
-//				},
-//				Responses: ltm.ProfileRewriteResponseArray{
-//					&ltm.ProfileRewriteResponseArgs{
-//						RewriteContent: pulumi.String("enabled"),
-//						RewriteHeaders: pulumi.String("disabled"),
-//					},
-//				},
 //				CookieRules: ltm.ProfileRewriteCookieRuleArray{
 //					&ltm.ProfileRewriteCookieRuleArgs{
 //						RuleName:     pulumi.String("cookie1"),
@@ -84,6 +67,23 @@ import (
 //						ServerPath:   pulumi.String("/this/"),
 //					},
 //				},
+//				Requests: ltm.ProfileRewriteRequestArray{
+//					&ltm.ProfileRewriteRequestArgs{
+//						InsertXfwdFor:      pulumi.String("enabled"),
+//						InsertXfwdHost:     pulumi.String("disabled"),
+//						InsertXfwdProtocol: pulumi.String("enabled"),
+//						RewriteHeaders:     pulumi.String("disabled"),
+//					},
+//				},
+//				Responses: ltm.ProfileRewriteResponseArray{
+//					&ltm.ProfileRewriteResponseArgs{
+//						RewriteContent: pulumi.String("enabled"),
+//						RewriteHeaders: pulumi.String("disabled"),
+//					},
+//				},
+//				Name:         pulumi.String("/Common/tf_profile_translate"),
+//				DefaultsFrom: pulumi.String("/Common/rewrite"),
+//				RewriteMode:  pulumi.String("uri-translation"),
 //			})
 //			if err != nil {
 //				return err

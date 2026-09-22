@@ -215,12 +215,12 @@ class SelfIp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
             interfaces=[{
                 "vlanport": "1.2",
                 "tagged": False,
-            }])
+            }],
+            name="/Common/Internal",
+            tag=101)
         selfip1 = f5bigip.net.SelfIp("selfip1",
             name="/Common/internalselfIP",
             ip="11.1.1.1/24",
@@ -303,12 +303,12 @@ class SelfIp(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
             interfaces=[{
                 "vlanport": "1.2",
                 "tagged": False,
-            }])
+            }],
+            name="/Common/Internal",
+            tag=101)
         selfip1 = f5bigip.net.SelfIp("selfip1",
             name="/Common/internalselfIP",
             ip="11.1.1.1/24",

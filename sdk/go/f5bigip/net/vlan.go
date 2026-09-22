@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
-//				Name: pulumi.String("/Common/Internal"),
-//				Tag:  pulumi.Int(101),
 //				Interfaces: net.VlanInterfaceArray{
 //					&net.VlanInterfaceArgs{
 //						Vlanport: pulumi.String("1.2"),
 //						Tagged:   pulumi.Bool(false),
 //					},
 //				},
+//				Name: pulumi.String("/Common/Internal"),
+//				Tag:  pulumi.Int(101),
 //			})
 //			if err != nil {
 //				return err

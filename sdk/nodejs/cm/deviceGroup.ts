@@ -16,10 +16,6 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const myNewDevicegroup = new f5bigip.cm.DeviceGroup("my_new_devicegroup", {
- *     name: "sanjose_devicegroup",
- *     autoSync: "enabled",
- *     fullLoadOnSync: "true",
- *     type: "sync-only",
  *     devices: [
  *         {
  *             name: "bigip1.cisco.com",
@@ -28,6 +24,10 @@ import * as utilities from "../utilities";
  *             name: "bigip200.f5.com",
  *         },
  *     ],
+ *     name: "sanjose_devicegroup",
+ *     autoSync: "enabled",
+ *     fullLoadOnSync: "true",
+ *     type: "sync-only",
  * });
  * ```
  */

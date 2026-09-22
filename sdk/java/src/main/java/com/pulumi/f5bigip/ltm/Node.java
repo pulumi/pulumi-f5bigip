@@ -48,6 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var node = new Node("node", NodeArgs.builder()
+ *             .fqdn(NodeFqdnArgs.builder()
+ *                 .addressFamily("ipv4")
+ *                 .interval("3000")
+ *                 .build())
  *             .name("/Common/terraform_node1")
  *             .address("192.168.30.1")
  *             .connectionLimit(0)
@@ -55,10 +59,6 @@ import javax.annotation.Nullable;
  *             .monitor("/Common/icmp")
  *             .description("Test-Node")
  *             .rateLimit("disabled")
- *             .fqdn(NodeFqdnArgs.builder()
- *                 .addressFamily("ipv4")
- *                 .interval("3000")
- *                 .build())
  *             .build());
  * 
  *     }

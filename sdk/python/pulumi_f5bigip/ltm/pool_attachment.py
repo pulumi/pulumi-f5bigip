@@ -444,7 +444,6 @@ class PoolAttachment(pulumi.CustomResource):
         import pulumi
         from typing import Any
         import pulumi_f5bigip as f5bigip
-        import pulumi_std as std
 
         node1 = f5bigip.ltm.Node("node1",
             name="/Common/terraform_node1",
@@ -453,14 +452,17 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod: list[f5bigip.ltm.PoolAttachment] = []
-        for k8sprod_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+        k8sprod: dict[str, f5bigip.ltm.PoolAttachment] = {}
+        def create_k8sprod(range_body):
+            for k8sprod_range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
+                k8sprod[k8sprod_range['key']] = f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
+                    pool=k8s_prod.name,
+                    node=f"{k8sprod_range['key']}:80")
+
+        pulumi.Output.all({entry: entry for entry in [
             node1.name,
             node2.name,
-        ]).result)]:
-            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
-                pool=k8s_prod.name,
-                node=f"{k8sprod_range['key']}:80"))
+        ]}).apply(lambda resolved_outputs: create_k8sprod(resolved_outputs[0]))
         ```
 
         ## Importing
@@ -567,7 +569,6 @@ class PoolAttachment(pulumi.CustomResource):
         import pulumi
         from typing import Any
         import pulumi_f5bigip as f5bigip
-        import pulumi_std as std
 
         node1 = f5bigip.ltm.Node("node1",
             name="/Common/terraform_node1",
@@ -576,14 +577,17 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_node2",
             address="192.168.30.2")
         k8s_prod = f5bigip.ltm.Pool("k8s_prod", name="/Common/k8prod_Pool")
-        k8sprod: list[f5bigip.ltm.PoolAttachment] = []
-        for k8sprod_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=[
+        k8sprod: dict[str, f5bigip.ltm.PoolAttachment] = {}
+        def create_k8sprod(range_body):
+            for k8sprod_range in [{"key": k, "value": v} for [k, v] in sorted((range_body).items())]:
+                k8sprod[k8sprod_range['key']] = f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
+                    pool=k8s_prod.name,
+                    node=f"{k8sprod_range['key']}:80")
+
+        pulumi.Output.all({entry: entry for entry in [
             node1.name,
             node2.name,
-        ]).result)]:
-            k8sprod.append(f5bigip.ltm.PoolAttachment(f"k8sprod-{k8sprod_range['key']}",
-                pool=k8s_prod.name,
-                node=f"{k8sprod_range['key']}:80"))
+        ]}).apply(lambda resolved_outputs: create_k8sprod(resolved_outputs[0]))
         ```
 
         ## Importing

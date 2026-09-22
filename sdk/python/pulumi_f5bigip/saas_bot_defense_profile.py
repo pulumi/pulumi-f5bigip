@@ -328,7 +328,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
                  defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]]] = None,
                  shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,7 +343,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] defaults_from: Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the BD profile.
         :param pulumi.Input[_builtins.str] name: Unique name for the Distributed Cloud Services Bot Defense profile
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]] protected_endpoints: Use these settings to configure which pages on the website will be protected by BD
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]] protected_endpoints: Use these settings to configure which pages on the website will be protected by BD
         :param pulumi.Input[_builtins.str] shape_protection_pool: Specifies the web hostname to which API requests are made
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies a server-side SSL profile that is different from what the application pool uses
         :param pulumi.Input[_builtins.str] tenant_id: Specifies the tenant ID, enter the value provided by F5 Support
@@ -377,7 +377,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
                  defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+                 protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]]] = None,
                  shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -430,7 +430,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
             defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]]] = None,
+            protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]]] = None,
             shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
             ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SaasBotDefenseProfile':
@@ -446,7 +446,7 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] defaults_from: Distributed Cloud Services Bot Defense parent profile from which this profile will inherit settings.
         :param pulumi.Input[_builtins.str] description: Specifies descriptive text that identifies the BD profile.
         :param pulumi.Input[_builtins.str] name: Unique name for the Distributed Cloud Services Bot Defense profile
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict']]]] protected_endpoints: Use these settings to configure which pages on the website will be protected by BD
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]] protected_endpoints: Use these settings to configure which pages on the website will be protected by BD
         :param pulumi.Input[_builtins.str] shape_protection_pool: Specifies the web hostname to which API requests are made
         :param pulumi.Input[_builtins.str] ssl_profile: Specifies a server-side SSL profile that is different from what the application pool uses
         :param pulumi.Input[_builtins.str] tenant_id: Specifies the tenant ID, enter the value provided by F5 Support

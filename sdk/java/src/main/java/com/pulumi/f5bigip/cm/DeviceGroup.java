@@ -46,10 +46,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myNewDevicegroup = new DeviceGroup("myNewDevicegroup", DeviceGroupArgs.builder()
- *             .name("sanjose_devicegroup")
- *             .autoSync("enabled")
- *             .fullLoadOnSync("true")
- *             .type("sync-only")
  *             .devices(            
  *                 DeviceGroupDeviceArgs.builder()
  *                     .name("bigip1.cisco.com")
@@ -57,6 +53,10 @@ import javax.annotation.Nullable;
  *                 DeviceGroupDeviceArgs.builder()
  *                     .name("bigip200.f5.com")
  *                     .build())
+ *             .name("sanjose_devicegroup")
+ *             .autoSync("enabled")
+ *             .fullLoadOnSync("true")
+ *             .type("sync-only")
  *             .build());
  * 
  *     }

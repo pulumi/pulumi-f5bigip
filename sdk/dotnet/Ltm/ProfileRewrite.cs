@@ -47,27 +47,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     ///     var test_profile2 = new F5BigIP.Ltm.ProfileRewrite("test-profile2", new()
     ///     {
-    ///         Name = "/Common/tf_profile_translate",
-    ///         DefaultsFrom = "/Common/rewrite",
-    ///         RewriteMode = "uri-translation",
-    ///         Requests = new[]
-    ///         {
-    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteRequestArgs
-    ///             {
-    ///                 InsertXfwdFor = "enabled",
-    ///                 InsertXfwdHost = "disabled",
-    ///                 InsertXfwdProtocol = "enabled",
-    ///                 RewriteHeaders = "disabled",
-    ///             },
-    ///         },
-    ///         Responses = new[]
-    ///         {
-    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteResponseArgs
-    ///             {
-    ///                 RewriteContent = "enabled",
-    ///                 RewriteHeaders = "disabled",
-    ///             },
-    ///         },
     ///         CookieRules = new[]
     ///         {
     ///             new F5BigIP.Ltm.Inputs.ProfileRewriteCookieRuleArgs
@@ -87,6 +66,27 @@ namespace Pulumi.F5BigIP.Ltm
     ///                 ServerPath = "/this/",
     ///             },
     ///         },
+    ///         Requests = new[]
+    ///         {
+    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteRequestArgs
+    ///             {
+    ///                 InsertXfwdFor = "enabled",
+    ///                 InsertXfwdHost = "disabled",
+    ///                 InsertXfwdProtocol = "enabled",
+    ///                 RewriteHeaders = "disabled",
+    ///             },
+    ///         },
+    ///         Responses = new[]
+    ///         {
+    ///             new F5BigIP.Ltm.Inputs.ProfileRewriteResponseArgs
+    ///             {
+    ///                 RewriteContent = "enabled",
+    ///                 RewriteHeaders = "disabled",
+    ///             },
+    ///         },
+    ///         Name = "/Common/tf_profile_translate",
+    ///         DefaultsFrom = "/Common/rewrite",
+    ///         RewriteMode = "uri-translation",
     ///     });
     /// 
     /// });

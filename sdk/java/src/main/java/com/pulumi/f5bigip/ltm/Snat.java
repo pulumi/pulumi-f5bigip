@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_snat = new Snat("test-snat", SnatArgs.builder()
- *             .name("/Common/test-snat")
- *             .translation("/Common/136.1.1.2")
- *             .sourceport("preserve")
  *             .origins(SnatOriginArgs.builder()
  *                 .name("0.0.0.0/0")
  *                 .build())
+ *             .name("/Common/test-snat")
+ *             .translation("/Common/136.1.1.2")
+ *             .sourceport("preserve")
  *             .vlans("/Common/internal")
  *             .vlansdisabled(false)
  *             .build());

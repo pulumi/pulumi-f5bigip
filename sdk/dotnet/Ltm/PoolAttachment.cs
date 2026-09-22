@@ -125,12 +125,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
-    /// using System.Threading.Tasks;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
-    /// using Std = Pulumi.Std;
     /// 
-    /// return await Deployment.RunAsync(async() =&gt; 
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var node1 = new F5BigIP.Ltm.Node("node1", new()
     ///     {
@@ -150,14 +148,22 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     ///     var k8sprod = new List&lt;F5BigIP.Ltm.PoolAttachment&gt;();
-    ///     foreach (var range in )
+    ///     new[]
     ///     {
-    ///         k8sprod.Add(new F5BigIP.Ltm.PoolAttachment($"k8sprod-{range.Key}", new()
+    ///         node1.Name,
+    ///         node2.Name,
+    ///     }.Apply(rangeBody =&gt;
+    ///     {
+    ///         foreach (var range in rangeBody.Select(pair =&gt; new { pair.Key, pair.Value }))
     ///         {
-    ///             Pool = k8sProd.Name,
-    ///             Node = $"{range.Key}:80",
-    ///         }));
-    ///     }
+    ///             k8sprod.Add(new F5BigIP.Ltm.PoolAttachment($"k8sprod-{range.Key}", new()
+    ///             {
+    ///                 Pool = k8sProd.Name,
+    ///                 Node = $"{range.Key}:80",
+    ///             }));
+    ///         }
+    ///         return 0;
+    ///     });
     /// });
     /// ```
     /// 

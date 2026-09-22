@@ -26,13 +26,13 @@ namespace Pulumi.F5BigIP
     /// {
     ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
     ///     {
-    ///         Tenant = "fasthttpstenant",
-    ///         Application = "fasthttpsapp",
     ///         VirtualServer = new F5BigIP.Inputs.FastHttpsAppVirtualServerArgs
     ///         {
     ///             Ip = "10.30.40.44",
     ///             Port = 443,
     ///         },
+    ///         Tenant = "fasthttpstenant",
+    ///         Application = "fasthttpsapp",
     ///     });
     /// 
     /// });
@@ -65,8 +65,6 @@ namespace Pulumi.F5BigIP
     /// 
     ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fast_https_app", new()
     ///     {
-    ///         Tenant = "fasthttpstenant",
-    ///         Application = "fasthttpsapp",
     ///         VirtualServer = new F5BigIP.Inputs.FastHttpsAppVirtualServerArgs
     ///         {
     ///             Ip = "10.30.40.44",
@@ -85,6 +83,8 @@ namespace Pulumi.F5BigIP
     ///                 Port = 80,
     ///             },
     ///         },
+    ///         Tenant = "fasthttpstenant",
+    ///         Application = "fasthttpsapp",
     ///         ServiceDiscoveries = new[]
     ///         {
     ///             TC3GetGceServiceDiscovery.Apply(getGceServiceDiscoveryResult =&gt; getGceServiceDiscoveryResult.GceSdJson),

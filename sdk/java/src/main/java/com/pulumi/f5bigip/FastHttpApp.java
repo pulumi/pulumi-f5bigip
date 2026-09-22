@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fastHttpApp = new FastHttpApp("fastHttpApp", FastHttpAppArgs.builder()
- *             .tenant("fasthttptenant")
- *             .application("fasthttpapp")
  *             .virtualServer(FastHttpAppVirtualServerArgs.builder()
  *                 .ip("10.30.30.44")
  *                 .port(443)
  *                 .build())
+ *             .tenant("fasthttptenant")
+ *             .application("fasthttpapp")
  *             .build());
  * 
  *     }
@@ -107,8 +107,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fastHttpsApp = new FastHttpApp("fastHttpsApp", FastHttpAppArgs.builder()
- *             .tenant("fasthttptenant")
- *             .application("fasthttpapp")
  *             .virtualServer(FastHttpAppVirtualServerArgs.builder()
  *                 .ip("10.30.40.44")
  *                 .port(443)
@@ -120,6 +118,8 @@ import javax.annotation.Nullable;
  *                     "10.11.30.122")
  *                 .port(80)
  *                 .build())
+ *             .tenant("fasthttptenant")
+ *             .application("fasthttpapp")
  *             .serviceDiscoveries(            
  *                 TC3GetGceServiceDiscovery.gceSdJson(),
  *                 TC3.azureSdJson())
