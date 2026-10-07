@@ -7,7 +7,7 @@ Subject: [PATCH] Add go.mod to vendored github.com/f5devcentral/go-bigip
 
 diff --git a/vendor/github.com/f5devcentral/go-bigip/f5teem/go.mod b/vendor/github.com/f5devcentral/go-bigip/f5teem/go.mod
 new file mode 100644
-index 00000000..a9a76b8b
+index 000000000000..a9a76b8b6664
 --- /dev/null
 +++ b/vendor/github.com/f5devcentral/go-bigip/f5teem/go.mod
 @@ -0,0 +1,8 @@
@@ -21,7 +21,7 @@ index 00000000..a9a76b8b
 +)
 diff --git a/vendor/github.com/f5devcentral/go-bigip/go.mod b/vendor/github.com/f5devcentral/go-bigip/go.mod
 new file mode 100644
-index 00000000..508d569d
+index 000000000000..508d569dad90
 --- /dev/null
 +++ b/vendor/github.com/f5devcentral/go-bigip/go.mod
 @@ -0,0 +1,10 @@
