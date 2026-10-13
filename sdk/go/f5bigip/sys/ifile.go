@@ -71,8 +71,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string][]map[string]interface{}{
-//				"servers": []map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]interface{}{
+//				"servers": []interface{}{
 //					map[string]interface{}{
 //						"name": "web1",
 //						"ip":   "10.1.1.10",
