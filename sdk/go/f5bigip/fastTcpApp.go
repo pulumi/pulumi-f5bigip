@@ -46,7 +46,7 @@ import (
 //				VirtualServer: map[string]interface{}{
 //					"ip":   "11.12.16.30",
 //					"port": 443,
-//				}[0],
+//				}[0].(f5bigip.FastTcpAppVirtualServerArgs),
 //			})
 //			if err != nil {
 //				return err

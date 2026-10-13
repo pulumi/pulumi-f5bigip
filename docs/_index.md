@@ -207,9 +207,9 @@ public class App {
 
     public static void stack(Context ctx) {
         final var config = ctx.config();
-        final var hostname = config.require("hostname");
-        final var username = config.require("username");
-        final var password = config.require("password");
+        final var hostname = config.requireObject("hostname", com.pulumi.core.TypeShape.map(String.class, Object.class));
+        final var username = config.requireObject("username", com.pulumi.core.TypeShape.map(String.class, Object.class));
+        final var password = config.requireObject("password", com.pulumi.core.TypeShape.map(String.class, Object.class));
     }
 }
 ```
@@ -218,10 +218,13 @@ public class App {
 {{% choosable language hcl %}}
 ```hcl
 variable "hostname" {
+  type = any
 }
 variable "username" {
+  type = any
 }
 variable "password" {
+  type = any
 }
 ```
 
