@@ -148,22 +148,24 @@ namespace Pulumi.F5BigIP.Ltm
     ///     });
     /// 
     ///     var k8sprod = new List&lt;F5BigIP.Ltm.PoolAttachment&gt;();
-    ///     new[]
+    ///     foreach (var range in new[]
     ///     {
     ///         node1.Name,
     ///         node2.Name,
-    ///     }.Apply(rangeBody =&gt;
+    ///     }.ToDictionary(item =&gt; {
+    ///         var entry = item.Value;
+    ///         return entry;
+    ///     }, item =&gt; {
+    ///         var entry = item.Value;
+    ///         return entry;
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
-    ///         foreach (var range in rangeBody.Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///         k8sprod.Add(new F5BigIP.Ltm.PoolAttachment($"k8sprod-{range.Key}", new()
     ///         {
-    ///             k8sprod.Add(new F5BigIP.Ltm.PoolAttachment($"k8sprod-{range.Key}", new()
-    ///             {
-    ///                 Pool = k8sProd.Name,
-    ///                 Node = $"{range.Key}:80",
-    ///             }));
-    ///         }
-    ///         return 0;
-    ///     });
+    ///             Pool = k8sProd.Name,
+    ///             Node = $"{range.Key}:80",
+    ///         }));
+    ///     }
     /// });
     /// ```
     /// 
