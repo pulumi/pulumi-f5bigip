@@ -241,6 +241,12 @@ func (FastUdpAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastUdpAppState)(nil)).Elem()
 }
 
+// FastUdpAppExists checks whether an existing FastUdpApp resource with the given ID exists.
+func FastUdpAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastUdpAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/fastUdpApp:FastUdpApp", id, state, "", opts...)
+}
+
 type fastUdpAppArgs struct {
 	// Name of the FAST UDP application.
 	Application string `pulumi:"application"`

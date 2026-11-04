@@ -1269,6 +1269,50 @@ class GtmWideip(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return GtmWideip(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            failure_rcode: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_rcode_response: pulumi.Input[Optional[_builtins.str]] = None,
+            failure_rcode_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            last_resort_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_decision_log_verbosities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            minimal_response: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            persist_cidr_ipv4: pulumi.Input[Optional[_builtins.int]] = None,
+            persist_cidr_ipv6: pulumi.Input[Optional[_builtins.int]] = None,
+            persistence: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_lb_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            topology_prefer_edns0_client_subnet: pulumi.Input[Optional[_builtins.str]] = None,
+            ttl_persistence: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aliases"] = aliases
+        __props__["description"] = description
+        __props__["disabled"] = disabled
+        __props__["enabled"] = enabled
+        __props__["failureRcode"] = failure_rcode
+        __props__["failureRcodeResponse"] = failure_rcode_response
+        __props__["failureRcodeTtl"] = failure_rcode_ttl
+        __props__["lastResortPool"] = last_resort_pool
+        __props__["loadBalancingDecisionLogVerbosities"] = load_balancing_decision_log_verbosities
+        __props__["minimalResponse"] = minimal_response
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["persistCidrIpv4"] = persist_cidr_ipv4
+        __props__["persistCidrIpv6"] = persist_cidr_ipv6
+        __props__["persistence"] = persistence
+        __props__["poolLbMode"] = pool_lb_mode
+        __props__["topologyPreferEdns0ClientSubnet"] = topology_prefer_edns0_client_subnet
+        __props__["ttlPersistence"] = ttl_persistence
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/gtmWideip:GtmWideip', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

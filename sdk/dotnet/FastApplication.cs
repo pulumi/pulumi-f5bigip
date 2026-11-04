@@ -41,8 +41,6 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// A FAST application name.
         /// 
-        /// 
-        /// 
         /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         /// </summary>
         [Output("application")]
@@ -134,8 +132,6 @@ namespace Pulumi.F5BigIP
     {
         /// <summary>
         /// A FAST application name.
-        /// 
-        /// 
         /// 
         /// * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
         /// </summary>

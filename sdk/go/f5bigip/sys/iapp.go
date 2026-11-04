@@ -195,6 +195,12 @@ func (IAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iappState)(nil)).Elem()
 }
 
+// IAppExists checks whether an existing IApp resource with the given ID exists.
+func IAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/iApp:IApp", id, state, "", opts...)
+}
+
 type iappArgs struct {
 	// User defined description.
 	Description *string `pulumi:"description"`

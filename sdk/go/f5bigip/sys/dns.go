@@ -119,6 +119,12 @@ func (DnsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsState)(nil)).Elem()
 }
 
+// DnsExists checks whether an existing Dns resource with the given ID exists.
+func DnsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DnsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/dns:Dns", id, state, "", opts...)
+}
+
 type dnsArgs struct {
 	// Provide description for your DNS server
 	Description string `pulumi:"description"`

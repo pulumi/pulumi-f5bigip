@@ -173,6 +173,12 @@ func (PersistenceProfileSslState) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileSslState)(nil)).Elem()
 }
 
+// PersistenceProfileSslExists checks whether an existing PersistenceProfileSsl resource with the given ID exists.
+func PersistenceProfileSslExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PersistenceProfileSslState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", id, state, "", opts...)
+}
+
 type persistenceProfileSslArgs struct {
 	AppService *string `pulumi:"appService"`
 	// Inherit defaults from parent profile

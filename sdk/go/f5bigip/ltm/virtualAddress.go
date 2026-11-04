@@ -137,6 +137,12 @@ func (VirtualAddressState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualAddressState)(nil)).Elem()
 }
 
+// VirtualAddressExists checks whether an existing VirtualAddress resource with the given ID exists.
+func VirtualAddressExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualAddressState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/virtualAddress:VirtualAddress", id, state, "", opts...)
+}
+
 type virtualAddressArgs struct {
 	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute *string `pulumi:"advertizeRoute"`

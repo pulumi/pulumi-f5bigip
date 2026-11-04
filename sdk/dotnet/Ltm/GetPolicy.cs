@@ -14,7 +14,6 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -43,7 +42,6 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -71,7 +69,6 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
-        /// 
         /// 
         /// ## Example Usage
         /// 

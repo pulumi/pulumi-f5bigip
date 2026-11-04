@@ -204,6 +204,12 @@ func (GtmMonitorHttpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmMonitorHttpState)(nil)).Elem()
 }
 
+// GtmMonitorHttpExists checks whether an existing GtmMonitorHttp resource with the given ID exists.
+func GtmMonitorHttpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmMonitorHttpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmMonitorHttp:GtmMonitorHttp", id, state, "", opts...)
+}
+
 type gtmMonitorHttpArgs struct {
 	// Inherit properties from this monitor
 	DefaultsFrom *string `pulumi:"defaultsFrom"`

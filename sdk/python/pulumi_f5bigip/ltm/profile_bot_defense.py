@@ -300,6 +300,22 @@ class ProfileBotDefense(pulumi.CustomResource):
         __props__.__dict__["template"] = template
         return ProfileBotDefense(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultsFrom"] = defaults_from
+        __props__["description"] = description
+        __props__["enforcementMode"] = enforcement_mode
+        __props__["name"] = name
+        __props__["template"] = template
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileBotDefense:ProfileBotDefense', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[Optional[_builtins.str]]:

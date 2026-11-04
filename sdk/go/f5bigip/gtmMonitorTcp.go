@@ -204,6 +204,12 @@ func (GtmMonitorTcpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmMonitorTcpState)(nil)).Elem()
 }
 
+// GtmMonitorTcpExists checks whether an existing GtmMonitorTcp resource with the given ID exists.
+func GtmMonitorTcpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmMonitorTcpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmMonitorTcp:GtmMonitorTcp", id, state, "", opts...)
+}
+
 type gtmMonitorTcpArgs struct {
 	// Inherit properties from this monitor
 	DefaultsFrom *string `pulumi:"defaultsFrom"`

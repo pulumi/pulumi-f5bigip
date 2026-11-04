@@ -829,6 +829,44 @@ class ProfileFtp(pulumi.CustomResource):
         __props__.__dict__["translate_extended"] = translate_extended
         return ProfileFtp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_active_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_ftps: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_tlssession_reuse: pulumi.Input[Optional[_builtins.str]] = None,
+            ftps_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            inherit_parent_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            inherit_vlan_list: pulumi.Input[Optional[_builtins.str]] = None,
+            log_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            log_publisher: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            security: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_extended: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowActiveMode"] = allow_active_mode
+        __props__["allowFtps"] = allow_ftps
+        __props__["appService"] = app_service
+        __props__["defaultsFrom"] = defaults_from
+        __props__["description"] = description
+        __props__["enforceTlssessionReuse"] = enforce_tlssession_reuse
+        __props__["ftpsMode"] = ftps_mode
+        __props__["inheritParentProfile"] = inherit_parent_profile
+        __props__["inheritVlanList"] = inherit_vlan_list
+        __props__["logProfile"] = log_profile
+        __props__["logPublisher"] = log_publisher
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["port"] = port
+        __props__["security"] = security
+        __props__["translateExtended"] = translate_extended
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileFtp:ProfileFtp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowActiveMode")
     def allow_active_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

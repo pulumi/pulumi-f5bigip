@@ -112,6 +112,12 @@ func (IpsecProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsecProfileState)(nil)).Elem()
 }
 
+// IpsecProfileExists checks whether an existing IpsecProfile resource with the given ID exists.
+func IpsecProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpsecProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/ipsecProfile:IpsecProfile", id, state, "", opts...)
+}
+
 type ipsecProfileArgs struct {
 	// Specifies descriptive text that identifies the IPsec interface tunnel profile.
 	Description *string `pulumi:"description"`

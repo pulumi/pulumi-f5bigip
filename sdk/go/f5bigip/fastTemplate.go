@@ -117,6 +117,12 @@ func (FastTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastTemplateState)(nil)).Elem()
 }
 
+// FastTemplateExists checks whether an existing FastTemplate resource with the given ID exists.
+func FastTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/fastTemplate:FastTemplate", id, state, "", opts...)
+}
+
 type fastTemplateArgs struct {
 	// MD5 hash of the zip archive file containing FAST template
 	Md5Hash string `pulumi:"md5Hash"`

@@ -228,6 +228,18 @@ class Command(pulumi.CustomResource):
         __props__.__dict__["when"] = when
         return Command(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            command_results: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            when: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["commandResults"] = command_results
+        __props__["commands"] = commands
+        __props__["when"] = when
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/command:Command', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="commandResults")
     def command_results(self) -> pulumi.Output[Sequence[_builtins.str]]:

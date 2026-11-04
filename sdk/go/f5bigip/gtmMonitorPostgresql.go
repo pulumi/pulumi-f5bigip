@@ -224,6 +224,12 @@ func (GtmMonitorPostgresqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmMonitorPostgresqlState)(nil)).Elem()
 }
 
+// GtmMonitorPostgresqlExists checks whether an existing GtmMonitorPostgresql resource with the given ID exists.
+func GtmMonitorPostgresqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmMonitorPostgresqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmMonitorPostgresql:GtmMonitorPostgresql", id, state, "", opts...)
+}
+
 type gtmMonitorPostgresqlArgs struct {
 	// Specifies the database in which the user is created
 	Database *string `pulumi:"database"`

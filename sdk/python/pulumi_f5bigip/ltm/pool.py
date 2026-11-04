@@ -553,6 +553,32 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["slow_ramp_time"] = slow_ramp_time
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_nat: pulumi.Input[Optional[_builtins.str]] = None,
+            allow_snat: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            minimum_active_members: pulumi.Input[Optional[_builtins.int]] = None,
+            monitors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            reselect_tries: pulumi.Input[Optional[_builtins.int]] = None,
+            service_down_action: pulumi.Input[Optional[_builtins.str]] = None,
+            slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowNat"] = allow_nat
+        __props__["allowSnat"] = allow_snat
+        __props__["description"] = description
+        __props__["loadBalancingMode"] = load_balancing_mode
+        __props__["minimumActiveMembers"] = minimum_active_members
+        __props__["monitors"] = monitors
+        __props__["name"] = name
+        __props__["reselectTries"] = reselect_tries
+        __props__["serviceDownAction"] = service_down_action
+        __props__["slowRampTime"] = slow_ramp_time
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/pool:Pool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowNat")
     def allow_nat(self) -> pulumi.Output[_builtins.str]:

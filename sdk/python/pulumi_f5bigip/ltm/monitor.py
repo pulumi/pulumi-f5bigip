@@ -1408,6 +1408,72 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["username"] = username
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            adaptive: pulumi.Input[Optional[_builtins.str]] = None,
+            adaptive_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            base: pulumi.Input[Optional[_builtins.str]] = None,
+            chase_referrals: pulumi.Input[Optional[_builtins.str]] = None,
+            compatibility: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_parent: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            filename: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            ip_dscp: pulumi.Input[Optional[_builtins.int]] = None,
+            mandatory_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            receive: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_disable: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse: pulumi.Input[Optional[_builtins.str]] = None,
+            security: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            time_until_up: pulumi.Input[Optional[_builtins.int]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None,
+            up_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            username: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adaptive"] = adaptive
+        __props__["adaptiveLimit"] = adaptive_limit
+        __props__["base"] = base
+        __props__["chaseReferrals"] = chase_referrals
+        __props__["compatibility"] = compatibility
+        __props__["customParent"] = custom_parent
+        __props__["database"] = database
+        __props__["destination"] = destination
+        __props__["domain"] = domain
+        __props__["filename"] = filename
+        __props__["filter"] = filter
+        __props__["interval"] = interval
+        __props__["ipDscp"] = ip_dscp
+        __props__["mandatoryAttributes"] = mandatory_attributes
+        __props__["manualResume"] = manual_resume
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["parent"] = parent
+        __props__["password"] = password
+        __props__["receive"] = receive
+        __props__["receiveDisable"] = receive_disable
+        __props__["reverse"] = reverse
+        __props__["security"] = security
+        __props__["send"] = send
+        __props__["sslProfile"] = ssl_profile
+        __props__["timeUntilUp"] = time_until_up
+        __props__["timeout"] = timeout
+        __props__["transparent"] = transparent
+        __props__["upInterval"] = up_interval
+        __props__["username"] = username
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def adaptive(self) -> pulumi.Output[_builtins.str]:

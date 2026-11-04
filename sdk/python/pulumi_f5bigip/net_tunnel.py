@@ -796,6 +796,46 @@ class NetTunnel(pulumi.CustomResource):
         __props__.__dict__["use_pmtu"] = use_pmtu
         return NetTunnel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_last_hop: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            key: pulumi.Input[Optional[_builtins.int]] = None,
+            local_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            profile: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_address: pulumi.Input[Optional[_builtins.str]] = None,
+            tos: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None,
+            use_pmtu: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appService"] = app_service
+        __props__["autoLastHop"] = auto_last_hop
+        __props__["description"] = description
+        __props__["idleTimeout"] = idle_timeout
+        __props__["key"] = key
+        __props__["localAddress"] = local_address
+        __props__["mode"] = mode
+        __props__["mtu"] = mtu
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["profile"] = profile
+        __props__["remoteAddress"] = remote_address
+        __props__["secondaryAddress"] = secondary_address
+        __props__["tos"] = tos
+        __props__["trafficGroup"] = traffic_group
+        __props__["transparent"] = transparent
+        __props__["usePmtu"] = use_pmtu
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/netTunnel:NetTunnel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appService")
     def app_service(self) -> pulumi.Output[Optional[_builtins.str]]:

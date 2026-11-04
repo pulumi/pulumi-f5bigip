@@ -95,7 +95,6 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// 
-        /// 
         /// Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         /// </summary>
         [Output("nodes")]
@@ -201,7 +200,6 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// 
-        /// 
         /// Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         /// </summary>
         public InputList<Inputs.EventServiceDiscoveryNodeArgs> Nodes
@@ -271,7 +269,6 @@ namespace Pulumi.F5BigIP
         /// }
         /// }
         /// }
-        /// 
         /// 
         /// Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         /// </summary>

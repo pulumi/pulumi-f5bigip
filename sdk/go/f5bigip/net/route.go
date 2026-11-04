@@ -123,6 +123,12 @@ func (RouteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*routeState)(nil)).Elem()
 }
 
+// RouteExists checks whether an existing Route resource with the given ID exists.
+func RouteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RouteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:net/route:Route", id, state, "", opts...)
+}
+
 type routeArgs struct {
 	// Specifies a gateway address for the route.
 	Gw *string `pulumi:"gw"`

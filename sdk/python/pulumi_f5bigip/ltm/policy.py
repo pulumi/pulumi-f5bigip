@@ -464,6 +464,26 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["strategy"] = strategy
         return Policy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            controls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            published_copy: pulumi.Input[Optional[_builtins.str]] = None,
+            requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleArgs', 'PolicyRuleArgsDict', 'outputs.PolicyRule']]]]] = None,
+            strategy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["controls"] = controls
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["publishedCopy"] = published_copy
+        __props__["requires"] = requires
+        __props__["rules"] = rules
+        __props__["strategy"] = strategy
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/policy:Policy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def controls(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

@@ -535,6 +535,32 @@ class ProfileOneConnect(pulumi.CustomResource):
         __props__.__dict__["source_mask"] = source_mask
         return ProfileOneConnect(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout_override: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_type: pulumi.Input[Optional[_builtins.str]] = None,
+            max_age: pulumi.Input[Optional[_builtins.int]] = None,
+            max_reuse: pulumi.Input[Optional[_builtins.int]] = None,
+            max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            share_pools: pulumi.Input[Optional[_builtins.str]] = None,
+            source_mask: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultsFrom"] = defaults_from
+        __props__["idleTimeoutOverride"] = idle_timeout_override
+        __props__["limitType"] = limit_type
+        __props__["maxAge"] = max_age
+        __props__["maxReuse"] = max_reuse
+        __props__["maxSize"] = max_size
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["sharePools"] = share_pools
+        __props__["sourceMask"] = source_mask
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileOneConnect:ProfileOneConnect', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[_builtins.str]:

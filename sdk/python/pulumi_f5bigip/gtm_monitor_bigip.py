@@ -476,6 +476,26 @@ class GtmMonitorBigip(pulumi.CustomResource):
         __props__.__dict__["timeout"] = timeout
         return GtmMonitorBigip(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregationType"] = aggregation_type
+        __props__["defaultsFrom"] = defaults_from
+        __props__["destination"] = destination
+        __props__["ignoreDownResponse"] = ignore_down_response
+        __props__["interval"] = interval
+        __props__["name"] = name
+        __props__["timeout"] = timeout
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/gtmMonitorBigip:GtmMonitorBigip', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> pulumi.Output[Optional[_builtins.str]]:

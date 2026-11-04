@@ -1458,6 +1458,80 @@ class NetIkePeer(pulumi.CustomResource):
         __props__.__dict__["versions"] = versions
         return NetIkePeer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            ca_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dpd_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            generate_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            mode: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_key_file: pulumi.Input[Optional[_builtins.str]] = None,
+            my_cert_key_passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            my_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+            my_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            nat_traversal: pulumi.Input[Optional[_builtins.str]] = None,
+            passive: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_cert_file: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_cert_type: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_id_type: pulumi.Input[Optional[_builtins.str]] = None,
+            peers_id_value: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_encrypt_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            phase1_perfect_forward_secrecy: pulumi.Input[Optional[_builtins.str]] = None,
+            preshared_key: pulumi.Input[Optional[_builtins.str]] = None,
+            preshared_key_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            prf: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_support: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_address: pulumi.Input[Optional[_builtins.str]] = None,
+            replay_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            verify_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appService"] = app_service
+        __props__["caCertFile"] = ca_cert_file
+        __props__["crlFile"] = crl_file
+        __props__["description"] = description
+        __props__["dpdDelay"] = dpd_delay
+        __props__["generatePolicy"] = generate_policy
+        __props__["lifetime"] = lifetime
+        __props__["mode"] = mode
+        __props__["myCertFile"] = my_cert_file
+        __props__["myCertKeyFile"] = my_cert_key_file
+        __props__["myCertKeyPassphrase"] = my_cert_key_passphrase
+        __props__["myIdType"] = my_id_type
+        __props__["myIdValue"] = my_id_value
+        __props__["name"] = name
+        __props__["natTraversal"] = nat_traversal
+        __props__["passive"] = passive
+        __props__["peersCertFile"] = peers_cert_file
+        __props__["peersCertType"] = peers_cert_type
+        __props__["peersIdType"] = peers_id_type
+        __props__["peersIdValue"] = peers_id_value
+        __props__["phase1AuthMethod"] = phase1_auth_method
+        __props__["phase1EncryptAlgorithm"] = phase1_encrypt_algorithm
+        __props__["phase1HashAlgorithm"] = phase1_hash_algorithm
+        __props__["phase1PerfectForwardSecrecy"] = phase1_perfect_forward_secrecy
+        __props__["presharedKey"] = preshared_key
+        __props__["presharedKeyEncrypted"] = preshared_key_encrypted
+        __props__["prf"] = prf
+        __props__["proxySupport"] = proxy_support
+        __props__["remoteAddress"] = remote_address
+        __props__["replayWindowSize"] = replay_window_size
+        __props__["state"] = state
+        __props__["trafficSelectors"] = traffic_selectors
+        __props__["verifyCert"] = verify_cert
+        __props__["versions"] = versions
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/netIkePeer:NetIkePeer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appService")
     def app_service(self) -> pulumi.Output[Optional[_builtins.str]]:

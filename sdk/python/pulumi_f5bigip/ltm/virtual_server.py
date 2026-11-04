@@ -1246,6 +1246,70 @@ class VirtualServer(pulumi.CustomResource):
         __props__.__dict__["vlans_enabled"] = vlans_enabled
         return VirtualServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            default_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            firewall_enforced_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            irules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mask: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            per_flow_request_access_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            persistence_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pool: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            source_address_translation: pulumi.Input[Optional[_builtins.str]] = None,
+            source_port: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            trafficmatching_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_address: pulumi.Input[Optional[_builtins.str]] = None,
+            translate_port: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vlans_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientProfiles"] = client_profiles
+        __props__["connectionLimit"] = connection_limit
+        __props__["defaultPersistenceProfile"] = default_persistence_profile
+        __props__["description"] = description
+        __props__["destination"] = destination
+        __props__["fallbackPersistenceProfile"] = fallback_persistence_profile
+        __props__["firewallEnforcedPolicy"] = firewall_enforced_policy
+        __props__["ipProtocol"] = ip_protocol
+        __props__["irules"] = irules
+        __props__["mask"] = mask
+        __props__["name"] = name
+        __props__["perFlowRequestAccessPolicy"] = per_flow_request_access_policy
+        __props__["persistenceProfiles"] = persistence_profiles
+        __props__["policies"] = policies
+        __props__["pool"] = pool
+        __props__["port"] = port
+        __props__["profiles"] = profiles
+        __props__["securityLogProfiles"] = security_log_profiles
+        __props__["serverProfiles"] = server_profiles
+        __props__["snatpool"] = snatpool
+        __props__["source"] = source
+        __props__["sourceAddressTranslation"] = source_address_translation
+        __props__["sourcePort"] = source_port
+        __props__["state"] = state
+        __props__["trafficmatchingCriteria"] = trafficmatching_criteria
+        __props__["translateAddress"] = translate_address
+        __props__["translatePort"] = translate_port
+        __props__["vlans"] = vlans
+        __props__["vlansEnabled"] = vlans_enabled
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/virtualServer:VirtualServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientProfiles")
     def client_profiles(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

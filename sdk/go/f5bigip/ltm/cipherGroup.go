@@ -132,6 +132,12 @@ func (CipherGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cipherGroupState)(nil)).Elem()
 }
 
+// CipherGroupExists checks whether an existing CipherGroup resource with the given ID exists.
+func CipherGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CipherGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/cipherGroup:CipherGroup", id, state, "", opts...)
+}
+
 type cipherGroupArgs struct {
 	// Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list. To have no allowed ciphers, omit this attribute in the config or set it to an empty set like, `[]`.
 	Allows []string `pulumi:"allows"`

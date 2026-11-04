@@ -191,6 +191,12 @@ func (CommonLicenseManageBigIqState) ElementType() reflect.Type {
 	return reflect.TypeOf((*commonLicenseManageBigIqState)(nil)).Elem()
 }
 
+// CommonLicenseManageBigIqExists checks whether an existing CommonLicenseManageBigIq resource with the given ID exists.
+func CommonLicenseManageBigIqExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CommonLicenseManageBigIqState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", id, state, "", opts...)
+}
+
 type commonLicenseManageBigIqArgs struct {
 	// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
 	AssignmentType string `pulumi:"assignmentType"`

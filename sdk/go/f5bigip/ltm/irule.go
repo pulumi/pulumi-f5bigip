@@ -121,6 +121,12 @@ func (IRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*iruleState)(nil)).Elem()
 }
 
+// IRuleExists checks whether an existing IRule resource with the given ID exists.
+func IRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/iRule:IRule", id, state, "", opts...)
+}
+
 type iruleArgs struct {
 	// Body of the iRule
 	Irule string `pulumi:"irule"`

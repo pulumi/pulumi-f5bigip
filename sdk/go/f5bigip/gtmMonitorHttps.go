@@ -228,6 +228,12 @@ func (GtmMonitorHttpsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmMonitorHttpsState)(nil)).Elem()
 }
 
+// GtmMonitorHttpsExists checks whether an existing GtmMonitorHttps resource with the given ID exists.
+func GtmMonitorHttpsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmMonitorHttpsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmMonitorHttps:GtmMonitorHttps", id, state, "", opts...)
+}
+
 type gtmMonitorHttpsArgs struct {
 	// Specifies a fully-qualified path for a client certificate that the monitor sends to the target SSL server
 	Cert *string `pulumi:"cert"`

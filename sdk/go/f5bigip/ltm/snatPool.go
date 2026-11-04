@@ -107,6 +107,12 @@ func (SnatPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snatPoolState)(nil)).Elem()
 }
 
+// SnatPoolExists checks whether an existing SnatPool resource with the given ID exists.
+func SnatPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnatPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/snatPool:SnatPool", id, state, "", opts...)
+}
+
 type snatPoolArgs struct {
 	// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
 	Members []string `pulumi:"members"`

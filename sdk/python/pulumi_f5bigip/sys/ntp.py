@@ -249,6 +249,18 @@ class Ntp(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return Ntp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["servers"] = servers
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/ntp:Ntp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

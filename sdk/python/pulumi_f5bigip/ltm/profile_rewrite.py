@@ -801,6 +801,42 @@ class ProfileRewrite(pulumi.CustomResource):
         __props__.__dict__["split_tunneling"] = split_tunneling
         return ProfileRewrite(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bypass_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cookie_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteCookieRuleArgs', 'ProfileRewriteCookieRuleArgsDict', 'outputs.ProfileRewriteCookieRule']]]]] = None,
+            crl_file: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            requests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteRequestArgs', 'ProfileRewriteRequestArgsDict', 'outputs.ProfileRewriteRequest']]]]] = None,
+            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileRewriteResponseArgs', 'ProfileRewriteResponseArgsDict', 'outputs.ProfileRewriteResponse']]]]] = None,
+            rewrite_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rewrite_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_key: pulumi.Input[Optional[_builtins.str]] = None,
+            signing_key_password: pulumi.Input[Optional[_builtins.str]] = None,
+            split_tunneling: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bypassLists"] = bypass_lists
+        __props__["caFile"] = ca_file
+        __props__["cacheType"] = cache_type
+        __props__["cookieRules"] = cookie_rules
+        __props__["crlFile"] = crl_file
+        __props__["defaultsFrom"] = defaults_from
+        __props__["name"] = name
+        __props__["requests"] = requests
+        __props__["responses"] = responses
+        __props__["rewriteLists"] = rewrite_lists
+        __props__["rewriteMode"] = rewrite_mode
+        __props__["signingCert"] = signing_cert
+        __props__["signingKey"] = signing_key
+        __props__["signingKeyPassword"] = signing_key_password
+        __props__["splitTunneling"] = split_tunneling
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileRewrite:ProfileRewrite', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bypassLists")
     def bypass_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

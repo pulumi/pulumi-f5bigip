@@ -702,6 +702,32 @@ class PoolAttachment(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return PoolAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            fqdn_autopopulate: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            node: pulumi.Input[Optional[_builtins.str]] = None,
+            pool: pulumi.Input[Optional[_builtins.str]] = None,
+            priority_group: pulumi.Input[Optional[_builtins.int]] = None,
+            ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionLimit"] = connection_limit
+        __props__["connectionRateLimit"] = connection_rate_limit
+        __props__["dynamicRatio"] = dynamic_ratio
+        __props__["fqdnAutopopulate"] = fqdn_autopopulate
+        __props__["monitor"] = monitor
+        __props__["node"] = node
+        __props__["pool"] = pool
+        __props__["priorityGroup"] = priority_group
+        __props__["ratio"] = ratio
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/poolAttachment:PoolAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionLimit")
     def connection_limit(self) -> pulumi.Output[_builtins.int]:

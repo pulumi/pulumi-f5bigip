@@ -408,6 +408,22 @@ class Ifile(pulumi.CustomResource):
         __props__.__dict__["sub_path"] = sub_path
         return Ifile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            file_name: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_path: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["fileName"] = file_name
+        __props__["fullPath"] = full_path
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["subPath"] = sub_path
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/ifile:Ifile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="fileName")
     def file_name(self) -> pulumi.Output[_builtins.str]:

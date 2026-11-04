@@ -471,6 +471,12 @@ func (As3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*as3State)(nil)).Elem()
 }
 
+// As3Exists checks whether an existing As3 resource with the given ID exists.
+func As3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *As3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/as3:As3", id, state, "", opts...)
+}
+
 type as3Args struct {
 	// List of applications currently deployed on the Big-Ip
 	ApplicationList *string `pulumi:"applicationList"`

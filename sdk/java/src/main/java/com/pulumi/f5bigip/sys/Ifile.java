@@ -141,12 +141,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Create system iFile with content
  *         var lookupTable = new com.pulumi.f5bigip.sys.Ifile("lookupTable", com.pulumi.f5bigip.sys.IfileArgs.builder()
  *             .name("url-rewrite-map")
@@ -169,23 +169,23 @@ import javax.annotation.Nullable;
  *         var urlRewriter = new IRule("urlRewriter", IRuleArgs.builder()
  *             .name("url-rewrite-rule")
  *             .irule("""
- * when HTTP_REQUEST {
+ * when HTTP_REQUEST }{{@code
  *   set uri [HTTP::uri]
  *   set mapping [ifile get ltm-url-rewrite-map]
- *   foreach line [split $mapping \"\
- * \"] {
- *     set parts [split $line \" \"]
- *     if {[string match [lindex $parts 0]* $uri]} {
+ *   foreach line [split $mapping }&#92;{@code "}&#92;{@code
+ * }&#92;{@code "] }{{@code
+ *     set parts [split $line }&#92;{@code " }&#92;{@code "]
+ *     if }{{@code [string match [lindex $parts 0]* $uri]}}{@code  }{{@code
  *       HTTP::uri [string map [list [lindex $parts 0] [lindex $parts 1]] $uri]
  *       break
- *     }
- *   }
- * }
+ *     }}{@code
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -242,6 +242,12 @@ func (VirtualServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServerState)(nil)).Elem()
 }
 
+// VirtualServerExists checks whether an existing VirtualServer resource with the given ID exists.
+func VirtualServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VirtualServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/virtualServer:VirtualServer", id, state, "", opts...)
+}
+
 type virtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles []string `pulumi:"clientProfiles"`

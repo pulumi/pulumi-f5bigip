@@ -329,6 +329,12 @@ func (WafPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*wafPolicyState)(nil)).Elem()
 }
 
+// WafPolicyExists checks whether an existing WafPolicy resource with the given ID exists.
+func WafPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WafPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/wafPolicy:WafPolicy", id, state, "", opts...)
+}
+
 type wafPolicyArgs struct {
 	// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
 	ApplicationLanguage *string `pulumi:"applicationLanguage"`

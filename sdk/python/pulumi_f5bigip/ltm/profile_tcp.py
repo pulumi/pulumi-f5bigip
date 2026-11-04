@@ -1019,6 +1019,56 @@ class ProfileTcp(pulumi.CustomResource):
         __props__.__dict__["zerowindow_timeout"] = zerowindow_timeout
         return ProfileTcp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            close_wait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            congestion_control: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            deferred_accept: pulumi.Input[Optional[_builtins.str]] = None,
+            delayed_acks: pulumi.Input[Optional[_builtins.str]] = None,
+            early_retransmit: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_open: pulumi.Input[Optional[_builtins.str]] = None,
+            finwait2timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            finwait_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            initial_congestion_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            keepalive_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            nagle: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            proxybuffer_high: pulumi.Input[Optional[_builtins.int]] = None,
+            receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            send_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+            tailloss_probe: pulumi.Input[Optional[_builtins.str]] = None,
+            timewait_recycle: pulumi.Input[Optional[_builtins.str]] = None,
+            verified_accept: pulumi.Input[Optional[_builtins.str]] = None,
+            zerowindow_timeout: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["closeWaitTimeout"] = close_wait_timeout
+        __props__["congestionControl"] = congestion_control
+        __props__["defaultsFrom"] = defaults_from
+        __props__["deferredAccept"] = deferred_accept
+        __props__["delayedAcks"] = delayed_acks
+        __props__["earlyRetransmit"] = early_retransmit
+        __props__["fastOpen"] = fast_open
+        __props__["finwait2timeout"] = finwait2timeout
+        __props__["finwaitTimeout"] = finwait_timeout
+        __props__["idleTimeout"] = idle_timeout
+        __props__["initialCongestionWindowsize"] = initial_congestion_windowsize
+        __props__["keepaliveInterval"] = keepalive_interval
+        __props__["nagle"] = nagle
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["proxybufferHigh"] = proxybuffer_high
+        __props__["receiveWindowsize"] = receive_windowsize
+        __props__["sendBuffersize"] = send_buffersize
+        __props__["taillossProbe"] = tailloss_probe
+        __props__["timewaitRecycle"] = timewait_recycle
+        __props__["verifiedAccept"] = verified_accept
+        __props__["zerowindowTimeout"] = zerowindow_timeout
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileTcp:ProfileTcp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="closeWaitTimeout")
     def close_wait_timeout(self) -> pulumi.Output[_builtins.int]:

@@ -194,6 +194,12 @@ func (ProfileFastL4State) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastL4State)(nil)).Elem()
 }
 
+// ProfileFastL4Exists checks whether an existing ProfileFastL4 resource with the given ID exists.
+func ProfileFastL4Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileFastL4State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileFastL4:ProfileFastL4", id, state, "", opts...)
+}
+
 type profileFastL4Args struct {
 	// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
 	ClientTimeout *int `pulumi:"clientTimeout"`

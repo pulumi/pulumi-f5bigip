@@ -338,6 +338,22 @@ class Vlan(pulumi.CustomResource):
         __props__.__dict__["tag"] = tag
         return Vlan(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cmp_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VlanInterfaceArgs', 'VlanInterfaceArgsDict', 'outputs.VlanInterface']]]]] = None,
+            mtu: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            tag: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cmpHash"] = cmp_hash
+        __props__["interfaces"] = interfaces
+        __props__["mtu"] = mtu
+        __props__["name"] = name
+        __props__["tag"] = tag
+        return pulumi.runtime.exists_resource(None, 'f5bigip:net/vlan:Vlan', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cmpHash")
     def cmp_hash(self) -> pulumi.Output[_builtins.str]:

@@ -509,6 +509,12 @@ func (ProfileServerSslState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileServerSslState)(nil)).Elem()
 }
 
+// ProfileServerSslExists checks whether an existing ProfileServerSsl resource with the given ID exists.
+func ProfileServerSslExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileServerSslState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileServerSsl:ProfileServerSsl", id, state, "", opts...)
+}
+
 type profileServerSslArgs struct {
 	// Alert time out
 	AlertTimeout *string `pulumi:"alertTimeout"`

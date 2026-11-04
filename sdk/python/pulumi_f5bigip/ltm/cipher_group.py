@@ -346,6 +346,22 @@ class CipherGroup(pulumi.CustomResource):
         __props__.__dict__["requires"] = requires
         return CipherGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allows: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ordering: pulumi.Input[Optional[_builtins.str]] = None,
+            requires: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allows"] = allows
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["ordering"] = ordering
+        __props__["requires"] = requires
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/cipherGroup:CipherGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def allows(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

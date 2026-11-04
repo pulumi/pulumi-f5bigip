@@ -240,6 +240,12 @@ func (ProfileRewriteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileRewriteState)(nil)).Elem()
 }
 
+// ProfileRewriteExists checks whether an existing ProfileRewrite resource with the given ID exists.
+func ProfileRewriteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileRewriteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileRewrite:ProfileRewrite", id, state, "", opts...)
+}
+
 type profileRewriteArgs struct {
 	// Specifies a list of URIs to bypass inside a web page when the page is accessed using Portal Access.
 	BypassLists []string `pulumi:"bypassLists"`

@@ -350,6 +350,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/monitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
 	Adaptive *string `pulumi:"adaptive"`

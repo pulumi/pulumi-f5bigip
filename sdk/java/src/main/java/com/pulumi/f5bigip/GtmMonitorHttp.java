@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var advanced = new GtmMonitorHttp("advanced", GtmMonitorHttpArgs.builder()
  *             .name("/Common/my_http_monitor")
  *             .defaultsFrom("/Common/http")
@@ -93,12 +93,12 @@ import javax.annotation.Nullable;
  *             .ignoreDownResponse("disabled")
  *             .transparent("disabled")
  *             .reverse("disabled")
- *             .send("GET /health\\r\\n")
+ *             .send("GET /health}&#92;&#92;{@code r}&#92;&#92;{@code n")
  *             .receive("200 OK")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

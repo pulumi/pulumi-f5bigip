@@ -207,6 +207,12 @@ func (OcspState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ocspState)(nil)).Elem()
 }
 
+// OcspExists checks whether an existing Ocsp resource with the given ID exists.
+func OcspExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OcspState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/ocsp:Ocsp", id, state, "", opts...)
+}
+
 type ocspArgs struct {
 	// Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
 	CacheErrorTimeout *int `pulumi:"cacheErrorTimeout"`

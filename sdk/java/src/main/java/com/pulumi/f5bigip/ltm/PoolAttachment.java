@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
  * An existing pool attachment (i.e. pool membership) can be imported into this resource by supplying both the pool full path, and the node full path with the relevant port. If the pool or node membership is not found, an error will be returned. An example is below:
  * 
  * ```sh
- * $ terraform import bigip_ltm_pool_attachment.node-pool-attach \
+ * $ terraform import bigip_ltm_pool_attachment.node-pool-attach &#92;
  * 	&#39;{&#34;pool&#34;: &#34;/Common/terraform-pool&#34;, &#34;node&#34;: &#34;/Common/node1:80&#34;}&#39;
  * ```
  * 

@@ -277,6 +277,12 @@ func (ProfileHttpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpState)(nil)).Elem()
 }
 
+// ProfileHttpExists checks whether an existing ProfileHttp resource with the given ID exists.
+func ProfileHttpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileHttpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileHttp:ProfileHttp", id, state, "", opts...)
+}
+
 type profileHttpArgs struct {
 	// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
 	AcceptXff *string `pulumi:"acceptXff"`

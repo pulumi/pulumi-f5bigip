@@ -467,6 +467,12 @@ func (GtmWideipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmWideipState)(nil)).Elem()
 }
 
+// GtmWideipExists checks whether an existing GtmWideip resource with the given ID exists.
+func GtmWideipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmWideipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmWideip:GtmWideip", id, state, "", opts...)
+}
+
 type gtmWideipArgs struct {
 	// Specifies alternate domain names for the WideIP
 	Aliases []string `pulumi:"aliases"`

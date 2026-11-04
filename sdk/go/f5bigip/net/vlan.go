@@ -125,6 +125,12 @@ func (VlanState) ElementType() reflect.Type {
 	return reflect.TypeOf((*vlanState)(nil)).Elem()
 }
 
+// VlanExists checks whether an existing Vlan resource with the given ID exists.
+func VlanExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *VlanState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:net/vlan:Vlan", id, state, "", opts...)
+}
+
 type vlanArgs struct {
 	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
 	CmpHash *string `pulumi:"cmpHash"`

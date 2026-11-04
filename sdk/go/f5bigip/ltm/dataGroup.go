@@ -98,6 +98,12 @@ func (DataGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataGroupState)(nil)).Elem()
 }
 
+// DataGroupExists checks whether an existing DataGroup resource with the given ID exists.
+func DataGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DataGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/dataGroup:DataGroup", id, state, "", opts...)
+}
+
 type dataGroupArgs struct {
 	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
 	Internal *bool `pulumi:"internal"`

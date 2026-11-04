@@ -186,6 +186,12 @@ func (ProfileHttp2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttp2State)(nil)).Elem()
 }
 
+// ProfileHttp2Exists checks whether an existing ProfileHttp2 resource with the given ID exists.
+func ProfileHttp2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileHttp2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileHttp2:ProfileHttp2", id, state, "", opts...)
+}
+
 type profileHttp2Args struct {
 	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes []string `pulumi:"activationModes"`

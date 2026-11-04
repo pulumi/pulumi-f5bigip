@@ -666,6 +666,38 @@ class ProfileHttp2(pulumi.CustomResource):
         __props__.__dict__["write_size"] = write_size
         return ProfileHttp2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            activation_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            concurrent_streams_per_connection: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            enforce_tls_requirements: pulumi.Input[Optional[_builtins.str]] = None,
+            frame_size: pulumi.Input[Optional[_builtins.int]] = None,
+            header_table_size: pulumi.Input[Optional[_builtins.int]] = None,
+            include_content_length: pulumi.Input[Optional[_builtins.str]] = None,
+            insert_header: pulumi.Input[Optional[_builtins.str]] = None,
+            insert_header_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_window: pulumi.Input[Optional[_builtins.int]] = None,
+            write_size: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["activationModes"] = activation_modes
+        __props__["concurrentStreamsPerConnection"] = concurrent_streams_per_connection
+        __props__["connectionIdleTimeout"] = connection_idle_timeout
+        __props__["defaultsFrom"] = defaults_from
+        __props__["enforceTlsRequirements"] = enforce_tls_requirements
+        __props__["frameSize"] = frame_size
+        __props__["headerTableSize"] = header_table_size
+        __props__["includeContentLength"] = include_content_length
+        __props__["insertHeader"] = insert_header
+        __props__["insertHeaderName"] = insert_header_name
+        __props__["name"] = name
+        __props__["receiveWindow"] = receive_window
+        __props__["writeSize"] = write_size
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileHttp2:ProfileHttp2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="activationModes")
     def activation_modes(self) -> pulumi.Output[Sequence[_builtins.str]]:

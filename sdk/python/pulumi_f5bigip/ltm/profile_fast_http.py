@@ -580,6 +580,34 @@ class ProfileFastHttp(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return ProfileFastHttp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connpool_maxreuse: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_maxsize: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_minsize: pulumi.Input[Optional[_builtins.int]] = None,
+            connpool_replenish: pulumi.Input[Optional[_builtins.str]] = None,
+            connpool_step: pulumi.Input[Optional[_builtins.int]] = None,
+            connpoolidle_timeoutoverride: pulumi.Input[Optional[_builtins.int]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            forcehttp10response: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            maxheader_size: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connpoolMaxreuse"] = connpool_maxreuse
+        __props__["connpoolMaxsize"] = connpool_maxsize
+        __props__["connpoolMinsize"] = connpool_minsize
+        __props__["connpoolReplenish"] = connpool_replenish
+        __props__["connpoolStep"] = connpool_step
+        __props__["connpoolidleTimeoutoverride"] = connpoolidle_timeoutoverride
+        __props__["defaultsFrom"] = defaults_from
+        __props__["forcehttp10response"] = forcehttp10response
+        __props__["idleTimeout"] = idle_timeout
+        __props__["maxheaderSize"] = maxheader_size
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileFastHttp:ProfileFastHttp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connpoolMaxreuse")
     def connpool_maxreuse(self) -> pulumi.Output[_builtins.int]:

@@ -74,6 +74,12 @@ func (BigIpLicenseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bigIpLicenseState)(nil)).Elem()
 }
 
+// BigIpLicenseExists checks whether an existing BigIpLicense resource with the given ID exists.
+func BigIpLicenseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BigIpLicenseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/bigIpLicense:BigIpLicense", id, state, "", opts...)
+}
+
 type bigIpLicenseArgs struct {
 	// Tmsh command to execute tmsh commands like install
 	Command string `pulumi:"command"`

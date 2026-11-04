@@ -244,6 +244,12 @@ func (EventServiceDiscoveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventServiceDiscoveryState)(nil)).Elem()
 }
 
+// EventServiceDiscoveryExists checks whether an existing EventServiceDiscovery resource with the given ID exists.
+func EventServiceDiscoveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventServiceDiscoveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", id, state, "", opts...)
+}
+
 type eventServiceDiscoveryArgs struct {
 	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	//

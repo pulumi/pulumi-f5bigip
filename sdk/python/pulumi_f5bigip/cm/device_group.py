@@ -540,6 +540,32 @@ class DeviceGroup(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return DeviceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            devices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeviceGroupDeviceArgs', 'DeviceGroupDeviceArgsDict', 'outputs.DeviceGroupDevice']]]]] = None,
+            full_load_on_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            incremental_config: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_failover: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            save_on_auto_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoSync"] = auto_sync
+        __props__["description"] = description
+        __props__["devices"] = devices
+        __props__["fullLoadOnSync"] = full_load_on_sync
+        __props__["incrementalConfig"] = incremental_config
+        __props__["name"] = name
+        __props__["networkFailover"] = network_failover
+        __props__["partition"] = partition
+        __props__["saveOnAutoSync"] = save_on_auto_sync
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'f5bigip:cm/deviceGroup:DeviceGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoSync")
     def auto_sync(self) -> pulumi.Output[Optional[_builtins.str]]:

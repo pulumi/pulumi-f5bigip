@@ -1294,6 +1294,70 @@ class ProfileHttp(pulumi.CustomResource):
         __props__.__dict__["xff_alternative_names"] = xff_alternative_names
         return ProfileHttp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accept_xff: pulumi.Input[Optional[_builtins.str]] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            basic_auth_realm: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypt_cookie_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            encrypt_cookies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enforcements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpEnforcementArgs', 'ProfileHttpEnforcementArgsDict', 'outputs.ProfileHttpEnforcement']]]]] = None,
+            fallback_host: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_status_codes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            head_erase: pulumi.Input[Optional[_builtins.str]] = None,
+            head_insert: pulumi.Input[Optional[_builtins.str]] = None,
+            http_strict_transport_securities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProfileHttpHttpStrictTransportSecurityArgs', 'ProfileHttpHttpStrictTransportSecurityArgsDict', 'outputs.ProfileHttpHttpStrictTransportSecurity']]]]] = None,
+            insert_xforwarded_for: pulumi.Input[Optional[_builtins.str]] = None,
+            lws_separator: pulumi.Input[Optional[_builtins.str]] = None,
+            lws_width: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oneconnect_transformations: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_rewrite: pulumi.Input[Optional[_builtins.str]] = None,
+            request_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+            response_chunking: pulumi.Input[Optional[_builtins.str]] = None,
+            response_headers_permitteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            server_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tm_partition: pulumi.Input[Optional[_builtins.str]] = None,
+            via_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+            via_request: pulumi.Input[Optional[_builtins.str]] = None,
+            via_response: pulumi.Input[Optional[_builtins.str]] = None,
+            xff_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["acceptXff"] = accept_xff
+        __props__["appService"] = app_service
+        __props__["basicAuthRealm"] = basic_auth_realm
+        __props__["defaultsFrom"] = defaults_from
+        __props__["description"] = description
+        __props__["encryptCookieSecret"] = encrypt_cookie_secret
+        __props__["encryptCookies"] = encrypt_cookies
+        __props__["enforcements"] = enforcements
+        __props__["fallbackHost"] = fallback_host
+        __props__["fallbackStatusCodes"] = fallback_status_codes
+        __props__["headErase"] = head_erase
+        __props__["headInsert"] = head_insert
+        __props__["httpStrictTransportSecurities"] = http_strict_transport_securities
+        __props__["insertXforwardedFor"] = insert_xforwarded_for
+        __props__["lwsSeparator"] = lws_separator
+        __props__["lwsWidth"] = lws_width
+        __props__["name"] = name
+        __props__["oneconnectTransformations"] = oneconnect_transformations
+        __props__["proxyType"] = proxy_type
+        __props__["redirectRewrite"] = redirect_rewrite
+        __props__["requestChunking"] = request_chunking
+        __props__["responseChunking"] = response_chunking
+        __props__["responseHeadersPermitteds"] = response_headers_permitteds
+        __props__["serverAgentName"] = server_agent_name
+        __props__["tmPartition"] = tm_partition
+        __props__["viaHostName"] = via_host_name
+        __props__["viaRequest"] = via_request
+        __props__["viaResponse"] = via_response
+        __props__["xffAlternativeNames"] = xff_alternative_names
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileHttp:ProfileHttp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="acceptXff")
     def accept_xff(self) -> pulumi.Output[_builtins.str]:

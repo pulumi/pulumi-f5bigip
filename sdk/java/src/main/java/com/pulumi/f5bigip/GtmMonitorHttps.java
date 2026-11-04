@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var withCert = new GtmMonitorHttps("withCert", GtmMonitorHttpsArgs.builder()
  *             .name("/Common/my_https_monitor")
  *             .defaultsFrom("/Common/https")
@@ -90,15 +90,15 @@ import javax.annotation.Nullable;
  *             .interval(10)
  *             .timeout(60)
  *             .probeTimeout(3)
- *             .send("GET /health\\r\\n")
+ *             .send("GET /health}&#92;&#92;{@code r}&#92;&#92;{@code n")
  *             .receive("200 OK")
  *             .cert("/Common/my_client_cert")
  *             .key("/Common/my_client_key")
  *             .compatibility("enabled")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

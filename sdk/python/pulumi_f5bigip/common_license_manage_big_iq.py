@@ -737,6 +737,44 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
         __props__.__dict__["unit_of_measure"] = unit_of_measure
         return CommonLicenseManageBigIq(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+            device_license_status: pulumi.Input[Optional[_builtins.str]] = None,
+            hypervisor: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            license_poolname: pulumi.Input[Optional[_builtins.str]] = None,
+            mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+            skukeyword1: pulumi.Input[Optional[_builtins.str]] = None,
+            skukeyword2: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            unit_of_measure: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignmentType"] = assignment_type
+        __props__["bigiqAddress"] = bigiq_address
+        __props__["bigiqLoginRef"] = bigiq_login_ref
+        __props__["bigiqPassword"] = bigiq_password
+        __props__["bigiqPort"] = bigiq_port
+        __props__["bigiqTokenAuth"] = bigiq_token_auth
+        __props__["bigiqUser"] = bigiq_user
+        __props__["deviceLicenseStatus"] = device_license_status
+        __props__["hypervisor"] = hypervisor
+        __props__["key"] = key
+        __props__["licensePoolname"] = license_poolname
+        __props__["macAddress"] = mac_address
+        __props__["skukeyword1"] = skukeyword1
+        __props__["skukeyword2"] = skukeyword2
+        __props__["tenant"] = tenant
+        __props__["unitOfMeasure"] = unit_of_measure
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignmentType")
     def assignment_type(self) -> pulumi.Output[_builtins.str]:

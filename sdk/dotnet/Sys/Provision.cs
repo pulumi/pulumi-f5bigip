@@ -71,7 +71,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<int?> MemoryRatio { get; private set; } = null!;
 
         /// <summary>
-        /// Name of module to provision in BIG-IP. 
+        /// Name of module to provision in BIG-IP.
         /// possible options:
         /// * afm
         /// * am
@@ -173,7 +173,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? MemoryRatio { get; set; }
 
         /// <summary>
-        /// Name of module to provision in BIG-IP. 
+        /// Name of module to provision in BIG-IP.
         /// possible options:
         /// * afm
         /// * am
@@ -237,7 +237,7 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? MemoryRatio { get; set; }
 
         /// <summary>
-        /// Name of module to provision in BIG-IP. 
+        /// Name of module to provision in BIG-IP.
         /// possible options:
         /// * afm
         /// * am

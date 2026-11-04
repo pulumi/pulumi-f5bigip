@@ -499,6 +499,16 @@ class EventServiceDiscovery(pulumi.CustomResource):
         __props__.__dict__["taskid"] = taskid
         return EventServiceDiscovery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventServiceDiscoveryNodeArgs', 'EventServiceDiscoveryNodeArgsDict', 'outputs.EventServiceDiscoveryNode']]]]] = None,
+            taskid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["nodes"] = nodes
+        __props__["taskid"] = taskid
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/eventServiceDiscovery:EventServiceDiscovery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def nodes(self) -> pulumi.Output[Optional[Sequence['outputs.EventServiceDiscoveryNode']]]:

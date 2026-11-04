@@ -184,11 +184,10 @@ public class Do extends com.pulumi.resources.CustomResource {
     /**
      * unique identifier for DO resource
      * 
-     * @deprecated
-     * this attribute is no longer in use
+     * @deprecated this attribute is no longer in use
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
+    @Deprecated
     @Export(name="tenantName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenantName;
 

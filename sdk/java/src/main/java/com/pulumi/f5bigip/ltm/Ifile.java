@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var serverList = new com.pulumi.f5bigip.sys.Ifile("serverList", com.pulumi.f5bigip.sys.IfileArgs.builder()
  *             .name("server-mapping")
  *             .partition("Production")
@@ -63,20 +63,20 @@ import javax.annotation.Nullable;
  *         var serverSelector = new IRule("serverSelector", IRuleArgs.builder()
  *             .name("select-server-rule")
  *             .irule("""
- * when HTTP_REQUEST {
+ * when HTTP_REQUEST }{{@code
  *   set server_map [ifile get ltm-server-mapping]
  *   # Process server mapping logic
- *   foreach line [split $server_map \"\
- * \"] {
- *     set parts [split $line \":\"]
+ *   foreach line [split $server_map }&#92;{@code "}&#92;{@code
+ * }&#92;{@code "] }{{@code
+ *     set parts [split $line }&#92;{@code ":}&#92;{@code "]
  *     # Implement server selection logic
- *   }
- * }
+ *   }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
