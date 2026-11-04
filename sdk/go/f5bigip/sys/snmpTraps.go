@@ -169,6 +169,12 @@ func (SnmpTrapsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snmpTrapsState)(nil)).Elem()
 }
 
+// SnmpTrapsExists checks whether an existing SnmpTraps resource with the given ID exists.
+func SnmpTrapsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnmpTrapsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/snmpTraps:SnmpTraps", id, state, "", opts...)
+}
+
 type snmpTrapsArgs struct {
 	// Encrypted password
 	AuthPasswordencrypted *string `pulumi:"authPasswordencrypted"`

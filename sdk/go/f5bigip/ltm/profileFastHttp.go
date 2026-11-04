@@ -164,6 +164,12 @@ func (ProfileFastHttpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastHttpState)(nil)).Elem()
 }
 
+// ProfileFastHttpExists checks whether an existing ProfileFastHttp resource with the given ID exists.
+func ProfileFastHttpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileFastHttpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileFastHttp:ProfileFastHttp", id, state, "", opts...)
+}
+
 type profileFastHttpArgs struct {
 	// Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
 	ConnpoolMaxreuse *int `pulumi:"connpoolMaxreuse"`

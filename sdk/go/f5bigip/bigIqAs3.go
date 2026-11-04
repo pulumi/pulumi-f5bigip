@@ -203,6 +203,12 @@ func (BigIqAs3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*bigIqAs3State)(nil)).Elem()
 }
 
+// BigIqAs3Exists checks whether an existing BigIqAs3 resource with the given ID exists.
+func BigIqAs3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BigIqAs3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/bigIqAs3:BigIqAs3", id, state, "", opts...)
+}
+
 type bigIqAs3Args struct {
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json string `pulumi:"as3Json"`

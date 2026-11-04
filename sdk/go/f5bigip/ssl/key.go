@@ -140,6 +140,12 @@ func (KeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*keyState)(nil)).Elem()
 }
 
+// KeyExists checks whether an existing Key resource with the given ID exists.
+func KeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *KeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ssl/key:Key", id, state, "", opts...)
+}
+
 type keyArgs struct {
 	// Content of certificate key on Local Disk,path of SSL certificate key will be provided to terraform `file` function
 	Content string `pulumi:"content"`

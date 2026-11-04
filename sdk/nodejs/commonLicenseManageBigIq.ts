@@ -21,6 +21,17 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
         return new CommonLicenseManageBigIq(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing CommonLicenseManageBigIq resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: CommonLicenseManageBigIqState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq';
 

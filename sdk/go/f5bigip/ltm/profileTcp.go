@@ -235,6 +235,12 @@ func (ProfileTcpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileTcpState)(nil)).Elem()
 }
 
+// ProfileTcpExists checks whether an existing ProfileTcp resource with the given ID exists.
+func ProfileTcpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileTcpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileTcp:ProfileTcp", id, state, "", opts...)
+}
+
 type profileTcpArgs struct {
 	// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
 	CloseWaitTimeout *int `pulumi:"closeWaitTimeout"`

@@ -244,6 +244,12 @@ func (SelfIpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*selfIpState)(nil)).Elem()
 }
 
+// SelfIpExists checks whether an existing SelfIp resource with the given ID exists.
+func SelfIpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SelfIpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:net/selfIp:SelfIp", id, state, "", opts...)
+}
+
 type selfIpArgs struct {
 	// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
 	Ip string `pulumi:"ip"`

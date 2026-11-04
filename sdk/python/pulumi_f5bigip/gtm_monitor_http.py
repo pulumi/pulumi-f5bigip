@@ -626,6 +626,34 @@ class GtmMonitorHttp(pulumi.CustomResource):
         __props__.__dict__["transparent"] = transparent
         return GtmMonitorHttp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_down_response: pulumi.Input[Optional[_builtins.str]] = None,
+            interval: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            probe_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            receive: pulumi.Input[Optional[_builtins.str]] = None,
+            reverse: pulumi.Input[Optional[_builtins.str]] = None,
+            send: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            transparent: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultsFrom"] = defaults_from
+        __props__["destination"] = destination
+        __props__["ignoreDownResponse"] = ignore_down_response
+        __props__["interval"] = interval
+        __props__["name"] = name
+        __props__["probeTimeout"] = probe_timeout
+        __props__["receive"] = receive
+        __props__["reverse"] = reverse
+        __props__["send"] = send
+        __props__["timeout"] = timeout
+        __props__["transparent"] = transparent
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/gtmMonitorHttp:GtmMonitorHttp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[Optional[_builtins.str]]:

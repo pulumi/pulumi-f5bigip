@@ -253,6 +253,12 @@ func (PersistenceProfileCookieState) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileCookieState)(nil)).Elem()
 }
 
+// PersistenceProfileCookieExists checks whether an existing PersistenceProfileCookie resource with the given ID exists.
+func PersistenceProfileCookieExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PersistenceProfileCookieState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie", id, state, "", opts...)
+}
+
 type persistenceProfileCookieArgs struct {
 	// To enable _ disable always sending cookies
 	AlwaysSend *string `pulumi:"alwaysSend"`

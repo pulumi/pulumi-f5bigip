@@ -1779,6 +1779,78 @@ class GtmPool(pulumi.CustomResource):
         __props__.__dict__["verify_member_availability"] = verify_member_availability
         return GtmPool(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            alternate_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fallback_ip: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            manual_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            max_answers_returned: pulumi.Input[Optional[_builtins.int]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmPoolMemberArgs', 'GtmPoolMemberArgsDict', 'outputs.GtmPoolMember']]]]] = None,
+            min_members_up_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            min_members_up_value: pulumi.Input[Optional[_builtins.int]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            qos_hit_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_hops: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_kilobytes_second: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_lcs: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_packet_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_rtt: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_topology: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_vs_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+            qos_vs_score: pulumi.Input[Optional[_builtins.int]] = None,
+            ttl: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            verify_member_availability: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alternateMode"] = alternate_mode
+        __props__["disabled"] = disabled
+        __props__["dynamicRatio"] = dynamic_ratio
+        __props__["enabled"] = enabled
+        __props__["fallbackIp"] = fallback_ip
+        __props__["fallbackMode"] = fallback_mode
+        __props__["limitMaxBps"] = limit_max_bps
+        __props__["limitMaxBpsStatus"] = limit_max_bps_status
+        __props__["limitMaxConnections"] = limit_max_connections
+        __props__["limitMaxConnectionsStatus"] = limit_max_connections_status
+        __props__["limitMaxPps"] = limit_max_pps
+        __props__["limitMaxPpsStatus"] = limit_max_pps_status
+        __props__["loadBalancingMode"] = load_balancing_mode
+        __props__["manualResume"] = manual_resume
+        __props__["maxAnswersReturned"] = max_answers_returned
+        __props__["members"] = members
+        __props__["minMembersUpMode"] = min_members_up_mode
+        __props__["minMembersUpValue"] = min_members_up_value
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["qosHitRatio"] = qos_hit_ratio
+        __props__["qosHops"] = qos_hops
+        __props__["qosKilobytesSecond"] = qos_kilobytes_second
+        __props__["qosLcs"] = qos_lcs
+        __props__["qosPacketRate"] = qos_packet_rate
+        __props__["qosRtt"] = qos_rtt
+        __props__["qosTopology"] = qos_topology
+        __props__["qosVsCapacity"] = qos_vs_capacity
+        __props__["qosVsScore"] = qos_vs_score
+        __props__["ttl"] = ttl
+        __props__["type"] = type
+        __props__["verifyMemberAvailability"] = verify_member_availability
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/gtmPool:GtmPool', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alternateMode")
     def alternate_mode(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -253,6 +253,18 @@ class FastTemplate(pulumi.CustomResource):
         __props__.__dict__["source"] = source
         return FastTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            md5_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["md5Hash"] = md5_hash
+        __props__["name"] = name
+        __props__["source"] = source
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/fastTemplate:FastTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="md5Hash")
     def md5_hash(self) -> pulumi.Output[_builtins.str]:

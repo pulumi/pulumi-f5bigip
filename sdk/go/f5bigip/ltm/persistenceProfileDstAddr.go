@@ -187,6 +187,12 @@ func (PersistenceProfileDstAddrState) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileDstAddrState)(nil)).Elem()
 }
 
+// PersistenceProfileDstAddrExists checks whether an existing PersistenceProfileDstAddr resource with the given ID exists.
+func PersistenceProfileDstAddrExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PersistenceProfileDstAddrState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", id, state, "", opts...)
+}
+
 type persistenceProfileDstAddrArgs struct {
 	AppService *string `pulumi:"appService"`
 	// Inherit defaults from parent profile

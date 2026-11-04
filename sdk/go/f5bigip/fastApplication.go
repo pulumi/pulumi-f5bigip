@@ -124,6 +124,12 @@ func (FastApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastApplicationState)(nil)).Elem()
 }
 
+// FastApplicationExists checks whether an existing FastApplication resource with the given ID exists.
+func FastApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/fastApplication:FastApplication", id, state, "", opts...)
+}
+
 type fastApplicationArgs struct {
 	// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
 	FastJson string `pulumi:"fastJson"`

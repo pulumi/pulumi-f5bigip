@@ -222,6 +222,12 @@ func (RequestLogProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestLogProfileState)(nil)).Elem()
 }
 
+// RequestLogProfileExists checks whether an existing RequestLogProfile resource with the given ID exists.
+func RequestLogProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestLogProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/requestLogProfile:RequestLogProfile", id, state, "", opts...)
+}
+
 type requestLogProfileArgs struct {
 	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`

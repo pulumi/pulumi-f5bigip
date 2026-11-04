@@ -237,6 +237,12 @@ func (ProfileFtpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFtpState)(nil)).Elem()
 }
 
+// ProfileFtpExists checks whether an existing ProfileFtp resource with the given ID exists.
+func ProfileFtpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileFtpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileFtp:ProfileFtp", id, state, "", opts...)
+}
+
 type profileFtpArgs struct {
 	// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled.
 	AllowActiveMode *string `pulumi:"allowActiveMode"`

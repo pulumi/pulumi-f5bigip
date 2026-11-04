@@ -295,6 +295,12 @@ func (NetIkePeerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*netIkePeerState)(nil)).Elem()
 }
 
+// NetIkePeerExists checks whether an existing NetIkePeer resource with the given ID exists.
+func NetIkePeerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetIkePeerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/netIkePeer:NetIkePeer", id, state, "", opts...)
+}
+
 type netIkePeerArgs struct {
 	// The application service that the object belongs to
 	AppService *string `pulumi:"appService"`

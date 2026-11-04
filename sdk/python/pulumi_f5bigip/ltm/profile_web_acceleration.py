@@ -683,6 +683,40 @@ class ProfileWebAcceleration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return ProfileWebAcceleration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cache_aging_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_client_cache_control_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_insert_age_header: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_max_age: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_object_max_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_object_min_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_size: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_include_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cache_uri_pinneds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cacheAgingRate"] = cache_aging_rate
+        __props__["cacheClientCacheControlMode"] = cache_client_cache_control_mode
+        __props__["cacheInsertAgeHeader"] = cache_insert_age_header
+        __props__["cacheMaxAge"] = cache_max_age
+        __props__["cacheMaxEntries"] = cache_max_entries
+        __props__["cacheObjectMaxSize"] = cache_object_max_size
+        __props__["cacheObjectMinSize"] = cache_object_min_size
+        __props__["cacheSize"] = cache_size
+        __props__["cacheUriExcludes"] = cache_uri_excludes
+        __props__["cacheUriIncludeOverrides"] = cache_uri_include_overrides
+        __props__["cacheUriIncludes"] = cache_uri_includes
+        __props__["cacheUriPinneds"] = cache_uri_pinneds
+        __props__["defaultsFrom"] = defaults_from
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cacheAgingRate")
     def cache_aging_rate(self) -> pulumi.Output[_builtins.int]:

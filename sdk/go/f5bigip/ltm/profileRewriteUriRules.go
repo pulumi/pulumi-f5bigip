@@ -171,6 +171,12 @@ func (ProfileRewriteUriRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileRewriteUriRulesState)(nil)).Elem()
 }
 
+// ProfileRewriteUriRulesExists checks whether an existing ProfileRewriteUriRules resource with the given ID exists.
+func ProfileRewriteUriRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileRewriteUriRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileRewriteUriRules:ProfileRewriteUriRules", id, state, "", opts...)
+}
+
 type profileRewriteUriRulesArgs struct {
 	// Block type. Each request is block type with following arguments.
 	Clients []ProfileRewriteUriRulesClient `pulumi:"clients"`

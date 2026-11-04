@@ -186,6 +186,12 @@ func (GuestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*guestState)(nil)).Elem()
 }
 
+// GuestExists checks whether an existing Guest resource with the given ID exists.
+func GuestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GuestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:vcmp/guest:Guest", id, state, "", opts...)
+}
+
 type guestArgs struct {
 	// Contains those slots to which the guest is allowed to be assigned.
 	AllowedSlots []int `pulumi:"allowedSlots"`

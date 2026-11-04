@@ -573,6 +573,34 @@ class SslKeyCert(pulumi.CustomResource):
         __props__.__dict__["passphrase"] = passphrase
         return SslKeyCert(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cert_content: pulumi.Input[Optional[_builtins.str]] = None,
+            cert_full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            cert_monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+            cert_name: pulumi.Input[Optional[_builtins.str]] = None,
+            cert_ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            key_content: pulumi.Input[Optional[_builtins.str]] = None,
+            key_full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            passphrase: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["certContent"] = cert_content
+        __props__["certFullPath"] = cert_full_path
+        __props__["certMonitoringType"] = cert_monitoring_type
+        __props__["certName"] = cert_name
+        __props__["certOcsp"] = cert_ocsp
+        __props__["issuerCert"] = issuer_cert
+        __props__["keyContent"] = key_content
+        __props__["keyFullPath"] = key_full_path
+        __props__["keyName"] = key_name
+        __props__["partition"] = partition
+        __props__["passphrase"] = passphrase
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/sslKeyCert:SslKeyCert', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="certContent")
     def cert_content(self) -> pulumi.Output[_builtins.str]:

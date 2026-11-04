@@ -2133,6 +2133,32 @@ class As3(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = tenant_name
         return As3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_list: pulumi.Input[Optional[_builtins.str]] = None,
+            as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+            controls: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            delete_apps: pulumi.Input[Optional[Union['As3DeleteAppsArgs', 'As3DeleteAppsArgsDict', 'outputs.As3DeleteApps']]] = None,
+            ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            per_app_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            task_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_list: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationList"] = application_list
+        __props__["as3Json"] = as3_json
+        __props__["controls"] = controls
+        __props__["deleteApps"] = delete_apps
+        __props__["ignoreMetadata"] = ignore_metadata
+        __props__["perAppMode"] = per_app_mode
+        __props__["taskId"] = task_id
+        __props__["tenantFilter"] = tenant_filter
+        __props__["tenantList"] = tenant_list
+        __props__["tenantName"] = tenant_name
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/as3:As3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationList")
     def application_list(self) -> pulumi.Output[_builtins.str]:

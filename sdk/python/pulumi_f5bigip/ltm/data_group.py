@@ -315,6 +315,22 @@ class DataGroup(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return DataGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            internal: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataGroupRecordArgs', 'DataGroupRecordArgsDict', 'outputs.DataGroupRecord']]]]] = None,
+            records_src: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["internal"] = internal
+        __props__["name"] = name
+        __props__["records"] = records
+        __props__["recordsSrc"] = records_src
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/dataGroup:DataGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def internal(self) -> pulumi.Output[Optional[_builtins.bool]]:

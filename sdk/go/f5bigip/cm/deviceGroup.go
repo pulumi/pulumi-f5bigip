@@ -153,6 +153,12 @@ func (DeviceGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceGroupState)(nil)).Elem()
 }
 
+// DeviceGroupExists checks whether an existing DeviceGroup resource with the given ID exists.
+func DeviceGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:cm/deviceGroup:DeviceGroup", id, state, "", opts...)
+}
+
 type deviceGroupArgs struct {
 	// Specifies if the device-group will automatically sync configuration data to its members
 	AutoSync *string `pulumi:"autoSync"`

@@ -168,6 +168,12 @@ func (SnatState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snatState)(nil)).Elem()
 }
 
+// SnatExists checks whether an existing Snat resource with the given ID exists.
+func SnatExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnatState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/snat:Snat", id, state, "", opts...)
+}
+
 type snatArgs struct {
 	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop *string `pulumi:"autolasthop"`

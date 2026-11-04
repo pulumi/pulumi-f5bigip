@@ -175,6 +175,12 @@ func (ProfileWebAccelerationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileWebAccelerationState)(nil)).Elem()
 }
 
+// ProfileWebAccelerationExists checks whether an existing ProfileWebAcceleration resource with the given ID exists.
+func ProfileWebAccelerationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileWebAccelerationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileWebAcceleration:ProfileWebAcceleration", id, state, "", opts...)
+}
+
 type profileWebAccelerationArgs struct {
 	// Specifies how quickly the system ages a cache entry. The aging rate ranges from 0 (slowest aging) to 10 (fastest aging). The default value is `9`.
 	CacheAgingRate *int `pulumi:"cacheAgingRate"`

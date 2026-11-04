@@ -331,6 +331,22 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["tunnel_ref"] = tunnel_ref
         return Route(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            gw: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[_builtins.str]] = None,
+            reject: pulumi.Input[Optional[_builtins.bool]] = None,
+            tunnel_ref: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["gw"] = gw
+        __props__["name"] = name
+        __props__["network"] = network
+        __props__["reject"] = reject
+        __props__["tunnelRef"] = tunnel_ref
+        return pulumi.runtime.exists_resource(None, 'f5bigip:net/route:Route', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def gw(self) -> pulumi.Output[Optional[_builtins.str]]:

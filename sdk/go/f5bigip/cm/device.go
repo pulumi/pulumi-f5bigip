@@ -117,6 +117,12 @@ func (DeviceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceState)(nil)).Elem()
 }
 
+// DeviceExists checks whether an existing Device resource with the given ID exists.
+func DeviceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:cm/device:Device", id, state, "", opts...)
+}
+
 type deviceArgs struct {
 	// IP address used for config sync
 	ConfigsyncIp string `pulumi:"configsyncIp"`

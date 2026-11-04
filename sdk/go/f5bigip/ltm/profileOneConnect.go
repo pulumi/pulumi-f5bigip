@@ -156,6 +156,12 @@ func (ProfileOneConnectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileOneConnectState)(nil)).Elem()
 }
 
+// ProfileOneConnectExists checks whether an existing ProfileOneConnect resource with the given ID exists.
+func ProfileOneConnectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileOneConnectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileOneConnect:ProfileOneConnect", id, state, "", opts...)
+}
+
 type profileOneConnectArgs struct {
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`

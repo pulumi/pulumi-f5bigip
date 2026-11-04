@@ -497,6 +497,24 @@ class Provision(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return Provision(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cpu_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            disk_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            level: pulumi.Input[Optional[_builtins.str]] = None,
+            memory_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cpuRatio"] = cpu_ratio
+        __props__["diskRatio"] = disk_ratio
+        __props__["fullPath"] = full_path
+        __props__["level"] = level
+        __props__["memoryRatio"] = memory_ratio
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/provision:Provision', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cpuRatio")
     def cpu_ratio(self) -> pulumi.Output[Optional[_builtins.int]]:

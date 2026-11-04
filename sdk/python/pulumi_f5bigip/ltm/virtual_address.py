@@ -445,6 +445,28 @@ class VirtualAddress(pulumi.CustomResource):
         __props__.__dict__["traffic_group"] = traffic_group
         return VirtualAddress(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advertize_route: pulumi.Input[Optional[_builtins.str]] = None,
+            arp: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            conn_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            icmp_echo: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["advertizeRoute"] = advertize_route
+        __props__["arp"] = arp
+        __props__["autoDelete"] = auto_delete
+        __props__["connLimit"] = conn_limit
+        __props__["enabled"] = enabled
+        __props__["icmpEcho"] = icmp_echo
+        __props__["name"] = name
+        __props__["trafficGroup"] = traffic_group
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/virtualAddress:VirtualAddress', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="advertizeRoute")
     def advertize_route(self) -> pulumi.Output[Optional[_builtins.str]]:

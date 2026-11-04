@@ -816,6 +816,46 @@ class Ocsp(pulumi.CustomResource):
         __props__.__dict__["trusted_responders"] = trusted_responders
         return Ocsp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cache_error_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            cache_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            concurrent_connections_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            connection_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            dns_resolver: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            passphrase: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_server_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responder_url: pulumi.Input[Optional[_builtins.str]] = None,
+            route_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_hash: pulumi.Input[Optional[_builtins.str]] = None,
+            signer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            signer_key: pulumi.Input[Optional[_builtins.str]] = None,
+            status_age: pulumi.Input[Optional[_builtins.int]] = None,
+            strict_resp_cert_check: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted_responders: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cacheErrorTimeout"] = cache_error_timeout
+        __props__["cacheTimeout"] = cache_timeout
+        __props__["clockSkew"] = clock_skew
+        __props__["concurrentConnectionsLimit"] = concurrent_connections_limit
+        __props__["connectionTimeout"] = connection_timeout
+        __props__["dnsResolver"] = dns_resolver
+        __props__["name"] = name
+        __props__["passphrase"] = passphrase
+        __props__["proxyServerPool"] = proxy_server_pool
+        __props__["responderUrl"] = responder_url
+        __props__["routeDomain"] = route_domain
+        __props__["signHash"] = sign_hash
+        __props__["signerCert"] = signer_cert
+        __props__["signerKey"] = signer_key
+        __props__["statusAge"] = status_age
+        __props__["strictRespCertCheck"] = strict_resp_cert_check
+        __props__["trustedResponders"] = trusted_responders
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/ocsp:Ocsp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cacheErrorTimeout")
     def cache_error_timeout(self) -> pulumi.Output[Optional[_builtins.int]]:

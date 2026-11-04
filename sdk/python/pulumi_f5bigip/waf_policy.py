@@ -1278,6 +1278,66 @@ class WafPolicy(pulumi.CustomResource):
         __props__.__dict__["urls"] = urls
         return WafPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_language: pulumi.Input[Optional[_builtins.str]] = None,
+            case_insensitive: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_passivemode: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforcement_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            file_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyFileTypeArgs', 'WafPolicyFileTypeArgsDict', 'outputs.WafPolicyFileType']]]]] = None,
+            graphql_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyGraphqlProfileArgs', 'WafPolicyGraphqlProfileArgsDict', 'outputs.WafPolicyGraphqlProfile']]]]] = None,
+            host_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyHostNameArgs', 'WafPolicyHostNameArgsDict', 'outputs.WafPolicyHostName']]]]] = None,
+            ip_exceptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyIpExceptionArgs', 'WafPolicyIpExceptionArgsDict', 'outputs.WafPolicyIpException']]]]] = None,
+            modifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            open_api_files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_builders: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicyPolicyBuilderArgs', 'WafPolicyPolicyBuilderArgsDict', 'outputs.WafPolicyPolicyBuilder']]]]] = None,
+            policy_export_json: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_import_json: pulumi.Input[Optional[_builtins.str]] = None,
+            protocol_independent: pulumi.Input[Optional[_builtins.bool]] = None,
+            server_technologies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signature_sets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signatures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            signatures_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WafPolicySignaturesSettingArgs', 'WafPolicySignaturesSettingArgsDict', 'outputs.WafPolicySignaturesSetting']]]]] = None,
+            template_link: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationLanguage"] = application_language
+        __props__["caseInsensitive"] = case_insensitive
+        __props__["description"] = description
+        __props__["enablePassivemode"] = enable_passivemode
+        __props__["enforcementMode"] = enforcement_mode
+        __props__["fileTypes"] = file_types
+        __props__["graphqlProfiles"] = graphql_profiles
+        __props__["hostNames"] = host_names
+        __props__["ipExceptions"] = ip_exceptions
+        __props__["modifications"] = modifications
+        __props__["name"] = name
+        __props__["openApiFiles"] = open_api_files
+        __props__["parameters"] = parameters
+        __props__["partition"] = partition
+        __props__["policyBuilders"] = policy_builders
+        __props__["policyExportJson"] = policy_export_json
+        __props__["policyId"] = policy_id
+        __props__["policyImportJson"] = policy_import_json
+        __props__["protocolIndependent"] = protocol_independent
+        __props__["serverTechnologies"] = server_technologies
+        __props__["signatureSets"] = signature_sets
+        __props__["signatures"] = signatures
+        __props__["signaturesSettings"] = signatures_settings
+        __props__["templateLink"] = template_link
+        __props__["templateName"] = template_name
+        __props__["type"] = type
+        __props__["urls"] = urls
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/wafPolicy:WafPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationLanguage")
     def application_language(self) -> pulumi.Output[Optional[_builtins.str]]:

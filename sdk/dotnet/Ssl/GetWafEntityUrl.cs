@@ -14,7 +14,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -78,7 +77,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
         /// 
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -141,7 +139,6 @@ namespace Pulumi.F5BigIP.Ssl
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
-        /// 
         /// 
         /// ## Example Usage
         /// 

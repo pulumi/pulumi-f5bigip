@@ -43,6 +43,17 @@ export class Snat extends pulumi.CustomResource {
         return new Snat(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Snat resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: SnatState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("f5bigip:ltm/snat:Snat", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'f5bigip:ltm/snat:Snat';
 

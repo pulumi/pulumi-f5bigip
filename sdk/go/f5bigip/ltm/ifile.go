@@ -180,6 +180,12 @@ func (IfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ifileState)(nil)).Elem()
 }
 
+// IfileExists checks whether an existing Ifile resource with the given ID exists.
+func IfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/ifile:Ifile", id, state, "", opts...)
+}
+
 type ifileArgs struct {
 	// The system iFile name to reference (e.g., `/Common/my-sys-ifile`). This should reference an existing system iFile created with `sys.Ifile`.
 	FileName string `pulumi:"fileName"`

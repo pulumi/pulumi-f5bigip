@@ -597,6 +597,34 @@ class Node(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         return Node(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address: pulumi.Input[Optional[_builtins.str]] = None,
+            connection_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            dynamic_ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            fqdn: pulumi.Input[Optional[Union['NodeFqdnArgs', 'NodeFqdnArgsDict', 'outputs.NodeFqdn']]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            ratio: pulumi.Input[Optional[_builtins.int]] = None,
+            session: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address"] = address
+        __props__["connectionLimit"] = connection_limit
+        __props__["description"] = description
+        __props__["dynamicRatio"] = dynamic_ratio
+        __props__["fqdn"] = fqdn
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["rateLimit"] = rate_limit
+        __props__["ratio"] = ratio
+        __props__["session"] = session
+        __props__["state"] = state
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/node:Node', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address(self) -> pulumi.Output[_builtins.str]:

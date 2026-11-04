@@ -178,6 +178,12 @@ func (IpsecPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipsecPolicyState)(nil)).Elem()
 }
 
+// IpsecPolicyExists checks whether an existing IpsecPolicy resource with the given ID exists.
+func IpsecPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpsecPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/ipsecPolicy:IpsecPolicy", id, state, "", opts...)
+}
+
 type ipsecPolicyArgs struct {
 	// Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
 	// aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`

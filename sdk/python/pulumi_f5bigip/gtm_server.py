@@ -1612,6 +1612,68 @@ class GtmServer(pulumi.CustomResource):
         __props__.__dict__["virtual_servers"] = virtual_servers
         return GtmServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerAddressArgs', 'GtmServerAddressArgsDict', 'outputs.GtmServerAddress']]]]] = None,
+            datacenter: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            expose_route_domains: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_path: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_service_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            iq_allow_snmp: pulumi.Input[Optional[_builtins.bool]] = None,
+            limit_cpu_usage: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_cpu_usage_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_bps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_bps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_connections: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_connections_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_max_pps: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_max_pps_status: pulumi.Input[Optional[_builtins.str]] = None,
+            limit_mem_avail: pulumi.Input[Optional[_builtins.int]] = None,
+            limit_mem_avail_status: pulumi.Input[Optional[_builtins.str]] = None,
+            link_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            prober_preference: pulumi.Input[Optional[_builtins.str]] = None,
+            product: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_server_discovery: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GtmServerVirtualServerArgs', 'GtmServerVirtualServerArgsDict', 'outputs.GtmServerVirtualServer']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["addresses"] = addresses
+        __props__["datacenter"] = datacenter
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["exposeRouteDomains"] = expose_route_domains
+        __props__["iqAllowPath"] = iq_allow_path
+        __props__["iqAllowServiceCheck"] = iq_allow_service_check
+        __props__["iqAllowSnmp"] = iq_allow_snmp
+        __props__["limitCpuUsage"] = limit_cpu_usage
+        __props__["limitCpuUsageStatus"] = limit_cpu_usage_status
+        __props__["limitMaxBps"] = limit_max_bps
+        __props__["limitMaxBpsStatus"] = limit_max_bps_status
+        __props__["limitMaxConnections"] = limit_max_connections
+        __props__["limitMaxConnectionsStatus"] = limit_max_connections_status
+        __props__["limitMaxPps"] = limit_max_pps
+        __props__["limitMaxPpsStatus"] = limit_max_pps_status
+        __props__["limitMemAvail"] = limit_mem_avail
+        __props__["limitMemAvailStatus"] = limit_mem_avail_status
+        __props__["linkDiscovery"] = link_discovery
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["proberFallback"] = prober_fallback
+        __props__["proberPool"] = prober_pool
+        __props__["proberPreference"] = prober_preference
+        __props__["product"] = product
+        __props__["virtualServerDiscovery"] = virtual_server_discovery
+        __props__["virtualServers"] = virtual_servers
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/gtmServer:GtmServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Optional[Sequence['outputs.GtmServerAddress']]]:

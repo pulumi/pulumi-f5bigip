@@ -502,6 +502,12 @@ func (GtmPoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmPoolState)(nil)).Elem()
 }
 
+// GtmPoolExists checks whether an existing GtmPool resource with the given ID exists.
+func GtmPoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmPoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmPool:GtmPool", id, state, "", opts...)
+}
+
 type gtmPoolArgs struct {
 	// Specifies the load balancing mode to use if the preferred and alternate modes are unsuccessful
 	AlternateMode *string `pulumi:"alternateMode"`

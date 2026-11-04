@@ -130,6 +130,12 @@ func (CipherRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cipherRuleState)(nil)).Elem()
 }
 
+// CipherRuleExists checks whether an existing CipherRule resource with the given ID exists.
+func CipherRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CipherRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/cipherRule:CipherRule", id, state, "", opts...)
+}
+
 type cipherRuleArgs struct {
 	// Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
 	Cipher string `pulumi:"cipher"`

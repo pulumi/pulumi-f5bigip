@@ -291,6 +291,12 @@ func (FastHttpAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastHttpAppState)(nil)).Elem()
 }
 
+// FastHttpAppExists checks whether an existing FastHttpApp resource with the given ID exists.
+func FastHttpAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastHttpAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/fastHttpApp:FastHttpApp", id, state, "", opts...)
+}
+
 type fastHttpAppArgs struct {
 	// Name of the FAST HTTPS application.
 	Application string `pulumi:"application"`

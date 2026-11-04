@@ -997,6 +997,52 @@ class FastHttpApp(pulumi.CustomResource):
         __props__.__dict__["waf_security_policy"] = waf_security_policy
         return FastHttpApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            endpoint_ltm_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_waf_security_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_http_json: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[Union['FastHttpAppMonitorArgs', 'FastHttpAppMonitorArgsDict', 'outputs.FastHttpAppMonitor']]] = None,
+            persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastHttpAppPoolMemberArgs', 'FastHttpAppPoolMemberArgsDict', 'outputs.FastHttpAppPoolMember']]]]] = None,
+            security_log_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_discoveries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+            snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_server: pulumi.Input[Optional[Union['FastHttpAppVirtualServerArgs', 'FastHttpAppVirtualServerArgsDict', 'outputs.FastHttpAppVirtualServer']]] = None,
+            waf_security_policy: pulumi.Input[Optional[Union['FastHttpAppWafSecurityPolicyArgs', 'FastHttpAppWafSecurityPolicyArgsDict', 'outputs.FastHttpAppWafSecurityPolicy']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["application"] = application
+        __props__["endpointLtmPolicies"] = endpoint_ltm_policies
+        __props__["existingMonitor"] = existing_monitor
+        __props__["existingPool"] = existing_pool
+        __props__["existingSnatPool"] = existing_snat_pool
+        __props__["existingWafSecurityPolicy"] = existing_waf_security_policy
+        __props__["fallbackPersistence"] = fallback_persistence
+        __props__["fastHttpJson"] = fast_http_json
+        __props__["loadBalancingMode"] = load_balancing_mode
+        __props__["monitor"] = monitor
+        __props__["persistenceProfile"] = persistence_profile
+        __props__["persistenceType"] = persistence_type
+        __props__["poolMembers"] = pool_members
+        __props__["securityLogProfiles"] = security_log_profiles
+        __props__["serviceDiscoveries"] = service_discoveries
+        __props__["slowRampTime"] = slow_ramp_time
+        __props__["snatPoolAddresses"] = snat_pool_addresses
+        __props__["tenant"] = tenant
+        __props__["virtualServer"] = virtual_server
+        __props__["wafSecurityPolicy"] = waf_security_policy
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/fastHttpApp:FastHttpApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def application(self) -> pulumi.Output[_builtins.str]:

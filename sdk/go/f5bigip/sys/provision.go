@@ -192,6 +192,12 @@ func (ProvisionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionState)(nil)).Elem()
 }
 
+// ProvisionExists checks whether an existing Provision resource with the given ID exists.
+func ProvisionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProvisionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/provision:Provision", id, state, "", opts...)
+}
+
 type provisionArgs struct {
 	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio *int `pulumi:"cpuRatio"`

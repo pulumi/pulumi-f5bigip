@@ -205,6 +205,12 @@ func (FastTcpAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fastTcpAppState)(nil)).Elem()
 }
 
+// FastTcpAppExists checks whether an existing FastTcpApp resource with the given ID exists.
+func FastTcpAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FastTcpAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/fastTcpApp:FastTcpApp", id, state, "", opts...)
+}
+
 type fastTcpAppArgs struct {
 	// Name of the FAST TCP application.
 	Application string `pulumi:"application"`

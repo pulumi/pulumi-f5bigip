@@ -577,6 +577,34 @@ class Snat(pulumi.CustomResource):
         __props__.__dict__["vlansdisabled"] = vlansdisabled
         return Snat(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            autolasthop: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            mirror: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SnatOriginArgs', 'SnatOriginArgsDict', 'outputs.SnatOrigin']]]]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            snatpool: pulumi.Input[Optional[_builtins.str]] = None,
+            sourceport: pulumi.Input[Optional[_builtins.str]] = None,
+            translation: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vlansdisabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autolasthop"] = autolasthop
+        __props__["fullPath"] = full_path
+        __props__["mirror"] = mirror
+        __props__["name"] = name
+        __props__["origins"] = origins
+        __props__["partition"] = partition
+        __props__["snatpool"] = snatpool
+        __props__["sourceport"] = sourceport
+        __props__["translation"] = translation
+        __props__["vlans"] = vlans
+        __props__["vlansdisabled"] = vlansdisabled
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/snat:Snat', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def autolasthop(self) -> pulumi.Output[_builtins.str]:

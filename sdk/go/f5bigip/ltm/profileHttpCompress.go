@@ -188,6 +188,12 @@ func (ProfileHttpCompressState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpCompressState)(nil)).Elem()
 }
 
+// ProfileHttpCompressExists checks whether an existing ProfileHttpCompress resource with the given ID exists.
+func ProfileHttpCompressExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileHttpCompressState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", id, state, "", opts...)
+}
+
 type profileHttpCompressArgs struct {
 	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
 	CompressionBuffersize *int `pulumi:"compressionBuffersize"`

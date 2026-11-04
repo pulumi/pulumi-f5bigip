@@ -595,6 +595,12 @@ func (GtmServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmServerState)(nil)).Elem()
 }
 
+// GtmServerExists checks whether an existing GtmServer resource with the given ID exists.
+func GtmServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmServer:GtmServer", id, state, "", opts...)
+}
+
 type gtmServerArgs struct {
 	// List of IP addresses for the server. Each address block supports:
 	Addresses []GtmServerAddress `pulumi:"addresses"`

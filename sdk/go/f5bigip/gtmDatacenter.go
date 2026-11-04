@@ -243,6 +243,12 @@ func (GtmDatacenterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmDatacenterState)(nil)).Elem()
 }
 
+// GtmDatacenterExists checks whether an existing GtmDatacenter resource with the given ID exists.
+func GtmDatacenterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmDatacenterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmDatacenter:GtmDatacenter", id, state, "", opts...)
+}
+
 type gtmDatacenterArgs struct {
 	// Contact information for the datacenter administrator.
 	Contact *string `pulumi:"contact"`

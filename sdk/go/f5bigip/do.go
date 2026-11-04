@@ -207,6 +207,12 @@ func (DoState) ElementType() reflect.Type {
 	return reflect.TypeOf((*doState)(nil)).Elem()
 }
 
+// DoExists checks whether an existing Do resource with the given ID exists.
+func DoExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DoState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/do:Do", id, state, "", opts...)
+}
+
 type doArgs struct {
 	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
 	// whenever we specify this parameter it gets overwrite provider configuration

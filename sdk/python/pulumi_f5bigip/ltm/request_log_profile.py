@@ -939,6 +939,52 @@ class RequestLogProfile(pulumi.CustomResource):
         __props__.__dict__["responselog_template"] = responselog_template
         return RequestLogProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxy_response: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyclose_on_error: pulumi.Input[Optional[_builtins.str]] = None,
+            proxyrespond_on_loggingerror: pulumi.Input[Optional[_builtins.str]] = None,
+            request_logging: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            requestlog_template: pulumi.Input[Optional[_builtins.str]] = None,
+            response_logging: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_error_template: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            responselog_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultsFrom"] = defaults_from
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["proxyResponse"] = proxy_response
+        __props__["proxycloseOnError"] = proxyclose_on_error
+        __props__["proxyrespondOnLoggingerror"] = proxyrespond_on_loggingerror
+        __props__["requestLogging"] = request_logging
+        __props__["requestlogErrorPool"] = requestlog_error_pool
+        __props__["requestlogErrorProtocol"] = requestlog_error_protocol
+        __props__["requestlogErrorTemplate"] = requestlog_error_template
+        __props__["requestlogPool"] = requestlog_pool
+        __props__["requestlogProtocol"] = requestlog_protocol
+        __props__["requestlogTemplate"] = requestlog_template
+        __props__["responseLogging"] = response_logging
+        __props__["responselogErrorPool"] = responselog_error_pool
+        __props__["responselogErrorProtocol"] = responselog_error_protocol
+        __props__["responselogErrorTemplate"] = responselog_error_template
+        __props__["responselogPool"] = responselog_pool
+        __props__["responselogProtocol"] = responselog_protocol
+        __props__["responselogTemplate"] = responselog_template
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/requestLogProfile:RequestLogProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[Optional[_builtins.str]]:

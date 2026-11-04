@@ -183,6 +183,12 @@ func (GtmMonitorBigipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gtmMonitorBigipState)(nil)).Elem()
 }
 
+// GtmMonitorBigipExists checks whether an existing GtmMonitorBigip resource with the given ID exists.
+func GtmMonitorBigipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GtmMonitorBigipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/gtmMonitorBigip:GtmMonitorBigip", id, state, "", opts...)
+}
+
 type gtmMonitorBigipArgs struct {
 	// Specifies how the system combines monitor information for a monitored pool. The default is none
 	AggregationType *string `pulumi:"aggregationType"`

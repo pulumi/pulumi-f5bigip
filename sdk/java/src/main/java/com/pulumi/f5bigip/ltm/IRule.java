@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Loading from a file is the preferred method
  *         var rule = new IRule("rule", IRuleArgs.builder()
  *             .name("/Common/terraform_irule")
@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *         var rule2 = new IRule("rule2", IRuleArgs.builder()
  *             .name("/Common/terraform_irule2")
  *             .irule("""
- * when CLIENT_ACCEPTED {
- *      log local0. \"test\"
- *    }
+ * when CLIENT_ACCEPTED }{{@code
+ *      log local0. }&#92;{@code "test}&#92;{@code "
+ *    }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

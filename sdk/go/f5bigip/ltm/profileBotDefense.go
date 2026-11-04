@@ -89,6 +89,12 @@ func (ProfileBotDefenseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileBotDefenseState)(nil)).Elem()
 }
 
+// ProfileBotDefenseExists checks whether an existing ProfileBotDefense resource with the given ID exists.
+func ProfileBotDefenseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProfileBotDefenseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/profileBotDefense:ProfileBotDefense", id, state, "", opts...)
+}
+
 type profileBotDefenseArgs struct {
 	// Specifies the profile from which this profile inherits settings. The default is the system-supplied `request-log` profile
 	DefaultsFrom *string `pulumi:"defaultsFrom"`

@@ -46,6 +46,17 @@ export class ProfileServerSsl extends pulumi.CustomResource {
         return new ProfileServerSsl(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ProfileServerSsl resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ProfileServerSslState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("f5bigip:ltm/profileServerSsl:ProfileServerSsl", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'f5bigip:ltm/profileServerSsl:ProfileServerSsl';
 

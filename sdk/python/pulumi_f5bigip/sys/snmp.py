@@ -245,6 +245,18 @@ class Snmp(pulumi.CustomResource):
         __props__.__dict__["sys_location"] = sys_location
         return Snmp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowedaddresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sys_contact: pulumi.Input[Optional[_builtins.str]] = None,
+            sys_location: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedaddresses"] = allowedaddresses
+        __props__["sysContact"] = sys_contact
+        __props__["sysLocation"] = sys_location
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/snmp:Snmp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def allowedaddresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

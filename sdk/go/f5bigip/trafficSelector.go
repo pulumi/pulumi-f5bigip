@@ -159,6 +159,12 @@ func (TrafficSelectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trafficSelectorState)(nil)).Elem()
 }
 
+// TrafficSelectorExists checks whether an existing TrafficSelector resource with the given ID exists.
+func TrafficSelectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrafficSelectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/trafficSelector:TrafficSelector", id, state, "", opts...)
+}
+
 type trafficSelectorArgs struct {
 	// Description of the traffic selector.
 	Description *string `pulumi:"description"`

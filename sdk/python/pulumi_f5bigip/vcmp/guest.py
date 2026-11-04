@@ -694,6 +694,42 @@ class Guest(pulumi.CustomResource):
         __props__.__dict__["vlans"] = vlans
         return Guest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_slots: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            cores_per_slot: pulumi.Input[Optional[_builtins.int]] = None,
+            delete_virtual_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_hotfix: pulumi.Input[Optional[_builtins.str]] = None,
+            initial_image: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_address: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_network: pulumi.Input[Optional[_builtins.str]] = None,
+            mgmt_route: pulumi.Input[Optional[_builtins.str]] = None,
+            min_number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_slots: pulumi.Input[Optional[_builtins.int]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_disk: pulumi.Input[Optional[_builtins.str]] = None,
+            vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedSlots"] = allowed_slots
+        __props__["coresPerSlot"] = cores_per_slot
+        __props__["deleteVirtualDisk"] = delete_virtual_disk
+        __props__["fullPath"] = full_path
+        __props__["initialHotfix"] = initial_hotfix
+        __props__["initialImage"] = initial_image
+        __props__["mgmtAddress"] = mgmt_address
+        __props__["mgmtNetwork"] = mgmt_network
+        __props__["mgmtRoute"] = mgmt_route
+        __props__["minNumberOfSlots"] = min_number_of_slots
+        __props__["name"] = name
+        __props__["numberOfSlots"] = number_of_slots
+        __props__["state"] = state
+        __props__["virtualDisk"] = virtual_disk
+        __props__["vlans"] = vlans
+        return pulumi.runtime.exists_resource(None, 'f5bigip:vcmp/guest:Guest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedSlots")
     def allowed_slots(self) -> pulumi.Output[Sequence[_builtins.int]]:

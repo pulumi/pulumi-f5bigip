@@ -142,6 +142,12 @@ func (SaasBotDefenseProfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*saasBotDefenseProfileState)(nil)).Elem()
 }
 
+// SaasBotDefenseProfileExists checks whether an existing SaasBotDefenseProfile resource with the given ID exists.
+func SaasBotDefenseProfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SaasBotDefenseProfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile", id, state, "", opts...)
+}
+
 type saasBotDefenseProfileArgs struct {
 	// Specifies the API key, enter the value provided by F5 Support.
 	ApiKey string `pulumi:"apiKey"`

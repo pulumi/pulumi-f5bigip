@@ -322,6 +322,12 @@ func (PoolAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolAttachmentState)(nil)).Elem()
 }
 
+// PoolAttachmentExists checks whether an existing PoolAttachment resource with the given ID exists.
+func PoolAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PoolAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:ltm/poolAttachment:PoolAttachment", id, state, "", opts...)
+}
+
 type poolAttachmentArgs struct {
 	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
 	ConnectionLimit *int `pulumi:"connectionLimit"`

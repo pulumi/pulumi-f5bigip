@@ -111,6 +111,12 @@ func (NtpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ntpState)(nil)).Elem()
 }
 
+// NtpExists checks whether an existing Ntp resource with the given ID exists.
+func NtpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NtpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/ntp:Ntp", id, state, "", opts...)
+}
+
 type ntpArgs struct {
 	// User defined description.
 	Description string `pulumi:"description"`

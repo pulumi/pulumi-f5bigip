@@ -255,6 +255,20 @@ class FastApplication(pulumi.CustomResource):
         __props__.__dict__["tenant"] = tenant
         return FastApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_json: pulumi.Input[Optional[_builtins.str]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["application"] = application
+        __props__["fastJson"] = fast_json
+        __props__["template"] = template
+        __props__["tenant"] = tenant
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/fastApplication:FastApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def application(self) -> pulumi.Output[_builtins.str]:

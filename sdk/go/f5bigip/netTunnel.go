@@ -196,6 +196,12 @@ func (NetTunnelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*netTunnelState)(nil)).Elem()
 }
 
+// NetTunnelExists checks whether an existing NetTunnel resource with the given ID exists.
+func NetTunnelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetTunnelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:index/netTunnel:NetTunnel", id, state, "", opts...)
+}
+
 type netTunnelArgs struct {
 	// The application service that the object belongs to
 	AppService *string `pulumi:"appService"`

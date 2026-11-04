@@ -670,6 +670,38 @@ class ProfileHttpCompress(pulumi.CustomResource):
         __props__.__dict__["vary_header"] = vary_header
         return ProfileHttpCompress(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compression_buffersize: pulumi.Input[Optional[_builtins.int]] = None,
+            content_type_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            content_type_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cpu_saver: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            gzip_compression_level: pulumi.Input[Optional[_builtins.int]] = None,
+            gzip_memory_level: pulumi.Input[Optional[_builtins.int]] = None,
+            gzip_window_size: pulumi.Input[Optional[_builtins.int]] = None,
+            keep_accept_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            uri_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            uri_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            vary_header: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["compressionBuffersize"] = compression_buffersize
+        __props__["contentTypeExcludes"] = content_type_excludes
+        __props__["contentTypeIncludes"] = content_type_includes
+        __props__["cpuSaver"] = cpu_saver
+        __props__["defaultsFrom"] = defaults_from
+        __props__["gzipCompressionLevel"] = gzip_compression_level
+        __props__["gzipMemoryLevel"] = gzip_memory_level
+        __props__["gzipWindowSize"] = gzip_window_size
+        __props__["keepAcceptEncoding"] = keep_accept_encoding
+        __props__["name"] = name
+        __props__["uriExcludes"] = uri_excludes
+        __props__["uriIncludes"] = uri_includes
+        __props__["varyHeader"] = vary_header
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileHttpCompress:ProfileHttpCompress', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="compressionBuffersize")
     def compression_buffersize(self) -> pulumi.Output[_builtins.int]:

@@ -466,6 +466,30 @@ class SaasBotDefenseProfile(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = tenant_id
         return SaasBotDefenseProfile(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            protected_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SaasBotDefenseProfileProtectedEndpointArgs', 'SaasBotDefenseProfileProtectedEndpointArgsDict', 'outputs.SaasBotDefenseProfileProtectedEndpoint']]]]] = None,
+            shape_protection_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            ssl_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["applicationId"] = application_id
+        __props__["defaultsFrom"] = defaults_from
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["protectedEndpoints"] = protected_endpoints
+        __props__["shapeProtectionPool"] = shape_protection_pool
+        __props__["sslProfile"] = ssl_profile
+        __props__["tenantId"] = tenant_id
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/saasBotDefenseProfile:SaasBotDefenseProfile', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

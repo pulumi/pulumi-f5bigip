@@ -549,6 +549,28 @@ class Do(pulumi.CustomResource):
         __props__.__dict__["timeout"] = timeout
         return Do(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bigip_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigip_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigip_user: pulumi.Input[Optional[_builtins.str]] = None,
+            do_json: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bigipAddress"] = bigip_address
+        __props__["bigipPassword"] = bigip_password
+        __props__["bigipPort"] = bigip_port
+        __props__["bigipTokenAuth"] = bigip_token_auth
+        __props__["bigipUser"] = bigip_user
+        __props__["doJson"] = do_json
+        __props__["tenantName"] = tenant_name
+        __props__["timeout"] = timeout
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/do:Do', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bigipAddress")
     def bigip_address(self) -> pulumi.Output[Optional[_builtins.str]]:

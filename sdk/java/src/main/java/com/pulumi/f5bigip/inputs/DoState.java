@@ -134,22 +134,20 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
     /**
      * unique identifier for DO resource
      * 
-     * @deprecated
-     * this attribute is no longer in use
+     * @deprecated this attribute is no longer in use
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
+    @Deprecated
     @Import(name="tenantName")
     private @Nullable Output<String> tenantName;
 
     /**
      * @return unique identifier for DO resource
      * 
-     * @deprecated
-     * this attribute is no longer in use
+     * @deprecated this attribute is no longer in use
      * 
      */
-    @Deprecated /* this attribute is no longer in use */
+    @Deprecated
     public Optional<Output<String>> tenantName() {
         return Optional.ofNullable(this.tenantName);
     }
@@ -355,11 +353,10 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * this attribute is no longer in use
+         * @deprecated this attribute is no longer in use
          * 
          */
-        @Deprecated /* this attribute is no longer in use */
+        @Deprecated
         public Builder tenantName(@Nullable Output<String> tenantName) {
             $.tenantName = tenantName;
             return this;
@@ -370,11 +367,10 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * this attribute is no longer in use
+         * @deprecated this attribute is no longer in use
          * 
          */
-        @Deprecated /* this attribute is no longer in use */
+        @Deprecated
         public Builder tenantName(String tenantName) {
             return tenantName(Output.of(tenantName));
         }

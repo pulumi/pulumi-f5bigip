@@ -65,22 +65,20 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     /**
      * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
-     * @deprecated
-     * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
+     * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
+    @Deprecated
     @Import(name="publishedCopy")
     private @Nullable Output<String> publishedCopy;
 
     /**
      * @return If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
-     * @deprecated
-     * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
+     * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      * 
      */
-    @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
+    @Deprecated
     public Optional<Output<String>> publishedCopy() {
         return Optional.ofNullable(this.publishedCopy);
     }
@@ -238,11 +236,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
+         * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
          * 
          */
-        @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
+        @Deprecated
         public Builder publishedCopy(@Nullable Output<String> publishedCopy) {
             $.publishedCopy = publishedCopy;
             return this;
@@ -253,11 +250,10 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
+         * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
          * 
          */
-        @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
+        @Deprecated
         public Builder publishedCopy(String publishedCopy) {
             return publishedCopy(Output.of(publishedCopy));
         }

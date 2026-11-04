@@ -310,6 +310,12 @@ func (IfileState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ifileState)(nil)).Elem()
 }
 
+// IfileExists checks whether an existing Ifile resource with the given ID exists.
+func IfileExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IfileState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/ifile:Ifile", id, state, "", opts...)
+}
+
 type ifileArgs struct {
 	// The content of the iFile. This can be inline text, file content loaded with `file()`, or dynamically generated content. This field is marked as sensitive.
 	Content string `pulumi:"content"`

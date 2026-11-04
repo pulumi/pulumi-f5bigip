@@ -411,6 +411,26 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["partition"] = partition
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            full_path: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            monitoring_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ocsp: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["content"] = content
+        __props__["fullPath"] = full_path
+        __props__["issuerCert"] = issuer_cert
+        __props__["monitoringType"] = monitoring_type
+        __props__["name"] = name
+        __props__["ocsp"] = ocsp
+        __props__["partition"] = partition
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ssl/certificate:Certificate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:

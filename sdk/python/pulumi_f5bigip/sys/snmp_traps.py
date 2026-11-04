@@ -678,6 +678,40 @@ class SnmpTraps(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return SnmpTraps(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_passwordencrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            auth_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            community: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+            host: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            port: pulumi.Input[Optional[_builtins.int]] = None,
+            privacy_password: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_password_encrypted: pulumi.Input[Optional[_builtins.str]] = None,
+            privacy_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+            security_level: pulumi.Input[Optional[_builtins.str]] = None,
+            security_name: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authPasswordencrypted"] = auth_passwordencrypted
+        __props__["authProtocol"] = auth_protocol
+        __props__["community"] = community
+        __props__["description"] = description
+        __props__["engineId"] = engine_id
+        __props__["host"] = host
+        __props__["name"] = name
+        __props__["port"] = port
+        __props__["privacyPassword"] = privacy_password
+        __props__["privacyPasswordEncrypted"] = privacy_password_encrypted
+        __props__["privacyProtocol"] = privacy_protocol
+        __props__["securityLevel"] = security_level
+        __props__["securityName"] = security_name
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/snmpTraps:SnmpTraps', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authPasswordencrypted")
     def auth_passwordencrypted(self) -> pulumi.Output[Optional[_builtins.str]]:

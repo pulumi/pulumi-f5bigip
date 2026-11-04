@@ -748,6 +748,42 @@ class ProfileFastL4(pulumi.CustomResource):
         __props__.__dict__["tcp_handshake_timeout"] = tcp_handshake_timeout
         return ProfileFastL4(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            explicitflow_migration: pulumi.Input[Optional[_builtins.str]] = None,
+            hardware_syncookie: pulumi.Input[Optional[_builtins.str]] = None,
+            idle_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+            iptos_toclient: pulumi.Input[Optional[_builtins.str]] = None,
+            iptos_toserver: pulumi.Input[Optional[_builtins.str]] = None,
+            keepalive_interval: pulumi.Input[Optional[_builtins.str]] = None,
+            late_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            loose_close: pulumi.Input[Optional[_builtins.str]] = None,
+            loose_initiation: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            receive_windowsize: pulumi.Input[Optional[_builtins.int]] = None,
+            tcp_handshake_timeout: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientTimeout"] = client_timeout
+        __props__["defaultsFrom"] = defaults_from
+        __props__["explicitflowMigration"] = explicitflow_migration
+        __props__["hardwareSyncookie"] = hardware_syncookie
+        __props__["idleTimeout"] = idle_timeout
+        __props__["iptosToclient"] = iptos_toclient
+        __props__["iptosToserver"] = iptos_toserver
+        __props__["keepaliveInterval"] = keepalive_interval
+        __props__["lateBinding"] = late_binding
+        __props__["looseClose"] = loose_close
+        __props__["looseInitiation"] = loose_initiation
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["receiveWindowsize"] = receive_windowsize
+        __props__["tcpHandshakeTimeout"] = tcp_handshake_timeout
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/profileFastL4:ProfileFastL4', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientTimeout")
     def client_timeout(self) -> pulumi.Output[_builtins.int]:

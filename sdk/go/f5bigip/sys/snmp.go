@@ -103,6 +103,12 @@ func (SnmpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*snmpState)(nil)).Elem()
 }
 
+// SnmpExists checks whether an existing Snmp resource with the given ID exists.
+func SnmpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SnmpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("f5bigip:sys/snmp:Snmp", id, state, "", opts...)
+}
+
 type snmpArgs struct {
 	// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
 	Allowedaddresses []string `pulumi:"allowedaddresses"`

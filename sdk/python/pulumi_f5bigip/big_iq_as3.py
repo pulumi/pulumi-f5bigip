@@ -833,6 +833,30 @@ class BigIqAs3(pulumi.CustomResource):
         __props__.__dict__["tenant_list"] = tenant_list
         return BigIqAs3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            as3_json: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_address: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_login_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_password: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_port: pulumi.Input[Optional[_builtins.str]] = None,
+            bigiq_token_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+            bigiq_user: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_metadata: pulumi.Input[Optional[_builtins.bool]] = None,
+            tenant_list: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["as3Json"] = as3_json
+        __props__["bigiqAddress"] = bigiq_address
+        __props__["bigiqLoginRef"] = bigiq_login_ref
+        __props__["bigiqPassword"] = bigiq_password
+        __props__["bigiqPort"] = bigiq_port
+        __props__["bigiqTokenAuth"] = bigiq_token_auth
+        __props__["bigiqUser"] = bigiq_user
+        __props__["ignoreMetadata"] = ignore_metadata
+        __props__["tenantList"] = tenant_list
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/bigIqAs3:BigIqAs3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Output[_builtins.str]:

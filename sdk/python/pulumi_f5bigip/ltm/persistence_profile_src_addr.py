@@ -670,6 +670,36 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         __props__.__dict__["timeout"] = timeout
         return PersistenceProfileSrcAddr(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service: pulumi.Input[Optional[_builtins.str]] = None,
+            defaults_from: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            map_proxies: pulumi.Input[Optional[_builtins.str]] = None,
+            mask: pulumi.Input[Optional[_builtins.str]] = None,
+            match_across_pools: pulumi.Input[Optional[_builtins.str]] = None,
+            match_across_services: pulumi.Input[Optional[_builtins.str]] = None,
+            match_across_virtuals: pulumi.Input[Optional[_builtins.str]] = None,
+            mirror: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            override_conn_limit: pulumi.Input[Optional[_builtins.str]] = None,
+            timeout: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appService"] = app_service
+        __props__["defaultsFrom"] = defaults_from
+        __props__["hashAlgorithm"] = hash_algorithm
+        __props__["mapProxies"] = map_proxies
+        __props__["mask"] = mask
+        __props__["matchAcrossPools"] = match_across_pools
+        __props__["matchAcrossServices"] = match_across_services
+        __props__["matchAcrossVirtuals"] = match_across_virtuals
+        __props__["mirror"] = mirror
+        __props__["name"] = name
+        __props__["overrideConnLimit"] = override_conn_limit
+        __props__["timeout"] = timeout
+        return pulumi.runtime.exists_resource(None, 'f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appService")
     def app_service(self) -> pulumi.Output[_builtins.str]:

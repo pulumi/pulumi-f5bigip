@@ -744,6 +744,42 @@ class FastTcpApp(pulumi.CustomResource):
         __props__.__dict__["virtual_server"] = virtual_server
         return FastTcpApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            existing_snat_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            fallback_persistence: pulumi.Input[Optional[_builtins.str]] = None,
+            fast_tcp_json: pulumi.Input[Optional[_builtins.str]] = None,
+            load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor: pulumi.Input[Optional[Union['FastTcpAppMonitorArgs', 'FastTcpAppMonitorArgsDict', 'outputs.FastTcpAppMonitor']]] = None,
+            persistence_profile: pulumi.Input[Optional[_builtins.str]] = None,
+            persistence_type: pulumi.Input[Optional[_builtins.str]] = None,
+            pool_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FastTcpAppPoolMemberArgs', 'FastTcpAppPoolMemberArgsDict', 'outputs.FastTcpAppPoolMember']]]]] = None,
+            slow_ramp_time: pulumi.Input[Optional[_builtins.int]] = None,
+            snat_pool_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tenant: pulumi.Input[Optional[_builtins.str]] = None,
+            virtual_server: pulumi.Input[Optional[Union['FastTcpAppVirtualServerArgs', 'FastTcpAppVirtualServerArgsDict', 'outputs.FastTcpAppVirtualServer']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["application"] = application
+        __props__["existingMonitor"] = existing_monitor
+        __props__["existingPool"] = existing_pool
+        __props__["existingSnatPool"] = existing_snat_pool
+        __props__["fallbackPersistence"] = fallback_persistence
+        __props__["fastTcpJson"] = fast_tcp_json
+        __props__["loadBalancingMode"] = load_balancing_mode
+        __props__["monitor"] = monitor
+        __props__["persistenceProfile"] = persistence_profile
+        __props__["persistenceType"] = persistence_type
+        __props__["poolMembers"] = pool_members
+        __props__["slowRampTime"] = slow_ramp_time
+        __props__["snatPoolAddresses"] = snat_pool_addresses
+        __props__["tenant"] = tenant
+        __props__["virtualServer"] = virtual_server
+        return pulumi.runtime.exists_resource(None, 'f5bigip:index/fastTcpApp:FastTcpApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def application(self) -> pulumi.Output[_builtins.str]:

@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicyFileType
     {
         /// <summary>
-        /// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        /// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
         /// * No allowed file type matched the file type of the request.
         /// * The file type of the request matched a disallowed file type.
         /// </summary>

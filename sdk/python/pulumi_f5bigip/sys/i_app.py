@@ -781,6 +781,46 @@ class IApp(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return IApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+            execute_action: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_devicegroup: pulumi.Input[Optional[_builtins.str]] = None,
+            inherited_traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            jsonfile: pulumi.Input[Optional[_builtins.str]] = None,
+            lists: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppListArgs', 'IAppListArgsDict', 'outputs.IAppList']]]]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppMetadataArgs', 'IAppMetadataArgsDict', 'outputs.IAppMetadata']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partition: pulumi.Input[Optional[_builtins.str]] = None,
+            strict_updates: pulumi.Input[Optional[_builtins.str]] = None,
+            tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppTableArgs', 'IAppTableArgsDict', 'outputs.IAppTable']]]]] = None,
+            template: pulumi.Input[Optional[_builtins.str]] = None,
+            template_modified: pulumi.Input[Optional[_builtins.str]] = None,
+            template_prerequisite_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            traffic_group: pulumi.Input[Optional[_builtins.str]] = None,
+            variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IAppVariableArgs', 'IAppVariableArgsDict', 'outputs.IAppVariable']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["devicegroup"] = devicegroup
+        __props__["executeAction"] = execute_action
+        __props__["inheritedDevicegroup"] = inherited_devicegroup
+        __props__["inheritedTrafficGroup"] = inherited_traffic_group
+        __props__["jsonfile"] = jsonfile
+        __props__["lists"] = lists
+        __props__["metadatas"] = metadatas
+        __props__["name"] = name
+        __props__["partition"] = partition
+        __props__["strictUpdates"] = strict_updates
+        __props__["tables"] = tables
+        __props__["template"] = template
+        __props__["templateModified"] = template_modified
+        __props__["templatePrerequisiteErrors"] = template_prerequisite_errors
+        __props__["trafficGroup"] = traffic_group
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'f5bigip:sys/iApp:IApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
